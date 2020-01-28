@@ -1,0 +1,24 @@
+{
+  "name": "@steroidsjs/bootstrap",
+  "version": "2.0.0-beta",
+  "description": "",
+  "main": "index.js",
+  "author": "Vladimir Kozhin <hello@kozhindev.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kozhindev/steroids-react-views-bootstrap"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/kozhindev/steroids-react-views-bootstrap",
+  "bugs": {
+    "url": "https://github.com/kozhindev/steroids-react-views-bootstrap/issues"
+  },
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "reactstrap": "^6.4.0",
+    "quill-image-uploader": "^1.0.2",
+    "react-modal": "^3.6.1",
+    "react-google-recaptcha": "^0.12.0",
+    "rc-slider": "^8.6.13"
+  }
+}
