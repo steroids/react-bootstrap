@@ -4,7 +4,7 @@ import _keyBy from 'lodash/keyBy';
 import _isString from 'lodash/isString';
 
 import {bem} from '@steroidsjs/core/hoc';
-import {getFormId} from '@steroidsjs/core/ui/list/listHoc';
+import {getFormId} from '@steroidsjs/core/hoc/list';
 import Form from '@steroidsjs/core/ui/form/Form';
 import Button from '@steroidsjs/core/ui/form/Button';
 import Field from '@steroidsjs/core/ui/form/Field';
