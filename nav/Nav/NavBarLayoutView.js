@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import {bem} from '@steroidsjs/core/hoc';
 import Button from '@steroidsjs/core/ui/form/Button';
 
-@bem('NavBarView')
-export default class NavBarView extends React.Component {
+@bem('NavBarLayoutView')
+export default class NavBarLayoutView extends React.Component {
 
     static propTypes = {
         items: PropTypes.arrayOf(PropTypes.object),
