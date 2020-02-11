@@ -1,0 +1,22 @@
+.HeaderView {
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  background-color: $body-bg;
+  &, a {
+    color: $body-color;
+  }
+  a:hover {
+    opacity: .7;
+  }
+
+  &__logo {
+  }
+  &__logo-image {
+    margin-right: 12px;
+    display: inline-block;
+    position: relative;
+    top: -2px;
+    width: 24px;
+    height: 24px;
+  }
+
+}
