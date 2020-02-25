@@ -17,12 +17,13 @@ export default class FormView extends React.PureComponent {
         ]),
         required: PropTypes.bool,
         isInvalid: PropTypes.bool,
-        layout: PropTypes.oneOfType([
-            PropTypes.oneOf(['default', 'inline', 'horizontal']),
-            PropTypes.string,
-            PropTypes.bool,
-        ]),
-        layoutProps: PropTypes.object,
+        layout: PropTypes.shape({
+            layout: PropTypes.oneOfType([
+                PropTypes.oneOf(['default', 'inline', 'horizontal']),
+                PropTypes.string,
+                PropTypes.bool,
+            ]),
+        }),
         size: PropTypes.oneOf(['sm', 'md', 'lg']),
         className: PropTypes.string,
     };
@@ -34,7 +35,7 @@ export default class FormView extends React.PureComponent {
                 className={bem(
                     bem.block(),
                     this.props.className,
-                    this.props.layout === 'horizontal' && 'form-horizontal',
+                    this.props.layout.layout === 'horizontal' && 'form-horizontal',
                 )}
                 onSubmit={this.props.onSubmit}
             >

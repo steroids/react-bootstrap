@@ -1,21 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import {bem} from '@steroidsjs/core/hoc';
+import {IListViewProps} from '@steroidsjs/core/ui/list/List/List';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('ListView')
-export default class ListView extends React.Component {
-
-    static propTypes = {
-        isLoading: PropTypes.bool,
-        reverse: PropTypes.bool,
-        outsideSearchForm: PropTypes.node,
-        paginationSize: PropTypes.node,
-        pagination: PropTypes.node,
-        content: PropTypes.node,
-        empty: PropTypes.node,
-        layoutNames: PropTypes.node,
-    };
+export default class ListView extends React.Component<IListViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

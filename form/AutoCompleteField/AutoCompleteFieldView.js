@@ -41,8 +41,6 @@ export default class AutoCompleteFieldView extends React.PureComponent {
             isHovered: PropTypes.bool,
         })),
         autoComplete: PropTypes.bool,
-        autoCompleteMinLength: PropTypes.number,
-        autoCompleteDelay: PropTypes.number,
         isOpened: PropTypes.bool,
         showReset: PropTypes.bool,
         onOpen: PropTypes.func,
