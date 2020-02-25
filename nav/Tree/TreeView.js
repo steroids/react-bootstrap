@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {bem} from '@steroidsjs/core/hoc';
+import Link from '../../../react/ui/nav/Link';
 
 @bem('TreeView')
 export default class TreeView extends React.Component {
@@ -48,14 +49,13 @@ export default class TreeView extends React.Component {
                             item.className
                         )}
                     >
-                        <div
+                        <Link
                             className={bem.element('item-label')}
                             style={{
                                 paddingLeft: String(item.level * this.props.levelPadding) + 'px',
                             }}
-                        >
-                            {item.label}
-                        </div>
+                            {...item}
+                        />
                     </li>
                 ))}
             </ul>

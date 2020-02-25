@@ -1,2 +1,12 @@
 .NavListView {
+  &__item {
+
+  }
+  &__item-link {
+    padding: 5px 10px;
+    display: inline-block;
+  }
+  &__sub-list {
+    margin-left: 15px;
+  }
 }

@@ -46,6 +46,8 @@ export default class ButtonView extends React.PureComponent {
                 className={this._getClassName({link: true})}
                 href={this.props.url}
                 onClick={this.props.onClick}
+                style={this.props.style}
+                target={this.props.target}
             >
                 {this.renderLabel()}
             </a>
@@ -58,6 +60,7 @@ export default class ButtonView extends React.PureComponent {
                 type={this.props.type}
                 disabled={this.props.disabled}
                 onClick={this.props.onClick}
+                style={this.props.style}
                 className={this._getClassName()}
             >
                 {this.renderLabel()}

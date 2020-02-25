@@ -11,7 +11,7 @@ export default class HeaderView extends React.Component<IHeaderViewProps> {
     render() {
         const bem = this.props.bem;
         return (
-            <nav className={bem('navbar', bem.block(), this.props.className)}>
+            <nav className={bem('navbar navbar-expand-lg navbar-light bg-light', bem.block(), this.props.className)}>
                 {this.props.logo && (
                     <Link
                         className={bem('navbar-brand', bem.element('logo'))}
@@ -29,7 +29,10 @@ export default class HeaderView extends React.Component<IHeaderViewProps> {
                     </Link>
                 )}
                 {this.props.nav && (
-                    <Nav {...this.props.nav}/>
+                    <Nav
+                        layout='navbar'
+                        {...this.props.nav}
+                    />
                 )}
                 {this.props.children}
             </nav>
