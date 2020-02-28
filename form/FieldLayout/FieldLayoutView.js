@@ -28,7 +28,6 @@ export default class FieldLayoutView extends React.PureComponent {
             ]),
         }),
         size: PropTypes.oneOf(['sm', 'md', 'lg']),
-        layoutClassName: PropTypes.string,
     };
 
     render() {

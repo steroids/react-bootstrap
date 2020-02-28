@@ -1,27 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import {bem} from '@steroidsjs/core/hoc';
+import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Pagination';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('PaginationButtonView')
-export default class PaginationButtonView extends React.Component {
-
-    static propTypes = {
-        pages: PropTypes.arrayOf(PropTypes.shape({
-            page: PropTypes.number,
-            label: PropTypes.node,
-            isActive: PropTypes.bool,
-        })),
-        onSelect: PropTypes.func,
-        size: PropTypes.oneOf(['sm', 'md', 'lg']),
-    };
+export default class PaginationButtonView extends React.PureComponent<IPaginationViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;
         return (
             <ul className={bem(
+                this.props.className,
                 bem.block(),
-                'pagination my-4',
+                'flex-row',
+                'pagination',
                 `pagination-${this.props.size}`
             )}>
                 {this.props.pages.map((item, index) => (

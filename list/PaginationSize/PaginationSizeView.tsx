@@ -1,35 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import {bem} from '@steroidsjs/core/hoc';
+import {IPaginationSizeViewProps} from '@steroidsjs/core/ui/list/PaginationSize/PaginationSize';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('PaginationSizeView')
-export default class PaginationSizeView extends React.Component {
-
-    static propTypes = {
-        sizes: PropTypes.arrayOf(PropTypes.shape({
-            size: PropTypes.number,
-            label: PropTypes.node,
-            isActive: PropTypes.bool,
-        })),
-        onSelect: PropTypes.func,
-        className: PropTypes.string,
-        size: PropTypes.oneOf(['sm', 'md', 'lg']),
-    };
+export default class PaginationSizeView extends React.PureComponent<IPaginationSizeViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem(bem.block(), 'my-3')}>
-                <div className={bem.element('label')}>
-                    {__('Выводить по')}:
-                </div>
+            <div className={bem(this.props.className, bem.block())}>
                 <ul className={bem(
                     bem.element('sizes'),
                     'pagination',
                     `pagination-${this.props.size}`
                 )}>
-                    {this.props.sizes.map((item, index) => (
+                    {this.props.items.map((item, index) => (
                         <li
                             key={index}
                             className={bem(

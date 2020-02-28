@@ -15,7 +15,6 @@ export default class GridView extends React.Component {
 
     static propTypes = {
         isLoading: PropTypes.bool,
-        reverse: PropTypes.bool,
         outsideSearchForm: PropTypes.node,
         paginationSize: PropTypes.node,
         pagination: PropTypes.node,
@@ -30,7 +29,7 @@ export default class GridView extends React.Component {
         })),
         renderValue: PropTypes.func,
         fetch: PropTypes.func,
-        sort: PropTypes.func,
+        onSort: PropTypes.func,
     };
 
     render() {
@@ -39,18 +38,10 @@ export default class GridView extends React.Component {
             <div className={bem(bem.block({loading: this.props.isLoading}), this.props.className)}>
                 {this.props.outsideSearchForm}
                 {this.props.paginationSize}
-                {this.props.reverse && (
-                    <div>
-                        {this.props.pagination}
-                        {this.renderTable()}
-                    </div>
-                ) ||
-                (
-                    <div>
-                        {this.renderTable()}
-                        {this.props.pagination}
-                    </div>
-                )}
+                <div>
+                    {this.renderTable()}
+                    {this.props.pagination}
+                </div>
             </div>
         );
     }
@@ -112,7 +103,7 @@ export default class GridView extends React.Component {
                 icon={direction === 'asc' ? 'arrow_upward' : 'arrow_downward'}
                 className={isActive ? 'text-success' : 'text-secondary'}
                 link
-                onClick={() => this.props.sort(!isActive ? sortKey : null)}
+                onClick={() => this.props.onSort(!isActive ? sortKey : null)}
             />
         );
     }

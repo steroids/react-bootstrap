@@ -9,29 +9,48 @@ export default class ListView extends React.Component<IListViewProps & IBemHocOu
 
     render() {
         const bem = this.props.bem;
-        if (this.props.reverse) {
-            return (
-                <div className={bem(bem.block({loading: this.props.isLoading}), this.props.className)}>
-                    {this.props.layoutNames}
-                    {this.props.outsideSearchForm}
-                    {this.props.paginationSize}
-                    {this.props.pagination}
+        return (
+            <div className={bem(bem.block({loading: this.props.isLoading}), this.props.className)}>
+                {this.props.outsideSearchFormNode}
+                {this.renderPagination(
+                    ['top', 'both'].includes(this.props.paginationPosition) && this.props.paginationNode,
+                    ['top', 'both'].includes(this.props.paginationSizePosition) && this.props.paginationSizeNode,
+                    ['top', 'both'].includes(this.props.layoutPosition) && this.props.layoutNode
+                )}
+                <div className={bem('mb-3', bem.element('content'), this.props.contentClassName)}>
                     {this.props.content}
-                    {this.props.empty}
                 </div>
-            );
-        } else {
-            return (
-                <div className={bem(bem.block(), this.props.className)}>
-                    {this.props.layoutNames}
-                    {this.props.outsideSearchForm}
-                    {this.props.paginationSize}
-                    {this.props.content}
-                    {this.props.pagination}
-                    {this.props.empty}
-                </div>
-            );
+                {this.renderPagination(
+                    ['bottom', 'both'].includes(this.props.paginationPosition) && this.props.paginationNode,
+                    ['bottom', 'both'].includes(this.props.paginationSizePosition) && this.props.paginationSizeNode,
+                    ['bottom', 'both'].includes(this.props.layoutPosition) && this.props.layoutNode
+                )}
+                {this.props.emptyNode}
+            </div>
+        );
+    }
+
+    renderPagination(pagination, paginationSize, layout) {
+        const bem = this.props.bem;
+
+        if (!pagination && !paginationSize && !layout) {
+            return null;
         }
+
+        return (
+            <div className={bem('row mb-3', bem.element('pagination'))}>
+                <div className='col-4'>
+                    &nbsp;
+                </div>
+                <div className='col-4'>
+                    {pagination}
+                </div>
+                <div className='col-4 d-flex justify-content-end'>
+                    {layout}
+                    {paginationSize}
+                </div>
+            </div>
+        );
     }
 
 }

@@ -1,22 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import {bem} from '@steroidsjs/core/hoc';
 import Button from '@steroidsjs/core/ui/form/Button';
+import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Pagination';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('PaginationMoreView')
-export default class PaginationMoreView extends React.Component {
-
-    static propTypes = {
-        text: PropTypes.string,
-        buttonProps: PropTypes.object,
-        onSelectNext: PropTypes.func,
-    };
+export default class PaginationMoreView extends React.PureComponent<IPaginationViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem(bem.block(), 'text-center my-4')}>
+            <div className={bem('text-center', bem.block(), this.props.className)}>
                 <Button
                     color='secondary'
                     outline
