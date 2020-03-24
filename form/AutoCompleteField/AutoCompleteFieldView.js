@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {bem} from '@steroidsjs/core/hoc';
 
 @bem('AutoCompleteFieldView')
 export default class AutoCompleteFieldView extends React.PureComponent {
 
-    static propTypes = {
+    /*static propTypes = {
         label: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.bool,
@@ -47,13 +46,14 @@ export default class AutoCompleteFieldView extends React.PureComponent {
         onReset: PropTypes.func,
         onItemClick: PropTypes.func,
         onItemMouseOver: PropTypes.func,
-    };
+    };*/
 
     render() {
         const bem = this.props.bem;
         return (
             <div className={bem.block({size: this.props.size})}>
                 <input
+                    {...this.props.inputProps}
                     className={bem(
                         bem.block({
                             size: this.props.size,
@@ -61,9 +61,9 @@ export default class AutoCompleteFieldView extends React.PureComponent {
                         'form-control',
                         'form-control-' + this.props.size,
                         this.props.isInvalid && 'is-invalid',
+                        this.props.inputProps.className,
                         this.props.className
                     )}
-                    {...this.props.inputProps}
                     placeholder={this.props.placeholder}
                     disabled={this.props.disabled}
                     required={this.props.required}

@@ -21,7 +21,7 @@ export default class NavButtonView extends React.Component {
                         <Button
                             key={index}
                             color='secondary'
-                            outline={!item.isActive}
+                            outline={!item.active}
                             onClick={() => this.props.onClick(item, index)}
                             className={bem.element('nav-item')}
                             {...item}

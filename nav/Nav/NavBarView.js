@@ -16,18 +16,28 @@ export default class NavBarView extends React.Component {
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem(bem.block(), this.props.className)}>
+            <div
+                className={bem(
+                    'navbar-expand-lg navbar-nav',
+                    this.props.dark && 'navbar-dark bg-dark',
+                    bem.block(),
+                    this.props.className
+                )}
+            >
                 <div className='navbar-nav px-3'>
                     {this.props.items.map((item, index) => (
                         <li
                             key={index}
-                            className='nav-item text-nowrap'
+                            className={bem(
+                                'nav-item text-nowrap',
+                                item.active && 'active'
+                            )}
                         >
                             <Button
                                 link
                                 className={bem(
                                     'nav-link',
-                                    item.isActive && 'active',
+                                    item.active && 'active',
                                 )}
                                 onClick={() => this.props.onClick(item, index)}
                                 {...item}
