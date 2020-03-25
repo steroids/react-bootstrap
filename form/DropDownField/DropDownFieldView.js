@@ -1,12 +1,12 @@
 import React from 'react';
 import {findDOMNode} from 'react-dom';
-import PropTypes from 'prop-types';
 
 import {bem} from '@steroidsjs/core/hoc';
 
 @bem('DropDownFieldView')
 export default class DropDownFieldView extends React.PureComponent {
 
+    /*
     static propTypes = {
         label: PropTypes.oneOfType([
             PropTypes.string,
@@ -48,7 +48,7 @@ export default class DropDownFieldView extends React.PureComponent {
         onReset: PropTypes.func,
         onItemClick: PropTypes.func,
         onItemMouseOver: PropTypes.func,
-    };
+    };*/
 
     static defaultProps = {
         searchAutoFocus: true,
@@ -75,6 +75,11 @@ export default class DropDownFieldView extends React.PureComponent {
                     })}
                     onClick={this.props.onOpen}
                 >
+                    {this.props.selectedItems.length === 0 && (
+                        <>
+                            &nbsp;
+                        </>
+                    )}
                     {this.props.selectedItems.map(item => (
                         <span key={item.id}>
                             {item.label} &nbsp;
@@ -89,11 +94,16 @@ export default class DropDownFieldView extends React.PureComponent {
                 )}
                 {this.props.isOpened && (
                     <div className={bem.element('drop-down')}>
-                        {this.props.autoComplete && (
+                        {this.props.autoComplete.enable && (
                             <div className={bem.element('search')}>
                                 <input
                                     {...this.props.searchInputProps}
-                                    className={bem(bem.element('search-input'), 'form-control')}
+                                    className={bem(
+                                        'form-control',
+                                        'form-control-' + this.props.size,
+                                        bem.element('search-input'),
+                                        this.props.searchInputProps.className,
+                                    )}
                                 />
                             </div>
                         )}

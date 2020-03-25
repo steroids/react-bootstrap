@@ -30,7 +30,7 @@ export default class NavTabsView extends React.Component {
                                 {...item}
                                 className={bem(
                                     'nav-link',
-                                    item.isActive && 'active',
+                                    item.active && 'active',
                                     item.className,
                                 )}
                             />

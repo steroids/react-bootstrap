@@ -1,40 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import _isString from 'lodash-es/isString';
 
 import {bem} from '@steroidsjs/core/hoc';
+import {IButtonViewProps} from '../../../react/ui/form/Button/Button';
+import {IBemHocOutput} from '../../../react/hoc/bem';
 
 @bem('ButtonView')
-export default class ButtonView extends React.PureComponent {
-
-    static propTypes = {
-        label: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.any,
-        ]),
-        type: PropTypes.oneOf(['button', 'submit']),
-        size: PropTypes.oneOf(['sm', 'md', 'lg']),
-        color: PropTypes.oneOf([
-            'primary',
-            'secondary',
-            'success',
-            'danger',
-            'warning',
-            'info',
-            'light',
-            'dark',
-        ]),
-        link: PropTypes.bool,
-        outline: PropTypes.bool,
-        url: PropTypes.string,
-        onClick: PropTypes.func,
-        disabled: PropTypes.bool,
-        submitting: PropTypes.bool,
-        isLoading: PropTypes.bool,
-        block: PropTypes.bool,
-        className: PropTypes.string,
-        view: PropTypes.elementType,
-    };
+export default class ButtonView extends React.PureComponent<IButtonViewProps & IBemHocOutput> {
 
     render() {
         return this.props.link || this.props.url ? this.renderLink() : this.renderButton();
@@ -50,6 +22,7 @@ export default class ButtonView extends React.PureComponent {
                 target={this.props.target}
             >
                 {this.renderLabel()}
+                {this.renderBadge()}
             </a>
         );
     }
@@ -64,6 +37,7 @@ export default class ButtonView extends React.PureComponent {
                 className={this._getClassName()}
             >
                 {this.renderLabel()}
+                {this.renderBadge()}
             </button>
         );
     }
@@ -101,7 +75,25 @@ export default class ButtonView extends React.PureComponent {
         );
     }
 
-    _getClassName(modifiers) {
+    renderBadge() {
+        if (!this.props._badge.enable) {
+            return null;
+        }
+
+        const bem = this.props.bem;
+        return (
+            <span className={bem(
+                'badge',
+                this.props._badge.color && 'badge-' + this.props._badge.color,
+                bem.element('badge'),
+                this.props._badge.className,
+            )}>
+                {this.props._badge.value}
+            </span>
+        )
+    }
+
+    _getClassName(modifiers = {}) {
         const bem = this.props.bem;
         return bem(
             bem.block({
