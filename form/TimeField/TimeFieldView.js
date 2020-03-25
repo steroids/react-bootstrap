@@ -1,16 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import {bem} from '@steroidsjs/core/hoc';
 
-@bem('InputFieldView')
-export default class InputFieldView extends React.PureComponent {
+@bem('TimeFieldView')
+export default class TimeFieldView extends React.PureComponent {
 
     static propTypes = {
         label: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.bool,
-            PropTypes.any,
         ]),
         hint: PropTypes.string,
         required: PropTypes.bool,
@@ -21,10 +19,12 @@ export default class InputFieldView extends React.PureComponent {
         disabled: PropTypes.bool,
         inputProps: PropTypes.object,
         className: PropTypes.string,
+        pickerProps: PropTypes.object,
     };
 
     render() {
         const bem = this.props.bem;
+        console.log("PROPS TIME", this.props);
         return (
             <input
                 className={bem(
@@ -45,5 +45,4 @@ export default class InputFieldView extends React.PureComponent {
             />
         );
     }
-
 }

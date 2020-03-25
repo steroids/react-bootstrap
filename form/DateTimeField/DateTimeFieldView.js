@@ -32,5 +32,4 @@ export default class DateTimeFieldView extends React.PureComponent {
             </div>
         );
     }
-
 }
