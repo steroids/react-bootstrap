@@ -2,8 +2,8 @@ import * as React from 'react';
 import _isString from 'lodash-es/isString';
 
 import {bem} from '@steroidsjs/core/hoc';
-import {IButtonViewProps} from '../../../react/ui/form/Button/Button';
-import {IBemHocOutput} from '../../../react/hoc/bem';
+import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('ButtonView')
 export default class ButtonView extends React.PureComponent<IButtonViewProps & IBemHocOutput> {

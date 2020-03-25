@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import {bem} from '@steroidsjs/core/hoc';
-import Link from '../../../react/ui/nav/Link';
+import Link from '@steroidsjs/core/ui/nav/Link';
 
 @bem('TreeView')
 export default class TreeView extends React.Component {
