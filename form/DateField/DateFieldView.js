@@ -1,9 +1,9 @@
 import React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 import {bem} from '@steroidsjs/core/hoc';
-import MomentLocaleUtils from "react-day-picker/moment";
 
 @bem('DateFieldView')
 export default class DateFieldView extends React.PureComponent {

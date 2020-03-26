@@ -24,7 +24,6 @@ export default class TimeFieldView extends React.PureComponent {
 
     render() {
         const bem = this.props.bem;
-        console.log("PROPS TIME", this.props);
         return (
             <input
                 className={bem(
@@ -37,8 +36,8 @@ export default class TimeFieldView extends React.PureComponent {
                     this.props.className
                 )}
                 {...this.props.inputProps}
-                onChange={e => this.props.input.onChange(e.target.value)}
-                type={this.props.type}
+                onChange={e => this.props.inputProps.onChange(e.target.value)}
+                type={this.props.type || 'time'}
                 placeholder={this.props.placeholder}
                 disabled={this.props.disabled}
                 required={this.props.required}
