@@ -103,6 +103,7 @@ export default class ButtonView extends React.PureComponent<IButtonViewProps & I
                 disabled: this.props.disabled,
                 submitting: this.props.submitting,
                 'is-loading': this.props.isLoading,
+                'is-failed': this.props.isFailed,
                 ...modifiers,
             }),
             this.props.className,
