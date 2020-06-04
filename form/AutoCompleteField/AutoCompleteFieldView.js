@@ -64,6 +64,7 @@ export default class AutoCompleteFieldView extends React.PureComponent {
                         this.props.inputProps.className,
                         this.props.className
                     )}
+                    onChange={e => this.props.input.onChange(e.target.value)}
                     placeholder={this.props.placeholder}
                     disabled={this.props.disabled}
                     required={this.props.required}

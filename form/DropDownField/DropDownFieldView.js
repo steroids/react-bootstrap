@@ -98,6 +98,7 @@ export default class DropDownFieldView extends React.PureComponent {
                             <div className={bem.element('search')}>
                                 <input
                                     {...this.props.searchInputProps}
+                                    onChange={e => this.props.searchInputProps.onChange(e.target.value)}
                                     className={bem(
                                         'form-control',
                                         'form-control-' + this.props.size,
