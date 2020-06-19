@@ -3,7 +3,7 @@ import React from 'react';
 import './IconView.scss';
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {IIconViewProps} from '@steroidsjs/core/ui/icon/Icon';
+import {IIconViewProps} from '@steroidsjs/core/ui/icon/Icon/Icon';
 
 interface IIconViewInnerProps extends IIconViewProps, IBemHocOutput {
     className: string,
@@ -18,7 +18,7 @@ export default class IconView extends React.PureComponent<IIconViewInnerProps> {
         return (
             <span
                 className={bem(bem.block(), this.props.className)}
-                dangerouslySetInnerHTML={{__html: this.props.icon}}
+                dangerouslySetInnerHTML={{__html: this.props.icon as string}}
                 title={this.props.title}
             />
         );
