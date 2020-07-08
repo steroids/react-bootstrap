@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import './IconView.scss';
 import {bem} from '@steroidsjs/core/hoc';
