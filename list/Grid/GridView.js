@@ -15,10 +15,10 @@ export default class GridView extends React.Component {
 
     static propTypes = {
         isLoading: PropTypes.bool,
-        outsideSearchForm: PropTypes.node,
-        paginationSize: PropTypes.node,
-        pagination: PropTypes.node,
-        empty: PropTypes.node,
+        outsideSearchFormNode: PropTypes.node,
+        paginationSizeNode: PropTypes.node,
+        paginationNode: PropTypes.node,
+        emptyNode: PropTypes.node,
         items: PropTypes.arrayOf(PropTypes.object),
         columns: PropTypes.arrayOf(PropTypes.shape({
             attribute: PropTypes.string,
@@ -36,11 +36,11 @@ export default class GridView extends React.Component {
         const bem = this.props.bem;
         return (
             <div className={bem(bem.block({loading: this.props.isLoading}), this.props.className)}>
-                {this.props.outsideSearchForm}
-                {this.props.paginationSize}
+                {this.props.outsideSearchFormNode}
+                {this.props.paginationSizeNode}
                 <div>
                     {this.renderTable()}
-                    {this.props.pagination}
+                    {this.props.paginationNode}
                 </div>
             </div>
         );
@@ -83,10 +83,10 @@ export default class GridView extends React.Component {
                             ))}
                         </tr>
                     ))}
-                    {this.props.empty && (
+                    {this.props.emptyNode && (
                         <tr>
                             <td colSpan={this.props.columns.length}>
-                                {this.props.empty}
+                                {this.props.emptyNode}
                             </td>
                         </tr>
                     )}
