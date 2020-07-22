@@ -3,13 +3,6 @@ import PropTypes from 'prop-types';
 
 import {bem} from '@steroidsjs/core/hoc';
 
-let ReactQuill = null;
-if (!process.env.IS_SSR) {
-    ReactQuill = require('react-quill').default;
-    const ImageUpload = require('quill-image-uploader').default;
-    ReactQuill.Quill.register('modules/imageUploader', ImageUpload);
-}
-
 @bem('HtmlFieldView')
 export default class HtmlFieldView extends React.PureComponent {
 
@@ -33,7 +26,6 @@ export default class HtmlFieldView extends React.PureComponent {
         const bem = this.props.bem;
         return (
             <div className={bem.block()}>
-                <ReactQuill {...this.props.editorProps} />
             </div>
         );
     }
