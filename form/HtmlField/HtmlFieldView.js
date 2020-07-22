@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Editor} from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import {bem} from '@steroidsjs/core/hoc';
 
@@ -22,7 +24,12 @@ export default class HtmlFieldView extends React.PureComponent {
         required: PropTypes.bool,
         disabled: PropTypes.bool,
         editorProps: PropTypes.object,
+        editorState: PropTypes.object,
         className: PropTypes.string,
+        onFocus: PropTypes.func,
+        onBlur: PropTypes.func,
+        onTab: PropTypes.func,
+        customButtons: PropTypes.arrayOf(PropTypes.any),
     };
 
     render() {
@@ -33,9 +40,19 @@ export default class HtmlFieldView extends React.PureComponent {
         const bem = this.props.bem;
         return (
             <div className={bem.block()}>
-                <ReactQuill {...this.props.editorProps} />
+                <Editor
+                    toolbar={this.props.editorProps}
+                    editorState={this.props.editorState}
+                    onEditorStateChange={this.props.onEditorStateChange}
+                    toolbarClassName='rdw-editor-toolbar'
+                    wrapperClassName='wrapperClassName'
+                    editorClassName='home-editor rdw-editor-main'
+                    toolbarCustomButtons={this.props.customButtons}
+                    onFocus={this.props.onFocus}
+                    onBlur={this.props.onBlur}
+                    onTab={this.props.onTab}
+                />
             </div>
         );
     }
-
 }
