@@ -1,4 +1,3 @@
-import ControlsView from './crud/Controls/ControlsView';
 import CrudView from './crud/Crud/CrudView';
 import AutoCompleteFieldView from './form/AutoCompleteField/AutoCompleteFieldView';
 import ButtonView from './form/Button/ButtonView';
@@ -24,13 +23,16 @@ import SliderFieldView from './form/SliderField/SliderFieldView';
 import SwitcherFieldView from './form/SwitcherField/SwitcherFieldView';
 import TextFieldView from './form/TextField/TextFieldView';
 import TimeFieldView from './form/TimeField/TimeFieldView';
+import BooleanFormatterView from './format/BooleanFormatter/BooleanFormatterView';
+import DefaultFormatterView from './format/DefaultFormatter/DefaultFormatterView';
+import PhotosFormatterView from './format/PhotosFormatter/PhotosFormatterView';
 import IconView from './icon/Icon/IconView';
 import HeaderView from './layout/Header/HeaderView';
 import LoaderView from './layout/Loader/LoaderView';
 import NotificationsItemView from './layout/Notifications/NotificationsItemView';
 import NotificationsView from './layout/Notifications/NotificationsView';
 import AccordionView from './list/Accordion/AccordionView';
-import ActionColumnView from './list/ActionColumn/ActionColumnView';
+import ControlsColumnView from './list/ControlsColumnView/ControlsColumnView';
 import CheckboxColumnView from './list/CheckboxColumn/CheckboxColumnView';
 import DetailView from './list/Detail/DetailView';
 import EmptyView from './list/Empty/EmptyView';
@@ -42,6 +44,7 @@ import PaginationButtonView from './list/Pagination/PaginationButtonView';
 import PaginationSizeView from './list/PaginationSize/PaginationSizeView';
 import ModalView from './modal/Modal/ModalView';
 import BreadcrumbsView from './nav/Breadcrubms/BreadcrumbsView';
+import ControlsView from './nav/Controls/ControlsView';
 import NavBarView from './nav/Nav/NavBarView';
 import NavButtonView from './nav/Nav/NavButtonView';
 import NavIconView from './nav/Nav/NavIconView';
@@ -51,7 +54,6 @@ import NavTabsView from './nav/Nav/NavTabsView';
 import TreeView from './nav/Tree/TreeView';
 
 export default {
-    'crud.ControlsView': ControlsView,
     'crud.CrudView': CrudView,
     'form.AutoCompleteFieldView': AutoCompleteFieldView,
     'form.ButtonView': ButtonView,
@@ -77,13 +79,16 @@ export default {
     'form.SwitcherFieldView': SwitcherFieldView,
     'form.TextFieldView': TextFieldView,
     'form.TimeFieldView': TimeFieldView,
+    'format.BooleanFormatterView': BooleanFormatterView,
+    'format.DefaultFormatterView': DefaultFormatterView,
+    'format.PhotosFormatterView': PhotosFormatterView,
     'icon.IconView': IconView,
     'layout.HeaderView': HeaderView,
     'layout.LoaderView': LoaderView,
     'layout.NotificationsView': NotificationsView,
     'layout.NotificationsItemView': NotificationsItemView,
     'list.AccordionView': AccordionView,
-    'list.ActionColumnView': ActionColumnView,
+    'list.ControlsColumnView': ControlsColumnView,
     'list.CheckboxColumnView': CheckboxColumnView,
     'list.DetailView': DetailView,
     'list.EmptyView': EmptyView,
@@ -95,6 +100,7 @@ export default {
     'list.PaginationSizeView': PaginationSizeView,
     'modal.ModalView': ModalView,
     'nav.BreadcrumbsView': BreadcrumbsView,
+    'nav.ControlsView': ControlsView,
     'nav.NavBarView': NavBarView,
     'nav.NavButtonView': NavButtonView,
     'nav.NavIconView': NavIconView,

@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Nav from '@steroidsjs/core/ui/nav/Nav';
-
+import {IControlsColumnViewProps} from '@steroidsjs/core/ui/list/ControlsColumn/ControlsColumn';
 import {bem} from '@steroidsjs/core/hoc';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+import Controls from '../../../react/ui/nav/Controls';
 
-@bem('ActionColumnView')
-export default class ActionColumnView extends React.PureComponent {
+@bem('ControlsColumnView')
+export default class ControlsColumnView extends React.PureComponent<IControlsColumnViewProps & IBemHocOutput> {
 
     static propTypes = {
         items: PropTypes.arrayOf(PropTypes.shape({
@@ -23,9 +24,11 @@ export default class ActionColumnView extends React.PureComponent {
         const bem = this.props.bem;
         return (
             <div className={bem.block()}>
-                <Nav
+                <Controls
                     {...this.props}
-                    layout='icon'
+                    navProps={{
+                        layout: 'icon',
+                    }}
                     items={this.props.items}
                 />
             </div>

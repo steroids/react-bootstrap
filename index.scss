@@ -1,4 +1,3 @@
-@import './crud/Controls/ControlsView';
 @import './crud/Crud/CrudView';
 @import './form/AutoCompleteField/AutoCompleteFieldView';
 @import './form/Button/ButtonView';
@@ -28,7 +27,7 @@
 @import './layout/Notifications/NotificationsItemView';
 @import './layout/Loader/LoaderView';
 @import './list/Accordion/AccordionView';
-@import './list/ActionColumn/ActionColumnView';
+@import './list/ControlsColumnView/ControlsColumnView';
 @import './list/CheckboxColumn/CheckboxColumnView';
 @import './list/Detail/DetailView';
 @import './list/Empty/EmptyView';
@@ -39,6 +38,7 @@
 @import './list/PaginationSize/PaginationSizeView';
 @import './modal/Modal/ModalView';
 @import './nav/Breadcrubms/BreadcrumbsView';
+@import './nav/Controls/ControlsView';
 @import './nav/Nav/NavBarView';
 @import './nav/Nav/NavButtonView';
 @import './nav/Nav/NavIconView';

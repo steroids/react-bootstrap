@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Controls from '@steroidsjs/core/ui/crud/Controls';
+import Controls from '@steroidsjs/core/ui/nav';
 
 import {bem} from '@steroidsjs/core/hoc';
 
