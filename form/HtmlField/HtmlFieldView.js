@@ -20,7 +20,6 @@ export default class HtmlFieldView extends React.PureComponent {
         className: PropTypes.string,
         onFocus: PropTypes.func,
         onBlur: PropTypes.func,
-        onTab: PropTypes.func,
         customButtons: PropTypes.arrayOf(PropTypes.any),
     };
 
@@ -42,7 +41,6 @@ export default class HtmlFieldView extends React.PureComponent {
                     toolbarCustomButtons={this.props.customButtons}
                     onFocus={this.props.onFocus}
                     onBlur={this.props.onBlur}
-                    onTab={this.props.onTab}
                 />
             </div>
         );
