@@ -8,6 +8,6 @@ export default class DefaultFormatter extends React.PureComponent {
     };
 
     render() {
-        return this.props.value;
+        return this.props.value || this.props.children || null;
     }
 }
