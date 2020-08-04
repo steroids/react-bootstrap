@@ -4,6 +4,7 @@ import _isString from 'lodash-es/isString';
 import {bem} from '@steroidsjs/core/hoc';
 import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+import Icon from '../../../react/ui/icon/Icon';
 
 @bem('ButtonView')
 export default class ButtonView extends React.PureComponent<IButtonViewProps & IBemHocOutput> {
@@ -59,15 +60,14 @@ export default class ButtonView extends React.PureComponent<IButtonViewProps & I
                     className={bem.element('label')}
                 >
                     {this.props.icon && (
-                        <span
+                        <Icon
+                            name={this.props.icon}
+                            title={_isString(this.props.label) ? this.props.label : null}
                             className={bem(
                                 bem.element('icon', !this.props.label && 'without-label'),
                                 'material-icons'
                             )}
-                            title={_isString(this.props.label) ? this.props.label : null}
-                        >
-                            {this.props.icon}
-                        </span>
+                        />
                     )}
                     {this.props.children}
                 </span>

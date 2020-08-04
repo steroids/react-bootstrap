@@ -5,22 +5,28 @@ import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IIconViewProps} from '@steroidsjs/core/ui/icon/Icon/Icon';
 
-interface IIconViewInnerProps extends IIconViewProps, IBemHocOutput {
-    className: string,
-    title: string
-}
-
 @bem('IconView')
-export default class IconView extends React.PureComponent<IIconViewInnerProps> {
+export default class IconView extends React.PureComponent<IIconViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;
-        return (
-            <span
-                className={bem(bem.block(), this.props.className)}
-                dangerouslySetInnerHTML={{__html: this.props.icon as string}}
-                title={this.props.title}
-            />
-        );
+        if (this.props.icon.indexOf('<svg') === 0) {
+            return (
+                <span
+                    title={this.props.title}
+                    dangerouslySetInnerHTML={{__html: this.props.icon}}
+                    className={bem(bem.block(), this.props.className)}
+                />
+            );
+        } else {
+            return (
+                <img
+                    alt={this.props.title}
+                    title={this.props.title}
+                    src={this.props.icon}
+                    className={bem(bem.block(), this.props.className)}
+                />
+            );
+        }
     }
 }

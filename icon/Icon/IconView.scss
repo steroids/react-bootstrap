@@ -1,5 +1,15 @@
 @import 'style/variables';
 
 .IconView {
+  svg {
+    width: 16px;
+  }
 
+  &_size_sm svg {
+    width: 12px;
+  }
+
+  &_size_lg svg {
+    width: 32px;
+  }
 }
