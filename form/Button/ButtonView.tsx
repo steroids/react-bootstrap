@@ -55,22 +55,22 @@ export default class ButtonView extends React.PureComponent<IButtonViewProps & I
                         />
                     </div>
                 )}
-                <span
-                    className={bem.element('label')}
-                >
-                    {this.props.icon && (
-                        <span
-                            className={bem(
-                                bem.element('icon', !this.props.label && 'without-label'),
-                                'material-icons'
-                            )}
-                            title={_isString(this.props.label) ? this.props.label : null}
-                        >
-                            {this.props.icon}
-                        </span>
-                    )}
-                    {this.props.children}
-                </span>
+                {(this.props.showLabelOnLoading || !this.props.isLoading) && (
+                    <span className={bem.element('label')}>
+                        {this.props.icon && (
+                            <span
+                                className={bem(
+                                    bem.element('icon', !this.props.label && 'without-label'),
+                                    'material-icons'
+                                )}
+                                title={_isString(this.props.label) ? this.props.label : null}
+                            >
+                                {this.props.icon}
+                            </span>
+                        )}
+                        {this.props.children}
+                    </span>
+                )}
             </>
         );
     }
