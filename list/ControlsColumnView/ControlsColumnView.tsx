@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {IControlsColumnViewProps} from '@steroidsjs/core/ui/list/ControlsColumn/ControlsColumn';
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import Controls from '../../../react/ui/nav/Controls';
+import Controls from '@steroidsjs/core/ui/nav/Controls';
 
 @bem('ControlsColumnView')
 export default class ControlsColumnView extends React.PureComponent<IControlsColumnViewProps & IBemHocOutput> {
