@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {bem} from '@steroidsjs/core/hoc';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
 import {IControlsViewProps} from '@steroidsjs/core/ui/nav/Controls/Controls';
