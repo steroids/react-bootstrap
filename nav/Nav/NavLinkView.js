@@ -19,7 +19,7 @@ export default class NavLinkView extends React.Component {
                 <div className={bem.element('nav mb-3')}>
                     {this.props.items.map((item, index) => (
                         <Button
-                            key={index}
+                            key={item.id || index}
                             link
                             onClick={() => this.props.onClick(item, index)}
                             className={bem.element('nav-item')}

@@ -38,7 +38,7 @@ export default class NavListView extends React.Component {
                     onClick={() => this.props.onClick(item, index)}
                     layout={false}
                     {...item}
-                    key={index}
+                    key={item.id || index}
                     className={bem(
                         item.active && 'active',
                         bem.element('item-link'),

@@ -20,7 +20,7 @@ export default class NavTabsView extends React.Component {
                 <div className={bem('nav nav-tabs', !this.props.children && 'mb-3')}>
                     {this.props.items.map((item, index) => (
                         <li
-                            key={index}
+                            key={item.id || index}
                             className='nav-item'
                         >
                             <Button

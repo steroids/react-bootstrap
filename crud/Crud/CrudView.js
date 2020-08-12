@@ -34,7 +34,10 @@ export default class CrudView extends React.Component {
         return (
             <div className={bem(bem.block(), this.props.className)}>
                 {this.props.controls && (
-                    <Controls items={this.props.controls}/>
+                    <Controls
+                        items={this.props.controls}
+                        className={bem.element('controls')}
+                    />
                 )}
                 {this.props.children}
             </div>

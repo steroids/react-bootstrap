@@ -27,7 +27,7 @@ export default class NavBarView extends React.Component {
                 <div className='navbar-nav px-3'>
                     {this.props.items.map((item, index) => (
                         <li
-                            key={index}
+                            key={item.id || index}
                             className={bem(
                                 'nav-item text-nowrap',
                                 item.active && 'active'

@@ -18,11 +18,12 @@ export default class NavIconView extends React.Component {
             <div className={bem(bem.block(), this.props.className)}>
                 {this.props.items.map((item, index) => (
                     <Button
-                        key={index}
+                        key={item.id || index}
                         link
                         onClick={() => this.props.onClick(item, index)}
                         {...item}
                         label={null}
+                        hint={item.hint || item.label || null}
                     />
                 ))}
                 {this.props.children}

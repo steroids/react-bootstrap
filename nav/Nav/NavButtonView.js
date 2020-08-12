@@ -19,7 +19,7 @@ export default class NavButtonView extends React.Component {
                 <div className={bem(this.props.children && 'mb-3', bem.element('nav'))}>
                     {this.props.items.map((item, index) => (
                         <Button
-                            key={index}
+                            key={item.id || index}
                             color='secondary'
                             outline={!item.active}
                             onClick={() => this.props.onClick(item, index)}
