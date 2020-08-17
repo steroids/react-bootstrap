@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
+import Controls from '@steroidsjs/core/ui/nav/Controls';
 
 @bem('ModalView')
 export default class ModalView extends React.PureComponent<IModalViewProps & IBemHocOutput> {
@@ -11,14 +12,14 @@ export default class ModalView extends React.PureComponent<IModalViewProps & IBe
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem.block()}>
+            <div>
                 <Modal
                     isOpen={true}
                     overlayClassName={bem.element('overlay')}
                     ariaHideApp={false}
                     {...this.props}
                     className={bem(
-                        bem.element('modal'),
+                        bem.block({size: this.props.size}),
                         this.props.className
                     )}
                 >
@@ -39,6 +40,14 @@ export default class ModalView extends React.PureComponent<IModalViewProps & IBe
                         <div className={bem.element('content')}>
                             {this.props.children}
                         </div>
+                        {this.props.controls && (
+                            <div className={bem.element('footer')}>
+                                <Controls
+                                    items={this.props.controls}
+                                    className={bem.element('controls')}
+                                />
+                            </div>
+                        )}
                     </div>
                 </Modal>
             </div>

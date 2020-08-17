@@ -1,12 +1,10 @@
 .ModalView {
-  &__modal {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    outline: none;
-    border: 1px solid rgba(0,0,0,0.2);
-  }
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  outline: none;
+  border: 1px solid rgba(0,0,0,0.2);
 
   &__overlay {
     position: fixed;
@@ -17,12 +15,19 @@
     background-color: rgba(0,0,0,0.5);
     opacity: 0;
     transition: opacity 300ms ease-in-out;
+    z-index: 100;
   }
 
   &__inner {
-    width: 500px;
+    width: 600px;
     min-height: 350px;
     background: #fff;
+  }
+  &_size_sm &__inner {
+    width: 400px;
+  }
+  &_size_lg &__inner {
+    width: 960px;
   }
 
   &__header {
