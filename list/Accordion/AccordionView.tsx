@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Collapse} from 'reactstrap';
+import {Collapse} from 'react-collapse';
 
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
@@ -26,7 +26,7 @@ export default class AccordionView extends React.PureComponent<IAccordionViewPro
                                 {item.isOpened ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
                             </span>
                         </div>
-                        <Collapse isOpen={item.isOpened}>
+                        <Collapse isOpened={item.isOpened}>
                             <div className={bem(bem.element('content'), 'card-body')}>
                                 {this.props.renderItem(item)}
                             </div>

@@ -10,6 +10,7 @@ export default class SliderFieldView extends React.PureComponent<ISliderFieldVie
 
     render() {
         const bem = this.props.bem;
+        const SliderComponent: any = Slider; // TODO Fix error https://github.com/react-component/slider/issues/656
         return (
             <div className={bem(
                 bem.block({
@@ -17,7 +18,7 @@ export default class SliderFieldView extends React.PureComponent<ISliderFieldVie
                 }),
                 this.props.className,
             )}>
-                <Slider
+                <SliderComponent
                     {...this.props.slider}
                     className={bem.element('slider')}
                 />
