@@ -1,3 +1,88 @@
 .NotificationsItemView {
+  overflow: hidden;
+  max-height: 100px;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity .6s, transform .4s,  max-height .6s .4s, padding .6s .4s, margin .6s .4s;
 
+  &__close{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 25px;
+    height: 25px;
+
+    &::before,&::after{
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      margin-top: -5px;
+      left: 50%;
+      width: 1px;
+      height: 10px;
+      background-color: #888;
+    }
+
+    &::after{
+      transform: rotate(45deg);
+    }
+
+    &::before{
+      transform: rotate(-45deg);
+    }
+  }
+
+
+  // Styles for React-Transition-Groups
+  ////////////////////////////////////////
+
+  // Opacity + Size
+  &_top-right,&_bottom-right,&_top-left,&_bottom-left{
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      opacity: 1;
+    }
+    &-exit {
+      opacity: 1;
+    }
+    &-exit-active {
+      opacity: 0;
+      max-height: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
+  // Transform-Translate
+  &_top-right,&_bottom-right{
+     &-enter {
+       transform: translateX(450px);
+     }
+     &-enter-active {
+       transform: translateX(0px);
+     }
+     &-exit {
+     }
+     &-exit-active {
+       transform: translateX(450px);
+     }
+   }
+
+  &_top-left,&_bottom-left{
+    &-enter {
+      transform: translateX(-450px);
+    }
+    &-enter-active {
+      transform: translateX(0px);
+    }
+    &-exit {
+    }
+    &-exit-active {
+      transform: translateX(-450px);
+    }
+  }
 }

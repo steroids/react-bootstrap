@@ -1,3 +1,26 @@
 .NotificationsView {
+  z-index: 9999;
+  position: fixed;
+  width: 400px;
 
+  // Directions
+  &_top-left{
+    top: 1rem;
+    left: 1rem;
+  }
+
+  &_top-right{
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &_bottom-left{
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  &_bottom-right{
+    bottom: 1rem;
+    right: 1rem;
+  }
 }
