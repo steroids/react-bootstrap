@@ -11,7 +11,7 @@ export default class CheckboxListFieldView extends React.PureComponent<ICheckbox
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem.block()}>
+            <div className={bem(bem.block(), this.props.className)}>
                 {this.props.items.map(item => (
                     <div
                         key={item.id as ReactText}
