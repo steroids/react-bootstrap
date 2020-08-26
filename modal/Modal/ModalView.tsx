@@ -11,17 +11,21 @@ export default class ModalView extends React.PureComponent<IModalViewProps & IBe
 
     render() {
         const bem = this.props.bem;
+        const overrideDefaultClasses = {
+            base: bem.block('overlay'),
+            afterOpen: bem.block('overlay-after'),
+            beforeClose: bem.block('overlay-before')
+        }
         return (
             <div>
                 <Modal
-                    isOpen={true}
-                    overlayClassName={bem.element('overlay')}
-                    ariaHideApp={false}
                     {...this.props}
-                    className={bem(
-                        bem.block({size: this.props.size}),
-                        this.props.className
-                    )}
+                    isOpen={!this.props.isClosing}
+                    closeTimeoutMS={200}
+                    overlayClassName={overrideDefaultClasses}
+                    className={bem.element('body')}
+                    bodyOpenClassName={bem.block('body-opened')}
+                    ariaHideApp={false}
                 >
                     <div className={bem.element('inner')}>
                         <div className={bem.element('header')}>

@@ -4,6 +4,7 @@ import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INotificationsItemViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import { CSSTransition } from 'react-transition-group';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 
 interface INotificationsState  {
@@ -22,7 +23,7 @@ export default class NotificationsItemView extends React.Component<INotification
     }
 
     componentDidMount(): void {
-        this.setState({isShow: !this.props.isClosing});
+        this.setState({isShow: true});
     }
 
     componentDidUpdate(prevProps: INotificationsItemViewProps & IBemHocOutput): void {
@@ -53,17 +54,19 @@ export default class NotificationsItemView extends React.Component<INotification
                         'alert-' + this.props.level,
                     )}
                 >
-                    <div className={bem.element('message')}>
-                        {this.props.message}
-                    </div>
-                    <div
-                        className={bem.element('close')}
-                        onClick={this.props.onClose}
-                    >
+                    <div className={bem.element('body')}>
+                        <div className={bem.element('message')}>
+                            {this.props.message}
+                        </div>
+                        <div
+                            className={bem.element('close')}
+                            onClick={this.props.onClose}
+                        >
+                            <Icon name={'reject'} />
+                        </div>
                     </div>
                 </div>
             </CSSTransition>
         );
     }
-
 }

@@ -1,24 +1,39 @@
-.ModalView {
-  position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translateX(-50%);
-  outline: none;
-  border: 1px solid rgba(0,0,0,0.2);
+.ModalView_body-opened{
+  overflow: hidden;
+}
 
-  &__overlay {
+.ModalView {
+
+  &_overlay {
+    z-index: 100;
     position: fixed;
     top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+
+    background-color: rgba(0,0,0,0.7);
     opacity: 0;
     transition: opacity 300ms ease-in-out;
-    z-index: 100;
-    overflow: auto;
+
+    // Place Modal to Top, when small screen-height
+    @media screen and (max-height: 500px) {
+      padding: 2rem;
+      align-items: flex-start;
+      & > div{
+        margin-top: 3rem;
+      }
+    }
   }
 
+  &__body{
+    outline: none;
+  }
   &__inner {
     width: 600px;
     min-height: 350px;
@@ -80,13 +95,19 @@
   &__content {
     padding: 15px;
   }
+
+  // fade
+  &_overlay {
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+  }
+
+  &_overlay-after {
+    opacity: 1;
+  }
+
+  &_overlay-before {
+    opacity: 0;
+  }
 }
 
-//fade
-.ReactModal__Overlay--after-open {
-  opacity: 1;
-}
-
-.ReactModal__Overlay--before-close {
-  opacity: 0;
-}
