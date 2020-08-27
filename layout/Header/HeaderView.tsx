@@ -4,6 +4,7 @@ import {bem} from '@steroidsjs/core/hoc';
 import {Link} from '@steroidsjs/core/ui/nav';
 import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 @bem('HeaderView')
 export default class HeaderView extends React.Component<IHeaderViewProps> {
@@ -26,17 +27,11 @@ export default class HeaderView extends React.Component<IHeaderViewProps> {
                         toRoute='root'
                         {...this.props.logo.linkProps}
                     >
-                        {this.props.logo.logoUrl && (
-                            <img
+                        {this.props.logo.icon && (
+                            <Icon
                                 className={bem.element('logo-image')}
-                                src={this.props.logo.logoUrl}
-                                alt={this.props.logo.title || ''}
-                            />
-                        )}
-                        {this.props.logo.logoSvg && (
-                            <span
-                                className={bem.element('logo-svg')}
-                                dangerouslySetInnerHTML={{__html: this.props.logo.logoSvg}}
+                                name={this.props.logo.icon}
+                                title={this.props.logo.title}
                             />
                         )}
                         {this.props.logo.title || ''}
