@@ -13,36 +13,27 @@
     right: 0;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
     overflow: auto;
+
+    padding: 3rem;
 
     background-color: rgba(0,0,0,0.7);
     opacity: 0;
     transition: opacity 300ms ease-in-out;
-
-    // Place Modal to Top, when small screen-height
-    @media screen and (max-height: 500px) {
-      padding: 2rem;
-      align-items: flex-start;
-      & > div{
-        margin-top: 3rem;
-      }
-    }
   }
 
   &__body{
     outline: none;
-  }
-  &__inner {
     width: 600px;
     min-height: 350px;
+    margin: auto;
+
     background: #fff;
   }
-  &_size_sm &__inner {
+  &_size_sm &__body {
     width: 400px;
   }
-  &_size_lg &__inner {
+  &_size_lg &__body {
     width: 960px;
   }
 
