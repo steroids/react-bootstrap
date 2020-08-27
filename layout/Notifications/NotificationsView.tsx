@@ -10,7 +10,11 @@ export default class NotificationsView extends React.Component<INotificationsVie
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem(bem.block(), this.props.className)}>
+            <div
+                className={bem(bem.block({
+                    [this.props.position]: true,
+                }))}
+            >
                 {this.props.children}
             </div>
         );
