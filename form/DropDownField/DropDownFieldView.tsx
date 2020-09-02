@@ -35,9 +35,9 @@ export default class DropDownFieldView extends React.PureComponent<IDropDownFiel
                     onClick={this.props.onOpen}
                 >
                     {this.props.selectedItems.length === 0 && (
-                        <>
-                            &nbsp;
-                        </>
+                        <span className={bem.element('placeholder')}>
+                            {this.props.placeholder || <>&nbsp;</>}
+                        </span>
                     )}
                     {this.props.selectedItems.map(item => (
                         <span key={item.id as ReactText}>
