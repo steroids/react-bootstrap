@@ -143,4 +143,7 @@
   &_size_lg &__drop-down-item {
     padding: 0.5rem 1rem;
   }
+  &__placeholder {
+    color: $input-placeholder-color;
+  }
 }
