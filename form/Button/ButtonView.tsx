@@ -10,7 +10,7 @@ import Icon from '@steroidsjs/core/ui/icon/Icon';
 export default class ButtonView extends React.PureComponent<IButtonViewProps & IBemHocOutput> {
 
     render() {
-        return this.props.link || this.props.url ? this.renderLink() : this.renderButton();
+        return this.props.tag === 'a' ? this.renderLink() : this.renderButton();
     }
 
     renderLink() {
@@ -108,12 +108,12 @@ export default class ButtonView extends React.PureComponent<IButtonViewProps & I
                 'is-failed': this.props.isFailed,
                 ...modifiers,
             }),
-            this.props.className,
             !this.props.link && 'btn',
             this.props.size && 'btn-' + this.props.size,
             !this.props.link && 'btn-' + (this.props.outline ? 'outline-' : '') + this.props.color,
             this.props.block && 'btn-block',
             this.props.link && 'btn-link',
+            this.props.className,
         );
     }
 }

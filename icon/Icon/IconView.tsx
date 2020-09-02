@@ -10,7 +10,7 @@ export default class IconView extends React.PureComponent<IIconViewProps & IBemH
 
     render() {
         const bem = this.props.bem;
-        if (this.props.icon.indexOf('<svg') === 0) {
+        if (typeof this.props.icon === 'string' && this.props.icon.indexOf('<svg') === 0) {
             return (
                 <span
                     title={this.props.title}
