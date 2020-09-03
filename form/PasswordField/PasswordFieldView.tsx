@@ -3,6 +3,7 @@ import * as React from 'react';
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IPasswordFieldViewProps} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 @bem('PasswordFieldView')
 export default class PasswordFieldView extends React.PureComponent<IPasswordFieldViewProps & IBemHocOutput> {
@@ -11,14 +12,18 @@ export default class PasswordFieldView extends React.PureComponent<IPasswordFiel
         const bem = this.props.bem;
         return (
             <div className={bem.block()}>
-                <div className={bem.element('input-container')}>
+                <div
+                    className={bem(
+                        bem.element('input-container', {disabled: this.props.inputProps.disabled}),
+                        'form-control',
+                        'form-control-' + this.props.size,
+                    )}
+                >
                     <input
                         className={bem(
                             bem.element('input', {
                                 size: this.props.size,
                             }),
-                            'form-control',
-                            'form-control-' + this.props.size,
                             this.props.isInvalid && 'is-invalid',
                             this.props.className
                         )}
@@ -30,7 +35,9 @@ export default class PasswordFieldView extends React.PureComponent<IPasswordFiel
                             onMouseDown={this.props.onShowPassword}
                             onMouseUp={this.props.onHidePassword}
                         >
-                            remove_red_eye
+                            <Icon
+                                name={this.props.inputProps.type === 'password' ? 'securityEye' : 'securityEyeSlash'}
+                            />
                         </span>
                     )}
                 </div>

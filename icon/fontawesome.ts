@@ -236,6 +236,8 @@ const coreIconsMap = {
     accept: 'check',
     reject: 'times',
     back: 'arrow-left',
+    securityEye: 'eye',
+    securityEyeSlash: 'eye-slash',
 };
 Object.keys(coreIconsMap).forEach(name => {
     icons[name] = icons[coreIconsMap[name]];
