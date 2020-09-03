@@ -32,7 +32,6 @@ export default class NotificationsItemView extends React.Component<INotification
     }
 
     render() {
-        console.log(345, CSSTransition);
         const bem = this.props.bem;
         return (
             <CSSTransition

@@ -1,6 +1,6 @@
 {
   "name": "@steroidsjs/bootstrap",
-  "version": "2.0.0-beta.24",
+  "version": "2.0.0-beta.25",
   "description": "",
   "main": "index.js",
   "author": "Vladimir Kozhin <hello@kozhindev.com>",
@@ -20,6 +20,6 @@
     "rc-slider": "^9.3.1",
     "react-draft-wysiwyg": "^1.14.5",
     "react-collapse": "^5.0.1",
-    "react-transition-group": "^4.4.1"
+    "react-transition-group": "^2.9.0"
   }
 }
