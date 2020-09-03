@@ -53,6 +53,8 @@ import NavListView from './nav/Nav/NavListView';
 import NavTabsView from './nav/Nav/NavTabsView';
 import TreeView from './nav/Tree/TreeView';
 
+import TooltipView from './layout/Tooltip/TooltipView';
+
 export default {
     'crud.CrudView': CrudView,
     'form.AutoCompleteFieldView': AutoCompleteFieldView,
@@ -87,6 +89,9 @@ export default {
     'layout.LoaderView': LoaderView,
     'layout.NotificationsView': NotificationsView,
     'layout.NotificationsItemView': NotificationsItemView,
+
+    'layout.TooltipView': TooltipView,
+
     'list.AccordionView': AccordionView,
     'list.ControlsColumnView': ControlsColumnView,
     'list.CheckboxColumnView': CheckboxColumnView,
