@@ -4,33 +4,34 @@ $tooltip-gap: 12px;
 .Tooltip{
   z-index: 1070;
   position: absolute;
-  max-width: 300px;
 
   color: rgba(0, 0, 0, 0.85);
   font-size: 12px;
 
+  &_position-top, &_position-topLeft, &_position-topRight{
+    transform: translateY(-$tooltip-gap);
+  }
+  &_position-bottom, &_position-bottomLeft, &_position-bottomRight{
+    transform: translateY($tooltip-gap);
+  }
+  &_position-left, &_position-leftTop, &_position-leftBottom{
+    transform: translateX(-$tooltip-gap);
+  }
+  &_position-right, &_position-rightTop, &_position-rightBottom{
+    transform: translateX($tooltip-gap);
+  }
 
   &__body{
     position: relative;
+
+    max-width: 300px;
+
     transition: opacity .1s ease-in;
     opacity: 0;
 
     &_show{
       opacity: 1;
       transition-delay: .2s;
-    }
-
-    &_position-top{
-      transform: translateY(-$tooltip-gap);
-    }
-    &_position-bottom{
-      transform: translateY($tooltip-gap);
-    }
-    &_position-left{
-      transform: translateX(-$tooltip-gap);
-    }
-    &_position-right{
-      transform: translateX($tooltip-gap);
     }
   }
 
@@ -45,7 +46,7 @@ $tooltip-gap: 12px;
     border-width: 4px;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
 
-    &_position-top{
+    &_position-top, &_position-topLeft, &_position-topRight{
       bottom: -4px;
       left: 50%;
 
@@ -55,8 +56,15 @@ $tooltip-gap: 12px;
       border-bottom-color: #373737;
       transform: translateX(-50%) rotate(45deg);
     }
+    &_position-topLeft{
+      left: 20px;
+    }
+    &_position-topRight{
+      left: unset;
+      right: 20px;
+    }
 
-    &_position-bottom{
+    &_position-bottom, &_position-bottomLeft, &_position-bottomRight{
       top: -4px;
       left: 50%;
       border-top-color: $tooltip-background-color;
@@ -65,8 +73,15 @@ $tooltip-gap: 12px;
       border-bottom-color: transparent;
       transform: translateX(-50%) rotate(45deg);
     }
+    &_position-bottomLeft{
+      left: 20px;
+    }
+    &_position-bottomRight{
+      left: unset;
+      right: 20px;
+    }
 
-    &_position-left{
+    &_position-left, &_position-leftTop, &_position-leftBottom{
       right: -4px;
       top: 50%;
       border-top-color: $tooltip-background-color;
@@ -75,8 +90,15 @@ $tooltip-gap: 12px;
       border-bottom-color: transparent;
       transform: translateY(-50%) rotate(45deg);
     }
+    &_position-leftTop{
+      top: 20px;
+    }
+    &_position-leftBottom{
+      top: unset;
+      bottom: 20px;
+    }
 
-    &_position-right{
+    &_position-right, &_position-rightTop, &_position-rightBottom{
       left: -4px;
       top: 50%;
       border-top-color: transparent;
@@ -85,10 +107,18 @@ $tooltip-gap: 12px;
       border-bottom-color: $tooltip-background-color;
       transform: translateY(-50%) rotate(45deg);
     }
+    &_position-rightTop{
+      top: 20px;
+    }
+    &_position-rightBottom{
+      top: unset;
+      bottom: 20px;
+    }
+
   }
 
   &__content{
-    //height: 200px;
+    //height: 100px;
     min-width: 30px;
     min-height: 32px;
     padding: 6px 8px;
