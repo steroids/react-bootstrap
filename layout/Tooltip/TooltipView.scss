@@ -26,12 +26,14 @@ $tooltip-gap: 12px;
 
     max-width: 300px;
 
-    transition: opacity .1s ease-in;
+    transition: opacity .1s ease-in, transform .1s ease-in;
     opacity: 0;
+    transform: scale(.7);
 
     &_show{
       opacity: 1;
-      transition-delay: .2s;
+      transition-delay: .15s;
+      transform: scale(1);
     }
   }
 
@@ -91,11 +93,11 @@ $tooltip-gap: 12px;
       transform: translateY(-50%) rotate(45deg);
     }
     &_position-leftTop{
-      top: 20px;
+      top: 15px;
     }
     &_position-leftBottom{
       top: unset;
-      bottom: 20px;
+      bottom: 7px;
     }
 
     &_position-right, &_position-rightTop, &_position-rightBottom{
@@ -108,17 +110,16 @@ $tooltip-gap: 12px;
       transform: translateY(-50%) rotate(45deg);
     }
     &_position-rightTop{
-      top: 20px;
+      top: 15px;
     }
     &_position-rightBottom{
       top: unset;
-      bottom: 20px;
+      bottom: 7px;
     }
 
   }
 
   &__content{
-    //height: 100px;
     min-width: 30px;
     min-height: 32px;
     padding: 6px 8px;

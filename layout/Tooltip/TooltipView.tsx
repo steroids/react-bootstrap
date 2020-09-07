@@ -8,15 +8,20 @@ import './TooltipView.scss';
 @bem('Tooltip')
 export default class TooltipView extends React.PureComponent<ITooltipProps & IBemHocOutput> {
 
-    tooltipRef: React.RefObject<any>
+    tooltipRef: React.RefObject<any>;
+    arrowRef: React.RefObject<any>;
 
     constructor(props) {
         super(props);
         this.tooltipRef = React.createRef();
+        this.arrowRef = React.createRef();
     }
 
     componentDidMount(): void {
-        this.props.calculatePosition(this.tooltipRef.current.getBoundingClientRect());
+        this.props.calculatePosition(
+            this.tooltipRef.current.getBoundingClientRect(),
+            this.arrowRef.current.getBoundingClientRect()
+        );
     }
 
     render() {
@@ -39,6 +44,7 @@ export default class TooltipView extends React.PureComponent<ITooltipProps & IBe
                     )}
                 >
                     <div
+                        ref={this.arrowRef}
                         className={bem.element(
                             'arrow',
                             {['position-'+this.props.position]: true},
