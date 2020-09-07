@@ -31,29 +31,30 @@ export default class TooltipView extends React.PureComponent<ITooltipViewProps &
                 ref={this.tooltipRef}
                 className={bem(
                     bem.block({
-                        ['position-'+this.props.position]: true
-                    })
+                        'show': this.props.isTooltipVisible
+                    }),
+                    'tooltip',
+                    'tooltip-position-'+this.props.position
                 )}
                 style={this.props.style}
             >
                 <div
-                    className={bem.element('body',
-                        {
-                            'show': this.props.isTooltipVisible
-                        }
-                    )}
-                >
-                    <div
-                        ref={this.arrowRef}
-                        className={bem.element(
+                    ref={this.arrowRef}
+                    className={bem(
+                        bem.element(
                             'arrow',
                             {['position-'+this.props.position]: true},
-                        )}
-                        style={this.props.arrowPosition}
-                    />
-                    <div className={bem.element('content')}>
-                        <span>{this.props.content}</span>
-                    </div>
+                        )
+                    )}
+                    style={this.props.arrowPosition}
+                />
+                <div
+                    className={bem(
+                        bem.element('content'),
+                        'tooltip-inner'
+                    )}
+                >
+                    <span>{this.props.content}</span>
                 </div>
             </div>
         );
