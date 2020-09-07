@@ -1,3 +1,5 @@
+@import 'style/variables';
+
 $tooltip-background-color: rgba(55, 55, 55, 1);
 $tooltip-gap: 12px;
 
@@ -5,7 +7,7 @@ $tooltip-gap: 12px;
   z-index: 1070;
   position: absolute;
 
-  color: rgba(0, 0, 0, 0.85);
+  //color: rgba(0, 0, 0, 0.85);
   font-size: 12px;
 
   &_position-top, &_position-topLeft, &_position-topRight{
@@ -28,12 +30,9 @@ $tooltip-gap: 12px;
 
     transition: opacity .1s ease-in, transform .1s ease-in;
     opacity: 0;
-    transform: scale(.7);
 
     &_show{
       opacity: 1;
-      transition-delay: .15s;
-      transform: scale(1);
     }
   }
 

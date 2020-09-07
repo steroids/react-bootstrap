@@ -31,7 +31,7 @@ import HeaderView from './layout/Header/HeaderView';
 import LoaderView from './layout/Loader/LoaderView';
 import NotificationsItemView from './layout/Notifications/NotificationsItemView';
 import NotificationsView from './layout/Notifications/NotificationsView';
-//import TooltipView from './layout/Tooltip/TooltipView';
+import TooltipView from './layout/Tooltip/TooltipView';
 import AccordionView from './list/Accordion/AccordionView';
 import ControlsColumnView from './list/ControlsColumnView/ControlsColumnView';
 import CheckboxColumnView from './list/CheckboxColumn/CheckboxColumnView';
@@ -88,7 +88,7 @@ export default {
     'layout.LoaderView': LoaderView,
     'layout.NotificationsView': NotificationsView,
     'layout.NotificationsItemView': NotificationsItemView,
-    //'layout.TooltipView': TooltipView,
+    'layout.TooltipView': TooltipView,
     'list.AccordionView': AccordionView,
     'list.ControlsColumnView': ControlsColumnView,
     'list.CheckboxColumnView': CheckboxColumnView,
