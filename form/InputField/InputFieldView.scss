@@ -1,3 +1,63 @@
+$addon-padding: 0.6rem;
+$text-padding: 0.4rem;
+
 .InputFieldView {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  padding: 0;
+
+  &_disabled {
+    color: rgba(0, 0, 0, .25);
+    background-color: rgba($input-border-color, .3);
+    cursor: not-allowed;
+
+    input {
+      cursor: inherit;
+    }
+  }
+
+  &__input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    padding: $input-padding-y $input-padding-x;
+  }
+
+  &__addon-before, &__addon-after {
+    display: flex;
+    align-items: center;
+    padding: 0 $addon-padding;
+
+    color: rgba(0, 0, 0, .85);
+    text-align: center;
+    background-color: #fafafa;
+  }
+
+  &__addon-before {
+    border-radius: $input-border-radius 0 0 $input-border-radius;
+    border-right: 1px solid $input-border-color;
+  }
+
+  &__addon-after {
+    border-radius: 0 $input-border-radius $input-border-radius 0;
+    border-left: 1px solid $input-border-color;
+  }
+
+
+  &__text-before, &__text-after {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text-before {
+    padding-left: $text-padding;
+  }
+
+  &__text-after {
+    padding-right: $text-padding;
+  }
 
 }

@@ -10,23 +10,53 @@ export default class InputFieldView extends React.PureComponent<IInputFieldViewP
     render() {
         const bem = this.props.bem;
         return (
-            <input
+            <div
                 className={bem(
                     bem.block({
-                        size: this.props.size,
+                        disabled: this.props.inputProps.disabled
                     }),
                     'form-control',
                     'form-control-' + this.props.size,
                     this.props.isInvalid && 'is-invalid',
                     this.props.className
                 )}
-                {...this.props.inputProps}
-                onChange={e => this.props.input.onChange(e.target.value)}
-                type={this.props.type}
-                placeholder={this.props.placeholder}
-                disabled={this.props.disabled}
-                required={this.props.required}
-            />
+            >
+                {this.props.addonBefore && (
+                    <span className={bem.element('addon-before')}>
+                        {this.props.addonBefore}
+                    </span>
+                )}
+                {this.props.textBefore && (
+                    <span className={bem.element('text-before')}>
+                        {this.props.textBefore}
+                    </span>
+                )}
+                <input
+                    className={bem(
+                        bem.element('input', {
+                            size: this.props.size,
+                        }),
+                        this.props.isInvalid && 'is-invalid',
+                    )}
+                    {...this.props.inputProps}
+                    onChange={e => this.props.input.onChange(e.target.value)}
+                    type={this.props.type}
+                    placeholder={this.props.placeholder}
+                    disabled={this.props.disabled}
+                    required={this.props.required}
+                />
+                {this.props.textAfter && (
+                    <span className={bem.element('text-after')}>
+                            {this.props.textAfter}
+                    </span>
+                )}
+                {this.props.addonAfter && (
+                    <span className={bem.element('addon-after')}>
+                        {this.props.addonAfter}
+                    </span>
+                )}
+            </div>
+
         );
     }
 

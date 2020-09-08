@@ -34,11 +34,6 @@ export default class DropDownFieldView extends React.PureComponent<IDropDownFiel
                     })}
                     onClick={this.props.onOpen}
                 >
-                    {this.props.selectedItems.length === 0 && (
-                        <span className={bem.element('placeholder')}>
-                            {this.props.placeholder || <>&nbsp;</>}
-                        </span>
-                    )}
                     {this.props.multiple ?
                         this.props.selectedItems.map(item => (
                             <span
