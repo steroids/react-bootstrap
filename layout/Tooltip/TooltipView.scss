@@ -1,135 +1,115 @@
 @import 'style/variables';
 
-$tooltip-background-color: rgba(55, 55, 55, 1);
+$tooltip-arrow-width: 8px;
+$tooltip-arrow-height: 8px;
+$tooltip-arrow-border: $tooltip-arrow-width / 2;
 $tooltip-gap: 12px;
 
+$tooltip-arrow-offset-horizontal: 20px;
+$tooltip-arrow-offset-vertical-top: 15px;
+$tooltip-arrow-offset-vertical-bottom: 7px;
+
 .Tooltip{
-  z-index: 1070;
-  position: absolute;
+  transform: translate(0,0);
+  opacity: 0;
+  transition: opacity .15s ease-in, transform .15s ease-in;
 
-  //color: rgba(0, 0, 0, 0.85);
-  font-size: 12px;
-
-  &_position-top, &_position-topLeft, &_position-topRight{
-    transform: translateY(-$tooltip-gap);
+  &_show {
+    opacity: 1;
   }
-  &_position-bottom, &_position-bottomLeft, &_position-bottomRight{
+  &_show.tooltip-position-top, &_show.tooltip-position-topLeft,  &_show.tooltip-position-topRight{
+      transform: translateY(-$tooltip-gap);
+  }
+  &_show.tooltip-position-bottom, &_show.tooltip-position-bottomLeft,  &_show.tooltip-position-bottomRight{
     transform: translateY($tooltip-gap);
   }
-  &_position-left, &_position-leftTop, &_position-leftBottom{
+  &_show.tooltip-position-left, &_show.tooltip-position-leftTop,  &_show.tooltip-position-leftBottom{
     transform: translateX(-$tooltip-gap);
   }
-  &_position-right, &_position-rightTop, &_position-rightBottom{
+  &_show.tooltip-position-right, &_show.tooltip-position-rightTop,  &_show.tooltip-position-rightBottom{
     transform: translateX($tooltip-gap);
   }
 
-  &__body{
-    position: relative;
-
-    max-width: 300px;
-
-    transition: opacity .1s ease-in, transform .1s ease-in;
-    opacity: 0;
-
-    &_show{
-      opacity: 1;
-    }
-  }
 
   &__arrow{
     position: absolute;
 
-    width: 8px;
-    height: 8px;
+    width: $tooltip-arrow-width;
+    height: $tooltip-arrow-height;
 
-    background: transparent;
     border-style: solid;
-    border-width: 4px;
+    border-width: $tooltip-arrow-height / 2;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
 
+
     &_position-top, &_position-topLeft, &_position-topRight{
-      bottom: -4px;
+      bottom: -$tooltip-arrow-border;
       left: 50%;
 
       border-top-color: transparent;
       border-left-color: transparent;
-      border-right-color: #373737;
-      border-bottom-color: #373737;
+      border-right-color:  $tooltip-arrow-color;
+      border-bottom-color:  $tooltip-arrow-color;
       transform: translateX(-50%) rotate(45deg);
     }
     &_position-topLeft{
-      left: 20px;
+      left: $tooltip-arrow-offset-horizontal;
     }
     &_position-topRight{
       left: unset;
-      right: 20px;
+      right: $tooltip-arrow-offset-horizontal;
     }
 
     &_position-bottom, &_position-bottomLeft, &_position-bottomRight{
-      top: -4px;
+      top: -$tooltip-arrow-border;
       left: 50%;
-      border-top-color: $tooltip-background-color;
-      border-left-color: $tooltip-background-color;
+      border-top-color: $tooltip-arrow-color;
+      border-left-color: $tooltip-arrow-color;
       border-right-color: transparent;
       border-bottom-color: transparent;
       transform: translateX(-50%) rotate(45deg);
     }
     &_position-bottomLeft{
-      left: 20px;
+      left: $tooltip-arrow-offset-horizontal;
     }
     &_position-bottomRight{
       left: unset;
-      right: 20px;
+      right: $tooltip-arrow-offset-horizontal;
     }
 
     &_position-left, &_position-leftTop, &_position-leftBottom{
-      right: -4px;
+      right: -$tooltip-arrow-border;
       top: 50%;
-      border-top-color: $tooltip-background-color;
+      border-top-color: $tooltip-arrow-color;
       border-left-color: transparent;
-      border-right-color: $tooltip-background-color;
+      border-right-color: $tooltip-arrow-color;
       border-bottom-color: transparent;
       transform: translateY(-50%) rotate(45deg);
     }
     &_position-leftTop{
-      top: 15px;
+      top: $tooltip-arrow-offset-vertical-top;
     }
     &_position-leftBottom{
       top: unset;
-      bottom: 7px;
+      bottom: $tooltip-arrow-offset-vertical-bottom;
     }
 
     &_position-right, &_position-rightTop, &_position-rightBottom{
-      left: -4px;
+      left: -$tooltip-arrow-border;
       top: 50%;
       border-top-color: transparent;
-      border-left-color: $tooltip-background-color;
+      border-left-color: $tooltip-arrow-color;
       border-right-color: transparent;
-      border-bottom-color: $tooltip-background-color;
+      border-bottom-color: $tooltip-arrow-color;
       transform: translateY(-50%) rotate(45deg);
     }
     &_position-rightTop{
-      top: 15px;
+      top: $tooltip-arrow-offset-vertical-top;
     }
     &_position-rightBottom{
       top: unset;
-      bottom: 7px;
+      bottom: $tooltip-arrow-offset-vertical-bottom;
     }
-
-  }
-
-  &__content{
-    min-width: 30px;
-    min-height: 32px;
-    padding: 6px 8px;
-
-    color: #fff;
-    text-align: center;
-    word-wrap: break-word;
-
-    border-radius: 2px;
-    background-color: $tooltip-background-color;
-    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   }
 
 }
