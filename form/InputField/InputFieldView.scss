@@ -7,11 +7,19 @@ $text-padding: 0.4rem;
   align-items: stretch;
   padding: 0;
 
+  &:focus-within{
+    outline: 0;
+    border-color: $blue;
+    box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+  }
+  &.is-invalid:focus-within{
+    border-color: $red;
+    box-shadow: 0 0 0 0.2rem rgba($red, 0.25);
+  }
   &_disabled {
     color: rgba(0, 0, 0, .25);
     background-color: rgba($input-border-color, .3);
     cursor: not-allowed;
-
     input {
       cursor: inherit;
     }
