@@ -1,0 +1,84 @@
+.NumberFieldView {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  padding: 0;
+
+  &_disabled {
+    color: rgba(0, 0, 0, .25);
+    background-color: rgba($input-border-color, .3);
+    cursor: not-allowed;
+
+    input {
+      cursor: inherit;
+    }
+  }
+
+  // Hide default arrows
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  &__input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    padding: $input-padding-y $input-padding-x;
+  }
+
+  &__arrows-container{
+    display: flex;
+    flex-flow: column;
+    font-size: .6em;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s;
+  }
+  &:hover &__arrows-container{
+      opacity: 1;
+      pointer-events: all;
+  }
+
+  &__arrow{
+    padding: $input-padding-y $input-padding-x;
+    cursor: pointer;
+    height: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:nth-child(1){
+      border-left: 1px solid $input-border-color;
+    }
+    &:nth-child(2){
+      border-top: 1px solid $input-border-color;
+      border-left: 1px solid $input-border-color;
+    }
+    &_disabled{
+      cursor: not-allowed;
+    }
+
+    svg{
+      transition: fill .1s;
+    }
+
+    &:hover{
+      svg{
+        fill: #4a90e2;
+      }
+    }
+  }
+}
+

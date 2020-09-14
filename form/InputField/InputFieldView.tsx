@@ -12,7 +12,9 @@ export default class InputFieldView extends React.PureComponent<IInputFieldViewP
         return (
             <div
                 className={bem(
-                    bem.block({}),
+                    bem.block({
+                        disabled: this.props.inputProps.disabled
+                    }),
                     'form-control',
                     'form-control-' + this.props.size,
                     this.props.isInvalid && 'is-invalid',

@@ -11,12 +11,20 @@ export default class PasswordFieldView extends React.PureComponent<IPasswordFiel
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem.block()}>
+            <div
+                className={bem(
+                    bem.block(),
+                    this.props.className
+                )}
+            >
                 <div
                     className={bem(
-                        bem.element('input-container', {disabled: this.props.inputProps.disabled}),
+                        bem.element('container', {
+                            'disabled': this.props.inputProps.disabled,
+                        }),
                         'form-control',
                         'form-control-' + this.props.size,
+                        this.props.isInvalid && 'is-invalid',
                     )}
                 >
                     <input
