@@ -1,9 +1,11 @@
 import * as React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
+import _isString from 'lodash/isString';
 
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDateFieldViewProps} from '@steroidsjs/core/ui/form/DateField/DateField';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 @bem('DateFieldView')
 export default class DateFieldView extends React.PureComponent<IDateFieldViewProps & IBemHocOutput> {
@@ -28,17 +30,36 @@ export default class DateFieldView extends React.PureComponent<IDateFieldViewPro
                     inputProps={{
                         ...(this.props.pickerProps && this.props.pickerProps.inputProps),
                         className: bem(
-                            bem.block({
-                                size: this.props.size,
-                            }),
+                            bem.element('input'),
                             'form-control',
                             'form-control-' + this.props.size,
                             this.props.isInvalid && 'is-invalid',
-                            this.props.className,
                         ),
                         disabled: this.props.disabled,
                         required: this.props.required,
                     }}
+                    component={React.forwardRef((props, ref) => (
+                        <div
+                            className={bem(
+                                bem.block({
+                                    size: this.props.size,
+                                    'has-icon': !!this.props.icon,
+                                    'is-invalid': !!this.props.isInvalid
+                                }),
+                                this.props.className
+                            )}
+                        >
+                            <input {...props} />
+                            {this.props.icon && (
+                                <Icon
+                                    className={bem.element('icon', {
+                                        default: !_isString(this.props.icon),
+                                    })}
+                                    name={_isString(this.props.icon) ? this.props.icon : 'calendar-alt'}
+                                />
+                            )}
+                        </div>
+                    ))}
                 />
             </div>
         );

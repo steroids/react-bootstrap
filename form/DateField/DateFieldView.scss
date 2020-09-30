@@ -12,5 +12,39 @@
 }
 
 .DateFieldView {
+  $root: &;
 
+  position: relative;
+
+  &_has-icon {
+    #{$root}__input {
+      padding-right: 35px;
+    }
+  }
+
+  &_is-invalid {
+    #{$root}__icon {
+      right: 40px;
+    }
+
+    #{$root}__input {
+      padding-right: 65px;
+    }
+  }
+
+  &__input {
+
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: $input-padding-x;
+    transform: translateY(-50%);
+    pointer-events: none;
+
+    &_default {
+      top: 45%;
+    }
+  }
 }
