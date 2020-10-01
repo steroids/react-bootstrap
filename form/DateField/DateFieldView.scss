@@ -47,4 +47,29 @@
       top: 45%;
     }
   }
+
+  &__caption {
+    position: relative;
+    top: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+
+    .DropDownFieldView__drop-down-list {
+      max-height: 220px;
+    }
+  }
+
+  &__caption-year {
+    width: 115px;
+  }
+
+  &__caption-month {
+    width: 70px;
+
+    .DropDownFieldView__selected-items {
+      min-width: 70px;
+    }
+  }
 }
