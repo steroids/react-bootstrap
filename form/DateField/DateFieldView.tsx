@@ -74,7 +74,7 @@ export default class DateFieldView extends React.PureComponent<IDateFieldViewPro
                                     className={bem.element('icon', {
                                         default: !_isString(this.props.icon),
                                     })}
-                                    name={_isString(this.props.icon) ? this.props.icon : 'calendar-alt'}
+                                    name={_isString(this.props.icon) ? this.props.icon as string : 'calendar-alt'}
                                 />
                             )}
                         </div>
@@ -128,6 +128,7 @@ class YearMonthForm extends React.PureComponent<IYearMonthFormProps> {
                 <div className={customClassNames.caption}>
                     <div className={customClassNames.yearSelect}>
                         <DropDownField
+                            attribute='month'
                             size='md'
                             layout={false}
                             noBorder
@@ -140,6 +141,7 @@ class YearMonthForm extends React.PureComponent<IYearMonthFormProps> {
                     </div>
                     <div className={customClassNames.monthSelect}>
                         <DropDownField
+                            attribute='year'
                             size='md'
                             layout={false}
                             className={customClassNames.monthSelect}
