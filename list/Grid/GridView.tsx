@@ -78,12 +78,15 @@ export default class GridView extends React.Component<IGridViewProps & IBemHocOu
     }
 
     renderSortButton(attribute, direction) {
+        const bem = this.props.bem;
         const sortKey = (direction === 'desc' ? '!' : '') + attribute;
         const isActive = [].concat(this.props.list.sort || []).includes(sortKey);
         return (
             <Button
-                icon={direction === 'asc' ? 'arrow_upward' : 'arrow_downward'}
-                className={isActive ? 'text-success' : 'text-secondary'}
+                icon={direction === 'asc' ? 'long-arrow-alt-up' : 'long-arrow-alt-down'}
+                className={bem.element('sort-button', {
+                    'is-active': isActive
+                })}
                 link
                 onClick={() => this.props.onSort(!isActive ? sortKey : null)}
             />
