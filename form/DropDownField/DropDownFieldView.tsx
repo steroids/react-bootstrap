@@ -30,6 +30,7 @@ export default class DropDownFieldView extends React.PureComponent<IDropDownFiel
                 <div
                     className={bem.element('selected-items', {
                         reset: this.props.showReset,
+                        'no-border': this.props.noBorder,
                         'is-invalid': this.props.isInvalid,
                     })}
                     onClick={this.props.onOpen}

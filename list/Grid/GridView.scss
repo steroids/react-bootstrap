@@ -37,4 +37,17 @@
       content: attr(data-label);
     }
   }
+
+  &__sort-button {
+    opacity: 0.5;
+
+    &_is-active {
+      opacity: 1;
+    }
+
+    .IconView svg {
+      width: 10px;
+      height: 16px;
+    }
+  }
 }

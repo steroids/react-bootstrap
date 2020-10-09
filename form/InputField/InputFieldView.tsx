@@ -31,20 +31,42 @@ export default class InputFieldView extends React.PureComponent<IInputFieldViewP
                         {this.props.textBefore}
                     </span>
                 )}
-                <input
-                    className={bem(
-                        bem.element('input', {
-                            size: this.props.size,
-                        }),
-                        this.props.isInvalid && 'is-invalid',
-                    )}
-                    {...this.props.inputProps}
-                    onChange={e => this.props.input.onChange(e.target.value)}
-                    type={this.props.type}
-                    placeholder={this.props.placeholder}
-                    disabled={this.props.disabled}
-                    required={this.props.required}
-                />
+                {this.props.maskProps && (
+                    <input
+                        //@ts-ignore //TODO fix type
+                        onChange={this.props.onChange}
+                        onBlur={this.props.onBlur}
+                        onFocus={this.props.onFocus}
+                        onMouseDown={this.props.onMouseDown}
+
+                        className={bem(
+                            bem.element('input', {
+                                size: this.props.size,
+                            }),
+                            this.props.isInvalid && 'is-invalid',
+                        )}
+                        {...this.props.inputProps}
+                        type={this.props.type}
+                        placeholder={this.props.placeholder}
+                        disabled={this.props.disabled}
+                        required={this.props.required}
+                    />
+                ) || (
+                    <input
+                        className={bem(
+                            bem.element('input', {
+                                size: this.props.size,
+                            }),
+                            this.props.isInvalid && 'is-invalid',
+                        )}
+                        {...this.props.inputProps}
+                        onChange={e => this.props.input.onChange(e.target.value)}
+                        type={this.props.type}
+                        placeholder={this.props.placeholder}
+                        disabled={this.props.disabled}
+                        required={this.props.required}
+                    />
+                )}
                 {this.props.textAfter && (
                     <span className={bem.element('text-after')}>
                             {this.props.textAfter}

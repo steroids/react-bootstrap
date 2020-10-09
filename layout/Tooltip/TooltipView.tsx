@@ -3,9 +3,7 @@ import {bem} from '@steroidsjs/core/hoc';
 import {ITooltipViewProps} from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
-import './TooltipView.scss';
-
-@bem('Tooltip')
+@bem('TooltipView')
 export default class TooltipView extends React.PureComponent<ITooltipViewProps & IBemHocOutput> {
 
     tooltipRef: React.RefObject<any>;
@@ -17,7 +15,7 @@ export default class TooltipView extends React.PureComponent<ITooltipViewProps &
         this.arrowRef = React.createRef();
     }
 
-    componentDidMount(): void {
+    componentDidMount() {
         this.props.calculatePosition(
             this.tooltipRef.current.getBoundingClientRect(),
             this.arrowRef.current.getBoundingClientRect()
