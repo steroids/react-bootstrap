@@ -1,6 +1,6 @@
 const groupedIcons = {
     brands: [
-        '500px', 'accessible-icon', 'accusoft', 'acquisitions-incorporated', 'adn', 'adobe', 'adversal',
+        '500px', 'accessible-icon', 'accusoft', 'acquisitions-incorporated', 'adn', 'adversal',
         'affiliatetheme', 'airbnb', 'algolia', 'alipay', 'amazon', 'amazon-pay', 'amilia', 'android', 'angellist',
         'angrycreative', 'angular', 'app-store', 'app-store-ios', 'apper', 'apple', 'apple-pay', 'artstation',
         'asymmetrik', 'atlassian', 'audible', 'autoprefixer', 'avianex', 'aviato', 'aws', 'bandcamp', 'battle-net',
