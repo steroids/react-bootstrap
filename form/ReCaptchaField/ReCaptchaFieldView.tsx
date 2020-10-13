@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ReCaptcha from 'react-google-recaptcha';
+import ReCaptcha from 'react-recaptcha-v3';
 
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
