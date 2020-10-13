@@ -1,0 +1,23 @@
+.FileDragFieldView {
+
+  &__drop-area {
+    width: 126px;
+    height: 126px;
+    background-color: #fafafa;
+    border: 1px dashed #d9d9d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    &_is-dragging, &:hover {
+      border-color: $primary;
+    }
+  }
+
+  &__files {
+    margin-bottom: 1em;
+  }
+}

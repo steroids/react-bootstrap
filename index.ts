@@ -12,6 +12,8 @@ import FieldListView from './form/FieldList/FieldListView';
 import FieldListItemView from './form/FieldList/FieldListItemView';
 import FileFieldView from './form/FileField/FileFieldView';
 import FileFieldItemView from './form/FileField/FileFieldItemView';
+import FileDragFieldView from './form/FileDragField/FileDragFieldView';
+import FileDragFieldItemView from './form/FileDragField/FileDragFieldItemView';
 import FormView from './form/Form/FormView';
 import HtmlFieldView from './form/HtmlField/HtmlFieldView';
 import InputFieldView from './form/InputField/InputFieldView';
@@ -70,6 +72,8 @@ export default {
     'form.FieldListItemView': FieldListItemView,
     'form.FileFieldView': FileFieldView,
     'form.FileFieldItemView': FileFieldItemView,
+    'form.FileDragFieldView': FileDragFieldView,
+    'form.FileDragFieldItemView': FileDragFieldItemView,
     'form.FormView': FormView,
     'form.HtmlFieldView': HtmlFieldView,
     'form.InputFieldView': InputFieldView,
