@@ -6,6 +6,7 @@ import CheckboxListFieldView from './form/CheckboxListField/CheckboxListFieldVie
 import DateFieldView from './form/DateField/DateFieldView';
 import DateTimeFieldView from './form/DateTimeField/DateTimeFieldView';
 import DropDownFieldView from './form/DropDownField/DropDownFieldView';
+import FieldSetView from './form/FieldSet/FieldSetView';
 import FieldLayoutView from './form/FieldLayout/FieldLayoutView';
 import FieldListView from './form/FieldList/FieldListView';
 import FieldListItemView from './form/FieldList/FieldListItemView';
@@ -64,6 +65,7 @@ export default {
     'form.DateTimeFieldView': DateTimeFieldView,
     'form.DropDownFieldView': DropDownFieldView,
     'form.FieldLayoutView': FieldLayoutView,
+    'form.FieldSetView': FieldSetView,
     'form.FieldListView': FieldListView,
     'form.FieldListItemView': FieldListItemView,
     'form.FileFieldView': FileFieldView,
