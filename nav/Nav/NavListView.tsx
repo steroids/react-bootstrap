@@ -34,7 +34,7 @@ export default class NavListView extends React.Component<INavViewProps & IBemHoc
                     {...item}
                     key={item.id || index}
                     className={bem(
-                        item.active && 'active',
+                        item.isActive && 'active',
                         bem.element('item-link'),
                         item.className,
                     )}
