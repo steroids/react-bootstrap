@@ -16,7 +16,8 @@ export default class DropDownFieldView extends React.PureComponent<IDropDownFiel
     componentDidUpdate(prevProps) {
         // Auto focus on search
         if (this.props.searchAutoFocus && this.props.autoComplete && !prevProps.isOpened && this.props.isOpened) {
-            const input = findDOMNode(this).querySelector('.' + this.props.bem.element('search-input'));
+            const element: any = findDOMNode(this);
+            const input = element.querySelector('.' + this.props.bem.element('search-input'));
             if (input) {
                 input.focus();
             }
