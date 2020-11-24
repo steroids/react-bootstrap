@@ -7,12 +7,20 @@
       margin: 0 0 0 3px;
     }
   }
+
   &__invalid-feedback {
     display: block !important;
   }
+
   &__hint {
     width: 100%;
     margin-top: .25rem;
     font-size: 80%;
+  }
+
+  &_layout_inline &__field {
+    .form-control, input {
+      width: 100%;
+    }
   }
 }

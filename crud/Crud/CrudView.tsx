@@ -12,6 +12,11 @@ export default class CrudView extends React.Component<ICrudViewProps & IBemHocOu
         const bem = this.props.bem;
         return (
             <div className={bem(bem.block(), this.props.className)}>
+                {this.props.title && (
+                    <h1 className='mb-3'>
+                        {this.props.title}
+                    </h1>
+                )}
                 {this.props.controls && (
                     <Controls
                         items={this.props.controls}
