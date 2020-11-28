@@ -4,8 +4,12 @@
   padding: 0;
 
   &__item {
-    padding: 2px 0;
+    padding: 0;
     cursor: pointer;
+
+    > .ButtonView {
+      margin: 2px 0;
+    }
   }
 
   &__item-label {
