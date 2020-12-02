@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {bem} from '@steroidsjs/core/hoc';
 import Button from '@steroidsjs/core/ui/form/Button';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFileFieldViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 
@@ -28,12 +29,10 @@ export default class FileFieldView extends React.PureComponent<IFileFieldViewPro
                         {...this.props.buttonProps}
                         label={null}
                     >
-                        <span className={bem(
-                            bem.element('button-icon'),
-                            'material-icons'
-                        )}>
-                            {this.props.imagesOnly ? 'insert_photo' : 'insert_drive_file'}
-                        </span>
+                        <Icon
+                            className={bem.element('button-icon')}
+                            name={this.props.imagesOnly ? 'file-image' : 'file'}
+                        />
                         <span className={bem.element('button-label')}>
                             {this.props.buttonProps.label}
                         </span>

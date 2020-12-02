@@ -39,7 +39,7 @@ export default class PasswordFieldView extends React.PureComponent<IPasswordFiel
                     />
                     {this.props.security && (
                         <span
-                            className={bem(bem.element('icon-eye'), 'material-icons')}
+                            className={bem(bem.element('icon-eye'))}
                             onMouseDown={this.props.onShowPassword}
                             onMouseUp={this.props.onHidePassword}
                         >

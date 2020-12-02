@@ -4,6 +4,7 @@ import {Collapse} from 'react-collapse';
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IAccordionViewProps} from '@steroidsjs/core/ui/list/Accordion/Accordion';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 @bem('AccordionView')
 export default class AccordionView extends React.PureComponent<IAccordionViewProps & IBemHocOutput> {
@@ -22,9 +23,10 @@ export default class AccordionView extends React.PureComponent<IAccordionViewPro
                             onClick={() => this.props.onToggle(item)}
                         >
                             {this.props.renderHeader(item)}
-                            <span className={bem(bem.element('header-icon'), 'material-icons')}>
-                                {item.isOpened ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
-                            </span>
+                            <Icon
+                                className={bem.element('header-icon')}
+                                name={item.isOpened ? 'chevron-up' : 'chevron-down'}
+                            />
                         </div>
                         <Collapse isOpened={item.isOpened}>
                             <div className={bem(bem.element('content'), 'card-body')}>
