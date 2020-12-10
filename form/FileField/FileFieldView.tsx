@@ -27,6 +27,7 @@ export default class FileFieldView extends React.PureComponent<IFileFieldViewPro
                 <div className={bem.element('button')}>
                     <ButtonComponent
                         {...this.props.buttonProps}
+                        layout={false}
                         label={null}
                     >
                         <Icon

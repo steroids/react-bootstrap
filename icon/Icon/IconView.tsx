@@ -16,6 +16,7 @@ export default class IconView extends React.PureComponent<IIconViewProps & IBemH
                     title={this.props.title}
                     dangerouslySetInnerHTML={{__html: this.props.icon}}
                     className={bem(bem.block(), this.props.className)}
+                    onClick={this.props.onClick}
                 />
             );
         } else {
@@ -25,6 +26,7 @@ export default class IconView extends React.PureComponent<IIconViewProps & IBemH
                     title={this.props.title}
                     src={this.props.icon}
                     className={bem(bem.block(), this.props.className)}
+                    onClick={this.props.onClick}
                 />
             );
         }
