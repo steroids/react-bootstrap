@@ -10,7 +10,7 @@ export default class DateTimeFieldView extends React.PureComponent<IDateTimeFiel
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem(bem.block())}>
+            <div className={bem(bem.block(), this.props.className)}>
                 <div className={bem.element('date')}>
                     {this.props.dateField}
                 </div>
