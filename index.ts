@@ -45,6 +45,7 @@ import PaginationMoreView from './list/Pagination/PaginationMoreView';
 import PaginationButtonView from './list/Pagination/PaginationButtonView';
 import PaginationSizeView from './list/PaginationSize/PaginationSizeView';
 import ModalView from './modal/Modal/ModalView';
+import TwoFactorModalView from './modal/TwoFactorModal/TwoFactorModalView';
 import BreadcrumbsView from './nav/Breadcrubms/BreadcrumbsView';
 import ControlsView from './nav/Controls/ControlsView';
 import NavBarView from './nav/Nav/NavBarView';
@@ -103,6 +104,7 @@ export default {
     'list.PaginationMoreView': PaginationMoreView,
     'list.PaginationSizeView': PaginationSizeView,
     'modal.ModalView': ModalView,
+    'modal.TwoFactorModalView': TwoFactorModalView,
     'nav.BreadcrumbsView': BreadcrumbsView,
     'nav.ControlsView': ControlsView,
     'nav.NavBarView': NavBarView,
