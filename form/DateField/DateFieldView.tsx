@@ -1,8 +1,8 @@
 import * as React from 'react';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
-import _isString from 'lodash/isString';
-import _upperFirst from 'lodash/upperFirst';
+import _isString from 'lodash-es/isString';
+import _upperFirst from 'lodash-es/upperFirst';
 
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
