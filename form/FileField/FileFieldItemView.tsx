@@ -11,7 +11,11 @@ export default class FileFieldItemView extends React.PureComponent<IFileFieldIte
     render() {
         const bem = this.props.bem;
         return (
-            <div className={bem(bem.block(), 'card float-left mb-1 mr-1')}>
+            <div className={bem(
+                bem.block(),
+                'card float-left mb-1 mr-1',
+                this.props.error && 'border-danger',
+            )}>
                 {this.props.image && (
                     <img
                         src={this.props.image.url}
@@ -36,10 +40,14 @@ export default class FileFieldItemView extends React.PureComponent<IFileFieldIte
                 )}
                 <div className='card-body'>
                     <p
-                        className={bem(bem.element('text'), 'card-text text-center')}
-                        title={this.props.title}
+                        className={bem(
+                            bem.element('text'),
+                            'card-text text-center',
+                            this.props.error && 'text-danger',
+                        )}
+                        title={this.props.error || this.props.title}
                     >
-                        {this.props.title}
+                        {this.props.error || this.props.title}
                     </p>
                 </div>
             </div>
