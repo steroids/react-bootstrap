@@ -7,7 +7,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 @bem('ButtonView')
-export default class ButtonView extends React.PureComponent<IButtonViewProps & IBemHocOutput> {
+export default class ButtonView extends React.Component<IButtonViewProps & IBemHocOutput> {
 
     render() {
         return this.props.tag === 'a' ? this.renderLink() : this.renderButton();

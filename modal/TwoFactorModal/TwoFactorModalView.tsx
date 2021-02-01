@@ -8,7 +8,7 @@ import {ITwoFactorModalViewProps} from '@steroidsjs/core/ui/modal/TwoFactorModal
 import './TwoFactorModalView.scss';
 
 @bem('TwoFactorModalView')
-export default class TwoFactorModalView extends React.PureComponent<ITwoFactorModalViewProps & IBemHocOutput> {
+export default class TwoFactorModalView extends React.Component<ITwoFactorModalViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

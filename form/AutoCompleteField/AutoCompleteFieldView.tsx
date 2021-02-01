@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IAutoCompleteFieldViewProps} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 
 @bem('AutoCompleteFieldView')
-export default class AutoCompleteFieldView extends React.PureComponent<IAutoCompleteFieldViewProps & IBemHocOutput> {
+export default class AutoCompleteFieldView extends React.Component<IAutoCompleteFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

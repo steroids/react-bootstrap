@@ -7,7 +7,7 @@ import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
 
 @bem('ModalView')
-export default class ModalView extends React.PureComponent<IModalViewProps & IBemHocOutput> {
+export default class ModalView extends React.Component<IModalViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

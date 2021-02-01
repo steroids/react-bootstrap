@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ITextFieldViewProps} from '@steroidsjs/core/ui/form/TextField/TextField';
 
 @bem('TextFieldView')
-export default class TextFieldView extends React.PureComponent<ITextFieldViewProps & IBemHocOutput> {
+export default class TextFieldView extends React.Component<ITextFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

@@ -7,7 +7,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ISwitcherFieldViewProps} from '@steroidsjs/core/ui/form/SwitcherField/SwitcherField';
 
 @bem('SwitcherFieldView')
-export default class SwitcherFieldView extends React.PureComponent<ISwitcherFieldViewProps & IBemHocOutput> {
+export default class SwitcherFieldView extends React.Component<ISwitcherFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

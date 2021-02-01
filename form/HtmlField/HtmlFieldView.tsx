@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IHtmlFieldViewProps} from '@steroidsjs/core/ui/form/HtmlField/HtmlField';
 
 @bem('HtmlFieldView')
-export default class HtmlFieldView extends React.PureComponent<IHtmlFieldViewProps & IBemHocOutput> {
+export default class HtmlFieldView extends React.Component<IHtmlFieldViewProps & IBemHocOutput> {
 
     render() {
         if (process.env.IS_SSR) {

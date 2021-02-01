@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ICheckboxColumnViewProps} from '@steroidsjs/core/ui/list/CheckboxColumn/CheckboxColumn';
 
 @bem('CheckboxColumnView')
-export default class CheckboxColumnView extends React.PureComponent<ICheckboxColumnViewProps & IBemHocOutput> {
+export default class CheckboxColumnView extends React.Component<ICheckboxColumnViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

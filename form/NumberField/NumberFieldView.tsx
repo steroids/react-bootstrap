@@ -9,7 +9,7 @@ interface INumberFieldViewState {
 }
 
 @bem('NumberFieldView')
-export default class NumberFieldView extends React.PureComponent<INumberFieldViewProps & IBemHocOutput, INumberFieldViewState> {
+export default class NumberFieldView extends React.Component<INumberFieldViewProps & IBemHocOutput, INumberFieldViewState> {
 
     _inputRef: React.RefObject<any>;
 

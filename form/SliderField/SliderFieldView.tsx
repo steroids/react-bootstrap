@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ISliderFieldViewProps} from '@steroidsjs/core/ui/form/SliderField/SliderField';
 
 @bem('SliderFieldView')
-export default class SliderFieldView extends React.PureComponent<ISliderFieldViewProps & IBemHocOutput> {
+export default class SliderFieldView extends React.Component<ISliderFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

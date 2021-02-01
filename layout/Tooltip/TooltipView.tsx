@@ -4,7 +4,7 @@ import {ITooltipViewProps} from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('TooltipView')
-export default class TooltipView extends React.PureComponent<ITooltipViewProps & IBemHocOutput> {
+export default class TooltipView extends React.Component<ITooltipViewProps & IBemHocOutput> {
 
     tooltipRef: React.RefObject<any>;
     arrowRef: React.RefObject<any>;

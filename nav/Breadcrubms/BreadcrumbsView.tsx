@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
 
 @bem('Breadcrumbs')
-export default class BreadcrumbsView extends React.PureComponent<IBreadcrumbsViewProps & IBemHocOutput> {
+export default class BreadcrumbsView extends React.Component<IBreadcrumbsViewProps & IBemHocOutput> {
 
     static defaultProps = {
         items: [],

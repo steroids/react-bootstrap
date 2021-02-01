@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ICheckboxListFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxListField/CheckboxListField';
 
 @bem('CheckboxListFieldView')
-export default class CheckboxListFieldView extends React.PureComponent<ICheckboxListFieldViewProps & IBemHocOutput> {
+export default class CheckboxListFieldView extends React.Component<ICheckboxListFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

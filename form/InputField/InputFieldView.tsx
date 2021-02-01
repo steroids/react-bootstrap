@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IInputFieldViewProps} from '@steroidsjs/core/ui/form/InputField/InputField';
 
 @bem('InputFieldView')
-export default class InputFieldView extends React.PureComponent<IInputFieldViewProps & IBemHocOutput> {
+export default class InputFieldView extends React.Component<IInputFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

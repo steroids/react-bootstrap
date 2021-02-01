@@ -5,7 +5,7 @@ import {IPaginationSizeViewProps} from '@steroidsjs/core/ui/list/PaginationSize/
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('PaginationSizeView')
-export default class PaginationSizeView extends React.PureComponent<IPaginationSizeViewProps & IBemHocOutput> {
+export default class PaginationSizeView extends React.Component<IPaginationSizeViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

@@ -4,7 +4,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ITimeFieldViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
 
 @bem('TimeFieldView')
-export default class TimeFieldView extends React.PureComponent<ITimeFieldViewProps & IBemHocOutput> {
+export default class TimeFieldView extends React.Component<ITimeFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

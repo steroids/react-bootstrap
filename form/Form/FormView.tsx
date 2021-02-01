@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFormViewProps} from '@steroidsjs/core/ui/form/Form/Form';
 
 @bem('FormView')
-export default class FormView extends React.PureComponent<IFormViewProps & IBemHocOutput> {
+export default class FormView extends React.Component<IFormViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

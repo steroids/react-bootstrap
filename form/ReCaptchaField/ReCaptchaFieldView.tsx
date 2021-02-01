@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IReCaptchaFieldViewProps} from '@steroidsjs/core/ui/form/ReCaptchaField/ReCaptchaField';
 
 @bem('ReCaptchaFieldView')
-export default class ReCaptchaFieldView extends React.PureComponent<IReCaptchaFieldViewProps & IBemHocOutput> {
+export default class ReCaptchaFieldView extends React.Component<IReCaptchaFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

@@ -11,7 +11,7 @@ import Icon from '@steroidsjs/core/ui/icon/Icon';
 import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
 
 @bem('DateFieldView')
-export default class DateFieldView extends React.PureComponent<IDateFieldViewProps & IBemHocOutput> {
+export default class DateFieldView extends React.Component<IDateFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;
@@ -94,7 +94,7 @@ interface IYearMonthFormProps extends CaptionElementProps {
     toMonth: Date,
 }
 
-class YearMonthForm extends React.PureComponent<IYearMonthFormProps> {
+class YearMonthForm extends React.Component<IYearMonthFormProps> {
     constructor(props) {
         super(props);
 

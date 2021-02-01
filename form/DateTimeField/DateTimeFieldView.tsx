@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
 
 @bem('DateTimeFieldView')
-export default class DateTimeFieldView extends React.PureComponent<IDateTimeFieldViewProps & IBemHocOutput> {
+export default class DateTimeFieldView extends React.Component<IDateTimeFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

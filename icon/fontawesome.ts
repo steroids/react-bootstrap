@@ -219,28 +219,31 @@ const groupedIcons = {
     ]
 };
 
-// All icons
-const icons = {};
-Object.keys(groupedIcons).forEach(group => {
-    groupedIcons[group].forEach(name => {
-        icons[name] = require(`@fortawesome/fontawesome-free/svgs/${group}/${name}.svg`);
+
+export default () => {
+    // All icons
+    const icons = {};
+    Object.keys(groupedIcons).forEach(group => {
+        groupedIcons[group].forEach(name => {
+            icons[name] = require(`@fortawesome/fontawesome-free/svgs/${group}/${name}.svg`);
+        });
     });
-});
 
-// Core icons
-const coreIconsMap = {
-    create: 'plus-square',
-    update: 'pen-square',
-    delete: 'trash',
-    view: 'eye',
-    accept: 'check-circle',
-    reject: 'times-circle',
-    back: 'arrow-left',
-    securityEye: 'eye',
-    securityEyeSlash: 'eye-slash',
+    // Core icons
+    const coreIconsMap = {
+        create: 'plus-square',
+        update: 'pen-square',
+        delete: 'trash',
+        view: 'eye',
+        accept: 'check-circle',
+        reject: 'times-circle',
+        back: 'arrow-left',
+        securityEye: 'eye',
+        securityEyeSlash: 'eye-slash',
+    };
+    Object.keys(coreIconsMap).forEach(name => {
+        icons[name] = icons[coreIconsMap[name]];
+    });
+
+    return icons;
 };
-Object.keys(coreIconsMap).forEach(name => {
-    icons[name] = icons[coreIconsMap[name]];
-});
-
-export default icons;

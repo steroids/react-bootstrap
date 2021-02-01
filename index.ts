@@ -1,117 +1,59 @@
-import CrudView from './crud/Crud/CrudView';
-import AutoCompleteFieldView from './form/AutoCompleteField/AutoCompleteFieldView';
-import ButtonView from './form/Button/ButtonView';
-import CheckboxFieldView from './form/CheckboxField/CheckboxFieldView';
-import CheckboxListFieldView from './form/CheckboxListField/CheckboxListFieldView';
-import DateFieldView from './form/DateField/DateFieldView';
-import DateTimeFieldView from './form/DateTimeField/DateTimeFieldView';
-import DropDownFieldView from './form/DropDownField/DropDownFieldView';
-import FieldSetView from './form/FieldSet/FieldSetView';
-import FieldLayoutView from './form/FieldLayout/FieldLayoutView';
-import FieldListView from './form/FieldList/FieldListView';
-import FieldListItemView from './form/FieldList/FieldListItemView';
-import FileFieldView from './form/FileField/FileFieldView';
-import FileFieldItemView from './form/FileField/FileFieldItemView';
-import FormView from './form/Form/FormView';
-import HtmlFieldView from './form/HtmlField/HtmlFieldView';
-import InputFieldView from './form/InputField/InputFieldView';
-import NumberFieldView from './form/NumberField/NumberFieldView';
-import PasswordFieldView from './form/PasswordField/PasswordFieldView';
-import RadioListFieldView from './form/RadioListField/RadioListFieldView';
-import RangeFieldView from './form/RangeField/RangeFieldView';
-import ReCaptchaFieldView from './form/ReCaptchaField/ReCaptchaFieldView';
-import SliderFieldView from './form/SliderField/SliderFieldView';
-import SwitcherFieldView from './form/SwitcherField/SwitcherFieldView';
-import TextFieldView from './form/TextField/TextFieldView';
-import TimeFieldView from './form/TimeField/TimeFieldView';
-import BooleanFormatterView from './format/BooleanFormatter/BooleanFormatterView';
-import DefaultFormatterView from './format/DefaultFormatter/DefaultFormatterView';
-import PhotosFormatterView from './format/PhotosFormatter/PhotosFormatterView';
-import IconView from './icon/Icon/IconView';
-import HeaderView from './layout/Header/HeaderView';
-import LoaderView from './layout/Loader/LoaderView';
-import NotificationsItemView from './layout/Notifications/NotificationsItemView';
-import NotificationsView from './layout/Notifications/NotificationsView';
-import TooltipView from './layout/Tooltip/TooltipView';
-import AccordionView from './list/Accordion/AccordionView';
-import ControlsColumnView from './list/ControlsColumnView/ControlsColumnView';
-import CheckboxColumnView from './list/CheckboxColumn/CheckboxColumnView';
-import DetailView from './list/Detail/DetailView';
-import EmptyView from './list/Empty/EmptyView';
-import GridView from './list/Grid/GridView';
-import ListView from './list/List/ListView';
-import ListItemView from './list/List/ListItemView';
-import PaginationMoreView from './list/Pagination/PaginationMoreView';
-import PaginationButtonView from './list/Pagination/PaginationButtonView';
-import PaginationSizeView from './list/PaginationSize/PaginationSizeView';
-import ModalView from './modal/Modal/ModalView';
-import TwoFactorModalView from './modal/TwoFactorModal/TwoFactorModalView';
-import BreadcrumbsView from './nav/Breadcrubms/BreadcrumbsView';
-import ControlsView from './nav/Controls/ControlsView';
-import NavBarView from './nav/Nav/NavBarView';
-import NavButtonView from './nav/Nav/NavButtonView';
-import NavIconView from './nav/Nav/NavIconView';
-import NavLinkView from './nav/Nav/NavLinkView';
-import NavListView from './nav/Nav/NavListView';
-import NavTabsView from './nav/Nav/NavTabsView';
-import TreeView from './nav/Tree/TreeView';
-
 export default {
-    'crud.CrudView': CrudView,
-    'form.AutoCompleteFieldView': AutoCompleteFieldView,
-    'form.ButtonView': ButtonView,
-    'form.CheckboxFieldView': CheckboxFieldView,
-    'form.CheckboxListFieldView': CheckboxListFieldView,
-    'form.DateFieldView': DateFieldView,
-    'form.DateTimeFieldView': DateTimeFieldView,
-    'form.DropDownFieldView': DropDownFieldView,
-    'form.FieldLayoutView': FieldLayoutView,
-    'form.FieldSetView': FieldSetView,
-    'form.FieldListView': FieldListView,
-    'form.FieldListItemView': FieldListItemView,
-    'form.FileFieldView': FileFieldView,
-    'form.FileFieldItemView': FileFieldItemView,
-    'form.FormView': FormView,
-    'form.HtmlFieldView': HtmlFieldView,
-    'form.InputFieldView': InputFieldView,
-    'form.NumberFieldView': NumberFieldView,
-    'form.PasswordFieldView': PasswordFieldView,
-    'form.RadioListFieldView': RadioListFieldView,
-    'form.RangeFieldView': RangeFieldView,
-    'form.ReCaptchaFieldView': ReCaptchaFieldView,
-    'form.SliderFieldView': SliderFieldView,
-    'form.SwitcherFieldView': SwitcherFieldView,
-    'form.TextFieldView': TextFieldView,
-    'form.TimeFieldView': TimeFieldView,
-    'format.BooleanFormatterView': BooleanFormatterView,
-    'format.DefaultFormatterView': DefaultFormatterView,
-    'format.PhotosFormatterView': PhotosFormatterView,
-    'icon.IconView': IconView,
-    'layout.HeaderView': HeaderView,
-    'layout.LoaderView': LoaderView,
-    'layout.NotificationsView': NotificationsView,
-    'layout.NotificationsItemView': NotificationsItemView,
-    'layout.TooltipView': TooltipView,
-    'list.AccordionView': AccordionView,
-    'list.ControlsColumnView': ControlsColumnView,
-    'list.CheckboxColumnView': CheckboxColumnView,
-    'list.DetailView': DetailView,
-    'list.EmptyView': EmptyView,
-    'list.GridView': GridView,
-    'list.ListView': ListView,
-    'list.ListItemView': ListItemView,
-    'list.PaginationButtonView': PaginationButtonView,
-    'list.PaginationMoreView': PaginationMoreView,
-    'list.PaginationSizeView': PaginationSizeView,
-    'modal.ModalView': ModalView,
-    'modal.TwoFactorModalView': TwoFactorModalView,
-    'nav.BreadcrumbsView': BreadcrumbsView,
-    'nav.ControlsView': ControlsView,
-    'nav.NavBarView': NavBarView,
-    'nav.NavButtonView': NavButtonView,
-    'nav.NavIconView': NavIconView,
-    'nav.NavLinkView': NavLinkView,
-    'nav.NavListView': NavListView,
-    'nav.NavTabsView': NavTabsView,
-    'nav.TreeView': TreeView,
+    'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
+    'form.AutoCompleteFieldView': {lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default},
+    'form.ButtonView': {lazy: () => require('./form/Button/ButtonView').default},
+    'form.CheckboxFieldView': {lazy: () => require('./form/CheckboxField/CheckboxFieldView').default},
+    'form.CheckboxListFieldView': {lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default},
+    'form.DateFieldView': {lazy: () => require('./form/DateField/DateFieldView').default},
+    'form.DateTimeFieldView': {lazy: () => require('./form/DateTimeField/DateTimeFieldView').default},
+    'form.DropDownFieldView': {lazy: () => require('./form/DropDownField/DropDownFieldView').default},
+    'form.FieldLayoutView': {lazy: () => require('./form/FieldSet/FieldSetView').default},
+    'form.FieldSetView': {lazy: () => require('./form/FieldLayout/FieldLayoutView').default},
+    'form.FieldListView': {lazy: () => require('./form/FieldList/FieldListView').default},
+    'form.FieldListItemView': {lazy: () => require('./form/FieldList/FieldListItemView').default},
+    'form.FileFieldView': {lazy: () => require('./form/FileField/FileFieldView').default},
+    'form.FileFieldItemView': {lazy: () => require('./form/FileField/FileFieldItemView').default},
+    'form.FormView': {lazy: () => require('./form/Form/FormView').default},
+    'form.HtmlFieldView': {lazy: () => require('./form/HtmlField/HtmlFieldView').default},
+    'form.InputFieldView': {lazy: () => require('./form/InputField/InputFieldView').default},
+    'form.NumberFieldView': {lazy: () => require('./form/NumberField/NumberFieldView').default},
+    'form.PasswordFieldView': {lazy: () => require('./form/PasswordField/PasswordFieldView').default},
+    'form.RadioListFieldView': {lazy: () => require('./form/RadioListField/RadioListFieldView').default},
+    'form.RangeFieldView': {lazy: () => require('./form/RangeField/RangeFieldView').default},
+    'form.ReCaptchaFieldView': {lazy: () => require('./form/ReCaptchaField/ReCaptchaFieldView').default},
+    'form.SliderFieldView': {lazy: () => require('./form/SliderField/SliderFieldView').default},
+    'form.SwitcherFieldView': {lazy: () => require('./form/SwitcherField/SwitcherFieldView').default},
+    'form.TextFieldView': {lazy: () => require('./form/TextField/TextFieldView').default},
+    'form.TimeFieldView': {lazy: () => require('./form/TimeField/TimeFieldView').default},
+    'format.BooleanFormatterView': {lazy: () => require('./format/BooleanFormatter/BooleanFormatterView').default},
+    'format.DefaultFormatterView': {lazy: () => require('./format/DefaultFormatter/DefaultFormatterView').default},
+    'format.PhotosFormatterView': {lazy: () => require('./format/PhotosFormatter/PhotosFormatterView').default},
+    'icon.IconView': {lazy: () => require('./icon/Icon/IconView').default},
+    'layout.HeaderView': {lazy: () => require('./layout/Header/HeaderView').default},
+    'layout.LoaderView': {lazy: () => require('./layout/Loader/LoaderView').default},
+    'layout.NotificationsView': {lazy: () => require('./layout/Notifications/NotificationsItemView').default},
+    'layout.NotificationsItemView': {lazy: () => require('./layout/Notifications/NotificationsView').default},
+    'layout.TooltipView': {lazy: () => require('./layout/Tooltip/TooltipView').default},
+    'list.AccordionView': {lazy: () => require('./list/Accordion/AccordionView').default},
+    'list.ControlsColumnView': {lazy: () => require('./list/ControlsColumnView/ControlsColumnView').default},
+    'list.CheckboxColumnView': {lazy: () => require('./list/CheckboxColumn/CheckboxColumnView').default},
+    'list.DetailView': {lazy: () => require('./list/Detail/DetailView').default},
+    'list.EmptyView': {lazy: () => require('./list/Empty/EmptyView').default},
+    'list.GridView': {lazy: () => require('./list/Grid/GridView').default},
+    'list.ListView': {lazy: () => require('./list/List/ListView').default},
+    'list.ListItemView': {lazy: () => require('./list/List/ListItemView').default},
+    'list.PaginationButtonView': {lazy: () => require('./list/Pagination/PaginationMoreView').default},
+    'list.PaginationMoreView': {lazy: () => require('./list/Pagination/PaginationButtonView').default},
+    'list.PaginationSizeView': {lazy: () => require('./list/PaginationSize/PaginationSizeView').default},
+    'modal.ModalView': {lazy: () => require('./modal/Modal/ModalView').default},
+    'modal.TwoFactorModalView': {lazy: () => require('./modal/TwoFactorModal/TwoFactorModalView').default},
+    'nav.BreadcrumbsView': {lazy: () => require('./nav/Breadcrubms/BreadcrumbsView').default},
+    'nav.ControlsView': {lazy: () => require('./nav/Controls/ControlsView').default},
+    'nav.NavBarView': {lazy: () => require('./nav/Nav/NavBarView').default},
+    'nav.NavButtonView': {lazy: () => require('./nav/Nav/NavButtonView').default},
+    'nav.NavIconView': {lazy: () => require('./nav/Nav/NavIconView').default},
+    'nav.NavLinkView': {lazy: () => require('./nav/Nav/NavLinkView').default},
+    'nav.NavListView': {lazy: () => require('./nav/Nav/NavListView').default},
+    'nav.NavTabsView': {lazy: () => require('./nav/Nav/NavTabsView').default},
+    'nav.TreeView': {lazy: () => require('./nav/Tree/TreeView').default},
 };

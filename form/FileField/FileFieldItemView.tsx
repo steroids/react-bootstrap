@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 
 @bem('FileFieldItemView')
-export default class FileFieldItemView extends React.PureComponent<IFileFieldItemViewProps & IBemHocOutput> {
+export default class FileFieldItemView extends React.Component<IFileFieldItemViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

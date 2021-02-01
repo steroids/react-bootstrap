@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFieldListItemViewProps} from '@steroidsjs/core/ui/form/FieldList/FieldList';
 
 @bem('FieldListItemView')
-export default class FieldListItemView extends React.PureComponent<IFieldListItemViewProps & IBemHocOutput> {
+export default class FieldListItemView extends React.Component<IFieldListItemViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

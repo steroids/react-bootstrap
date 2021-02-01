@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
 
 @bem('ControlsColumnView')
-export default class ControlsColumnView extends React.PureComponent<IControlsColumnViewProps & IBemHocOutput> {
+export default class ControlsColumnView extends React.Component<IControlsColumnViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

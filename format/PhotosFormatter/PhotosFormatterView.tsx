@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Gallery from 'react-grid-gallery';
 import {IPhotosFormatterViewProps} from '@steroidsjs/core/ui/format/PhotosFormatter/PhotosFormatter';
 
-export default class PhotosFormatterView extends React.PureComponent<IPhotosFormatterViewProps> {
+export default class PhotosFormatterView extends React.Component<IPhotosFormatterViewProps> {
 
     static defaultProps = {
         photoRowHeight: 120

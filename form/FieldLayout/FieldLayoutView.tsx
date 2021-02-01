@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
 
 @bem('FieldLayoutView')
-export default class FieldLayoutView extends React.PureComponent<IFieldLayoutViewProps & IBemHocOutput> {
+export default class FieldLayoutView extends React.Component<IFieldLayoutViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

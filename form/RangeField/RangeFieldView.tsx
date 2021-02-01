@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IRangeFieldViewProps} from '@steroidsjs/core/ui/form/RangeField/RangeField';
 
 @bem('RangeFieldView')
-export default class RangeFieldView extends React.PureComponent<IRangeFieldViewProps & IBemHocOutput> {
+export default class RangeFieldView extends React.Component<IRangeFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

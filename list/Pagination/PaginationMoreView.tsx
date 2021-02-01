@@ -6,7 +6,7 @@ import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Paginati
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 
 @bem('PaginationMoreView')
-export default class PaginationMoreView extends React.PureComponent<IPaginationViewProps & IBemHocOutput> {
+export default class PaginationMoreView extends React.Component<IPaginationViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

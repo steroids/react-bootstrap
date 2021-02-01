@@ -5,7 +5,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDetailViewProps} from '@steroidsjs/core/ui/list/Detail/Detail';
 
 @bem('DetailView')
-export default class DetailView extends React.PureComponent<IDetailViewProps & IBemHocOutput> {
+export default class DetailView extends React.Component<IDetailViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

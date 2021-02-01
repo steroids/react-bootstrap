@@ -6,7 +6,7 @@ import {IPasswordFieldViewProps} from '@steroidsjs/core/ui/form/PasswordField/Pa
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 @bem('PasswordFieldView')
-export default class PasswordFieldView extends React.PureComponent<IPasswordFieldViewProps & IBemHocOutput> {
+export default class PasswordFieldView extends React.Component<IPasswordFieldViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

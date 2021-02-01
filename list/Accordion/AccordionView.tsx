@@ -7,7 +7,7 @@ import {IAccordionViewProps} from '@steroidsjs/core/ui/list/Accordion/Accordion'
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 @bem('AccordionView')
-export default class AccordionView extends React.PureComponent<IAccordionViewProps & IBemHocOutput> {
+export default class AccordionView extends React.Component<IAccordionViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;

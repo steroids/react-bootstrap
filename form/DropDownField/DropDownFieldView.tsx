@@ -7,7 +7,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 
 @bem('DropDownFieldView')
-export default class DropDownFieldView extends React.PureComponent<IDropDownFieldViewProps & IBemHocOutput> {
+export default class DropDownFieldView extends React.Component<IDropDownFieldViewProps & IBemHocOutput> {
 
     static defaultProps = {
         searchAutoFocus: true,

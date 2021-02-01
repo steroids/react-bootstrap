@@ -6,7 +6,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IIconViewProps} from '@steroidsjs/core/ui/icon/Icon/Icon';
 
 @bem('IconView')
-export default class IconView extends React.PureComponent<IIconViewProps & IBemHocOutput> {
+export default class IconView extends React.Component<IIconViewProps & IBemHocOutput> {
 
     render() {
         const bem = this.props.bem;
