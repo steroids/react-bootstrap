@@ -1,31 +1,26 @@
 import * as React from 'react';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
 
-import {bem} from '@steroidsjs/core/hoc';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ICrudViewProps} from '@steroidsjs/core/ui/crud/Crud/Crud';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('CrudView')
-export default class CrudView extends React.Component<ICrudViewProps & IBemHocOutput> {
+export default function CrudView(props: ICrudViewProps) {
+    const bem = useBem('CrudView');
 
-    render() {
-        const bem = this.props.bem;
-        return (
-            <div className={bem(bem.block(), this.props.className)}>
-                {this.props.title && (
-                    <h1 className='mb-3'>
-                        {this.props.title}
-                    </h1>
-                )}
-                {this.props.controls && (
-                    <Controls
-                        items={this.props.controls}
-                        className={bem.element('controls')}
-                    />
-                )}
-                {this.props.children}
-            </div>
-        );
-    }
-
+    return (
+        <div className={bem(bem.block(), props.className)}>
+            {props.title && (
+                <h1 className='mb-3'>
+                    {props.title}
+                </h1>
+            )}
+            {props.controls && (
+                <Controls
+                    items={props.controls}
+                    className={bem.element('controls')}
+                />
+            )}
+            {props.children}
+        </div>
+    );
 }

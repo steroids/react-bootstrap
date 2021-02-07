@@ -1,59 +1,54 @@
 import * as React from 'react';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IPasswordFieldViewProps} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('PasswordFieldView')
-export default class PasswordFieldView extends React.Component<IPasswordFieldViewProps & IBemHocOutput> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
+export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemHocOutput) {
+    const bem = useBem('PasswordFieldView');
+    return (
+        <div
+            className={bem(
+                bem.block(),
+                props.className
+            )}
+        >
             <div
                 className={bem(
-                    bem.block(),
-                    this.props.className
+                    bem.element('container', {
+                        'disabled': props.inputProps.disabled,
+                    }),
+                    'form-control',
+                    'form-control-' + props.size,
+                    props.isInvalid && 'is-invalid',
                 )}
             >
-                <div
+                <input
                     className={bem(
-                        bem.element('container', {
-                            'disabled': this.props.inputProps.disabled,
+                        bem.element('input', {
+                            size: props.size,
                         }),
-                        'form-control',
-                        'form-control-' + this.props.size,
-                        this.props.isInvalid && 'is-invalid',
+                        props.isInvalid && 'is-invalid',
+                        props.className
                     )}
-                >
-                    <input
-                        className={bem(
-                            bem.element('input', {
-                                size: this.props.size,
-                            }),
-                            this.props.isInvalid && 'is-invalid',
-                            this.props.className
-                        )}
-                        {...this.props.inputProps}
-                    />
-                    {this.props.security && (
-                        <span
-                            className={bem(bem.element('icon-eye'))}
-                            onMouseDown={this.props.onShowPassword}
-                            onMouseUp={this.props.onHidePassword}
-                        >
-                            <Icon
-                                name={this.props.inputProps.type === 'password' ? 'securityEye' : 'securityEyeSlash'}
-                            />
-                        </span>
-                    )}
-                </div>
-                {this.props.security && (
-                    <div className={bem.element('security-bar', this.props.securityLevel)}/>
+                    {...props.inputProps}
+                />
+                {props.security && (
+                    <span
+                        className={bem(bem.element('icon-eye'))}
+                        onMouseDown={props.onShowPassword}
+                        onMouseUp={props.onHidePassword}
+                    >
+                        <Icon
+                            name={props.inputProps.type === 'password' ? 'securityEye' : 'securityEyeSlash'}
+                        />
+                    </span>
                 )}
             </div>
-        );
-    }
-
+            {props.security && (
+                <div className={bem.element('security-bar', props.securityLevel)}/>
+            )}
+        </div>
+    );
 }

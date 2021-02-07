@@ -1,31 +1,27 @@
 import * as React from 'react';
-import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ITimeFieldViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('TimeFieldView')
-export default class TimeFieldView extends React.Component<ITimeFieldViewProps & IBemHocOutput> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
-            <input
-                className={bem(
-                    bem.block({
-                        size: this.props.size,
-                    }),
-                    'form-control',
-                    'form-control-' + this.props.size,
-                    this.props.isInvalid && 'is-invalid',
-                    this.props.className
-                )}
-                {...this.props.inputProps}
-                onChange={e => this.props.inputProps.onChange(e.target.value)}
-                type={this.props.type || 'time'}
-                placeholder={this.props.placeholder}
-                disabled={this.props.disabled}
-                required={this.props.required}
-            />
-        );
-    }
+export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput) {
+    const bem = useBem('TimeFieldView');
+    return (
+        <input
+            className={bem(
+                bem.block({
+                    size: props.size,
+                }),
+                'form-control',
+                'form-control-' + props.size,
+                props.isInvalid && 'is-invalid',
+                props.className
+            )}
+            {...props.inputProps}
+            onChange={e => props.inputProps.onChange(e.target.value)}
+            type={props.type || 'time'}
+            placeholder={props.placeholder}
+            disabled={props.disabled}
+            required={props.required}
+        />
+    );
 }

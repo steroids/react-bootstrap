@@ -4,32 +4,23 @@ import {bem} from '@steroidsjs/core/hoc';
 import Link from '@steroidsjs/core/ui/nav/Link';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('NavListView')
-export default class NavListView extends React.Component<INavViewProps & IBemHocOutput> {
 
-    render() {
-        const bem = this.props.bem;
-        return (
-            <ul className={bem('nav flex-column', bem.block(), this.props.className)}>
-                {this.renderItems(this.props.items)}
-                {this.props.children}
-            </ul>
-        );
-    }
+export default function NavListView(props: INavViewProps & IBemHocOutput) {
+    const bem = useBem('NavListView');
 
-    renderItems(items) {
-        const bem = this.props.bem;
+    const renderItems = (items) => {
         if (!items || items.length === 0) {
             return null;
         }
         return items.map((item, index) => (
             <li
                 key={index}
-                className={bem('nav-item', bem.element('item'), this.props.navClassName)}
+                className={bem('nav-item', bem.element('item'), props.navClassName)}
             >
                 <Link
-                    onClick={() => this.props.onClick(item, index)}
+                    onClick={() => props.onClick(item, index)}
                     layout={false}
                     {...item}
                     key={item.id || index}
@@ -41,11 +32,18 @@ export default class NavListView extends React.Component<INavViewProps & IBemHoc
                 />
                 {item.items && item.items.length > 0 && (
                     <ul className={bem('nav flex-column', bem.element('sub-list'))}>
-                        {this.renderItems(item.items)}
+                        {renderItems(item.items)}
                     </ul>
                 )}
             </li>
         ));
     }
+
+    return (
+        <ul className={bem('nav flex-column', bem.block(), props.className)}>
+            {renderItems(props.items)}
+            {props.children}
+        </ul>
+    );
 
 }

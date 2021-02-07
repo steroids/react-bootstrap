@@ -1,56 +1,54 @@
 import * as React from 'react';
 import {ReactText} from 'react';
-import {findDOMNode} from 'react-dom';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('DropDownFieldView')
-export default class DropDownFieldView extends React.Component<IDropDownFieldViewProps & IBemHocOutput> {
+export default function DropDownFieldView(props: IDropDownFieldViewProps & IBemHocOutput) {
 
+    /* TODO Move to core component
     static defaultProps = {
         searchAutoFocus: true,
     };
 
     componentDidUpdate(prevProps) {
         // Auto focus on search
-        if (this.props.searchAutoFocus && this.props.autoComplete && !prevProps.isOpened && this.props.isOpened) {
+        if (props.searchAutoFocus && props.autoComplete && !prevProps.isOpened && props.isOpened) {
             const element: any = findDOMNode(this);
-            const input = element.querySelector('.' + this.props.bem.element('search-input'));
+            const input = element.querySelector('.' + props.bem.element('search-input'));
             if (input) {
                 input.focus();
             }
         }
-    }
+    }*/
 
-    render() {
-        const bem = this.props.bem;
-        return (
-            <div className={bem.block({size: this.props.size})}>
-                <div
-                    className={bem.element('selected-items', {
-                        reset: this.props.showReset,
-                        'no-border': this.props.noBorder,
-                        'is-invalid': this.props.isInvalid,
-                    })}
-                    onClick={this.props.onOpen}
-                >
-                    {this.props.multiple ?
-                        this.props.selectedItems.map(item => (
-                            <span
-                                key={item.id as ReactText}
-                                className={bem.element('selected-item-multiple')}
-                            >
+    const bem = useBem('DropDownFieldView');
+    return (
+        <div className={bem.block({size: props.size})}>
+            <div
+                className={bem.element('selected-items', {
+                    reset: props.showReset,
+                    'no-border': props.noBorder,
+                    'is-invalid': props.isInvalid,
+                })}
+                onClick={props.onOpen}
+            >
+                {props.multiple ?
+                    props.selectedItems.map(item => (
+                        <span
+                            key={item.id as ReactText}
+                            className={bem.element('selected-item-multiple')}
+                        >
                                 {item.label}
-                                <span
-                                    className={bem.element('selected-item-multiple-remove')}
-                                    onClick={e => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        this.props.onItemRemove(item);
-                                    }}
-                                >
+                            <span
+                                className={bem.element('selected-item-multiple-remove')}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    e.stopPropagation();
+                                    props.onItemRemove(item);
+                                }}
+                            >
                                      <svg
                                          viewBox="64 64 896 896"
                                          className=""
@@ -64,57 +62,56 @@ export default class DropDownFieldView extends React.Component<IDropDownFieldVie
                                     </svg>
                                 </span>
                             </span>
-                        )) :
-                        this.props.selectedItems.map(item => (
-                            <span
+                    )) :
+                    props.selectedItems.map(item => (
+                        <span
+                            key={item.id as ReactText}
+                            className={bem.element('selected-item')}
+                        >
+                            {item.label}
+                        </span>
+                    ))
+                }
+            </div>
+            {props.showReset && !!props.selectedItems.length && (
+                <span
+                    className={bem.element('reset')}
+                    onClick={props.onReset}
+                />
+            )}
+            {props.isOpened && (
+                <div className={bem.element('drop-down')}>
+                    {props.autoComplete.enable && (
+                        <div className={bem.element('search')}>
+                            <input
+                                {...props.searchInputProps}
+                                onChange={e => props.searchInputProps.onChange(e.target.value)}
+                                className={bem(
+                                    'form-control',
+                                    'form-control-' + props.size,
+                                    bem.element('search-input'),
+                                    props.searchInputProps.className,
+                                )}
+                            />
+                        </div>
+                    )}
+                    <div className={bem.element('drop-down-list')}>
+                        {props.items.map(item => (
+                            <div
                                 key={item.id as ReactText}
-                                className={bem.element('selected-item')}
+                                className={bem.element('drop-down-item', {
+                                    hover: item.isHovered,
+                                    select: item.isSelected
+                                })}
+                                onClick={() => props.onItemClick(item)}
+                                onMouseOver={() => props.onItemMouseOver(item)}
                             >
                                 {item.label}
-                            </span>
-                        ))
-                    }
-                </div>
-                {this.props.showReset && !!this.props.selectedItems.length && (
-                    <span
-                        className={bem.element('reset')}
-                        onClick={this.props.onReset}
-                    />
-                )}
-                {this.props.isOpened && (
-                    <div className={bem.element('drop-down')}>
-                        {this.props.autoComplete.enable && (
-                            <div className={bem.element('search')}>
-                                <input
-                                    {...this.props.searchInputProps}
-                                    onChange={e => this.props.searchInputProps.onChange(e.target.value)}
-                                    className={bem(
-                                        'form-control',
-                                        'form-control-' + this.props.size,
-                                        bem.element('search-input'),
-                                        this.props.searchInputProps.className,
-                                    )}
-                                />
                             </div>
-                        )}
-                        <div className={bem.element('drop-down-list')}>
-                            {this.props.items.map(item => (
-                                <div
-                                    key={item.id as ReactText}
-                                    className={bem.element('drop-down-item', {
-                                        hover: item.isHovered,
-                                        select: item.isSelected
-                                    })}
-                                    onClick={() => this.props.onItemClick(item)}
-                                    onMouseOver={() => this.props.onItemMouseOver(item)}
-                                >
-                                    {item.label}
-                                </div>
-                            ))}
-                        </div>
+                        ))}
                     </div>
-                )}
-            </div>
-        );
-    }
+                </div>
+            )}
+        </div>
+    );
 }

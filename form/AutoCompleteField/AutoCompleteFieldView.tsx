@@ -4,40 +4,41 @@ import {ReactText} from 'react';
 import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IAutoCompleteFieldViewProps} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('AutoCompleteFieldView')
-export default class AutoCompleteFieldView extends React.Component<IAutoCompleteFieldViewProps & IBemHocOutput> {
 
-    render() {
-        const bem = this.props.bem;
+export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps & IBemHocOutput) {
+
+
+        const bem = useBem('AutoCompleteFieldView');
         return (
-            <div className={bem.block({size: this.props.size})}>
+            <div className={bem.block({size: props.size})}>
                 <input
-                    {...this.props.inputProps}
+                    {...props.inputProps}
                     className={bem(
                         bem.block({
-                            size: this.props.size,
+                            size: props.size,
                         }),
                         'form-control',
-                        'form-control-' + this.props.size,
-                        this.props.isInvalid && 'is-invalid',
-                        this.props.inputProps.className,
-                        this.props.className
+                        'form-control-' + props.size,
+                        props.isInvalid && 'is-invalid',
+                        props.inputProps.className,
+                        props.className
                     )}
-                    onChange={e => this.props.input.onChange(e.target.value)}
-                    placeholder={this.props.placeholder}
-                    disabled={this.props.disabled}
-                    required={this.props.required}
+                    onChange={e => props.input.onChange(e.target.value)}
+                    placeholder={props.placeholder}
+                    disabled={props.disabled}
+                    required={props.required}
                 />
-                {this.props.isOpened && (
+                {props.isOpened && (
                     <div className={bem.element('drop-down')}>
                         <div className={bem.element('drop-down-list')}>
-                            {this.props.items.map(item => (
+                            {props.items.map(item => (
                                 <div
                                     key={item.id as ReactText}
                                     className={bem.element('drop-down-item', {hover: item.isHovered, select: item.isSelected})}
-                                    onClick={() => this.props.onItemClick(item)}
-                                    onMouseOver={() => this.props.onItemMouseOver(item)}
+                                    onClick={() => props.onItemClick(item)}
+                                    onMouseOver={() => props.onItemMouseOver(item)}
                                 >
                                     {item.labelHighlighted && (
                                         item.labelHighlighted.map((item, index) => (
@@ -53,6 +54,5 @@ export default class AutoCompleteFieldView extends React.Component<IAutoComplete
                 )}
             </div>
         );
-    }
 
 }

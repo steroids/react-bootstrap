@@ -1,24 +1,20 @@
 import * as React from 'react';
 import {IControlsColumnViewProps} from '@steroidsjs/core/ui/list/ControlsColumn/ControlsColumn';
-import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('ControlsColumnView')
-export default class ControlsColumnView extends React.Component<IControlsColumnViewProps & IBemHocOutput> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
-            <div className={bem.block()}>
-                <Controls
-                    {...this.props}
-                    navProps={{
-                        layout: 'icon',
-                    }}
-                    items={this.props.items}
-                />
-            </div>
-        );
-    }
+export default function ControlsColumnView(props: IControlsColumnViewProps & IBemHocOutput) {
+    const bem = useBem('ControlsColumnView');
+    return (
+        <div className={bem.block()}>
+            <Controls
+                {...props}
+                navProps={{
+                    layout: 'icon',
+                }}
+                items={props.items}
+            />
+        </div>
+    );
 }

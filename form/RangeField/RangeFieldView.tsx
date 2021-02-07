@@ -1,31 +1,26 @@
 import * as React from 'react';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IRangeFieldViewProps} from '@steroidsjs/core/ui/form/RangeField/RangeField';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('RangeFieldView')
-export default class RangeFieldView extends React.Component<IRangeFieldViewProps & IBemHocOutput> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
-            <div className={bem(
-                bem.block({
-                    size: this.props.size,
-                }),
-                this.props.className,
-                'row align-items-center'
-            )}>
-                <div className='col'>
-                    {this.props.fromField}
-                </div>
-                -
-                <div className='col'>
-                    {this.props.toField}
-                </div>
+export default function RangeFieldView(props: IRangeFieldViewProps & IBemHocOutput) {
+    const bem = useBem('RangeFieldView');
+    return (
+        <div className={bem(
+            bem.block({
+                size: props.size,
+            }),
+            props.className,
+            'row align-items-center'
+        )}>
+            <div className='col'>
+                {props.fromField}
             </div>
-        );
-    }
-
+            -
+            <div className='col'>
+                {props.toField}
+            </div>
+        </div>
+    );
 }

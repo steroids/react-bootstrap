@@ -1,60 +1,51 @@
 import * as React from 'react';
-import {bem} from '@steroidsjs/core/hoc';
 import {ITooltipViewProps} from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+import {useEffect, useRef} from 'react';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('TooltipView')
-export default class TooltipView extends React.Component<ITooltipViewProps & IBemHocOutput> {
+export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
+    const tooltipRef = useRef(null);
+    const arrowRef = useRef(null);
 
-    tooltipRef: React.RefObject<any>;
-    arrowRef: React.RefObject<any>;
-
-    constructor(props) {
-        super(props);
-        this.tooltipRef = React.createRef();
-        this.arrowRef = React.createRef();
-    }
-
-    componentDidMount() {
-        this.props.calculatePosition(
-            this.tooltipRef.current.getBoundingClientRect(),
-            this.arrowRef.current.getBoundingClientRect()
+    useEffect(() => {
+        props.calculatePosition(
+            tooltipRef.current.getBoundingClientRect(),
+            arrowRef.current.getBoundingClientRect()
         );
-    }
+    }, []);
 
-    render() {
-        const bem = this.props.bem;
-        return (
+    const bem = useBem('TooltipView');
+    return (
+        <div
+            ref={tooltipRef}
+            className={bem(
+                bem.block({
+                    'show': props.isTooltipVisible
+                }),
+                'tooltip',
+                'tooltip-position-'+props.position
+            )}
+            style={props.style}
+        >
             <div
-                ref={this.tooltipRef}
+                ref={arrowRef}
                 className={bem(
-                    bem.block({
-                        'show': this.props.isTooltipVisible
-                    }),
-                    'tooltip',
-                    'tooltip-position-'+this.props.position
+                    bem.element(
+                        'arrow',
+                        {['position-'+props.position]: true},
+                    )
                 )}
-                style={this.props.style}
+                style={props.arrowPosition}
+            />
+            <div
+                className={bem(
+                    bem.element('content'),
+                    'tooltip-inner'
+                )}
             >
-                <div
-                    ref={this.arrowRef}
-                    className={bem(
-                        bem.element(
-                            'arrow',
-                            {['position-'+this.props.position]: true},
-                        )
-                    )}
-                    style={this.props.arrowPosition}
-                />
-                <div
-                    className={bem(
-                        bem.element('content'),
-                        'tooltip-inner'
-                    )}
-                >
-                    <span>{this.props.content}</span>
-                </div>
+                <span>{props.content}</span>
             </div>
-        );
-    }
+        </div>
+    );
 }

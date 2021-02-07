@@ -1,23 +1,18 @@
 import * as React from 'react';
 import {ReCaptcha} from 'react-recaptcha-v3';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IReCaptchaFieldViewProps} from '@steroidsjs/core/ui/form/ReCaptchaField/ReCaptchaField';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('ReCaptchaFieldView')
-export default class ReCaptchaFieldView extends React.Component<IReCaptchaFieldViewProps & IBemHocOutput> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
-            <div className={bem.block()}>
-                <ReCaptcha
-                    {...this.props.reCaptchaProps}
-                    className={bem.element('captcha')}
-                />
-            </div>
-        );
-    }
-
+export default function ReCaptchaFieldView(props: IReCaptchaFieldViewProps & IBemHocOutput) {
+    const bem = useBem('ReCaptchaFieldView');
+    return (
+        <div className={bem.block()}>
+            <ReCaptcha
+                {...props.reCaptchaProps}
+                className={bem.element('captcha')}
+            />
+        </div>
+    );
 }

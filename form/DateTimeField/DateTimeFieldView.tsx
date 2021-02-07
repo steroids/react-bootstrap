@@ -1,23 +1,19 @@
 import * as React from 'react';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('DateTimeFieldView')
-export default class DateTimeFieldView extends React.Component<IDateTimeFieldViewProps & IBemHocOutput> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
-            <div className={bem(bem.block(), this.props.className)}>
-                <div className={bem.element('date')}>
-                    {this.props.dateField}
-                </div>
-                <div className={bem.element('time')}>
-                    {this.props.timeField}
-                </div>
+export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemHocOutput) {
+    const bem = useBem('DateTimeFieldView');
+    return (
+        <div className={bem(bem.block(), props.className)}>
+            <div className={bem.element('date')}>
+                {props.dateField}
             </div>
-        );
-    }
+            <div className={bem.element('time')}>
+                {props.timeField}
+            </div>
+        </div>
+    );
 }

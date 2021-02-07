@@ -1,48 +1,43 @@
 import * as React from 'react';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Pagination';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('PaginationButtonView')
-export default class PaginationButtonView extends React.Component<IPaginationViewProps & IBemHocOutput> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
-            <ul className={bem(
-                this.props.className,
-                bem.block(),
-                'flex-row',
-                'pagination',
-                `pagination-${this.props.size}`
-            )}>
-                {this.props.pages.map((item, index) => (
-                    <li
-                        key={index}
+export default function PaginationButtonView(props: IPaginationViewProps & IBemHocOutput) {
+    const bem = useBem('PaginationButtonView');
+    return (
+        <ul className={bem(
+            props.className,
+            bem.block(),
+            'flex-row',
+            'pagination',
+            `pagination-${props.size}`
+        )}>
+            {props.pages.map((item, index) => (
+                <li
+                    key={index}
+                    className={bem(
+                        bem.element('page', {hidden: !item.page}),
+                        'page-item',
+                        item.isActive ? 'active' : ''
+                    )}
+                >
+                    <a
                         className={bem(
-                            bem.element('page', {hidden: !item.page}),
-                            'page-item',
-                            item.isActive ? 'active' : ''
+                            bem.element('page-link', {hidden: !item.page}),
+                            'page-link'
                         )}
+                        href='#'
+                        onClick={e => {
+                            e.preventDefault();
+                            props.onSelect(item.page);
+                        }}
                     >
-                        <a
-                            className={bem(
-                                bem.element('page-link', {hidden: !item.page}),
-                                'page-link'
-                            )}
-                            href='#'
-                            onClick={e => {
-                                e.preventDefault();
-                                this.props.onSelect(item.page);
-                            }}
-                        >
-                            {item.label}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        );
-    }
-
+                        {item.label}
+                    </a>
+                </li>
+            ))}
+        </ul>
+    );
 }

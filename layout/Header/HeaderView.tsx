@@ -1,51 +1,46 @@
 import * as React from 'react';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {Link} from '@steroidsjs/core/ui/nav';
 import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('HeaderView')
-export default class HeaderView extends React.Component<IHeaderViewProps> {
-
-    render() {
-        const bem = this.props.bem;
-        return (
-            <nav
-                className={bem(
-                    'navbar navbar-expand-lg',
-                    this.props.dark ? 'navbar-dark' : 'navbar-light',
-                    this.props.dark ? 'bg-dark' : 'bg-light',
-                    bem.block(),
-                    this.props.className,
-                )}
-            >
-                {this.props.logo && (
-                    <Link
-                        className={bem('navbar-brand', bem.element('logo'))}
-                        toRoute='root'
-                        {...this.props.logo.linkProps}
-                    >
-                        {this.props.logo.icon && (
-                            <Icon
-                                className={bem.element('logo-image')}
-                                name={this.props.logo.icon}
-                                title={this.props.logo.title}
-                            />
-                        )}
-                        {this.props.logo.title || ''}
-                    </Link>
-                )}
-                {this.props.nav && (
-                    <Nav
-                        layout='navbar'
-                        {...this.props.nav}
-                    />
-                )}
-                {this.props.children}
-            </nav>
-        );
-    }
-
+export default function HeaderView(props: IHeaderViewProps) {
+    const bem = useBem('HeaderView');
+    return (
+        <nav
+            className={bem(
+                'navbar navbar-expand-lg',
+                props.dark ? 'navbar-dark' : 'navbar-light',
+                props.dark ? 'bg-dark' : 'bg-light',
+                bem.block(),
+                props.className,
+            )}
+        >
+            {props.logo && (
+                <Link
+                    className={bem('navbar-brand', bem.element('logo'))}
+                    toRoute='root'
+                    {...props.logo.linkProps}
+                >
+                    {props.logo.icon && (
+                        <Icon
+                            className={bem.element('logo-image')}
+                            name={props.logo.icon}
+                            title={props.logo.title}
+                        />
+                    )}
+                    {props.logo.title || ''}
+                </Link>
+            )}
+            {props.nav && (
+                <Nav
+                    layout='navbar'
+                    {...props.nav}
+                />
+            )}
+            {props.children}
+        </nav>
+    );
 }

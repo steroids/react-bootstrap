@@ -1,56 +1,21 @@
 import * as React from 'react';
 import _isString from 'lodash-es/isString';
 
-import {bem} from '@steroidsjs/core/hoc';
 import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
+import {useBem} from '@steroidsjs/core/hooks';
 
-@bem('ButtonView')
-export default class ButtonView extends React.Component<IButtonViewProps & IBemHocOutput> {
+export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
+    const bem = useBem('ButtonView');
 
-    render() {
-        return this.props.tag === 'a' ? this.renderLink() : this.renderButton();
-    }
-
-    renderLink() {
-        return (
-            <a
-                className={this._getClassName({link: true})}
-                href={this.props.url}
-                onClick={this.props.onClick}
-                style={this.props.style}
-                target={this.props.target}
-            >
-                {this.renderLabel()}
-                {this.renderBadge()}
-            </a>
-        );
-    }
-
-    renderButton() {
-        return (
-            <button
-                type={this.props.type}
-                disabled={this.props.disabled}
-                onClick={this.props.onClick}
-                style={this.props.style}
-                className={this._getClassName()}
-            >
-                {this.renderLabel()}
-                {this.renderBadge()}
-            </button>
-        );
-    }
-
-    renderLabel() {
-        const bem = this.props.bem;
-        const title = this.props.label && _isString(this.props.label)
-            ? this.props.label
-            : (this.props.hint || null);
+    const renderLabel = () => {
+        const title = props.label && _isString(props.label)
+            ? props.label
+            : (props.hint || null);
         return (
             <>
-                {this.props.isLoading && (
+                {props.isLoading && (
                     <div className={bem.element('preloader')}>
                         <span
                             className='spinner-border spinner-border-sm'
@@ -59,61 +24,89 @@ export default class ButtonView extends React.Component<IButtonViewProps & IBemH
                         />
                     </div>
                 )}
-                {(this.props.showLabelOnLoading || !this.props.isLoading) && (
+                {(props.showLabelOnLoading || !props.isLoading) && (
                     <span
                         className={bem.element('label')}
                     >
-                        {this.props.icon && (
+                        {props.icon && (
                             <Icon
-                                name={this.props.icon}
+                                name={props.icon}
                                 title={title}
-                                className={bem.element('icon', !this.props.label && 'without-label')}
+                                className={bem.element('icon', !props.label && 'without-label')}
                             />
                         )}
-                            {this.props.children}
+                        {props.children}
                     </span>
                 )}
             </>
         );
     }
 
-    renderBadge() {
-        if (!this.props._badge.enable) {
+    const renderBadge = () => {
+        if (!props._badge.enable) {
             return null;
         }
 
-        const bem = this.props.bem;
+        const bem = useBem('');
         return (
             <span className={bem(
                 'badge',
-                this.props._badge.color && 'badge-' + this.props._badge.color,
+                props._badge.color && 'badge-' + props._badge.color,
                 bem.element('badge'),
-                this.props._badge.className,
+                props._badge.className,
             )}>
-                {this.props._badge.value}
+                {props._badge.value}
             </span>
         )
     }
 
-    _getClassName(modifiers = {}) {
-        const bem = this.props.bem;
+    const _getClassName = (modifiers = {}) => {
         return bem(
             bem.block({
-                color: this.props.color,
-                outline: this.props.outline,
-                size: this.props.size,
-                disabled: this.props.disabled,
-                submitting: this.props.submitting,
-                'is-loading': this.props.isLoading,
-                'is-failed': this.props.isFailed,
+                color: props.color,
+                outline: props.outline,
+                size: props.size,
+                disabled: props.disabled,
+                submitting: props.submitting,
+                'is-loading': props.isLoading,
+                'is-failed': props.isFailed,
                 ...modifiers,
             }),
-            !this.props.link && 'btn',
-            this.props.size && 'btn-' + this.props.size,
-            !this.props.link && 'btn-' + (this.props.outline ? 'outline-' : '') + this.props.color,
-            this.props.block && 'btn-block',
-            this.props.link && 'btn-link',
-            this.props.className,
+            !props.link && 'btn',
+            props.size && 'btn-' + props.size,
+            !props.link && 'btn-' + (props.outline ? 'outline-' : '') + props.color,
+            props.block && 'btn-block',
+            props.link && 'btn-link',
+            props.className,
         );
     }
+
+    if (props.tag === 'a') {
+        return (
+            <a
+                className={_getClassName({link: true})}
+                href={props.url}
+                onClick={props.onClick}
+                style={props.style}
+                target={props.target}
+            >
+                {renderLabel()}
+                {renderBadge()}
+            </a>
+        );
+    } else {
+        return (
+            <button
+                type={props.type}
+                disabled={props.disabled}
+                onClick={props.onClick}
+                style={props.style}
+                className={_getClassName()}
+            >
+                {renderLabel()}
+                {renderBadge()}
+            </button>
+        );
+    }
+
 }
