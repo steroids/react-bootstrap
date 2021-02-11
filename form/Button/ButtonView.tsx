@@ -47,7 +47,6 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             return null;
         }
 
-        const bem = useBem('');
         return (
             <span className={bem(
                 'badge',
@@ -94,19 +93,19 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                 {renderBadge()}
             </a>
         );
-    } else {
-        return (
-            <button
-                type={props.type}
-                disabled={props.disabled}
-                onClick={props.onClick}
-                style={props.style}
-                className={_getClassName()}
-            >
-                {renderLabel()}
-                {renderBadge()}
-            </button>
-        );
     }
+
+    return (
+        <button
+            type={props.type}
+            disabled={props.disabled}
+            onClick={props.onClick}
+            style={props.style}
+            className={_getClassName()}
+        >
+            {renderLabel()}
+            {renderBadge()}
+        </button>
+    );
 
 }

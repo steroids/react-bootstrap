@@ -1,5 +1,5 @@
-import * as React from 'react';
-import * as Gallery from 'react-grid-gallery';
+//import * as React from 'react';
+//import * as Gallery from 'react-grid-gallery';
 import {IPhotosFormatterViewProps} from '@steroidsjs/core/ui/format/PhotosFormatter/PhotosFormatter';
 
 export default function PhotosFormatterView(props: IPhotosFormatterViewProps) {
@@ -7,7 +7,7 @@ export default function PhotosFormatterView(props: IPhotosFormatterViewProps) {
     if (!photos || photos.length === 0) {
         return null;
     }
-    return (
+    /*return (
         <Gallery
             images={photos}
             margin={3}
@@ -16,5 +16,5 @@ export default function PhotosFormatterView(props: IPhotosFormatterViewProps) {
             enableImageSelection={false}
             imageCountSeparator={__(' из ')}
         />
-    );
+    );*/
 }
