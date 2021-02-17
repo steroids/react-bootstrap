@@ -6,10 +6,10 @@ import {getFormId} from '@steroidsjs/core/hoc/list';
 import Form from '@steroidsjs/core/ui/form/Form';
 import Button from '@steroidsjs/core/ui/form/Button';
 import Field from '@steroidsjs/core/ui/form/Field';
-import InsideSearchFormView from './InsideSearchFormView';
+import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IGridViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
-import {useBem} from '@steroidsjs/core/hooks';
+import InsideSearchFormView from './InsideSearchFormView';
 
 export default function GridView(props: IGridViewProps & IBemHocOutput) {
 
@@ -17,50 +17,50 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
         return (
             <table className='table table-striped'>
                 <thead>
-                <tr>
-                    {props.columns.map((column, columnIndex) => (
-                        <th
-                            key={columnIndex}
-                            className={column.headerClassName}
-                        >
-                            {column.label}
-                            {column.sortable && column.attribute && (
-                                <span>
-                                    {column.label && <span>&nbsp;</span>}
-                                    {renderSortButton(column.attribute, 'asc')}
-                                    {renderSortButton(column.attribute, 'desc')}
-                                </span>
-                            )}
-                        </th>
-                    ))}
-                </tr>
-                {renderInsideSearchForm()}
-                </thead>
-                <tbody>
-                {props.items && props.items.map((item, rowIndex) => (
-                    <tr key={item[props.primaryKey] || rowIndex}>
+                    <tr>
                         {props.columns.map((column, columnIndex) => (
-                            <td
+                            <th
                                 key={columnIndex}
-                                className={column.className}
-                                data-label={_isString(column.label) ? column.label : null}
+                                className={column.headerClassName}
                             >
-                                {props.renderValue(item, column)}
-                            </td>
+                                {column.label}
+                                {column.sortable && column.attribute && (
+                                    <span>
+                                        {column.label && <span>&nbsp;</span>}
+                                        {renderSortButton(column.attribute, 'asc')}
+                                        {renderSortButton(column.attribute, 'desc')}
+                                    </span>
+                                )}
+                            </th>
                         ))}
                     </tr>
-                ))}
-                {props.emptyNode && (
-                    <tr>
-                        <td colSpan={props.columns.length}>
-                            {props.emptyNode}
-                        </td>
-                    </tr>
-                )}
+                    {renderInsideSearchForm()}
+                </thead>
+                <tbody>
+                    {props.items && props.items.map((item, rowIndex) => (
+                        <tr key={item[props.primaryKey] || rowIndex}>
+                            {props.columns.map((column, columnIndex) => (
+                                <td
+                                    key={columnIndex}
+                                    className={column.className}
+                                    data-label={_isString(column.label) ? column.label : null}
+                                >
+                                    {props.renderValue(item, column)}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                    {props.emptyNode && (
+                        <tr>
+                            <td colSpan={props.columns.length}>
+                                {props.emptyNode}
+                            </td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
         );
-    }
+    };
 
     const renderSortButton = (attribute, direction) => {
         const bem = useBem('');
@@ -70,13 +70,13 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
             <Button
                 icon={direction === 'asc' ? 'long-arrow-alt-up' : 'long-arrow-alt-down'}
                 className={bem.element('sort-button', {
-                    'is-active': isActive
+                    'is-active': isActive,
                 })}
                 link
                 onClick={() => props.onSort(!isActive ? sortKey : null)}
             />
         );
-    }
+    };
 
     const renderInsideSearchForm = () => {
         if (!props.searchForm || !props.searchForm.fields || props.searchForm.layout !== 'table') {
@@ -85,7 +85,7 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
         const fields = _keyBy(
             props.searchForm.fields
                 .map(column => _isString(column) ? {attribute: column} : column),
-            'attribute'
+            'attribute',
         );
         return (
             <Form
@@ -112,7 +112,7 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
                 ))}
             </Form>
         );
-    }
+    };
 
     const bem = useBem('GridView');
     return (

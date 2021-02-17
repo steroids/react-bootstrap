@@ -13,7 +13,7 @@ export default function NavBarView(props: INavViewProps & IBemHocOutput) {
                 'navbar-expand-lg navbar-nav',
                 props.dark && 'navbar-dark bg-dark',
                 bem.block(),
-                props.className
+                props.className,
             )}
         >
             <div className='navbar-nav px-3'>
@@ -22,7 +22,7 @@ export default function NavBarView(props: INavViewProps & IBemHocOutput) {
                         key={item.id || index}
                         className={bem(
                             'nav-item text-nowrap',
-                            item.isActive && 'active'
+                            item.isActive && 'active',
                         )}
                     >
                         <Button

@@ -10,12 +10,12 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
         <div
             className={bem(
                 bem.block({
-                    disabled: props.inputProps.disabled
+                    disabled: props.inputProps.disabled,
                 }),
                 'form-control',
                 'form-control-' + props.size,
                 props.isInvalid && 'is-invalid',
-                props.className
+                props.className,
             )}
         >
             {props.addonBefore && (
@@ -35,7 +35,6 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                     onBlur={props.onBlur}
                     onFocus={props.onFocus}
                     onMouseDown={props.onMouseDown}
-
                     className={bem(
                         bem.element('input', {
                             size: props.size,

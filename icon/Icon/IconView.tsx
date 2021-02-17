@@ -16,15 +16,15 @@ export default function IconView(props: IIconViewProps & IBemHocOutput) {
                 onClick={props.onClick}
             />
         );
-    } else {
-        return (
-            <img
-                alt={props.title}
-                title={props.title}
-                src={props.icon}
-                className={bem(bem.block(), props.className)}
-                onClick={props.onClick}
-            />
-        );
     }
+
+    return (
+        <img
+            alt={props.title}
+            title={props.title}
+            src={props.icon}
+            className={bem(bem.block(), props.className)}
+            onClick={props.onClick}
+        />
+    );
 }

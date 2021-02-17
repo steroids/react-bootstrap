@@ -12,7 +12,7 @@ export default function RangeFieldView(props: IRangeFieldViewProps & IBemHocOutp
                 size: props.size,
             }),
             props.className,
-            'row align-items-center'
+            'row align-items-center',
         )}>
             <div className='col'>
                 {props.fromField}

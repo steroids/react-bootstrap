@@ -1,11 +1,11 @@
 import * as React from 'react';
+import {useEffect, useState} from 'react';
 
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INotificationsItemViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import {CSSTransition} from 'react-transition-group';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
-import {useEffect, useState} from 'react';
 
 export default function NotificationsItemView(props: INotificationsItemViewProps & IBemHocOutput) {
     const [isShow, setIsShow] = useState(false);
@@ -37,12 +37,12 @@ export default function NotificationsItemView(props: INotificationsItemViewProps
                     <div className={bem.element('message')}>
                         {props.message}
                     </div>
-                    <div
+                    <button
                         className={bem.element('close')}
                         onClick={props.onClose}
                     >
-                        <Icon name={'reject'}/>
-                    </div>
+                        <Icon name='reject' />
+                    </button>
                 </div>
             </div>
         </CSSTransition>

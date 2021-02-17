@@ -15,7 +15,7 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
                 'form-control',
                 'form-control-' + props.size,
                 props.isInvalid && 'is-invalid',
-                props.className
+                props.className,
             )}
             {...props.inputProps}
         />

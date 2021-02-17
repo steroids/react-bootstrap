@@ -10,6 +10,7 @@ export default function HtmlFieldView(props: IHtmlFieldViewProps & IBemHocOutput
         return null;
     }
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const bem = useBem('HtmlFieldView');
     return (
         <div className={bem.block()}>

@@ -21,7 +21,7 @@ export default function TreeView(props: ITreeViewProps & IBemHocOutput) {
                             opened: item.isOpened,
                             'has-items': item.hasItems,
                         }),
-                        item.className
+                        item.className,
                     )}
                 >
                     <Link

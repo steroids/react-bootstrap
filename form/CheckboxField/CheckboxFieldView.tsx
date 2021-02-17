@@ -10,16 +10,16 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
         <div className={bem(
             bem.block(),
             'custom-control',
-            'custom-checkbox'
+            'custom-checkbox',
         )}>
             <input
                 className={bem(
                     bem.element('input'),
                     'custom-control-input',
                     props.isInvalid && 'is-invalid',
-                    props.className
+                    props.className,
                 )}
-                id={props.fieldId + '_' + 'checkbox'}
+                id={props.fieldId + '_checkbox'}
                 {...props.inputProps}
                 disabled={props.disabled}
                 required={props.required}
@@ -27,9 +27,9 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
             <label
                 className={bem(
                     bem.element('label'),
-                    'custom-control-label'
+                    'custom-control-label',
                 )}
-                htmlFor={props.fieldId + '_' + 'checkbox'}
+                htmlFor={props.fieldId + '_checkbox'}
             >
                 <span className={bem.element('label-text', {required: props.required})}>
                     {props.label}

@@ -36,5 +36,4 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
             ))}
         </div>
     );
-
 }

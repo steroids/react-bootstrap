@@ -9,7 +9,7 @@ export default function DetailView(props: IDetailViewProps & IBemHocOutput) {
     return (
         <table className={bem('table table-bordered', bem.block(), props.className)}>
             <tbody>
-                {props.items.map((item , index) => (
+                {props.items.map((item, index) => (
                     <tr
                         key={item.attribute || index}
                         className={bem.element('item')}

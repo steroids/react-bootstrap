@@ -16,30 +16,30 @@ export default function FieldListView(props: IFieldListViewProps & IBemHocOutput
                 )}
             >
                 <thead>
-                <tr>
-                    {props.items.map((field, rowIndex) => (
-                        <th
-                            key={rowIndex}
-                            className={bem(
-                                bem.element('table-cell-header'),
-                                field.headerClassName
-                            )}
-                        >
-                            {field.label}
-                        </th>
-                    ))}
-                    {props.showRemove && (
-                        <th/>
-                    )}
-                </tr>
+                    <tr>
+                        {props.items.map((field, rowIndex) => (
+                            <th
+                                key={rowIndex}
+                                className={bem(
+                                    bem.element('table-cell-header'),
+                                    field.headerClassName,
+                                )}
+                            >
+                                {field.label}
+                            </th>
+                        ))}
+                        {props.showRemove && (
+                            // eslint-disable-next-line jsx-a11y/control-has-associated-label
+                            <th />
+                        )}
+                    </tr>
                 </thead>
                 <tbody>
-                {props.children}
+                    {props.children}
                 </tbody>
             </table>
             {props.showAdd && !props.disabled && (
-                <a
-                    href='#'
+                <button
                     className={bem.element('link-add')}
                     onClick={e => {
                         e.preventDefault();
@@ -47,7 +47,7 @@ export default function FieldListView(props: IFieldListViewProps & IBemHocOutput
                     }}
                 >
                     {__('Добавить ещё')}
-                </a>
+                </button>
             )}
         </div>
     );

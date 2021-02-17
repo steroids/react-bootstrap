@@ -11,33 +11,29 @@ export default function PaginationSizeView(props: IPaginationSizeViewProps & IBe
             <ul className={bem(
                 bem.element('sizes'),
                 'pagination',
-                `pagination-${props.size}`
+                `pagination-${props.size}`,
             )}>
                 {props.items.map((item, index) => (
                     <li
                         key={index}
                         className={bem(
-                            bem.element(
-                                'sizes-item', {
-                                    active: item.isActive
-                                }),
+                            bem.element('sizes-item', {active: item.isActive}),
                             'page-item',
-                            item.isActive && 'active'
+                            item.isActive && 'active',
                         )}
                     >
-                        <a
+                        <button
                             className={bem(
                                 bem.element('link'),
-                                'page-link'
+                                'page-link',
                             )}
-                            href='#'
                             onClick={e => {
                                 e.preventDefault();
                                 props.onSelect(item.size);
                             }}
                         >
                             {item.label}
-                        </a>
+                        </button>
                     </li>
                 ))}
             </ul>

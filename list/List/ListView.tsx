@@ -26,7 +26,7 @@ export default function ListView(props: IListViewProps & IBemHocOutput) {
                 </div>
             </div>
         );
-    }
+    };
 
     return (
         <div className={bem(bem.block({loading: props.isLoading}), props.className)}>
@@ -34,7 +34,7 @@ export default function ListView(props: IListViewProps & IBemHocOutput) {
             {renderPagination(
                 ['top', 'both'].includes(props.paginationPosition) && props.paginationNode,
                 ['top', 'both'].includes(props.paginationSizePosition) && props.paginationSizeNode,
-                ['top', 'both'].includes(props.layoutPosition) && props.layoutNode
+                ['top', 'both'].includes(props.layoutPosition) && props.layoutNode,
             )}
             <div className={bem('mb-3', bem.element('content'), props.contentClassName)}>
                 {props.content}
@@ -42,10 +42,9 @@ export default function ListView(props: IListViewProps & IBemHocOutput) {
             {renderPagination(
                 ['bottom', 'both'].includes(props.paginationPosition) && props.paginationNode,
                 ['bottom', 'both'].includes(props.paginationSizePosition) && props.paginationSizeNode,
-                ['bottom', 'both'].includes(props.layoutPosition) && props.layoutNode
+                ['bottom', 'both'].includes(props.layoutPosition) && props.layoutNode,
             )}
             {props.emptyNode}
         </div>
     );
-
 }

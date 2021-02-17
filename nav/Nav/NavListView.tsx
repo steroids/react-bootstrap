@@ -1,11 +1,9 @@
 import * as React from 'react';
 
-import {bem} from '@steroidsjs/core/hoc';
 import Link from '@steroidsjs/core/ui/nav/Link';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
 import {useBem} from '@steroidsjs/core/hooks';
-
 
 export default function NavListView(props: INavViewProps & IBemHocOutput) {
     const bem = useBem('NavListView');
@@ -37,7 +35,7 @@ export default function NavListView(props: INavViewProps & IBemHocOutput) {
                 )}
             </li>
         ));
-    }
+    };
 
     return (
         <ul className={bem('nav flex-column', bem.block(), props.className)}>
@@ -45,5 +43,4 @@ export default function NavListView(props: INavViewProps & IBemHocOutput) {
             {props.children}
         </ul>
     );
-
 }

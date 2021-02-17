@@ -9,24 +9,24 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
     return (
         <div className={bem(
             bem.block({
-                layout: props.layout.layout
+                layout: props.layout.layout,
             }),
             'form-group',
             props.layout.className,
             props.layout.layout === 'horizontal' && 'row',
-            props.layout.layout === 'inline' && 'form-inline mb-0'
+            props.layout.layout === 'inline' && 'form-inline mb-0',
         )}>
             {props.label && (
-                <label className={bem(
+                <div className={bem(
                     bem.element('label', {
-                        required: props.required
+                        required: props.required,
                     }),
                     props.layout.layout === 'horizontal' && 'col-form-label text-right',
                     props.layout.layout === 'horizontal' && 'col-' + props.layout.cols[0],
                     props.layout.layout === 'inline' && 'sr-only',
                 )}>
                     {props.label + ':'}
-                </label>
+                </div>
             )}
             <div
                 className={bem(

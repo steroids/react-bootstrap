@@ -11,8 +11,8 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
     const overrideDefaultClasses = {
         base: bem.block('overlay'),
         afterOpen: bem.block('overlay-after'),
-        beforeClose: bem.block('overlay-before')
-    }
+        beforeClose: bem.block('overlay-before'),
+    };
     return (
         <div>
             <Modal
@@ -28,9 +28,8 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
                     <span className={bem.element('title')}>
                         {props.title}
                     </span>
-                    <a
+                    <button
                         className={bem.element('close')}
-                        href='#'
                         onClick={e => {
                             e.preventDefault();
                             props.onClose();

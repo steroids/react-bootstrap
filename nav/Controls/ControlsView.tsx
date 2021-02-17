@@ -16,7 +16,7 @@ export default function ControlsView(props: IControlsViewProps & IBemHocOutput) 
                 items={items}
             />
         );
-    }
+    };
 
     const bem = useBem('ControlsView');
     return (

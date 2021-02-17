@@ -14,7 +14,7 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
                 'form-control',
                 'form-control-' + props.size,
                 props.isInvalid && 'is-invalid',
-                props.className
+                props.className,
             )}
             {...props.inputProps}
             onChange={e => props.inputProps.onChange(e.target.value)}

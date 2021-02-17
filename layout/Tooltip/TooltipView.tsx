@@ -1,7 +1,7 @@
 import * as React from 'react';
+import {useEffect, useRef} from 'react';
 import {ITooltipViewProps} from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {useEffect, useRef} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
@@ -11,7 +11,7 @@ export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
     useEffect(() => {
         props.calculatePosition(
             tooltipRef.current.getBoundingClientRect(),
-            arrowRef.current.getBoundingClientRect()
+            arrowRef.current.getBoundingClientRect(),
         );
     }, []);
 
@@ -21,27 +21,25 @@ export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
             ref={tooltipRef}
             className={bem(
                 bem.block({
-                    'show': props.isTooltipVisible
+                    'show': props.isTooltipVisible,
                 }),
                 'tooltip',
-                'tooltip-position-'+props.position
+                'tooltip-position-'+props.position,
             )}
             style={props.style}
         >
             <div
                 ref={arrowRef}
-                className={bem(
-                    bem.element(
-                        'arrow',
-                        {['position-'+props.position]: true},
-                    )
+                className={bem.element(
+                    'arrow',
+                    {['position-'+props.position]: true},
                 )}
                 style={props.arrowPosition}
             />
             <div
                 className={bem(
                     bem.element('content'),
-                    'tooltip-inner'
+                    'tooltip-inner',
                 )}
             >
                 <span>{props.content}</span>

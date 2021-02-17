@@ -7,13 +7,14 @@ import {useBem} from '@steroidsjs/core/hooks';
 
 export default function CheckboxColumnView(props: ICheckboxColumnViewProps & IBemHocOutput) {
     const bem = useBem('CheckboxColumnView');
+    // @ts-ignore
     const CheckboxFieldInternal = CheckboxField.WrappedComponent;
     return (
         <div className={bem.block()}>
-             <CheckboxFieldInternal
-                 {...props.fieldProps}
-                 input={props.input}
-             />
-         </div>
-     );
+            <CheckboxFieldInternal
+                {...props.fieldProps}
+                input={props.input}
+            />
+        </div>
+    );
 }

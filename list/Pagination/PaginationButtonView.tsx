@@ -12,7 +12,7 @@ export default function PaginationButtonView(props: IPaginationViewProps & IBemH
             bem.block(),
             'flex-row',
             'pagination',
-            `pagination-${props.size}`
+            `pagination-${props.size}`,
         )}>
             {props.pages.map((item, index) => (
                 <li
@@ -20,22 +20,21 @@ export default function PaginationButtonView(props: IPaginationViewProps & IBemH
                     className={bem(
                         bem.element('page', {hidden: !item.page}),
                         'page-item',
-                        item.isActive ? 'active' : ''
+                        item.isActive ? 'active' : '',
                     )}
                 >
-                    <a
+                    <button
                         className={bem(
                             bem.element('page-link', {hidden: !item.page}),
-                            'page-link'
+                            'page-link',
                         )}
-                        href='#'
                         onClick={e => {
                             e.preventDefault();
                             props.onSelect(item.page);
                         }}
                     >
                         {item.label}
-                    </a>
+                    </button>
                 </li>
             ))}
         </ul>

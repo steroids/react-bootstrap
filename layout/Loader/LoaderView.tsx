@@ -7,7 +7,7 @@ export default function LoaderView(props: IBemHocOutput) {
     const bem = useBem('LoaderView');
     return (
         <div className={bem.block()}>
-            <div className={bem.element('loader')}/>
+            <div className={bem.element('loader')} />
         </div>
     );
 }

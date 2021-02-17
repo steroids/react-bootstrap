@@ -11,13 +11,13 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
         <div
             className={bem(
                 bem.block(),
-                props.className
+                props.className,
             )}
         >
             <div
                 className={bem(
                     bem.element('container', {
-                        'disabled': props.inputProps.disabled,
+                        disabled: props.inputProps.disabled,
                     }),
                     'form-control',
                     'form-control-' + props.size,
@@ -30,12 +30,12 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
                             size: props.size,
                         }),
                         props.isInvalid && 'is-invalid',
-                        props.className
+                        props.className,
                     )}
                     {...props.inputProps}
                 />
                 {props.security && (
-                    <span
+                    <button
                         className={bem(bem.element('icon-eye'))}
                         onMouseDown={props.onShowPassword}
                         onMouseUp={props.onHidePassword}
@@ -43,11 +43,11 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
                         <Icon
                             name={props.inputProps.type === 'password' ? 'securityEye' : 'securityEyeSlash'}
                         />
-                    </span>
+                    </button>
                 )}
             </div>
             {props.security && (
-                <div className={bem.element('security-bar', props.securityLevel)}/>
+                <div className={bem.element('security-bar', props.securityLevel)} />
             )}
         </div>
     );

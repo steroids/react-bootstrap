@@ -13,7 +13,7 @@ export default function FieldListItemView(props: IFieldListItemViewProps & IBemH
                     key={index}
                     className={bem(
                         bem.element('table-cell'),
-                        field.className
+                        field.className,
                     )}
                 >
                     {props.renderField(field, props.prefix)}
@@ -22,12 +22,12 @@ export default function FieldListItemView(props: IFieldListItemViewProps & IBemH
             {props.showRemove && (
                 <td className={bem.element('table-cell', 'remove')}>
                     {(!props.required || props.rowIndex > 0) && (
-                        <div
+                        <button
                             className={bem.element('remove')}
                             onClick={() => props.onRemove(props.rowIndex)}
                         >
                             &times;
-                        </div>
+                        </button>
                     )}
                 </td>
             )}

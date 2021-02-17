@@ -10,7 +10,7 @@ export default function EmptyView(props: IEmptyViewProps & IBemHocOutput) {
         <div className={bem(
             bem.block(),
             'text-center p-5',
-            props.className
+            props.className,
         )}>
             {props.text}
         </div>

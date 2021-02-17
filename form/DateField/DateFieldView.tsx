@@ -23,7 +23,7 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                 formatDate={props.formatDate}
                 onDayChange={(value) => props.onChange(value)}
                 dayPickerProps={{
-                    captionElement: ({date, localeUtils, classNames, locale}) => (
+                    captionElement: ({date, localeUtils, classNames, locale}: CaptionElementProps) => (
                         <YearMonthForm
                             date={date}
                             localeUtils={localeUtils}
@@ -54,15 +54,15 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                     disabled: props.disabled,
                     required: props.required,
                 }}
-                component={React.forwardRef((props: any, ref) => (
+                component={React.forwardRef((props: any) => (
                     <div
                         className={bem(
                             bem.block({
                                 size: props.size,
                                 'has-icon': !!props.icon,
-                                'is-invalid': !!props.isInvalid
+                                'is-invalid': !!props.isInvalid,
                             }),
-                            props.className
+                            props.className,
                         )}
                     >
                         <input {...props} />
@@ -90,7 +90,7 @@ interface IYearMonthFormProps extends CaptionElementProps {
     toMonth: Date,
 }
 
-const YearMonthForm = function (props: IYearMonthFormProps) {
+function YearMonthForm(props: IYearMonthFormProps) {
     const handleYearChange = (year) => {
         props.onChange(new Date(year, props.date.getMonth()));
     };
@@ -98,8 +98,6 @@ const YearMonthForm = function (props: IYearMonthFormProps) {
     const handleMonthChange = (month) => {
         props.onChange(new Date(props.date.getFullYear(), month));
     };
-
-
     const {localeUtils, locale, fromMonth, toMonth, classNames, customClassNames, date} = props;
 
     const months = localeUtils.getMonths(locale).map((item, index) => ({

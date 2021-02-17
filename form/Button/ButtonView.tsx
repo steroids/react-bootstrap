@@ -40,7 +40,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                 )}
             </>
         );
-    }
+    };
 
     const renderBadge = () => {
         if (!props._badge.enable) {
@@ -50,35 +50,33 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
         return (
             <span className={bem(
                 'badge',
-                props._badge.color && 'badge-' + props._badge.color,
+                props._badge.color && `badge-${props._badge.color}`,
                 bem.element('badge'),
                 props._badge.className,
             )}>
                 {props._badge.value}
             </span>
-        )
-    }
-
-    const _getClassName = (modifiers = {}) => {
-        return bem(
-            bem.block({
-                color: props.color,
-                outline: props.outline,
-                size: props.size,
-                disabled: props.disabled,
-                submitting: props.submitting,
-                'is-loading': props.isLoading,
-                'is-failed': props.isFailed,
-                ...modifiers,
-            }),
-            !props.link && 'btn',
-            props.size && 'btn-' + props.size,
-            !props.link && 'btn-' + (props.outline ? 'outline-' : '') + props.color,
-            props.block && 'btn-block',
-            props.link && 'btn-link',
-            props.className,
         );
-    }
+    };
+
+    const _getClassName = (modifiers = {}) => bem(
+        bem.block({
+            color: props.color,
+            outline: props.outline,
+            size: props.size,
+            disabled: props.disabled,
+            submitting: props.submitting,
+            'is-loading': props.isLoading,
+            'is-failed': props.isFailed,
+            ...modifiers,
+        }),
+        !props.link && 'btn',
+        props.size && `btn-${props.size}`,
+        !props.link && `btn-${props.outline ? 'outline-' : ''}${props.color}`,
+        props.block && 'btn-block',
+        props.link && 'btn-link',
+        props.className,
+    );
 
     if (props.tag === 'a') {
         return (
@@ -107,5 +105,4 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             {renderBadge()}
         </button>
     );
-
 }
