@@ -1,2 +1,1 @@
-import IconView from './IconView';
-export default IconView;
+export {default} from './IconView';

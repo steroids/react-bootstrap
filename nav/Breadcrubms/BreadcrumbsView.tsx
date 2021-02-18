@@ -31,7 +31,7 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps & IBemHocOu
                                 </Link>
                             )}
 
-                            {!item.url || isLastItem && (
+                            {(!item.url || isLastItem) && (
                                 <span>
                                     {props.pageTitle || item.title}
                                 </span>

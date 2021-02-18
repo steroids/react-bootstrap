@@ -18,6 +18,9 @@ export default function AccordionView(props: IAccordionViewProps & IBemHocOutput
                     <div
                         className={bem(bem.element('header'), 'card-header')}
                         onClick={() => props.onToggle(item)}
+                        onKeyPress={() => props.onToggle(item)}
+                        role='button'
+                        tabIndex={0}
                     >
                         {props.renderHeader(item)}
                         <Icon

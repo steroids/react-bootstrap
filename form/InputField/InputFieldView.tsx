@@ -28,41 +28,41 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                     {props.textBefore}
                 </span>
             )}
-            {props.maskProps && (
-                <input
-                    //@ts-ignore //TODO fix type
-                    onChange={props.onChange}
-                    onBlur={props.onBlur}
-                    onFocus={props.onFocus}
-                    onMouseDown={props.onMouseDown}
-                    className={bem(
-                        bem.element('input', {
-                            size: props.size,
-                        }),
-                        props.isInvalid && 'is-invalid',
-                    )}
-                    {...props.inputProps}
-                    type={props.type}
-                    placeholder={props.placeholder}
-                    disabled={props.disabled}
-                    required={props.required}
-                />
-            ) || (
-                <input
-                    className={bem(
-                        bem.element('input', {
-                            size: props.size,
-                        }),
-                        props.isInvalid && 'is-invalid',
-                    )}
-                    {...props.inputProps}
-                    onChange={e => props.input.onChange(e.target.value)}
-                    type={props.type}
-                    placeholder={props.placeholder}
-                    disabled={props.disabled}
-                    required={props.required}
-                />
-            )}
+            {props.maskProps
+                ? (
+                    <input
+                        onBlur={props.onBlur}
+                        onFocus={props.onFocus}
+                        onMouseDown={props.onMouseDown}
+                        className={bem(
+                            bem.element('input', {
+                                size: props.size,
+                            }),
+                            props.isInvalid && 'is-invalid',
+                        )}
+                        {...props.inputProps}
+                        type={props.type}
+                        placeholder={props.placeholder}
+                        disabled={props.disabled}
+                        required={props.required}
+                    />
+                )
+                : (
+                    <input
+                        className={bem(
+                            bem.element('input', {
+                                size: props.size,
+                            }),
+                            props.isInvalid && 'is-invalid',
+                        )}
+                        {...props.inputProps}
+                        onChange={e => props.input.onChange(e.target.value)}
+                        type={props.type}
+                        placeholder={props.placeholder}
+                        disabled={props.disabled}
+                        required={props.required}
+                    />
+                )}
             {props.textAfter && (
                 <span className={bem.element('text-after')}>
                     {props.textAfter}

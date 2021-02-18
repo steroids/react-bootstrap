@@ -36,15 +36,18 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                                     'drop-down-item', {hover: item.isHovered, select: item.isSelected},
                                 )}
                                 onClick={() => props.onItemClick(item)}
+                                onFocus={() => props.onItemMouseOver(item)}
                                 onMouseOver={() => props.onItemMouseOver(item)}
                             >
-                                {item.labelHighlighted && (
-                                    item.labelHighlighted.map((label, index) => (
-                                        label[1]
-                                            ? <b key={index}>{label[0]}</b>
-                                            : <span key={index}>{label[0]}</span>
-                                    ))
-                                ) || item.label}
+                                {item.labelHighlighted
+                                    ? (
+                                        item.labelHighlighted.map((label, index) => (
+                                            label[1]
+                                                ? <b key={index}>{label[0]}</b>
+                                                : <span key={index}>{label[0]}</span>
+                                        ))
+                                    )
+                                    : item.label}
                             </button>
                         ))}
                     </div>

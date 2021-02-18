@@ -6,12 +6,12 @@ import {IHtmlFieldViewProps} from '@steroidsjs/core/ui/form/HtmlField/HtmlField'
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function HtmlFieldView(props: IHtmlFieldViewProps & IBemHocOutput) {
+    const bem = useBem('HtmlFieldView');
+
     if (process.env.IS_SSR) {
         return null;
     }
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const bem = useBem('HtmlFieldView');
     return (
         <div className={bem.block()}>
             <Editor

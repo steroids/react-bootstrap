@@ -8,11 +8,13 @@ export default function PaginationSizeView(props: IPaginationSizeViewProps & IBe
     const bem = useBem('PaginationSizeView');
     return (
         <div className={bem(props.className, bem.block())}>
-            <ul className={bem(
-                bem.element('sizes'),
-                'pagination',
-                `pagination-${props.size}`,
-            )}>
+            <ul
+                className={bem(
+                    bem.element('sizes'),
+                    'pagination',
+                    `pagination-${props.size}`,
+                )}
+            >
                 {props.items.map((item, index) => (
                     <li
                         key={index}

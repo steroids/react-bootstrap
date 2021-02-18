@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {IBooleanFormatterPropsView} from '@steroidsjs/core/ui/format/BooleanFormatter/BooleanFormatter';
 
 export default function BooleanFormatterView(props: IBooleanFormatterPropsView) {

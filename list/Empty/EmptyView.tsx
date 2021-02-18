@@ -7,11 +7,13 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function EmptyView(props: IEmptyViewProps & IBemHocOutput) {
     const bem = useBem('EmptyView');
     return (
-        <div className={bem(
-            bem.block(),
-            'text-center p-5',
-            props.className,
-        )}>
+        <div
+            className={bem(
+                bem.block(),
+                'text-center p-5',
+                props.className,
+            )}
+        >
             {props.text}
         </div>
     );

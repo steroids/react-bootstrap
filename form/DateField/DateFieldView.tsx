@@ -10,77 +10,6 @@ import Icon from '@steroidsjs/core/ui/icon/Icon';
 import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput) {
-    const bem = useBem('DateFieldView');
-    return (
-        <div>
-            <DayPickerInput
-                {...props.pickerProps}
-                name={props.input.name}
-                placeholder={props.placeholder || props.displayFormat}
-                value={props.parseDate(props.input.value)}
-                parseDate={props.parseDate}
-                formatDate={props.formatDate}
-                onDayChange={(value) => props.onChange(value)}
-                dayPickerProps={{
-                    captionElement: ({date, localeUtils, classNames, locale}: CaptionElementProps) => (
-                        <YearMonthForm
-                            date={date}
-                            localeUtils={localeUtils}
-                            locale={locale}
-                            classNames={classNames}
-                            customClassNames={{
-                                caption: bem.element('caption'),
-                                yearSelect: bem.element('caption-year'),
-                                monthSelect: bem.element('caption-month'),
-                            }}
-                            onChange={props.pickerProps.onYearMonthChange}
-                            fromMonth={props.pickerProps.dayPickerProps.fromMonth}
-                            toMonth={props.pickerProps.dayPickerProps.toMonth}
-                        />
-                    ),
-                    locale: props.locale.language,
-                    localeUtils: props.localeUtils,
-                    ...props.pickerProps.dayPickerProps,
-                }}
-                inputProps={{
-                    ...(props.pickerProps && props.pickerProps.inputProps),
-                    className: bem(
-                        bem.element('input'),
-                        'form-control',
-                        'form-control-' + props.size,
-                        props.isInvalid && 'is-invalid',
-                    ),
-                    disabled: props.disabled,
-                    required: props.required,
-                }}
-                component={React.forwardRef((props: any) => (
-                    <div
-                        className={bem(
-                            bem.block({
-                                size: props.size,
-                                'has-icon': !!props.icon,
-                                'is-invalid': !!props.isInvalid,
-                            }),
-                            props.className,
-                        )}
-                    >
-                        <input {...props} />
-                        {props.icon && (
-                            <Icon
-                                className={bem.element('icon', {
-                                    default: !_isString(props.icon),
-                                })}
-                                name={_isString(props.icon) ? props.icon as string : 'calendar-alt'}
-                            />
-                        )}
-                    </div>
-                ))}
-            />
-        </div>
-    );
-}
-
 interface IYearMonthFormProps extends CaptionElementProps {
     customClassNames: {
         [key: string]: string,
@@ -141,6 +70,77 @@ function YearMonthForm(props: IYearMonthFormProps) {
                     />
                 </div>
             </div>
+        </div>
+    );
+}
+
+export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput) {
+    const bem = useBem('DateFieldView');
+    return (
+        <div>
+            <DayPickerInput
+                {...props.pickerProps}
+                name={props.input.name}
+                placeholder={props.placeholder || props.displayFormat}
+                value={props.parseDate(props.input.value)}
+                parseDate={props.parseDate}
+                formatDate={props.formatDate}
+                onDayChange={(value) => props.onChange(value)}
+                dayPickerProps={{
+                    captionElement: ({date, localeUtils, classNames, locale}: CaptionElementProps) => (
+                        <YearMonthForm
+                            date={date}
+                            localeUtils={localeUtils}
+                            locale={locale}
+                            classNames={classNames}
+                            customClassNames={{
+                                caption: bem.element('caption'),
+                                yearSelect: bem.element('caption-year'),
+                                monthSelect: bem.element('caption-month'),
+                            }}
+                            onChange={props.pickerProps.onYearMonthChange}
+                            fromMonth={props.pickerProps.dayPickerProps.fromMonth}
+                            toMonth={props.pickerProps.dayPickerProps.toMonth}
+                        />
+                    ),
+                    locale: props.locale.language,
+                    localeUtils: props.localeUtils,
+                    ...props.pickerProps.dayPickerProps,
+                }}
+                inputProps={{
+                    ...(props.pickerProps && props.pickerProps.inputProps),
+                    className: bem(
+                        bem.element('input'),
+                        'form-control',
+                        'form-control-' + props.size,
+                        props.isInvalid && 'is-invalid',
+                    ),
+                    disabled: props.disabled,
+                    required: props.required,
+                }}
+                component={React.forwardRef((inputProps: any) => (
+                    <div
+                        className={bem(
+                            bem.block({
+                                size: inputProps.size,
+                                'has-icon': !!inputProps.icon,
+                                'is-invalid': !!inputProps.isInvalid,
+                            }),
+                            inputProps.className,
+                        )}
+                    >
+                        <input {...inputProps} />
+                        {inputProps.icon && (
+                            <Icon
+                                className={bem.element('icon', {
+                                    default: !_isString(inputProps.icon),
+                                })}
+                                name={_isString(inputProps.icon) ? inputProps.icon as string : 'calendar-alt'}
+                            />
+                        )}
+                    </div>
+                ))}
+            />
         </div>
     );
 }

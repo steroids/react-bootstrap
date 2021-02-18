@@ -13,7 +13,7 @@ export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
             tooltipRef.current.getBoundingClientRect(),
             arrowRef.current.getBoundingClientRect(),
         );
-    }, []);
+    });
 
     const bem = useBem('TooltipView');
     return (
@@ -21,10 +21,10 @@ export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
             ref={tooltipRef}
             className={bem(
                 bem.block({
-                    'show': props.isTooltipVisible,
+                    show: props.isTooltipVisible,
                 }),
                 'tooltip',
-                'tooltip-position-'+props.position,
+                'tooltip-position-' + props.position,
             )}
             style={props.style}
         >
@@ -32,7 +32,7 @@ export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
                 ref={arrowRef}
                 className={bem.element(
                     'arrow',
-                    {['position-'+props.position]: true},
+                    {['position-' + props.position]: true},
                 )}
                 style={props.arrowPosition}
             />

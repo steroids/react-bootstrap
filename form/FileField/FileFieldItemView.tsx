@@ -8,26 +8,29 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemHocOutput) {
     const bem = useBem('FileFieldItemView');
     return (
-        <div className={bem(
-            bem.block(),
-            'card float-left mb-1 mr-1',
-            props.error && 'border-danger',
-        )}>
-            {props.image && (
-                <img
-                    src={props.image.url}
-                    className='card-img-top'
-                    width={props.image.width}
-                    height={props.image.height}
-                    alt={props.title}
-                />
-            ) ||
-            (
-                <Icon
-                    className={bem.element('blank-img')}
-                    name={props.imagesOnly ? 'file-image' : 'file'}
-                />
+        <div
+            className={bem(
+                bem.block(),
+                'card float-left mb-1 mr-1',
+                props.error && 'border-danger',
             )}
+        >
+            {props.image
+                ? (
+                    <img
+                        src={props.image.url}
+                        className='card-img-top'
+                        width={props.image.width}
+                        height={props.image.height}
+                        alt={props.title}
+                    />
+                )
+                : (
+                    <Icon
+                        className={bem.element('blank-img')}
+                        name={props.imagesOnly ? 'file-image' : 'file'}
+                    />
+                )}
             {props.showRemove && (
                 <Icon
                     onClick={props.onRemove}

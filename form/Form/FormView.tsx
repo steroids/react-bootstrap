@@ -32,4 +32,4 @@ export default function FormView(props: IFormViewProps) {
             )}
         </form>
     );
-};
+}

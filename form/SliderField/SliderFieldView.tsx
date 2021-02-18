@@ -9,12 +9,14 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
     const bem = useBem('SliderFieldView');
     const SliderComponent: any = Slider; // TODO Fix error https://github.com/react-component/slider/issues/656
     return (
-        <div className={bem(
-            bem.block({
-                size: props.size,
-            }),
-            props.className,
-        )}>
+        <div
+            className={bem(
+                bem.block({
+                    size: props.size,
+                }),
+                props.className,
+            )}
+        >
             <SliderComponent
                 {...props.slider}
                 className={bem.element('slider')}

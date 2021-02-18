@@ -7,24 +7,28 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOutput) {
     const bem = useBem('FieldLayoutView');
     return (
-        <div className={bem(
-            bem.block({
-                layout: props.layout.layout,
-            }),
-            'form-group',
-            props.layout.className,
-            props.layout.layout === 'horizontal' && 'row',
-            props.layout.layout === 'inline' && 'form-inline mb-0',
-        )}>
+        <div
+            className={bem(
+                bem.block({
+                    layout: props.layout.layout,
+                }),
+                'form-group',
+                props.layout.className,
+                props.layout.layout === 'horizontal' && 'row',
+                props.layout.layout === 'inline' && 'form-inline mb-0',
+            )}
+        >
             {props.label && (
-                <div className={bem(
-                    bem.element('label', {
-                        required: props.required,
-                    }),
-                    props.layout.layout === 'horizontal' && 'col-form-label text-right',
-                    props.layout.layout === 'horizontal' && 'col-' + props.layout.cols[0],
-                    props.layout.layout === 'inline' && 'sr-only',
-                )}>
+                <div
+                    className={bem(
+                        bem.element('label', {
+                            required: props.required,
+                        }),
+                        props.layout.layout === 'horizontal' && 'col-form-label text-right',
+                        props.layout.layout === 'horizontal' && 'col-' + props.layout.cols[0],
+                        props.layout.layout === 'inline' && 'sr-only',
+                    )}
+                >
                     {props.label + ':'}
                 </div>
             )}
@@ -33,7 +37,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                     bem.element('field'),
                     props.layout.layout === 'horizontal' && 'col-' + props.layout.cols[1],
                     props.layout.layout === 'horizontal' && !props.label && 'offset-' + props.layout.cols[0],
-                    props.layout.layout === 'inline' && 'w-100'
+                    props.layout.layout === 'inline' && 'w-100',
                 )}
             >
                 {props.children}

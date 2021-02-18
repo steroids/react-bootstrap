@@ -34,6 +34,7 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
                             e.preventDefault();
                             props.onClose();
                         }}
+                        aria-label={__('Закрыть')}
                     />
                 </div>
                 <div className={bem.element('content')}>

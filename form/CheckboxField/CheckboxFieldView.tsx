@@ -7,11 +7,13 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemHocOutput) {
     const bem = useBem('CheckboxFieldView');
     return (
-        <div className={bem(
-            bem.block(),
-            'custom-control',
-            'custom-checkbox',
-        )}>
+        <div
+            className={bem(
+                bem.block(),
+                'custom-control',
+                'custom-checkbox',
+            )}
+        >
             <input
                 className={bem(
                     bem.element('input'),

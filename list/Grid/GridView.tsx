@@ -12,75 +12,11 @@ import {IGridViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
 import InsideSearchFormView from './InsideSearchFormView';
 
 export default function GridView(props: IGridViewProps & IBemHocOutput) {
-
-    const renderTable = () => {
-        return (
-            <table className='table table-striped'>
-                <thead>
-                    <tr>
-                        {props.columns.map((column, columnIndex) => (
-                            <th
-                                key={columnIndex}
-                                className={column.headerClassName}
-                            >
-                                {column.label}
-                                {column.sortable && column.attribute && (
-                                    <span>
-                                        {column.label && <span>&nbsp;</span>}
-                                        {renderSortButton(column.attribute, 'asc')}
-                                        {renderSortButton(column.attribute, 'desc')}
-                                    </span>
-                                )}
-                            </th>
-                        ))}
-                    </tr>
-                    {renderInsideSearchForm()}
-                </thead>
-                <tbody>
-                    {props.items && props.items.map((item, rowIndex) => (
-                        <tr key={item[props.primaryKey] || rowIndex}>
-                            {props.columns.map((column, columnIndex) => (
-                                <td
-                                    key={columnIndex}
-                                    className={column.className}
-                                    data-label={_isString(column.label) ? column.label : null}
-                                >
-                                    {props.renderValue(item, column)}
-                                </td>
-                            ))}
-                        </tr>
-                    ))}
-                    {props.emptyNode && (
-                        <tr>
-                            <td colSpan={props.columns.length}>
-                                {props.emptyNode}
-                            </td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-        );
-    };
-
-    const renderSortButton = (attribute, direction) => {
-        const bem = useBem('');
-        const sortKey = (direction === 'desc' ? '!' : '') + attribute;
-        const isActive = [].concat(props.list.sort || []).includes(sortKey);
-        return (
-            <Button
-                icon={direction === 'asc' ? 'long-arrow-alt-up' : 'long-arrow-alt-down'}
-                className={bem.element('sort-button', {
-                    'is-active': isActive,
-                })}
-                link
-                onClick={() => props.onSort(!isActive ? sortKey : null)}
-            />
-        );
-    };
+    const bem = useBem('GridView');
 
     const renderInsideSearchForm = () => {
         if (!props.searchForm || !props.searchForm.fields || props.searchForm.layout !== 'table') {
-            return;
+            return null;
         }
         const fields = _keyBy(
             props.searchForm.fields
@@ -114,7 +50,68 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
         );
     };
 
-    const bem = useBem('GridView');
+    const renderSortButton = (attribute, direction) => {
+        const sortKey = (direction === 'desc' ? '!' : '') + attribute;
+        const isActive = [].concat(props.list.sort || []).includes(sortKey);
+        return (
+            <Button
+                icon={direction === 'asc' ? 'long-arrow-alt-up' : 'long-arrow-alt-down'}
+                className={bem.element('sort-button', {
+                    'is-active': isActive,
+                })}
+                link
+                onClick={() => props.onSort(!isActive ? sortKey : null)}
+            />
+        );
+    };
+
+    const renderTable = () => (
+        <table className='table table-striped'>
+            <thead>
+                <tr>
+                    {props.columns.map((column, columnIndex) => (
+                        <th
+                            key={columnIndex}
+                            className={column.headerClassName}
+                        >
+                            {column.label}
+                            {column.sortable && column.attribute && (
+                                <span>
+                                    {column.label && <span>&nbsp;</span>}
+                                    {renderSortButton(column.attribute, 'asc')}
+                                    {renderSortButton(column.attribute, 'desc')}
+                                </span>
+                            )}
+                        </th>
+                    ))}
+                </tr>
+                {renderInsideSearchForm()}
+            </thead>
+            <tbody>
+                {props.items && props.items.map((item, rowIndex) => (
+                    <tr key={item[props.primaryKey] || rowIndex}>
+                        {props.columns.map((column, columnIndex) => (
+                            <td
+                                key={columnIndex}
+                                className={column.className}
+                                data-label={_isString(column.label) ? column.label : null}
+                            >
+                                {props.renderValue(item, column)}
+                            </td>
+                        ))}
+                    </tr>
+                ))}
+                {props.emptyNode && (
+                    <tr>
+                        <td colSpan={props.columns.length}>
+                            {props.emptyNode}
+                        </td>
+                    </tr>
+                )}
+            </tbody>
+        </table>
+    );
+
     return (
         <div className={bem(bem.block({loading: props.isLoading}), props.className)}>
             {props.outsideSearchFormNode}

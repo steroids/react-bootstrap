@@ -7,13 +7,15 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function PaginationButtonView(props: IPaginationViewProps & IBemHocOutput) {
     const bem = useBem('PaginationButtonView');
     return (
-        <ul className={bem(
-            props.className,
-            bem.block(),
-            'flex-row',
-            'pagination',
-            `pagination-${props.size}`,
-        )}>
+        <ul
+            className={bem(
+                props.className,
+                bem.block(),
+                'flex-row',
+                'pagination',
+                `pagination-${props.size}`,
+            )}
+        >
             {props.pages.map((item, index) => (
                 <li
                     key={index}

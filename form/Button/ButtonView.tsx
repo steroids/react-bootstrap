@@ -48,12 +48,14 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
         }
 
         return (
-            <span className={bem(
-                'badge',
-                props._badge.color && `badge-${props._badge.color}`,
-                bem.element('badge'),
-                props._badge.className,
-            )}>
+            <span
+                className={bem(
+                    'badge',
+                    props._badge.color && `badge-${props._badge.color}`,
+                    bem.element('badge'),
+                    props._badge.className,
+                )}
+            >
                 {props._badge.value}
             </span>
         );
