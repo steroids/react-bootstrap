@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {ReactText} from 'react';
+import {ReactText, useMemo} from 'react';
+import _uniqueId from 'lodash-es/uniqueId';
 
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ICheckboxListFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxListField/CheckboxListField';
@@ -7,6 +8,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 
 export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps & IBemHocOutput) {
     const bem = useBem('CheckboxListFieldView');
+    const checkboxId = useMemo(() => _uniqueId('checkbox'), []);
     return (
         <div className={bem(bem.block(), props.className)}>
             {props.items.map(item => (
@@ -16,7 +18,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                 >
                     <input
                         {...props.inputProps}
-                        id={props.fieldId + '_' + item.id}
+                        id={checkboxId}
                         className={bem(
                             bem.element('input'),
                             'custom-control-input',
@@ -28,7 +30,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                     />
                     <label
                         className='custom-control-label'
-                        htmlFor={props.fieldId + '_' + item.id}
+                        htmlFor={checkboxId}
                     >
                         {item.label}
                     </label>

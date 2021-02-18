@@ -1,11 +1,14 @@
 import * as React from 'react';
+import _uniqueId from 'lodash-es/uniqueId';
 
 import { IBemHocOutput } from '@steroidsjs/core/hoc/bem';
 import { IRadioListFieldViewProps } from '@steroidsjs/core/ui/form/RadioListField/RadioListField';
 import { useBem } from '@steroidsjs/core/hooks';
+import {useMemo} from 'react';
 
 export default function RadioListFieldView(props: IRadioListFieldViewProps & IBemHocOutput) {
     const bem = useBem('RadioListFieldView');
+    const checkboxId = useMemo(() => _uniqueId('checkbox'), []);
     return (
         <div className={bem.block()}>
             {props.items.map((item) => (
@@ -15,7 +18,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                 >
                     <input
                         {...props.inputProps}
-                        id={props.fieldId + '_' + item.id}
+                        id={checkboxId}
                         className={bem(
                             bem.element('input'),
                             'custom-control-input',
@@ -27,7 +30,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                     />
                     <label
                         className='custom-control-label'
-                        htmlFor={props.fieldId + '_' + item.id}
+                        htmlFor={checkboxId}
                     >
                         {item.label}
                     </label>
