@@ -9,14 +9,14 @@
     }
   }
 
-  &_is-failed {
+  &_failed {
     &, &:hover {
       border-color: $danger;
       box-shadow: 0 0 1rem rgba($danger, .2);
     }
   }
 
-  &_is-loading &__label {
+  &_loading &__label {
     opacity: 0;
   }
 

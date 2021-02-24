@@ -43,7 +43,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
     };
 
     const renderBadge = () => {
-        if (!props._badge.enable) {
+        if (!props.badge.enable) {
             return null;
         }
 
@@ -51,26 +51,26 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             <span
                 className={bem(
                     'badge',
-                    props._badge.color && `badge-${props._badge.color}`,
+                    props.badge.color && `badge-${props.badge.color}`,
                     bem.element('badge'),
-                    props._badge.className,
+                    props.badge.className,
                 )}
             >
-                {props._badge.value}
+                {props.badge.value}
             </span>
         );
     };
 
-    const _getClassName = (modifiers = {}) => bem(
+    const className = bem(
         bem.block({
             color: props.color,
             outline: props.outline,
             size: props.size,
             disabled: props.disabled,
             submitting: props.submitting,
-            'is-loading': props.isLoading,
-            'is-failed': props.isFailed,
-            ...modifiers,
+            loading: props.isLoading,
+            failed: props.isFailed,
+            link: props.tag === 'a',
         }),
         !props.link && 'btn',
         props.size && `btn-${props.size}`,
@@ -83,7 +83,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
     if (props.tag === 'a') {
         return (
             <a
-                className={_getClassName({link: true})}
+                className={className}
                 href={props.url}
                 onClick={props.onClick}
                 style={props.style}
@@ -101,7 +101,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             disabled={props.disabled}
             onClick={props.onClick}
             style={props.style}
-            className={_getClassName()}
+            className={className}
         >
             {renderLabel()}
             {renderBadge()}
