@@ -1,8 +1,8 @@
 import * as React from 'react';
+import _get from 'lodash-es/get';
 import _keyBy from 'lodash-es/keyBy';
 import _isString from 'lodash-es/isString';
 
-import {getFormId} from '@steroidsjs/core/hoc/list';
 import Form from '@steroidsjs/core/ui/form/Form';
 import Button from '@steroidsjs/core/ui/form/Button';
 import Field from '@steroidsjs/core/ui/form/Field';
@@ -10,6 +10,8 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IGridViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
 import InsideSearchFormView from './InsideSearchFormView';
+
+export const getFormId = props => _get(props, 'searchForm.formId', props.listId);
 
 export default function GridView(props: IGridViewProps & IBemHocOutput) {
     const bem = useBem('GridView');
