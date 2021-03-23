@@ -1,6 +1,6 @@
 import * as React from 'react';
-import _keyBy from 'lodash/keyBy';
-import _isString from 'lodash/isString';
+import _keyBy from 'lodash-es/keyBy';
+import _isString from 'lodash-es/isString';
 
 import {bem} from '@steroidsjs/core/hoc';
 import {getFormId} from '@steroidsjs/core/hoc/list';
