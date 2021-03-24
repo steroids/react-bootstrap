@@ -57,5 +57,5 @@ export default {
     // 'nav.NavLinkView': {lazy: () => require('./nav/Nav/NavLinkView').default},
     // 'nav.NavListView': {lazy: () => require('./nav/Nav/NavListView').default},
     // 'nav.NavTabsView': {lazy: () => require('./nav/Nav/NavTabsView').default},
-    // 'nav.TreeView': {lazy: () => require('./nav/Tree/TreeView').default},
+    'nav.TreeView': {lazy: () => require('./nav/Tree/TreeView').default},
 };
