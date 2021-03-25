@@ -3,6 +3,7 @@ import * as React from 'react';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFieldListItemViewProps} from '@steroidsjs/core/ui/form/FieldList/FieldList';
 import {useBem} from '@steroidsjs/core/hooks';
+import {Field} from '@steroidsjs/core/ui/form';
 
 export default function FieldListItemView(props: IFieldListItemViewProps & IBemHocOutput) {
     const bem = useBem('FieldListItemView');
@@ -16,7 +17,7 @@ export default function FieldListItemView(props: IFieldListItemViewProps & IBemH
                         field.className,
                     )}
                 >
-                    {props.renderField(field, props.prefix)}
+                    <Field {...field} prefix={props.prefix}/>
                 </td>
             ))}
             {props.showRemove && (
