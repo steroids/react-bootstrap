@@ -8,7 +8,7 @@ export default {
     // 'form.CheckboxListFieldView': {lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default},
     // 'form.DateFieldView': {lazy: () => require('./form/DateField/DateFieldView').default},
     // 'form.DateTimeFieldView': {lazy: () => require('./form/DateTimeField/DateTimeFieldView').default},
-    // 'form.DropDownFieldView': {lazy: () => require('./form/DropDownField/DropDownFieldView').default},
+    'form.DropDownFieldView': {lazy: () => require('./form/DropDownField/DropDownFieldView').default},
     'form.FieldLayoutView': {lazy: () => require('./form/FieldLayout/FieldLayoutView').default},
     'form.FieldSetView': {lazy: () => require('./form/FieldSet/FieldSetView').default},
     'form.FieldListView': {lazy: () => require('./form/FieldList/FieldListView').default},
