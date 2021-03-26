@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFieldListItemViewProps} from '@steroidsjs/core/ui/form/FieldList/FieldList';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Field} from '@steroidsjs/core/ui/form';
 
-export default function FieldListItemView(props: IFieldListItemViewProps & IBemHocOutput) {
+export default React.memo(function FieldListItemView(props: IFieldListItemViewProps) {
     const bem = useBem('FieldListItemView');
     return (
         <tr>
@@ -24,8 +23,12 @@ export default function FieldListItemView(props: IFieldListItemViewProps & IBemH
                 <td className={bem.element('table-cell', 'remove')}>
                     {(!props.required || props.rowIndex > 0) && (
                         <button
+                            type='button'
                             className={bem.element('remove')}
-                            onClick={() => props.onRemove(props.rowIndex)}
+                            onClick={e => {
+                                e.preventDefault();
+                                props.onRemove(props.rowIndex);
+                            }}
                         >
                             &times;
                         </button>
@@ -34,4 +37,4 @@ export default function FieldListItemView(props: IFieldListItemViewProps & IBemH
             )}
         </tr>
     );
-}
+})
