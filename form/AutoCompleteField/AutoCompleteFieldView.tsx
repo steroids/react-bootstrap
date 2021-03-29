@@ -1,6 +1,4 @@
 import * as React from 'react';
-import {ReactText} from 'react';
-
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IAutoCompleteFieldViewProps} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
@@ -8,7 +6,10 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps & IBemHocOutput) {
     const bem = useBem('AutoCompleteFieldView');
     return (
-        <div className={bem.block({size: props.size})}>
+        <div
+            ref={props.forwardedRef}
+            className={bem.block({size: props.size})}
+        >
             <input
                 {...props.inputProps}
                 className={bem(
@@ -21,7 +22,11 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                     props.inputProps.className,
                     props.className,
                 )}
-                onChange={e => props.input.onChange(e.target.value)}
+                onClick={(e) => {
+                    e.preventDefault();
+                    props.onOpen();
+                }}
+                onChange={e => props.inputProps.onChange(e.target.value)}
                 placeholder={props.placeholder}
                 disabled={props.disabled}
                 required={props.required}
@@ -31,23 +36,16 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                     <div className={bem.element('drop-down-list')}>
                         {props.items.map(item => (
                             <button
-                                key={item.id as ReactText}
-                                className={bem.element(
-                                    'drop-down-item', {hover: item.isHovered, select: item.isSelected},
-                                )}
-                                onClick={() => props.onItemClick(item)}
-                                onFocus={() => props.onItemMouseOver(item)}
-                                onMouseOver={() => props.onItemMouseOver(item)}
+                                key={String(item[props.primaryKey])}
+                                className={bem.element('drop-down-item', {
+                                        hover: props.hoveredId === item[props.primaryKey],
+                                        select: props.selectedIds.includes(item[props.primaryKey]),
+                                })}
+                                onClick={() => props.onItemSelect(item[props.primaryKey])}
+                                onFocus={() => props.onItemHover(item[props.primaryKey])}
+                                onMouseOver={() => props.onItemHover(item[props.primaryKey])}
                             >
-                                {item.labelHighlighted
-                                    ? (
-                                        item.labelHighlighted.map((label, index) => (
-                                            label[1]
-                                                ? <b key={index}>{label[0]}</b>
-                                                : <span key={index}>{label[0]}</span>
-                                        ))
-                                    )
-                                    : item.label}
+                                {item.label}
                             </button>
                         ))}
                     </div>
