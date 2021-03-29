@@ -2,10 +2,10 @@ export default {
     // TODO fix errors in views
 
     // 'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
-    // 'form.AutoCompleteFieldView': {lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default},
+    'form.AutoCompleteFieldView': {lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default},
     'form.ButtonView': {lazy: () => require('./form/Button/ButtonView').default},
     'form.CheckboxFieldView': {lazy: () => require('./form/CheckboxField/CheckboxFieldView').default},
-    // 'form.CheckboxListFieldView': {lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default},
+    'form.CheckboxListFieldView': {lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default},
     'form.DateFieldView': {lazy: () => require('./form/DateField/DateFieldView').default},
     // 'form.DateTimeFieldView': {lazy: () => require('./form/DateTimeField/DateTimeFieldView').default},
     'form.DropDownFieldView': {lazy: () => require('./form/DropDownField/DropDownFieldView').default},
