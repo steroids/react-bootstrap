@@ -41,7 +41,8 @@ export default function NotificationsItemView(props: INotificationsItemViewProps
                         className={bem.element('close')}
                         onClick={props.onClose}
                     >
-                        <Icon name='reject' />
+                        // TODO fix icon
+                        {/*<Icon name='reject' />*/}
                     </button>
                 </div>
             </div>
