@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import {IPaginationSizeViewProps} from '@steroidsjs/core/ui/list/PaginationSize/PaginationSize';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function PaginationSizeView(props: IPaginationSizeViewProps & IBemHocOutput) {
+export default function PaginationSizeView(props: IPaginationSizeViewProps) {
     const bem = useBem('PaginationSizeView');
     return (
         <div className={bem(props.className, bem.block())}>

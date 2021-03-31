@@ -3,17 +3,14 @@ import _get from 'lodash-es/get';
 import _keyBy from 'lodash-es/keyBy';
 import _isString from 'lodash-es/isString';
 
-import Form from '@steroidsjs/core/ui/form/Form';
 import Button from '@steroidsjs/core/ui/form/Button';
 import Field from '@steroidsjs/core/ui/form/Field';
 import {useBem} from '@steroidsjs/core/hooks';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IGridViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
-import InsideSearchFormView from './InsideSearchFormView';
 
 export const getFormId = props => _get(props, 'searchForm.formId', props.listId);
 
-export default function GridView(props: IGridViewProps & IBemHocOutput) {
+export default function GridView(props: IGridViewProps) {
     const bem = useBem('GridView');
 
     const renderInsideSearchForm = () => {
@@ -21,20 +18,11 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
             return null;
         }
         const fields = _keyBy(
-            props.searchForm.fields
-                .map(column => _isString(column) ? {attribute: column} : column),
+            props.searchForm.fields.map(column => _isString(column) ? {attribute: column} : column),
             'attribute',
         );
         return (
-            <Form
-                {...props.searchForm}
-                formId={getFormId(props)}
-                fields={null}
-                submitLabel={null}
-                layout='inline'
-                onSubmit={() => props.fetch()}
-                view={InsideSearchFormView}
-            >
+            <tr>
                 {props.columns.map((column, columnIndex) => (
                     <td
                         key={columnIndex}
@@ -42,13 +30,13 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
                     >
                         {column.attribute && fields[column.attribute] && (
                             <Field
-                                formId={getFormId(props)}
+                                layout='inline'
                                 {...fields[column.attribute]}
                             />
                         )}
                     </td>
                 ))}
-            </Form>
+            </tr>
         );
     };
 
@@ -67,9 +55,13 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
         );
     };
 
-    const renderTable = () => (
-        <table className='table table-striped'>
-            <thead>
+    const emptyContent = props.renderEmpty();
+    return (
+        <div className={bem(bem.block({loading: props.isLoading}), props.className)}>
+            {props.renderSearchForm()}
+            {props.renderPaginationSize()}
+            <table className='table table-striped'>
+                <thead>
                 <tr>
                     {props.columns.map((column, columnIndex) => (
                         <th
@@ -88,8 +80,8 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
                     ))}
                 </tr>
                 {renderInsideSearchForm()}
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 {props.items && props.items.map((item, rowIndex) => (
                     <tr key={item[props.primaryKey] || rowIndex}>
                         {props.columns.map((column, columnIndex) => (
@@ -103,25 +95,16 @@ export default function GridView(props: IGridViewProps & IBemHocOutput) {
                         ))}
                     </tr>
                 ))}
-                {props.emptyNode && (
+                {emptyContent && (
                     <tr>
                         <td colSpan={props.columns.length}>
-                            {props.emptyNode}
+                            {emptyContent}
                         </td>
                     </tr>
                 )}
-            </tbody>
-        </table>
-    );
-
-    return (
-        <div className={bem(bem.block({loading: props.isLoading}), props.className)}>
-            {props.outsideSearchFormNode}
-            {props.paginationSizeNode}
-            <div>
-                {renderTable()}
-                {props.paginationNode}
-            </div>
+                </tbody>
+            </table>
+            {props.renderPagination()}
         </div>
     );
 }

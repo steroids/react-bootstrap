@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import {IListViewProps} from '@steroidsjs/core/ui/list/List/List';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function ListView(props: IListViewProps & IBemHocOutput) {
+export default function ListView(props: IListViewProps) {
     const bem = useBem('ListView');
 
     const renderPagination = (pagination, paginationSize, layout) => {
@@ -28,23 +27,23 @@ export default function ListView(props: IListViewProps & IBemHocOutput) {
         );
     };
 
-    return (
+    return props.renderList(
         <div className={bem(bem.block({loading: props.isLoading}), props.className)}>
-            {props.outsideSearchFormNode}
+            {props.renderSearchForm()}
             {renderPagination(
-                ['top', 'both'].includes(props.paginationPosition) && props.paginationNode,
-                ['top', 'both'].includes(props.paginationSizePosition) && props.paginationSizeNode,
-                ['top', 'both'].includes(props.layoutPosition) && props.layoutNode,
+                ['top', 'both'].includes(props.paginationPosition) && props.renderPagination(),
+                ['top', 'both'].includes(props.paginationSizePosition) && props.renderPaginationSize(),
+                ['top', 'both'].includes(props.layoutNamesPosition) && props.renderLayoutNames(),
             )}
             <div className={bem('mb-3', bem.element('content'), props.contentClassName)}>
                 {props.content}
             </div>
             {renderPagination(
-                ['bottom', 'both'].includes(props.paginationPosition) && props.paginationNode,
-                ['bottom', 'both'].includes(props.paginationSizePosition) && props.paginationSizeNode,
-                ['bottom', 'both'].includes(props.layoutPosition) && props.layoutNode,
+                ['bottom', 'both'].includes(props.paginationPosition) && props.renderPagination(),
+                ['bottom', 'both'].includes(props.paginationSizePosition) && props.renderPaginationSize(),
+                ['bottom', 'both'].includes(props.layoutNamesPosition) && props.renderLayoutNames(),
             )}
-            {props.emptyNode}
+            {props.renderEmpty()}
         </div>
     );
 }

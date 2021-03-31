@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Pagination';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function PaginationButtonView(props: IPaginationViewProps & IBemHocOutput) {
+export default function PaginationButtonView(props: IPaginationViewProps) {
     const bem = useBem('PaginationButtonView');
     return (
         <ul
