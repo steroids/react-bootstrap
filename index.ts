@@ -24,7 +24,7 @@ export default {
     // 'form.RangeFieldView': {lazy: () => require('./form/RangeField/RangeFieldView').default},
     'form.ReCaptchaFieldView': {lazy: () => require('./form/ReCaptchaField/ReCaptchaFieldView').default},
     'form.SliderFieldView': {lazy: () => require('./form/SliderField/SliderFieldView').default},
-    // 'form.SwitcherFieldView': {lazy: () => require('./form/SwitcherField/SwitcherFieldView').default},
+    'form.SwitcherFieldView': {lazy: () => require('./form/SwitcherField/SwitcherFieldView').default},
     'form.TextFieldView': {lazy: () => require('./form/TextField/TextFieldView').default},
     'form.TimeFieldView': {lazy: () => require('./form/TimeField/TimeFieldView').default},
     'format.BooleanFormatterView': {lazy: () => require('./format/BooleanFormatter/BooleanFormatterView').default},
