@@ -20,14 +20,16 @@ export default function SwitcherFieldView(props: ISwitcherFieldViewProps & IBemH
         >
             {props.items.map(item => (
                 <Button
-                    key={item.id}
+                    key={String(item[props.primaryKey])}
                     {...props.buttonProps}
                     className={bem(
                         _get(props, 'buttonProps.className'),
-                        item.isSelected && 'active',
+                        props.hoveredId === item[props.primaryKey] && 'hover',
+                        props.selectedIds.includes(item[props.primaryKey]) && 'active',
                     )}
                     disabled={props.disabled}
-                    onClick={() => props.onItemClick(item)}
+                    onClick={() => props.onItemSelect(item[props.primaryKey])}
+                    onMouseOver={() => props.onItemHover(item[props.primaryKey])}
                     layout={false}
                 >
                     {item.label}

@@ -9,6 +9,7 @@ import {IDateFieldViewProps} from '@steroidsjs/core/ui/form/DateField/DateField'
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
+import {useCallback, useMemo} from 'react';
 
 interface IYearMonthFormProps extends CaptionElementProps {
     customClassNames: {
@@ -20,24 +21,34 @@ interface IYearMonthFormProps extends CaptionElementProps {
 }
 
 function YearMonthForm(props: IYearMonthFormProps) {
-    const handleYearChange = (year) => {
-        props.onChange(new Date(year, props.date.getMonth()));
-    };
-
-    const handleMonthChange = (month) => {
-        props.onChange(new Date(props.date.getFullYear(), month));
-    };
     const {localeUtils, locale, fromMonth, toMonth, classNames, customClassNames, date} = props;
 
-    const months = localeUtils.getMonths(locale).map((item, index) => ({
-        id: index,
-        label: _upperFirst(item),
-    }));
+    const month = date.getMonth();
+    const year = date.getFullYear();
 
-    const years = [];
-    for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i += 1) {
-        years.push(i);
-    }
+    const handleYearChange = useCallback(year => {
+        props.onChange(new Date(year, month));
+    }, [props.onChange, month]);
+
+    const handleMonthChange = useCallback(month => {
+        props.onChange(new Date(year, month));
+    }, [props.onChange, year]);
+
+    const months = useMemo(() => (
+        localeUtils.getMonths(locale).map((item, index) => ({
+            id: index,
+            label: _upperFirst(item),
+        }))
+    ), [localeUtils, locale]);
+
+    const years = useMemo(() => {
+        const result = [];
+        for (let i = fromMonth.getFullYear(); i <= toMonth.getFullYear(); i += 1) {
+            result.push(i);
+        }
+
+        return result;
+    }, [fromMonth, toMonth]);
 
     return (
         <div className={classNames.caption}>
@@ -49,10 +60,8 @@ function YearMonthForm(props: IYearMonthFormProps) {
                         layout={false}
                         noBorder
                         items={months}
-                        input={{
-                            value: date.getMonth(),
-                            onChange: handleMonthChange,
-                        }}
+                        input={{onChange: handleMonthChange}}
+                        selectedIds={[month]}
                     />
                 </div>
                 <div className={customClassNames.monthSelect}>
@@ -63,10 +72,8 @@ function YearMonthForm(props: IYearMonthFormProps) {
                         className={customClassNames.monthSelect}
                         noBorder
                         items={years}
-                        input={{
-                            value: date.getFullYear(),
-                            onChange: handleYearChange,
-                        }}
+                        input={{onChange: handleYearChange}}
+                        selectedIds={[year]}
                     />
                 </div>
             </div>
@@ -76,6 +83,28 @@ function YearMonthForm(props: IYearMonthFormProps) {
 
 export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput) {
     const bem = useBem('DateFieldView');
+
+    const captionElement = useCallback(({date, localeUtils, classNames, locale}: CaptionElementProps) => (
+        <YearMonthForm
+            date={date}
+            localeUtils={localeUtils}
+            locale={locale}
+            classNames={classNames}
+            customClassNames={{
+                caption: bem.element('caption'),
+                yearSelect: bem.element('caption-year'),
+                monthSelect: bem.element('caption-month'),
+            }}
+            onChange={props.pickerProps.onYearMonthChange}
+            fromMonth={props.pickerProps.dayPickerProps.fromMonth}
+            toMonth={props.pickerProps.dayPickerProps.toMonth}
+        />
+    ), [
+        props.pickerProps.onYearMonthChange,
+        props.pickerProps.dayPickerProps.fromMonth,
+        props.pickerProps.dayPickerProps.toMonth
+    ]);
+
     return (
         <div>
             <DayPickerInput
@@ -87,22 +116,7 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                 formatDate={props.formatDate}
                 onDayChange={(value) => props.onChange(value)}
                 dayPickerProps={{
-                    captionElement: ({date, localeUtils, classNames, locale}: CaptionElementProps) => (
-                        <YearMonthForm
-                            date={date}
-                            localeUtils={localeUtils}
-                            locale={locale}
-                            classNames={classNames}
-                            customClassNames={{
-                                caption: bem.element('caption'),
-                                yearSelect: bem.element('caption-year'),
-                                monthSelect: bem.element('caption-month'),
-                            }}
-                            onChange={props.pickerProps.onYearMonthChange}
-                            fromMonth={props.pickerProps.dayPickerProps.fromMonth}
-                            toMonth={props.pickerProps.dayPickerProps.toMonth}
-                        />
-                    ),
+                    captionElement,
                     locale: props.locale.language,
                     localeUtils: props.localeUtils,
                     ...props.pickerProps.dayPickerProps,
@@ -118,8 +132,9 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                     disabled: props.disabled,
                     required: props.required,
                 }}
-                component={React.forwardRef((inputProps: any) => (
+                component={React.forwardRef<HTMLDivElement, any>((inputProps, ref) => (
                     <div
+                        ref={ref}
                         className={bem(
                             bem.block({
                                 size: inputProps.size,
