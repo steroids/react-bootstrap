@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IEmptyViewProps} from '@steroidsjs/core/ui/list/Empty/Empty';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function EmptyView(props: IEmptyViewProps & IBemHocOutput) {
+export default function EmptyView(props: IEmptyViewProps) {
     const bem = useBem('EmptyView');
     return (
         <div
