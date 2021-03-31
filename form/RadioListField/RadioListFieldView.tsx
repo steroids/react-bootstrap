@@ -1,36 +1,37 @@
 import * as React from 'react';
-import _uniqueId from 'lodash-es/uniqueId';
-
+import { useBem } from '@steroidsjs/core/hooks';
 import { IBemHocOutput } from '@steroidsjs/core/hoc/bem';
 import { IRadioListFieldViewProps } from '@steroidsjs/core/ui/form/RadioListField/RadioListField';
-import { useBem } from '@steroidsjs/core/hooks';
-import {useMemo} from 'react';
+import useUniqueId from '../../../react/hooks/useUniqueId';
 
 export default function RadioListFieldView(props: IRadioListFieldViewProps & IBemHocOutput) {
     const bem = useBem('RadioListFieldView');
-    const checkboxId = useMemo(() => _uniqueId('checkbox'), []);
+    const prefix = useUniqueId('radio');
     return (
         <div className={bem.block()}>
-            {props.items.map((item) => (
+            {props.items.map((item, index) => (
                 <div
                     key={typeof item.id !== 'boolean' ? item.id : (item.id ? 'true' : 'false')}
                     className='custom-control custom-radio'
                 >
                     <input
                         {...props.inputProps}
-                        id={checkboxId}
+                        id={`${prefix}_${item.id}`}
                         className={bem(
                             bem.element('input'),
                             'custom-control-input',
                             props.isInvalid && 'is-invalid',
                         )}
-                        checked={item.isSelected}
+                        checked={props.selectedIds.includes(item.id)}
                         disabled={props.disabled}
-                        onChange={() => props.onItemClick(item)}
+                        onChange={(e) => {
+                            props.inputProps.onChange(e.target.value);
+                            props.onItemSelect(item.id);
+                        }}
                     />
                     <label
                         className='custom-control-label'
-                        htmlFor={checkboxId}
+                        htmlFor={`${prefix}_${item.id}`}
                     >
                         {item.label}
                     </label>
