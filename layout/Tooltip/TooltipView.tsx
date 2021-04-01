@@ -13,7 +13,7 @@ export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
             tooltipRef.current.getBoundingClientRect(),
             arrowRef.current.getBoundingClientRect(),
         );
-    });
+    }, [props.calculatePosition]);
 
     const bem = useBem('TooltipView');
     return (
