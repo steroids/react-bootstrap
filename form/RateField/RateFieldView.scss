@@ -1,0 +1,39 @@
+.RateFieldView {
+
+  $root: &;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__rate-item {
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    line-height: 0;
+
+    &_is-full{
+      #{$root}__rate-value-second {
+        width: 100%;
+        border-width: 2px;
+      }
+    }
+  }
+
+  &__rate-value-first, &__rate-value-second {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid green;
+  }
+
+  &__rate-value-second {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    border-width: 0;
+    background-color: green;
+  }
+
+}

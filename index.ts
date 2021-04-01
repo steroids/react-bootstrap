@@ -22,6 +22,7 @@ export default {
     'form.PasswordFieldView': {lazy: () => require('./form/PasswordField/PasswordFieldView').default},
     'form.RadioListFieldView': {lazy: () => require('./form/RadioListField/RadioListFieldView').default},
     'form.RangeFieldView': {lazy: () => require('./form/RangeField/RangeFieldView').default},
+    'form.RateFieldView': {lazy: () => require('./form/RateField/RateFieldView').default},
     'form.ReCaptchaFieldView': {lazy: () => require('./form/ReCaptchaField/ReCaptchaFieldView').default},
     'form.SliderFieldView': {lazy: () => require('./form/SliderField/SliderFieldView').default},
     'form.SwitcherFieldView': {lazy: () => require('./form/SwitcherField/SwitcherFieldView').default},
