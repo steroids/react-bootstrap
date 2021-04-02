@@ -2,6 +2,10 @@
 
   $root: &;
 
+  &:focus, & *:focus {
+    outline: none!important;
+  }
+
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -15,7 +19,12 @@
     &_is-full{
       #{$root}__rate-value-second {
         width: 100%;
-        border-width: 2px;
+
+        #{$root}__rate-icon {
+          path {
+            fill: #fbd608;
+          }
+        }
       }
     }
   }
@@ -24,7 +33,6 @@
     display: inline-block;
     width: 20px;
     height: 20px;
-    border: 2px solid green;
   }
 
   &__rate-value-second {
@@ -32,8 +40,16 @@
     top: 0;
     left: 0;
     width: 0;
-    border-width: 0;
-    background-color: green;
+  }
+
+  &__rate-icon {
+    &.IconView svg {
+      width: 20px;
+
+      path {
+        fill: #dadada;
+      }
+    }
   }
 
 }

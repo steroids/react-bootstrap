@@ -1,7 +1,9 @@
 import * as React from 'react';
-import {useBem} from "../../../react/hooks";
-import './RateFieldView.scss';
+import {useBem} from '../../../react/hooks';
+import Icon from '../../../react/ui/icon/Icon';
 import {IRateFieldViewProps} from '../../../react/ui/form/RateField/RateField';
+
+import './RateFieldView.scss';
 
 
 export default function RateFieldView(props: IRateFieldViewProps) {
@@ -9,21 +11,30 @@ export default function RateFieldView(props: IRateFieldViewProps) {
     return (
         <div
             className={bem(bem.block(), props.className)}
-            role='radio'
         >
             {props.items.map((item, index) => (
                 <div
                     key={index}
                     className={bem.element('rate-item', {
-                        'is-full': item.id <= props.value,
+                        'is-full': item.value <= props.inputProps.value,
                     })}
                     onClick={(e) => {
                         e.preventDefault();
-                        props.handleItemClick(item.id);
+                        props.onItemClick(item);
                     }}
                 >
-                    <span className={bem.element('rate-value-first')} />
-                    <span className={bem.element('rate-value-second')} />
+                    <span className={bem.element('rate-value-first')}>
+                        <Icon
+                            className={bem.element('rate-icon')}
+                            name='star'
+                        />
+                    </span>
+                    <span className={bem.element('rate-value-second')}>
+                         <Icon
+                             className={bem.element('rate-icon')}
+                             name='star'
+                         />
+                    </span>
                 </div>
             ))}
         </div>
