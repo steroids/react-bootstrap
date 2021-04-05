@@ -1,0 +1,55 @@
+.RateFieldView {
+
+  $root: &;
+
+  &:focus, & *:focus {
+    outline: none!important;
+  }
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__rate-item {
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    line-height: 0;
+
+    &_is-full{
+      #{$root}__rate-value-second {
+        width: 100%;
+
+        #{$root}__rate-icon {
+          path {
+            fill: #fbd608;
+          }
+        }
+      }
+    }
+  }
+
+  &__rate-value-first, &__rate-value-second {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__rate-value-second {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+  }
+
+  &__rate-icon {
+    &.IconView svg {
+      width: 20px;
+
+      path {
+        fill: #dadada;
+      }
+    }
+  }
+
+}
