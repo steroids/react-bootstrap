@@ -6,6 +6,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 
 export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutput) {
     const bem = useBem('InputFieldView');
+
     return (
         <div
             className={bem(

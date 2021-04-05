@@ -8,6 +8,7 @@ import Button from '@steroidsjs/core/ui/form/Button';
 
 export default function FormView(props: IFormViewProps) {
     const bem = useBem('FormView');
+
     return (
         <form
             className={bem(

@@ -7,13 +7,14 @@ import Button from '@steroidsjs/core/ui/form/Button';
 import Field from '@steroidsjs/core/ui/form/Field';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IGridViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
+import {useCallback, useMemo} from 'react';
 
 export const getFormId = props => _get(props, 'searchForm.formId', props.listId);
 
 export default function GridView(props: IGridViewProps) {
     const bem = useBem('GridView');
 
-    const renderInsideSearchForm = () => {
+    const renderInsideSearchForm = useCallback(() => {
         if (!props.searchForm || !props.searchForm.fields || props.searchForm.layout !== 'table') {
             return null;
         }
@@ -38,11 +39,11 @@ export default function GridView(props: IGridViewProps) {
                 ))}
             </tr>
         );
-    };
+    }, [props.searchForm, props.columns]);
 
-    const renderSortButton = (attribute, direction) => {
+    const renderSortButton = useCallback((attribute, direction) => {
         const sortKey = (direction === 'desc' ? '!' : '') + attribute;
-        const isActive = [].concat(props.list.sort || []).includes(sortKey);
+        const isActive = [].concat(props.list?.sort || []).includes(sortKey);
         return (
             <Button
                 icon={direction === 'asc' ? 'long-arrow-alt-up' : 'long-arrow-alt-down'}
@@ -53,10 +54,11 @@ export default function GridView(props: IGridViewProps) {
                 onClick={() => props.onSort(!isActive ? sortKey : null)}
             />
         );
-    };
+    }, [props.onSort, props.list?.sort]);
 
-    const emptyContent = props.renderEmpty();
-    return (
+    const emptyContent = useMemo(() => props.renderEmpty(), [props.renderEmpty]);
+
+    return props.renderList(
         <div className={bem(bem.block({loading: props.isLoading}), props.className)}>
             {props.renderSearchForm()}
             {props.renderPaginationSize()}
