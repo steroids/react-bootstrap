@@ -1,3 +1,83 @@
 .TimeFieldView {
 
+  width: 160px;
+  padding: 0 8px;
+  position: relative;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+
+
+  &:focus-within{
+    outline: 0;
+    border-color: #A7EFFF;
+    box-shadow: 0 0 0 1px #A7EFFF;
+  }
+  &_disabled {
+    color: rgba(0, 0, 0, .25);
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+    input {
+      cursor: inherit;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    padding: 10px 5px;
+  }
+
+  &__icon {
+    align-self: center;
+  }
+
+  &__time-panel {
+    position: absolute;
+    bottom: -10px;
+    transform: translateY(100%);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  }
+
+  &__time-panel-body {
+    display: flex;
+    flex-flow: row nowrap;
+
+  }
+
+  &__time-panel-column {
+    height: 120px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    border-bottom: 1px solid #f1f1f1;
+    &:not(last-child) {
+      border-left: 1px solid #f1f1f1;
+    }
+  }
+
+  &__time-panel-cell {
+    padding: 5px 20px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f8f8f8;
+    }
+  }
+
+  &__time-panel-footer {
+    padding: 10px;
+  }
+
 }
