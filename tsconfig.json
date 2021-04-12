@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "isolatedModules": true,
+    "outDir": "./dist",
+    "lib": [
+      "DOM",
+      "ES2016"
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/crud/Crud/*",
+    "src/list/Accordion/*",
+    "src/list/Detail/*",
+    "src/form/FileField/*",
+    "src/form/HtmlField/*",
+    "src/form/RangeField/*",
+    "src/format/PhotosFormatter/*"
+  ]
+}

@@ -1,3 +1,5 @@
+/// <reference types="@steroidsjs/core/index" />
+
 export default {
     // TODO fix errors in views
 

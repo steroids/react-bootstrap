@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {useBem} from '../../../react/hooks';
-import Icon from '../../../react/ui/icon/Icon';
-import {IRateFieldViewProps} from '../../../react/ui/form/RateField/RateField';
+import {useBem} from '@steroidsjs/core/hooks';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
+import {IRateFieldViewProps} from '@steroidsjs/core/ui/form/RateField/RateField';
 
 import './RateFieldView.scss';
 

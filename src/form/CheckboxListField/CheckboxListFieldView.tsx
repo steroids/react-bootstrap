@@ -3,7 +3,7 @@ import {ReactText} from 'react';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ICheckboxListFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxListField/CheckboxListField';
 import {useBem} from '@steroidsjs/core/hooks';
-import useUniqueId from '../../../react/hooks/useUniqueId';
+import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 
 export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps & IBemHocOutput) {
     const bem = useBem('CheckboxListFieldView');

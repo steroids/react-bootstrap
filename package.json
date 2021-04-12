@@ -1,6 +1,6 @@
 {
   "name": "@steroidsjs/bootstrap",
-  "version": "2.0.0-rc.1",
+  "version": "2.0.0-rc.4",
   "description": "",
   "main": "index.js",
   "author": "Vladimir Kozhin <hello@kozhindev.com>",
@@ -8,23 +8,43 @@
     "type": "git",
     "url": "https://github.com/steroids/react-bootstrap"
   },
+  "scripts": {
+    "build": "tsc && cp ./{package.json,LICENSE,README.md} dist && copyfiles -u 1 \"src/**/*.scss\" dist"
+  },
   "license": "MIT",
   "homepage": "https://github.com/steroids/react-bootstrap",
   "bugs": {
     "url": "https://github.com/steroids/react-bootstrap/issues"
   },
   "dependencies": {
+    "@steroidsjs/core": "^2.0.0-rc.3",
     "bootstrap": "^4.5.2",
+    "lodash": "^4.17.20",
+    "lodash-es": "^4.17.20",
     "rc-slider": "^9.3.1",
+    "react": "^17.0.2",
     "react-collapse": "^5.0.1",
+    "react-day-picker": "^7.4.8",
+    "react-dom": "^17.0.2",
     "react-draft-wysiwyg": "^1.14.5",
     "react-modal": "^3.11.2",
     "react-recaptcha-v3": "^2.0.1",
-    "react-transition-group": "^2.9.0",
-    "lodash": "^4.17.20",
-    "lodash-es": "^4.17.20",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-day-picker": "^7.4.8"
+    "react-transition-group": "^2.9.0"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "@types/enzyme": "^3.10.8",
+    "@types/jest": "^26.0.22",
+    "@types/markdown-to-jsx": "^6.11.3",
+    "@types/node": "^14.14.37",
+    "@types/reach__router": "^1.3.7",
+    "@types/react": "^17.0.2",
+    "@types/react-color": "^3.0.4",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-syntax-highlighter": "^13.5.0",
+    "@types/webpack-env": "^1.16.0",
+    "@types/googlemaps": "^3.43.3",
+    "@types/overlayscrollbars": "^1.12.0",
+    "typescript": "^4.1.3"
   }
 }
