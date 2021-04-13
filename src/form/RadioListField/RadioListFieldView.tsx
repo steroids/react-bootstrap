@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useBem } from '@steroidsjs/core/hooks';
 import { IBemHocOutput } from '@steroidsjs/core/hoc/bem';
 import { IRadioListFieldViewProps } from '@steroidsjs/core/ui/form/RadioListField/RadioListField';
-import useUniqueId from '../../../react/hooks/useUniqueId';
+import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 
 export default function RadioListFieldView(props: IRadioListFieldViewProps & IBemHocOutput) {
     const bem = useBem('RadioListFieldView');

@@ -4,7 +4,7 @@ import {ITimeFieldViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField'
 import {useBem} from '@steroidsjs/core/hooks';
 import {useMemo} from 'react';
 import _padStart from 'lodash-es/padStart';
-import Icon from '../../../react/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 import './TimeFieldView.scss';
 
