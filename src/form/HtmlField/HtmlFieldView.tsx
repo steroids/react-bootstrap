@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Editor} from 'react-draft-wysiwyg';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@steroidsjs/ckeditor5/packages/ckeditor5-build-classic';
 
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IHtmlFieldViewProps} from '@steroidsjs/core/ui/form/HtmlField/HtmlField';
@@ -14,14 +15,12 @@ export default function HtmlFieldView(props: IHtmlFieldViewProps & IBemHocOutput
 
     return (
         <div className={bem.block()}>
-            <Editor
-                toolbar={props.editorProps}
-                editorState={props.editorState}
-                onEditorStateChange={props.onEditorStateChange}
-                toolbarClassName='rdw-editor-toolbar'
-                wrapperClassName='wrapperClassName'
-                editorClassName='home-editor rdw-editor-main'
-                toolbarCustomButtons={props.customButtons}
+            <CKEditor
+                editor={ClassicEditor}
+                disabled={props.disabled}
+                config={props.editorProps}
+                data={!props.input.value ? '' : props.input.value}
+                onChange={props.onChange}
                 onFocus={props.onFocus}
                 onBlur={props.onBlur}
             />
