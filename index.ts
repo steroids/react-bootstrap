@@ -16,7 +16,7 @@ export default {
     // 'form.FileFieldView': {lazy: () => require('./form/FileField/FileFieldView').default},
     // 'form.FileFieldItemView': {lazy: () => require('./form/FileField/FileFieldItemView').default},
     'form.FormView': {lazy: () => require('./form/Form/FormView').default},
-    // 'form.HtmlFieldView': {lazy: () => require('./form/HtmlField/HtmlFieldView').default},
+    'form.HtmlFieldView': {lazy: () => require('./form/HtmlField/HtmlFieldView').default},
     'form.InputFieldView': {lazy: () => require('./form/InputField/InputFieldView').default},
     'form.NumberFieldView': {lazy: () => require('./form/NumberField/NumberFieldView').default},
     'form.PasswordFieldView': {lazy: () => require('./form/PasswordField/PasswordFieldView').default},
