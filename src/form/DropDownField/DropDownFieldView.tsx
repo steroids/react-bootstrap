@@ -32,6 +32,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     reset: props.showReset,
                     'no-border': props.noBorder,
                     'is-invalid': props.isInvalid,
+                    'disabled': props.disabled
                 })}
                 onClick={props.onOpen}
                 onKeyPress={props.onOpen}

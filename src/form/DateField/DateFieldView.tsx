@@ -137,20 +137,21 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                         ref={ref}
                         className={bem(
                             bem.block({
-                                size: inputProps.size,
-                                'has-icon': !!inputProps.icon,
-                                'is-invalid': !!inputProps.isInvalid,
+                                size: props.size,
+                                'has-icon': !!props.icon,
+                                'is-invalid': !!props.isInvalid,
                             }),
+                            props.className,
                             inputProps.className,
                         )}
                     >
                         <input {...inputProps} />
-                        {inputProps.icon && (
+                        {props.icon && (
                             <Icon
                                 className={bem.element('icon', {
-                                    default: !_isString(inputProps.icon),
+                                    default: !_isString(props.icon),
                                 })}
-                                name={_isString(inputProps.icon) ? inputProps.icon as string : 'calendar-alt'}
+                                name={_isString(props.icon) ? props.icon as string : 'calendar-alt'}
                             />
                         )}
                     </div>
