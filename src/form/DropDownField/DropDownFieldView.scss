@@ -59,6 +59,11 @@
     &_is-invalid {
       border-color: $danger;
     }
+
+    &_disabled {
+      pointer-events: none;
+      opacity: .5;
+    }
   }
   &_size_sm &__selected-items {
     padding: 0.25rem 0.5rem;

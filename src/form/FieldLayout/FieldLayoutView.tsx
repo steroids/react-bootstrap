@@ -1,11 +1,12 @@
 import * as React from 'react';
-
+import _isEmpty from 'lodash-es/isEmpty';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOutput) {
     const bem = useBem('FieldLayoutView');
+
     return (
         <div
             className={bem(
@@ -41,7 +42,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                 )}
             >
                 {props.children}
-                {props.errors && (
+                {!_isEmpty(props.errors) && (
                     <div className={bem(bem.element('invalid-feedback'), 'invalid-feedback')}>
                         {[].concat(props.errors).map((error, index) => (
                             <div key={index}>
@@ -50,7 +51,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                         ))}
                     </div>
                 )}
-                {!props.errors && props.layout.layout !== 'inline' && props.hint && (
+                {_isEmpty(props.errors) && props.layout.layout !== 'inline' && props.hint && (
                     <div className={bem(bem.element('hint'), 'text-muted')}>
                         {props.hint}
                     </div>
