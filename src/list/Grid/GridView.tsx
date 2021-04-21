@@ -18,6 +18,7 @@ export default function GridView(props: IGridViewProps) {
         if (!props.searchForm || !props.searchForm.fields || props.searchForm.layout !== 'table') {
             return null;
         }
+
         const fields = _keyBy(
             props.searchForm.fields.map(column => _isString(column) ? {attribute: column} : column),
             'attribute',
@@ -42,7 +43,7 @@ export default function GridView(props: IGridViewProps) {
     }, [props.searchForm, props.columns]);
 
     const renderSortButton = useCallback((attribute, direction) => {
-        const sortKey = (direction === 'desc' ? '!' : '') + attribute;
+        const sortKey = (direction === 'desc' ? '-' : '') + attribute;
         const isActive = [].concat(props.list?.sort || []).includes(sortKey);
         return (
             <Button
@@ -51,7 +52,10 @@ export default function GridView(props: IGridViewProps) {
                     'is-active': isActive,
                 })}
                 link
-                onClick={() => props.onSort(!isActive ? sortKey : null)}
+                onClick={(e) => {
+                    e.preventDefault();
+                    props.onSort(!isActive ? sortKey : null);
+                }}
             />
         );
     }, [props.onSort, props.list?.sort]);
