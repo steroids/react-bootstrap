@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {IBemHocOutput} from '../../../../react/src/hoc/bem';
-import {ITimeFieldViewProps} from '../../../../react/src/ui/form/TimeField/TimeField';
-import {useBem} from '../../../../react/src/hooks';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+import {ITimeFieldViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
+import {useBem} from '@steroidsjs/core/hooks';
 
 import TimePanelView from './TimePanelView';
-import Icon from '../../../../react/src/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
 
 import './TimeFieldView.scss';
 
