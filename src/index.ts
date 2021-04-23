@@ -3,6 +3,7 @@
 export default {
     // TODO fix errors in views
 
+    'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
     'content.DropDownView': {lazy: () => require('./content/DropDown/DropDownView').default},
     // 'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
     'form.AutoCompleteFieldView': {lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default},
