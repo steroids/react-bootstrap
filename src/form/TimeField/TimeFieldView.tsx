@@ -5,13 +5,14 @@ import {useBem} from '@steroidsjs/core/hooks';
 
 import TimePanelView from './TimePanelView';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
+import DropDown from '@steroidsjs/core/ui/content/DropDown';
 
 import './TimeFieldView.scss';
 
 
 export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput) {
     const bem = useBem('TimeFieldView');
-    return (
+    const renderBody = () => (
         <div
             className={bem(
                 bem.block({
@@ -19,7 +20,6 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
                     'no-border': props.noBorder,
                 }), props.className
             )}
-            ref={props.forwardedRef}
             onFocus={(e) => {
                 e.preventDefault();
                 props.openDropDown();
@@ -62,9 +62,15 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
                     )}
                 </div>
             </div>
-            {props.showDropDown && (
-                <TimePanelView {...props} />
-            )}
         </div>
+    )
+    return (
+        <DropDown
+            content={() => <TimePanelView {...props} />}
+            visible={props.showDropDown}
+            toggleVisibility={(value)  => value ? props.closeDropDown() : props.openDropDown()}
+        >
+            {renderBody()}
+        </DropDown>
     );
 }
