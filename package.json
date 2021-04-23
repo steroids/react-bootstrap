@@ -17,7 +17,7 @@
     "url": "https://github.com/steroids/react-bootstrap/issues"
   },
   "dependencies": {
-    "@steroidsjs/core": "^2.0.0-rc.3",
+    "@steroidsjs/core": "latest",
     "@ckeditor/ckeditor5-react": "^3.0.2",
     "@steroidsjs/ckeditor5": "^27.0.2-rc.2",
     "bootstrap": "^4.5.2",
