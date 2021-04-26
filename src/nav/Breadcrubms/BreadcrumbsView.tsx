@@ -20,18 +20,15 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps & IBemHocOu
 
                     return (
                         <li
-                            key={item.id}
+                            key={item.id || index}
                             className={bem(bem.element('item'), 'breadcrumb-item')}
                         >
-                            {item.url && !isLastItem && (
-                                <Link
-                                    to={item.url}
-                                >
+                            {!isLastItem && item.id && (
+                                <Link toRoute={item.id}>
                                     {item.title}
                                 </Link>
                             )}
-
-                            {(!item.url || isLastItem) && (
+                            {(isLastItem || !item.id) && (
                                 <span>
                                     {props.pageTitle || item.title}
                                 </span>
