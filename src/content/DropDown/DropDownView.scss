@@ -1,0 +1,27 @@
+$gap: 12px;
+
+.DropDownView {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0,0);
+  opacity: 0;
+  transition: opacity .15s ease-in, transform .15s ease-in;
+
+  &_show {
+    opacity: 1;
+  }
+  &_position-top, &_position-topLeft, &_position-topRight {
+    transform: translateY(-$gap);
+  }
+  &_position-bottom, &_position-bottomLeft, &_position-bottomRight {
+    transform: translateY($gap);
+  }
+  &_position-left, &_position-leftTop, &_position-leftBottom {
+    transform: translateX(-$gap);
+  }
+  &_position-right, &_position-rightTop, &_position-rightBottom{
+    transform: translateX($gap);
+  }
+}
