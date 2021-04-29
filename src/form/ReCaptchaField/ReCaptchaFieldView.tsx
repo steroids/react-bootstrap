@@ -1,18 +1,32 @@
 import * as React from 'react';
-import {ReCaptcha} from 'react-recaptcha-v3';
 
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IReCaptchaFieldViewProps} from '@steroidsjs/core/ui/form/ReCaptchaField/ReCaptchaField';
 import {useBem} from '@steroidsjs/core/hooks';
+import {Link} from '@steroidsjs/core/ui/nav';
 
 export default function ReCaptchaFieldView(props: IReCaptchaFieldViewProps & IBemHocOutput) {
     const bem = useBem('ReCaptchaFieldView');
+
     return (
         <div className={bem.block()}>
-            <ReCaptcha
-                {...props.reCaptchaProps}
-                className={bem.element('captcha')}
-            />
+            <small className='text-muted'>
+                {__('This site is protected by reCAPTCHA and the Google') + ' '}
+                <Link
+                    url='https://policies.google.com/privacy'
+                    target='_blank'
+                    label={__('Privacy Policy')}
+                    layout={false}
+                />
+                {' ' + __('and') + ' '}
+                <Link
+                    url='https://policies.google.com/terms'
+                    target='_blank'
+                    label={__('Terms of Service')}
+                    layout={false}
+                />
+                {' ' + __('apply')}.
+            </small>
         </div>
     );
 }
