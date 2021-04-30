@@ -20,7 +20,7 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
                 isOpen={!props.isClosing}
                 closeTimeoutMS={200}
                 overlayClassName={overrideDefaultClasses}
-                className={bem.element('body')}
+                className={bem.element('body', {size: props.size})}
                 bodyOpenClassName={bem.block('body-opened')}
                 ariaHideApp={false}
             >
