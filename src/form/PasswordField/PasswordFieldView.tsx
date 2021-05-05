@@ -21,7 +21,7 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
                     }),
                     'form-control',
                     'form-control-' + props.size,
-                    props.isInvalid && 'is-invalid',
+                    !!props.errors && 'is-invalid',
                 )}
             >
                 <input
@@ -29,7 +29,7 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
                         bem.element('input', {
                             size: props.size,
                         }),
-                        props.isInvalid && 'is-invalid',
+                        !!props.errors && 'is-invalid',
                         props.className,
                     )}
                     {...props.inputProps}

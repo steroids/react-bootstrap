@@ -123,12 +123,6 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                 }}
                 inputProps={{
                     ...(props.pickerProps && props.pickerProps.inputProps),
-                    className: bem(
-                        bem.element('input'),
-                        'form-control',
-                        'form-control-' + props.size,
-                        props.isInvalid && 'is-invalid',
-                    ),
                     disabled: props.disabled,
                     required: props.required,
                 }}
@@ -139,13 +133,22 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                             bem.block({
                                 size: props.size,
                                 'has-icon': !!props.icon,
-                                'is-invalid': !!props.isInvalid,
+                                'is-invalid': !!props.errors,
                             }),
                             props.className,
                             inputProps.className,
                         )}
                     >
-                        <input {...inputProps} />
+                        <input
+                            {...inputProps}
+                            className={bem(
+                                bem.element('input'),
+                                'form-control',
+                                'form-control-' + props.size,
+                                !!props.errors && 'is-invalid',
+                                inputProps.className,
+                            )}
+                        />
                         {props.icon && (
                             <Icon
                                 className={bem.element('icon', {

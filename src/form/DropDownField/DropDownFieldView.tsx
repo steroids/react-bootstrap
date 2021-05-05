@@ -25,13 +25,14 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     return (
         <div
             ref={props.forwardedRef}
-            className={bem.block({size: props.size})}
+            className={bem(bem.block({size: props.size}), props.className)}
+            style={props.style}
         >
             <div
                 className={bem.element('selected-items', {
                     reset: props.showReset,
                     'no-border': props.noBorder,
-                    'is-invalid': props.isInvalid,
+                    'is-invalid': !!props.errors,
                     'disabled': props.disabled
                 })}
                 onClick={props.onOpen}
@@ -119,11 +120,15 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         {props.items.map(item => (
                             <button
                                 key={String(item[props.primaryKey])}
+                                type='button'
                                 className={bem.element('drop-down-item', {
                                     hover: props.hoveredId === item[props.primaryKey],
                                     select: props.selectedIds.includes(item[props.primaryKey]),
                                 })}
-                                onClick={() => props.onItemSelect(item[props.primaryKey])}
+                                onClick={e => {
+                                    e.preventDefault();
+                                    props.onItemSelect(item[props.primaryKey]);
+                                }}
                                 onFocus={() => props.onItemHover(item[props.primaryKey])}
                                 onMouseOver={() => props.onItemHover(item[props.primaryKey])}
                             >

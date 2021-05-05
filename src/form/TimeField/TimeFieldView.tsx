@@ -36,7 +36,7 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
                         bem.element('input', {
                             size: props.size,
                         }),
-                        props.isInvalid && 'is-invalid',
+                        !!props.errors && 'is-invalid',
                     )}
                     autoComplete='off'
                     disabled={props.disabled}

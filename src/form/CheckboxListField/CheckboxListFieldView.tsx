@@ -21,7 +21,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                         className={bem(
                             bem.element('input'),
                             'custom-control-input',
-                            props.isInvalid && 'is-invalid',
+                            !!props.errors && 'is-invalid',
                         )}
                         checked={props.selectedIds.includes(item.id)}
                         disabled={props.disabled}

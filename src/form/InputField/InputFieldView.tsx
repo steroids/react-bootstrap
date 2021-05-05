@@ -15,9 +15,10 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                 }),
                 'form-control',
                 'form-control-' + props.size,
-                props.isInvalid && 'is-invalid',
+                !!props.errors && 'is-invalid',
                 props.className,
             )}
+            style={props.style}
         >
             {props.addonBefore && (
                 <span className={bem.element('addon-before')}>
@@ -39,7 +40,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                             bem.element('input', {
                                 size: props.size,
                             }),
-                            props.isInvalid && 'is-invalid',
+                            !!props.errors && 'is-invalid',
                         )}
                         {...props.inputProps}
                         type={props.type}
@@ -54,7 +55,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                             bem.element('input', {
                                 size: props.size,
                             }),
-                            props.isInvalid && 'is-invalid',
+                            !!props.errors && 'is-invalid',
                         )}
                         {...props.inputProps}
                         onChange={e => props.input.onChange(e.target.value)}

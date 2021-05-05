@@ -29,7 +29,7 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                 }),
                 'form-control',
                 'form-control-' + props.size,
-                props.isInvalid && 'is-invalid',
+                !!props.errors && 'is-invalid',
                 props.className,
             )}
         >
@@ -39,11 +39,11 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                     bem.element('input', {
                         size: props.size,
                     }),
-                    props.isInvalid && 'is-invalid',
+                    !!props.errors && 'is-invalid',
                 )}
                 {...props.inputProps}
             />
-            {!props.disabled && !props.isInvalid && (
+            {!props.disabled && !props.errors && (
                 <div className={bem.element('arrows-container')}>
                     <button
                         className={bem.element('arrow', {

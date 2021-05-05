@@ -18,6 +18,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                 props.layout.layout === 'horizontal' && 'row',
                 props.layout.layout === 'inline' && 'form-inline mb-0',
             )}
+            style={props.layout.style}
         >
             {props.label && (
                 <div
@@ -44,7 +45,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                 {props.children}
                 {!_isEmpty(props.errors) && (
                     <div className={bem(bem.element('invalid-feedback'), 'invalid-feedback')}>
-                        {[].concat(props.errors).map((error, index) => (
+                        {[].concat(props.errors).filter(error => typeof error === 'string').map((error, index) => (
                             <div key={index}>
                                 {error}
                             </div>

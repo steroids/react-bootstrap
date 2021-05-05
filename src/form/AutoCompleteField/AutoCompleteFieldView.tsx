@@ -18,7 +18,7 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                     }),
                     'form-control',
                     'form-control-' + props.size,
-                    props.isInvalid && 'is-invalid',
+                    !!props.errors && 'is-invalid',
                     props.inputProps.className,
                     props.className,
                 )}

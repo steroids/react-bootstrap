@@ -19,7 +19,7 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
                 className={bem(
                     bem.element('input'),
                     'custom-control-input',
-                    props.isInvalid && 'is-invalid',
+                    !!props.errors && 'is-invalid',
                     props.className,
                 )}
                 id={id}

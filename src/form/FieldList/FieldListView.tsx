@@ -8,6 +8,7 @@ export default function FieldListView(props: IFieldListViewProps) {
     return (
         <div
             className={bem(bem.block(), props.className)}
+            style={props.style}
             ref={props.forwardedRef}
         >
             <table

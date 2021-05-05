@@ -17,6 +17,7 @@ function FormView(props: IFormViewProps) {
                 props.layout.layout === 'horizontal' && 'form-horizontal',
             )}
             onSubmit={props.onSubmit}
+            style={props.style}
         >
             {props.children}
             {(props.fields || []).map((field: any, index) => (

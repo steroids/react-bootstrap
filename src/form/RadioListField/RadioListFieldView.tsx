@@ -20,7 +20,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                         className={bem(
                             bem.element('input'),
                             'custom-control-input',
-                            props.isInvalid && 'is-invalid',
+                            !!props.errors && 'is-invalid',
                         )}
                         checked={props.selectedIds.includes(item.id)}
                         disabled={props.disabled}
