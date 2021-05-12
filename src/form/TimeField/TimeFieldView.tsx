@@ -66,6 +66,7 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
     )
     return (
         <DropDown
+            position='bottomLeft'
             content={() => <TimePanelView {...props} />}
             visible={props.showDropDown}
             toggleVisibility={(value)  => value ? props.closeDropDown() : props.openDropDown()}
