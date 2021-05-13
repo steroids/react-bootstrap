@@ -1,13 +1,16 @@
-/// <reference types="@steroidsjs/core/index" />
+// <reference types="@steroidsjs/core/index" />
 
 export default {
     // TODO fix errors in views
 
     'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
     'content.DropDownView': {lazy: () => require('./content/DropDown/DropDownView').default},
+    'content.AvatarView': {lazy: () => require('./content/Avatar/AvatarView').default},
+    'content.AvatarGroupView': {lazy: () => require('./content/Avatar/AvatarGroupView').default},
     // 'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
     'form.AutoCompleteFieldView': {lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default},
     'form.ButtonView': {lazy: () => require('./form/Button/ButtonView').default},
+    'content.CardView': {lazy: () => require('./content/Card/CardView').default},
     'form.CheckboxFieldView': {lazy: () => require('./form/CheckboxField/CheckboxFieldView').default},
     'form.CheckboxListFieldView': {lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default},
     'form.DateFieldView': {lazy: () => require('./form/DateField/DateFieldView').default},

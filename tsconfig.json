@@ -13,7 +13,15 @@
     ],
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@steroidsjs/core/*": [
+        "../react/src/*"
+      ],
+      "@steroidsjs/bootstrap/*": [
+        "../react-bootstrap/src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*"

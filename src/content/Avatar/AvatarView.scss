@@ -1,0 +1,44 @@
+
+.AvatarView {
+  color: aqua;
+  background: red;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+  justify-content: center;
+  vertical-align: middle;
+  // border-radius: 50%;
+  &_square {
+    border-radius: none;
+  }
+
+  &_circle {
+    border-radius: 50%;
+  }
+  &_large {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 20px;
+  }
+  &_medium {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    font-size: 8px;
+  }
+  &_small {
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    font-size: 12px;
+  }
+  & > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
