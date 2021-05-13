@@ -1,18 +1,16 @@
 import * as React from 'react';
+import {useCallback, useMemo} from 'react';
+import {useBem} from '@steroidsjs/core/hooks';
 import DayPicker from 'react-day-picker';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
+import Icon from '@steroidsjs/core/ui/icon/Icon';
+import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
+import DropDown from '@steroidsjs/core/ui/content/DropDown';
+import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
 import _isString from 'lodash-es/isString';
 import _upperFirst from 'lodash-es/upperFirst';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {IDateFieldViewProps} from '@steroidsjs/core/ui/form/DateField/DateField';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
-import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
-import {useBem} from '@steroidsjs/core/hooks';
-import {useCallback, useMemo} from 'react';
-import DropDown from "@steroidsjs/core/ui/content/DropDown";
-
-import './DateFieldView.scss';
+import './DateRangeFieldView.scss';
 
 interface IYearMonthFormProps extends CaptionElementProps {
     customClassNames: {
@@ -36,7 +34,6 @@ function YearMonthForm(props: IYearMonthFormProps) {
 
     const handleMonthChange = newMonth => {
         if (newMonth !== currentMonth) {
-            console.log('handleMonthChange', newMonth)
             props.onChange(new Date(currentYear, newMonth));
         }
     };
@@ -87,8 +84,8 @@ function YearMonthForm(props: IYearMonthFormProps) {
     );
 }
 
-export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput) {
-    const bem = useBem('DateFieldView');
+export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
+    const bem = useBem('DateRangeFieldView');
     const captionElement = useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
         <YearMonthForm
             date={date}
@@ -105,12 +102,20 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
             toYear={props.toYear}
         />
     ), []);
+    const from = props.selectedRange.from;
+    const to = props.selectedRange.to;
+    const modifiers = {
+        start: from,
+        end: to,
+    };
     return (
         <DropDown
             content={() =>
                 <DayPicker
+                    className={bem.element('day-picker')}
                     captionElement={captionElement}
-                    selectedDays={props.selectedDays}
+                    selectedDays={[from, { from, to }]}
+                    modifiers={modifiers}
                     onDayClick={props.onDayClick}
                     month={props.month}
                 />
@@ -122,12 +127,19 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
             <div
                 className={bem(
                     bem.block({
-                        size: props.size,
-                        'has-icon': !!props.icon,
-                        'is-invalid': !!props.isInvalid,
+                        'disabled': props.disabled,
+                        'no-border': props.noBorder,
                     }),
                     props.className,
                 )}
+                onFocus={(e) => {
+                    e.preventDefault();
+                    props.openPanel();
+                }}
+                onBlur={(e) => {
+                    e.preventDefault();
+                    props.onBlur();
+                }}
             >
                 <div className={bem.element('body')}>
                     <input
@@ -138,15 +150,22 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                             }),
                             props.isInvalid && 'is-invalid',
                         )}
-                        onChange={e => props.inputProps.onChange(e.target.value)}
-                        onFocus={(e) => {
-                            e.preventDefault();
-                            props.openPanel();
-                        }}
-                        onBlur={(e) => {
-                            e.preventDefault();
-                            props.onBlur();
-                        }}
+                        value={props.state.from}
+                        onChange={e => props.inputProps.onChange({from: e.target.value})}
+                    />
+                    <span className={bem.element('divider')}>
+                    -
+                </span>
+                    <input
+                        {...props.inputProps}
+                        className={bem(
+                            bem.element('input', {
+                                size: props.size,
+                            }),
+                            props.isInvalid && 'is-invalid',
+                        )}
+                        value={props.state.to}
+                        onChange={e => props.inputProps.onChange({to: e.target.value})}
                     />
                     <div className={bem.element('icon-container')}>
                         {props.icon && (

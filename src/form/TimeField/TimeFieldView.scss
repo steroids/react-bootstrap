@@ -31,9 +31,10 @@
   }
 
   &__body {
+    height: 100%;
     display: flex;
     flex-flow: row nowrap;
-    align-items: stretch;
+    align-items: center;
 
     &:hover #{$root}__icon_close {
       opacity: 1;
