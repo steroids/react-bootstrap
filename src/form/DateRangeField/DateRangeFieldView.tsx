@@ -97,13 +97,13 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                 yearSelect: bem.element('caption-year'),
                 monthSelect: bem.element('caption-month'),
             }}
-            onChange={props.handleYearMonthChange}
+            onChange={props.updateMonth}
             fromYear={props.fromYear}
             toYear={props.toYear}
         />
     ), []);
-    const from = props.selectedRange.from;
-    const to = props.selectedRange.to;
+    const from = props.dateFrom;
+    const to = props.dateTo;
     const modifiers = {
         start: from,
         end: to,
@@ -140,32 +140,31 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                     e.preventDefault();
                     props.onBlur();
                 }}
+                style={props.style}
             >
                 <div className={bem.element('body')}>
                     <input
-                        {...props.inputProps}
+                        {...props.inputFromProps}
                         className={bem(
                             bem.element('input', {
                                 size: props.size,
                             }),
                             props.isInvalid && 'is-invalid',
                         )}
-                        value={props.state.from}
-                        onChange={e => props.inputProps.onChange({from: e.target.value})}
+                        onChange={e => props.inputFromProps.onChange(e.target.value)}
                     />
                     <span className={bem.element('divider')}>
                     -
                 </span>
                     <input
-                        {...props.inputProps}
+                        {...props.inputToProps}
                         className={bem(
                             bem.element('input', {
                                 size: props.size,
                             }),
                             props.isInvalid && 'is-invalid',
                         )}
-                        value={props.state.to}
-                        onChange={e => props.inputProps.onChange({to: e.target.value})}
+                        onChange={e => props.inputToProps.onChange(e.target.value)}
                     />
                     <div className={bem.element('icon-container')}>
                         {props.icon && (
