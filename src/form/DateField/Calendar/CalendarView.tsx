@@ -5,9 +5,9 @@ import {ICalendarViewProps} from '@steroidsjs/core/ui/form/DateField/Calendar/Ca
 import _upperFirst from 'lodash-es/upperFirst';
 
 import './CalendarView.scss';
-import {useCallback, useMemo} from "react";
-import DropDownField from "@steroidsjs/core/ui/form/DropDownField";
-import {CaptionElementProps} from "react-day-picker/types/Props";
+import {useCallback, useMemo} from 'react';
+import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
+import {CaptionElementProps} from 'react-day-picker/types/Props';
 
 interface IYearMonthFormProps extends CaptionElementProps {
     customClassNames: {
@@ -31,7 +31,6 @@ function YearMonthForm(props: IYearMonthFormProps) {
 
     const handleMonthChange = newMonth => {
         if (newMonth !== currentMonth) {
-            console.log('handleMonthChange', newMonth)
             props.onChange(new Date(currentYear, newMonth));
         }
     };
@@ -100,9 +99,10 @@ export default function CalendarView(props: ICalendarViewProps) {
             fromYear={props.fromYear}
             toYear={props.toYear}
         />
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     ), []);
 
-    return(
+    return (
         <DayPicker
             className={bem.block()}
             captionElement={captionElement}

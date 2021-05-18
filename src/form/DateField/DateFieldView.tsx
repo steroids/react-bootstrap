@@ -4,26 +4,28 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDateFieldViewProps} from '@steroidsjs/core/ui/form/DateField/DateField';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
-import DropDown from "@steroidsjs/core/ui/content/DropDown";
-import Calendar from "@steroidsjs/core/ui/form/DateField/Calendar";
+import DropDown from '@steroidsjs/core/ui/content/DropDown';
+import Calendar from '@steroidsjs/core/ui/form/DateField/Calendar';
 import './DateFieldView.scss';
+import {useCallback} from 'react';
 
 export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput) {
     const bem = useBem('DateFieldView');
 
     return (
         <DropDown
-            content={() =>
+            content={useCallback(() => (
                 <Calendar
                     value={props.input.value}
                     onDayChange={props.onDayClick}
                     displayFormat={props.displayFormat}
                     valueFormat={props.valueFormat}
                 />
-            }
+                // eslint-disable-next-line react-hooks/exhaustive-deps
+            ), [props.input.value])}
             position='bottomLeft'
             visible={props.isPanelOpen}
-            toggleVisibility={(value)  => value ? props.closePanel() : props.openPanel()}
+            toggleVisibility={(value) => value ? props.closePanel() : props.openPanel()}
         >
             <div
                 className={bem(
