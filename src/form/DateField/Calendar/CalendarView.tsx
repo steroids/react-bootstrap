@@ -1,13 +1,13 @@
 import * as React from 'react';
-import DayPicker from 'react-day-picker';
+import {useCallback, useMemo} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
+import DayPicker from 'react-day-picker';
+import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
+import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/form/DateField/Calendar/Calendar';
 import _upperFirst from 'lodash-es/upperFirst';
 
 import './CalendarView.scss';
-import {useCallback, useMemo} from 'react';
-import DropDownField from '@steroidsjs/core/ui/form/DropDownField';
-import {CaptionElementProps} from 'react-day-picker/types/Props';
 
 interface IYearMonthFormProps extends CaptionElementProps {
     customClassNames: {
@@ -102,12 +102,25 @@ export default function CalendarView(props: ICalendarViewProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     ), []);
 
+    let selectedDays;
+    let modifiers = {};
+    if (props.selectedDays.length > 1) {
+        const from = props.selectedDays[0];
+        const to = props.selectedDays[1];
+        selectedDays = [from, { from, to }];
+        modifiers = { start: from, end: to };
+    } else {
+        selectedDays = props.selectedDays[0];
+    }
     return (
         <DayPicker
-            className={bem.block()}
+            className={bem.block({
+                ranged: props.selectedDays.length > 1,
+            })}
             captionElement={captionElement}
-            selectedDays={props.selectedDay}
-            onDayClick={props.onDayClick}
+            selectedDays={selectedDays}
+            onDayClick={props.onDayChange}
+            modifiers={modifiers}
             month={props.month}
         />
     );

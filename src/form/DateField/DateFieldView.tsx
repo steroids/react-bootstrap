@@ -16,10 +16,9 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
         <DropDown
             content={useCallback(() => (
                 <Calendar
-                    value={props.input.value}
+                    calendarValue={props.input.value}
                     onDayChange={props.onDayClick}
-                    displayFormat={props.displayFormat}
-                    valueFormat={props.valueFormat}
+                    dateValidFormats={[props.displayFormat, props.valueFormat]}
                 />
                 // eslint-disable-next-line react-hooks/exhaustive-deps
             ), [props.input.value])}
