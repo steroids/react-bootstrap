@@ -7,7 +7,6 @@ import _padStart from 'lodash-es/padStart';
 
 import './TimePanelView.scss';
 
-
 export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput) {
     const bem = useBem('TimePanelView');
     const hours = useMemo(() => {
@@ -16,7 +15,7 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
             const hour = _padStart(i, 2, '0');
             result.push(hour);
         }
-        return result
+        return result;
     }, []);
     const minutes = useMemo(() => {
         const result = [];
@@ -24,8 +23,9 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
             const minute = _padStart(i, 2, '0');
             result.push(minute);
         }
-        return result
+        return result;
     }, []);
+    const inputValue = props.input.value ? props.input.value.split(':') : ['00', '00'];
     return (
         <div className={bem.block()}>
             <div className={bem.element('body')}>
@@ -34,11 +34,11 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
                         <li
                             key={index}
                             className={bem.element('cell', {
-                                'selected': value === (props.input.value?.substring(0, 2) || '00')
+                                selected: value === inputValue[0],
                             })}
                             onClick={(e) => {
                                 e.preventDefault();
-                                props.changeHours(value);
+                                props.handlePanelClick(value + ':' + inputValue[1]);
                             }}
                         >
                             <div className={bem.element('cell-value')}>
@@ -52,9 +52,12 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
                         <li
                             key={index}
                             className={bem.element('cell', {
-                                'selected': value === (props.input.value?.substring(3, 6) || '00')
+                                selected: value === inputValue[1],
                             })}
-                            onClick={(e) => props.changeMinutes(value)}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                props.handlePanelClick(inputValue[0] + ':' + value);
+                            }}
                         >
                             <div className={bem.element('cell-value')}>
                                 {value}
