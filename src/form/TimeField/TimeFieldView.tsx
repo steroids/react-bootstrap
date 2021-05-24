@@ -21,27 +21,16 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
             )}
             onFocus={(e) => {
                 e.preventDefault();
-                props.openDropDown();
-            }}
-            onBlur={(e) => {
-                e.preventDefault();
-                props.onBlur();
+                props.openPanel();
             }}
         >
             <div className={bem.element('body')}>
                 <input
                     {...props.inputProps}
                     className={bem(
-                        bem.element('input', {
-                            size: props.size,
-                        }),
-                        !!props.errors && 'is-invalid',
+                        bem.element('input'),
+                        props.isInvalid && 'is-invalid',
                     )}
-                    autoComplete='off'
-                    disabled={props.disabled}
-                    placeholder={props.placeholder}
-                    required={props.required}
-                    type={props.type}
                     onChange={e => props.inputProps.onChange(e.target.value)}
                 />
                 <div className={bem.element('icon-container')}>
@@ -67,8 +56,8 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
         <DropDown
             position='bottomLeft'
             content={() => <TimePanelView {...props} />}
-            visible={props.showDropDown}
-            toggleVisibility={(value) => value ? props.closeDropDown() : props.openDropDown()}
+            visible={props.isPanelVisible}
+            toggleVisibility={(value) => value ? props.closePanel() : props.openPanel()}
         >
             {renderBody()}
         </DropDown>

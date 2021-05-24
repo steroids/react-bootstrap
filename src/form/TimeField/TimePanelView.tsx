@@ -29,9 +29,9 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
     return (
         <div className={bem.block()}>
             <div className={bem.element('body')}>
-                <ul className={bem.element('column')}>
+                <div className={bem.element('column')}>
                     {hours.map((value, index) => (
-                        <li
+                        <div
                             key={index}
                             className={bem.element('cell', {
                                 selected: value === inputValue[0],
@@ -44,12 +44,12 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
                             <div className={bem.element('cell-value')}>
                                 {value}
                             </div>
-                        </li>
+                        </div>
                     ))}
-                </ul>
-                <ul className={bem.element('column')}>
+                </div>
+                <div className={bem.element('column')}>
                     {minutes.map((value, index) => (
-                        <li
+                        <div
                             key={index}
                             className={bem.element('cell', {
                                 selected: value === inputValue[1],
@@ -62,9 +62,9 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
                             <div className={bem.element('cell-value')}>
                                 {value}
                             </div>
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
             <div className={bem.element('footer')}>
                 <button
@@ -76,8 +76,13 @@ export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput
                 >
                     Now
                 </button>
-                {/*// TODO Add OK logic*/}
-                <button className={bem.element('button', 'ok')}>
+                <button
+                    className={bem.element('button', 'ok')}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        props.closePanel();
+                    }}
+                >
                     Ok
                 </button>
             </div>
