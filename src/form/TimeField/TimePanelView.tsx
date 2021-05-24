@@ -7,7 +7,7 @@ import _padStart from 'lodash-es/padStart';
 
 import './TimePanelView.scss';
 
-export default function TimePanelView(props: ITimeFieldViewProps & IBemHocOutput) {
+export default function TimePanelView(props: ITimeFieldViewProps) {
     const bem = useBem('TimePanelView');
     const hours = useMemo(() => {
         const result = [];
