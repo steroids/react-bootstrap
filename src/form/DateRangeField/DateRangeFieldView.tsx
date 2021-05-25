@@ -3,7 +3,7 @@ import {useCallback} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
-import Calendar from '@steroidsjs/core/ui/form/DateField/Calendar';
+import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
 import _isString from 'lodash-es/isString';
 
@@ -18,15 +18,15 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
         <DropDown
             content={useCallback(() => (
                 <Calendar
-                    calendarValue={valuesRange}
-                    onDayChange={props.onDayClick}
-                    dateValidFormats={[props.displayFormat, props.valueFormat]}
+                    value={valuesRange}
+                    onChange={props.onDayClick}
+                    valueFormat={props.valueFormat}
                 />
                 // eslint-disable-next-line react-hooks/exhaustive-deps
             ), [valuesRange])}
             position='bottomLeft'
             visible={props.isPanelOpen}
-            toggleVisibility={(value) => value ? props.closePanel() : props.openPanel()}
+            onClose={props.onClose}
         >
             <div
                 className={bem(

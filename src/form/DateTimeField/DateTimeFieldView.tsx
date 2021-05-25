@@ -4,34 +4,32 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
 import {useBem} from '@steroidsjs/core/hooks';
 import {useCallback} from 'react';
-import Calendar from '@steroidsjs/core/ui/form/DateField/Calendar';
+import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import TimePanelView from '@steroidsjs/bootstrap/form/TimeField/TimePanelView';
 
 export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemHocOutput) {
     const bem = useBem('DateTimeFieldView');
+
+    const renderContent = useCallback(() => (
+        <div className={bem.element('panel-container')}>
+            <Calendar {...props.calendarProps} />
+            <TimePanelView
+                value={props.timeValue}
+                onSelect={props.onTimeSelect}
+                onNow={props.onNow}
+                onClose={props.onClose}
+            />
+        </div>
+    ), [bem, props.calendarProps, props.onClose, props.onNow, props.onTimeSelect, props.timeValue]);
+
     return (
         <DropDown
-            content={useCallback(() => (
-                <div className={bem.element('panel-container')}>
-                    <Calendar
-                        calendarValue={props.input.value}
-                        onDayChange={props.onDayClick}
-                        dateValidFormats={[props.displayFormat, props.valueFormat]}
-                    />
-                    <TimePanelView
-                        {...props}
-                        handlePanelClick={props.onTimePanelClick}
-                        setNow={() => null}
-                        clearInput={() => null}
-                    />
-                </div>
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-            ), [props.input.value])}
+            content={renderContent}
             position='bottomLeft'
-            visible={props.isPanelOpen}
-            toggleVisibility={(value) => value ? props.closePanel() : props.openPanel()}
+            visible={props.isOpened}
+            onClose={props.onClose}
         >
             <div
                 className={bem(
@@ -55,10 +53,6 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemH
                             props.isInvalid && 'is-invalid',
                         )}
                         onChange={e => props.inputProps.onChange(e.target.value)}
-                        onFocus={(e) => {
-                            e.preventDefault();
-                            props.openPanel();
-                        }}
                     />
                     <div className={bem.element('icon-container')}>
                         {props.icon && (
@@ -67,14 +61,14 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemH
                                 name={props.icon || 'calendar-alt'}
                             />
                         )}
-                        {props.showRemove && props.input.value && (
+                        {props.showRemove && props.inputProps.value && props.icon !== false && (
                             <Icon
                                 className={bem.element('icon', 'close')}
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    props.clearInput();
+                                    props.onClear();
                                 }}
-                                name='times-circle'
+                                name={typeof props.icon === 'string' ? props.icon : 'times-circle'}
                             />
                         )}
                     </div>

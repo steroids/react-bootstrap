@@ -1,70 +1,55 @@
 import * as React from 'react';
-import _isString from 'lodash-es/isString';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+import {useCallback} from 'react';
 import {IDateFieldViewProps} from '@steroidsjs/core/ui/form/DateField/DateField';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
-import Calendar from '@steroidsjs/core/ui/form/DateField/Calendar';
+import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import './DateFieldView.scss';
-import {useCallback} from 'react';
 
-export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput) {
+export default function DateFieldView(props: IDateFieldViewProps) {
     const bem = useBem('DateFieldView');
+
+    const renderCalendar = useCallback(() => (
+        <Calendar {...props.calendarProps} />
+    ), [props.calendarProps]);
 
     return (
         <DropDown
-            content={useCallback(() => (
-                <Calendar
-                    calendarValue={props.input.value}
-                    onDayChange={props.onDayClick}
-                    dateValidFormats={[props.displayFormat, props.valueFormat]}
-                />
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-            ), [props.input.value])}
+            content={renderCalendar}
             position='bottomLeft'
-            visible={props.isPanelOpen}
-            toggleVisibility={(value) => value ? props.closePanel() : props.openPanel()}
+            visible={props.isOpened}
+            onClose={props.onClose}
         >
             <div
                 className={bem(
                     bem.block({
                         size: props.size,
                         'has-icon': !!props.icon,
-                        'is-invalid': !!props.isInvalid,
+                        'is-invalid': !!props.errors,
                     }),
                     props.className,
                 )}
                 style={props.style}
             >
-
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputProps}
-                        className={bem(
-                            bem.element('input', {
-                                size: props.size,
-                            }),
-                            props.isInvalid && 'is-invalid',
-                        )}
                         onChange={e => props.inputProps.onChange(e.target.value)}
-                        onFocus={(e) => {
-                            e.preventDefault();
-                            props.openPanel();
-                        }}
-                        onBlur={(e) => {
-                            e.preventDefault();
-                            props.onBlur();
-                        }}
+                        className={bem(
+                            bem.element('input', {size: props.size}),
+                            props.isInvalid && 'is-invalid',
+                            props.inputProps.className,
+                        )}
                     />
                     <div className={bem.element('icon-container')}>
                         {props.icon && (
                             <Icon
                                 className={bem.element('icon')}
-                                name={_isString(props.icon) ? props.icon as string : 'calendar-alt'}
+                                name={typeof props.icon === 'string' ? props.icon : 'calendar-alt'}
                             />
                         )}
-                        {props.showRemove && props.input.value && (
+                        {props.showRemove && props.inputProps.value && (
                             <Icon
                                 className={bem.element('icon', 'close')}
                                 onClick={(e) => {

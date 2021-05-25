@@ -24,7 +24,8 @@
     }
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "node_modules/@steroidsjs/core/index.d.ts"
   ],
   "exclude": [
     "src/**/*.test.ts",
