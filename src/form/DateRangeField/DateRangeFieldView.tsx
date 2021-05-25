@@ -11,21 +11,17 @@ import './DateRangeFieldView.scss';
 
 export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const bem = useBem('DateRangeFieldView');
-    const valuesRange = props.input.value
-        ? [props.input.value.from || '', props.input.value.to || '']
-        : [];
+
+    const renderCalendar = useCallback(() => (
+        <Calendar {...props.calendarProps} />
+    ), [props.calendarProps]);
+
+    const valuesRange = [props.inputPropsFrom.value || '', props.inputPropsTo.value || ''];
     return (
         <DropDown
-            content={useCallback(() => (
-                <Calendar
-                    value={valuesRange}
-                    onChange={props.onDayClick}
-                    valueFormat={props.valueFormat}
-                />
-                // eslint-disable-next-line react-hooks/exhaustive-deps
-            ), [valuesRange])}
+            content={renderCalendar}
             position='bottomLeft'
-            visible={props.isPanelOpen}
+            visible={props.isOpened}
             onClose={props.onClose}
         >
             <div
@@ -36,39 +32,31 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                     }),
                     props.className,
                 )}
-                onFocus={(e) => {
-                    e.preventDefault();
-                    props.openPanel();
-                }}
-                onBlur={(e) => {
-                    e.preventDefault();
-                    props.onBlur();
-                }}
                 style={props.style}
             >
                 <div className={bem.element('body')}>
                     <input
-                        {...props.inputFromProps}
+                        {...props.inputPropsFrom}
                         className={bem(
                             bem.element('input', {
                                 size: props.size,
                             }),
-                            props.isInvalid && 'is-invalid',
+                            !!props.errorsFrom && 'is-invalid',
                         )}
-                        onChange={e => props.inputFromProps.onChange(e.target.value)}
+                        onChange={e => props.inputPropsFrom.onChange(e.target.value)}
                     />
                     <span className={bem.element('divider')}>
                         -
                     </span>
                     <input
-                        {...props.inputToProps}
+                        {...props.inputPropsTo}
                         className={bem(
                             bem.element('input', {
                                 size: props.size,
                             }),
-                            props.isInvalid && 'is-invalid',
+                            !!props.errorsTo && 'is-invalid',
                         )}
-                        onChange={e => props.inputToProps.onChange(e.target.value)}
+                        onChange={e => props.inputPropsTo.onChange(e.target.value)}
                     />
                     <div className={bem.element('icon-container')}>
                         {props.icon && (
@@ -77,12 +65,12 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                                 name={_isString(props.icon) ? props.icon as string : 'calendar-alt'}
                             />
                         )}
-                        {props.showRemove && props.input.value && (
+                        {props.showRemove && (props.inputPropsFrom.value || props.inputPropsTo.value) && (
                             <Icon
                                 className={bem.element('icon', 'close')}
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    props.clearInput();
+                                    props.onClear();
                                 }}
                                 name='times-circle'
                             />
