@@ -1,0 +1,128 @@
+.AlertView {
+    $root: &;
+
+    position: relative;
+    width: 600px;
+    min-height: 48px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 16px;
+
+    &__icon-close.IconView{
+        fill: #152536;
+        position: absolute;
+        right: 20px;
+
+        svg{
+            width: 15px;
+            height: 15px;
+        }
+
+        &_large{
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+    
+    &__icon {
+        box-sizing: border-box;
+
+        &_large.IconView{
+            svg{
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        svg{
+            width: 20px;
+            height: 20px;
+            margin-bottom: 4px;
+            margin-right: 12px;
+        }
+
+        &_success.IconView{
+            fill: #64D03E;
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+            &_large.IconView{
+                svg{
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        &_info.IconView{
+            fill: #39BBD8;
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &_warning.IconView{
+            fill: #FFE457;
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        &_error.IconView{
+            fill: #FF4557;
+            svg{
+                width: 20px;
+                height: 20px;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 16px;
+        line-height: 24px;
+        &_large{
+            font-size: 18px;
+            line-height: 24px
+        }
+    }
+
+    &__description {
+        margin-top: 12px;
+        font-size: 16px;
+        line-height: 24px;
+        #{$root}__title{
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+
+    &_success {
+        background: #F1FFEC;
+        border: 1px solid #64D03E;
+        border-radius: 4px;
+    }
+
+    &_info {
+        background: #ECFCFF;
+        border: 1px solid #39BBD8;
+        border-radius: 4px;
+    }
+
+    &_warning {
+        background: #FFFCEA;
+        border: 1px solid #FFE457;
+        border-radius: 4px;
+    }
+
+    &_error {
+        background: #FCE7E7;
+        border: 1px solid #FF4557;
+        border-radius: 4px;
+    }
+}
