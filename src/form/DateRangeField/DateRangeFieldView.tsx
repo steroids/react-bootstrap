@@ -13,10 +13,12 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const bem = useBem('DateRangeFieldView');
 
     const renderCalendar = useCallback(() => (
-        <Calendar {...props.calendarProps} />
+        <Calendar
+            {...props.calendarProps}
+            numberOfMonths={2}
+            showFooter={false}
+        />
     ), [props.calendarProps]);
-
-    const valuesRange = [props.inputPropsFrom.value || '', props.inputPropsTo.value || ''];
     return (
         <DropDown
             content={renderCalendar}

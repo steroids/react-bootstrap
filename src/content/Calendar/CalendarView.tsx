@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useCallback, useMemo} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import DayPicker from 'react-day-picker';
+import DayPicker, {DateUtils} from 'react-day-picker';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import CaptionElement from './CaptionElement';
@@ -15,31 +15,40 @@ export default function CalendarView(props: ICalendarViewProps) {
         month,
         toYear,
         fromYear,
+        showFooter,
         onDaySelect,
         selectedDates,
         onMonthSelect,
+        numberOfMonths,
         toggleCaptionPanel,
         isCaptionPanelVisible,
     } = props;
 
+    const isRange = !!selectedDates[1];
     const {selectedDays, modifiers} = useMemo(() => {
         const from = selectedDates[0];
         const to = selectedDates[1];
-
+        const inRange = (day) => DateUtils.isDayAfter(day, from) && DateUtils.isDayBefore(day, to);
+        const outRange = (day) => DateUtils.isDayBefore(day, from);
         return {
-            selectedDays: to
+            selectedDays: isRange
                 ? [from, { from, to }]
                 : from,
-            modifiers: to
-                ? { start: from, end: to }
+            modifiers: isRange
+                ? {
+                    start: from,
+                    end: to,
+                    inRange,
+                    outRange,
+                }
                 : undefined,
         };
-    }, [selectedDates]);
+    }, [isRange, selectedDates]);
 
     return (
         <DayPicker
             className={bem.block({
-                ranged: selectedDates.length > 1,
+                ranged: isRange,
             })}
             captionElement={useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
                 <CaptionElement
@@ -54,7 +63,7 @@ export default function CalendarView(props: ICalendarViewProps) {
                     isCaptionPanelVisible={isCaptionPanelVisible}
                 />
             ), [fromYear, isCaptionPanelVisible, onMonthSelect, toYear, toggleCaptionPanel])}
-            todayButton={isCaptionPanelVisible ? __('Close') : __('Today')}
+            todayButton={showFooter && (isCaptionPanelVisible ? __('Close') : __('Today'))}
             onTodayButtonClick={(day) => {
                 if (isCaptionPanelVisible) {
                     toggleCaptionPanel();
@@ -69,6 +78,15 @@ export default function CalendarView(props: ICalendarViewProps) {
             firstDayOfWeek={1}
             month={month}
             fixedWeeks
+            numberOfMonths={numberOfMonths}
+            renderDay={(day) => {
+                const date = day.getDate();
+                return (
+                    <div className={bem.element('day')}>
+                        {date}
+                    </div>
+                );
+            }}
         />
     );
 }
