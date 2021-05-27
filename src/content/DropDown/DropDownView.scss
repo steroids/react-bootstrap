@@ -9,6 +9,8 @@ $gap: 12px;
   opacity: 0;
   transition: opacity .15s ease-in, transform .15s ease-in;
 
+  border-radius: 4px;
+  border: 1px solid #ccc;
   background-color: #fff;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 

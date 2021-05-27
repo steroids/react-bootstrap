@@ -1,6 +1,82 @@
 @import '~react-day-picker/lib/style.css';
 
 .CalendarView {
+  position: relative;
+  color: #152536;
+  font-weight: 500;
+
+  .DayPicker-wrapper {
+    padding-bottom: 0;
+  }
+  .DayPicker-Month {
+    margin: 0;
+    border-collapse: separate;
+    border-spacing: 10px;
+  }
+
+  // Body
+
+  .DayPicker-Weekday {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    color: inherit;
+  }
+  .DayPicker-Day {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 10px;
+
+    transition-property: background-color, box-shadow, color;
+    transition-duration: .1s;
+
+    &--outside {
+      color: #ccc;
+    }
+
+    &--today {
+      color: inherit;
+      font-weight: inherit;
+      box-shadow: 0 0 0 3px #d8ccf6;
+    }
+  }
+
+  // Footer
+
+  .DayPicker-Footer {
+    height: 50px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    border-top: 1px solid #ccc;
+  }
+  .DayPicker-TodayButton {
+    color: #651fff;
+    font-weight: 500;
+  }
+
+  // Days selection
+
+  // Selected day
+  .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+    position: unset;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #651fff;
+    box-shadow: 0 0 0 3px #d8ccf6;
+  }
+
+  // Hover
+  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+    background-color: #f4f4f4 !important;
+    box-shadow: 0 0 0 3px #e2e6ea;
+  }
+
   &_ranged {
     .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
       background-color: #f0f8ff !important;
