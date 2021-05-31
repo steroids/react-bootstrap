@@ -2,127 +2,115 @@
     $root: &;
 
     position: relative;
-    width: 600px;
-    min-height: 48px;
+
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     padding: 12px 16px;
 
-    &__icon-close.IconView{
-        fill: #152536;
-        position: absolute;
-        right: 20px;
+    border-radius: 4px;
+    border: 1px solid transparent;
 
-        svg{
-            width: 15px;
-            height: 15px;
-        }
-
-        &_large{
-            svg{
-                width: 20px;
-                height: 20px;
-            }
-        }
-    }
-    
-    &__icon {
-        box-sizing: border-box;
-
-        &_large.IconView{
-            svg{
-                width: 24px;
-                height: 24px;
-            }
-        }
-
-        svg{
-            width: 20px;
-            height: 20px;
-            margin-bottom: 4px;
-            margin-right: 12px;
-        }
-
-        &_success.IconView{
-            fill: #64D03E;
-            svg{
-                width: 20px;
-                height: 20px;
-            }
-            &_large.IconView{
-                svg{
-                    width: 24px;
-                    height: 24px;
-                }
-            }
-        }
-
-        &_info.IconView{
-            fill: #39BBD8;
-            svg{
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        &_warning.IconView{
-            fill: #FFE457;
-            svg{
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        &_error.IconView{
-            fill: #FF4557;
-            svg{
-                width: 20px;
-                height: 20px;
-            }
-        }
+    &_close-animation {
+        animation: hide_slide .4s ease-in;  
     }
 
-    &__title {
-        font-size: 16px;
-        line-height: 24px;
-        &_large{
+    @keyframes hide_slide {
+      0% {
+        transform: translateX(-10px);
+      }
+      40% {
+        transform: translateX(0%);
+      }
+      80% {
+        transform: translateX(-10%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    &_has-description {
+        align-items: flex-start;
+
+        #{$root}__message {
             font-size: 18px;
-            line-height: 24px
         }
+    }
+
+    &_success {
+        background: #f1ffec;
+        border-color: #64d03e;
+
+        #{$root}__icon.IconView {
+            fill: #64d03e;
+        }
+    }
+    &_info {
+        background: #ecfcff;
+        border-color: #39bbd8;
+
+        #{$root}__icon.IconView {
+            fill: #39bbd8;
+        }
+    }
+    &_warning {
+        background: #fffcea;
+        border-color: #ffe457;
+
+        #{$root}__icon.IconView {
+            fill: #ffe457;
+        }
+    }
+    &_error {
+        background: #fce7e7;
+        border-color: #ff4557;
+
+        #{$root}__icon.IconView {
+            fill: #ff4557;
+        }
+    }
+
+    &__icon.IconView svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: column;
+        padding: 0 35px 0 15px;
+    }
+
+    &__message {
+        flex-grow: 1;
+        font-size: 16px;
+    }
+
+    &__content-wrapper {
+        display: flex;
+        justify-content: space-between;
     }
 
     &__description {
         margin-top: 12px;
         font-size: 16px;
-        line-height: 24px;
-        #{$root}__title{
-            font-size: 18px;
-            line-height: 24px;
+    }
+
+    &__icon-close.IconView {
+        position: absolute;
+        right: 20px;
+
+        svg {
+            width: 15px;
+            height: 15px;
         }
-    }
 
-    &_success {
-        background: #F1FFEC;
-        border: 1px solid #64D03E;
-        border-radius: 4px;
-    }
-
-    &_info {
-        background: #ECFCFF;
-        border: 1px solid #39BBD8;
-        border-radius: 4px;
-    }
-
-    &_warning {
-        background: #FFFCEA;
-        border: 1px solid #FFE457;
-        border-radius: 4px;
-    }
-
-    &_error {
-        background: #FCE7E7;
-        border: 1px solid #FF4557;
-        border-radius: 4px;
+        fill: rgba(#152536, .6);
+        transition: fill .1s ease-in;
+        &:hover {
+            fill: #152536;
+        }
     }
 }

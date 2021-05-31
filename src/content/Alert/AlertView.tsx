@@ -1,53 +1,68 @@
 import React from 'react';
 import { useBem } from '@steroidsjs/core/hooks';
-import { IAlertViewProps } from '@steroidsjs/core/ui/content/Alert/Alert'
+import Icon from '@steroidsjs/core/ui/icon/Icon';
+import { IAlertViewProps } from '@steroidsjs/core/ui/content/Alert/Alert';
 
 import './AlertView.scss';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
 
-
-export default function Alert (props: IAlertViewProps) {
-
+export default function Alert(props: IAlertViewProps) {
     const bem = useBem('AlertView');
-
-    return(
-        <>
-        {props.closed ? null : (
-            <div className={bem(bem.block({
-                [`${props.type}`]: !!props.type,
-            }))}
-            style={props.style}
-            >
-                {props.showIcon && (
-                    <Icon
-                        name={props.type}
-                        className={bem.element('icon', props.type, {
-                            large: !!props.description
-                        }
-                        )}
-                    />
+    return (
+        props.isExist && (
+            <div
+                className={bem(
+                    bem.block({
+                        [props.type]: !!props.type,
+                        'has-description': !!props.description,
+                        'close-animation': !props.isVisible,
+                    }), props.className,
                 )}
+                style={props.style}
+            >
+            {typeof props.showIcon === 'boolean' && (
+                <Icon
+                    name={props.type}
+                    className={bem.element('icon', {
+                        [props.type]: !!props.type,
+                    })}
+                />
+            )}
+            {typeof props.showIcon === 'string' && (
+                <Icon
+                    name={props.showIcon}
+                    className={bem.element('icon')}
+                />
+            )}
+            <div className={bem.element('content-wrapper')} >
                 <div className={bem.element('content')}>
-                    {props.message && (
-                        <div className={bem.element('title', {
-                            large: !!props.description
-                        })}>
-                            {props.message}
-                        </div>
-                    )}
+                    <div className={bem.element('message')}>
+                        {props.message}
+                    </div>
                     {props.description && (
                         <div className={bem.element('description')}>
                             {props.description}
                         </div>
                     )}
                 </div>
-                {props.showClose && (
-                    <Icon onClick={props.onClose} name='times' className={bem.element('icon-close', {
-                        large: !!props.description
-                    })} />
+                {props.action && (
+                    <div className={bem.element('action')}>
+                        {props.action}
+                    </div>
                 )}
             </div>
-        )}
-        </>
-    )
+            {props.showClose && (
+                <Icon
+                    className={bem.element('icon-close', {
+                        large: !!props.description,
+                    })}
+                    name='times'
+                    onClick={(e) => {
+                        e.preventDefault();
+                        props.onClose();
+                    }}
+                />
+            )}
+        </div>
+        )
+    );
 }
