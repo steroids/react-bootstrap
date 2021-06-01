@@ -1,0 +1,116 @@
+.AlertView {
+    $root: &;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+
+    border-radius: 4px;
+    border: 1px solid transparent;
+
+    &_close-animation {
+        animation: hide_slide .4s ease-in;  
+    }
+
+    @keyframes hide_slide {
+      0% {
+        transform: translateX(-10px);
+      }
+      40% {
+        transform: translateX(0%);
+      }
+      80% {
+        transform: translateX(-10%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    &_has-description {
+        align-items: flex-start;
+
+        #{$root}__message {
+            font-size: 18px;
+        }
+    }
+
+    &_success {
+        background: #f1ffec;
+        border-color: #64d03e;
+
+        #{$root}__icon.IconView {
+            fill: #64d03e;
+        }
+    }
+    &_info {
+        background: #ecfcff;
+        border-color: #39bbd8;
+
+        #{$root}__icon.IconView {
+            fill: #39bbd8;
+        }
+    }
+    &_warning {
+        background: #fffcea;
+        border-color: #ffe457;
+
+        #{$root}__icon.IconView {
+            fill: #ffe457;
+        }
+    }
+    &_error {
+        background: #fce7e7;
+        border-color: #ff4557;
+
+        #{$root}__icon.IconView {
+            fill: #ff4557;
+        }
+    }
+
+    &__icon.IconView svg {
+        width: 24px;
+        height: 24px;
+        margin-right: 12px;
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: column;
+        padding: 0 35px 0 15px;
+    }
+
+    &__message {
+        flex-grow: 1;
+        font-size: 16px;
+    }
+
+    &__content-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__description {
+        margin-top: 12px;
+        font-size: 16px;
+    }
+
+    &__icon-close.IconView {
+        position: absolute;
+        right: 20px;
+
+        svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        fill: rgba(#152536, .6);
+        transition: fill .1s ease-in;
+        &:hover {
+            fill: #152536;
+        }
+    }
+}
