@@ -23,14 +23,26 @@ const getMinutes = () => {
     return result;
 };
 
-type ITimePanelView = Pick<ITimeFieldViewProps, 'value' | 'onClose' | 'onNow' | 'onSelect'>
+interface ITimePanelViewProps extends Pick<ITimeFieldViewProps,
+    'value' | 'onClose' | 'onNow' | 'onSelect' | 'className'>
+{
+    showHeader?: boolean,
+    showNow?: boolean,
+}
 
-export default function TimePanelView(props: ITimePanelView) {
+function TimePanelView(props: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
 
     const [hours, minutes] = props.value ? props.value.split(':') : ['00', '00'];
     return (
-        <div className={bem.block()}>
+        <div className={bem(bem.block(), props.className)}>
+            {props.showHeader && (
+                <div className={bem.element('header')}>
+                    {props.value && (
+                        `${hours}:${minutes}`
+                    )}
+                </div>
+            )}
             <div className={bem.element('body')}>
                 <div className={bem.element('column')}>
                     {getHours().map((value, index) => (
@@ -81,16 +93,18 @@ export default function TimePanelView(props: ITimePanelView) {
                     ))}
                 </div>
             </div>
-            <div className={bem.element('footer')}>
-                <button
-                    className={bem.element('button', 'now')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        props.onNow();
-                    }}
-                >
-                    {__('Текущее')}
-                </button>
+            <div className={bem.element('footer', {'to-end': !props.showNow})}>
+                {props.showNow && (
+                    <button
+                        className={bem.element('button', 'now')}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            props.onNow();
+                        }}
+                    >
+                        {__('Текущее')}
+                    </button>
+                )}
                 <button
                     className={bem.element('button', 'ok')}
                     onClick={(e) => {
@@ -104,3 +118,10 @@ export default function TimePanelView(props: ITimePanelView) {
         </div>
     );
 }
+
+TimePanelView.defaultProps = {
+    showHeader: false,
+    showNow: true,
+};
+
+export default TimePanelView;

@@ -1,25 +1,30 @@
 import * as React from 'react';
-
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
 import {useBem} from '@steroidsjs/core/hooks';
 import {useCallback} from 'react';
-import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import TimePanelView from '@steroidsjs/bootstrap/form/TimeField/TimePanelView';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
 
 export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemHocOutput) {
     const bem = useBem('DateTimeFieldView');
 
     const renderContent = useCallback(() => (
         <div className={bem.element('panel-container')}>
-            <Calendar {...props.calendarProps} />
+            <Calendar
+                {...props.calendarProps}
+                className={bem.element('calendar')}
+            />
             <TimePanelView
+                className={bem.element('time-panel')}
                 value={props.timeValue}
                 onSelect={props.onTimeSelect}
                 onNow={props.onNow}
                 onClose={props.onClose}
+                showHeader
+                showNow={false}
             />
         </div>
     ), [bem, props.calendarProps, props.onClose, props.onNow, props.onTimeSelect, props.timeValue]);

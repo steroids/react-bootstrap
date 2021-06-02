@@ -11,7 +11,8 @@ import './CaptionElement.scss';
 interface ICaptionElementProps extends CaptionElementProps,
     Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'>
 {
-    onChange: (value) => void
+    onChange: (value) => void,
+    showCalendarFooter?: boolean,
 }
 
 export default function CaptionElement(props: ICaptionElementProps) {
@@ -49,9 +50,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
 
     return (
         <div className={bem(bem.block())}>
-            <div
-                className={bem.element('container')}
-            >
+            <div className={bem.element('container')}>
                 <Icon
                     className={bem.element('button')}
                     onClick={(e) => {
@@ -106,7 +105,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
                 />
             </div>
             {isCaptionPanelVisible && (
-                <div className={bem.element('panel')}>
+                <div className={bem.element('panel', {'full-height': !props.showCalendarFooter})}>
                     <div className={bem.element('panel-header', 'months')}>
                         {__('Month')}
                     </div>

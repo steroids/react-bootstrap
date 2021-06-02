@@ -1,6 +1,6 @@
-//@import '~react-day-picker/lib/style.css';
-
 .CalendarView {
+  $root: &;
+
   position: relative;
   color: #152536;
   font-weight: 500;
@@ -52,8 +52,7 @@
   .DayPicker-Day {
     position: relative;
     display: table-cell;
-    width: 30px;
-    height: 30px;
+
     padding: 0;
     border-radius: 10px;
 
@@ -81,7 +80,9 @@
     }
 
     &--today {
-      box-shadow: 0 0 0 3px #d8ccf6;
+      #{$root}__day {
+        box-shadow: 0 0 0 3px #d8ccf6;
+      }
     }
   }
 
@@ -94,7 +95,7 @@
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    padding: 0 10px;
 
     border-top: 1px solid #ccc;
   }
@@ -113,7 +114,6 @@
 
   // Selected day
   .DayPicker-Day--selected:not(.DayPicker-Day--inRange) {
-    //position: unset;
     color: #fff;
     border-radius: 10px;
     background-color: #651fff;
@@ -129,23 +129,46 @@
   &__day {
     position: relative;
     z-index: 1;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
   }
 
   &_ranged {
 
-    //.DayPicker-Day--selected:not(.DayPicker-Day--isRange) {
-    //  color: #fff;
-    //  border-radius: 10px;
-    //  background-color: #651fff;
-    //  box-shadow: 0 0 0 3px #d8ccf6;
-    //}
-
     .DayPicker-Day {
-      position: relative !important;
+      &--start {
+        color: #fff;
+
+        #{$root}__day {
+          background-color: #651fff;
+          box-shadow: 0 0 0 3px #d8ccf6;
+        }
+
+        &::before {
+          background-color: #e3eaf9;
+          width: 10px;
+          transform: translate(25px, -50%);
+        }
+      }
+
+      &--end {
+        color: #fff;
+
+        #{$root}__day {
+          background-color: #651fff;
+          box-shadow: 0 0 0 3px #d8ccf6;
+        }
+
+        &::before {
+          background-color: #e3eaf9;
+          width: 10px;
+        }
+      }
+
 
       &--inRange {
-        box-shadow: unset !important;
-
         &::before {
           background-color: #e3eaf9;
         }
@@ -160,16 +183,5 @@
 
     }
 
-    .DayPicker-Day {
-      //border-radius: 0 !important;
-    }
-    .DayPicker-Day--start {
-      color: #fff;
-      border-radius: 10px;
-      background-color: #651fff;
-      box-shadow: 0 0 0 3px #d8ccf6;
-      //border-top-left-radius: 50% !important;
-      //border-bottom-left-radius: 50% !important;
-    }
   }
 }

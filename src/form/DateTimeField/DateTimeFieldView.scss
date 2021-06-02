@@ -85,4 +85,20 @@
       }
     }
   }
+
+  &__calendar {
+    .DayPicker-Footer {
+      justify-content: flex-start !important;
+    }
+  }
+
+  &__time-panel {
+    .TimePanelView__column {
+      height: 291px;
+
+      &:first-child {
+        border-left: 1px solid #ccc;
+      }
+    }
+  }
 }

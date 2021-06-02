@@ -34,12 +34,11 @@ export default function CalendarView(props: ICalendarViewProps) {
             selectedDays: isRange
                 ? [from, { from, to }]
                 : from,
-            modifiers: isRange
+            modifiers: isRange && !DateUtils.isSameDay(from, to)
                 ? {
                     start: from,
                     end: to,
                     inRange,
-                    outRange,
                 }
                 : undefined,
         };
@@ -47,9 +46,7 @@ export default function CalendarView(props: ICalendarViewProps) {
 
     return (
         <DayPicker
-            className={bem.block({
-                ranged: isRange,
-            })}
+            className={bem(bem.block({ranged: isRange}), props.className)}
             captionElement={useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
                 <CaptionElement
                     date={date}
@@ -59,26 +56,11 @@ export default function CalendarView(props: ICalendarViewProps) {
                     classNames={classNames}
                     onChange={onMonthSelect}
                     localeUtils={localeUtils}
+                    showCalendarFooter={showFooter}
                     toggleCaptionPanel={toggleCaptionPanel}
                     isCaptionPanelVisible={isCaptionPanelVisible}
                 />
-            ), [fromYear, isCaptionPanelVisible, onMonthSelect, toYear, toggleCaptionPanel])}
-            todayButton={showFooter && (isCaptionPanelVisible ? __('Close') : __('Today'))}
-            onTodayButtonClick={(day) => {
-                if (isCaptionPanelVisible) {
-                    toggleCaptionPanel();
-                } else {
-                    onDaySelect(day);
-                }
-            }}
-            selectedDays={selectedDays}
-            onDayClick={onDaySelect}
-            canChangeMonth={false}
-            modifiers={modifiers}
-            firstDayOfWeek={1}
-            month={month}
-            fixedWeeks
-            numberOfMonths={numberOfMonths}
+            ), [fromYear, isCaptionPanelVisible, onMonthSelect, showFooter, toYear, toggleCaptionPanel])}
             renderDay={(day) => {
                 const date = day.getDate();
                 return (
@@ -87,6 +69,22 @@ export default function CalendarView(props: ICalendarViewProps) {
                     </div>
                 );
             }}
+            todayButton={showFooter && (isCaptionPanelVisible ? __('Close') : __('Today'))}
+            onTodayButtonClick={(day) => {
+                if (isCaptionPanelVisible) {
+                    toggleCaptionPanel();
+                } else {
+                    onDaySelect(day);
+                }
+            }}
+            fixedWeeks
+            month={month}
+            firstDayOfWeek={1}
+            modifiers={modifiers}
+            canChangeMonth={false}
+            onDayClick={onDaySelect}
+            selectedDays={selectedDays}
+            numberOfMonths={numberOfMonths}
         />
     );
 }
