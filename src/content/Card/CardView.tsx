@@ -1,50 +1,50 @@
-import React, {useState, isValidElement} from 'react';
+import React from 'react';
 import { useBem } from '@steroidsjs/core/hooks';
-import { ICardViewProps } from '@steroidsjs/core/ui/content/Card/Card'
+import { ICardViewProps } from '@steroidsjs/core/ui/content/Card/Card';
 
 import './CardView.scss';
 
-export default function CardView (props: ICardViewProps) {
+export default function CardView(props: ICardViewProps) {
     const bem = useBem('CardView');
 
-    return(
-        <div 
+    return (
+        <div
             className={bem(bem.block({
-                [`${props.orientation}`]: !!props.orientation,
-                [`${props.shape}`]: !!props.shape,
-                [`${props.cardStyle}`]: !!props.cardStyle,
-                [`border_${props.borderStyle}`]: props.borderStyle !== false,
+                orientation: props.orientation,
+                shape: props.shape,
+                color: props.color,
+                border: props.borderColor,
             }), props.className)}
             style={props.style}
-        >   
-                {props.header && (
-                    <div className={bem.element('header')}>
-                        {props.header}
-                    </div>
-                )}
-                {props.cover && (
-                    <div className={bem.element('cover')}>
-                        <img src={props.cover} alt='cover-img' />
-                    </div>
-                )}
-                <div className={bem.element('content')} >
-                    {props.title && (
-                        <div className={bem.element('title')}>
-                            {props.title}
-                        </div>
-                    )}
-                    {props.description && (
-                        <div className={bem.element('description')} >
-                            {props.description}
-                        </div>
-                    )}
-                    {props.children}
+        >
+            {props.header && (
+                <div className={bem.element('header')}>
+                    {props.header}
                 </div>
-                {props.footer && (
-                    <div className={bem.element('footer')}>
-                        {props.footer}
+            )}
+            {props.cover && (
+                <div className={bem.element('cover')}>
+                    <img src={props.cover} alt='cover-img' />
+                </div>
+            )}
+            <div className={bem.element('content')}>
+                {props.title && (
+                    <div className={bem.element('title')}>
+                        {props.title}
                     </div>
-                )}        
+                )}
+                {props.description && (
+                    <div className={bem.element('description')}>
+                        {props.description}
+                    </div>
+                )}
+                {props.children}
+            </div>
+            {props.footer && (
+                <div className={bem.element('footer')}>
+                    {props.footer}
+                </div>
+            )}
         </div>
-    )
+    );
 }
