@@ -29,6 +29,25 @@
     border: unset;
   }
 
+  &__panel-container {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  &__calendar {
+    .DayPicker-Footer {
+      justify-content: flex-start !important;
+    }
+  }
+  &__time-panel {
+    .TimePanelView__column {
+      height: 291px;
+
+      &:first-child {
+        border-left: 1px solid #ccc;
+      }
+    }
+  }
+
   &__body {
     height: 100%;
     display: flex;

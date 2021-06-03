@@ -8,17 +8,24 @@ import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRan
 import _isString from 'lodash-es/isString';
 
 import './DateTimeRangeFieldView.scss';
+import TimePanelView from '@steroidsjs/bootstrap/form/TimeField/TimePanelView';
 
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {
     const bem = useBem('DateTimeRangeFieldView');
-
     const renderCalendar = useCallback(() => (
-        <Calendar
-            {...props.calendarProps}
-            numberOfMonths={2}
-            showFooter={false}
-        />
-    ), [props.calendarProps]);
+        <div className={bem.element('panel-container')}>
+            <Calendar
+                {...props.calendarProps}
+                className={bem.element('calendar')}
+            />
+            <TimePanelView
+                {...props.timePanelProps}
+                className={bem.element('time-panel')}
+                showNow={false}
+                showHeader
+            />
+        </div>
+    ), [bem, props.calendarProps, props.timePanelProps]);
     return (
         <DropDown
             content={renderCalendar}

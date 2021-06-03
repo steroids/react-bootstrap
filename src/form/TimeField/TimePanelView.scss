@@ -1,6 +1,7 @@
 .TimePanelView {
 
   font-weight: 500;
+  user-select: none;
 
   &__header {
     height: 45px;

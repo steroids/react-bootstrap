@@ -14,14 +14,14 @@
   }
 
   &__content-container {
-    flex: auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
 
     cursor: pointer;
     transition: color .1s ease-in;
-    &:hover {
+    &:hover, &:active, &:focus {
       color: #651fff;
     }
   }

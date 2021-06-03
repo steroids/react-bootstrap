@@ -23,7 +23,7 @@ const getMinutes = () => {
     return result;
 };
 
-interface ITimePanelViewProps extends Pick<ITimeFieldViewProps,
+export interface ITimePanelViewProps extends Pick<ITimeFieldViewProps,
     'value' | 'onClose' | 'onNow' | 'onSelect' | 'className'>
 {
     showHeader?: boolean,
@@ -32,7 +32,6 @@ interface ITimePanelViewProps extends Pick<ITimeFieldViewProps,
 
 function TimePanelView(props: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
-
     const [hours, minutes] = props.value ? props.value.split(':') : ['00', '00'];
     return (
         <div className={bem(bem.block(), props.className)}>

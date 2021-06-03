@@ -17,6 +17,7 @@ export default {
     'form.DateFieldView': {lazy: () => require('./form/DateField/DateFieldView').default},
     'form.DateRangeFieldView': {lazy: () => require('./form/DateRangeField/DateRangeFieldView').default},
     'form.DateTimeFieldView': {lazy: () => require('./form/DateTimeField/DateTimeFieldView').default},
+    'form.DateTimeRangeFieldView': {lazy: () => require('./form/DateTimeRangeField/DateTimeRangeFieldView').default},
     'form.DropDownFieldView': {lazy: () => require('./form/DropDownField/DropDownFieldView').default},
     'form.FieldLayoutView': {lazy: () => require('./form/FieldLayout/FieldLayoutView').default},
     'form.FieldSetView': {lazy: () => require('./form/FieldSet/FieldSetView').default},
