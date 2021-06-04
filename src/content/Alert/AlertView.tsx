@@ -19,50 +19,50 @@ export default function Alert(props: IAlertViewProps) {
                 )}
                 style={props.style}
             >
-            {typeof props.showIcon === 'boolean' && (
-                <Icon
-                    name={props.type}
-                    className={bem.element('icon', {
-                        [props.type]: !!props.type,
-                    })}
-                />
-            )}
-            {typeof props.showIcon === 'string' && (
-                <Icon
-                    name={props.showIcon}
-                    className={bem.element('icon')}
-                />
-            )}
-            <div className={bem.element('content-wrapper')} >
-                <div className={bem.element('content')}>
-                    <div className={bem.element('message')}>
-                        {props.message}
+                {typeof props.showIcon === 'boolean' && (
+                    <Icon
+                        name={props.type}
+                        className={bem.element('icon', {
+                            [props.type]: !!props.type,
+                        })}
+                    />
+                )}
+                {typeof props.showIcon === 'string' && (
+                    <Icon
+                        name={props.showIcon}
+                        className={bem.element('icon')}
+                    />
+                )}
+                <div className={bem.element('content-wrapper')}>
+                    <div className={bem.element('content')}>
+                        <div className={bem.element('message')}>
+                            {props.message}
+                        </div>
+                        {props.description && (
+                            <div className={bem.element('description')}>
+                                {props.description}
+                            </div>
+                        )}
                     </div>
-                    {props.description && (
-                        <div className={bem.element('description')}>
-                            {props.description}
+                    {props.action && (
+                        <div className={bem.element('action')}>
+                            {props.action}
                         </div>
                     )}
                 </div>
-                {props.action && (
-                    <div className={bem.element('action')}>
-                        {props.action}
-                    </div>
+                {props.showClose && (
+                    <Icon
+                        className={bem.element('icon-close', {
+                            large: !!props.description,
+                        })}
+                        name='times'
+                        onClick={(e) => {
+                            e.preventDefault();
+                            props.onClose();
+                        }}
+                    />
                 )}
             </div>
-            {props.showClose && (
-                <Icon
-                    className={bem.element('icon-close', {
-                        large: !!props.description,
-                    })}
-                    name='times'
-                    onClick={(e) => {
-                        e.preventDefault();
-                        props.onClose();
-                    }}
-                />
-            )}
-        </div>
         )
     );
 }

@@ -1,5 +1,312 @@
 .ButtonView {
-  position: relative;
+  $root: &;
+
+ 
+
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: .15s;
+  transition-timing-function: ease-in-out;
+
+  &_button {
+    position: relative;
+    color: #212529;
+    border-radius: 4px;
+    user-select: none;
+    border: 3px solid transparent;
+
+    padding: 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: 500;
+    font-size: 1rem;
+
+    &#{$root}_color {
+      &_primary {
+        background-color: #651FFF;
+        color: #fff;
+
+        &:hover {
+          background-color: #410FAD;
+        }
+        &:focus {
+          border: 3px solid #D8CCF7;
+        }
+        &:active {
+          background-color: #D8CCF7;
+        }
+      }
+
+      &_secondary {
+        background-color: #97A7C8;
+        color: #fff;
+
+        &:hover {
+          background-color: #596886;
+        }
+        &:focus {
+          border: 3px solid #E3EAF9;
+        }
+        &:active {
+          background-color: #E3EAF9;
+        }
+      }
+  
+      &_success {
+        background-color: #64D03E;
+        color: #fff;
+
+        &:hover {
+          background-color: #218838;
+        }
+        &:focus {
+          border: 3px solid #ABED94;
+        }
+        &:active {
+          background-color: #ABED94;
+        }
+      }
+
+      &_danger {
+        background-color: #FF4557;
+        color: #fff;
+
+        &:hover {
+          background-color: #DA2839;
+        }
+        &:focus {
+          border: 3px solid #FF99A3;
+        }
+        &:active {
+          background-color: #FF99A3;
+        }
+      }
+
+      &_warning {
+        background-color: #FFE457;
+
+        &:hover {
+          background-color: #DCC131;
+        }
+        &:focus {
+          border: 3px solid #FFF3B3;
+        }
+        &:active {
+          background-color: #FFF3B3;
+        }
+      }
+
+      &_info {
+        background-color: #39BBD8;
+        color: #fff;
+
+        &:hover {
+          background-color: #2796AF;
+        }
+        &:focus {
+          border: 3px solid #A7EFFF;
+        }
+        &:active {
+          background-color: #A7EFFF;
+        }
+      }
+  
+      &_light {
+        background-color: #F4F4F4;
+
+        &:hover {
+          background-color: #E2E6EA;
+        }
+        &:focus {
+          background-color: #F4F4F4;
+          border: 3px solid #FAFAFA;
+        }
+        &:active {
+          background-color: #FAFAFA;
+        }
+      }
+  
+      &_dark {
+        background-color: #343A40;
+        color: #F4F4F4;
+
+        &:hover {
+          background-color: #1A1C1E;
+        }
+        &:focus {
+          border: 3px solid #ACACAC;
+        }
+        &:active {
+          background-color: #ACACAC;
+        }
+      }
+    }
+  
+    &#{$root}_outline {
+      background-color: #fff;
+
+      &_primary{
+        color: #651FFF;
+        border: 1px solid #651FFF;
+
+        &:hover{
+          color: #410FAD;
+          border-color: #410FAD;
+        }
+        &:focus {
+          box-shadow: 0 0 0 3px #D8CCF6, 0 0 0 3px #D8CCF6;
+        }
+        &:active {
+          color: #D8CCF7;
+          border-color: #D8CCF7
+        }
+      }
+  
+      &_secondary {
+        color: #97A7C8;
+        border: 1px solid #97A7C8;
+
+        &:hover {
+          color: #596886;
+          border-color: #596886;
+        }
+        &:focus {
+          box-shadow: 0 0 0 3px #E3EAF9, 0 0 0 3px #E3EAF9;
+        }
+        &:active {
+          color: #E3EAF9;
+          border-color: #E3EAF9;
+        }
+      }
+  
+      &_success {
+        color: #64D03E;
+        border: 1px solid #64D03E;
+
+        &:hover {
+          color: #218838;
+          border-color: #218838;
+        }
+        &:focus {
+          box-shadow: 0 0 0 3px #ABED94, 0 0 0 3px #ABED94;
+        }
+        &:active {
+          color: #ABED94;
+          border-color: #ABED94;
+        }
+      }
+  
+      &_danger {
+        color: #FF4557;
+        border: 1px solid #FF4557;
+
+        &:hover {
+          color: #DA2839;
+          border-color: #DA2839;
+        }
+        &:focus {
+          box-shadow: 0 0 0 3px #FF99A3, 0 0 0 3px #FF99A3;
+        }
+        &:active {
+          color: #FF99A3;
+          border-color: #FF99A3;
+        }
+      }
+  
+      &_warning {
+        color: #FFE457;
+        border: 1px solid #FFE457;
+
+        &:hover {
+          background-color: #fff;
+          color: #DCC131;
+          border: 1px solid #DCC131;
+        }
+        &:focus {
+          color: #FFE457;
+          border-color: #FFE457;
+          box-shadow: 0 0 0 3px #FFF3B3, 0 0 0 3px #FFF3B3;
+        }
+        &:active {
+          color: #FFF3B3;
+          border-color: #FFF3B3;
+        }
+      }
+
+      &_info {
+        color: #39BBD8;
+        border: 1px solid #39BBD8;
+
+        &:hover {
+          color: #2796AF;
+          border-color: #2796AF;
+        }
+        &:focus {
+          box-shadow: 0 0 0 3px #A7EFFF, 0 0 0 3px #A7EFFF;
+        }
+        &:active {
+          color: #A7EFFF;
+          border-color: #A7EFFF;
+        }
+      }
+  
+      &_light {
+        color: #F4F4F4;
+        border: 1px solid #F4F4F4;
+
+        &:hover {
+          color: #E2E6EA;
+          border-color: #E2E6EA;
+        }
+        &:focus {
+          color: #E2E6EA;
+          border-color: #E2E6EA;
+          box-shadow: 0 0 0 3px #F4F4F4, 0 0 0 3px #F4F4F4;
+        }
+        &:active {
+          color: #FAFAFA;
+          border-color: #FAFAFA;
+        }
+      }
+  
+      &_dark {
+        color: #343A40;
+        border: 1px solid #343A40;
+        &:hover {
+          color: #1A1C1E;
+          border-color: #1A1C1E;
+        }
+        &:focus {
+          box-shadow: 0 0 0 3px #ACACAC, 0 0 0 3px #ACACAC;
+        }
+        &:active {
+          color: #ACACAC;
+          border-color: #ACACAC;
+        }
+      }
+    }
+  }
+
+  &_size {
+    &_sm {
+      height: 28px;
+      font-size: 14px;
+    }
+    &_md {
+      height: 36px;
+      font-size: 16px;
+    }
+    &_lg {
+      height: 46px;
+      font-size: 18px;
+    }
+  }
+
+  &_link {
+    justify-content: flex-start;
+    background-color: #fff;
+  }
 
   &__icon {
     margin-right: 3px;
@@ -11,8 +318,8 @@
 
   &_failed {
     &, &:hover {
-      border-color: $danger;
-      box-shadow: 0 0 1rem rgba($danger, .2);
+      border-color: #fff;
+      box-shadow: 0 0 1rem rgba(#fff, .2);
     }
   }
 
