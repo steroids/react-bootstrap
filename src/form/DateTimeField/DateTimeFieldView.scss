@@ -101,4 +101,17 @@
       }
     }
   }
+
+  &__calendar {
+    .DayPicker-Footer {
+      justify-content: flex-start !important;
+    }
+  }
+
+  &__time {
+    .TimePanelView__column {
+      height: 291px;
+      border-left: 1px solid #ccc;
+    }
+  }
 }

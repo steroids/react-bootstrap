@@ -18,13 +18,11 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemH
                 className={bem.element('calendar')}
             />
             <TimePanelView
-                {...props.timePanelProps}
+                {...props.timePanelViewProps}
                 className={bem.element('time-panel')}
-                showNow={false}
-                showHeader
             />
         </div>
-    ), [bem, props.calendarProps, props.timePanelProps]);
+    ), [bem, props.calendarProps, props.timePanelViewProps]);
 
     return (
         <DropDown

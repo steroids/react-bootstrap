@@ -1,9 +1,8 @@
 import * as React from 'react';
 import {useCallback} from 'react';
+import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ITimeFieldViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
-import {useBem} from '@steroidsjs/core/hooks';
-
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import TimePanelView from './TimePanelView';
@@ -14,13 +13,8 @@ export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput
     const bem = useBem('TimeFieldView');
 
     const renderContent = useCallback(() => (
-        <TimePanelView
-            value={props.inputProps.value}
-            onSelect={props.inputProps.onChange}
-            onNow={props.onNow}
-            onClose={props.onClose}
-        />
-    ), [props.inputProps, props.onClose, props.onNow]);
+        <TimePanelView {...props.timePanelViewProps} />
+    ), [props.timePanelViewProps]);
 
     const renderBody = () => (
         <div

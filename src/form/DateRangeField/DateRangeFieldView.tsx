@@ -15,8 +15,6 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const renderCalendar = useCallback(() => (
         <Calendar
             {...props.calendarProps}
-            numberOfMonths={2}
-            showFooter={false}
         />
     ), [props.calendarProps]);
     return (

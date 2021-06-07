@@ -54,7 +54,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                                 className={bem.element('icon', 'close')}
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    props.clearInput();
+                                    props.onClear();
                                 }}
                                 name='times-circle'
                             />
