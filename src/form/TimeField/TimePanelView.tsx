@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {ITimeFieldViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
+import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
 import {useBem} from '@steroidsjs/core/hooks';
 import _padStart from 'lodash-es/padStart';
 
@@ -22,13 +22,6 @@ const getMinutes = () => {
     }
     return result;
 };
-
-export interface ITimePanelViewProps extends Pick<ITimeFieldViewProps,
-    'value' | 'onClose' | 'onNow' | 'onSelect' | 'className'>
-{
-    showHeader?: boolean,
-    showNow?: boolean,
-}
 
 function TimePanelView(props: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
