@@ -1,4 +1,5 @@
 import * as React from 'react';
+import MomentLocaleUtils from 'react-day-picker/moment';
 import {useCallback, useMemo} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import DayPicker, {DateUtils} from 'react-day-picker';
@@ -69,7 +70,7 @@ export default function CalendarView(props: ICalendarViewProps) {
                     </div>
                 );
             }}
-            todayButton={showFooter && (isCaptionPanelVisible ? __('Close') : __('Today'))}
+            todayButton={showFooter && (isCaptionPanelVisible ? __('Закрыть') : __('Сегодня'))}
             onTodayButtonClick={(day) => {
                 if (isCaptionPanelVisible) {
                     toggleCaptionPanel();
@@ -85,6 +86,8 @@ export default function CalendarView(props: ICalendarViewProps) {
             onDayClick={onDaySelect}
             selectedDays={selectedDays}
             numberOfMonths={numberOfMonths}
+            localeUtils={MomentLocaleUtils}
+            locale={'ru'}
         />
     );
 }
