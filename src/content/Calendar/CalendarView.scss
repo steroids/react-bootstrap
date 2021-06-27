@@ -1,0 +1,188 @@
+.CalendarView {
+  $root: &;
+
+  position: relative;
+  color: #152536;
+  font-weight: 500;
+  user-select: none;
+
+  .DayPicker-wrapper {
+    padding-bottom: 0;
+  }
+  .DayPicker-Months {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .DayPicker-Month {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin: 0;
+  }
+
+  // Body
+
+  .DayPicker-Weekdays {
+    display: table-header-group;
+    margin-top: 1em;
+  }
+  .DayPicker-WeekdaysRow {
+    display: table-row;
+  }
+  .DayPicker-Weekday {
+    display: table-cell;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    color: inherit;
+    text-align: center;
+    font-size: 0.875em;
+  }
+  .DayPicker-Weekday abbr[title] {
+    border-bottom: none;
+    text-decoration: none;
+  }
+
+  .DayPicker-Body {
+    display: table-row-group;
+  }
+  .DayPicker-Week {
+    display: table-row;
+  }
+  .DayPicker-Day {
+    position: relative;
+    display: table-cell;
+
+    padding: 0;
+    border-radius: 10px;
+
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+
+    transition-property: background-color, box-shadow, color;
+    transition-duration: .1s;
+
+    &::before {
+      content: '';
+      height: 30px;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(-5px, -50%);
+      width: 40px;
+      z-index: 1;
+    }
+
+    &--outside {
+      color: #ccc;
+    }
+
+    &--today {
+      #{$root}__day {
+        box-shadow: 0 0 0 3px #d8ccf6;
+      }
+    }
+  }
+
+  // Footer
+
+  .DayPicker-Footer {
+    height: 50px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+
+    border-top: 1px solid #ccc;
+  }
+  .DayPicker-TodayButton {
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    font-size: 0.875em;
+    cursor: pointer;
+    color: #651fff;
+    font-weight: 500;
+  }
+
+  // Days selection
+
+  // Selected day
+  .DayPicker-Day--selected:not(.DayPicker-Day--inRange) {
+    color: #fff;
+    border-radius: 10px;
+    background-color: #651fff;
+    box-shadow: 0 0 0 3px #d8ccf6;
+  }
+
+  // Hover
+  .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+    background-color: #f4f4f4 !important;
+    box-shadow: 0 0 0 3px #e2e6ea;
+  }
+
+  &__day {
+    position: relative;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+  }
+
+  &_ranged {
+
+    .DayPicker-Day {
+      &--start {
+        color: #fff;
+
+        #{$root}__day {
+          background-color: #651fff;
+          box-shadow: 0 0 0 3px #d8ccf6;
+        }
+
+        &::before {
+          background-color: #e3eaf9;
+          width: 10px;
+          transform: translate(25px, -50%);
+        }
+      }
+
+      &--end {
+        color: #fff;
+
+        #{$root}__day {
+          background-color: #651fff;
+          box-shadow: 0 0 0 3px #d8ccf6;
+        }
+
+        &::before {
+          background-color: #e3eaf9;
+          width: 10px;
+        }
+      }
+
+
+      &--inRange {
+        &::before {
+          background-color: #e3eaf9;
+        }
+      }
+
+      &--outRange {
+        pointer-events: none;
+        &::before {
+          background-color: #f4f4f4;
+        }
+      }
+
+    }
+
+  }
+}

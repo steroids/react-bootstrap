@@ -1,0 +1,85 @@
+.TimePanelView {
+
+  font-weight: 500;
+  user-select: none;
+
+  &__header {
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+  }
+
+  &__body {
+    display: flex;
+    flex-flow: row nowrap;
+    border-radius: 4px;
+  }
+
+  &__column {
+    height: 220px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    border-bottom: 1px solid #ccc;
+    &:not(:last-child) {
+      border-right: 1px solid #ccc;
+    }
+  }
+
+  &__cell {
+    padding: 5px 20px;
+    cursor: pointer;
+
+    &_selected {
+      background-color: #d8ccf7;
+    }
+
+    transition: background-color .1s ease-in;
+    &:hover {
+      background-color: #f8f8f8;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+    &_to-end {
+      justify-content: flex-end;
+    }
+  }
+
+  &__button {
+    border: none;
+
+    &_now {
+      color: #651fff;
+      background-color: unset;
+
+      transition: color .1s ease-in;
+      &:hover {
+        color: #410fad;
+      }
+    }
+
+    &_ok {
+      color: #fff;
+      border-radius: 4px;
+      background-color: #651fff;
+
+      transition: background-color .1s ease-in;
+      &:hover {
+        background-color: #410fad;
+      }
+    }
+  }
+
+}

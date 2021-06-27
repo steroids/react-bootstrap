@@ -1,0 +1,83 @@
+.DateRangeFieldView {
+  $root: &;
+
+  padding: 0 8px;
+  position: relative;
+
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+
+  &:focus-within{
+    outline: 0;
+    border-color: #a7efff;
+    box-shadow: 0 0 0 1px #a7efff;
+  }
+  *:focus {
+    outline: none;
+  }
+
+  &_disabled {
+    color: rgba(0, 0, 0, .25);
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+    input {
+      cursor: inherit;
+    }
+  }
+  &_no-border {
+    border: unset;
+  }
+
+  &__body {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    &:hover #{$root}__icon_close {
+      opacity: 1;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    padding: 10px 5px;
+  }
+
+  &__icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__icon {
+    display: flex;
+    height: 16px;
+
+    path {
+      fill: #d9d9d9;
+      transition: fill .1s ease-in;
+    }
+
+    &_close{
+      position: absolute;
+      background-color: #fff;
+
+      opacity: 0;
+      transition: opacity .2s ease-in;
+
+      &:hover {
+        path {
+          fill: #2d2d2d;
+
+        }
+      }
+    }
+  }
+}

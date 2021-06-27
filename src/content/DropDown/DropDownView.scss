@@ -1,0 +1,32 @@
+$gap: 12px;
+
+.DropDownView {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(0,0);
+  opacity: 0;
+  transition: opacity .15s ease-in, transform .15s ease-in;
+
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+  &_show {
+    opacity: 1;
+  }
+  &_position-top, &_position-topLeft, &_position-topRight {
+    transform: translateY(-$gap);
+  }
+  &_position-bottom, &_position-bottomLeft, &_position-bottomRight {
+    transform: translateY($gap);
+  }
+  &_position-left, &_position-leftTop, &_position-leftBottom {
+    transform: translateX(-$gap);
+  }
+  &_position-right, &_position-rightTop, &_position-rightBottom{
+    transform: translateX($gap);
+  }
+}

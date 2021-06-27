@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "isolatedModules": true,
+    "outDir": "./dist",
+    "lib": [
+      "DOM",
+      "ES2016"
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "node_modules/@steroidsjs/core/index.d.ts"
+  ],
+  "exclude": [
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/list/Accordion/*",
+    "src/list/Detail/*",
+    "src/form/HtmlField/*",
+    "src/format/PhotosFormatter/*"
+  ]
+}

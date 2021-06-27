@@ -1,0 +1,42 @@
+.CardView{
+    background: #fff;
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: center;
+    &_border {
+        border: 1px solid #f0f0f0;
+    }
+    &_square {
+        border-radius: none;
+    }
+    &_circle {
+        border-radius: 3px;
+    }
+    &_large {
+        width: 40px;
+    }
+    &_medium {
+        font-size: 14px;
+        width: 300px;
+        
+    }
+    &_small {
+        width: 24px;
+        line-height: 24px;
+    }
+    &__title{
+        display: flex;
+        align-items: center;
+        padding: 0 24px;
+        min-height: 48px;
+        border: 1px solid #f0f0f0;
+        
+    }
+    &__content{
+        padding: 24px;
+        min-height: 48px;
+    }
+}
