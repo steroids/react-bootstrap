@@ -8,7 +8,7 @@ import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRan
 import _isString from 'lodash-es/isString';
 
 import './DateTimeRangeFieldView.scss';
-import TimePanelView from '@steroidsjs/bootstrap/form/TimeField/TimePanelView';
+import TimePanelView from '../TimeField/TimePanelView';
 
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {
     const bem = useBem('DateTimeRangeFieldView');

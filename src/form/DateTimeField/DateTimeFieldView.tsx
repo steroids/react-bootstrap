@@ -4,7 +4,7 @@ import {useCallback} from 'react';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
-import TimePanelView from '@steroidsjs/bootstrap/form/TimeField/TimePanelView';
+import TimePanelView from '../TimeField/TimePanelView';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
 

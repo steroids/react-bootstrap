@@ -13,15 +13,7 @@
     ],
     "types": [
       "node"
-    ],
-    "paths": {
-      "@steroidsjs/core/*": [
-        "../react/src/*"
-      ],
-      "@steroidsjs/bootstrap/*": [
-        "../react-bootstrap/src/*"
-      ]
-    }
+    ]
   },
   "include": [
     "src/**/*",
@@ -30,12 +22,9 @@
   "exclude": [
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
-    "src/crud/Crud/*",
     "src/list/Accordion/*",
     "src/list/Detail/*",
-    "src/form/FileField/*",
     "src/form/HtmlField/*",
-    "src/form/RangeField/*",
     "src/format/PhotosFormatter/*"
   ]
 }
