@@ -63,17 +63,21 @@
     right: 0;
     bottom: 50px;
     background-color: #fff;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0fr 1fr;
-    gap: 0 0;
-    grid-template-areas:
-    "HeaderMonths HeaderMonths HeaderYears"
-    "Months1stCol Months2ndCol YearsCol";
+    display: flex;
 
     &_full-height {
       bottom: 0;
+    }
+
+    &-inner {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 0fr 1fr;
+      gap: 0 0;
+      grid-template-areas:
+      "HeaderMonths HeaderMonths HeaderYears"
+      "Months1stCol Months2ndCol YearsCol";
     }
 
     &-header {
@@ -103,6 +107,7 @@
       }
     }
     &-column-years {
+      height: 100%;
       grid-area: YearsCol;
       overflow: auto;
     }
