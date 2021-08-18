@@ -29,7 +29,8 @@ export default class TooltipView extends React.PureComponent<ITooltipViewProps &
                 ref={this.tooltipRef}
                 className={bem(
                     bem.block({
-                        'show': this.props.isTooltipVisible
+                        'show': this.props.isTooltipVisible,
+                        'fixed': this.props.fixed
                     }),
                     'tooltip',
                     'tooltip-position-'+this.props.position
