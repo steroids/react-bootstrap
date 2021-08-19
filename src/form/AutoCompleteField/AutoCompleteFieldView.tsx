@@ -2,6 +2,7 @@ import * as React from 'react';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IAutoCompleteFieldViewProps} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
+import './AutoCompleteFieldView.scss';
 
 export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps & IBemHocOutput) {
     const bem = useBem('AutoCompleteFieldView');
@@ -39,8 +40,8 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                             <button
                                 key={String(item[props.primaryKey])}
                                 className={bem.element('drop-down-item', {
-                                        hover: props.hoveredId === item[props.primaryKey],
-                                        select: props.selectedIds.includes(item[props.primaryKey]),
+                                    hover: props.hoveredId === item[props.primaryKey],
+                                    select: props.selectedIds.includes(item[props.primaryKey]),
                                 })}
                                 onClick={() => props.onItemSelect(item[props.primaryKey])}
                                 onFocus={() => props.onItemHover(item[props.primaryKey])}

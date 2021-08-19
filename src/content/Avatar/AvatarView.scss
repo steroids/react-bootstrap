@@ -1,44 +1,103 @@
 
 .AvatarView {
-  color: aqua;
-  background: red;
-  position: relative;
+  $root: &;
+
   display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-  justify-content: center;
-  vertical-align: middle;
-  // border-radius: 50%;
-  &_square {
-    border-radius: none;
+  position: relative;
+
+  &_size {
+    &_x-large {
+      #{$root}__body {
+        height: 64px;
+        width: 64px;
+        line-height: 64px;
+        font-size: 20px;
+      }
+    }
+
+    &_large {
+      #{$root}__body {
+        height: 46px;
+        width: 46px;
+        line-height: 46px;
+        font-size: 16px;
+      }
+    }
+
+    &_middle {
+      #{$root}__body {
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        font-size: 14px;
+      }
+    }
+
+    &_small {
+      #{$root}__body {
+        height: 28px;
+        width: 28px;
+        line-height: 28px;
+        font-size: 14px;
+      }
+    }
   }
 
-  &_circle {
-    border-radius: 50%;
+  &_shape {
+    &_square {
+      #{$root}__body{
+        border-radius: unset;
+      }
+    }
+
+    &_circle {
+      #{$root}__body{
+        border-radius: 50%;
+      }
+    }
   }
-  &_large {
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    font-size: 20px;
+
+  &_has-image {
+    #{$root}__body{
+      background-color: unset;
+    }
   }
-  &_medium {
-    height: 32px;
-    width: 32px;
-    line-height: 32px;
-    font-size: 8px;
+
+  &_has-status {
+    ::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 25%;
+      height: 25%;
+      z-index: 10;
+
+      color: #64D03E;
+      font-size: 6px;
+
+      border-radius: 50%;
+      background-color: #64D03E;
+      border: 2px solid #fff;
+    }
   }
-  &_small {
-    height: 24px;
-    width: 24px;
-    line-height: 24px;
-    font-size: 12px;
-  }
-  & > img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  &__body {
+    display: inline-block;
+    overflow: hidden;
+
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    color: #fff;
+    background-color: #651fff;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }

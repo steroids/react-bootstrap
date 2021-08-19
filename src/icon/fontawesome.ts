@@ -240,10 +240,14 @@ export default () => {
         back: 'arrow-left',
         securityEye: 'eye',
         securityEyeSlash: 'eye-slash',
+        success: 'check-circle',
+        info: 'info-circle',
+        warning: 'exclamation-circle',
+        error: 'times-circle',
     };
     Object.keys(coreIconsMap).forEach(name => {
         icons[name] = icons[coreIconsMap[name]];
-    });
-
+    });   
+    
     return icons;
 };

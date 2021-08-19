@@ -2,26 +2,68 @@ $addon-padding: 0.6rem;
 $text-padding: 0.4rem;
 
 .InputFieldView {
+  $root: &;
+
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
   padding: 0;
+  border: 1px solid #CCCCCC;
+
+  &_size {
+    &_small {
+      height: 28px;
+    }
+    &_medium {
+      height: 36px;
+    }
+    &_large {
+      height: 46px;
+    }
+  }
 
   &:focus-within{
     outline: 0;
-    border-color: $blue;
-    box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+    border: 1px solid #2796AF;
+    box-shadow: 0 0 0 3px #A7EFFF, 0 0 0 3px #A7EFFF;
   }
+
   &.is-invalid:focus-within{
-    border-color: $red;
-    box-shadow: 0 0 0 0.2rem rgba($red, 0.25);
+    border: 1px solid #2796AF;
+    box-shadow: 0 0 0 3px #A7EFFF, 0 0 0 3px #A7EFFF;
   }
+  
   &_disabled {
     color: rgba(0, 0, 0, .25);
-    background-color: rgba($input-border-color, .3);
+    background-color: #EBEBEB;
     cursor: not-allowed;
+
     input {
       cursor: inherit;
+    }
+
+    &#{$root}_input {
+      background-color: #EBEBEB;
+    }
+  }
+
+  &_caption {
+
+  }
+
+  &_failed {
+    background: #FCE7E7;
+    &::after {
+      content: 'Error message';
+      color: #FF4557;
+    }
+  }
+
+  &_success {
+    background: #F1FFEC;
+    &::after {
+      content: 'Success message';
+      color: #64D03E;
     }
   }
 
@@ -29,9 +71,32 @@ $text-padding: 0.4rem;
     flex-grow: 1;
     border: none;
     outline: none;
-    background-color: transparent;
-
+    background-color: #fff;
+    overflow: hidden;
+    color: #CCCCCC;
     padding: $input-padding-y $input-padding-x;
+    border-radius: 4px;
+
+    &_disabled {
+      color: rgba(0, 0, 0, .25);
+      background-color: #EBEBEB;
+      cursor: not-allowed;
+  
+      input {
+        cursor: inherit;
+      }
+    }
+
+    &_failed {
+      box-sizing: border-box;
+    }
+
+    &:active {
+      color: #152536;
+    }
+    &:focus {
+      color: #152536;
+    }
   }
 
   &__addon-before, &__addon-after {
