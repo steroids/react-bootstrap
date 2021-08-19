@@ -1,0 +1,32 @@
+@mixin button-theme($color) {
+    background-color: map-get($color, color);
+    color: map-get($color, text-color);
+
+    &:hover {
+      background-color: map-get($color, color-dark);
+    }
+    &:focus, &:focus-visible {
+      border: 3px solid map-get($color, color-light);
+    }
+    &:active {
+      background-color: map-get($color, color-light);
+    }
+}
+
+@mixin button-outline-theme($color) {
+  color: map-get($color, color);
+  border: 1px solid map-get($color, color);
+
+  &:hover{
+    color:  map-get($color, color-dark);
+    border-color:  map-get($color, color-dark);
+  }
+  &:focus {
+    box-shadow: 0 0 0 3px map-get($color, color-light), 0 0 0 3px map-get($color, color-light);
+  }
+  &:active {
+    color: map-get($color, color-light);
+    border-color: map-get($color, color-light);
+    box-shadow: none;
+  }
+}

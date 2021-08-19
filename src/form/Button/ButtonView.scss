@@ -1,5 +1,61 @@
 .ButtonView {
-  position: relative;
+  $root: &;
+
+  transition-property: color, background-color, border-color, box-shadow;
+  transition-duration: .15s;
+  transition-timing-function: ease-in-out;
+
+  &_button {
+    position: relative;
+    color: #212529;
+    border-radius: $button-border-radius;
+    user-select: none;
+    border: $button-border;
+
+    padding: $button-padding-y $button-padding-x;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: $button-font-weight;
+    font-size: $button-font-size;
+
+    @each $color, $value in $color-themes {
+      &#{$root}_color_#{$color} {
+        @include button-theme($value)
+      }
+    }
+
+    &#{$root}_outline {
+      background-color: #fff;
+
+      @each $color, $value in $color-themes {
+        &_#{$color} {
+          @include button-outline-theme($value)
+        }
+      }
+    }
+  }
+
+  &_size {
+    &_sm {
+      height: $button-height-sm;
+      font-size: $button-font-size-sm;
+    }
+    &_md {
+      height: $button-height-md;
+      font-size: $button-font-size-md;
+    }
+    &_lg {
+      height: $button-height-lg;
+      font-size: $button-font-size-lg;
+    }
+  }
+
+  &_link {
+    justify-content: flex-start;
+    background-color: #fff;
+  }
 
   &__icon {
     margin-right: 3px;

@@ -1,0 +1,68 @@
+$primary: #651FFF;
+$primary-dark: #410FAD;
+$primary-light: #F0EAFF;
+
+$secondary: #97A7C8;
+$secondary-dark: #596886;
+$secondary-light: #E3EAF9;
+
+$heading: #152536;
+$body: #68717A;
+$white: #FFFFFF;
+
+$success: #64D03E;
+$success-dark: #218838;
+$success-light: #ABED94;
+
+$danger: #FF4557;
+$danger-dark: #DA2839;
+$danger-light: #FF99A3;
+
+$warning: #FAD826;
+$warning-dark: #DCC131;
+$warning-light: #FFF3B2;
+
+$info: #39BBD8;
+$info-dark: #2796AF;
+$info-light: #A7EFFF;
+
+$light: #F8F9FA;
+$light-dark: #E2E6EA;
+$light-light: #FAFAFA;
+
+$dark: #343A40;
+$dark-dark: #1A1C1E;
+$dark-light: #ACACAC;
+
+$color-themes: () !default;
+$color-themes:
+  (
+      "primary":   ("color": $primary,   "color-dark": $primary-dark,   "color-light": $primary-light, "text-color": $white),
+      "secondary": ("color": $secondary, "color-dark": $secondary-dark, "color-light": $secondary-light, "text-color": $white),
+      "success":   ("color": $success,   "color-dark": $success-dark,   "color-light": $success-light, "text-color": $white),
+      "danger":    ("color": $danger,    "color-dark": $danger-dark,    "color-light": $danger-light, "text-color": $white),
+      "warning":   ("color": $warning,   "color-dark": $warning-dark,   "color-light": $warning-light, "text-color": $dark),
+      "info":      ("color": $info,      "color-dark": $info-dark,      "color-light": $info-light, "text-color": $white),
+      "light":     ("color": $light,     "color-dark": $light-dark,     "color-light": $light-light, "text-color": $dark),
+      "dark":      ("color": $dark,      "color-dark": $dark-dark,      "color-light": $dark-light, "text-color": $white)
+  );
+
+$grey-light: #D9D9D9;
+$grey-lighter: #F8F8F8;
+$grey: #F8F9FA;
+$grey-dark: #2D2D2D;
+$grey-darker: #78848E;
+$grey-disabled: #F1F1F1;
+
+$additional: #0596FF;
+
+$border-default: #CCCCCC;
+$border-hover: #B0B0B0;
+$border-action: #39BBD8;
+$border-typing: #A7EFFF;
+$back-disabled: #EBEBEB;
+$back-success: #F1FFEC;
+$border-success: #64D03E;
+$back-error: #FCE7E7;
+$border-error: #FF4557;
+

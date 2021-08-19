@@ -63,7 +63,9 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
 
     const className = bem(
         bem.block({
-            color: props.color,
+            button: !props.link,
+            [`color_${props.color}`]: props.color && !props.outline,
+            [`outline_${props.color}`]: props.outline,
             outline: props.outline,
             size: props.size,
             disabled: props.disabled,
@@ -72,9 +74,6 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             failed: props.isFailed,
             link: props.tag === 'a',
         }),
-        !props.link && 'btn',
-        props.size && `btn-${props.size}`,
-        !props.link && `btn-${props.outline ? 'outline-' : ''}${props.color}`,
         props.block && 'btn-block',
         props.link && 'btn-link',
         props.className,
