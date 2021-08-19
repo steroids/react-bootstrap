@@ -100,7 +100,7 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                 yearSelect: bem.element('caption-year'),
                 monthSelect: bem.element('caption-month'),
             }}
-            onChange={props.handleYearMonthChange}
+            onChange={props.updateMonth}
             fromYear={props.fromYear}
             toYear={props.toYear}
         />
@@ -110,7 +110,7 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
             content={() =>
                 <DayPicker
                     captionElement={captionElement}
-                    selectedDays={props.selectedDays}
+                    selectedDays={props.dateFrom}
                     onDayClick={props.onDayClick}
                     month={props.month}
                 />
@@ -128,6 +128,7 @@ export default function DateFieldView(props: IDateFieldViewProps & IBemHocOutput
                     }),
                     props.className,
                 )}
+                style={props.style}
             >
                 <div className={bem.element('body')}>
                     <input

@@ -13,7 +13,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
             {props.items.map(item => (
                 <div
                     key={item.id as ReactText}
-                    className='custom-control custom-checkbox'
+                    className="custom-control custom-checkbox"
                 >
                     <input
                         {...props.inputProps}
@@ -25,14 +25,13 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                         )}
                         checked={props.selectedIds.includes(item.id)}
                         disabled={props.disabled}
-                        onChange={(e) => {
-                            props.inputProps.onChange(e.target.value);
+                        onChange={() => {
                             props.onItemSelect(item.id);
                         }}
                         onMouseOver={() => props.onItemHover(item.id)}
                     />
                     <label
-                        className='custom-control-label'
+                        className="custom-control-label"
                         htmlFor={`${prefix}_${item.id}`}
                     >
                         {item.label}

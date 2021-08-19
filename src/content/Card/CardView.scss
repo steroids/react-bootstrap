@@ -1,42 +1,340 @@
-.CardView{
+.CardView {
+    $root: &;
+
     background: #fff;
     box-sizing: border-box;
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    white-space: nowrap;
-    vertical-align: center;
+
+    &_orientation {
+        &_vertical {
+            font-size: 14px;
+        }
+
+        &_vertical-reverse {
+            font-size: 14px;
+            flex-direction: column-reverse;
+        }
+
+        &_horizontal {
+            flex-direction: row;
+
+            #{$root}__title{
+                font-size: 28px;
+            }
+
+            #{$root}__content{
+                flex-basis: 50%;
+                font-size: 16px;
+            }
+
+            #{$root}__cover{
+                flex-basis: 50%;
+            }
+        }
+    }
+
+    &_color {
+        &_primary {
+            background: #651FFF;
+            color: #fff;
+            #{$root}__header{
+                background: #651FFF;
+                border-bottom: 1px solid #410FAD;
+            }
+            #{$root}__footer{
+                background: #651FFF;
+                border-top: 1px solid #410FAD;
+            }
+        }
+
+        &_secondary {
+            background: #97A7C8;
+            color: #fff;
+            #{$root}__header{
+                background: #97A7C8;
+                border-bottom: 1px solid #596886;
+            }
+            #{$root}__footer{
+                background: #97A7C8;
+                border-top: 1px solid #596886;
+            }
+        }
+
+        &_success {
+            background: #64D03E;
+            color: #fff;
+            #{$root}__header{
+                background: #64D03E;
+                border-bottom: 1px solid #218838;
+            }
+            #{$root}__footer{
+                background: #64D03E;
+                border-top: 1px solid #218838;
+            }
+        }
+
+        &_danger {
+            background: #FF4557;
+            color: #fff;
+            #{$root}__header{
+                background: #FF4557;
+                border-bottom: 1px solid #DA2839;
+            }
+            #{$root}__footer{
+                background: #FF4557;
+                border-top: 1px solid #DA2839;
+            }
+        }
+
+        &_warning {
+            background: #FFE457;
+            color: #343A40;
+            #{$root}__header{
+                background: #FFE457;
+                border-bottom: 1px solid #DCC131;
+            }
+            #{$root}__footer{
+                background: #FFE457;
+                border-top: 1px solid #DCC131;
+            }
+        }
+
+        &_info {
+            background: #39BBD8;
+            color: #fff;
+            #{$root}__header{
+                background: #39BBD8;
+                border-bottom: 1px solid #2796AF;
+            }
+            #{$root}__footer{
+                background: #39BBD8;
+                border-top: 1px solid #2796AF;
+            }
+        }
+
+        &_light {
+            background: #F4F4F4;
+            color: #343A40;
+            #{$root}__header{
+                background: #F4F4F4;
+                border-bottom: 1px solid #D9D9D9;
+            }
+            #{$root}__footer{
+                background: #F4F4F4;
+                border-top: 1px solid #D9D9D9;
+            }
+        }
+
+        &_dark {
+            background: #343A40;
+            color: #fff;
+            #{$root}__header{
+                background: #343A40;
+                border-bottom: 1px solid #1A1C1E;
+            }
+            #{$root}__footer{
+                background: #343A40;
+                border-top: 1px solid #1A1C1E;
+            }
+        }
+    }
+
     &_border {
-        border: 1px solid #f0f0f0;
+        &_default {
+            border: 1px solid #f0f0f0;
+        }
+
+        &_primary {
+            border: 1px solid #651FFF;
+            #{$root}__content{
+                color: #651FFF;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #651FFF;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #651FFF;
+            }
+        }
+
+        &_secondary {
+            border: 1px solid #97A7C8;
+            #{$root}__content{
+                color: #97A7C8;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #97A7C8;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #97A7C8;
+            }
+        }
+
+        &_success {
+            border: 1px solid #64D03E;
+            #{$root}__content{
+                color: #64D03E;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #64D03E;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #64D03E;
+            }
+        }
+
+        &_danger {
+            border: 1px solid #FF4557;
+            #{$root}__content{
+                color: #FF4557;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #FF4557;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #FF4557;
+            }
+        }
+
+        &_warning {
+            border: 1px solid #FFE457;
+            #{$root}__content{
+                color: #FFE457;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #FFE457;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #FFE457;
+            }
+        }
+
+        &_info {
+            border: 1px solid #39BBD8;
+            #{$root}__content{
+                color: #39BBD8;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #39BBD8;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #39BBD8;
+            }
+        }
+
+        &_light {
+            border: 1px solid #f1f1f1;
+            #{$root}__content{
+                color: #1A1C1E;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #f1f1f1;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #f1f1f1;
+            }
+        }
+
+        &_dark {
+            border: 1px solid #1A1C1E;
+            #{$root}__content{
+                color: #1A1C1E;
+            }
+            #{$root}__header{
+                border-bottom: 1px solid #1A1C1E;
+            }
+            #{$root}__footer{
+                border-top: 1px solid #1A1C1E;
+            }
+        }
     }
-    &_square {
-        border-radius: none;
+
+    &_shape {
+        &_square {
+            border-radius: unset;
+        }
+
+        &_circle {
+            border-radius: 3px;
+        }
     }
-    &_circle {
-        border-radius: 3px;
+
+    &__children {
+        font-size: 16px;
+        line-height: 28px;
+        box-sizing: border-box;
+        width: 100%;
+        word-break: break-all;
     }
-    &_large {
-        width: 40px;
-    }
-    &_medium {
-        font-size: 14px;
-        width: 300px;
-        
-    }
-    &_small {
-        width: 24px;
+
+    &__header {
+        background: #F8F8F8;
+        padding: 20px;
+        border-bottom: 1px solid #f0f0f0;
+        font-weight: bold;
+        font-size: 20px;
         line-height: 24px;
+        word-break: break-all;
     }
+
+    &__footer {
+        background: #F8F8F8;
+        padding: 20px;
+        border-top: 1px solid #f0f0f0;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 24px;
+        word-break: break-all;
+    }
+
+    &__cover {
+        overflow: hidden;
+    }
+
     &__title{
         display: flex;
         align-items: center;
-        padding: 0 24px;
-        min-height: 48px;
-        border: 1px solid #f0f0f0;
-        
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 24px;
+        border-bottom: 8px;
+        margin-bottom: 8px;
     }
+
     &__content{
-        padding: 24px;
-        min-height: 48px;
+        padding: 20px;
+    }
+
+    button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        position: static;
+        width: 140px;
+        height: 28px;
+        border: none;
+        color: #FFFFFF;
+        background: #651FFF;
+        border-radius: 4px;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+    a {
+        color: #7749F8;
+        font-size: 16px;
+    }
+    p{
+        margin: 0;
     }
 }
