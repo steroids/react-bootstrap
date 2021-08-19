@@ -107,10 +107,10 @@ export default function CaptionElement(props: ICaptionElementProps) {
             {isCaptionPanelVisible && (
                 <div className={bem.element('panel', {'full-height': !props.showCalendarFooter})}>
                     <div className={bem.element('panel-header', 'months')}>
-                        {__('Год')}
+                        {__('Месяц')}
                     </div>
                     <div className={bem.element('panel-header', 'years')}>
-                        {__('Месяц')}
+                        {__('Год')}
                     </div>
                     <div className={bem.element('panel-column-months', 'first')}>
                         <div className={bem.element('content-column')}>
