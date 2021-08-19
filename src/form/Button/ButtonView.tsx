@@ -5,7 +5,6 @@ import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
-import './ButtonView.scss';
 
 export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
     const bem = useBem('ButtonView');

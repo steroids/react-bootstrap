@@ -87,7 +87,7 @@ export default function CalendarView(props: ICalendarViewProps) {
             selectedDays={selectedDays}
             numberOfMonths={numberOfMonths}
             localeUtils={MomentLocaleUtils}
-            locale={'ru'}
+            locale='ru'
         />
     );
 }
