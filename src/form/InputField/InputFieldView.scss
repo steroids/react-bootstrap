@@ -1,27 +1,67 @@
-$addon-padding: 0.6rem;
-$text-padding: 0.4rem;
-
 .InputFieldView {
+  $root: &;
+
   display: flex;
   flex-flow: row nowrap;
   align-items: stretch;
   padding: 0;
+  border: $input-border;
+  border-radius: $input-border-radius;
+
+  &_size {
+    &_small {
+      height: $input-height-sm;
+    }
+    &_medium {
+      height: $input-height-md;
+    }
+    &_large {
+      height: $input-height-lg;
+    }
+  }
 
   &:focus-within{
     outline: 0;
-    border-color: $blue;
-    box-shadow: 0 0 0 0.2rem rgba($blue, 0.25);
+    border-color: $border-action;
+    box-shadow: 0 0 0 3px $border-typing, 0 0 0 3px $border-typing;
   }
+
   &.is-invalid:focus-within{
-    border-color: $red;
-    box-shadow: 0 0 0 0.2rem rgba($red, 0.25);
+    border-color: $border-action;
+    box-shadow: 0 0 0 3px $border-typing, 0 0 0 3px $border-typing;
   }
+
   &_disabled {
     color: rgba(0, 0, 0, .25);
-    background-color: rgba($input-border-color, .3);
+    background-color: $back-disabled;
     cursor: not-allowed;
+
     input {
       cursor: inherit;
+    }
+
+    &#{$root}_input {
+      background-color: $back-disabled;
+    }
+  }
+
+  &_caption {
+
+  }
+
+  &_failed {
+    background: $back-error;
+    &::after {
+      content: 'Error message';
+      color: $border-error;
+    }
+  }
+
+  &_success {
+    background: $back-success;
+    &::after {
+      content: 'Success message';
+      color: $border-success;
     }
   }
 
@@ -29,19 +69,42 @@ $text-padding: 0.4rem;
     flex-grow: 1;
     border: none;
     outline: none;
-    background-color: transparent;
-
+    background-color: $white;
+    overflow: hidden;
+    color: $border-default;
     padding: $input-padding-y $input-padding-x;
+    border-radius: $input-border-radius;
+
+    &_disabled {
+      color: rgba(0, 0, 0, .25);
+      background: $back-disabled;
+      cursor: not-allowed;
+
+      input {
+        cursor: inherit;
+      }
+    }
+
+    &_failed {
+      box-sizing: border-box;
+    }
+
+    &:active {
+      color: $heading;
+    }
+    &:focus {
+      color: $heading;
+    }
   }
 
   &__addon-before, &__addon-after {
     display: flex;
     align-items: center;
-    padding: 0 $addon-padding;
+    padding: 0 $input-addon-padding;
 
     color: rgba(0, 0, 0, .85);
     text-align: center;
-    background-color: #fafafa;
+    background-color: $back-disabled;
   }
 
   &__addon-before {
@@ -61,11 +124,11 @@ $text-padding: 0.4rem;
   }
 
   &__text-before {
-    padding-left: $text-padding;
+    padding-left: $input-text-padding;
   }
 
   &__text-after {
-    padding-right: $text-padding;
+    padding-right: $input-text-padding;
   }
 
 }
