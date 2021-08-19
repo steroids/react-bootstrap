@@ -16,26 +16,26 @@ $success-light: #ABED94;
 
 $danger: #FF4557;
 $danger-dark: #DA2839;
-$danger-light: #FF99A3;
+$danger-light: #ff99a3;
 
-$warning: #FAD826;
-$warning-dark: #DCC131;
-$warning-light: #FFF3B2;
+$warning: #fad826;
+$warning-dark: #dcc131;
+$warning-light: #fff3b2;
 
-$info: #39BBD8;
-$info-dark: #2796AF;
-$info-light: #A7EFFF;
+$info: #39bbd8;
+$info-dark: #2796af;
+$info-light: #a7efff;
 
-$light: #F8F9FA;
-$light-dark: #E2E6EA;
-$light-light: #FAFAFA;
+$light: #f8f9fa;
+$light-dark: #e2e6ea;
+$light-light: #fafafa;
 
-$dark: #343A40;
-$dark-dark: #1A1C1E;
-$dark-light: #ACACAC;
+$dark: #343a40;
+$dark-dark: #1a1c1e;
+$dark-light: #acacac;
 
 $color-themes: () !default;
-$color-themes:
+$color-themes: map-merge(
   (
       "primary":   ("color": $primary,   "color-dark": $primary-dark,   "color-light": $primary-light, "text-color": $white),
       "secondary": ("color": $secondary, "color-dark": $secondary-dark, "color-light": $secondary-light, "text-color": $white),
@@ -45,7 +45,9 @@ $color-themes:
       "info":      ("color": $info,      "color-dark": $info-dark,      "color-light": $info-light, "text-color": $white),
       "light":     ("color": $light,     "color-dark": $light-dark,     "color-light": $light-light, "text-color": $dark),
       "dark":      ("color": $dark,      "color-dark": $dark-dark,      "color-light": $dark-light, "text-color": $white)
-  );
+  ),
+  $color-themes
+);
 
 $grey-light: #D9D9D9;
 $grey-lighter: #F8F8F8;

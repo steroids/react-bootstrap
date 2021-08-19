@@ -7,7 +7,6 @@
 
   &_button {
     position: relative;
-    color: #212529;
     border-radius: $button-border-radius;
     user-select: none;
     border: $button-border;
@@ -26,15 +25,12 @@
       }
     }
 
-    &#{$root}_outline {
-      background-color: #fff;
-
-      @each $color, $value in $color-themes {
-        &_#{$color} {
-          @include button-outline-theme($value)
-        }
+    @each $color, $value in $color-themes {
+      &#{$root}_outline_#{$color} {
+        @include button-outline-theme($value)
       }
     }
+
   }
 
   &_size {
