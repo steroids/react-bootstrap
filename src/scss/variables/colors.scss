@@ -1,38 +1,38 @@
-$primary: #651FFF;
-$primary-dark: #410FAD;
-$primary-light: #F0EAFF;
+$primary: #651FFF !default;
+$primary-dark: #410FAD !default;
+$primary-light: #F0EAFF!default;
 
-$secondary: #97A7C8;
-$secondary-dark: #596886;
-$secondary-light: #E3EAF9;
+$secondary: #97A7C8 !default;
+$secondary-dark: #596886 !default;
+$secondary-light: #E3EAF9 !default;
 
-$heading: #152536;
-$body: #68717A;
-$white: #FFFFFF;
+$heading: #152536 !default;
+$body: #68717A !default;
+$white: #FFFFFF !default;
 
-$success: #64D03E;
-$success-dark: #218838;
-$success-light: #ABED94;
+$success: #64D03E !default;
+$success-dark: #218838 !default;
+$success-light: #ABED94 !default;
 
-$danger: #FF4557;
-$danger-dark: #DA2839;
-$danger-light: #ff99a3;
+$danger: #FF4557 !default;
+$danger-dark: #DA2839 !default;
+$danger-light: #ff99a3 !default;
 
-$warning: #fad826;
-$warning-dark: #dcc131;
-$warning-light: #fff3b2;
+$warning: #fad826 !default;
+$warning-dark: #dcc131 !default;
+$warning-light: #fff3b2 !default;
 
-$info: #39bbd8;
-$info-dark: #2796af;
-$info-light: #a7efff;
+$info: #39bbd8 !default;
+$info-dark: #2796af !default;
+$info-light: #a7efff !default;
 
-$light: #f8f9fa;
-$light-dark: #e2e6ea;
-$light-light: #fafafa;
+$light: #f8f9fa !default;
+$light-dark: #e2e6ea !default;
+$light-light: #fafafa !default;
 
-$dark: #343a40;
-$dark-dark: #1a1c1e;
-$dark-light: #acacac;
+$dark: #343a40 !default;
+$dark-dark: #1a1c1e !default;
+$dark-light: #acacac !default;
 
 $color-themes: () !default;
 $color-themes: map-merge(
@@ -49,22 +49,24 @@ $color-themes: map-merge(
   $color-themes
 );
 
-$grey-light: #D9D9D9;
-$grey-lighter: #F8F8F8;
-$grey: #F8F9FA;
-$grey-dark: #2D2D2D;
-$grey-darker: #78848E;
-$grey-disabled: #F1F1F1;
+$grey-light: #D9D9D9 !default;
+$grey-lighter: #F8F8F8 !default;
+$grey: #F8F9FA !default;
+$grey-dark: #2D2D2D !default;
+$grey-darker: #78848E !default;
+$grey-disabled: #F1F1F1 !default;
 
-$additional: #0596FF;
+$additional: #0596FF !default;
 
-$border-default: #CCCCCC;
-$border-hover: #B0B0B0;
-$border-action: #39BBD8;
-$border-typing: #A7EFFF;
-$back-disabled: #EBEBEB;
-$back-success: #F1FFEC;
-$border-success: #64D03E;
-$back-error: #FCE7E7;
-$border-error: #FF4557;
+$border-default: #CCCCCC !default;
+$border-hover: #B0B0B0 !default;
+$border-action: #39BBD8 !default;
+$border-typing: #A7EFFF !default;
+$back-disabled: #EBEBEB !default;
+$back-success: #F1FFEC !default;
+$border-success: #64D03E !default;
+$back-error: #FCE7E7 !default;
+$border-error: #FF4557 !default;
+$back-info: #ECFCFF !default;
+$back-warning: #FFFCEA !default;
 

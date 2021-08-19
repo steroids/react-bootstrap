@@ -3,8 +3,6 @@ import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField'
 import {useBem} from '@steroidsjs/core/hooks';
 import _padStart from 'lodash-es/padStart';
 
-import './TimePanelView.scss';
-
 const getHours = () => {
     const result = [];
     for (let i = 0; i < 24; i += 1) {

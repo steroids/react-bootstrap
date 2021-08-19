@@ -4,14 +4,14 @@
   padding: 0 8px;
   position: relative;
 
-  background-color: #fff;
-  border: 1px solid #d9d9d9;
+  background-color: $white;
+  border: 1px solid $border-default;
   border-radius: 4px;
 
   &:focus-within{
     outline: 0;
-    border-color: #a7efff;
-    box-shadow: 0 0 0 1px #a7efff;
+    border-color: $border-action;
+    box-shadow: 0 0 0 1px $border-typing;
   }
   *:focus {
     outline: none;
@@ -19,8 +19,9 @@
 
   &_disabled {
     color: rgba(0, 0, 0, .25);
-    background-color: #f1f1f1;
+    background-color: $back-disabled;
     cursor: not-allowed;
+
     input {
       cursor: inherit;
     }
@@ -66,21 +67,20 @@
     height: 16px;
 
     path {
-      fill: #d9d9d9;
+      fill: $border-default;
       transition: fill .1s ease-in;
     }
 
     &_close{
       position: absolute;
-      background-color: #fff;
+      background-color: $white;
 
       opacity: 0;
       transition: opacity .2s ease-in;
 
       &:hover {
         path {
-          fill: #2d2d2d;
-
+          fill: $grey-dark;
         }
       }
     }
@@ -97,7 +97,7 @@
       height: 291px;
 
       &:first-child {
-        border-left: 1px solid #ccc;
+        border-left: 1px solid $border-default;
       }
     }
   }
@@ -111,7 +111,7 @@
   &__time {
     .TimePanelView__column {
       height: 291px;
-      border-left: 1px solid #ccc;
+      border-left: 1px solid $border-default;
     }
   }
 }

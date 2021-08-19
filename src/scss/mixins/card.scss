@@ -1,0 +1,26 @@
+@mixin card-theme($root, $color) {
+  background: map-get($color, color);
+  color: map-get($color, text-color);
+
+  #{$root}__header{
+    background: map-get($color, color);
+    border-bottom: 1px solid map-get($color, color-dark);
+  }
+  #{$root}__footer{
+    background: map-get($color, color);
+    border-top: 1px solid map-get($color, color-dark);
+  }
+}
+
+@mixin card-border-theme($root, $color) {
+  border: 1px solid map-get($color, color);
+  #{$root}__content{
+    color: map-get($color, color);
+  }
+  #{$root}__header{
+    border-bottom: 1px solid map-get($color, color);
+  }
+  #{$root}__footer{
+    border-top: 1px solid map-get($color, color);
+  }
+}

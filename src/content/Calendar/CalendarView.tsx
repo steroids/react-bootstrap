@@ -7,8 +7,6 @@ import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import CaptionElement from './CaptionElement';
 
-import './CalendarView.scss';
-
 export default function CalendarView(props: ICalendarViewProps) {
     const bem = useBem('CalendarView');
 

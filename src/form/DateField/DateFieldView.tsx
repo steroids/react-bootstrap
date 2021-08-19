@@ -5,7 +5,6 @@ import Icon from '@steroidsjs/core/ui/icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
-import './DateFieldView.scss';
 
 export default function DateFieldView(props: IDateFieldViewProps) {
     const bem = useBem('DateFieldView');

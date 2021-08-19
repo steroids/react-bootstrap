@@ -7,8 +7,6 @@ import Icon from '@steroidsjs/core/ui/icon/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import TimePanelView from './TimePanelView';
 
-import './TimeFieldView.scss';
-
 export default function TimeFieldView(props: ITimeFieldViewProps & IBemHocOutput) {
     const bem = useBem('TimeFieldView');
 

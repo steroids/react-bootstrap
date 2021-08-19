@@ -4,9 +4,10 @@
   align-items: stretch;
   padding: 0;
 
+
   &_disabled {
     color: rgba(0, 0, 0, .25);
-    background-color: rgba($input-border-color, .3);
+    background-color: $back-disabled;
     cursor: not-allowed;
 
     input {
@@ -60,11 +61,11 @@
     justify-content: center;
 
     &:nth-child(1){
-      border-left: 1px solid $input-border-color;
+      border-left: 1px solid #CCCCCC;
     }
     &:nth-child(2){
-      border-top: 1px solid $input-border-color;
-      border-left: 1px solid $input-border-color;
+      border-top: 1px solid #CCCCCC;
+      border-left: 1px solid #CCCCCC;
     }
     &_disabled{
       cursor: not-allowed;

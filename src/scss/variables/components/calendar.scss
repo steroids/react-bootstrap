@@ -1,0 +1,15 @@
+$calendar-primary-color: $primary !default;
+$calendar-primary-light-color: $primary-light !default;
+$calendar-secondary-color: $border-default !default;
+$calendar-secondary-light-color: $light !default;
+$calendar-text-color: $heading !default;
+$calendar-selected-text-color: $white !default;
+
+$calendar-font-weight: 500 !default;
+
+$calendar-day-border-radius: 10px !default;
+
+$calendar-shadow-shape: 0 0 0 3px !default;
+$calendar-selected-shadow: $calendar-shadow-shape $calendar-primary-light-color !default;
+$calendar-today-shadow: $calendar-shadow-shape $calendar-primary-light-color !default;
+$calendar-hover-shadow: $calendar-shadow-shape $calendar-secondary-color !default;

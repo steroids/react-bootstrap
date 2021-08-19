@@ -5,6 +5,7 @@ export default {
 
     'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
     'content.DropDownView': {lazy: () => require('./content/DropDown/DropDownView').default},
+    'content.AlertView': {lazy: () => require('./content/Alert/AlertView').default},
     'content.AvatarView': {lazy: () => require('./content/Avatar/AvatarView').default},
     'content.AvatarGroupView': {lazy: () => require('./content/Avatar/AvatarGroupView').default},
     'content.CalendarView': {lazy: () => require('./content/Calendar/CalendarView').default},

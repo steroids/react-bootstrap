@@ -1,7 +1,7 @@
 .CardView {
     $root: &;
 
-    background: #fff;
+    background: $white;
     box-sizing: border-box;
     position: relative;
     display: flex;
@@ -10,11 +10,11 @@
 
     &_orientation {
         &_vertical {
-            font-size: 14px;
+            font-size: $card-font-size;
         }
 
         &_vertical-reverse {
-            font-size: 14px;
+            font-size: $card-font-size;
             flex-direction: column-reverse;
         }
 
@@ -22,12 +22,12 @@
             flex-direction: row;
 
             #{$root}__title{
-                font-size: 28px;
+                font-size: $card-horizontal-header-font-size;
             }
 
             #{$root}__content{
                 flex-basis: 50%;
-                font-size: 16px;
+                font-size: $card-horizontal-font-size;
             }
 
             #{$root}__cover{
@@ -36,218 +36,20 @@
         }
     }
 
-    &_color {
-        &_primary {
-            background: #651FFF;
-            color: #fff;
-            #{$root}__header{
-                background: #651FFF;
-                border-bottom: 1px solid #410FAD;
-            }
-            #{$root}__footer{
-                background: #651FFF;
-                border-top: 1px solid #410FAD;
-            }
-        }
-
-        &_secondary {
-            background: #97A7C8;
-            color: #fff;
-            #{$root}__header{
-                background: #97A7C8;
-                border-bottom: 1px solid #596886;
-            }
-            #{$root}__footer{
-                background: #97A7C8;
-                border-top: 1px solid #596886;
-            }
-        }
-
-        &_success {
-            background: #64D03E;
-            color: #fff;
-            #{$root}__header{
-                background: #64D03E;
-                border-bottom: 1px solid #218838;
-            }
-            #{$root}__footer{
-                background: #64D03E;
-                border-top: 1px solid #218838;
-            }
-        }
-
-        &_danger {
-            background: #FF4557;
-            color: #fff;
-            #{$root}__header{
-                background: #FF4557;
-                border-bottom: 1px solid #DA2839;
-            }
-            #{$root}__footer{
-                background: #FF4557;
-                border-top: 1px solid #DA2839;
-            }
-        }
-
-        &_warning {
-            background: #FFE457;
-            color: #343A40;
-            #{$root}__header{
-                background: #FFE457;
-                border-bottom: 1px solid #DCC131;
-            }
-            #{$root}__footer{
-                background: #FFE457;
-                border-top: 1px solid #DCC131;
-            }
-        }
-
-        &_info {
-            background: #39BBD8;
-            color: #fff;
-            #{$root}__header{
-                background: #39BBD8;
-                border-bottom: 1px solid #2796AF;
-            }
-            #{$root}__footer{
-                background: #39BBD8;
-                border-top: 1px solid #2796AF;
-            }
-        }
-
-        &_light {
-            background: #F4F4F4;
-            color: #343A40;
-            #{$root}__header{
-                background: #F4F4F4;
-                border-bottom: 1px solid #D9D9D9;
-            }
-            #{$root}__footer{
-                background: #F4F4F4;
-                border-top: 1px solid #D9D9D9;
-            }
-        }
-
-        &_dark {
-            background: #343A40;
-            color: #fff;
-            #{$root}__header{
-                background: #343A40;
-                border-bottom: 1px solid #1A1C1E;
-            }
-            #{$root}__footer{
-                background: #343A40;
-                border-top: 1px solid #1A1C1E;
-            }
+    @each $color, $value in $color-themes {
+        &_color_#{$color} {
+            @include card-theme($root, $value)
         }
     }
 
     &_border {
         &_default {
-            border: 1px solid #f0f0f0;
+            border: 1px solid $border-default;
         }
 
-        &_primary {
-            border: 1px solid #651FFF;
-            #{$root}__content{
-                color: #651FFF;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #651FFF;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #651FFF;
-            }
-        }
-
-        &_secondary {
-            border: 1px solid #97A7C8;
-            #{$root}__content{
-                color: #97A7C8;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #97A7C8;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #97A7C8;
-            }
-        }
-
-        &_success {
-            border: 1px solid #64D03E;
-            #{$root}__content{
-                color: #64D03E;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #64D03E;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #64D03E;
-            }
-        }
-
-        &_danger {
-            border: 1px solid #FF4557;
-            #{$root}__content{
-                color: #FF4557;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #FF4557;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #FF4557;
-            }
-        }
-
-        &_warning {
-            border: 1px solid #FFE457;
-            #{$root}__content{
-                color: #FFE457;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #FFE457;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #FFE457;
-            }
-        }
-
-        &_info {
-            border: 1px solid #39BBD8;
-            #{$root}__content{
-                color: #39BBD8;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #39BBD8;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #39BBD8;
-            }
-        }
-
-        &_light {
-            border: 1px solid #f1f1f1;
-            #{$root}__content{
-                color: #1A1C1E;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #f1f1f1;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #f1f1f1;
-            }
-        }
-
-        &_dark {
-            border: 1px solid #1A1C1E;
-            #{$root}__content{
-                color: #1A1C1E;
-            }
-            #{$root}__header{
-                border-bottom: 1px solid #1A1C1E;
-            }
-            #{$root}__footer{
-                border-top: 1px solid #1A1C1E;
+        @each $color, $value in $color-themes {
+            &_#{$color} {
+                @include card-border-theme($root, $value)
             }
         }
     }
@@ -258,35 +60,35 @@
         }
 
         &_circle {
-            border-radius: 3px;
+            border-radius: $card-border-radius;
         }
     }
 
     &__children {
-        font-size: 16px;
-        line-height: 28px;
+        font-size: $card-children-font-size;
+        line-height: $card-children-line-height;
         box-sizing: border-box;
         width: 100%;
         word-break: break-all;
     }
 
     &__header {
-        background: #F8F8F8;
+        background: $card-header-background;
         padding: 20px;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid $border-default;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: $card-header-font-size;
+        line-height: $card-header-line-height;
         word-break: break-all;
     }
 
     &__footer {
-        background: #F8F8F8;
+        background: $card-header-background;
         padding: 20px;
-        border-top: 1px solid #f0f0f0;
+        border-top: 1px solid $border-default;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: $card-header-font-size;
+        line-height: $card-header-line-height;
         word-break: break-all;
     }
 
@@ -298,8 +100,8 @@
         display: flex;
         align-items: center;
         font-weight: bold;
-        font-size: 20px;
-        line-height: 24px;
+        font-size: $card-title-font-size;
+        line-height: $card-title-line-height;
         border-bottom: 8px;
         margin-bottom: 8px;
     }
@@ -318,9 +120,9 @@
         width: 140px;
         height: 28px;
         border: none;
-        color: #FFFFFF;
-        background: #651FFF;
-        border-radius: 4px;
+        color: $white;
+        background: $primary;
+        border-radius: $card-button-border-radius;
     }
 
     img {
@@ -331,8 +133,8 @@
       }
 
     a {
-        color: #7749F8;
-        font-size: 16px;
+        color: $primary;
+        font-size: $card-link-font-size;
     }
     p{
         margin: 0;

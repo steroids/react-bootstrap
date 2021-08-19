@@ -2,8 +2,6 @@ import React from 'react';
 import { useBem } from '@steroidsjs/core/hooks';
 import { IAvatarViewProps } from '@steroidsjs/core/ui/content/Avatar/Avatar';
 
-import './AvatarView.scss';
-
 export default function Avatar(props: IAvatarViewProps) {
     const bem = useBem('AvatarView');
 

@@ -7,8 +7,6 @@ import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
 import _isString from 'lodash-es/isString';
 
-import './DateRangeFieldView.scss';
-
 export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const bem = useBem('DateRangeFieldView');
 

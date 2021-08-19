@@ -2,7 +2,7 @@
   height: 45px;
   display: table-caption;
   padding: 0 10px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid $border-color;
 
   & > div {
     font-size: 14px;
@@ -22,7 +22,7 @@
     cursor: pointer;
     transition: color .1s ease-in;
     &:hover, &:active, &:focus {
-      color: #651fff;
+      color: $calendar-primary-color;
     }
   }
 
@@ -62,7 +62,7 @@
     left: 0;
     right: 0;
     bottom: 50px;
-    background-color: #fff;
+    background-color: $white;
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -80,12 +80,12 @@
       padding: 5px;
 
       text-align: center;
-      border-bottom: 1px solid #ccc;
-      background-color: rgba(#d8ccf7, .3);
+      border-bottom: 1px solid $border-color;
+      background-color: $calendar-primary-light-color;
 
       &_months {
         grid-area: HeaderMonths;
-        border-right: 1px solid #ccc;
+        border-right: 1px solid $border-color;
       }
       &_years {
         grid-area: HeaderYears;
@@ -93,7 +93,7 @@
     }
 
     &-column-months {
-      border-right: 1px solid #f1f1f1;
+      border-right: 1px solid $border-color;
 
       &_first {
         grid-area: Months1stCol;
@@ -112,12 +112,12 @@
       cursor: pointer;
 
       &_selected {
-        background-color: #d8ccf7;
+        background-color: $calendar-primary-light-color;
       }
 
       transition: background-color .1s ease-in;
       &:hover {
-        background-color: #f8f8f8;
+        background-color: $calendar-secondary-light-color;
       }
     }
   }
