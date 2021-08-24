@@ -46,6 +46,8 @@ export default {
     'layout.LoaderView': {lazy: () => require('./layout/Loader/LoaderView').default},
     'layout.NotificationsView': {lazy: () => require('./layout/Notifications/NotificationsView').default},
     'layout.NotificationsItemView': {lazy: () => require('./layout/Notifications/NotificationsItemView').default},
+    'layout.LineProgressBarView': {lazy: () => require('./layout/ProgressBar/LineProgressBarView').default},
+    'layout.CircleProgressBarView': {lazy: () => require('./layout/ProgressBar/CircleProgressBarView').default},
     'layout.TooltipView': {lazy: () => require('./layout/Tooltip/TooltipView').default},
     // 'list.AccordionView': {lazy: () => require('./list/Accordion/AccordionView').default},
     'list.ControlsColumnView': {lazy: () => require('./list/ControlsColumnView/ControlsColumnView').default},
