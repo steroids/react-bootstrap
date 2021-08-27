@@ -8,6 +8,7 @@ export default {
     'content.AvatarView': {lazy: () => require('./content/Avatar/AvatarView').default},
     'content.AvatarGroupView': {lazy: () => require('./content/Avatar/AvatarGroupView').default},
     'content.CalendarView': {lazy: () => require('./content/Calendar/CalendarView').default},
+    'content.DetailView': {lazy: () => require('./content/Detail/DetailView').default},
     // 'crud.CrudView': {lazy: () => require('./crud/Crud/CrudView').default},
     'form.AutoCompleteFieldView': {lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default},
     'form.ButtonView': {lazy: () => require('./form/Button/ButtonView').default},

@@ -1,0 +1,66 @@
+.DetailView {
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+
+  &__title {
+    color: #343a40;
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 800;
+  }
+
+  &__controls {
+    margin-left: auto;
+  }
+
+  &__table-container {
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.1));
+    overflow: hidden;
+  }
+
+  &__table {
+    background: #ffffff;
+    height: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: none;
+  }
+
+  &__row:not(:last-child) {
+    border-bottom: 1px solid #cccccc;
+  }
+
+  &__label,
+  &__value {
+    &:not(:last-child) {
+      border-right: 1px solid #cccccc;
+    }
+
+    padding: 14px 16px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 140%;
+
+    &_size_md {
+      padding: 18px 20px;
+      font-size: 16px;
+    }
+
+    &_size_lg {
+      padding: 22px 24px;
+      font-size: 18px;
+    }
+  }
+
+  &__label {
+    background: #f8f8f8;
+  }
+}
