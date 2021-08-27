@@ -1,0 +1,16 @@
+.StepsView{
+  width: 100%;
+  min-height: 96px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
+  background: $secondary-light;
+  overflow: auto;
+  padding: 5px;
+
+  & > *{
+    flex-grow: 1;
+  }
+}

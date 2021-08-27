@@ -1,0 +1,144 @@
+
+.StepItemView{
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:last-child{
+    flex-grow: 0;
+    #{$root}__divider{
+      display: none;
+    }
+  }
+
+  &__icon{
+    background-color: rgba($white, .2);
+    padding: 5px;
+    border-radius: 10px;
+  }
+
+  &_wait{
+    #{$root}__icon{
+      background-color: $grey-darker;
+      svg{
+        fill: $white;
+      }
+    }
+
+    #{$root}__title, #{$root}__subtitle, #{$root}__description{
+      color: $grey-darker;
+    }
+
+    #{$root}__divider{
+      border-top-color: $grey-darker;
+    }
+  }
+
+  &_active{
+    #{$root}__body{
+      background-color: $primary;
+    }
+
+    #{$root}__icon svg{
+        fill: #fff;
+    }
+
+    #{$root}__title, #{$root}__subtitle, #{$root}__description{
+      color: #fff;
+    }
+
+    #{$root}__divider{
+      border-top-color: $primary;
+    }
+  }
+
+  &_finish{
+    #{$root}__body{
+      background-color: $success;
+    }
+
+    #{$root}__icon svg{
+       fill: #fff;
+    }
+
+    #{$root}__title, #{$root}__subtitle, #{$root}__description{
+      color: #fff;
+    }
+
+    #{$root}__divider{
+      border-top-color: $success;
+    }
+  }
+
+  &_error{
+    #{$root}__body{
+      background-color: $danger;
+    }
+
+    #{$root}__icon svg{
+        fill: #fff;
+    }
+
+    #{$root}__title, #{$root}__subtitle, #{$root}__description{
+      color: #fff;
+    }
+
+    #{$root}__divider{
+      border-top-color: $danger;
+    }
+  }
+
+  &__body{
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    cursor: pointer;
+    min-width: 100px;
+
+    border-radius: 15px;
+    background-color: transparent;
+    transition: background-color .15s ease-in;
+
+    &_disabled{
+      cursor: default;
+    }
+  }
+
+  &__header{
+    display: flex;
+    align-items: center;
+    line-height: 1.1;
+  }
+
+  &__icon{
+    margin-right: 5px;
+
+    color: $white;
+    font-size: 12px;
+    font-weight: 500;
+
+    transition: background-color .15s ease-in, color .15s ease-in;
+  }
+
+  &__title{
+    font-size: 12px;
+    transition: color .15s ease-in;
+  }
+
+  &__subtitle, &__description{
+    font-size: 9px;
+    transition: color .15s ease-in;
+  }
+
+
+  &__divider{
+    min-width: 10px;
+    flex-grow: 2;
+    flex-shrink: 1;
+    margin: 0 5px;
+    border-top: 2px dotted transparent;
+    transition: border-top-color .15s ease-in;
+  }
+}
