@@ -133,6 +133,9 @@ export default {
 	"layout.CircleProgressBarView": {
 		lazy: () => require("./layout/ProgressBar/CircleProgressBarView").default,
 	},
+	"layout.SkeletonView": {
+    		lazy: () => require("./layout/Skeleton/SkeletonView").default,
+    	},
 	"layout.TooltipView": {
 		lazy: () => require("./layout/Tooltip/TooltipView").default,
 	},
