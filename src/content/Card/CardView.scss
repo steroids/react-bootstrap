@@ -1,42 +1,142 @@
-.CardView{
-    background: #fff;
+.CardView {
+    $root: &;
+
+    background: $white;
     box-sizing: border-box;
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
-    white-space: nowrap;
-    vertical-align: center;
+
+    &_orientation {
+        &_vertical {
+            font-size: $card-font-size;
+        }
+
+        &_vertical-reverse {
+            font-size: $card-font-size;
+            flex-direction: column-reverse;
+        }
+
+        &_horizontal {
+            flex-direction: row;
+
+            #{$root}__title{
+                font-size: $card-horizontal-header-font-size;
+            }
+
+            #{$root}__content{
+                flex-basis: 50%;
+                font-size: $card-horizontal-font-size;
+            }
+
+            #{$root}__cover{
+                flex-basis: 50%;
+            }
+        }
+    }
+
+    @each $color, $value in $color-themes {
+        &_color_#{$color} {
+            @include card-theme($root, $value)
+        }
+    }
+
     &_border {
-        border: 1px solid #f0f0f0;
+        &_default {
+            border: 1px solid $border-default;
+        }
+
+        @each $color, $value in $color-themes {
+            &_#{$color} {
+                @include card-border-theme($root, $value)
+            }
+        }
     }
-    &_square {
-        border-radius: none;
+
+    &_shape {
+        &_square {
+            border-radius: unset;
+        }
+
+        &_circle {
+            border-radius: $card-border-radius;
+        }
     }
-    &_circle {
-        border-radius: 3px;
+
+    &__children {
+        font-size: $card-children-font-size;
+        line-height: $card-children-line-height;
+        box-sizing: border-box;
+        width: 100%;
+        word-break: break-all;
     }
-    &_large {
-        width: 40px;
+
+    &__header {
+        background: $card-header-background;
+        padding: 20px;
+        border-bottom: 1px solid $border-default;
+        font-weight: bold;
+        font-size: $card-header-font-size;
+        line-height: $card-header-line-height;
+        word-break: break-all;
     }
-    &_medium {
-        font-size: 14px;
-        width: 300px;
-        
+
+    &__footer {
+        background: $card-header-background;
+        padding: 20px;
+        border-top: 1px solid $border-default;
+        font-weight: bold;
+        font-size: $card-header-font-size;
+        line-height: $card-header-line-height;
+        word-break: break-all;
     }
-    &_small {
-        width: 24px;
-        line-height: 24px;
+
+    &__cover {
+        overflow: hidden;
     }
+
     &__title{
         display: flex;
         align-items: center;
-        padding: 0 24px;
-        min-height: 48px;
-        border: 1px solid #f0f0f0;
-        
+        font-weight: bold;
+        font-size: $card-title-font-size;
+        line-height: $card-title-line-height;
+        border-bottom: 8px;
+        margin-bottom: 8px;
     }
+
     &__content{
-        padding: 24px;
-        min-height: 48px;
+        padding: 20px;
+    }
+
+    button {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        position: static;
+        width: 140px;
+        height: 28px;
+        border: none;
+        color: $white;
+        background: $primary;
+        border-radius: $card-button-border-radius;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+    a {
+        color: $primary;
+        font-size: $card-link-font-size;
+    }
+    p{
+        margin: 0;
     }
 }

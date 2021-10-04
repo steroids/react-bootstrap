@@ -7,7 +7,6 @@ import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRangeField/DateTimeRangeField';
 import _isString from 'lodash-es/isString';
 
-import './DateTimeRangeFieldView.scss';
 import TimePanelView from '../TimeField/TimePanelView';
 
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {

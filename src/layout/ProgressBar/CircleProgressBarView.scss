@@ -1,0 +1,150 @@
+.CircleProgressBarView{
+  $root: &;
+
+  position: relative;
+  transform: rotate(-90deg);
+
+  &_size {
+    &_small {
+      font-size: 10px;
+      width: 72px;
+      height: 72px;
+
+      svg{
+        width: 72px;
+        height: 72px;
+      }
+      #{$root}__circles{
+        stroke-width: 8;
+        circle{
+          r: 32;
+          cx: 36;
+          cy: 36;
+        }
+      }
+      #{$root}__content{
+        svg{
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+
+    &_medium {
+      font-size: 18px;
+      width: 108px;
+      height: 108px;
+
+      svg{
+        width: 108px;
+        height: 108px;
+      }
+      #{$root}__circles{
+        stroke-width: 12;
+
+        circle{
+          r: 48;
+          cx: 54;
+          cy: 54;
+        }
+      }
+      #{$root}__content{
+        svg{
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+    &_large {
+      font-size: 24px;
+      width: 144px;
+      height: 144px;
+
+      svg{
+        width: 144px;
+        height: 144px;
+      }
+      #{$root}__circles{
+        stroke-width: 16;
+        circle{
+          r: 64;
+          cx: 72;
+          cy: 72;
+        }
+      }
+      #{$root}__content{
+        svg{
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  &_status{
+    &_success{
+      #{$root}__progressCircle{
+        stroke: $success;
+      }
+
+      #{$root}__content{
+        svg{
+          fill: $success;
+        }
+      }
+    }
+
+    &_exception{
+      #{$root}__progressCircle{
+        stroke: $danger;
+      }
+
+      #{$root}__content{
+        svg{
+          fill: $danger;
+        }
+      }
+    }
+
+    &_normal{
+      #{$root}__progressCircle{
+        stroke: $primary;
+      }
+    }
+  }
+
+  svg{
+    position: relative;
+  }
+
+  #{$root}__circles{
+    fill: none;
+    stroke-linecap: round;
+
+
+    #{$root}__emptyCircle{
+      stroke: $back-disabled;
+      stroke-dashoffset: 0;
+    }
+
+    #{$root}__progressCircle{
+      transition: 0.1s linear;
+
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $secondary-dark;
+    font-weight: bold;
+    transform: rotate(90deg);
+  }
+
+}

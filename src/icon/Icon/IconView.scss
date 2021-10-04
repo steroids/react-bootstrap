@@ -1,25 +1,25 @@
 .IconView {
   svg {
-    width: 16px;
+    width: $icon-size;
   }
 
   &_size_sm svg {
-    width: 12px;
+    width: $icon-size-sm;
   }
 
   &_size_lg svg {
-    width: 32px;
+    width: $icon-size-lg;
   }
 }
 
 img.IconView {
-  width: 16px;
+  width: $icon-size;
 
   &_size_sm {
-    width: 12px;
+    width: $icon-size-sm;
   }
 
   &_size_lg {
-    width: 32px;
+    width: $icon-size-lg;
   }
 }

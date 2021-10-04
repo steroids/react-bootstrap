@@ -22,7 +22,7 @@
 
         #{$root}__rate-icon {
           path {
-            fill: #fbd608;
+            fill: $icon-color;
           }
         }
       }
@@ -31,8 +31,8 @@
 
   &__rate-value-first, &__rate-value-second {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: $icon-size;
+    height: $icon-size;
   }
 
   &__rate-value-second {
@@ -44,10 +44,10 @@
 
   &__rate-icon {
     &.IconView svg {
-      width: 20px;
+      width: $icon-size;
 
       path {
-        fill: #dadada;
+        fill: $back-disabled;
       }
     }
   }

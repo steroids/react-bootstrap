@@ -18,11 +18,16 @@
     ],
     "types": [
       "node"
-    ]
+    ],
+    "paths": {
+      "@steroidsjs/core/*": [
+        "../react/src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*",
-    "node_modules/@steroidsjs/core/index.d.ts"
+    "../react/src/index.d.ts"
   ],
   "exclude": [
     "src/**/*.test.ts",

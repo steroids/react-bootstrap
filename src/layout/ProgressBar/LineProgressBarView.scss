@@ -1,0 +1,115 @@
+.LineProgressBarView{
+  $root: &;
+
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+
+  &_size {
+    &_small {
+      font-size: 20px;
+
+      #{$root}__emptyLine{
+        width: 500px;
+        height: 8px;
+      }
+    }
+    &_medium {
+      font-size: 24px;
+
+      #{$root}__emptyLine{
+        width: 750px;
+        height: 12px;
+      }
+    }
+    &_large {
+      font-size: 24px;
+
+      #{$root}__emptyLine{
+        width: 1000px;
+        height: 16px;
+      }
+    }
+  }
+
+  &_status{
+    &_success{
+      #{$root}__progressLine{
+        background-color: $success;
+      }
+
+      svg{
+          fill: $success;
+      }
+    }
+
+    &_exception{
+      #{$root}__progressLine{
+        background-color: $danger;
+      }
+
+      svg{
+        fill: $danger;
+      }
+    }
+
+    &_normal{
+      #{$root}__progressLine{
+        background-color: $primary;
+      }
+    }
+
+  }
+
+  &__emptyLine{
+    position: relative;
+    background-color: $back-disabled;
+    border-radius: 20px;
+  }
+
+  &__progressLine{
+    position: absolute;
+    height: inherit;
+    border-radius: 20px;
+    max-width: 100%;
+    transition: width .2s linear, background-color .5s linear;
+    transform: scaleX(0);
+    animation: scale 1s forwards;
+    overflow: hidden;
+
+    &::before{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        content: "";
+        position: absolute;
+        transform: translateX(-100%);
+        background: linear-gradient(90deg, transparent, rgba($white, 0.5), transparent);
+        animation: wave-animation 1.6s linear 0.5s infinite;
+    }
+
+    @keyframes wave-animation {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  }
+
+  @keyframes scale {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+
+  &__text{
+    color: $dark;
+    margin-left: 8px;
+  }
+}

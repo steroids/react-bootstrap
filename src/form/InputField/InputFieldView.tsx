@@ -12,6 +12,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
             className={bem(
                 bem.block({
                     disabled: props.inputProps.disabled,
+                    size: props.size,
                 }),
                 'form-control',
                 'form-control-' + props.size,
@@ -39,6 +40,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                         className={bem(
                             bem.element('input', {
                                 size: props.size,
+                                disabled: props.inputProps.disabled,
                             }),
                             !!props.errors && 'is-invalid',
                         )}
@@ -54,6 +56,9 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                         className={bem(
                             bem.element('input', {
                                 size: props.size,
+                                disabled: props.disabled,
+                                success: props.success,
+                                failed: props.failed,
                             }),
                             !!props.errors && 'is-invalid',
                         )}

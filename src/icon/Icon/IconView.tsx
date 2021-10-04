@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-import './IconView.scss';
 import { IBemHocOutput } from '@steroidsjs/core/hoc/bem';
 import { IIconViewProps } from '@steroidsjs/core/ui/icon/Icon/Icon';
 import { useBem } from '@steroidsjs/core/hooks';

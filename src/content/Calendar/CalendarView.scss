@@ -2,8 +2,8 @@
   $root: &;
 
   position: relative;
-  color: #152536;
-  font-weight: 500;
+  color: $calendar-text-color;
+  font-weight: $calendar-font-weight;
   user-select: none;
 
   .DayPicker-wrapper {
@@ -55,7 +55,7 @@
     display: table-cell;
 
     padding: 0;
-    border-radius: 10px;
+    border-radius: $calendar-day-border-radius;
 
     vertical-align: middle;
     text-align: center;
@@ -77,12 +77,12 @@
     }
 
     &--outside {
-      color: #ccc;
+      color: $calendar-secondary-color;
     }
 
     &--today {
       #{$root}__day {
-        box-shadow: 0 0 0 3px #d8ccf6;
+        box-shadow: $calendar-today-shadow;
       }
     }
   }
@@ -98,7 +98,7 @@
     justify-content: center;
     padding: 0 10px;
 
-    border-top: 1px solid #ccc;
+    border-top: 1px solid $calendar-secondary-color;
   }
   .DayPicker-TodayButton {
     border: none;
@@ -107,24 +107,24 @@
     box-shadow: none;
     font-size: 0.875em;
     cursor: pointer;
-    color: #651fff;
-    font-weight: 500;
+    color: $calendar-primary-color;
+    font-weight: $calendar-font-weight;
   }
 
   // Days selection
 
   // Selected day
   .DayPicker-Day--selected:not(.DayPicker-Day--inRange) {
-    color: #fff;
-    border-radius: 10px;
-    background-color: #651fff;
-    box-shadow: 0 0 0 3px #d8ccf6;
+    color: $calendar-selected-text-color;
+    border-radius: $calendar-day-border-radius;
+    background-color: $calendar-primary-color;
+    box-shadow: $calendar-selected-shadow;
   }
 
   // Hover
   .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-    background-color: #f4f4f4 !important;
-    box-shadow: 0 0 0 3px #e2e6ea;
+    background-color: $calendar-secondary-light-color !important;
+    box-shadow: $calendar-hover-shadow;
   }
 
   &__day {
@@ -133,22 +133,22 @@
     width: 30px;
     height: 30px;
     line-height: 30px;
-    border-radius: 10px;
+    border-radius: $calendar-day-border-radius;
   }
 
   &_ranged {
 
     .DayPicker-Day {
       &--start {
-        color: #fff;
+        color: $white;
 
         #{$root}__day {
-          background-color: #651fff;
-          box-shadow: 0 0 0 3px #d8ccf6;
+          background-color: $calendar-primary-color;
+          box-shadow: $calendar-selected-shadow;
         }
 
         &::before {
-          background-color: #e3eaf9;
+          background-color: $calendar-primary-light-color;
           width: 10px;
           transform: translate(25px, -50%);
         }
@@ -158,12 +158,12 @@
         color: #fff;
 
         #{$root}__day {
-          background-color: #651fff;
-          box-shadow: 0 0 0 3px #d8ccf6;
+          background-color: $calendar-primary-color;
+          box-shadow: $calendar-selected-shadow;
         }
 
         &::before {
-          background-color: #e3eaf9;
+          background-color: $calendar-primary-light-color;
           width: 10px;
         }
       }
@@ -171,14 +171,14 @@
 
       &--inRange {
         &::before {
-          background-color: #e3eaf9;
+          background-color: $calendar-primary-light-color;
         }
       }
 
       &--outRange {
         pointer-events: none;
         &::before {
-          background-color: #f4f4f4;
+          background-color: $calendar-primary-light-color;
         }
       }
 

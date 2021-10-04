@@ -1,0 +1,116 @@
+.AlertView {
+    $root: &;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: $alert-padding-y $alert-padding-x;
+
+    border-radius: $alert-border-radius;
+    border: 1px solid transparent;
+
+    &_close-animation {
+        animation: hide_slide .4s ease-in;  
+    }
+
+    @keyframes hide_slide {
+      0% {
+        transform: translateX(-10px);
+      }
+      40% {
+        transform: translateX(0%);
+      }
+      80% {
+        transform: translateX(-10%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    &_has-description {
+        align-items: flex-start;
+
+        #{$root}__message {
+            font-size: $alert-description-font-size;
+        }
+    }
+
+    &_success {
+        background: $back-success;
+        border-color: $success;
+
+        #{$root}__icon.IconView {
+            fill: $success;
+        }
+    }
+    &_info {
+        background: $back-info;
+        border-color: $info;
+
+        #{$root}__icon.IconView {
+            fill: $info;
+        }
+    }
+    &_warning {
+        background: $back-warning;
+        border-color: $warning;
+
+        #{$root}__icon.IconView {
+            fill: $warning;
+        }
+    }
+    &_error {
+        background: $back-error;
+        border-color: $danger;
+
+        #{$root}__icon.IconView {
+            fill: $danger;
+        }
+    }
+
+    &__icon.IconView svg {
+        width: $alert-icon-size;
+        height: $alert-icon-size;
+        margin-right: 12px;
+    }
+
+    &__action {
+        display: flex;
+        flex-direction: column;
+        padding: 0 35px 0 15px;
+    }
+
+    &__message {
+        flex-grow: 1;
+        font-size: $alert-message-font-size;
+    }
+
+    &__content-wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__description {
+        margin-top: 12px;
+        font-size: $alert-description-font-size;
+    }
+
+    &__icon-close.IconView {
+        position: absolute;
+        right: 20px;
+
+        svg {
+            width: $alert-close-icon-size;
+            height: $alert-close-icon-size;
+        }
+
+        fill: rgba($heading, .6);
+        transition: fill .1s ease-in;
+        &:hover {
+            fill: $heading;
+        }
+    }
+}

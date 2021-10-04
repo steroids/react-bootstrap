@@ -1,44 +1,103 @@
 
 .AvatarView {
-  color: aqua;
-  background: red;
-  position: relative;
+  $root: &;
+
   display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  text-align: center;
-  justify-content: center;
-  vertical-align: middle;
-  // border-radius: 50%;
-  &_square {
-    border-radius: none;
+  position: relative;
+
+  &_size {
+    &_x-large {
+      #{$root}__body {
+        height: $avatar-x-large-size;
+        width: $avatar-x-large-size;
+        line-height: $avatar-x-large-size;
+        font-size: $avatar-x-large-font-size;
+      }
+    }
+
+    &_large {
+      #{$root}__body {
+        height: $avatar-large-size;
+        width: $avatar-large-size;
+        line-height: $avatar-large-size;
+        font-size: $avatar-large-font-size;
+      }
+    }
+
+    &_middle {
+      #{$root}__body {
+        height: $avatar-middle-size;
+        width: $avatar-middle-size;
+        line-height: $avatar-middle-size;
+        font-size: $avatar-middle-font-size;
+      }
+    }
+
+    &_small {
+      #{$root}__body {
+        height: $avatar-small-size;
+        width: $avatar-small-size;
+        line-height: $avatar-small-size;
+        font-size: $avatar-small-font-size;
+      }
+    }
   }
 
-  &_circle {
-    border-radius: 50%;
+  &_shape {
+    &_square {
+      #{$root}__body{
+        border-radius: unset;
+      }
+    }
+
+    &_circle {
+      #{$root}__body{
+        border-radius: 50%;
+      }
+    }
   }
-  &_large {
-    height: 40px;
-    width: 40px;
-    line-height: 40px;
-    font-size: 20px;
+
+  &_has-image {
+    #{$root}__body{
+      background-color: unset;
+    }
   }
-  &_medium {
-    height: 32px;
-    width: 32px;
-    line-height: 32px;
-    font-size: 8px;
+
+  &_has-status {
+    ::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 25%;
+      height: 25%;
+      z-index: 10;
+
+      color: $avatar-status-color;
+      font-size: 6px;
+
+      border-radius: 50%;
+      background-color: $avatar-status-color;
+      border: $avatar-status-border;
+    }
   }
-  &_small {
-    height: 24px;
-    width: 24px;
-    line-height: 24px;
-    font-size: 12px;
-  }
-  & > img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+
+  &__body {
+    display: inline-block;
+    overflow: hidden;
+
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    color: $avatar-text-color;
+    background-color: $avatar-background-color;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }

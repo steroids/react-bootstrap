@@ -3,9 +3,6 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import {IRateFieldViewProps} from '@steroidsjs/core/ui/form/RateField/RateField';
 
-import './RateFieldView.scss';
-
-
 export default function RateFieldView(props: IRateFieldViewProps) {
     const bem = useBem('RateFieldView');
     return (
