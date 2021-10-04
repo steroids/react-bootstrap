@@ -106,15 +106,41 @@ export default function CaptionElement(props: ICaptionElementProps) {
             </div>
             {isCaptionPanelVisible && (
                 <div className={bem.element('panel', {'full-height': !props.showCalendarFooter})}>
-                    <div className={bem.element('panel-header', 'months')}>
-                        {__('Год')}
-                    </div>
-                    <div className={bem.element('panel-header', 'years')}>
-                        {__('Месяц')}
-                    </div>
-                    <div className={bem.element('panel-column-months', 'first')}>
-                        <div className={bem.element('content-column')}>
-                            {months.slice(0, 6).map((value, index) => (
+                    <div className={bem.element('panel-inner')}>
+                        <div className={bem.element('panel-header', 'months')}>
+                            {__('Год')}
+                        </div>
+                        <div className={bem.element('panel-header', 'years')}>
+                            {__('Месяц')}
+                        </div>
+                        <div className={bem.element('panel-column-months', 'first')}>
+                            <div className={bem.element('content-column')}>
+                                {months.slice(0, 6).map((value, index) => (
+                                    <div
+                                        key={index}
+                                        className={bem.element('panel-cell', {
+                                            selected: value.id === currentMonth,
+                                        })}
+                                        onKeyPress={e => {
+                                            e.preventDefault();
+                                            handleMonthChange(value.id);
+                                        }}
+                                        onClick={e => {
+                                            e.preventDefault();
+                                            handleMonthChange(value.id);
+                                        }}
+                                        role='button'
+                                        tabIndex={0}
+                                    >
+                                        <div className={bem.element('cell-value')}>
+                                            {value.label}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className={bem.element('panel-column-months', 'second')}>
+                            {months.slice(6, 12).map((value, index) => (
                                 <div
                                     key={index}
                                     className={bem.element('panel-cell', {
@@ -137,54 +163,30 @@ export default function CaptionElement(props: ICaptionElementProps) {
                                 </div>
                             ))}
                         </div>
-                    </div>
-                    <div className={bem.element('panel-column-months', 'second')}>
-                        {months.slice(6, 12).map((value, index) => (
-                            <div
-                                key={index}
-                                className={bem.element('panel-cell', {
-                                    selected: value.id === currentMonth,
-                                })}
-                                onKeyPress={e => {
-                                    e.preventDefault();
-                                    handleMonthChange(value.id);
-                                }}
-                                onClick={e => {
-                                    e.preventDefault();
-                                    handleMonthChange(value.id);
-                                }}
-                                role='button'
-                                tabIndex={0}
-                            >
-                                <div className={bem.element('cell-value')}>
-                                    {value.label}
+                        <div className={bem.element('panel-column-years')}>
+                            {years.map((value, index) => (
+                                <div
+                                    key={index}
+                                    className={bem.element('panel-cell', {
+                                        selected: value === currentYear,
+                                    })}
+                                    onKeyPress={e => {
+                                        e.preventDefault();
+                                        handleYearChange(value);
+                                    }}
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        handleYearChange(value);
+                                    }}
+                                    role='button'
+                                    tabIndex={0}
+                                >
+                                    <div className={bem.element('cell-value')}>
+                                        {value}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={bem.element('panel-column-years')}>
-                        {years.map((value, index) => (
-                            <div
-                                key={index}
-                                className={bem.element('panel-cell', {
-                                    selected: value === currentYear,
-                                })}
-                                onKeyPress={e => {
-                                    e.preventDefault();
-                                    handleYearChange(value);
-                                }}
-                                onClick={e => {
-                                    e.preventDefault();
-                                    handleYearChange(value);
-                                }}
-                                role='button'
-                                tabIndex={0}
-                            >
-                                <div className={bem.element('cell-value')}>
-                                    {value}
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}
