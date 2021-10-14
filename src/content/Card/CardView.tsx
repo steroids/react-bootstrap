@@ -31,12 +31,14 @@ export default function CardView(props: ICardViewProps) {
                         {props.title}
                     </div>
                 )}
-                {props.description && (
-                    <div className={bem.element('description')}>
-                        {props.description}
-                    </div>
-                )}
-                {props.children}
+                <div className={bem.element('content-inner')}>
+                    {props.description && (
+                        <div className={bem.element('description')}>
+                            {props.description}
+                        </div>
+                    )}
+                    {props.children}
+                </div>
             </div>
             {props.footer && (
                 <div className={bem.element('footer')}>

@@ -17,7 +17,7 @@ export default function Alert(props: IAlertViewProps) {
                 )}
                 style={props.style}
             >
-                {typeof props.showIcon === 'boolean' && (
+                {props.showIcon && (
                     <Icon
                         name={props.type}
                         className={bem.element('icon', {
@@ -33,9 +33,11 @@ export default function Alert(props: IAlertViewProps) {
                 )}
                 <div className={bem.element('content-wrapper')}>
                     <div className={bem.element('content')}>
-                        <div className={bem.element('message')}>
-                            {props.message}
-                        </div>
+                        {props.message && (
+                            <div className={bem.element('message')}>
+                                {props.message}
+                            </div>
+                        )}
                         {props.description && (
                             <div className={bem.element('description')}>
                                 {props.description}

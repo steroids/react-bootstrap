@@ -3,6 +3,7 @@
 
     background: $white;
     box-sizing: border-box;
+    height: fit-content;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -52,6 +53,12 @@
                 @include card-border-theme($root, $value)
             }
         }
+
+        &_light {
+            #{$root}__content {
+                color: $dark;
+            }
+        }
     }
 
     &_shape {
@@ -62,6 +69,11 @@
         &_circle {
             border-radius: $card-border-radius;
         }
+    }
+
+    &__content-inner {
+        display: grid;
+        grid-row-gap: 16px;
     }
 
     &__children {

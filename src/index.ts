@@ -31,6 +31,12 @@ export default {
     'content.CardView': {
         lazy: () => require('./content/Card/CardView').default,
     },
+    'content.CollapseView': {
+        lazy: () => require('./content/Collapse/CollapseView').default,
+    },
+    'content.CollapseItemView': {
+        lazy: () => require('./content/Collapse/CollapseItemView').default,
+    },
     'form.CheckboxFieldView': {
         lazy: () => require('./form/CheckboxField/CheckboxFieldView').default,
     },

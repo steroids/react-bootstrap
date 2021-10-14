@@ -12,7 +12,7 @@
     border: 1px solid transparent;
 
     &_close-animation {
-        animation: hide_slide .4s ease-in;  
+        animation: hide_slide .4s ease-in;
     }
 
     @keyframes hide_slide {
@@ -93,8 +93,12 @@
         justify-content: space-between;
     }
 
+    &__content {
+        display: grid;
+        grid-gap: 12px;
+    }
+
     &__description {
-        margin-top: 12px;
         font-size: $alert-description-font-size;
     }
 
