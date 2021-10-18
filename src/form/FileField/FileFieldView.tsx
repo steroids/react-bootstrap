@@ -28,7 +28,7 @@ export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput
                 >
                     <Icon
                         className={bem.element('button-icon')}
-                        name={props.imagesOnly ? 'file-image' : 'file'}
+                        name={props.imagesOnly ? 'file-image' : 'upload'}
                     />
                     <span className={bem.element('button-label')}>
                         {props.buttonProps.label}

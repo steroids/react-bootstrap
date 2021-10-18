@@ -33,7 +33,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     reset: props.showReset,
                     'no-border': props.noBorder,
                     'is-invalid': !!props.errors,
-                    'disabled': props.disabled
+                    disabled: props.disabled,
                 })}
                 onClick={props.onOpen}
                 onKeyPress={props.onOpen}
@@ -90,8 +90,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                             >
                                 {item.label}
                             </span>
-                        ))
-                }
+                        ))}
             </div>
             {props.showReset && props.selectedIds.length > 0 && (
                 <button
