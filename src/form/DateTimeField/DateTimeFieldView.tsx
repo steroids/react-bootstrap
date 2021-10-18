@@ -4,9 +4,9 @@ import {useCallback} from 'react';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
-import TimePanelView from '../TimeField/TimePanelView';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
+import TimePanelView from '../TimeField/TimePanelView';
 
 export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemHocOutput) {
     const bem = useBem('DateTimeFieldView');
@@ -35,6 +35,7 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemH
                 className={bem(
                     bem.block({
                         size: props.size,
+                        disabled: props.disabled,
                         'has-icon': !!props.icon,
                         'is-invalid': !!props.isInvalid,
                     }),
@@ -46,6 +47,9 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps & IBemH
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputProps}
+                        placeholder={props.placeholder
+                            ? props.placeholder
+                            : props.inputProps.placeholder}
                         className={bem(
                             bem.element('input', {
                                 size: props.size,

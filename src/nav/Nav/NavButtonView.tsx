@@ -15,6 +15,7 @@ export default function NavButtonView(props: INavViewProps & IBemHocOutput) {
                         key={item.id || index}
                         color='secondary'
                         outline={!item.isActive}
+                        disabled={props.disabled}
                         onClick={() => props.onClick(item, index)}
                         className={bem.element('nav-item')}
                         {...item}

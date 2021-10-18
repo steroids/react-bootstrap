@@ -82,6 +82,12 @@ export default {
     'form.HtmlFieldView': {
         lazy: () => require('./form/HtmlField/HtmlFieldView').default,
     },
+    'form.ImageFieldView': {
+        lazy: () => require('./form/ImageField/ImageFieldView').default,
+    },
+    'form.ImageFieldModalView': {
+        lazy: () => require('./form/ImageField/ImageFieldModalView').default,
+    },
     'form.InputFieldView': {
         lazy: () => require('./form/InputField/InputFieldView').default,
     },

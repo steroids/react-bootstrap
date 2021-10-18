@@ -15,18 +15,26 @@
     padding: 0.375rem 1.75rem 0.375rem 0.75rem;
     min-width: 100px;
     min-height: 38px;
-    background-color: #651FFF; //
-    background-clip: padding-box;
-    // border: 1px solid #212529; //
-    border-radius: 0.25rem;
-    line-height: 1.5;
-    color: #fff;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
+    background-clip: padding-box;
+
+    background-color: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid $border-default;
+    border-radius: 0.25rem;
+    color: $heading;
+    line-height: 1.5;
 
     display: flex;
     flex-flow: row wrap;
+
+
+    &:focus {
+      border: 1px solid $info-dark;
+      box-shadow: 0 0 0 4px $info-light;
+    }
 
     &::after {
       content: '';
@@ -50,6 +58,7 @@
     &_no-border {
       padding-left: 0;
       border-color: transparent;
+      box-shadow: unset;
 
       &#{$root}__selected-items_is-invalid {
         border-color: transparent;
@@ -142,7 +151,7 @@
 
   &__drop-down {
     position: absolute;
-    top: calc(100%);
+    top: calc(100% + 8px);
     left: 0;
     padding: 0.375rem 0;
     width: 100%;
@@ -151,7 +160,7 @@
     background-clip: padding-box;
     border: 1px solid #CCCCCC;
     border-radius: 10px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
     line-height: 1.5;
     color: #152536;
   }

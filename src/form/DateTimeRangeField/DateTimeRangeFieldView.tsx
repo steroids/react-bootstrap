@@ -11,6 +11,7 @@ import TimePanelView from '../TimeField/TimePanelView';
 
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {
     const bem = useBem('DateTimeRangeFieldView');
+
     const renderCalendar = useCallback(() => (
         <div className={bem.element('panel-container')}>
             <Calendar
@@ -23,6 +24,7 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             />
         </div>
     ), [bem, props.calendarProps, props.timePanelViewProps]);
+
     return (
         <DropDown
             content={renderCalendar}
@@ -31,13 +33,11 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             onClose={props.onClose}
         >
             <div
-                className={bem(
-                    bem.block({
-                        disabled: props.disabled,
-                        'no-border': props.noBorder,
-                    }),
-                    props.className,
-                )}
+                className={bem(bem.block({
+                    disabled: props.disabled,
+                    'no-border': props.noBorder,
+                }),
+                props.className)}
                 style={props.style}
             >
                 <div className={bem.element('body')}>
