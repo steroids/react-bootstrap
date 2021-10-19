@@ -33,6 +33,15 @@
 
   }
 
+  &_disabled {
+    opacity: .5;
+    color: rgba(0, 0, 0, .25);
+    cursor: not-allowed;
+    input {
+      cursor: inherit;
+    }
+  }
+
   &_size {
     &_sm {
       height: $button-height-sm;
