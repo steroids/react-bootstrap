@@ -1,4 +1,4 @@
-// <reference types="@steroidsjs/core/index" />
+/// <reference types="@steroidsjs/core/index" />
 
 export default {
     'crud.CrudView': {

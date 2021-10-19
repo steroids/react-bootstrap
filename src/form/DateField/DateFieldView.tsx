@@ -24,6 +24,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                 className={bem(
                     bem.block({
                         size: props.size,
+                        disabled: props.disabled,
                         'has-icon': !!props.icon,
                         'is-invalid': !!props.errors,
                     }),
