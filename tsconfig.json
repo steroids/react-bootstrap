@@ -19,22 +19,13 @@
     "types": [
       "node"
     ],
-    "paths": {
-      "@steroidsjs/core/*": [
-        "../react/src/*"
-      ]
-    }
   },
   "include": [
     "src/**/*",
-    "../react/src/index.d.ts"
+    "../react/src/index.d.ts",
   ],
   "exclude": [
     "src/**/*.test.ts",
     "src/**/*.test.tsx",
-    "src/list/Accordion/*",
-    "src/list/Detail/*",
-    "src/form/HtmlField/*",
-    "src/format/PhotosFormatter/*"
   ]
 }

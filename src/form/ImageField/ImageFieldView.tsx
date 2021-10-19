@@ -5,7 +5,7 @@ import {IImageFieldViewProps} from '@steroidsjs/core/ui/form/ImageField/ImageFie
 
 export default function ImageFieldView(props: IImageFieldViewProps) {
     const bem = useBem('ImageFieldView');
-    const item = props.item || {};
+    const item = props.item;
 
     return (
         <div className={bem.block()}>
