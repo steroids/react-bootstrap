@@ -1,2 +1,16 @@
 .BreadcrumbsView {
+  $breadcrumb-item-separator: '/';
+
+  &__list {
+    display: flex;
+    list-style: none;
+  }
+
+  &__item {
+    &:not(:first-child)::before {
+      content: $breadcrumb-item-separator;
+      display: inline-block;
+      margin: 0 8px;
+    }
+  }
 }

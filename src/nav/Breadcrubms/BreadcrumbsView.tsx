@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import Link from '@steroidsjs/core/ui/nav/Link';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
@@ -11,20 +10,22 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps & IBemHocOu
 
     return (
         <nav
-            className={bem.block()}
+            className={bem(bem.block(), props.className)}
             aria-label='breadcrumb'
         >
-            <ol className={bem(bem.element('list'), 'breadcrumb')}>
+            <ol className={bem.element('list')}>
                 {items.map((item, index) => {
                     const isLastItem = items.length === index + 1;
-
                     return (
                         <li
                             key={item.id || index}
-                            className={bem(bem.element('item'), 'breadcrumb-item')}
+                            className={bem.element('item')}
                         >
                             {!isLastItem && item.id && (
-                                <Link toRoute={item.id}>
+                                <Link
+                                    toRoute={item.id}
+                                    href={item.id}
+                                >
                                     {item.title}
                                 </Link>
                             )}
