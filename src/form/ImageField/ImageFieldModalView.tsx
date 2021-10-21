@@ -6,8 +6,8 @@ import {IImageFieldModalViewProps} from '@steroidsjs/core/ui/form/ImageField/Ima
 import Modal from '@steroidsjs/core/ui/modal/Modal';
 import 'react-image-crop/dist/ReactCrop.css';
 
-export default function ImageFieldModalVIew(props: IImageFieldModalViewProps) {
-    const bem = useBem('ImageFieldModalVIew');
+export default function ImageFieldModalView(props: IImageFieldModalViewProps) {
+    const bem = useBem('ImageFieldModalView');
 
     const [crop, setCrop] = useState(props.crop.initialValues);
 
