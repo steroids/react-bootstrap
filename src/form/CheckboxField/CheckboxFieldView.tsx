@@ -10,7 +10,7 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
     return (
         <div
             className={bem(
-                bem.block(),
+                bem.block({'is-invalid': !!props.errors}),
                 'custom-control',
                 'custom-checkbox',
             )}

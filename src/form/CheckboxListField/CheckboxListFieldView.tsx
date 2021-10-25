@@ -9,7 +9,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
     const bem = useBem('CheckboxListFieldView');
     const prefix = useUniqueId('checkbox');
     return (
-        <div className={bem(bem.block(), props.className)}>
+        <div className={bem(bem.block({'is-invalid': !!props.errors}), props.className)}>
             {props.items.map(item => (
                 <div
                     key={item.id as ReactText}
@@ -17,6 +17,8 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                 >
                     <input
                         {...props.inputProps}
+                        disabled={props.disabled}
+                        required={props.required}
                         id={`${prefix}_${item.id}`}
                         className={bem(
                             bem.element('input'),
@@ -24,17 +26,19 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                             !!props.errors && 'is-invalid',
                         )}
                         checked={props.selectedIds.includes(item.id)}
-                        disabled={props.disabled}
-                        onChange={() => {
-                            props.onItemSelect(item.id);
-                        }}
+                        onChange={() => props.onItemSelect(item.id)}
                         onMouseOver={() => props.onItemHover(item.id)}
                     />
                     <label
-                        className="custom-control-label"
+                        className={bem(
+                            bem.element('label'),
+                            'custom-control-label',
+                        )}
                         htmlFor={`${prefix}_${item.id}`}
                     >
-                        {item.label}
+                        <span className={bem.element('label-text', {required: props.required})}>
+                            {item.label}
+                        </span>
                     </label>
                 </div>
             ))}
