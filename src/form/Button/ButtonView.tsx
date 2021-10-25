@@ -96,6 +96,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
 
     return (
         <button
+            title={props.hint}
             type={props.type}
             disabled={props.disabled}
             onClick={props.onClick}
