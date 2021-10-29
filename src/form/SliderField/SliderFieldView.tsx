@@ -17,9 +17,8 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
         return (
             <SliderTooltip
                 prefixCls='rc-slider-tooltip'
+                placement='top'
                 overlay={`${value}`}
-                visible={props.tooltipIsVisible}
-                placement="top"
             >
                 <Handle value={value} />
             </SliderTooltip>
@@ -27,12 +26,14 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
     };
 
     const commonProps = {
+        slider: props.slider,
         className: props.className,
         min: props.min,
         max: props.max,
         step: props.step,
         marks: props.marks,
         onChange: props.onChange,
+        onAfterChange: props.onAfterChange,
         disabled: props.disabled,
         tipFormatter: value => `${value + props.countFormat}`,
         handle,
@@ -55,9 +56,7 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
     return (
         <div
             className={bem(
-                bem.block({
-                    size: props.size,
-                }),
+                bem.block(),
                 props.className,
             )}
         >
