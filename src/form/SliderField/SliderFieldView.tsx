@@ -35,7 +35,7 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
         onChange: props.onChange,
         onAfterChange: props.onAfterChange,
         disabled: props.disabled,
-        tipFormatter: value => `${value + props.countFormat}`,
+        tipFormatter: value => `${value + props.valuePostfix}`,
         handle,
     };
 
@@ -43,14 +43,14 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
         <RangeComponent
             {...commonProps}
             defaultValue={props.defaultValue ? props.defaultValue : [0, 10]}
-            areaDisabled
             draggableTrack
+            areaDisabled
             pushable
         />
     );
 
     const SliderField = (
-        <SliderComponent {...commonProps} defaultValue={5} />
+        <SliderComponent {...commonProps} defaultValue={props.defaultValue ? props.defaultValue : 5} />
     );
 
     return (
