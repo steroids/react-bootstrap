@@ -12,7 +12,10 @@ function FormView(props: IFormViewProps) {
     return (
         <form
             className={bem(
-                bem.block(),
+                bem.block({
+                    border: props.isBordered,
+                    inline: props.layout.layout === 'inline',
+                }),
                 props.className,
                 props.layout.layout === 'horizontal' && 'form-horizontal',
             )}
