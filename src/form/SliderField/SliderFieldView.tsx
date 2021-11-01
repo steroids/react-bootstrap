@@ -4,13 +4,13 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ISliderFieldViewProps} from '@steroidsjs/core/ui/form/SliderField/SliderField';
 import Slider, {SliderTooltip, Handle, Range} from 'rc-slider';
 
+const createRangeWithTooltip = Slider.createSliderWithTooltip;
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const RangeComponent: any = createRangeWithTooltip(Range);
+const SliderComponent: any = createSliderWithTooltip(Slider);
+
 export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOutput) {
     const bem = useBem('SliderFieldView');
-
-    const createRangeWithTooltip = Slider.createSliderWithTooltip;
-    const createSliderWithTooltip = Slider.createSliderWithTooltip;
-    const RangeComponent: any = createRangeWithTooltip(Range);
-    const SliderComponent: any = createSliderWithTooltip(Slider);
 
     const handle = (prevProps) => {
         const { value } = prevProps;
@@ -34,6 +34,9 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
         marks: props.marks,
         onChange: props.onChange,
         onAfterChange: props.onAfterChange,
+        defaultValue: props.defaultValue
+            ? props.defaultValue
+            : (props.isRange ? props.rangeDefaultValue : props.sliderDefaultValue),
         disabled: props.disabled,
         tipFormatter: value => `${value + props.valuePostfix}`,
         handle,
@@ -42,7 +45,6 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
     const RangeField = (
         <RangeComponent
             {...commonProps}
-            defaultValue={props.defaultValue ? props.defaultValue : [0, 10]}
             draggableTrack
             areaDisabled
             pushable
@@ -50,7 +52,7 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
     );
 
     const SliderField = (
-        <SliderComponent {...commonProps} defaultValue={props.defaultValue ? props.defaultValue : 5} />
+        <SliderComponent {...commonProps} />
     );
 
     return (
