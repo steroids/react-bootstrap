@@ -6,6 +6,10 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function ListView(props: IListViewProps) {
     const bem = useBem('ListView');
 
+    if (!props.list) {
+        return null;
+    }
+
     const renderPagination = (pagination, paginationSize, layout) => {
         if (!pagination && !paginationSize && !layout) {
             return null;
