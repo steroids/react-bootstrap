@@ -28,7 +28,7 @@ export default function ImageFieldModalView(props: IImageFieldModalViewProps) {
                 <ReactCrop
                     {...props.crop.reactImageCropProps}
                     className={bem.element('crop')}
-                    src={props.image.url}
+                    src={props.image && props.image.url}
                     crop={crop}
                     onChange={setCrop}
                 />
