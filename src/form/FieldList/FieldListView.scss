@@ -25,13 +25,8 @@
     color: $danger;
   }
 
-  &__link-add {
+  &__button-add {
     margin-left: 0.75rem;
-    border-bottom: 1px dashed $link-color;
-
-    &:hover {
-      text-decoration: none;
-    }
   }
 
   .FileFieldView__files {

@@ -4,7 +4,7 @@ import {IFieldListItemViewProps} from '@steroidsjs/core/ui/form/FieldList/FieldL
 import {useBem} from '@steroidsjs/core/hooks';
 import {Field} from '@steroidsjs/core/ui/form';
 
-export default React.memo(function FieldListItemView(props: IFieldListItemViewProps) {
+export default React.memo((props: IFieldListItemViewProps) => {
     const bem = useBem('FieldListItemView');
     return (
         <tr>
@@ -16,7 +16,7 @@ export default React.memo(function FieldListItemView(props: IFieldListItemViewPr
                         field.className,
                     )}
                 >
-                    <Field {...field} prefix={props.prefix}/>
+                    <Field {...field} prefix={props.prefix} />
                 </td>
             ))}
             {props.showRemove && (
@@ -37,4 +37,4 @@ export default React.memo(function FieldListItemView(props: IFieldListItemViewPr
             )}
         </tr>
     );
-})
+});

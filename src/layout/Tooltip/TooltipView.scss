@@ -15,6 +15,7 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
   transform: translate(0,0);
   opacity: 0;
   transition: opacity .15s ease-in, transform .15s ease-in;
+  z-index: 150;
 
   &_show {
     opacity: 1;

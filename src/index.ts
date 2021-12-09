@@ -1,5 +1,3 @@
-/// <reference types="@steroidsjs/core/index" />
-
 export default {
     'crud.CrudView': {
         lazy: () => require('./crud/Crud/CrudView').default,

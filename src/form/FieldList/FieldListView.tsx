@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {IFieldListViewProps} from '@steroidsjs/core/ui/form/FieldList/FieldList';
 import {useBem} from '@steroidsjs/core/hooks';
+import {Button} from '@steroidsjs/core/ui/form';
 
 export default function FieldListView(props: IFieldListViewProps) {
     const bem = useBem('FieldListView');
@@ -42,16 +43,19 @@ export default function FieldListView(props: IFieldListViewProps) {
                 </tbody>
             </table>
             {props.showAdd && !props.disabled && (
-                <button
-                    className={bem.element('link-add')}
+                <Button
+                    formId={false}
+                    layout={false}
+                    color='secondary'
+                    className={bem.element('button-add')}
                     onClick={e => {
                         e.preventDefault();
                         props.onAdd();
                     }}
                 >
                     {__('Добавить ещё')}
-                </button>
+                </Button>
             )}
         </div>
     );
-};
+}

@@ -1,25 +1,18 @@
 import * as React from 'react';
-import {ReactText} from 'react';
+import {ReactText, useEffect, useRef} from 'react';
 
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
-    /* TODO Move to core component
-    static defaultProps = {
-        searchAutoFocus: true,
-    };
+    const inputRef = useRef(null);
 
-    componentDidUpdate(prevProps) {
-        // Auto focus on search
-        if (props.searchAutoFocus && props.autoComplete && !prevProps.isOpened && props.isOpened) {
-            const element: any = findDOMNode(this);
-            const input = element.querySelector('.' + props.bem.element('search-input'));
-            if (input) {
-                input.focus();
-            }
+    // Auto focus on search
+    useEffect(() => {
+        if (props.isSearchAutoFocus && props.isAutoComplete && props.isOpened && inputRef?.current) {
+            inputRef.current.focus();
         }
-    }*/
+    }, [props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
 
     const bem = useBem('DropDownFieldView');
     return (
@@ -105,6 +98,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         <div className={bem.element('search')}>
                             <input
                                 {...props.searchInputProps}
+                                ref={inputRef}
                                 onChange={e => props.searchInputProps.onChange(e.target.value)}
                                 className={bem(
                                     'form-control',
