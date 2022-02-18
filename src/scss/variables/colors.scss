@@ -1,52 +1,52 @@
-$primary: #651FFF;
-$primary-dark: #410FAD;
-$primary-light: #D8CCF7;
+$primary: #651FFF !default;
+$primary-dark: darken($primary, 25) !default;
+$primary-light: lighten($primary, 50) !default;
 
-$secondary: #97A7C8;
-$secondary-dark: #596886;
-$secondary-light: #E3EAF9;
+$secondary: #97A7C8 !default;
+$secondary-dark: darken($secondary, 25) !default;
+$secondary-light: lighten($secondary, 50) !default;
 
-$heading: #152536;
-$body: #68717A;
-$white: #FFFFFF;
+$success: #64D03E !default;
+$success-dark: darken($success, 25) !default;
+$success-light: lighten($success, 50) !default;
 
-$success: #64D03E;
-$success-dark: #218838;
-$success-light: #ABED94;
+$danger: #FF4557 !default;
+$danger-dark: darken($danger, 25) !default;
+$danger-light: lighten($danger, 50) !default;
 
-$danger: #FF4557;
-$danger-dark: #DA2839;
-$danger-light: #ff99a3;
+$warning: #fad826 !default;
+$warning-dark: darken($warning, 25) !default;
+$warning-light: lighten($warning, 50) !default;
 
-$warning: #fad826;
-$warning-dark: #dcc131;
-$warning-light: #fff3b2;
+$info: #39bbd8 !default;
+$info-dark: darken($info, 25) !default;
+$info-light: lighten($info, 50) !default;
 
-$info: #39bbd8;
-$info-dark: #2796af;
-$info-light: #a7efff;
+$light: #f8f9fa !default;
+$light-dark: darken($light, 25) !default;
+$light-light: lighten($light, 50) !default;
 
-$light: #f8f9fa;
-$light-dark: #e2e6ea;
-$light-light: #fafafa;
+$dark: #343a40 !default;
+$dark-dark: darken($dark, 25) !default;
+$dark-light: lighten($dark, 50) !default;
 
-$dark: #343a40;
-$dark-dark: #1a1c1e;
-$dark-light: #acacac;
+$heading: #152536 !default;
+$body: #68717A !default;
+$white: #FFFFFF !default;
 
 $color-themes: () !default;
 $color-themes: map-merge(
-  (
-      "primary":   ("color": $primary,   "color-dark": $primary-dark,   "color-light": $primary-light, "text-color": $white),
-      "secondary": ("color": $secondary, "color-dark": $secondary-dark, "color-light": $secondary-light, "text-color": $white),
-      "success":   ("color": $success,   "color-dark": $success-dark,   "color-light": $success-light, "text-color": $white),
-      "danger":    ("color": $danger,    "color-dark": $danger-dark,    "color-light": $danger-light, "text-color": $white),
-      "warning":   ("color": $warning,   "color-dark": $warning-dark,   "color-light": $warning-light, "text-color": $dark),
-      "info":      ("color": $info,      "color-dark": $info-dark,      "color-light": $info-light, "text-color": $white),
-      "light":     ("color": $light,     "color-dark": $light-dark,     "color-light": $light-light, "text-color": $dark),
-      "dark":      ("color": $dark,      "color-dark": $dark-dark,      "color-light": $dark-light, "text-color": $white)
-  ),
-  $color-themes
+                (
+                        "primary": ("color": $primary, "color-dark": $primary-dark, "color-light": $primary-light, "text-color": $white),
+                        "secondary": ("color": $secondary, "color-dark": $secondary-dark, "color-light": $secondary-light, "text-color": $white),
+                        "success": ("color": $success, "color-dark": $success-dark, "color-light": $success-light, "text-color": $white),
+                        "danger": ("color": $danger, "color-dark": $danger-dark, "color-light": $danger-light, "text-color": $white),
+                        "warning": ("color": $warning, "color-dark": $warning-dark, "color-light": $warning-light, "text-color": $dark),
+                        "info": ("color": $info, "color-dark": $info-dark, "color-light": $info-light, "text-color": $white),
+                        "light": ("color": $light, "color-dark": $light-dark, "color-light": $light-light, "text-color": $dark),
+                        "dark": ("color": $dark, "color-dark": $dark-dark, "color-light": $dark-light, "text-color": $white)
+                ),
+                $color-themes
 );
 
 $grey-light: #D9D9D9;
