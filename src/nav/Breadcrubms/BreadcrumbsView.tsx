@@ -1,10 +1,9 @@
 import * as React from 'react';
 import Link from '@steroidsjs/core/ui/nav/Link';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function BreadcrumbsView(props: IBreadcrumbsViewProps & IBemHocOutput) {
+export default function BreadcrumbsView(props: IBreadcrumbsViewProps) {
     const bem = useBem('BreadcrumbsView');
     const items = props.items || [];
 
@@ -24,6 +23,7 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps & IBemHocOu
                             {!isLastItem && item.id && (
                                 <Link
                                     toRoute={item.id}
+                                    toRouteParams={props.routeParams}
                                     href={item.id}
                                 >
                                     {item.title}

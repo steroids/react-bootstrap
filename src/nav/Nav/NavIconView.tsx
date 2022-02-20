@@ -15,6 +15,7 @@ export default function NavIconView(props: INavViewProps & IBemHocOutput) {
                     key={item.id || index}
                     link
                     onClick={() => props.onClick(item, index)}
+                    layout={false}
                     {...item}
                     label={null}
                     hint={item.hint || item.label || null}

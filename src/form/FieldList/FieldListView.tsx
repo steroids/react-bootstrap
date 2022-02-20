@@ -17,6 +17,7 @@ export default function FieldListView(props: IFieldListViewProps) {
                     bem.element('table'),
                     'table',
                     props.size && 'table-' + props.size,
+                    props.tableClassName,
                 )}
             >
                 <thead>
@@ -41,21 +42,27 @@ export default function FieldListView(props: IFieldListViewProps) {
                 <tbody>
                     {props.children}
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan={props.items.length}>
+                            {props.showAdd && !props.disabled && (
+                                <Button
+                                    formId={false}
+                                    layout={false}
+                                    color='secondary'
+                                    className={bem.element('button-add')}
+                                    onClick={e => {
+                                        e.preventDefault();
+                                        props.onAdd();
+                                    }}
+                                >
+                                    {__('Добавить ещё')}
+                                </Button>
+                            )}
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
-            {props.showAdd && !props.disabled && (
-                <Button
-                    formId={false}
-                    layout={false}
-                    color='secondary'
-                    className={bem.element('button-add')}
-                    onClick={e => {
-                        e.preventDefault();
-                        props.onAdd();
-                    }}
-                >
-                    {__('Добавить ещё')}
-                </Button>
-            )}
         </div>
     );
 }

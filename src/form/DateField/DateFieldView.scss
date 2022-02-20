@@ -1,7 +1,7 @@
 .DateFieldView {
   $root: &;
 
-  padding: 0 8px;
+  padding-right: 8px;
   position: relative;
 
   background-color: $white;
@@ -46,8 +46,7 @@
     border: none;
     outline: none;
     background-color: transparent;
-
-    padding: 10px 5px;
+    padding: $input-padding-y $input-padding-x;
   }
 
   &__icon-container {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useRef, useState} from 'react';
+import {useCallback, useRef, useState} from 'react';
 
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INumberFieldViewProps} from '@steroidsjs/core/ui/form/NumberField/NumberField';
@@ -9,16 +9,14 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
     // Input ref
     const inputRef = useRef(null);
 
-    // Value state
-    const [value, setValue] = useState(null);
-    const onStepUp = () => {
+    const onStepUp = useCallback(() => {
         inputRef.current.stepUp();
-        setValue(inputRef.current.value);
-    };
-    const onStepDown = () => {
+        props.inputProps.onChange(inputRef.current.value);
+    }, [inputRef.current]);
+    const onStepDown = useCallback(() => {
         inputRef.current.stepDown();
-        setValue(inputRef.current.value);
-    };
+        props.inputProps.onChange(inputRef.current.value);
+    }, [inputRef.current]);
 
     const bem = useBem('NumberFieldView');
     return (
@@ -47,8 +45,9 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                 <div className={bem.element('arrows-container')}>
                     <button
                         className={bem.element('arrow', {
-                            disabled: props.inputProps.max && value >= props.inputProps.max,
+                            disabled: props.inputProps.max && props.inputProps.value >= props.inputProps.max,
                         })}
+                        type='button'
                         onClick={onStepUp}
                     >
                         <svg
@@ -65,8 +64,9 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                     </button>
                     <button
                         className={bem.element('arrow', {
-                            disabled: props.inputProps.min && value <= props.inputProps.min,
+                            disabled: props.inputProps.min && props.inputProps.value <= props.inputProps.min,
                         })}
+                        type='button'
                         onClick={onStepDown}
                     >
                         <svg
