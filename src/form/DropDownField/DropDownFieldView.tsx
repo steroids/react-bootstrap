@@ -14,6 +14,41 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         }
     }, [props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
 
+    const renderItem = (item, level = 0) => {
+        if (props.groupAttribute && Array.isArray(item[props.groupAttribute])) {
+            return [
+                (
+                    <div
+                        key={String(item[props.primaryKey])}
+                        className={bem.element('drop-down-item', 'group')}
+                    >
+                        {item.label}
+                    </div>
+                ),
+                ...item[props.groupAttribute].map(subItem => renderItem(subItem, level + 1)),
+            ];
+        }
+
+        return (
+            <div
+                key={String(item[props.primaryKey])}
+                className={bem.element('drop-down-item', {
+                    hover: props.hoveredId === item[props.primaryKey],
+                    select: props.selectedIds.includes(item[props.primaryKey]),
+                    level: level,
+                })}
+                onClick={e => {
+                    e.preventDefault();
+                    props.onItemSelect(item[props.primaryKey]);
+                }}
+                onFocus={() => props.onItemHover(item[props.primaryKey])}
+                onMouseOver={() => props.onItemHover(item[props.primaryKey])}
+            >
+                {item.label}
+            </div>
+        );
+    };
+
     const bem = useBem('DropDownFieldView');
     return (
         <div
@@ -110,24 +145,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {props.items.map(item => (
-                            <button
-                                key={String(item[props.primaryKey])}
-                                type='button'
-                                className={bem.element('drop-down-item', {
-                                    hover: props.hoveredId === item[props.primaryKey],
-                                    select: props.selectedIds.includes(item[props.primaryKey]),
-                                })}
-                                onClick={e => {
-                                    e.preventDefault();
-                                    props.onItemSelect(item[props.primaryKey]);
-                                }}
-                                onFocus={() => props.onItemHover(item[props.primaryKey])}
-                                onMouseOver={() => props.onItemHover(item[props.primaryKey])}
-                            >
-                                {item.label}
-                            </button>
-                        ))}
+                        {props.items.map(item => renderItem(item))}
                     </div>
                 </div>
             )}
