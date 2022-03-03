@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useCallback, useRef, useState} from 'react';
+import {useCallback, useRef} from 'react';
 
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INumberFieldViewProps} from '@steroidsjs/core/ui/form/NumberField/NumberField';
@@ -40,6 +40,7 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                     !!props.errors && 'is-invalid',
                 )}
                 {...props.inputProps}
+                onChange={e => props.onChange(e.target.value)}
             />
             {!props.disabled && !props.errors && (
                 <div className={bem.element('arrows-container')}>
