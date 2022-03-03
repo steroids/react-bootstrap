@@ -40,7 +40,7 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                     !!props.errors && 'is-invalid',
                 )}
                 {...props.inputProps}
-                onChange={e => props.onChange(e.target.value)}
+                onChange={e => props.input.onChange(e.target.value)}
             />
             {!props.disabled && !props.errors && (
                 <div className={bem.element('arrows-container')}>
