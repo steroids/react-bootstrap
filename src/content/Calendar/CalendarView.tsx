@@ -45,6 +45,7 @@ export default function CalendarView(props: ICalendarViewProps) {
 
     return (
         <DayPicker
+            {...props}
             className={bem(bem.block({ranged: isRange}), props.className)}
             captionElement={useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
                 <CaptionElement

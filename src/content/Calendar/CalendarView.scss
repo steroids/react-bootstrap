@@ -49,6 +49,11 @@
   }
   .DayPicker-Week {
     display: table-row;
+
+    &--disabled {
+      pointer-events: none;
+      opacity: .5;
+    }
   }
   .DayPicker-Day {
     position: relative;
@@ -84,6 +89,11 @@
       #{$root}__day {
         box-shadow: $calendar-today-shadow;
       }
+    }
+
+    &--disabled {
+      pointer-events: none;
+      opacity: .5;
     }
   }
 
