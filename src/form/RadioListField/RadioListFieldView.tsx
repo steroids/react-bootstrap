@@ -23,7 +23,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                             !!props.errors && 'is-invalid',
                         )}
                         checked={props.selectedIds.includes(item.id)}
-                        disabled={props.disabled}
+                        disabled={props.disabled || item.disabled}
                         onChange={(e) => {
                             props.inputProps.onChange(e.target.value);
                             props.onItemSelect(item.id);
