@@ -11,7 +11,7 @@ export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput
     const FileItemView = props.itemView;
     return (
         <div className={bem.block()}>
-            <div className={bem(bem.element('files'), 'clearfix')}>
+            <div className={bem(bem.element('files'))}>
                 {props.items.map(item => (
                     <FileItemView
                         key={item.uid}

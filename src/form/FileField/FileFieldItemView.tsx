@@ -10,7 +10,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
         <div
             className={bem(
                 bem.block(),
-                'card float-left mb-1 mr-1',
+                'card mb-1 mr-1',
                 props.error && 'border-danger',
             )}
         >

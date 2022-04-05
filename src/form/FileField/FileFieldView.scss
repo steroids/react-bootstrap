@@ -1,6 +1,8 @@
 .FileFieldView {
   &__files {
     margin-bottom: 1em;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &__button-label {
