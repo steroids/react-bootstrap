@@ -33,6 +33,7 @@ export default function GridView(props: IGridViewProps) {
                         {column.attribute && fields[column.attribute] && (
                             <Field
                                 layout='inline'
+                                size={props.searchForm?.size}
                                 {...fields[column.attribute]}
                             />
                         )}
