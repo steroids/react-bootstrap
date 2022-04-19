@@ -21,6 +21,7 @@
 
     cursor: pointer;
     transition: color .1s ease-in;
+
     &:hover, &:active, &:focus {
       color: $calendar-primary-color;
     }
@@ -37,23 +38,26 @@
       fill: rgba(0, 0, 0, 0.25);
       transition: fill .1s ease-in;
     }
-    &_one-arrow.IconView svg{
+
+    &_one-arrow.IconView svg {
       width: 8px;
     }
 
     &:hover svg {
-      fill: rgba(0,0,0,.7);
+      fill: rgba(0, 0, 0, .7);
     }
   }
 
   &__selected-month, &__selected-year {
     font-size: 16px;
   }
+
   &__selected-month {
     margin-right: 5px;
   }
 
   // Panel changing Month/Year
+
 
   &__panel {
     z-index: 10;
@@ -63,67 +67,67 @@
     right: 0;
     bottom: 50px;
     background-color: $white;
-    display: flex;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0fr 1fr;
+    gap: 0 0;
+    grid-template-areas:
+      "HeaderMonths HeaderMonths HeaderYears"
+      "Months1stCol Months2ndCol YearsCol";
 
     &_full-height {
       bottom: 0;
     }
+  }
 
-    &-inner {
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 0fr 1fr;
-      gap: 0 0;
-      grid-template-areas:
-      "HeaderMonths HeaderMonths HeaderYears"
-      "Months1stCol Months2ndCol YearsCol";
-    }
+  &__panel-header {
+    padding: 5px;
 
-    &-header {
-      padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid $border-color;
+    background-color: $calendar-primary-light-color;
 
-      text-align: center;
-      border-bottom: 1px solid $border-color;
-      background-color: $calendar-primary-light-color;
-
-      &_months {
-        grid-area: HeaderMonths;
-        border-right: 1px solid $border-color;
-      }
-      &_years {
-        grid-area: HeaderYears;
-      }
-    }
-
-    &-column-months {
+    &_months {
+      grid-area: HeaderMonths;
       border-right: 1px solid $border-color;
-
-      &_first {
-        grid-area: Months1stCol;
-      }
-      &_second {
-        grid-area: Months2ndCol;
-      }
-    }
-    &-column-years {
-      height: 100%;
-      grid-area: YearsCol;
-      overflow: auto;
     }
 
-    &-cell {
-      padding: 5px 15px;
-      cursor: pointer;
+    &_years {
+      grid-area: HeaderYears;
+    }
+  }
 
-      &_selected {
-        background-color: $calendar-primary-light-color;
-      }
+  &__panel-column-months {
+    border-right: 1px solid $border-color;
 
-      transition: background-color .1s ease-in;
-      &:hover {
-        background-color: $calendar-secondary-light-color;
-      }
+    &_first {
+      grid-area: Months1stCol;
+    }
+
+    &_second {
+      grid-area: Months2ndCol;
+    }
+  }
+
+  &__panel-column-years {
+    height: 100%;
+    grid-area: YearsCol;
+    overflow: auto;
+  }
+
+  &__panel-cell {
+    padding: 5px 15px;
+    cursor: pointer;
+
+    &_selected {
+      background-color: $calendar-primary-light-color;
+    }
+
+    transition: background-color .1s ease-in;
+
+    &:hover {
+      background-color: $calendar-secondary-light-color;
     }
   }
 }
