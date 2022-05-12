@@ -5,12 +5,28 @@ import {IFormViewProps} from '@steroidsjs/core/ui/form/Form/Form';
 import {useBem} from '@steroidsjs/core/hooks';
 import Field from '@steroidsjs/core/ui/form/Field';
 import Button from '@steroidsjs/core/ui/form/Button';
+import {useMount} from 'react-use';
+import {useRef} from 'react';
 
 function FormView(props: IFormViewProps) {
     const bem = useBem('FormView');
+    const formRef = useRef(null);
+
+    // Auto focus
+    useMount(() => {
+        if (props.autoFocus) {
+            const inputEl = formRef.current.querySelector('input:not([type=hidden])');
+            setTimeout(() => {
+                if (inputEl && inputEl.focus) {
+                    inputEl.focus();
+                }
+            }, 10);
+        }
+    });
 
     return (
         <form
+            ref={formRef}
             className={bem(
                 bem.block({
                     border: props.isBordered,
