@@ -1,7 +1,9 @@
+@use 'sass:math';
+
 $tooltip-arrow-color: #000;
 $tooltip-arrow-width: 8px;
 $tooltip-arrow-height: 8px;
-$tooltip-arrow-border: $tooltip-arrow-width / 2;
+$tooltip-arrow-border: math.div($tooltip-arrow-width, 2);
 $tooltip-gap: 12px;
 
 $tooltip-arrow-offset-horizontal: 20px;
@@ -41,7 +43,7 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
     height: $tooltip-arrow-height;
 
     border-style: solid;
-    border-width: $tooltip-arrow-height / 2;
+    border-width: math.div($tooltip-arrow-height, 2);
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
 
 
