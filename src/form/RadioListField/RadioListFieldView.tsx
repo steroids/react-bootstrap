@@ -9,7 +9,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
     const prefix = useUniqueId('radio');
     return (
         <div className={bem.block()}>
-            {props.items.map((item, index) => (
+            {props.items.map((item) => (
                 <div
                     key={typeof item.id !== 'boolean' ? item.id : (item.id ? 'true' : 'false')}
                     className='custom-control custom-radio'
@@ -24,8 +24,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                         )}
                         checked={props.selectedIds.includes(item.id)}
                         disabled={props.disabled || item.disabled}
-                        onChange={(e) => {
-                            props.inputProps.onChange(e.target.value);
+                        onChange={() => {
                             props.onItemSelect(item.id);
                         }}
                     />
