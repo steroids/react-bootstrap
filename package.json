@@ -19,7 +19,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^3.0.2",
     "@steroidsjs/ckeditor5": "^27.0.2-rc.2",
-    "@steroidsjs/core": "latest",
+    "@steroidsjs/core": "^2.2",
     "bootstrap": "^4.5.2",
     "lodash": "^4.17.20",
     "lodash-es": "^4.17.20",
