@@ -64,7 +64,7 @@ export default function GridView(props: IGridViewProps) {
     const emptyContent = useMemo(() => props.renderEmpty(), [props.renderEmpty]);
 
     return props.renderList(
-        <div className={bem(bem.block({loading: props.isLoading}), props.className)}>
+        <div className={bem(bem.block({loading: props.isLoading || props.list?.isLoading}), props.className)}>
             {props.renderSearchForm()}
             {props.renderPaginationSize()}
             <table className='table table-striped'>
