@@ -62,7 +62,7 @@ export default function GridView(props: IGridViewProps) {
     }, [props.onSort, props.list?.sort]);
 
     const emptyContent = useMemo(() => props.renderEmpty(), [props.renderEmpty]);
-    
+
     return props.renderList(
         <div className={bem(bem.block({loading: props.isLoading || props.list?.isLoading}), props.className)}>
             {props.renderSearchForm()}
