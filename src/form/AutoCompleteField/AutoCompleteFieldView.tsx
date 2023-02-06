@@ -36,7 +36,7 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                 <div className={bem.element('drop-down')}>
                     {/*TODO same dropdown as in DropDownFieldView*/}
                     <div className={bem.element('drop-down-list')}>
-                        {props.items.map(item => (
+                        {props.items.map((item: any) => (
                             <button
                                 key={String(item[props.primaryKey])}
                                 className={bem.element('drop-down-item', {
