@@ -6,6 +6,7 @@ export default function Avatar(props: IAvatarGroupViewProps) {
     const bem = useBem('AvatarGroupView');
     return (
         <div className={bem.block()}>
+            {/*@ts-ignore*/}
             {props.children}
         </div>
     );
