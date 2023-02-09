@@ -6,6 +6,7 @@ interface IAvatarProps extends IAvatarViewProps{
     formattedTitle: any,
 }
 
+//TODO Font, border width switch, border padding around avatar
 export default function Avatar(props: IAvatarProps) {
     const bem = useBem('AvatarView');
 
@@ -41,6 +42,8 @@ export default function Avatar(props: IAvatarProps) {
                 shape: props.shape,
                 'has-image': !!props.src && !props.isError,
                 'has-status': props.status,
+                'has-story-avatar': props.story && !!props.src,
+                'has-story-without-avatar': props.story && !props.src,
             }), props.className)}
         >
             <span

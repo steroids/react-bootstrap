@@ -1,103 +1,135 @@
+@mixin story($background) {
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 50%;
+        border-radius: 100%;
+        border: 2px solid transparent;
+        background: $background;
+        -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+    }
+}
 
 .AvatarView {
-  $root: &;
+    $root: &;
 
-  display: inline-block;
-  position: relative;
-
-  &_size {
-    &_x-large {
-      #{$root}__body {
-        height: $avatar-x-large-size;
-        width: $avatar-x-large-size;
-        line-height: $avatar-x-large-size;
-        font-size: $avatar-x-large-font-size;
-      }
-    }
-
-    &_large {
-      #{$root}__body {
-        height: $avatar-large-size;
-        width: $avatar-large-size;
-        line-height: $avatar-large-size;
-        font-size: $avatar-large-font-size;
-      }
-    }
-
-    &_middle {
-      #{$root}__body {
-        height: $avatar-middle-size;
-        width: $avatar-middle-size;
-        line-height: $avatar-middle-size;
-        font-size: $avatar-middle-font-size;
-      }
-    }
-
-    &_small {
-      #{$root}__body {
-        height: $avatar-small-size;
-        width: $avatar-small-size;
-        line-height: $avatar-small-size;
-        font-size: $avatar-small-font-size;
-      }
-    }
-  }
-
-  &_shape {
-    &_square {
-      #{$root}__body{
-        border-radius: unset;
-      }
-    }
-
-    &_circle {
-      #{$root}__body{
-        border-radius: 50%;
-      }
-    }
-  }
-
-  &_has-image {
-    #{$root}__body{
-      background-color: unset;
-    }
-  }
-
-  &_has-status {
-    ::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 25%;
-      height: 25%;
-      z-index: 10;
-
-      color: $avatar-status-color;
-      font-size: 6px;
-
-      border-radius: 50%;
-      background-color: $avatar-status-color;
-      border: $avatar-status-border;
-    }
-  }
-
-  &__body {
     display: inline-block;
-    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1;
 
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
+    &_size {
+        &_x-large {
+            #{$root}__body {
+                height: $avatar-x-large-size;
+                width: $avatar-x-large-size;
+                line-height: $avatar-x-large-size;
+                font-size: $avatar-x-large-font-size;
+            }
+        }
 
-    color: $avatar-text-color;
-    background-color: $avatar-background-color;
+        &_large {
+            #{$root}__body {
+                height: $avatar-large-size;
+                width: $avatar-large-size;
+                line-height: $avatar-large-size;
+                font-size: $avatar-large-font-size;
+            }
+        }
 
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+        &_middle {
+            #{$root}__body {
+                height: $avatar-middle-size;
+                width: $avatar-middle-size;
+                line-height: $avatar-middle-size;
+                font-size: $avatar-middle-font-size;
+            }
+        }
+
+        &_small {
+            #{$root}__body {
+                height: $avatar-small-size;
+                width: $avatar-small-size;
+                line-height: $avatar-small-size;
+                font-size: $avatar-small-font-size;
+            }
+        }
     }
-  }
+
+    &_shape {
+        &_square {
+            #{$root}__body {
+                border-radius: unset;
+            }
+        }
+
+        &_circle {
+            #{$root}__body {
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &_has-image {
+        #{$root}__body {
+            background-color: unset;
+        }
+    }
+
+    &_has-status {
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 35.71%;
+            height: 35.1%;
+            z-index: 10;
+
+            color: $avatar-status-color;
+            font-size: 6px;
+
+            border-radius: 50%;
+            background-color: $avatar-status-color;
+            border: $avatar-status-border;
+        }
+    }
+
+    &_has-story-avatar {
+        @include story($avatar-story-with-avatar-background);
+    }
+
+    &_has-story-without-avatar {
+        @include story($avatar-story-without-avatar-background);
+    }
+
+    &__body {
+        display: inline-block;
+        overflow: hidden;
+
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+
+        color: $avatar-text-color;
+        background: $avatar-background-gradient;
+        border: 1px solid #fff;
+
+        span {
+            display: block;
+            transform: translateY(-2px);
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
 }
