@@ -1,3 +1,22 @@
+:root {
+    --story-border-width-small: 1px;
+    --story-border-width-medium: 1.5px;
+    --story-border-width-large: 2px;
+    --story-border-width: var(--story-border-width-small);
+
+
+    --status-border-width-small: 2px;
+    --status-border-width-medium: 3px;
+    --status-border-width-large: 4px;
+    --status-border-width: var(--status-border-width-small);
+
+    --status-size-small: 8px;  
+    --status-size-medium: 10px;
+    --status-size-large: 12px;
+    --status-size-x-large: 14px;
+    --status-size: var(--status-size-small);
+}
+
 @mixin story($background) {
     &::before {
         content: "";
@@ -6,9 +25,9 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 50%;
+        padding: 55%;
         border-radius: 100%;
-        border: 2px solid transparent;
+        border: var(--story-border-width) solid transparent;
         background: $background;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -31,6 +50,9 @@
                 line-height: $avatar-x-large-size;
                 font-size: $avatar-x-large-font-size;
             }
+            --story-border-width: var(--story-border-width-large);
+            --status-border-width: var(--status-border-width-large);
+            --status-size: var(--status-size-x-large);
         }
 
         &_large {
@@ -40,6 +62,9 @@
                 line-height: $avatar-large-size;
                 font-size: $avatar-large-font-size;
             }
+            --story-border-width: var(--story-border-width-large);
+            --status-border-width: var(--status-border-width-medium);
+            --status-size: var(--status-size-large);
         }
 
         &_middle {
@@ -49,6 +74,9 @@
                 line-height: $avatar-middle-size;
                 font-size: $avatar-middle-font-size;
             }
+            --story-border-width: var(--story-border-width-medium);
+            --status-border-width: var(--status-border-width-small);
+            --status-size: var(--status-size-medium);
         }
 
         &_small {
@@ -58,6 +86,9 @@
                 line-height: $avatar-small-size;
                 font-size: $avatar-small-font-size;
             }
+            --story-border-width: var(--story-border-width-small);
+            --status-border-width: var(--status-border-width-small);
+            --status-size: var(--status-size-small);
         }
     }
 
@@ -85,10 +116,11 @@
         &::after {
             content: "";
             position: absolute;
-            right: 0;
-            bottom: 0;
-            width: 35.71%;
-            height: 35.1%;
+            box-sizing: content-box;
+            right: -7%;
+            bottom: -7%;
+            width: var(--status-size);
+            height: var(--status-size);
             z-index: 10;
 
             color: $avatar-status-color;
@@ -96,7 +128,7 @@
 
             border-radius: 50%;
             background-color: $avatar-status-color;
-            border: $avatar-status-border;
+            border: var(--status-border-width) solid white;
         }
     }
 

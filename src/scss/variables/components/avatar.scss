@@ -11,11 +11,9 @@ $avatar-small-size: 28px !default;
 $avatar-small-font-size: 12px !default;
 
 $avatar-status-color: #2BC945 !default;
-$avatar-status-border: 2px solid $white !default;
-
-$avatar-story-with-avatar-background: linear-gradient(180deg, #7433FF, #FFA3FD) border-box;
-$avatar-story-without-avatar-background: linear-gradient(180deg, #EB0155, #FFFA80) border-box;
 
 $avatar-background-gradient: linear-gradient(180deg, #7433FF 0%, #FFA3FD 100%);
 $avatar-text-color: $white !default;
 
+$avatar-story-with-avatar-background: linear-gradient(180deg, #7433FF, #FFA3FD) border-box;
+$avatar-story-without-avatar-background: linear-gradient(180deg, #EB0155, #FFFA80) border-box;
