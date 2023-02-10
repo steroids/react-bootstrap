@@ -128,7 +128,9 @@
 
             border-radius: 50%;
             background-color: $avatar-status-color;
-            border: var(--status-border-width) solid white;
+
+            border: var(--customSize) solid red;
+
         }
     }
 
