@@ -1,9 +1,8 @@
 :root {
-    --story-border-width-small: 1px;
+    story-border-width-small: 1px;
     --story-border-width-medium: 1.5px;
     --story-border-width-large: 2px;
     --story-border-width: var(--story-border-width-small);
-
 
     --status-border-width-small: 2px;
     --status-border-width-medium: 3px;
@@ -129,7 +128,7 @@
             border-radius: 50%;
             background-color: $avatar-status-color;
 
-            border: var(--customSize) solid red;
+            border: var(--status-border-width) solid red;
 
         }
     }
