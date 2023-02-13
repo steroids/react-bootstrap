@@ -1,9 +1,17 @@
-$alert-padding-y: 12px !default;
-$alert-padding-x: 16px !default;
+$alert-padding-y: 16px;
+$alert-padding-x: 16px;
 
-$alert-border-radius: 4px !default;
-$alert-description-font-size: 18px !default;
-$alert-message-font-size: 16px !default;
+$alert-border-radius: 12px;
+$alert-description-font-size: 16px;
+$alert-message-font-size: 18px;
 
 $alert-icon-size: 24px !default;
-$alert-close-icon-size: 15px !default;
+$alert-close-icon-size: 10px;
+
+$alert-success-color: #B9FFC3;
+$alert-info-color: #D3F7FF;
+$alert-warning-color:  #FFF6C6;
+$alert-error-color:  #FFBFBF;
+$alert-default-color: #F8F8F8;
+
+$alert-text-section-max-width: 444px;

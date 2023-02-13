@@ -2,14 +2,9 @@
     $root: &;
 
     position: relative;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     padding: $alert-padding-y $alert-padding-x;
-
     border-radius: $alert-border-radius;
-    border: 1px solid transparent;
+    font-family: $font-family-nunito;
 
     &_close-animation {
         animation: hide_slide .4s ease-in;
@@ -30,51 +25,39 @@
       }
     }
 
-    &_has-description {
-        align-items: flex-start;
+    &__icon.IconView {
+        width: $alert-icon-size;
+        margin-right: 12px;
+    }
 
-        #{$root}__message {
-            font-size: $alert-description-font-size;
-        }
+    &__icon-close.IconView {
+        width: $alert-close-icon-size;
+    }
+
+    &__text-section { 
+        display: grid;
+        row-gap: 12px;
+        max-width: $alert-text-section-max-width;
+        margin-right: auto;        
     }
 
     &_success {
-        background: $back-success;
-        border-color: $success;
-
-        #{$root}__icon.IconView {
-            fill: $success;
-        }
+        background: $alert-success-color;
     }
+
     &_info {
-        background: $back-info;
-        border-color: $info;
-
-        #{$root}__icon.IconView {
-            fill: $info;
-        }
+        background: $alert-info-color;
     }
+
     &_warning {
-        background: $back-warning;
-        border-color: $warning;
-
-        #{$root}__icon.IconView {
-            fill: $warning;
-        }
+        background:  $alert-warning-color;
     }
+
     &_error {
-        background: $back-error;
-        border-color: $danger;
-
-        #{$root}__icon.IconView {
-            fill: $danger;
-        }
+        background: $alert-error-color;
     }
-
-    &__icon.IconView svg {
-        width: $alert-icon-size;
-        height: $alert-icon-size;
-        margin-right: 12px;
+    &_default { 
+        background: $alert-default-color;
     }
 
     &__action {
@@ -84,7 +67,6 @@
     }
 
     &__message {
-        flex-grow: 1;
         font-size: $alert-message-font-size;
     }
 
@@ -94,27 +76,13 @@
     }
 
     &__content {
-        display: grid;
-        grid-gap: 12px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
     }
 
     &__description {
         font-size: $alert-description-font-size;
     }
 
-    &__icon-close.IconView {
-        position: absolute;
-        right: 20px;
-
-        svg {
-            width: $alert-close-icon-size;
-            height: $alert-close-icon-size;
-        }
-
-        fill: rgba($heading, .6);
-        transition: fill .1s ease-in;
-        &:hover {
-            fill: $heading;
-        }
-    }
 }
