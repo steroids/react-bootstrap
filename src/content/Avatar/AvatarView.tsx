@@ -7,7 +7,6 @@ interface IAvatarProps extends IAvatarViewProps{
 }
 
 
-//TODO custom dynamic sizes for styles 
 export default function Avatar(props: IAvatarProps) {
     const bem = useBem('AvatarView');
 
@@ -38,8 +37,6 @@ export default function Avatar(props: IAvatarProps) {
 
     return (
         <div
-
-
             className={bem(bem.block({
                 size: props.size,
                 shape: props.shape,
@@ -47,6 +44,8 @@ export default function Avatar(props: IAvatarProps) {
                 'has-status': props.status,
                 'has-story-avatar': props.story && !!props.src,
                 'has-story-without-avatar': props.story && !props.src,
+                'has-custom-status': props.status && !!customSize.width,
+                'has-custom-story': props.story && !!customSize.width,
             }), props.className)}
 
 

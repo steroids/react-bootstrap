@@ -1,19 +1,19 @@
 :root {
-    story-border-width-small: 1px;
+    --story-border-width-small: 1px;
     --story-border-width-medium: 1.5px;
     --story-border-width-large: 2px;
-    --story-border-width: var(--story-border-width-small);
+    --story-border-width: var(--story-border-width-large);
 
     --status-border-width-small: 2px;
     --status-border-width-medium: 3px;
     --status-border-width-large: 4px;
-    --status-border-width: var(--status-border-width-small);
+    --status-border-width: var(--status-border-width-large);
 
-    --status-size-small: 8px;  
+    --status-size-small: 8px;
     --status-size-medium: 10px;
     --status-size-large: 12px;
     --status-size-x-large: 14px;
-    --status-size: var(--status-size-small);
+    --status-size: var(--status-size-x-large);
 }
 
 @mixin story($background) {
@@ -40,6 +40,12 @@
     display: inline-block;
     position: relative;
     aspect-ratio: 1;
+
+
+    &_has-custom-status { 
+       --status-size: 25%;
+       --status-border-width: 3px;
+    }
 
     &_size {
         &_x-large {
@@ -111,6 +117,7 @@
         }
     }
 
+    
     &_has-status {
         &::after {
             content: "";
@@ -123,13 +130,11 @@
             z-index: 10;
 
             color: $avatar-status-color;
-            font-size: 6px;
 
             border-radius: 50%;
             background-color: $avatar-status-color;
 
-            border: var(--status-border-width) solid red;
-
+            border: var(--status-border-width) solid white;
         }
     }
 
