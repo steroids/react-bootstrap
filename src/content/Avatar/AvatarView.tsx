@@ -45,7 +45,6 @@ export default function Avatar(props: IAvatarProps) {
                 'has-story-avatar': props.story && !!props.src,
                 'has-story-without-avatar': props.story && !props.src,
                 'has-custom-status': props.status && !!customSize.width,
-                'has-custom-story': props.story && !!customSize.width,
             }), props.className)}
 
 
