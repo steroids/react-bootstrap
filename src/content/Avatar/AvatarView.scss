@@ -1,8 +1,8 @@
 :root {
-    --story-border-width-small: 1px;
-    --story-border-width-medium: 1.5px;
-    --story-border-width-large: 2px;
-    --story-border-width: var(--story-border-width-large);
+    --border-width-small: 1px;
+    --border-width-medium: 1.5px;
+    --border-width-large: 2px;
+    --border-width: var(--border-width-large);
 
     --status-border-width-small: 2px;
     --status-border-width-medium: 3px;
@@ -16,7 +16,7 @@
     --status-size: var(--status-size-x-large);
 }
 
-@mixin story($background) {
+@mixin border($background) {
     &::before {
         content: "";
         position: absolute;
@@ -26,7 +26,7 @@
         transform: translate(-50%, -50%);
         padding: 55%;
         border-radius: 100%;
-        border: var(--story-border-width) solid transparent;
+        border: var(--border-width) solid transparent;
         background: $background;
         -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
@@ -41,10 +41,9 @@
     position: relative;
     aspect-ratio: 1;
 
-
-    &_has-custom-status { 
-       --status-size: 25%;
-       --status-border-width: 2px;
+    &_has-custom-status {
+        --status-size: 25%;
+        --status-border-width: 2px;
     }
 
     &_size {
@@ -55,7 +54,7 @@
                 line-height: $avatar-x-large-size;
                 font-size: $avatar-x-large-font-size;
             }
-            --story-border-width: var(--story-border-width-large);
+            --border-width: var(--border-width-large);
             --status-border-width: var(--status-border-width-large);
             --status-size: var(--status-size-x-large);
         }
@@ -67,7 +66,7 @@
                 line-height: $avatar-large-size;
                 font-size: $avatar-large-font-size;
             }
-            --story-border-width: var(--story-border-width-large);
+            --border-width: var(--border-width-large);
             --status-border-width: var(--status-border-width-medium);
             --status-size: var(--status-size-large);
         }
@@ -79,7 +78,7 @@
                 line-height: $avatar-middle-size;
                 font-size: $avatar-middle-font-size;
             }
-            --story-border-width: var(--story-border-width-medium);
+            --border-width: var(--border-width-medium);
             --status-border-width: var(--status-border-width-small);
             --status-size: var(--status-size-medium);
         }
@@ -91,7 +90,7 @@
                 line-height: $avatar-small-size;
                 font-size: $avatar-small-font-size;
             }
-            --story-border-width: var(--story-border-width-small);
+            --border-width: var(--border-width-small);
             --status-border-width: var(--status-border-width-small);
             --status-size: var(--status-size-small);
         }
@@ -117,7 +116,6 @@
         }
     }
 
-    
     &_has-status {
         &::after {
             content: "";
@@ -138,12 +136,12 @@
         }
     }
 
-    &_has-story-avatar {
-        @include story($avatar-story-with-avatar-background);
+    &_has-border-avatar {
+        @include border($avatar-border-with-avatar-background);
     }
 
-    &_has-story-without-avatar {
-        @include story($avatar-story-without-avatar-background);
+    &_has-border-without-avatar {
+        @include border($avatar-border-without-avatar-background);
     }
 
     &__body {
