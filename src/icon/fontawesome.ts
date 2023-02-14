@@ -230,6 +230,7 @@ export default () => {
     });
 
     // Core icons
+    //TODO Change to correct icons
     const coreIconsMap = {
         create: 'plus-square',
         update: 'pen-square',
@@ -244,7 +245,10 @@ export default () => {
         info: 'info-circle',
         warning: 'exclamation-circle',
         error: 'times-circle',
+        default: 'times-circle',
+        close: 'times-circle',
     };
+
     Object.keys(coreIconsMap).forEach(name => {
         icons[name] = icons[coreIconsMap[name]];
     });   
