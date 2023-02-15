@@ -95,3 +95,63 @@ $link-color: #2ba3fb !default;
 
 $gradient-avatar-purple: linear-gradient(180deg, #7433ff 0%, #ffa3fd 100%);
 $gradient-avatar-red: linear-gradient(180deg, #eb0155 0%, #fffa80 100%);
+
+
+
+
+
+
+$color-themes: () !default;
+$color-themes: map-merge(
+    (
+        "primary": (
+            "color": $primary,
+            "color-dark": $primary-dark,
+            "color-light": $primary-light,
+            "text-color": $white,
+        ),
+        "secondary": (
+            "color": $secondary,
+            "color-dark": $secondary-dark,
+            "color-light": $secondary-light,
+            "text-color": $white,
+        ),
+        "success": (
+            "color": $success,
+            "color-dark": $success-dark,
+            "color-light": $success-light,
+            "text-color": $white,
+        ),
+        "danger": (
+            "color": $danger,
+            "color-dark": $danger-dark,
+            "color-light": $danger-light,
+            "text-color": $white,
+        ),
+        "warning": (
+            "color": $warning,
+            "color-dark": $warning-dark,
+            "color-light": $warning-light,
+            "text-color": $dark,
+        ),
+        "info": (
+            "color": $info,
+            "color-dark": $info-dark,
+            "color-light": $info-light,
+            "text-color": $white,
+        ),
+        "light": (
+            "color": $light,
+            "color-dark": $dark,
+            "color-light": $light,
+            "text-color": $dark,
+        ),
+        "dark": (
+            "color": $dark,
+            "color-dark": $dark,
+            "color-light": $light,
+            "text-color": $white,
+        ),
+    ),
+    $color-themes
+);
