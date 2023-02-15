@@ -216,15 +216,15 @@ const groupedIcons = {
         'weight-hanging', 'wheelchair', 'wifi', 'wind', 'window-close', 'window-maximize', 'window-minimize',
         'window-restore', 'wine-bottle', 'wine-glass', 'wine-glass-alt', 'won-sign', 'wrench', 'x-ray', 'yen-sign',
         'yin-yang',
-    ]
+    ],
 };
-
 
 export default () => {
     // All icons
     const icons = {};
     Object.keys(groupedIcons).forEach(group => {
         groupedIcons[group].forEach(name => {
+            // eslint-disable-next-line import/no-dynamic-require
             icons[name] = require(`@fortawesome/fontawesome-free/svgs/${group}/${name}.svg`);
         });
     });
@@ -247,7 +247,7 @@ export default () => {
     };
     Object.keys(coreIconsMap).forEach(name => {
         icons[name] = icons[coreIconsMap[name]];
-    });   
-    
+    });
+
     return icons;
 };
