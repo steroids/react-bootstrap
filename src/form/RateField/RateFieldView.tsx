@@ -27,13 +27,13 @@ export default function RateFieldView(props: IRateFieldViewProps) {
                         />
                     </span>
                     <span className={bem.element('rate-value-second')}>
-                         <Icon
-                             className={bem.element('rate-icon')}
-                             name='star'
-                         />
+                        <Icon
+                            className={bem.element('rate-icon')}
+                            name='star'
+                        />
                     </span>
                 </div>
             ))}
         </div>
-    )
+    );
 }
