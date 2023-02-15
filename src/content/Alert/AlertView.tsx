@@ -1,7 +1,7 @@
 import React from 'react';
-import { useBem } from '@steroidsjs/core/hooks';
+import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/icon/Icon';
-import { IAlertViewProps } from '@steroidsjs/core/ui/content/Alert/Alert';
+import {IAlertViewProps} from '@steroidsjs/core/ui/content/Alert/Alert';
 
 export default function Alert(props: IAlertViewProps) {
     const bem = useBem('AlertView');

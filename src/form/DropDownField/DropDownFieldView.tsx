@@ -5,6 +5,7 @@ import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/Dr
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
+    const bem = useBem('DropDownFieldView');
     const inputRef = useRef(null);
 
     // Auto focus on search
@@ -49,7 +50,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         );
     };
 
-    const bem = useBem('DropDownFieldView');
     return (
         <div
             ref={props.forwardedRef}

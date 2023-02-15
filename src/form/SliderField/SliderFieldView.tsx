@@ -13,7 +13,7 @@ export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOu
     const bem = useBem('SliderFieldView');
 
     const handle = (prevProps) => {
-        const { value } = prevProps;
+        const {value} = prevProps;
         return (
             <SliderTooltip
                 prefixCls='rc-slider-tooltip'

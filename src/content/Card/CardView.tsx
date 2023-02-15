@@ -1,6 +1,6 @@
 import React from 'react';
-import { useBem } from '@steroidsjs/core/hooks';
-import { ICardViewProps } from '@steroidsjs/core/ui/content/Card/Card';
+import {useBem} from '@steroidsjs/core/hooks';
+import {ICardViewProps} from '@steroidsjs/core/ui/content/Card/Card';
 
 export default function CardView(props: ICardViewProps) {
     const bem = useBem('CardView');
