@@ -25,6 +25,7 @@ export default function CollapseItemView(props: ICollapseItemViewProps) {
                 className={bem.element('header-container', {revert: props.iconPosition === 'left'})}
                 onClick={!props.disabled
                     ? () => {
+                        // eslint-disable-next-line no-unused-expressions
                         props.isAccordion
                             ? props.toggleAccordion(props.childIndex)
                             : props.toggleCollapse(props.childIndex);

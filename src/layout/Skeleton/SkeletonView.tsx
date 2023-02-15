@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useBem } from '@steroidsjs/core/hooks';
+import {useBem} from '@steroidsjs/core/hooks';
 import {ISkeletonViewProps} from '@steroidsjs/core/ui/layout/Skeleton/Skeleton';
 
 export default function SkeletonView(props: ISkeletonViewProps) {

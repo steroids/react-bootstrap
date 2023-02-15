@@ -31,7 +31,7 @@ export default function DropDownView(props: IDropDownViewProps) {
                     show: props.isComponentVisible,
                     [`position-${props.position}`]: !!props.position,
                 }),
-                props.className
+                props.className,
             )}
             style={props.style}
         >

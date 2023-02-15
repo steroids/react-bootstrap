@@ -48,6 +48,6 @@ export default function ListView(props: IListViewProps) {
                 ['bottom', 'both'].includes(props.layoutNamesPosition) && props.renderLayoutNames(),
             )}
             {props.renderEmpty()}
-        </div>
+        </div>,
     );
 }
