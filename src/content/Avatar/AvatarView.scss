@@ -49,10 +49,10 @@
     &_size {
         &_x-large {
             #{$root}__body {
-                height: $avatar-x-large-size;
-                width: $avatar-x-large-size;
-                line-height: $avatar-x-large-size;
-                font-size: $avatar-x-large-font-size;
+                height: 64px;
+                width: 64px;
+                line-height: 64px;
+                font-size: 20px;
             }
             --border-width: var(--border-width-large);
             --status-border-width: var(--status-border-width-large);
@@ -61,10 +61,10 @@
 
         &_large {
             #{$root}__body {
-                height: $avatar-large-size;
-                width: $avatar-large-size;
-                line-height: $avatar-large-size;
-                font-size: $avatar-large-font-size;
+                height: 46px;
+                width: 46px;
+                line-height: 46px;
+                font-size: $font-size-base;
             }
             --border-width: var(--border-width-large);
             --status-border-width: var(--status-border-width-medium);
@@ -73,10 +73,10 @@
 
         &_middle {
             #{$root}__body {
-                height: $avatar-middle-size;
-                width: $avatar-middle-size;
-                line-height: $avatar-middle-size;
-                font-size: $avatar-middle-font-size;
+                height: 36px;
+                width: 36px;
+                line-height: 36px;
+                font-size: $font-size-sm;
             }
             --border-width: var(--border-width-medium);
             --status-border-width: var(--status-border-width-small);
@@ -85,10 +85,10 @@
 
         &_small {
             #{$root}__body {
-                height: $avatar-small-size;
-                width: $avatar-small-size;
-                line-height: $avatar-small-size;
-                font-size: $avatar-small-font-size;
+                height: 28px;
+                width: 28px;
+                line-height: 28px;
+                font-size: $font-size-xs;
             }
             --border-width: var(--border-width-small);
             --status-border-width: var(--status-border-width-small);
@@ -127,21 +127,21 @@
             height: var(--status-size);
             z-index: 10;
 
-            color: $avatar-status-color;
+            color: $success;
 
-            border-radius: 50%;
-            background-color: $avatar-status-color;
+            border-radius: $radius-circle;
+            background-color: $success;
 
-            border: var(--status-border-width) solid white;
+            border: var(--status-border-width) solid $white;
         }
     }
 
     &_has-border-avatar {
-        @include border($avatar-border-with-avatar-background);
+        @include border($gradient-avatar-purple);
     }
 
     &_has-border-without-avatar {
-        @include border($avatar-border-without-avatar-background);
+        @include border($gradient-avatar-red);
     }
 
     &__body {
@@ -152,8 +152,8 @@
         white-space: nowrap;
         vertical-align: middle;
 
-        color: $avatar-text-color;
-        background: $avatar-background-gradient;
+        color: $white;
+        background: $gradient-avatar-purple;
         border: 1px solid #fff;
 
         span {

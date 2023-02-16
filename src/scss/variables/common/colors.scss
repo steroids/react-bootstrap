@@ -94,8 +94,8 @@ $white: #fff !default;
 $text-color: #312c3a !default;
 $link-color: #2ba3fb !default;
 
-$gradient-avatar-purple: linear-gradient(180deg, #7433ff 0%, #ffa3fd 100%);
-$gradient-avatar-red: linear-gradient(180deg, #eb0155 0%, #fffa80 100%);
+$gradient-avatar-purple: linear-gradient(180deg, #7433FF, #FFA3FD) border-box;
+$gradient-avatar-red: linear-gradient(180deg, #EB0155, #FFFA80) border-box;
 
 $color-themes: () !default;
 $color-themes: map-merge(
