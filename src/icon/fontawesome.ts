@@ -240,10 +240,12 @@ export default () => {
         back: 'arrow-left',
         securityEye: 'eye',
         securityEyeSlash: 'eye-slash',
-        success: 'check-circle',
-        info: 'info-circle',
-        warning: 'exclamation-circle',
-        error: 'times-circle',
+        success: './svgs/success.svg',
+        info: './svgs/info.svg',
+        warning: './svgs/warning.svg',
+        error: './svgs/error.svg',
+        close: './svgs/close.svg',
+        default: './svgs/default.svg',
     };
     Object.keys(coreIconsMap).forEach(name => {
         icons[name] = icons[coreIconsMap[name]];

@@ -2,119 +2,80 @@
     $root: &;
 
     position: relative;
-
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: $alert-padding-y $alert-padding-x;
-
-    border-radius: $alert-border-radius;
-    border: 1px solid transparent;
+    padding: $spacing-16;
+    border-radius: $radius-large;
+    font-family: $font-family-nunito;
 
     &_close-animation {
-        animation: hide_slide .4s ease-in;
+        animation: hide_slide 0.4s ease-in;
     }
 
     @keyframes hide_slide {
-      0% {
-        transform: translateX(-10px);
-      }
-      40% {
-        transform: translateX(0%);
-      }
-      80% {
-        transform: translateX(-10%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-
-    &_has-description {
-        align-items: flex-start;
-
-        #{$root}__message {
-            font-size: $alert-description-font-size;
+        0% {
+            transform: translateX(-10px);
+        }
+        40% {
+            transform: translateX(0%);
+        }
+        80% {
+            transform: translateX(-10%);
+        }
+        100% {
+            transform: translateX(100%);
         }
     }
 
-    &_success {
-        background: $back-success;
-        border-color: $success;
-
-        #{$root}__icon.IconView {
-            fill: $success;
-        }
-    }
-    &_info {
-        background: $back-info;
-        border-color: $info;
-
-        #{$root}__icon.IconView {
-            fill: $info;
-        }
-    }
-    &_warning {
-        background: $back-warning;
-        border-color: $warning;
-
-        #{$root}__icon.IconView {
-            fill: $warning;
-        }
-    }
-    &_error {
-        background: $back-error;
-        border-color: $danger;
-
-        #{$root}__icon.IconView {
-            fill: $danger;
-        }
-    }
-
-    &__icon.IconView svg {
-        width: $alert-icon-size;
-        height: $alert-icon-size;
+    &__icon.IconView {
+        width: 24px;
         margin-right: 12px;
     }
 
-    &__action {
-        display: flex;
-        flex-direction: column;
-        padding: 0 35px 0 15px;
+    &__icon-close.IconView {
+        width: 10px;
+    }
+
+    &__text-block {
+        display: grid;
+        row-gap: 12px;
+        max-width: 444px;
+        margin-right: auto;
+    }
+
+    &_success {
+        background: $success-light;
+    }
+
+    &_info {
+        background: $info-light;
+    }
+
+    &_warning {
+        background: $warning-light;
+    }
+
+    &_error {
+        background: $danger-light;
+    }
+    &_default {
+        background: $light-gray;
     }
 
     &__message {
-        flex-grow: 1;
-        font-size: $alert-message-font-size;
+        font-size: $font-size-lg;
     }
 
-    &__content-wrapper {
+    &__wrapper {
         display: flex;
         justify-content: space-between;
     }
 
     &__content {
-        display: grid;
-        grid-gap: 12px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
     }
 
     &__description {
-        font-size: $alert-description-font-size;
-    }
-
-    &__icon-close.IconView {
-        position: absolute;
-        right: 20px;
-
-        svg {
-            width: $alert-close-icon-size;
-            height: $alert-close-icon-size;
-        }
-
-        fill: rgba($heading, .6);
-        transition: fill .1s ease-in;
-        &:hover {
-            fill: $heading;
-        }
+        font-size: $font-size-base;
     }
 }

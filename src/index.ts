@@ -22,6 +22,9 @@ export default {
     'content.DetailView': {
         lazy: () => require('./content/Detail/DetailView').default,
     },
+    'content.IconView': {
+        lazy: () => require('./content/Icon/IconView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
@@ -123,9 +126,6 @@ export default {
     },
     'format.DefaultFormatterView': {
         lazy: () => require('./format/DefaultFormatter/DefaultFormatterView').default,
-    },
-    'icon.IconView': {
-        lazy: () => require('./icon/Icon/IconView').default,
     },
     'layout.HeaderView': {
         lazy: () => require('./layout/Header/HeaderView').default,
