@@ -6,7 +6,6 @@ interface IAvatarProps extends IAvatarViewProps{
     formattedTitle: any,
 }
 
-
 export default function Avatar(props: IAvatarProps) {
     const bem = useBem('AvatarView');
 
@@ -47,7 +46,6 @@ export default function Avatar(props: IAvatarProps) {
                 'has-custom-status': props.status && !!customSize.width,
             }), props.className)}
 
-
         >
             <span
                 className={bem.element('body')}
@@ -55,7 +53,6 @@ export default function Avatar(props: IAvatarProps) {
                     ...props.style,
                     ...customSize,
                 }}
-
 
             >
                 <>
