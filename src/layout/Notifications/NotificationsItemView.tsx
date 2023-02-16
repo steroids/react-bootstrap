@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INotificationsItemViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import {CSSTransition} from 'react-transition-group';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function NotificationsItemView(props: INotificationsItemViewProps & IBemHocOutput) {
