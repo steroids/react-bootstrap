@@ -34,7 +34,7 @@
         width: 10px;
     }
 
-    &__text-section {
+    &__text-block {
         display: grid;
         row-gap: 12px;
         max-width: 444px;
@@ -60,17 +60,11 @@
         background: $light-gray;
     }
 
-    &__action {
-        display: flex;
-        flex-direction: column;
-        padding: 0 35px 0 15px;
-    }
-
     &__message {
         font-size: $font-size-lg;
     }
 
-    &__content-wrapper {
+    &__wrapper {
         display: flex;
         justify-content: space-between;
     }
