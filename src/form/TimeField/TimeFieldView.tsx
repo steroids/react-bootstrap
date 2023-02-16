@@ -3,7 +3,7 @@ import {useCallback} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ITimeFieldViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import TimePanelView from './TimePanelView';
 

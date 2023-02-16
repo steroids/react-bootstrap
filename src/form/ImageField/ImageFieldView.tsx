@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IImageFieldViewProps} from '@steroidsjs/core/ui/form/ImageField/ImageField';
 
 export default function ImageFieldView(props: IImageFieldViewProps) {

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFileFieldViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import Button from '@steroidsjs/core/ui/form/Button';
 
 export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput) {

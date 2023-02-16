@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IRateFieldViewProps} from '@steroidsjs/core/ui/form/RateField/RateField';
 
 export default function RateFieldView(props: IRateFieldViewProps) {

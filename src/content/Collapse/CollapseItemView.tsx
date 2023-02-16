@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import {ICollapseItemViewProps} from '@steroidsjs/core/ui/content/Collapse/CollapseItem';
 
