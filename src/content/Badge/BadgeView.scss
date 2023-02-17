@@ -1,12 +1,89 @@
+@import '../../scss/variables';
+
 .BadgeView { 
-    
     $root: &;
+    
     display: inline-block;
     position: relative;
+    width: fit-content;
 
     font-family: $font-family-nunito;
+    color: $white;
+    font-weight: $font-weight-sm;
+    
+    &__content { 
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        #{$root}__message { 
+            margin-right: 4px;
+        }
+    }
+
+    &_squarer {
+        border-radius: $radius-small;
+    }
+
+    &_rounder {
+        border-radius: $radius-xlarge;
+    }
 
     &_primary {
-        background-color: var(--primary);
+        background-color: $primary;
+    }
+
+    &_secondary { 
+        background-color: $secondary;
+    }
+
+    &_success {
+        background-color: $success;
+    }
+
+    &_danger {
+        background-color: $danger;
+    }
+
+    &_warning {
+        color: $text-color;
+        background-color: $warning;
+    }
+
+    &_info {
+        color: $text-color;
+        background-color: $info;
+    }
+
+    &_large { 
+        padding: $spacing-4 $spacing-8;
+    }
+
+    &_medium { 
+        padding: $spacing-2 $spacing-8;
+    }
+
+    &_small { 
+        padding: 0 $spacing-8;
+    }
+
+
+    &_has-counter { 
+        border: 1px solid #E9E9E9;
+        border-radius: 100px;
+
+        background: $light-gray;
+        color: $text-color;
+        padding: $spacing-4 12px;
+
+        #{$root}__counter-content {
+            background: $white;
+            padding: $spacing-2 5px;
+            border-radius: 20px;
+        }
+
+        #{$root}__message { 
+            margin-right: 8px;
+        }
     }
 }
