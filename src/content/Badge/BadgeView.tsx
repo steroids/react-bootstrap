@@ -1,9 +1,9 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IBadgeViewProps} from '@steroidsjs/core/ui/content/Badge/Badge';
 
 import './BadgeView.scss';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 
 export default function BadgeView(props: IBadgeViewProps) {
     const bem = useBem('BadgeView');
@@ -14,7 +14,6 @@ export default function BadgeView(props: IBadgeViewProps) {
                 className={bem(
                     bem.block({
                         [props.type]: !!props.type,
-                        'close-animation': !props.isVisible,
                     }), props.className,
                 )}
                 style={props.style}
@@ -29,10 +28,11 @@ export default function BadgeView(props: IBadgeViewProps) {
                             onClick={props.onClose}
                         />
                     )}
-                    {props.hasChip
+                    {props.counter
                         && (
                             <div className={bem.element('chip')}>
-                                {props.chipContent}
+                                {typeof props.counter === 'object'
+                                    && props.counter.content}
                             </div>
                         )}
                 </div>
