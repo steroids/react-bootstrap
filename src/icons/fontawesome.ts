@@ -1,4 +1,3 @@
-/* eslint-disable import/no-dynamic-require */
 const groupedIcons = {
     brands: [
         '500px', 'accessible-icon', 'accusoft', 'acquisitions-incorporated', 'adn', 'adversal',
@@ -51,7 +50,7 @@ const groupedIcons = {
         'strava', 'stripe', 'stripe-s', 'studiovinari', 'stumbleupon', 'stumbleupon-circle', 'superpowers',
         'supple', 'suse', 'swift', 'symfony', 'teamspeak', 'telegram', 'telegram-plane', 'tencent-weibo',
         'the-red-yeti', 'themeco', 'themeisle', 'think-peaks', 'tiktok', 'trade-federation', 'trello',
-        'tumblr', 'tumblr-square', 'twitch', 'twitter', 'twitter-square', 'typo3', 'uber', 'ubuntu',
+        'tripadvisor', 'tumblr', 'tumblr-square', 'twitch', 'twitter', 'twitter-square', 'typo3', 'uber', 'ubuntu',
         'uikit', 'umbraco', 'uniregistry', 'unity', 'unsplash', 'untappd', 'ups', 'usb', 'usps', 'ussunnah',
         'vaadin', 'viacoin', 'viadeo', 'viadeo-square', 'viber', 'vimeo', 'vimeo-square', 'vimeo-v', 'vine', 'vk',
         'vnv', 'vuejs', 'waze', 'weebly', 'weibo', 'weixin', 'whatsapp', 'whatsapp-square', 'whmcs', 'wikipedia-w',
@@ -225,6 +224,7 @@ export default () => {
     const icons = {};
     Object.keys(groupedIcons).forEach(group => {
         groupedIcons[group].forEach(name => {
+            // eslint-disable-next-line import/no-dynamic-require
             icons[name] = require(`@fortawesome/fontawesome-free/svgs/${group}/${name}.svg`);
         });
     });
@@ -240,21 +240,13 @@ export default () => {
         back: 'arrow-left',
         securityEye: 'eye',
         securityEyeSlash: 'eye-slash',
+        success: require('./success.svg'),
+        info: require('./info.svg'),
+        warning: require('./warning.svg'),
+        error: require('./error.svg'),
+        close: require('./close.svg'),
+        default: require('./default.svg'),
     };
-
-    const steroidsIcons = [
-        'success',
-        'info',
-        'warning',
-        'error',
-        'close',
-        'default',
-    ];
-
-    steroidsIcons.forEach(iconName => {
-        icons[iconName] = require(`./${iconName}.svg`);
-    });
-
     Object.keys(coreIconsMap).forEach(name => {
         icons[name] = icons[coreIconsMap[name]];
     });
