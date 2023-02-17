@@ -1,0 +1,12 @@
+.BadgeView { 
+    
+    $root: &;
+    display: inline-block;
+    position: relative;
+
+    font-family: $font-family-nunito;
+
+    &_primary {
+        background-color: var(--primary);
+    }
+}
