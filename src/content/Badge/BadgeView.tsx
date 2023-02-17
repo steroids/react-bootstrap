@@ -43,7 +43,11 @@ export default function BadgeView(props: IBadgeViewProps) {
                             && (
                                 <span className={bem.element('counter')}>
                                     {typeof props.counter === 'object'
-                                        && <span className={bem.element('counter-content')}>{props.counter.content}</span>}
+                                        && (
+                                            <span className={bem.element('counter-content')}>
+                                                {props.counter.content}
+                                            </span>
+                                        )}
                                 </span>
                             )}
                     </div>
