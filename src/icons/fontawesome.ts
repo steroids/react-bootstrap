@@ -252,7 +252,7 @@ export default () => {
     ];
 
     steroidsIcons.forEach(iconName => {
-        icons[iconName] = require(`./${iconName}.svg`);
+        icons[iconName] = require(`./svgs/${iconName}.svg`);
     });
 
     Object.keys(coreIconsMap).forEach(name => {
