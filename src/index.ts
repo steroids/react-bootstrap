@@ -25,6 +25,9 @@ export default {
     'content.IconView': {
         lazy: () => require('./content/Icon/IconView').default,
     },
+    'content.BadgeView': {
+        lazy: () => require('./content/Badge/BadgeView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
