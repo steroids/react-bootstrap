@@ -240,12 +240,12 @@ export default () => {
         back: 'arrow-left',
         securityEye: 'eye',
         securityEyeSlash: 'eye-slash',
-        success: './svgs/success.svg',
-        info: './svgs/info.svg',
-        warning: './svgs/warning.svg',
-        error: './svgs/error.svg',
-        close: './svgs/close.svg',
-        default: './svgs/default.svg',
+        success: require('./svgs/success.svg'),
+        info: require('./svgs/info.svg'),
+        warning: require('./svgs/warning.svg'),
+        error: require('./svgs/error.svg'),
+        close: require('./svgs/close.svg'),
+        default: require('./svgs/default.svg'),
     };
     Object.keys(coreIconsMap).forEach(name => {
         icons[name] = icons[coreIconsMap[name]];
