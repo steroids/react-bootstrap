@@ -1,9 +1,9 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IBadgeViewProps} from '@steroidsjs/core/ui/content/Badge/Badge';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 
 import './BadgeView.scss';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 
 export default function BadgeView(props: IBadgeViewProps) {
     const bem = useBem('BadgeView');
