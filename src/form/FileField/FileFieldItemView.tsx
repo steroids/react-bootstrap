@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 
 export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemHocOutput) {
     const bem = useBem('FileFieldItemView');

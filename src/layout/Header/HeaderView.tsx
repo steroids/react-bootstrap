@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Link} from '@steroidsjs/core/ui/nav';
 import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function HeaderView(props: IHeaderViewProps) {

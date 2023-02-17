@@ -1,0 +1,153 @@
+:root {
+    --primary: #651fff;
+    --primary-dark: #5218d0;
+    --primary-light: #dbcbff;
+    --secondary: #a3aee6;
+    --secondary-dark: #6b76ad;
+    --secondary-light: #d9dfff;
+    --success: #2bc945;
+    --success-dark: #2abd42;
+    --success-light: #b9ffc3;
+    --danger: #fb4e4e;
+    --danger-dark: #ec4c4c;
+    --danger-light: #ffbfbf;
+    --info: #a7efff;
+    --info-dark: #8fd8e9;
+    --info-light: #d3f7ff;
+    --warning: #ffe457;
+    --warning-dark: #ebd251;
+    --warning-light: #fff6c6;
+    --graphite: #323232;
+    --gray-dark: #e1e1e1;
+    --gray: #ededed;
+    --light-gray: #f8f8f8;
+    --dark: #6f6b76;
+    --light: #9088a1;
+
+    html[data-theme="dark"] {
+        --primary: #8b57ff;
+        --primary-dark: #6648a7;
+        --primary-light: #ba9bff;
+        --secondary: #9ea8db;
+        --secondary-dark: #616a95;
+        --secondary-light: #bcc3e9;
+        --success: #3cf25a;
+        --success-dark: #34cc4d;
+        --success-light: #74ff8b;
+        --danger: #fc6666;
+        --danger-dark: #dc5858;
+        --danger-light: #ffa1a1;
+        --info: #9ae1f1;
+        --info-dark: #77c4d6;
+        --info-light: #ccf6ff;
+        --warning: #ffe457;
+        --warning-dark: #ebd251;
+        --warning-light: #fff6c8;
+        --graphite: #414141;
+        --gray-dark: #4e4f57;
+        --gray: #5b5c6b;
+        --light-gray: #928b9d;
+        --dark: #6b6477;
+        --light: #b7afc7;
+    }
+}
+
+/*
+ *  SCSS variables implementation
+ */
+$primary: var(--primary) !default;
+$primary-dark: var(--primary-dark) !default;
+$primary-light: var(--primary-light) !default;
+$secondary: var(--secondary) !default;
+$secondary-dark: var(--secondary-dark) !default;
+$secondary-light: var(--secondary-light) !default;
+$success: var(--success) !default;
+$success-dark: var(--success-dark) !default;
+$success-light: var(--success-light) !default;
+$danger: var(--danger) !default;
+$danger-dark: var(--danger-dark) !default;
+$danger-light: var(--danger-light) !default;
+$info: var(--info) !default;
+$info-dark: var(--info-dark) !default;
+$info-light: var(--info-light) !default;
+$warning: var(--warning) !default;
+$warning-dark: var(--warning-dark) !default;
+$warning-light: var(--warning-light) !default;
+$graphite: var(--graphite) !default;
+$gray-dark: var(--gray-dark) !default;
+$gray: var(--gray) !default;
+$light-gray: var(--light-gray) !default;
+$dark: var(--dark) !default;
+$light: var(--light) !default;
+
+/*
+ * Common colors   
+ */
+
+$black: rgba(#000, 1) !default;
+$black-60: rgba(#000, 0.6) !default;
+$black-30: rgba(#000, 0.3) !default;
+$black-10: rgba(#000, 0.1) !default;
+$black-4: rgba(#000, 0.04) !default;
+$white: #fff !default;
+
+$text-color: #312c3a !default;
+$link-color: #2ba3fb !default;
+
+$gradient-purple: linear-gradient(180deg, #7433FF, #FFA3FD);
+$gradient-red: linear-gradient(180deg, #EB0155, #FFFA80);
+
+$color-themes: () !default;
+$color-themes: map-merge(
+    (
+        "primary": (
+            "color": $primary,
+            "color-dark": $primary-dark,
+            "color-light": $primary-light,
+            "text-color": $white,
+        ),
+        "secondary": (
+            "color": $secondary,
+            "color-dark": $secondary-dark,
+            "color-light": $secondary-light,
+            "text-color": $white,
+        ),
+        "success": (
+            "color": $success,
+            "color-dark": $success-dark,
+            "color-light": $success-light,
+            "text-color": $white,
+        ),
+        "danger": (
+            "color": $danger,
+            "color-dark": $danger-dark,
+            "color-light": $danger-light,
+            "text-color": $white,
+        ),
+        "warning": (
+            "color": $warning,
+            "color-dark": $warning-dark,
+            "color-light": $warning-light,
+            "text-color": $dark,
+        ),
+        "info": (
+            "color": $info,
+            "color-dark": $info-dark,
+            "color-light": $info-light,
+            "text-color": $white,
+        ),
+        "light": (
+            "color": $light,
+            "color-dark": $dark,
+            "color-light": $light,
+            "text-color": $dark,
+        ),
+        "dark": (
+            "color": $dark,
+            "color-dark": $dark,
+            "color-light": $light,
+            "text-color": $white,
+        ),
+    ),
+    $color-themes
+);

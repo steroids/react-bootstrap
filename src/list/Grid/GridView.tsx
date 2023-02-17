@@ -59,9 +59,9 @@ export default function GridView(props: IGridViewProps) {
                 }}
             />
         );
-    }, [props.onSort, props.list?.sort]);
+    }, [bem, props]);
 
-    const emptyContent = useMemo(() => props.renderEmpty(), [props.renderEmpty]);
+    const emptyContent = useMemo(() => props.renderEmpty(), [props]);
 
     return props.renderList(
         <div className={bem(bem.block({loading: props.isLoading || props.list?.isLoading}), props.className)}>
@@ -69,49 +69,49 @@ export default function GridView(props: IGridViewProps) {
             {props.renderPaginationSize()}
             <table className='table table-striped'>
                 <thead>
-                <tr>
-                    {props.columns.map((column, columnIndex) => (
-                        <th
-                            key={columnIndex}
-                            className={column.headerClassName}
-                        >
-                            {column.label}
-                            {column.sortable && column.attribute && (
-                                <span>
-                                    {column.label && <span>&nbsp;</span>}
-                                    {renderSortButton(column.attribute, 'asc')}
-                                    {renderSortButton(column.attribute, 'desc')}
-                                </span>
-                            )}
-                        </th>
-                    ))}
-                </tr>
-                {renderInsideSearchForm()}
-                </thead>
-                <tbody>
-                {props.items && props.items.map((item, rowIndex) => (
-                    <tr key={item[props.primaryKey] || rowIndex}>
+                    <tr>
                         {props.columns.map((column, columnIndex) => (
-                            <td
+                            <th
                                 key={columnIndex}
-                                className={column.className}
-                                data-label={_isString(column.label) ? column.label : null}
+                                className={column.headerClassName}
                             >
-                                {props.renderValue(item, column)}
-                            </td>
+                                {column.label}
+                                {column.sortable && column.attribute && (
+                                    <span>
+                                        {column.label && <span>&nbsp;</span>}
+                                        {renderSortButton(column.attribute, 'asc')}
+                                        {renderSortButton(column.attribute, 'desc')}
+                                    </span>
+                                )}
+                            </th>
                         ))}
                     </tr>
-                ))}
-                {emptyContent && (
-                    <tr>
-                        <td colSpan={props.columns.length}>
-                            {emptyContent}
-                        </td>
-                    </tr>
-                )}
+                    {renderInsideSearchForm()}
+                </thead>
+                <tbody>
+                    {props.items && props.items.map((item, rowIndex) => (
+                        <tr key={item[props.primaryKey] || rowIndex}>
+                            {props.columns.map((column, columnIndex) => (
+                                <td
+                                    key={columnIndex}
+                                    className={column.className}
+                                    data-label={_isString(column.label) ? column.label : null}
+                                >
+                                    {props.renderValue(item, column)}
+                                </td>
+                            ))}
+                        </tr>
+                    ))}
+                    {emptyContent && (
+                        <tr>
+                            <td colSpan={props.columns.length}>
+                                {emptyContent}
+                            </td>
+                        </tr>
+                    )}
                 </tbody>
             </table>
             {props.renderPagination()}
-        </div>
+        </div>,
     );
 }

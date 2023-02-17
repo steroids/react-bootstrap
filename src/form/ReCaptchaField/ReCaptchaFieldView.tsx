@@ -25,7 +25,8 @@ export default function ReCaptchaFieldView(props: IReCaptchaFieldViewProps & IBe
                     label={__('Terms of Service')}
                     layout={false}
                 />
-                {' ' + __('apply')}.
+                {' ' + __('apply')}
+                .
             </small>
         </div>
     );

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import {ICollapseItemViewProps} from '@steroidsjs/core/ui/content/Collapse/CollapseItem';
 
@@ -25,6 +25,7 @@ export default function CollapseItemView(props: ICollapseItemViewProps) {
                 className={bem.element('header-container', {revert: props.iconPosition === 'left'})}
                 onClick={!props.disabled
                     ? () => {
+                        // eslint-disable-next-line no-unused-expressions
                         props.isAccordion
                             ? props.toggleAccordion(props.childIndex)
                             : props.toggleCollapse(props.childIndex);

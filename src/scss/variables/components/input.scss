@@ -1,3 +1,58 @@
+//Small
+$input-label-margin-bottom-sm: 4px;
+
+$input-padding-x-sm: 12px;
+$input-padding-y-sm: 5px;
+
+$input-margin-bottom-sm: 20px;
+$input-outline-width-sm: 4px;
+$input-border-width-sm: 1px;
+
+$input-icon-margin-right-sm: 12px;
+$input-icon-close-margin-left-sm: 12px;
+$input-icon-size-sm: 24px;
+
+$input-message-margin-top-sm: 4px;
+$input-message-icon-size-sm: 16px;
+$input-message-icon-margin-right-sm: 4px;
+
+//Medium 
+$input-label-margin-bottom-md: $input-label-margin-bottom-sm;
+
+$input-padding-x-md: $input-padding-x-sm;
+$input-padding-y-md: 11px;
+
+$input-margin-bottom-md: $input-margin-bottom-sm;
+$input-outline-width-md: $input-outline-width-sm;
+$input-border-width-md: $input-border-width-sm;
+
+$input-icon-margin-right-md: $input-icon-margin-right-sm;
+$input-icon-close-margin-left-md: $input-icon-close-margin-left-sm;
+$input-icon-size-md: $input-icon-size-sm;
+
+$input-message-margin-top-md: $input-message-margin-top-sm;
+$input-message-icon-size-md: $input-message-icon-size-sm;
+$input-message-icon-margin-right-md: $input-message-icon-margin-right-sm;
+
+//Large
+$input-label-margin-bottom-lg: $input-label-margin-bottom-sm;
+
+$input-padding-x-lg: $input-padding-x-sm;
+$input-padding-y-lg: 16px;
+
+$input-margin-bottom-lg: $input-margin-bottom-sm;
+$input-outline-width-lg: $input-outline-width-sm;
+$input-border-width-lg: $input-border-width-sm;
+
+$input-icon-margin-right-lg: $input-icon-margin-right-sm;
+$input-icon-close-margin-left-lg: $input-icon-close-margin-left-sm;
+$input-icon-size-lg: $input-icon-size-sm;
+
+$input-message-margin-top-lg: $input-message-margin-top-sm;
+$input-message-icon-size-lg: $input-message-icon-size-sm;
+$input-message-icon-margin-right-lg: $input-message-icon-margin-right-sm;
+
+
 $input-height-sm: 28px !default;
 $input-height-md: 36px !default;
 $input-height-lg: 46px !default;

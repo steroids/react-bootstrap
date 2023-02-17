@@ -216,15 +216,15 @@ const groupedIcons = {
         'weight-hanging', 'wheelchair', 'wifi', 'wind', 'window-close', 'window-maximize', 'window-minimize',
         'window-restore', 'wine-bottle', 'wine-glass', 'wine-glass-alt', 'won-sign', 'wrench', 'x-ray', 'yen-sign',
         'yin-yang',
-    ]
+    ],
 };
-
 
 export default () => {
     // All icons
     const icons = {};
     Object.keys(groupedIcons).forEach(group => {
         groupedIcons[group].forEach(name => {
+            // eslint-disable-next-line import/no-dynamic-require
             icons[name] = require(`@fortawesome/fontawesome-free/svgs/${group}/${name}.svg`);
         });
     });
@@ -240,14 +240,16 @@ export default () => {
         back: 'arrow-left',
         securityEye: 'eye',
         securityEyeSlash: 'eye-slash',
-        success: 'check-circle',
-        info: 'info-circle',
-        warning: 'exclamation-circle',
-        error: 'times-circle',
+        success: require('./svgs/success.svg'),
+        info: require('./svgs/info.svg'),
+        warning: require('./svgs/warning.svg'),
+        error: require('./svgs/error.svg'),
+        close: require('./svgs/close.svg'),
+        default: require('./svgs/default.svg'),
     };
     Object.keys(coreIconsMap).forEach(name => {
         icons[name] = icons[coreIconsMap[name]];
-    });   
-    
+    });
+
     return icons;
 };

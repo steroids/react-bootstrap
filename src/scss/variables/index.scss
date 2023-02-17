@@ -1,6 +1,9 @@
-@import 'colors';
-@import 'components/alert';
-@import 'components/avatar';
+@import 'common/colors';
+@import 'common/typography';
+@import 'common/spacing';
+@import 'common/radiuses';
+@import 'common/old-variables';
+
 @import 'components/button';
 @import 'components/calendar';
 @import 'components/card';

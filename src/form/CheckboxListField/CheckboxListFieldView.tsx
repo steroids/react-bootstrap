@@ -15,6 +15,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                     key={item.id as ReactText}
                     className="custom-control custom-checkbox"
                 >
+                    {/*eslint-disable-next-line jsx-a11y/mouse-events-have-key-events*/}
                     <input
                         {...props.inputProps}
                         disabled={props.disabled}

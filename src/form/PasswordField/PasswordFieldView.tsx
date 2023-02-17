@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IPasswordFieldViewProps} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemHocOutput) {

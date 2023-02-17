@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useCallback} from 'react';
 import {IDateFieldViewProps} from '@steroidsjs/core/ui/form/DateField/DateField';
-import Icon from '@steroidsjs/core/ui/icon/Icon';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
