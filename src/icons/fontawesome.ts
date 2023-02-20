@@ -249,6 +249,7 @@ export default () => {
         'error',
         'close',
         'default',
+        'badge-close',
     ];
 
     steroidsIcons.forEach(iconName => {
