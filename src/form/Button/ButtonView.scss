@@ -7,27 +7,30 @@
 
   &_button {
     position: relative;
-    border-radius: $button-border-radius;
+    border-radius: 8px;
     user-select: none;
-    border: $button-border;
+    border: 3px solid transparent;
 
-    padding: $button-padding-y $button-padding-x;
+    padding: 0 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-weight: $button-font-weight;
-    font-size: $button-font-size;
+    font-family: $font-family-nunito;
+    font-weight: $btn-font-weight-sm;
+    font-size: $font-size-sm;
+    line-height: $btn-font-weight;
+    outline: none;
 
-    @each $color, $value in $color-themes {
-      &#{$root}_color_#{$color} {
-        @include button-theme($value)
+    @each $colorName, $colorMap in $color-themes {
+      &#{$root}_color_#{$colorName} {
+        @include button-theme($colorMap, $colorName)
       }
     }
 
-    @each $color, $value in $color-themes {
-      &#{$root}_outline_#{$color} {
-        @include button-outline-theme($value)
+    @each $colorName, $colorMap in $color-themes {
+      &#{$root}_outline_#{$colorName} {
+        @include button-outline-theme($colorMap, $colorName)
       }
     }
 
@@ -44,16 +47,27 @@
 
   &_size {
     &_sm {
-      height: $button-height-sm;
-      font-size: $button-font-size-sm;
+      height: 34px;
+      font-size: $font-size-sm;
+      border-radius: $radius-small;
     }
     &_md {
-      height: $button-height-md;
-      font-size: $button-font-size-md;
+      height: 46px;
+      font-size: $font-size-base;
+      border-radius: $radius-large;
     }
     &_lg {
-      height: $button-height-lg;
-      font-size: $button-font-size-lg;
+      height: 56px;
+      font-size: $font-size-lg;
+      border-radius: $radius-large;
+    }
+  }
+
+  &_thickness {  
+    &_bold { 
+        font-weight: $btn-font-weight-lg;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
     }
   }
 

@@ -73,6 +73,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             loading: props.isLoading,
             failed: props.isFailed,
             link: props.tag === 'a',
+            thickness: props.fontThickness,
         }),
         props.block && 'btn-block',
         props.link && 'btn-link',

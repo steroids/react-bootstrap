@@ -36,16 +36,6 @@
 
             @if ($type == "warning" or $type == "info") {
                 color: $text-color;
-
-                #{$root}__close {
-                    svg {
-                        path,
-                        rect {
-                            fill: #000;
-                            stroke: #000;
-                        }
-                    }
-                }
             }
         }
     }
