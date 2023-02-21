@@ -36,6 +36,14 @@
 
             @if ($type == "warning" or $type == "info") {
                 color: $text-color;
+
+                #{$root}__close {
+                    svg {
+                        path {
+                            stroke: #000;
+                        }
+                    }
+                }
             }
         }
     }
@@ -76,6 +84,18 @@
 
         #{$root}__message {
             margin-right: 8px;
+        }
+
+        #{$root}__counter {
+            margin-right: 8px;
+        }
+
+        #{$root}__close { 
+            svg {
+                path { 
+                    stroke: #000;
+                }
+            }
         }
     }
 }
