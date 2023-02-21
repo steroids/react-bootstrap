@@ -1,9 +1,6 @@
-@mixin button-theme($colorMap, $colorName) {
+@mixin button-theme($colorMap, $colorName, $root) {
     background-color: map-get($colorMap, color);
     color: map-get($colorMap, text-color);
-
-    @if ($colorName == "basic" or $colorName == "info" or $colorName == "warning") {
-    }
 
     &:hover {
         background-color: map-get($colorMap, color-dark);
@@ -15,9 +12,21 @@
     &:active {
         background-color: map-get($colorMap, color-light);
     }
+
+    #{$root}__loader { 
+        svg {
+            path { 
+                stroke: map-get($colorMap, color-light);
+
+                @if ($colorName == 'basic' ) {
+                    stroke: map-get($colorMap, color-dark);
+                }
+            }
+        }
+    }
 }
 
-@mixin button-outline-theme($colorMap, $colorName) {
+@mixin button-outline-theme($colorMap, $colorName, $root) {
     background-color: transparent;
     color: map-get($colorMap, color);
     border: 1px solid map-get($colorMap, color);
@@ -38,5 +47,13 @@
 
     @if ($colorName == "basic") {
         color: $text-color;
+    }
+
+    #{$root}__loader { 
+        svg {
+            path { 
+                stroke: map-get($colorMap, color);
+            }
+        }
     }
 }

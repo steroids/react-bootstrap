@@ -1,110 +1,121 @@
 .ButtonView {
-  $root: &;
+    $root: &;
 
-  transition-property: color, background-color, border-color, box-shadow;
-  transition-duration: .15s;
-  transition-timing-function: ease-in-out;
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-duration: 0.15s;
+    transition-timing-function: ease-in-out;
 
-  &_button {
-    position: relative;
-    border-radius: 8px;
-    user-select: none;
-    border: 3px solid transparent;
+    width: 160px;
 
-    padding: 0 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &_button {
+        position: relative;
+        border-radius: 8px;
+        user-select: none;
+        border: 3px solid transparent;
 
-    font-family: $font-family-nunito;
-    font-weight: $btn-font-weight-sm;
-    font-size: $font-size-sm;
-    line-height: $btn-font-weight;
-    outline: none;
+        padding: 0 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    @each $colorName, $colorMap in $color-themes {
-      &#{$root}_color_#{$colorName} {
-        @include button-theme($colorMap, $colorName)
-      }
+        font-family: $font-family-nunito;
+        font-weight: $btn-font-weight-sm;
+        font-size: $font-size-sm;
+        line-height: $btn-line-height;
+        outline: none;
+
+        @each $colorName, $colorMap in $color-themes {
+            &#{$root}_color_#{$colorName} {
+                @include button-theme($colorMap, $colorName, $root);
+            }
+        }
+
+        @each $colorName, $colorMap in $color-themes {
+            &#{$root}_outline_#{$colorName} {
+                @include button-outline-theme($colorMap, $colorName, $root);
+            }
+        }
     }
 
-    @each $colorName, $colorMap in $color-themes {
-      &#{$root}_outline_#{$colorName} {
-        @include button-outline-theme($colorMap, $colorName)
-      }
+    &_disabled {
+        opacity: 0.5;
+        color: rgba(0, 0, 0, 0.25);
+        cursor: not-allowed;
+        input {
+            cursor: inherit;
+        }
     }
 
-  }
-
-  &_disabled {
-    opacity: .5;
-    color: rgba(0, 0, 0, .25);
-    cursor: not-allowed;
-    input {
-      cursor: inherit;
+    &_size {
+        &_sm {
+            height: 34px;
+            font-size: $font-size-sm;
+            border-radius: $radius-small;
+        }
+        &_md {
+            height: 46px;
+            font-size: $font-size-base;
+            border-radius: $radius-large;
+        }
+        &_lg {
+            height: 56px;
+            font-size: $font-size-lg;
+            border-radius: $radius-large;
+        }
     }
-  }
 
-  &_size {
-    &_sm {
-      height: 34px;
-      font-size: $font-size-sm;
-      border-radius: $radius-small;
+    &_thickness {
+        &_bold {
+            font-weight: $btn-font-weight-lg;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
     }
-    &_md {
-      height: 46px;
-      font-size: $font-size-base;
-      border-radius: $radius-large;
+
+    &_link {
+        justify-content: flex-start;
+        background-color: transparent;
     }
-    &_lg {
-      height: 56px;
-      font-size: $font-size-lg;
-      border-radius: $radius-large;
+
+    &__icon {
+        margin-right: 3px;
+
+        &_without-label {
+            margin: 0;
+        }
     }
-  }
 
-  &_thickness {  
-    &_bold { 
-        font-weight: $btn-font-weight-lg;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+    &_failed {
+        &,
+        &:hover {
+            border-color: $danger;
+            box-shadow: 0 0 1rem rgba($danger, 0.2);
+        }
     }
-  }
 
-  &_link {
-    justify-content: flex-start;
-    background-color: transparent;
-  }
-
-  &__icon {
-    margin-right: 3px;
-
-    &_without-label {
-      margin: 0;
+    &__preloader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-  }
 
-  &_failed {
-    &, &:hover {
-      border-color: $danger;
-      box-shadow: 0 0 1rem rgba($danger, .2);
+    &__badge {
+        position: relative;
+        top: -1px;
+        margin-left: 4px;
     }
-  }
 
-  &_loading &__label {
-    opacity: 0;
-  }
+    &__loader {
+        svg {
+            transform-origin: center;
+            animation: rotate 1.45s linear infinite;
+        }
+    }
+}
 
-  &__preloader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  &__badge {
-    position: relative;
-    top: -1px;
-    margin-left: 4px;
-  }
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
 }

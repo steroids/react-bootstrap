@@ -9,6 +9,8 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
     const bem = useBem('ButtonView');
 
+    console.log(props.isLoading);
+
     const renderLabel = () => {
         const title = props.label && _isString(props.label)
             ? props.label
@@ -16,15 +18,12 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
         return (
             <>
                 {props.isLoading && (
-                    <div className={bem.element('preloader')}>
-                        <span
-                            className='spinner-border spinner-border-sm'
-                            role='status'
-                            aria-hidden='true'
-                        />
-                    </div>
+                    <Icon
+                        className={bem.element('loader')}
+                        name='loader'
+                    />
                 )}
-                {(props.showLabelOnLoading || !props.isLoading) && (
+                {!props.isLoading && (
                     <span
                         className={bem.element('label')}
                     >
@@ -70,7 +69,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             size: props.size,
             disabled: props.disabled,
             submitting: props.submitting,
-            loading: props.isLoading,
+            loading: !!props.isLoading,
             failed: props.isFailed,
             link: props.tag === 'a',
             thickness: props.fontThickness,

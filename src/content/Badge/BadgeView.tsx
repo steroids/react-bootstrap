@@ -27,16 +27,15 @@ export default function BadgeView(props: IBadgeViewProps) {
                         <span className={bem.element('message')}>
                             {props.message}
                         </span>
-                        {props.counter
-                            && (
-                                <span className={bem.element('counter')}>
-                                    {typeof props.counter === 'object' && (
-                                        <span className={bem.element('counter-content')}>
-                                            {props.counter.content}
-                                        </span>
-                                    )}
-                                </span>
-                            )}
+                        {props.counter && (
+                            <span className={bem.element('counter')}>
+                                {typeof props.counter === 'object' && (
+                                    <span className={bem.element('counter-content')}>
+                                        {props.counter.content}
+                                    </span>
+                                )}
+                            </span>
+                        )}
                         {props.showClose && (
                             <Icon
                                 onClick={props.onClose}
