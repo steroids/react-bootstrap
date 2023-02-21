@@ -1,46 +1,64 @@
 .CheckboxFieldView {
-  display: inline-block;
+    display: inline-block;
 
-  &__label {
-    &-text {
-      &_required:after {
-        display: inline-block;
-        content: '*';
-        color: $danger;
-        margin: 0 0 0 3px;
-      }
-    }
-  }
-  .custom-control-label {
-    &::before, &::after {
-      top: 0;
-    }
-  }
+    font-family: $font-family-nunito;
 
-  .custom-control-input {
-    &:checked ~ .custom-control-label {
-      &::before {
-        border-color: $primary;
-        background: $primary;
-      }
-      &:hover {
-        &::before {
-          background: $primary-dark;
+    &__label {
+        &-text {
+            padding-left: $spacing-8;
+            font-size: $font-size-sm;
+            font-weight: $font-weight-md;
+
+
+            &_required:after {
+                display: inline-block;
+                content: "*";
+                color: $danger;
+                margin: 0 0 0 3px;
+            }
         }
-      }
-      &:active {
-        &::before {
-          background: $primary-light;
-        }
-      }
     }
-    &:disabled ~ .custom-control-label {
-      color: $border-default;
+    .custom-control-label {
+        &::before,
+        &::after {
+            width: 24px;
+            height: 24px;
 
-      &::before {
-        border: unset;
-        background-color: $back-disabled;
-      }
+            top: -50%;
+            transform: translateY(50%);
+            border-radius: $radius-small;
+
+
+        }
     }
-  }
+
+    .custom-control-input {
+        &:checked ~ .custom-control-label {
+            &::after {
+                // background-image: url("data:image/svg+xml, %3Csvg%20width%3D%2225%22%20height%3D%2224%22%20viewBox%3D%220%200%2025%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.708984%22%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%228%22%20fill%3D%22%235218D0%22%2F%3E%0A%3Cpath%20d%3D%22M16.709%209L11.209%2015L8.70898%2012.2727%22%20stroke%3D%22white%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E%0A")
+            }
+            &::before {
+                border-color: $primary;
+                background: $primary;
+            }
+            &:hover {
+                &::before {
+                    background: $primary-dark;
+                }
+            }
+            &:active {
+                &::before {
+                    background: $primary-light;
+                }
+            }
+        }
+        &:disabled ~ .custom-control-label {
+            color: $border-default;
+
+            &::before {
+                border: unset;
+                background-color: $back-disabled;
+            }
+        }
+    }
 }
