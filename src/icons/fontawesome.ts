@@ -251,6 +251,7 @@ export default () => {
         'default',
         'badge-close',
         'loader',
+        'accordion-chevron',
     ];
 
     steroidsIcons.forEach(iconName => {

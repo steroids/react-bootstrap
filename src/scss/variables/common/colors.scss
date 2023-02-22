@@ -24,6 +24,7 @@
     --dark: #6f6b76;
     --light: #9088a1;
     --text-color: #312C3A;
+    --is-dark: 'false';
 
     html[data-theme="dark"] {
         --primary: #8b57ff;
@@ -51,6 +52,7 @@
         --dark: #6b6477;
         --light: #b7afc7;
         --text-color: #FFFFFF;
+        --is-dark: 'true';
     }
 }
 
@@ -82,6 +84,7 @@ $light-gray: var(--light-gray);
 $dark: var(--dark);
 $light: var(--light);
 $text-color: var(--text-color);
+$is-dark: var(--is-dark);
 
 /*
  * Common colors   

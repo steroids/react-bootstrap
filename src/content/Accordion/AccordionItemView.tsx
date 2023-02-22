@@ -1,15 +1,13 @@
 import * as React from 'react';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
-import {ICollapseItemViewProps} from '@steroidsjs/core/ui/content/Collapse/CollapseItem';
+import {IAccordionCommonViewProps} from '@steroidsjs/core/ui/content/Accordion/Accordion';
 
-export default function CollapseItemView(props: ICollapseItemViewProps) {
-    const bem = useBem('CollapseItemView');
+export default function AccordionItemView(props: IAccordionCommonViewProps) {
+    const bem = useBem('AccordionItemView');
 
     React.useEffect(() => {
-        if (props.isAccordion) {
-            props.toggleAccordion(props.activeKey - 1);
-        } else { props.toggleCollapse(props.activeKey - 1); }
+        props.toggleAccordion(props.activeKey - 1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.activeKey]);
 
@@ -17,18 +15,17 @@ export default function CollapseItemView(props: ICollapseItemViewProps) {
         <div
             className={bem(bem.block({
                 disable: props.disabled,
-                borderless: props.borderless,
+                [`position_${props.positionStyle}`]: !!props.positionStyle,
+                [`theme_${props.theme}`]: !!props.theme,
             }), props.className)}
             style={props.style}
         >
             <div
-                className={bem.element('header-container', {revert: props.iconPosition === 'left'})}
+                className={bem.element('header-container')}
                 onClick={!props.disabled
                     ? () => {
                         // eslint-disable-next-line no-unused-expressions
-                        props.isAccordion
-                            ? props.toggleAccordion(props.childIndex)
-                            : props.toggleCollapse(props.childIndex);
+                        props.toggleAccordion(props.childIndex);
                     }
                     : null}
             >
@@ -37,16 +34,15 @@ export default function CollapseItemView(props: ICollapseItemViewProps) {
                         {props.title}
                     </p>
                 </div>
-                <div className={bem.element('icon-wrapper', {not_visible: !props.showIcon})}>
+                <div className={bem.element('icon-wrapper')}>
                     {props.icon
                         ? (typeof props.icon === 'string' ? <Icon name={props.icon} /> : props.icon)
                         : (
                             <Icon
                                 className={bem.element('icon', {
                                     active: !props.disabled && props.isShowMore,
-                                    disable_cursor: !props.showIcon,
                                 })}
-                                name="chevron-down"
+                                name="accordion-chevron"
                             />
                         )}
                 </div>
