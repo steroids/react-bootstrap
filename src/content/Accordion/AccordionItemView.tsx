@@ -7,9 +7,17 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
     const bem = useBem('AccordionItemView');
 
     React.useEffect(() => {
+        if (!props.toggleAccordion || !props.activeKey) return;
+
         props.toggleAccordion(props.activeKey - 1);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.activeKey]);
+
+    const handleHeaderClick = () => {
+        if (props.disabled || !props.toggleAccordion) return;
+
+        props.toggleAccordion(props.childIndex);
+    };
 
     return (
         <div
@@ -22,12 +30,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
         >
             <div
                 className={bem.element('header-container')}
-                onClick={!props.disabled
-                    ? () => {
-                        // eslint-disable-next-line no-unused-expressions
-                        props.toggleAccordion(props.childIndex);
-                    }
-                    : null}
+                onClick={handleHeaderClick}
             >
                 <div className={bem.element('title-container')}>
                     <p>
