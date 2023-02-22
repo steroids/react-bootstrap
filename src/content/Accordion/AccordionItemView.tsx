@@ -15,7 +15,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
         <div
             className={bem(bem.block({
                 disable: props.disabled,
-                [`position_${props.positionStyle}`]: !!props.positionStyle,
+                [`position_${props.position}`]: !!props.position,
                 [`theme_${props.theme}`]: !!props.theme,
             }), props.className)}
             style={props.style}

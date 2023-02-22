@@ -9,7 +9,7 @@
         --accordion-background-light: #414141;
         --accordion-background-intermediate: #5b5c6b;
         --accordion-background-dark: #4e4f57;
-        --accordion-rect-background: #6F6B76;
+        --accordion-rect-background: #6f6b76;
         --accordion-chevron-color: #ffffff;
     }
 }
@@ -73,29 +73,42 @@ $accordion-chevron-color: var(--accordion-chevron-color);
                 border-radius: $radius-large $radius-large 0 0;
             }
         }
+
         &_middle {
             #{$root}__header-container {
                 border-top: 1px solid rgba(#000, 0.1);
                 border-radius: 0px;
             }
         }
+
         &_bottom {
+            #{$root}__content {
+                grid-row-start: 1;
+                grid-row-end: 1;
+            }
+
             #{$root}__header-container {
                 border-top: 1px solid rgba(#000, 0.1);
                 border-radius: 0 0 $radius-large $radius-large;
+                grid-row-start: 2;
+                grid-row-end: 2;
+            }
+
+            #{$root}__icon { 
+                transform: rotate(180deg);
+                &_active {
+                    transform: rotate(0deg);
+                }
             }
         }
     }
 
     &_disable {
         opacity: 0.4;
-        background-color: #d7d7d7;
         color: rgba(#212529, 0.7);
-
-        .IconView {
-            svg {
-                width: auto;
-            }
+        
+        #{$root}__header-container {
+            background-color: #d7d7d7;
         }
     }
 
@@ -152,7 +165,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         overflow: hidden;
         max-height: 0;
         padding: 0 $spacing-16;
-        color: #343A40;
+        color: #343a40;
 
         &_visible {
             max-height: 1024px;
