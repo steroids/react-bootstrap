@@ -23,8 +23,8 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
             return null;
         }
 
-        const openClassName = bem.element('open-icon');
-        const closeClassName = bem.element('close-icon');
+        const openIconClassName = bem.element('open-icon');
+        const closeIconClassName = bem.element('close-icon');
 
         if (typeof props.icon === 'object') {
             const icons = props.icon as IAccordionIcon;
@@ -35,11 +35,11 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
                         ? (
                             <Icon
                                 name={icons.open}
-                                className={openClassName}
+                                className={openIconClassName}
                             />
                         )
                         : (
-                            <span className={openClassName}>
+                            <span className={openIconClassName}>
                                 {icons.open}
                             </span>
                         )}
@@ -47,11 +47,11 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
                         ? (
                             <Icon
                                 name={icons.close}
-                                className={closeClassName}
+                                className={closeIconClassName}
                             />
                         )
                         : (
-                            <span className={closeClassName}>
+                            <span className={closeIconClassName}>
                                 {icons.close}
                             </span>
                         )}
@@ -84,13 +84,15 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
 
     return (
         <div
-            className={bem(bem.block({
-                disable: props.disabled,
-                [`position_${props.position}`]: !!props.position,
-                [`theme_${props.theme}`]: !!props.theme,
-                opened: !props.disabled && props.isShowMore,
-            }),
-                props.className)}
+            className={bem(
+                bem.block({
+                    disable: props.disabled,
+                    [`position_${props.position}`]: !!props.position,
+                    [`theme_${props.theme}`]: !!props.theme,
+                    opened: !props.disabled && props.isShowMore,
+                }),
+                props.className,
+            )}
             style={props.style}
         >
             <div
