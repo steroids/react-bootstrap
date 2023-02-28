@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
-import {IAccordionCommonViewProps} from '@steroidsjs/core/ui/content/Accordion/Accordion';
+import {IAccordionCommonViewProps, IAccordionIcon} from '@steroidsjs/core/ui/content/Accordion/Accordion';
 
 export default function AccordionItemView(props: IAccordionCommonViewProps) {
     const bem = useBem('AccordionItemView');
@@ -18,7 +18,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.activeKey]);
 
-    const renderIcons = () => {
+    const renderIcon = React.useCallback(() => {
         if (!props.icon) {
             return null;
         }
@@ -26,19 +26,49 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
         const openClassName = bem.element('open-icon');
         const closeClassName = bem.element('close-icon');
 
-        return (
-            <>
-                {typeof props.icon.open === 'string'
-                    ? <Icon name={props.icon.open} className={openClassName} />
-                    : <span className={openClassName}>{props.icon.open}</span>}
-                {typeof props.icon.close === 'string'
-                    ? <Icon name={props.icon.close} className={closeClassName} />
-                    : <span className={closeClassName}>{props.icon.close}</span>}
-            </>
-        );
-    };
+        if (typeof props.icon === 'object') {
+            const icons = props.icon as IAccordionIcon;
 
-    const handleHeaderClick = () => {
+            return (
+                <>
+                    {typeof icons.open === 'string'
+                        ? (
+                            <Icon
+                                name={icons.open}
+                                className={openClassName}
+                            />
+                        )
+                        : (
+                            <span className={openClassName}>
+                                {icons.open}
+                            </span>
+                        )}
+                    {typeof icons.close === 'string'
+                        ? (
+                            <Icon
+                                name={icons.close}
+                                className={closeClassName}
+                            />
+                        )
+                        : (
+                            <span className={closeClassName}>
+                                {icons.close}
+                            </span>
+                        )}
+                </>
+            );
+        }
+
+        return typeof props.icon === 'string'
+            ? <Icon name={props.icon} />
+            : (
+                <span className={bem.element('custom-icon')}>
+                    {props.icon}
+                </span>
+            );
+    }, [bem, props.icon]);
+
+    const handleHeaderClick = React.useCallback(() => {
         if (props.disabled || !props.toggleAccordion || !props.toggleCollapse) {
             return;
         }
@@ -50,7 +80,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
         } else {
             toggleCollapse(childIndex);
         }
-    };
+    }, [props]);
 
     return (
         <div
@@ -74,7 +104,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
                 </div>
                 <div className={bem.element('icon-wrapper')}>
                     {props.icon
-                        ? renderIcons()
+                        ? renderIcon()
                         : (
                             <Icon
                                 className={bem.element('icon', {
