@@ -68,7 +68,6 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             loading: !!props.isLoading,
             failed: props.isFailed,
             link: props.tag === 'a',
-            thickness: props.fontThickness,
         }),
         props.block && 'btn-block',
         props.link && 'btn-link',
@@ -94,7 +93,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
         <button
             title={props.hint}
             type={props.type}
-            disabled={props.disabled}
+            disabled={props.disabled || props.isLoading}
             onClick={props.onClick}
             style={props.style}
             className={className}

@@ -94,7 +94,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
                 grid-row-end: 2;
             }
 
-            #{$root}__icon { 
+            #{$root}__icon {
                 transform: rotate(180deg);
                 &_active {
                     transform: rotate(0deg);
@@ -106,7 +106,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
     &_disable {
         opacity: 0.4;
         color: rgba(#212529, 0.7);
-        
+
         #{$root}__header-container {
             background-color: #d7d7d7;
         }
@@ -171,6 +171,30 @@ $accordion-chevron-color: var(--accordion-chevron-color);
             max-height: 1024px;
             padding: 18px 32px 18px $spacing-16;
             border: 1px solid rgba(#000, 0.1);
+        }
+    }
+
+
+    &__close-icon, &__open-icon {
+        transition: opacity 150ms ease-in-out;
+    }
+
+    &__close-icon { 
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &_opened { 
+        #{$root}__close-icon { 
+            position: static;
+            opacity: 1;
+            pointer-events: all;
+        }
+        #{$root}__open-icon {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
         }
     }
 }

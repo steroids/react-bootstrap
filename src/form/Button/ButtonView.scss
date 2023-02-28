@@ -1,3 +1,8 @@
+$btn-font-weight-sm: 400;
+$btn-font-weight-lg: 800;=
+$btn-line-height: 24px;
+$btn-letter-spacing: 0.1em;
+
 .ButtonView {
     $root: &;
 
@@ -64,22 +69,12 @@
         }
     }
 
-    &_thickness {
-        &_bold {
-            font-weight: $btn-font-weight-lg;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-    }
-
     &_link {
-        justify-content: flex-start;
+        justify-content: center;
         background-color: transparent;
     }
 
     &__icon {
-        margin-right: 3px;
-
         &_without-label {
             margin: 0;
         }
@@ -111,6 +106,12 @@
             transform-origin: center;
             animation: rotate 1.45s linear infinite;
         }
+    }
+
+    &__label { 
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
     }
 }
 
