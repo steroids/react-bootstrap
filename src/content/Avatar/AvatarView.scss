@@ -1,18 +1,17 @@
 :root {
     --border-width-small: 1px;
-    --border-width-medium: 1.5px;
+    --border-width-medium: 2px;
     --border-width-large: 2px;
     --border-width: var(--border-width-large);
 
-    --status-border-width-small: 2px;
-    --status-border-width-medium: 3px;
+    --status-border-width-small: 1px;
+    --status-border-width-medium: 2px;
     --status-border-width-large: 4px;
     --status-border-width: var(--status-border-width-large);
 
     --status-size-small: 8px;
-    --status-size-medium: 10px;
-    --status-size-large: 12px;
-    --status-size-x-large: 14px;
+    --status-size-medium: 12px;
+    --status-size-large: 14px;
     --status-size: var(--status-size-x-large);
 }
 
@@ -24,7 +23,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        padding: 55%;
+        padding: 53%;
         border-radius: 100%;
         border: var(--border-width) solid transparent;
         background: $background border-box;
@@ -47,39 +46,28 @@
     }
 
     &_size {
-        &_x-large {
+
+        &_large {
             #{$root}__body {
                 height: 64px;
                 width: 64px;
                 line-height: 64px;
-                font-size: 20px;
-            }
-            --border-width: var(--border-width-large);
-            --status-border-width: var(--status-border-width-large);
-            --status-size: var(--status-size-x-large);
-        }
-
-        &_large {
-            #{$root}__body {
-                height: 46px;
-                width: 46px;
-                line-height: 46px;
                 font-size: $font-size-base;
             }
             --border-width: var(--border-width-large);
-            --status-border-width: var(--status-border-width-medium);
+            --status-border-width: var(--status-border-width-large);
             --status-size: var(--status-size-large);
         }
 
         &_middle {
             #{$root}__body {
-                height: 36px;
-                width: 36px;
-                line-height: 36px;
+                height: 46px;
+                width: 46px;
+                line-height: 46px;
                 font-size: $font-size-sm;
             }
             --border-width: var(--border-width-medium);
-            --status-border-width: var(--status-border-width-small);
+            --status-border-width: var(--status-border-width-medium);
             --status-size: var(--status-size-medium);
         }
 
@@ -121,8 +109,8 @@
             content: "";
             position: absolute;
             box-sizing: content-box;
-            right: -7%;
-            bottom: -7%;
+            right: -6%;
+            bottom: -6%;
             width: var(--status-size);
             height: var(--status-size);
             z-index: 10;
@@ -136,12 +124,8 @@
         }
     }
 
-    &_has-border-avatar {
-        @include border($gradient-purple);
-    }
-
-    &_has-border-without-avatar {
-        @include border($gradient-red);
+    &_has-border {
+        @include border($gradient-blue);
     }
 
     &__body {
@@ -153,12 +137,14 @@
         vertical-align: middle;
 
         color: $white;
-        background: $gradient-purple border-box;
+        background: $gradient-blue border-box;
         border: 1px solid #fff;
 
         span {
             display: block;
-            transform: translateY(-2px);
+            font-family: $font-family-nunito;
+            font-weight: 800;
+            letter-spacing: 0.1em;
         }
 
         img {

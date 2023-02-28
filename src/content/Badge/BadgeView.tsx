@@ -14,27 +14,36 @@ export default function BadgeView(props: IBadgeViewProps) {
                 className={bem(
                     bem.block({
                         [props.type]: !!props.type,
-                    }), props.className,
+                        [props.size]: !!props.size,
+                        [props.roundingStyle]: !!props.roundingStyle,
+                        'has-counter': !!props.counter,
+                    }),
+                    props.className,
                 )}
                 style={props.style}
             >
-                <div className={bem.element('content-wrapper')}>
-                    <span className={bem.element('content')}>
-                        {props.message}
-                    </span>
-                    {props.showClose && (
-                        <Icon
-                            name='close'
-                            onClick={props.onClose}
-                        />
-                    )}
-                    {props.counter
-                        && (
-                            <div className={bem.element('chip')}>
-                                {typeof props.counter === 'object'
-                                    && props.counter.content}
-                            </div>
+                <div className={bem.element('wrapper')}>
+                    <div className={bem.element('content')}>
+                        <span className={bem.element('message')}>
+                            {props.message}
+                        </span>
+                        {props.counter && (
+                            <span className={bem.element('counter')}>
+                                {typeof props.counter === 'object' && (
+                                    <span className={bem.element('counter-content')}>
+                                        {props.counter.content}
+                                    </span>
+                                )}
+                            </span>
                         )}
+                        {props.showClose && (
+                            <Icon
+                                onClick={props.onClose}
+                                className={bem.element('close')}
+                                name='badge-close'
+                            />
+                        )}
+                    </div>
                 </div>
             </div>
         )

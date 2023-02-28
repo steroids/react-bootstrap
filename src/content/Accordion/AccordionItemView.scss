@@ -1,0 +1,200 @@
+:root {
+    --accordion-background-light: #f8f8f8;
+    --accordion-background-intermediate: #ffffff;
+    --accordion-background-dark: #312c3a;
+    --accordion-rect-background: #ffffff;
+    --accordion-chevron-color: #323232;
+
+    html[data-theme="dark"] {
+        --accordion-background-light: #414141;
+        --accordion-background-intermediate: #5b5c6b;
+        --accordion-background-dark: #4e4f57;
+        --accordion-rect-background: #6f6b76;
+        --accordion-chevron-color: #ffffff;
+    }
+}
+
+$accordionBackgroundMap: (
+    "light": var(--accordion-background-light),
+    "intermediate": var(--accordion-background-intermediate),
+    "dark": var(--accordion-background-dark),
+);
+
+$accordion-rect-background: var(--accordion-rect-background);
+$accordion-chevron-color: var(--accordion-chevron-color);
+
+.AccordionItemView {
+    $root: &;
+
+    display: grid;
+    align-items: center;
+
+    background-color: #fff;
+    height: 56px;
+    width: 480px;
+    height: fit-content;
+    font-family: $font-family-nunito;
+
+    &_theme {
+        @each $theme, $backgroundColor in $accordionBackgroundMap {
+            &_#{$theme} {
+                #{$root}__header-container {
+                    background-color: $backgroundColor;
+                }
+
+                #{$root}__title-container {
+                    color: $text-color;
+
+                    @if ($theme == "dark" or $is-dark == "false") {
+                        color: $white;
+                    }
+                }
+
+                #{$root}__icon {
+                    svg {
+                        @if ($theme == "light" or $theme == "intermediate") {
+                            rect {
+                                fill: $accordion-rect-background;
+                            }
+                            path {
+                                stroke: $accordion-chevron-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_position {
+        &_top {
+            #{$root}__header-container {
+                border-bottom: 1px solid rgba(#000, 0.1);
+                border-radius: $radius-large $radius-large 0 0;
+            }
+        }
+
+        &_middle {
+            #{$root}__header-container {
+                border-top: 1px solid rgba(#000, 0.1);
+                border-radius: 0px;
+            }
+        }
+
+        &_bottom {
+            #{$root}__content {
+                grid-row-start: 1;
+                grid-row-end: 1;
+            }
+
+            #{$root}__header-container {
+                border-top: 1px solid rgba(#000, 0.1);
+                border-radius: 0 0 $radius-large $radius-large;
+                grid-row-start: 2;
+                grid-row-end: 2;
+            }
+
+            #{$root}__icon {
+                transform: rotate(180deg);
+                &_active {
+                    transform: rotate(0deg);
+                }
+            }
+        }
+    }
+
+    &_disable {
+        opacity: 0.4;
+        color: rgba(#212529, 0.7);
+
+        #{$root}__header-container {
+            background-color: #d7d7d7;
+        }
+    }
+
+    &_active {
+        margin-bottom: 16px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    &__icon {
+        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
+        border-radius: $radius-small;
+
+        transform: rotate(0deg);
+        transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+        &_active {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__header-container {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__title-container {
+        width: 100%;
+        padding: $spacing-16;
+        align-self: center;
+        font-size: $font-size-lg;
+        line-height: 24px;
+    }
+
+    &__icon-wrapper {
+        width: 48px;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &_not_visible {
+            width: 0;
+            opacity: 0;
+        }
+    }
+
+    &__content {
+        transition: all 200ms ease;
+        overflow: hidden;
+        max-height: 0;
+        padding: 0 $spacing-16;
+        color: #343a40;
+
+        &_visible {
+            max-height: 1024px;
+            padding: 18px 32px 18px $spacing-16;
+            border: 1px solid rgba(#000, 0.1);
+        }
+    }
+
+    &__close-icon,
+    &__open-icon {
+        transition: opacity 150ms ease-in-out;
+    }
+
+    &__close-icon {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &_opened {
+        #{$root}__close-icon {
+            position: static;
+            opacity: 1;
+            pointer-events: all;
+        }
+        #{$root}__open-icon {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+    }
+}
