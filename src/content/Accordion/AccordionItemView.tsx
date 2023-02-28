@@ -7,7 +7,9 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
     const bem = useBem('AccordionItemView');
 
     React.useEffect(() => {
-        if (!props.toggleAccordion || !props.toggleCollapse || !props.activeKey) return;
+        if (!props.toggleAccordion || !props.toggleCollapse || !props.activeKey) {
+            return;
+        }
 
         if (props.hasOneOpenItem) {
             props.toggleAccordion(props.activeKey - 1);
