@@ -220,4 +220,10 @@ export default {
     'nav.TreeView': {
         lazy: () => require('./nav/Tree/TreeView').default,
     },
+    'typography.TextView': {
+        lazy: () => require('./typography/Text/TextView').default,
+    },
+    'typography.TitleView': {
+        lazy: () => require('./typography/Title/TitleView').default,
+    },
 };

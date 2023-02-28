@@ -1,0 +1,30 @@
+.TitleView {
+  font-family: $font-family-nunito;
+
+  &__template {
+    &_h1 {
+      font-size: $font-size-2xl;
+    }
+
+    &_h2 {
+      font-size: $font-size-xl;
+    }
+
+    &_h3 {
+      font-size: $font-size-lg;
+    }
+
+    &_h4 {
+      font-size: $font-size-base;
+    }
+
+    &_h5 {
+      font-size: $font-size-sm;
+    }
+
+    &_h6,
+    &_subtitle {
+      font-size: $font-size-xs;
+    }
+  }
+}
