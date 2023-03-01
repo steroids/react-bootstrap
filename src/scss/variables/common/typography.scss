@@ -22,6 +22,54 @@ $font-weight-sm: 400;
 $font-weight-md: 500;
 $font-weight-lg: 700;
 
+// $title-templates: map-merge(
+//     (
+//         "h1": (
+//             "color": $primary,
+//             "color-dark": $primary-dark,
+//             "color-light": $primary-light,
+//             "text-color": $white,
+//         ),
+//         "h2": (
+//             "color": $secondary,
+//             "color-dark": $secondary-dark,
+//             "color-light": $secondary-light,
+//             "text-color": $white,
+//         ),
+//         "h3": (
+//             "color": $success,
+//             "color-dark": $success-dark,
+//             "color-light": $success-light,
+//             "text-color": $white,
+//         ),
+//         "h4": (
+//             "color": $danger,
+//             "color-dark": $danger-dark,
+//             "color-light": $danger-light,
+//             "text-color": $white,
+//         ),
+//         "h5": (
+//             "color": $warning,
+//             "color-dark": $warning-dark,
+//             "color-light": $warning-light,
+//             "text-color": $dark,
+//         ),
+//         "h6": (
+//             "color": $info,
+//             "color-dark": $info-dark,
+//             "color-light": $info-light,
+//             "text-color": $white,
+//         ),
+//         "subtitle": (
+//             "color": $light,
+//             "color-dark": $dark,
+//             "color-light": $light,
+//             "text-color": $dark,
+//         ),
+//     ),
+//     $title-templates
+// );
+
 
 /* 
 *   Button font variables
