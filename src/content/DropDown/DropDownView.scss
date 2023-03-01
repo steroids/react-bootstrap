@@ -1,19 +1,84 @@
 @import "../../scss/variables/";
 
 :root {
-    --drop-down-background: #fff;
+    --dropdown-background: #fff;
+    --dropdown-triangle-border: #eef1f2;
+    --dropdown-triangle-svg: url("data:image/svg+xml,%3Csvg width='21' height='11' viewBox='0 0 21 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.0416 0.5L10.1719 10.2567L1.30215 0.499998L19.0416 0.5Z' fill='white' stroke='%23EEF1F2'/%3E%3C/svg%3E%0A");
 
     html[data-theme="dark"] {
-        --drop-down-background: #4e4f57;
+        --dropdown-background: #4e4f57;
+        --dropdown-triangle-border: transparent;
+        --dropdown-triangle-svg: url("data:image/svg+xml,%3Csvg width='21' height='11' viewBox='0 0 21 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.1719 11L0.171876 -1.74846e-06L20.1719 0L10.1719 11Z' fill='%234E4F57'/%3E%3C/svg%3E%0A");
     }
 }
 
-$drop-down-background: var(--drop-down-background);
-$drop-down-triangle-height: 11px;
+$dropdown-background: var(--dropdown-background);
+$dropdown-triangle-border: var(--triangle-border);
+$dropdown-triangle-svg: var(--dropdown-triangle-svg);
 
 $gap: 12px;
 
+%triangle {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 11px;
+    z-index: 2;
+    background-image: $dropdown-triangle-svg;
+}
+
+%borderShaper {
+    content: "";
+    position: absolute;
+    z-index: 3;
+
+    width: 16px;
+    height: 1px;
+    background-color: $dropdown-background;
+    border-left: 2px solid $dropdown-triangle-border;
+    border-right: 2px solid $dropdown-triangle-border;
+}
+
+@mixin drop($edge, $left) {
+    @if ($edge == "top") {
+        &::before {
+            @extend %triangle;
+
+            top: 100%;
+            left: $left;
+            transform: translateX(-50%);
+        }
+
+        &::after {
+            @extend %borderShaper;
+
+            top: 100%;
+            left: $left;
+            transform: translateX(-50%);
+        }
+    } @else {
+        &::before {
+            @extend %triangle;
+
+            top: 0;
+            left: $left;
+            top: -11px;
+            transform: translateX(-50%) rotate(180deg);
+        }
+
+        &::after {
+            @extend %borderShaper;
+
+            transform: translateX(-50%);
+            top: -1px;
+            left: $left;
+        }
+    }
+}
+
 .DropDownView {
+    $root: &;
+
     z-index: 1000;
     position: absolute;
 
@@ -21,10 +86,11 @@ $gap: 12px;
     opacity: 0;
     transition: opacity 0.15s ease-in, transform 0.15s ease-in;
 
+    z-index: 4;
     width: 200px;
     padding: 12px;
     border-radius: $radius-large;
-    background-color: $drop-down-background;
+    background-color: $dropdown-background;
     border: 1px solid $gray;
 
     &_show {
@@ -51,20 +117,27 @@ $gap: 12px;
         transform: translateX($gap);
     }
 
+    &_position-top {
+        @include drop("top", 50%);
+    }
 
-    &_position-top { 
-        &::before { 
-            content: "";
-            position: absolute;
-            bottom: -$drop-down-triangle-height;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+    &_position-topLeft {
+        @include drop("top", 15%);
+    }
 
-            border-left:  $drop-down-triangle-height solid transparent;
-            border-right: $drop-down-triangle-height solid transparent;
-            border-top:  $drop-down-triangle-height solid $white;
-        }
+    &_position-topRight {
+        @include drop("top", 85%);
+    }
+
+    &_position-bottom {
+        @include drop("bottom", 50%);
+    }
+
+    &_position-bottomLeft {
+        @include drop("bottom", 15%);
+    }
+
+    &_position-bottomRight {
+        @include drop("bottom", 85%);
     }
 }
-
