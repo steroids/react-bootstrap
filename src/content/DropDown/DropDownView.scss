@@ -9,6 +9,7 @@
 }
 
 $drop-down-background: var(--drop-down-background);
+$drop-down-triangle-height: 11px;
 
 $gap: 12px;
 
@@ -50,14 +51,20 @@ $gap: 12px;
         transform: translateX($gap);
     }
 
-    &::before {
-        content: "";
-        position: absolute;
-        left: -10px;
-        top: 50%;
-        transform: translateY(-50%);
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-        border-right: 10px solid #fff;
+
+    &_position-top { 
+        &::before { 
+            content: "";
+            position: absolute;
+            bottom: -$drop-down-triangle-height;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            border-left:  $drop-down-triangle-height solid transparent;
+            border-right: $drop-down-triangle-height solid transparent;
+            border-top:  $drop-down-triangle-height solid $white;
+        }
     }
 }
+
