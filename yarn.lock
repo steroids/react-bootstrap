@@ -720,10 +720,10 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.7":
-  version "3.0.0-beta.7"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.7.tgz#10ca6eec1820132f6ed7c49f1fc096bb28197239"
-  integrity sha512-TjQOIAkrnaVTiDk92A4BzqyZ4ZD+6zB/D/PysVY2g2++yy20gD+KX5fo4bhivDrT6UnMUDy6gzxW2H6LXm6f4Q==
+"@steroidsjs/core@^3.0 || >=3.0.0-beta.8":
+  version "3.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.8.tgz#b2c4b2a61b0e132e8833123e72a00a1703154a81"
+  integrity sha512-3rtJlsTqxupKO7SvZcSEoMmtcSbz8VghedSXmiWbbl+fj7t18w3yrwxzjHVKo33dCv6S2vsnVNQq2MLEbrdmhw==
   dependencies:
     axios "^0.21.1"
     connected-react-router "^6.9.3"
