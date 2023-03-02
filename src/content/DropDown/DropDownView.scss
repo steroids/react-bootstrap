@@ -181,7 +181,7 @@ $gap: 12px;
     }
 
     &_position-leftTop {
-        @include drop("left", 10%)
+        @include drop("left", 12.5%)
     }
 
     &_position-leftBottom {
@@ -193,7 +193,7 @@ $gap: 12px;
     }
 
     &_position-rightTop {
-        @include drop("right", 10%);
+        @include drop("right", 12.5%);
     }
 
     &_position-rightBottom {
