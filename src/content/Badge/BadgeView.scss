@@ -76,23 +76,29 @@
         color: $text-color;
         padding: $spacing-4 12px;
 
-        #{$root}__counter-content {
-            background: $white;
-            padding: $spacing-2 5px;
-            border-radius: 20px;
-        }
-
         #{$root}__message {
-            margin-right: 8px;
+            margin-right: $spacing-8;
         }
 
         #{$root}__counter {
             margin-right: 8px;
+            width: 18px;
+            background-color: $white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: $radius-circle;
         }
 
-        #{$root}__close { 
+        #{$root}__counter-content { 
+            font-weight: $font-weight-sm;
+            font-size: $font-size-xs;
+            line-height: 16px;
+        }
+
+        #{$root}__close {
             svg {
-                path { 
+                path {
                     stroke: #000;
                 }
             }

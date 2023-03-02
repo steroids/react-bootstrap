@@ -174,11 +174,6 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         }
     }
 
-    &__close-icon,
-    &__open-icon {
-        transition: opacity 150ms ease-in-out;
-    }
-
     &__close-icon {
         position: absolute;
         opacity: 0;
