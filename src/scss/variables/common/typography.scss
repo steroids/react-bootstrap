@@ -22,50 +22,86 @@ $font-weight-sm: 400;
 $font-weight-md: 500;
 $font-weight-lg: 700;
 
-// $title-templates: map-merge(
-//     (
-//         "h1": (
-//             "color": $primary,
-//             "color-dark": $primary-dark,
-//             "color-light": $primary-light,
-//             "text-color": $white,
-//         ),
-//         "h2": (
-//             "color": $secondary,
-//             "color-dark": $secondary-dark,
-//             "color-light": $secondary-light,
-//             "text-color": $white,
-//         ),
-//         "h3": (
-//             "color": $success,
-//             "color-dark": $success-dark,
-//             "color-light": $success-light,
-//             "text-color": $white,
-//         ),
-//         "h4": (
-//             "color": $danger,
-//             "color-dark": $danger-dark,
-//             "color-light": $danger-light,
-//             "text-color": $white,
-//         ),
-//         "h5": (
-//             "color": $warning,
-//             "color-dark": $warning-dark,
-//             "color-light": $warning-light,
-//             "text-color": $dark,
-//         ),
-//         "h6": (
-//             "color": $info,
-//             "color-dark": $info-dark,
-//             "color-light": $info-light,
-//             "text-color": $white,
-//         ),
-//         "subtitle": (
-//             "color": $light,
-//             "color-dark": $dark,
-//             "color-light": $light,
-//             "text-color": $dark,
-//         ),
-//     ),
-//     $title-templates
-// );
+$title-templates: () !default;
+$title-templates: map-merge(
+    (
+        "h1": (
+            "font-size": $font-size-2xl,
+            "font-weight": $font-weight-lg,
+            "line-height": $line-height-2xl,
+            "color": $text-color,
+        ),
+        "h2": (
+            "font-size": $font-size-xl,
+            "font-weight": $font-weight-lg,
+            "line-height": $line-height-xl,
+            "color": $text-color,
+        ),
+        "h3": (
+            "font-size": $font-size-lg,
+            "font-weight": $font-weight-lg,
+            "line-height": $line-height-lg,
+            "color": $text-color,
+        ),
+        "h4": (
+            "font-size": $font-size-base,
+            "font-weight": $font-weight-lg,
+            "line-height": $line-height-base,
+            "color": $text-color,
+        ),
+        "h5": (
+            "font-size": $font-size-sm,
+            "font-weight": $font-weight-md,
+            "line-height": $line-height-sm,
+            "color": $text-color,
+        ),
+        "h6": (
+            "font-size": $font-size-xs,
+            "font-weight": $font-weight-md,
+            "line-height": $line-height-xs,
+            "color": $text-color,
+        ),
+        "subtitle": (
+            "font-size": $font-size-2xl,
+            "font-weight": $font-weight-md,
+            "line-height": $line-height-2xl,
+            "color": $text-color,
+        ),
+    ),
+    $title-templates
+);
+
+$text-templates: () !default;
+$text-templates: map-merge(
+    (
+        "body": (
+            "font-size": $font-size-base,
+            "font-weight": $font-weight-sm,
+            "line-height": $line-height-base,
+            "color": $text-color,
+        ),
+        "span": (
+            "font-size": $font-size-base,
+            "font-weight": $font-weight-sm,
+            "line-height": $line-height-base,
+            "color": $text-color,
+        ),
+        "boldSpan": (
+            "font-size": $font-size-base,
+            "font-weight": $font-weight-lg,
+            "line-height": $line-height-base,
+            "color": $text-color,
+        ),
+    ),
+    $text-templates
+);
+
+$typography-colors: (
+    "text-color": $text-color,
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "danger": $danger,
+    "warning": $warning,
+    "info": $info,
+);

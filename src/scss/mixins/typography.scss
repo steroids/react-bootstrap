@@ -1,0 +1,9 @@
+@mixin typography-template($templateMap, $templateName, $root) {
+  font-size: map-get($templateMap, font-size);
+  font-weight: map-get($templateMap, font-weight);
+  line-height: map-get($templateMap, line-height);
+  color: map-get($templateMap, color);
+  text-transform: map-get($templateMap, text-transform);
+  text-decoration: map-get($templateMap, text-decoration);
+  text-align: map-get($templateMap, text-align);
+}

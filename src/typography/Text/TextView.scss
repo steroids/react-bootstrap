@@ -1,3 +1,17 @@
 .TextView {
-  
+  $root: &;
+
+  font-family: $font-family-nunito;
+
+  @each $templateName, $templateMap in $text-templates {
+    &_template_#{$templateName} {
+        @include typography-template($templateMap, $templateName, $root);
+    }
+  }
+
+  @each $colorName, $color in $typography-colors {
+    &_color_#{$colorName} {
+      color: $color;
+    }
+  }
 }
