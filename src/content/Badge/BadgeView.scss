@@ -57,15 +57,15 @@
     }
 
     &_large {
-        padding: $spacing-4 $spacing-8;
+        padding: 4px 8px;
     }
 
     &_medium {
-        padding: $spacing-2 $spacing-8;
+        padding: 2px 8px;
     }
 
     &_small {
-        padding: 0 $spacing-8;
+        padding: 0 8px;
     }
 
     &_has-counter {
@@ -74,10 +74,10 @@
 
         background: $light-gray;
         color: $text-color;
-        padding: $spacing-4 12px;
+        padding: 4px 12px;
 
         #{$root}__message {
-            margin-right: $spacing-8;
+            margin-right: 8px;
         }
 
         #{$root}__counter {
