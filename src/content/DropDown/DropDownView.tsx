@@ -18,9 +18,15 @@ export default function DropDownView(props: IDropDownViewProps) {
     const contentProps = useMemo(() => ({
         onClose: props.onClose,
     }), [props.onClose]);
-    let content = props.content();
-    if (_isFunction(content)) {
-        content = ui.renderView(content, contentProps);
+
+    let content;
+
+    if (props.content) {
+        content = props.content();
+
+        if (_isFunction(content)) {
+            content = ui.renderView(content, contentProps);
+        }
     }
 
     return (
