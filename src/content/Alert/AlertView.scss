@@ -26,8 +26,12 @@
     }
 
     &__icon.IconView {
-        width: 24px;
+        height: 24px;
         margin-right: 12px;
+        
+        svg {
+            width: 24px;
+        }
     }
 
     &__icon-close.IconView {

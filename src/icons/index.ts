@@ -249,6 +249,9 @@ export default () => {
         'error',
         'close',
         'default',
+        'badge-close',
+        'loader',
+        'accordion-chevron',
     ];
 
     steroidsIcons.forEach(iconName => {

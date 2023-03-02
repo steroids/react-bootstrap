@@ -16,15 +16,12 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
         return (
             <>
                 {props.isLoading && (
-                    <div className={bem.element('preloader')}>
-                        <span
-                            className='spinner-border spinner-border-sm'
-                            role='status'
-                            aria-hidden='true'
-                        />
-                    </div>
+                    <Icon
+                        className={bem.element('loader')}
+                        name='loader'
+                    />
                 )}
-                {(props.showLabelOnLoading || !props.isLoading) && (
+                {!props.isLoading && (
                     <span
                         className={bem.element('label')}
                     >
@@ -43,9 +40,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
     };
 
     const renderBadge = () => {
-        if (!props.badge.enable) {
-            return null;
-        }
+        if (!props.badge || !props.badge.enable) return null;
 
         return (
             <span
@@ -70,7 +65,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             size: props.size,
             disabled: props.disabled,
             submitting: props.submitting,
-            loading: props.isLoading,
+            loading: !!props.isLoading,
             failed: props.isFailed,
             link: props.tag === 'a',
         }),
@@ -98,7 +93,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
         <button
             title={props.hint}
             type={props.type}
-            disabled={props.disabled}
+            disabled={props.disabled || props.isLoading}
             onClick={props.onClick}
             style={props.style}
             className={className}

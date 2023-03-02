@@ -7,20 +7,20 @@ import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemHocOutput) {
     const bem = useBem('CheckboxFieldView');
     const id = useUniqueId('checkbox');
+
     return (
         <div
-            className={bem(
-                bem.block({'is-invalid': !!props.errors}),
-                'custom-control',
-                'custom-checkbox',
-            )}
+            className={
+                `${bem.block()} 
+                 ${bem(props.className)}
+                 ${props.errors ? 'has-errors' : ''}`
+            }
+            style={props.style}
+            onClick={props.onChange}
         >
             <input
                 className={bem(
                     bem.element('input'),
-                    'custom-control-input',
-                    !!props.errors && 'is-invalid',
-                    props.className,
                 )}
                 id={id}
                 {...props.inputProps}
@@ -30,7 +30,6 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
             <label
                 className={bem(
                     bem.element('label'),
-                    'custom-control-label',
                 )}
                 htmlFor={id}
             >
