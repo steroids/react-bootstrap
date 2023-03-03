@@ -1,4 +1,5 @@
 @mixin typography-template($templateMap, $templateName, $root) {
+  font-family: map-get($templateMap, font-family);
   font-size: map-get($templateMap, font-size);
   font-weight: map-get($templateMap, font-weight);
   line-height: map-get($templateMap, line-height);
@@ -6,4 +7,20 @@
   text-transform: map-get($templateMap, text-transform);
   text-decoration: map-get($templateMap, text-decoration);
   text-align: map-get($templateMap, text-align);
+
+  @media (max-width: $tablet-width) {
+    font-size: map-get($templateMap, tablet-font-size);
+    font-weight: map-get($templateMap, tablet-font-weight);
+    line-height: map-get($templateMap, tablet-line-height);
+    text-transform: map-get($templateMap, tablet-text-transform);
+    text-align: map-get($templateMap, tablet-text-align);
+  }
+
+  @media (max-width: $mobile-width) {
+    font-size: map-get($templateMap, mobile-font-size);
+    font-weight: map-get($templateMap, mobile-font-weight);
+    line-height: map-get($templateMap, mobile-line-height);
+    text-transform: map-get($templateMap, mobile-text-transform);
+    text-align: map-get($templateMap, mobile-text-align);
+  }
 }

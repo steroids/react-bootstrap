@@ -4,7 +4,7 @@ import {ITitleViewProps} from '@steroidsjs/core/ui/typography/Title/Title';
 
 export default function TitleView(props: ITitleViewProps) {
     const bem = useBem('TitleView');
-    const component = props.templateMapping[props.template] || 'h2';
+    const component = props.component || props.templateMapping[props.template] || 'h2';
 
     return (
         React.createElement(

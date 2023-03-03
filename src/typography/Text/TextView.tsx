@@ -4,7 +4,7 @@ import {ITextViewProps} from '@steroidsjs/core/ui/typography/Text/Text';
 
 export default function TextView(props: ITextViewProps) {
     const bem = useBem('TextView');
-    const component = props.templateMapping[props.template] || 'p';
+    const component = props.component || props.templateMapping[props.template] || 'p';
 
     return (
         React.createElement(
