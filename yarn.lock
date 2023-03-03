@@ -720,7 +720,7 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.8":
+"@steroidsjs/core@^3.*":
   version "3.0.0-beta.8"
   resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.8.tgz#b2c4b2a61b0e132e8833123e72a00a1703154a81"
   integrity sha512-3rtJlsTqxupKO7SvZcSEoMmtcSbz8VghedSXmiWbbl+fj7t18w3yrwxzjHVKo33dCv6S2vsnVNQq2MLEbrdmhw==
