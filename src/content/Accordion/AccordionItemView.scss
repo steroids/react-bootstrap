@@ -140,7 +140,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
 
     &__title-container {
         width: 100%;
-        padding: $spacing-16;
+        padding: 16px;
         align-self: center;
         font-size: $font-size-lg;
         line-height: 24px;
@@ -164,19 +164,14 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         transition: all 200ms ease;
         overflow: hidden;
         max-height: 0;
-        padding: 0 $spacing-16;
+        padding: 0 16px;
         color: #343a40;
 
         &_visible {
             max-height: 1024px;
-            padding: 18px 32px 18px $spacing-16;
+            padding: 18px 32px 18px 16px;
             border: 1px solid rgba(#000, 0.1);
         }
-    }
-
-    &__close-icon,
-    &__open-icon {
-        transition: opacity 150ms ease-in-out;
     }
 
     &__close-icon {
