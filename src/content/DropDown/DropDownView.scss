@@ -84,7 +84,6 @@ $gap: 12px;
 
         &::after {
             @extend %borderShaper;
-            // background-color: red;
 
             left: 100%;
             top: $padding;
@@ -102,7 +101,6 @@ $gap: 12px;
 
         &::after {
             @extend %borderShaper;
-            // background-color: red;
 
             right: 100%;
             top: $padding;
