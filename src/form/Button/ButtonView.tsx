@@ -65,10 +65,10 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             size: props.size,
             disabled: props.disabled,
             submitting: props.submitting,
-            loading: !!props.isLoading,
+            loading: props.isLoading,
             failed: props.isFailed,
             link: props.link,
-            block: !!props.block,
+            block: props.block,
         }),
         props.className,
     );

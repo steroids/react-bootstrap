@@ -106,8 +106,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
                         {props.title}
                     </p>
                 </div>
-                {props.showIcon
-                    && (
+                {props.showIcon && (
                     <div className={bem.element('icon-wrapper')}>
                         {props.icon
                             ? renderIcon()
@@ -120,7 +119,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
                                 />
                             )}
                     </div>
-                    )}
+                )}
             </div>
             <div className={bem.element('content', {visible: !props.disabled && props.isShowMore})}>
                 {props.children}
