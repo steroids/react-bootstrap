@@ -39,13 +39,13 @@ $gap: 12px;
     border-right: 2px solid $dropdown-triangle-border;
 }
 
-@mixin drop($edge, $left) {
+@mixin drop($edge, $padding) {
     @if ($edge == "top") {
         &::before {
             @extend %triangle;
 
             top: 100%;
-            left: $left;
+            left: $padding;
             transform: translateX(-50%);
         }
 
@@ -53,7 +53,7 @@ $gap: 12px;
             @extend %borderShaper;
 
             top: 100%;
-            left: $left;
+            left: $padding;
             transform: translateX(-50%);
         }
     } @else if ($edge == "bottom") {
@@ -61,7 +61,7 @@ $gap: 12px;
             @extend %triangle;
 
             top: 0;
-            left: $left;
+            left: $padding;
             top: -11px;
             transform: translateX(-50%) rotate(180deg);
         }
@@ -71,7 +71,40 @@ $gap: 12px;
 
             transform: translateX(-50%);
             top: -1px;
-            left: $left;
+            left: $padding;
+        }
+    } @else if($edge == "left") {
+        &::before {
+            @extend %triangle;
+
+            left: 100%;
+            top: $padding;
+            transform: translateX(-22.5%) rotate(-90deg);
+        }
+
+        &::after {
+            @extend %borderShaper;
+
+            left: 100%;
+            top: $padding;
+            transform: rotate(-90deg) translate(-30%, -7.5px) ;
+        }
+    }
+    @else if($edge == "right") { 
+        &::before {
+            @extend %triangle;
+
+            right: 100%;
+            top: $padding;
+            transform: translateX(22.5%) rotate(90deg);
+        }
+
+        &::after {
+            @extend %borderShaper;
+
+            right: 100%;
+            top: $padding;
+            transform: rotate(-90deg) translate(-30%, 7.5px) ;
         }
     }
 }
@@ -139,5 +172,29 @@ $gap: 12px;
 
     &_position-bottomRight {
         @include drop("bottom", 85%);
+    }
+
+    &_position-left {
+        @include drop("left", 46.5%);
+    }
+
+    &_position-leftTop {
+        @include drop("left", 12.5%)
+    }
+
+    &_position-leftBottom {
+        @include drop("left", 80%)
+    }
+
+    &_position-right {
+        @include drop("right", 46.5%);
+    }
+
+    &_position-rightTop {
+        @include drop("right", 12.5%);
+    }
+
+    &_position-rightBottom {
+        @include drop("right", 80%);
     }
 }
