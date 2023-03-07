@@ -3,6 +3,7 @@ import _isEmpty from 'lodash-es/isEmpty';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
 import {useBem} from '@steroidsjs/core/hooks';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 
 export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOutput) {
     const bem = useBem('FieldLayoutView');
@@ -25,6 +26,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                     className={bem(
                         bem.element('label', {
                             required: props.required,
+                            size: props.size,
                         }),
                         props.layout.layout === 'horizontal' && 'col-form-label text-right',
                         props.layout.layout === 'horizontal' && 'col-' + props.layout.cols[0],
@@ -43,7 +45,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                 )}
             >
                 {props.children}
-                {!_isEmpty(props.errors) && (
+                {!_isEmpty(props.errors) && !props.hint && (
                     <div className={bem(bem.element('invalid-feedback'), 'invalid-feedback')}>
                         {[].concat(props.errors).filter(error => typeof error === 'string').map((error, index) => (
                             <div key={index}>
@@ -52,9 +54,21 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                         ))}
                     </div>
                 )}
-                {_isEmpty(props.errors) && props.layout.layout !== 'inline' && props.hint && (
-                    <div className={bem(bem.element('hint'), 'text-muted')}>
-                        {props.hint}
+
+                {props.layout.layout !== 'inline' && props.hint && (
+                    <div className={bem(
+                        bem.element('hint', {
+                            size: props.size,
+                            error: !!props.errors,
+                            successful: props.successful,
+                        }),
+                    )}
+                    >
+                        {props.successful && <Icon name="success" className={bem.element('icon-successful')} />}
+                        {props.errors && <Icon name="error" className={bem.element('icon-error')} />}
+                        <span>
+                            {props.hint}
+                        </span>
                     </div>
                 )}
             </div>

@@ -1,26 +1,105 @@
 .FieldLayoutView {
-  &__label {
-    &_required:after {
-      display: inline-block;
-      content: '*';
-      color: $danger;
-      margin: 0 0 0 3px;
+    $root: &;
+
+    font-family: $font-family-nunito;
+    &__label {
+        font-size: $font-size-sm;
+        line-height: 24px;
+        font-weight: $font-weight-sm;
+        color: $text-color;
+        margin-bottom: 4px;
+
+        &_size {
+            &_sm {
+                font-size: $font-size-sm;
+            }
+            &_md {
+                font-size: $font-size-base;
+            }
+            &_lg {
+                font-size: $font-size-lg;
+            }
+        }
+
+        &_required:after {
+            display: inline-block;
+            content: "*";
+        color: $danger;
+            margin: 0 0 0 3px;
+        }
     }
-  }
 
-  &__invalid-feedback {
-    display: block !important;
-  }
-
-  &__hint {
-    width: 100%;
-    margin-top: .25rem;
-    font-size: 80%;
-  }
-
-  &_layout_inline &__field {
-    .form-control, input {
-      width: 100%;
+    &__invalid-feedback {
+        display: block !important;
     }
-  }
+
+    &__hint {
+        width: 100%;
+        margin-top: 4px;
+        font-size: 80%;
+
+        color: $text-color;
+        font-size: $font-size-xs;
+        line-height: 16px;
+        font-weight: $font-weight-sm;
+
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+
+        &_error { 
+            color: $danger;
+        }
+
+        &_successful {
+            color: $success;
+        }
+
+        &_size { 
+            &_lg {
+                font-size: $font-size-base;
+                line-height: 22px;
+                font-weight: $font-weight-sm;
+            }
+
+            &_md {
+                font-size: $font-size-sm;
+                line-height: 18px;
+                font-weight: $font-weight-sm;
+            }
+
+            &_sm {
+                font-size: $font-size-xs;
+                line-height: 16px;
+                font-weight: $font-weight-sm;
+            }
+        }
+
+    }
+
+    &__icon {
+        &-error { 
+            svg { 
+                rect {
+                    color: $danger;
+                }
+            }
+        }
+        &-successful { 
+            svg { 
+                rect {
+                    color: $success;
+                }
+            }
+        }
+    }
+
+  
+
+    &_layout_inline &__field {
+        .form-control,
+        input {
+            width: 100%;
+        }
+    }
 }
