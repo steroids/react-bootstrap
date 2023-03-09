@@ -1,102 +1,247 @@
-.NumberFieldView {
-  display: flex;
-  overflow: hidden;
-  flex-flow: row nowrap;
-  align-items: stretch;
-  padding: 0;
-  border: $input-border;
+@import "../../scss/variables";
 
-  &:hover {
-    border-color: $border-hover;
-  }
-  &:active {
-    border-color: $border-action;
-    box-shadow: 0 0 0 4px $border-typing;
-  }
+:root {
+    --number-field-border-color: #eef1f2;
+    --number-field-border-color-hover: #e5e9eb;
+    --number-field-placeholder-color: rgba(0, 0, 0, 0.3);
+    --number-field-disabled-background-color: #eef1f2;
+    --number-field-disabled-text-color: rgba(0, 0, 0, 0.1);
 
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    border: unset;
-    cursor: not-allowed;
+    --number-field-arrow-color: #414141;
+    --number-field-arrow-color-disabled: #eef1f2;
 
-    &:active, &:hover {
-      border: unset;
-      box-shadow: unset;
+    html[data-theme="dark"] {
+        --number-field-border-color: #5b5c6b;
+        --number-field-border-color-hover: #4e4f57;
+        --number-field-placeholder-color: rgba(255, 255, 255, 0.3);
+        --number-field-disabled-background-color: #5b5c6b;
+        --number-field-disabled-text-color: rgba(255, 255, 255, 0.1);
+
+        --number-field-arrow-color: #ffffff;
+        --number-field-arrow-color-disabled: #5b5c6b;
     }
-
-    input {
-      cursor: inherit;
-    }
-  }
-
-  // Hide default arrows
-  /* Chrome, Safari, Edge, Opera */
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  /* Firefox */
-  input[type=number] {
-    -moz-appearance: textfield;
-  }
-
-  &__input {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    color: $heading;
-
-    width: inherit;
-    padding: $input-padding-y $input-padding-x;
-  }
-
-  &__arrows-container{
-    display: flex;
-    flex-flow: column;
-    grid-gap: 2px;
-    font-size: .6em;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .15s;
-  }
-  &:hover &__arrows-container{
-      opacity: 1;
-      pointer-events: all;
-  }
-
-  &__arrow{
-    padding: $input-padding-y $input-padding-x;
-    cursor: pointer;
-    height: 50%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:nth-child(1), &:nth-child(2) {
-      background-color: $grey-lighter;
-      &:active, &:hover {
-        background-color: $border-default;
-        fill: $white;
-        svg {
-          fill: $white;
-        }
-      }
-    }
-
-    &_disabled{
-      cursor: not-allowed;
-    }
-
-    svg{
-      transition: fill .1s;
-    }
-
-  }
 }
 
+$number-field-border-color: var(--number-field-border-color);
+$number-field-border-color-hover: var(--number-field-border-color-hover);
+$number-field-placeholder-color: var(--number-field-placeholder-color);
+$number-field-disabled-background-color: var(--number-field-disabled-background-color);
+$number-field-disabled-text-color: var(--number-field-disabled-text-color);
+$number-field-arrow-color: var(--number-field-arrow-color);
+$number-field-arrow-color-disabled: var(--number-field-arrow-color-disabled);
+
+.NumberFieldView {
+    $root: &;
+    display: flex;
+    position: relative;
+    padding: 0;
+
+    width: 120px;
+
+    font-family: $font-family-nunito;
+
+    // Hide default arrows
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    &__arrows-container {
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        top: 0;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        transition: opacity 150ms ease-in-out;
+        opacity: 0;
+    }
+
+    &__arrow {
+        width: 30px;
+        height: 16px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        border: none;
+        background: transparent;
+
+        span > svg > path {
+            stroke: $number-field-arrow-color;
+        }
+
+        &_disabled {
+            span {
+                cursor: not-allowed;
+            }
+            span > svg > path {
+                stroke: $number-field-arrow-color-disabled;
+            }
+        }
+
+        &:last-child{
+            transform: rotate(180deg);
+        }
+    }
+
+    &_size {
+        &_lg {
+            #{$root} {
+                &__input {
+                    height: 56px;
+                    border-radius: 12px;
+                    font-size: $font-size-lg;
+
+                    &-effects {
+                        border-radius: 12px;
+                    }
+
+                    &::placeholder {
+                        font-size: $font-size-sm;
+                    }
+
+                }
+
+                &__arrow { 
+                    transform: translateX(-3px) translateY(5px);
+
+                    &:last-child{
+                        transform: translateX(-3px) translateY(-6px) rotate(180deg);
+                    }
+                }
+            }            
+        }
+
+        &_md {
+            #{$root} {
+                &__input {
+                    height: 46px;
+                    border-radius: 12px;
+                    font-size: $font-size-base;
+
+                    &-effects {
+                        border-radius: 12px;
+                    }
+
+                    &::placeholder {
+                        font-size: $font-size-sm;
+                    }
+                }
+
+                &__arrow { 
+                    transform: translateX(-3px) translateY(4px) scale(0.8);
+
+                    &:last-child{
+                        transform: translateX(-3px) translateY(-2px) rotate(180deg) scale(0.8);
+                    }
+                }
+            }
+        }
+
+        &_sm {
+            #{$root} {
+                &__input {
+                    height: 34px;
+                    font-size: $font-size-sm;
+
+                    &::placeholder {
+                        font-size: $font-size-sm;
+                    }
+
+                    &-effects {
+                        border-radius: 8px;
+                    }
+                }
+
+                &__arrow { 
+                    transform: translateX(1px) translateY(-2px) scale(0.8);
+
+                    &:last-child{
+                        transform: translateX(1px) translateY(0px) rotate(180deg) scale(0.8);
+                    }
+                }
+            }
+        }
+    }
+
+    &__input {
+        width: 120px;
+        outline: none;
+        border: 1px solid $number-field-border-color;
+        border-radius: 8px;
+        padding: 5px 22px 5px 8px;
+        line-height: 24px;
+        z-index: 1;
+        font-weight: $font-weight-sm;
+        color: $text-color;
+
+        &::placeholder {
+            color: $number-field-placeholder-color;
+        }
+
+        &:disabled {
+            background-color: $number-field-disabled-background-color;
+            color: $number-field-disabled-text-color;
+        }
+
+        &:hover:not(:disabled):not(:focus) {
+            border-color: $number-field-border-color-hover;
+        }
+
+        &:active:not(:disabled) {
+            border: 1px solid $primary;
+        }
+        
+        &:focus + #{$root}__arrows-container {
+            opacity: 1;
+        }    
+    }
+
+    &:hover #{$root}__arrows-container { 
+        opacity: 1;
+    }
+
+    &__input-effects {
+        position: absolute;
+        display: block;
+        z-index: 5;
+        top: 0;
+        left: 0;
+
+        width: 103.3333333333%;
+        height: 111.7647058824%;
+
+        transform: translate(-1.6666666667%, -5.8823529412%);
+        background-color: transparent;
+        
+        border: 4px solid $primary-light;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &__input:focus ~ &__input-effects {
+        opacity: 1;
+    }
+
+    &__input:active ~ &__input-effects {
+        opacity: 0;
+    }
+
+    &_filled #{$root}__arrows-container {
+        opacity: 1;
+    }
+}

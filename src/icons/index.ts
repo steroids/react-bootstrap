@@ -253,6 +253,7 @@ export default () => {
         'loader',
         'accordion-chevron',
         'field-close',
+        'arrow',
     ];
 
     steroidsIcons.forEach(iconName => {
