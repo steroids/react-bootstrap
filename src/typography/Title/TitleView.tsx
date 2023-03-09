@@ -10,7 +10,7 @@ const TYPE_MAPPING = {
     h5: 'h5',
     h6: 'h6',
     subtitle: 'h6',
-}
+};
 
 export default function TitleView(props: ITitleViewProps) {
     const bem = useBem('TitleView');

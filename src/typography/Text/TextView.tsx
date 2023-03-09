@@ -6,7 +6,7 @@ const TYPE_MAPPING = {
     body: 'p',
     span: 'span',
     boldSpan: 'span',
-}
+};
 
 export default function TextView(props: ITextViewProps) {
     const bem = useBem('TextView');
