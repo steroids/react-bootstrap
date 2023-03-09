@@ -53,9 +53,7 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
             <input
                 ref={inputRef}
                 className={bem(
-                    bem.element('input', {
-                        hasErrors: !!props.errors,
-                    }),
+                    bem.element('input'),
                 )}
                 {...props.inputProps}
                 onChange={e => onChangeHandler(e.target.value)}

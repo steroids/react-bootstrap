@@ -51,7 +51,6 @@ export default function DetailView(props: IDetailViewProps) {
                                                     colSpan={cell.colspan}
                                                     className={bem(bem.element('value', {
                                                         size: props.size,
-                                                        hasStatus: cell.hasStatus,
                                                     }), cell.contentClassName)}
                                                 >
                                                     {cell.value}
@@ -81,7 +80,6 @@ export default function DetailView(props: IDetailViewProps) {
                                                 colSpan={cell.colspan}
                                                 className={bem(bem.element('value', {
                                                     size: props.size,
-                                                    hasStatus: cell.hasStatus,
 
                                                 }), cell.contentClassName)}
                                             >

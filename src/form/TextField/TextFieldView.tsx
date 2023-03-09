@@ -8,9 +8,19 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput) {
     const bem = useBem('TextFieldView');
 
-    if (!props.isExist) {
-        return null;
-    }
+    const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
+
+    const onClearHandler = React.useCallback(() => {
+        if (!textAreaRef.current) {
+            return;
+        }
+
+        textAreaRef.current.value = '';
+
+        if (props.onClear) {
+            props.onClear();
+        }
+    }, [props]);
 
     return (
         <div className={bem(
@@ -22,6 +32,7 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
         )}
         >
             <textarea
+                ref={textAreaRef}
                 className={bem(
                     bem.element('textarea'),
                     bem.block({
@@ -30,7 +41,7 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
                 )}
                 {...props.inputProps}
             />
-            {props.showClose && <Icon className={bem.element('close')} name="field-close" onClick={props.onClose} />}
+            {props.showClose && <Icon className={bem.element('close')} name="field-close" onClick={onClearHandler} />}
         </div>
     );
 }

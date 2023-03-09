@@ -1,19 +1,18 @@
 :root {
     --detail-background-color-value: #ffffff;
     --detail-background-color-label: #f9fcff;
-    --detail-status-svg: url("data:image/svg+xml,%3Csvg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2.89758' width='16' height='16' rx='8' fill='%23651FFF'/%3E%3Crect x='2' y='2.89758' width='16' height='16' rx='8' stroke='%23DBCBFF' stroke-width='4'/%3E%3C/svg%3E%0A");
+    --detail-border-color: #e9e9e9;
 
     html[data-theme="dark"] {
         --detail-background-color-value: #4E4F57;
         --detail-background-color-label: #5B5C6B;
-        --detail-status-svg: url("data:image/svg+xml,%3Csvg width='20' height='21' viewBox='0 0 20 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2.89758' width='16' height='16' rx='8' fill='%238B57FF'/%3E%3Crect x='2' y='2.89758' width='16' height='16' rx='8' stroke='%23BA9BFF' stroke-width='4'/%3E%3C/svg%3E%0A");
+        --detail-border-color: #ADAAB3;
     }
 }
 
-$detail-border-color: #e9e9e9;
+$detail-border-color: var(--detail-border-color);
 $detail-background-color-value: var(--detail-background-color-value);
 $detail-background-color-label: var(--detail-background-color-label);
-$detail-status-svg: var(--detail-status-svg);
 
 .DetailView {
     font-family: $font-family-nunito;
@@ -80,23 +79,6 @@ $detail-status-svg: var(--detail-status-svg);
             padding: 18px 12px;
             font-size: $font-size-lg;
             line-height: 24px;
-        }
-    }
-
-    &__value_hasStatus { 
-        padding-left: 8px;
-        display: flex;
-        column-gap: 8px;
-
-        &:before {
-            content: '';
-            width: 16px;
-            height: 16px;
-            display: block;
-            background-image: $detail-status-svg;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
         }
     }
 

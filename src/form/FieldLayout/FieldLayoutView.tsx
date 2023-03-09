@@ -64,8 +64,8 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                         }),
                     )}
                     >
-                        {props.successful && <Icon name="success" className={bem.element('icon-successful')} />}
-                        {props.errors && <Icon name="error" className={bem.element('icon-error')} />}
+                        {props.successful && <Icon name="success" className={bem.element('icon_successful')} />}
+                        {props.errors && <Icon name="error" className={bem.element('icon_error')} />}
                         <span>
                             {props.hint}
                         </span>

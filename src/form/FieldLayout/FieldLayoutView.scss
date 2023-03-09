@@ -24,7 +24,7 @@
         &_required:after {
             display: inline-block;
             content: "*";
-        color: $danger;
+            color: $danger;
             margin: 0 0 0 3px;
         }
     }
@@ -47,7 +47,7 @@
         align-items: center;
         column-gap: 4px;
 
-        &_error { 
+        &_error {
             color: $danger;
         }
 
@@ -55,7 +55,7 @@
             color: $success;
         }
 
-        &_size { 
+        &_size {
             &_lg {
                 font-size: $font-size-base;
                 line-height: 22px;
@@ -74,27 +74,20 @@
                 font-weight: $font-weight-sm;
             }
         }
-
     }
 
     &__icon {
-        &-error { 
-            svg { 
-                rect {
-                    color: $danger;
-                }
+        &_error {
+            svg rect {
+                color: $danger;
             }
         }
-        &-successful { 
-            svg { 
-                rect {
-                    color: $success;
-                }
+        &_successful {
+            svg rect {
+                color: $success;
             }
         }
     }
-
-  
 
     &_layout_inline &__field {
         .form-control,
