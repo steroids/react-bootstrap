@@ -1,42 +1,13 @@
 
 :root {
-    --text-field-placeholder-text-color: rgba(0, 0, 0, 0.3);
-    --text-field-placeholder-disabled-text-color: rgba(0, 0, 0, 0.1);
-
-    --text-field-border-color: #eef1f2;
-    --text-field-hover-color: #e5e9eb;
-
-    --text-field-close-color: #eef1f2;
     --text-field-disabled-close-color: #e5e9eb;
-
     --text-field-active-close-color: #323232;
 
-    --text-field-disabled-background-color: #EEF1F2;
-
     html[data-theme="dark"] {
-        --text-field-placeholder-text-color: rgba(255, 255, 255, 0.3);
-        --text-field-placeholder-disabled-text-color: rgba(255, 255, 255, 0.1);
-
-        --text-field-border-color: #5b5c6b;
-        --text-field-hover-color: #4e4f57;
-
-        --text-field-close-color: #5b5c6b;
         --text-field-disabled-close-color: #4e4f57;
-
         --text-field-active-close-color: #ffffff;
-
-        --text-field-disabled-background-color: #5B5C6B;
     }
 }
-
-$text-field-placeholder-text-color: var(--text-field-placeholder-text-color);
-$text-field-placeholder-disabled-text-color: var(--text-field-placeholder-disabled-text-color);
-
-$text-field-border-color: var(--text-field-border-color);
-$text-field-hover-color: var(--text-field-hover-color);
-
-$text-field-disabled-background-color: var(--text-field-disabled-background-color);
-$text-field-close-color: var(--text-field-close-color);
 
 $text-field-disabled-close-color: var(--text-field-disabled-close-color);
 $text-field-active-close-color: var(--text-field-active-close-color);
@@ -67,7 +38,7 @@ $text-field-active-close-color: var(--text-field-active-close-color);
 
         svg {
             path {
-                stroke: $text-field-close-color;
+                stroke: $background-disabled-color;
             }
         }
 
@@ -91,14 +62,14 @@ $text-field-active-close-color: var(--text-field-active-close-color);
         z-index: 2;
         outline: none;
         color: $text-color;
-        border-color: $text-field-border-color;
+        border-color: $border-color;
 
         &::placeholder {
-            color: $text-field-placeholder-text-color;
+            color: $placeholder-color;
         }
 
         &:hover {
-            border-color: $text-field-hover-color;
+            border-color: $border-color-hover;
         }
 
         &:focus {
@@ -110,13 +81,13 @@ $text-field-active-close-color: var(--text-field-active-close-color);
         }
 
         &:disabled {
-            background-color: $text-field-disabled-background-color;
+            background-color: $background-disabled-color;
             border: none;
             resize: none;
         }
 
         &:disabled::placeholder {
-            color: $text-field-placeholder-disabled-text-color;
+            color: $placeholder-disabled-color;
         }
 
         &:disabled + #{$root}__close {
