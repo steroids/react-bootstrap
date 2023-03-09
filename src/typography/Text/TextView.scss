@@ -1,11 +1,9 @@
 .TextView {
-  $root: &;
-
   font-family: $font-family-nunito;
 
-  @each $templateName, $templateMap in $text-templates {
-    &_template_#{$templateName} {
-        @include typography-template($templateMap, $templateName, $root);
+  @each $typeName, $typeMap in $text-types {
+    &_type_#{$typeName} {
+        @include typography-type($typeMap);
     }
   }
 

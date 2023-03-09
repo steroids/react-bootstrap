@@ -22,8 +22,8 @@ $font-weight-sm: 400;
 $font-weight-md: 500;
 $font-weight-lg: 700;
 
-$title-templates: () !default;
-$title-templates: map-merge(
+$title-types: () !default;
+$title-types: map-merge(
     (
         "h1": (
             "font-size": $font-size-2xl,
@@ -68,11 +68,11 @@ $title-templates: map-merge(
             "color": $text-color,
         ),
     ),
-    $title-templates
+    $title-types
 );
 
-$text-templates: () !default;
-$text-templates: map-merge(
+$text-types: () !default;
+$text-types: map-merge(
     (
         "body": (
             "font-size": $font-size-base,
@@ -93,7 +93,7 @@ $text-templates: map-merge(
             "color": $text-color,
         ),
     ),
-    $text-templates
+    $text-types
 );
 
 $typography-colors: (
