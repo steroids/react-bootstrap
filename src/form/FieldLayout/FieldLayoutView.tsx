@@ -45,30 +45,23 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                 )}
             >
                 {props.children}
-                {!_isEmpty(props.errors) && !props.hint && (
+                {!_isEmpty(props.errors) && (
                     <div className={bem(bem.element('invalid-feedback'), 'invalid-feedback')}>
                         {[].concat(props.errors).filter(error => typeof error === 'string').map((error, index) => (
-                            <div key={index}>
-                                {error}
+                            <div key={index} className={bem.element('error-message')}>
+                                <Icon name="error" className={bem.element('icon_error')} />
+                                <span className={bem.element('error-text')}>{error}</span>
                             </div>
                         ))}
                     </div>
                 )}
 
-                {props.layout.layout !== 'inline' && props.hint && (
-                    <div className={bem(
-                        bem.element('hint', {
-                            size: props.size,
-                            error: !!props.errors,
-                            successful: props.successful,
-                        }),
-                    )}
+                {_isEmpty(props.errors) && props.layout.layout !== 'inline' && props.hint && (
+                    <div className={bem(bem.element('hint', {
+                        size: props.size,
+                    }))}
                     >
-                        {props.successful && <Icon name="success" className={bem.element('icon_successful')} />}
-                        {props.errors && <Icon name="error" className={bem.element('icon_error')} />}
-                        <span className={bem.element('hint-message')}>
-                            {props.hint}
-                        </span>
+                        {props.hint}
                     </div>
                 )}
             </div>

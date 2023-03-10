@@ -84,11 +84,11 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 56px;
-                    border-radius: 12px;
+                    border-radius: $radius-large;
                     font-size: $font-size-lg;
 
                     &-effects {
-                        border-radius: 12px;
+                        border-radius:$radius-large;
                     }
 
                     &::placeholder {
@@ -111,11 +111,11 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 46px;
-                    border-radius: 12px;
+                    border-radius: $radius-large;
                     font-size: $font-size-base;
 
                     &-effects {
-                        border-radius: 12px;
+                        border-radius: $radius-large;
                     }
 
                     &::placeholder {
@@ -144,7 +144,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                     }
 
                     &-effects {
-                        border-radius: 8px;
+                        border-radius: $radius-small;
                     }
                 }
 
@@ -163,7 +163,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
         width: 120px;
         outline: none;
         border: 1px solid $border-color;
-        border-radius: 8px;
+        border-radius: $radius-small;
         padding: 5px 22px 5px 8px;
         line-height: 24px;
         z-index: 1;

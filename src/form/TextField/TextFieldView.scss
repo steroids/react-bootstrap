@@ -1,16 +1,16 @@
 
 :root {
-    --text-field-disabled-close-color: #e5e9eb;
-    --text-field-active-close-color: #323232;
+    --text-field-disabled-clear-color: #e5e9eb;
+    --text-field-active-clear-color: #323232;
 
     html[data-theme="dark"] {
-        --text-field-disabled-close-color: #4e4f57;
-        --text-field-active-close-color: #ffffff;
+        --text-field-disabled-clear-color: #4e4f57;
+        --text-field-active-clear-color: #ffffff;
     }
 }
 
-$text-field-disabled-close-color: var(--text-field-disabled-close-color);
-$text-field-active-close-color: var(--text-field-active-close-color);
+$text-field-disabled-clear-color: var(--text-field-disabled-clear-color);
+$text-field-active-clear-color: var(--text-field-active-clear-color);
 
 .TextFieldView {
     $root: &;
@@ -30,11 +30,15 @@ $text-field-active-close-color: var(--text-field-active-close-color);
         }
     }
 
-    &__close {
+    &__clear {
         position: absolute;
         z-index: 3;
         top: 5px;
         right: 15px;
+
+        transition: opacity 150ms ease-in-out;
+        opacity: 0;
+        pointer-events: none;
 
         svg {
             path {
@@ -52,7 +56,7 @@ $text-field-active-close-color: var(--text-field-active-close-color);
         min-height: 80px;
         height: 80px;
         
-        border-radius: 8px;
+        border-radius: $radius-small;
 
         padding: 5px 40px 8px 8px;
 
@@ -90,14 +94,14 @@ $text-field-active-close-color: var(--text-field-active-close-color);
             color: $placeholder-disabled-color;
         }
 
-        &:disabled + #{$root}__close {
+        &:disabled + #{$root}__clear {
             display: none;
         }
 
-        &:not(:disabled):active + #{$root}__close {
+        &:not(:disabled):focus + #{$root}__clear {
             svg {
                 path {
-                    stroke: $text-field-active-close-color;
+                    stroke: $text-field-active-clear-color;
                 }
             }
         }
@@ -107,20 +111,27 @@ $text-field-active-close-color: var(--text-field-active-close-color);
         width: 240px;
         &_lg {
             height: 130px;
-            border-radius: 12px;
+            border-radius: $radius-large;
             font-size: $font-size-lg;
         }
 
         &_md {
             height: 100px;
-            border-radius: 12px;
+            border-radius: $radius-large;
             font-size: $font-size-base;
         }
 
         &_sm {
             height: 80px;
-            border-radius: 8px;
+            border-radius: $radius-small;
             font-size: $font-size-sm;
+        }
+    }
+
+    &_filled { 
+        #{$root}__clear { 
+            opacity: 1;
+            pointer-events: all;
         }
     }
 }

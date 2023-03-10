@@ -33,31 +33,27 @@
         display: block !important;
     }
 
+    &__error-message { 
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        column-gap: 4px;
+    }
+
     &__hint {
         width: 100%;
         margin-top: 4px;
         font-size: 80%;
 
         color: $text-color;
-        font-size: $font-size-xs;
+        font-size: $font-size-sm;
         line-height: 16px;
         font-weight: $font-weight-sm;
 
         display: flex;
         align-items: center;
         column-gap: 4px;
-
-        &-message { 
-            transform: translateY(1px);
-        }
-
-        &_error {
-            color: $danger;
-        }
-
-        &_successful {
-            color: $success;
-        }
 
         &_size {
             &_lg {
