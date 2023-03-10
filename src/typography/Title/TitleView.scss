@@ -1,0 +1,15 @@
+.TitleView {
+  font-family: $font-family-nunito;
+
+  @each $typeName, $typeMap in $title-types {
+    &_type_#{$typeName} {
+        @include typography-type($typeMap);
+    }
+  }
+
+  @each $colorName, $color in $typography-colors {
+    &_color_#{$colorName} {
+      color: $color;
+    }
+  }
+}
