@@ -10,7 +10,7 @@ const TYPE_MAPPING = {
 
 export default function TextView(props: ITextViewProps) {
     const bem = useBem('TextView');
-    const tag = props.tag || TYPE_MAPPING[props.type] || 'p';
+    const tag = props.tag || TYPE_MAPPING[props.type || ''] || 'p';
 
     return (
         React.createElement(

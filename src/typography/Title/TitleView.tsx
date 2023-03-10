@@ -14,7 +14,7 @@ const TYPE_MAPPING = {
 
 export default function TitleView(props: ITitleViewProps) {
     const bem = useBem('TitleView');
-    const tag = props.tag || TYPE_MAPPING[props.type] || 'h2';
+    const tag = props.tag || TYPE_MAPPING[props.type || ''] || 'h2';
 
     return (
         React.createElement(
