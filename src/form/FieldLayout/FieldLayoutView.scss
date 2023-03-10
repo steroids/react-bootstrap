@@ -47,6 +47,10 @@
         align-items: center;
         column-gap: 4px;
 
+        &-message { 
+            transform: translateY(1px);
+        }
+
         &_error {
             color: $danger;
         }
@@ -76,13 +80,24 @@
         }
     }
 
+    @mixin svgSize () {
+        svg {
+            max-width: 16px;
+            max-height: 16px;
+        }
+    }
+
     &__icon {
         &_error {
+            @include svgSize;
+
             svg rect {
                 color: $danger;
             }
         }
         &_successful {
+            @include svgSize;
+
             svg rect {
                 color: $success;
             }
