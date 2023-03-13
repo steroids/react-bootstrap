@@ -7,20 +7,22 @@ import {useBem} from '@steroidsjs/core/hooks';
 
 export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemHocOutput) {
     const bem = useBem('PasswordFieldView');
+
     return (
         <div
             className={bem(
                 bem.block({
                     size: props.size,
+                    filled: !!props.inputProps.value,
+                    hasClear: props.showClear,
+                    disabled: props.inputProps.disabled,
                 }),
                 props.className,
             )}
         >
             <div
                 className={bem(
-                    bem.element('container', {
-                        disabled: props.inputProps.disabled,
-                    }),
+                    bem.element('container'),
                 )}
             >
                 <input
@@ -29,17 +31,26 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
                     )}
                     {...props.inputProps}
                 />
-                {props.security && (
-                    <span
-                        className={bem(bem.element('icon-eye'))}
-                        onMouseDown={props.onShowPassword}
-                        onMouseUp={props.onHidePassword}
-                    >
+                <span className={bem.element('controls')}>
+                    {props.showClear && (
                         <Icon
-                            name={props.inputProps.type === 'password' ? 'securityEye' : 'securityEyeSlash'}
+                            name="field-close-large"
+                            className={bem.element('icon-clear')}
+                            onClick={props.onClear}
                         />
-                    </span>
-                )}
+                    )}
+                    {props.security && (
+                        <span
+                            className={bem(bem.element('icon-eye'))}
+                            onMouseDown={props.onShowPassword}
+                            onMouseUp={props.onHidePassword}
+                        >
+                            <Icon
+                                name={props.inputProps.type === 'password' ? 'crossed-out-eye' : 'visible-eye'}
+                            />
+                        </span>
+                    )}
+                </span>
             </div>
             {props.security && (
                 <div className={bem.element('security-bar', props.securityLevel)} />

@@ -252,6 +252,9 @@ export default () => {
         'badge-close',
         'loader',
         'accordion-chevron',
+        'field-close-large',
+        'visible-eye',
+        'crossed-out-eye',
     ];
 
     steroidsIcons.forEach(iconName => {
