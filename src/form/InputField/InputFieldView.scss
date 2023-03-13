@@ -22,11 +22,12 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     align-items: center;
     position: relative;
 
-    width: 240px;
+    width: fit-content;
     height: 34px;
 
     font-family: $font-family-nunito;
     line-height: 24px;
+    color: $text-color;
 
     &_hasError {
         #{$root}__input {
@@ -58,13 +59,12 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &__input {
-        width: 100%;
+        width: 240px;
         height: 100%;
         border-radius: $radius-small;
 
         border: 1px solid $border-color;
 
-        color: $text-color;
         padding-right: 8px;
         padding-left: 8px;
 
@@ -107,6 +107,18 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
                 border-radius: $radius-large;
             }
 
+            #{$root}__addon-before,
+            #{$root}__addon-after {
+                padding: 16px;
+            }
+
+            #{$root}__addon-before {
+                border-radius: $radius-large 0 0 $radius-large;
+            }
+            #{$root}__addon-after {
+                border-radius: 0 $radius-large $radius-large 0;
+            }
+
             font-size: $font-size-lg;
         }
 
@@ -114,11 +126,23 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             height: 46px;
 
             #{$root}__input {
-                border-radius:$radius-large;
+                border-radius: $radius-large;
             }
 
             &::before {
                 border-radius: $radius-large;
+            }
+
+            #{$root}__addon-before,
+            #{$root}__addon-after {
+                padding: 11px 12px;
+            }
+
+            #{$root}__addon-before {
+                border-radius: $radius-large 0 0 $radius-large;
+            }
+            #{$root}__addon-after {
+                border-radius: 0 $radius-large $radius-large 0;
             }
 
             font-size: $font-size-base;
@@ -133,6 +157,18 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
             &::before {
                 border-radius: $radius-small;
+            }
+
+            #{$root}__addon-before,
+            #{$root}__addon-after {
+                padding: 5px 8px;
+            }
+
+            #{$root}__addon-before {
+                border-radius: $radius-small 0 0 $radius-small;
+            }
+            #{$root}__addon-after {
+                border-radius: 0 $radius-small $radius-small 0;
             }
 
             font-size: $font-size-sm;
@@ -186,12 +222,32 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
     }
 
-    &_disabled { 
+    &_disabled {
         #{$root}__lead-icon {
             svg circle,
             path {
                 stroke: $lead-icon-disabled-color;
             }
+        }
+    }
+
+    &__addon-before,
+    &__addon-after {
+        background-color: $background-disabled-color;
+        height: 100%;
+    }
+
+    &_hasAddonAfter {
+        #{$root}__input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    &_hasAddonBefore {
+        #{$root}__input {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
         }
     }
 }
