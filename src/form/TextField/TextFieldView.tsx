@@ -11,10 +11,6 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
     const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
 
     const clearHandler = () => {
-        if (props.onClear) {
-            props.onClear();
-        }
-
         props.input.onChange('');
         textAreaRef.current.value = '';
     };
