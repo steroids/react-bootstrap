@@ -1,4 +1,3 @@
-
 :root {
     --text-field-disabled-clear-color: #e5e9eb;
     --text-field-active-clear-color: #323232;
@@ -18,15 +17,9 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
     position: relative;
     font-family: $font-family-nunito;
 
-    &_hasErrors { 
+    &_hasErrors {
         #{$root}__textarea {
             border-color: $danger;
-        }
-    }
-
-    &_successful { 
-        #{$root}__textarea {
-            border-color: $success;
         }
     }
 
@@ -55,7 +48,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         width: 100%;
         min-height: 80px;
         height: 80px;
-        
+
         border-radius: $radius-small;
 
         padding: 5px 40px 8px 8px;
@@ -110,26 +103,32 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
     &_size {
         width: 240px;
         &_lg {
-            height: 130px;
-            border-radius: $radius-large;
-            font-size: $font-size-lg;
+            #{$root}__textarea {
+                height: 130px;
+                border-radius: $radius-large;
+                font-size: $font-size-lg;
+            }
         }
 
         &_md {
-            height: 100px;
-            border-radius: $radius-large;
-            font-size: $font-size-base;
+            #{$root}__textarea {
+                height: 100px;
+                border-radius: $radius-large;
+                font-size: $font-size-base;
+            }
         }
 
         &_sm {
-            height: 80px;
-            border-radius: $radius-small;
-            font-size: $font-size-sm;
+            #{$root}__textarea {
+                height: 80px;
+                border-radius: $radius-small;
+                font-size: $font-size-sm;
+            }
         }
     }
 
-    &_filled { 
-        #{$root}__clear { 
+    &_filled {
+        #{$root}__clear {
             opacity: 1;
             pointer-events: all;
         }

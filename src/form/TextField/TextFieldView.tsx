@@ -12,19 +12,14 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
         <div className={bem(
             bem.block({
                 hasErrors: !!props.errors,
-                successful: props.successful,
                 filled: !!props.inputProps.value,
+                size: props.size,
             }),
             props.className,
         )}
         >
             <textarea
-                className={bem(
-                    bem.element('textarea'),
-                    bem.block({
-                        size: props.size,
-                    }),
-                )}
+                className={bem.element('textarea')}
                 {...props.inputProps}
             />
             {props.showClear && (

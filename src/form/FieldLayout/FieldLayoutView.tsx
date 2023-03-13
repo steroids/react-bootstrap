@@ -49,7 +49,10 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                     <div className={bem(bem.element('invalid-feedback'), 'invalid-feedback')}>
                         {[].concat(props.errors).filter(error => typeof error === 'string').map((error, index) => (
                             <div key={index} className={bem.element('error-message')}>
-                                <Icon name="error" className={bem.element('icon_error')} />
+                                <Icon
+                                    name="error"
+                                    className={bem.element('icon_error')}
+                                />
                                 <span className={bem.element('error-text')}>{error}</span>
                             </div>
                         ))}
