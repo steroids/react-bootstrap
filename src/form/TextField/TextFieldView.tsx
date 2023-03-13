@@ -8,25 +8,17 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput) {
     const bem = useBem('TextFieldView');
 
-    const textAreaRef = React.useRef<HTMLTextAreaElement>(null);
-
-    const clearHandler = () => {
-        props.input.onChange('');
-        textAreaRef.current.value = '';
-    };
-
     return (
         <div className={bem(
             bem.block({
                 hasErrors: !!props.errors,
                 successful: props.successful,
-                filled: textAreaRef.current && !!textAreaRef.current?.value,
+                filled: !!props.inputProps.value,
             }),
             props.className,
         )}
         >
             <textarea
-                ref={textAreaRef}
                 className={bem(
                     bem.element('textarea'),
                     bem.block({
@@ -35,7 +27,13 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
                 )}
                 {...props.inputProps}
             />
-            {props.showClear && <Icon className={bem.element('clear')} name="field-close" onClick={clearHandler} />}
+            {props.showClear && (
+                <Icon
+                    className={bem.element('clear')}
+                    name="field-close"
+                    onClick={props.onClear}
+                />
+            )}
         </div>
     );
 }
