@@ -31,7 +31,12 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
         const className = bem.element('lead-icon');
 
         return typeof props.leadIcon === 'string'
-            ? <Icon name={props.leadIcon} className={className} />
+            ? (
+                <Icon
+                    name={props.leadIcon}
+                    className={className}
+                />
+            )
             : <span className={className}>{props.leadIcon}</span>;
     }, [bem, props.leadIcon]);
 
@@ -96,7 +101,11 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                     />
                 )}
             {!props.disabled && props.showClear && !props.maskProps && (
-                <Icon name="field-close" className={bem.element('icon-clear')} onClick={onClearHandler} />
+                <Icon
+                    name="field-close"
+                    className={bem.element('icon-clear')}
+                    onClick={onClearHandler}
+                />
             )}
             {props.textAfter && (
                 <span className={bem.element('text-after')}>
