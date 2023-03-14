@@ -16,7 +16,6 @@ jobs:
       - run: yarn tsc
       - run: cp ./{package.json,LICENSE,README.md} dist
       - run: yarn copyfiles -u 1 "src/**/*.scss" "src/icons/svgs/*.svg" "public/**/*" dist
-      - run: yarn copyfiles "public/**/*" dist
       - uses: JS-DevTools/npm-publish@v1
         with:
           package: ./dist/package.json

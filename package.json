@@ -1,6 +1,6 @@
 {
     "name": "@steroidsjs/bootstrap",
-    "version": "3.0.0-beta.23",
+    "version": "3.0.0-beta.24",
     "description": "",
     "main": "index.js",
     "author": "Vladimir Kozhin <hello@kozhindev.com>",
@@ -10,7 +10,7 @@
     },
     "scripts": {
         "lint": "eslint -c ./.eslintrc --ext .js,.jsx,.ts,.tsx ./src --quiet",
-        "build": "tsc && cp ./{package.json,LICENSE,README.md} dist && copyfiles -u 1 \"src/**/*.scss\" \"src/icons/svgs/*.svg\" dist && yarn copyfiles \"public/**/*\" dist"
+        "build": "tsc && cp ./{package.json,LICENSE,README.md} dist && copyfiles -u 1 \"src/**/*.scss\" \"src/icons/svgs/*.svg\" dist"
     },
     "license": "MIT",
     "homepage": "https://github.com/steroids/react-bootstrap",
