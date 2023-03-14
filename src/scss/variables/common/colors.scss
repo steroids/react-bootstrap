@@ -26,6 +26,11 @@
     --text-color: #312C3A;
     --background-color: #fff;
     --is-dark: 'false';
+    --border-color: #eef1f2;
+    --border-color-hover: #e5e9eb;
+    --placeholder-color: rgba(0, 0, 0, 0.3);
+    --placeholder-disabled-color: rgba(0, 0, 0, 0.3);
+    --background-disabled-color: #eef1f2;
 }
 
 html[data-theme="dark"] {
@@ -54,8 +59,12 @@ html[data-theme="dark"] {
     --dark: #6b6477;
     --light: #b7afc7;
     --text-color: #FFFFFF;
-    --background-color: #414141;
     --is-dark: 'true';
+    --border-color: #eef1f2;
+    --border-color-hover: #4e4f57;
+    --placeholder-color: rgba(255, 255, 255, 0.3);
+    --placeholder-disabled-color: rgba(255, 255, 255, 0.1);
+    --background-disabled-color: #5b5c6b;
 }
 
 /*
@@ -88,6 +97,11 @@ $light: var(--light);
 $text-color: var(--text-color);
 $background-color: var(--background-color);
 $is-dark: var(--is-dark);
+$border-color: var(--border-color);
+$border-color-hover: var(--border-color-hover);
+$placeholder-color: var(--placeholder-color);
+$placeholder-disabled-color: var(--placeholder-disabled-color);
+$background-disabled-color: var(--background-disabled-color);
 
 /*
  * Common colors   
