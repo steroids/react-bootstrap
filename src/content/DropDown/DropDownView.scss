@@ -4,12 +4,12 @@
     --dropdown-background: #fff;
     --dropdown-triangle-border: #eef1f2;
     --dropdown-triangle-svg: url("data:image/svg+xml,%3Csvg width='21' height='11' viewBox='0 0 21 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.0416 0.5L10.1719 10.2567L1.30215 0.499998L19.0416 0.5Z' fill='white' stroke='%23EEF1F2'/%3E%3C/svg%3E%0A");
+}
 
-    html[data-theme="dark"] {
-        --dropdown-background: #4e4f57;
-        --dropdown-triangle-border: transparent;
-        --dropdown-triangle-svg: url("data:image/svg+xml,%3Csvg width='21' height='11' viewBox='0 0 21 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.1719 11L0.171876 -1.74846e-06L20.1719 0L10.1719 11Z' fill='%234E4F57'/%3E%3C/svg%3E%0A");
-    }
+html[data-theme="dark"] {
+    --dropdown-background: #4e4f57;
+    --dropdown-triangle-border: transparent;
+    --dropdown-triangle-svg: url("data:image/svg+xml,%3Csvg width='21' height='11' viewBox='0 0 21 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.1719 11L0.171876 -1.74846e-06L20.1719 0L10.1719 11Z' fill='%234E4F57'/%3E%3C/svg%3E%0A");
 }
 
 $dropdown-background: var(--dropdown-background);
