@@ -8,21 +8,6 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutput) {
     const bem = useBem('InputFieldView');
 
-    const inputRef = React.useRef<HTMLInputElement>(null);
-
-    const onClearHandler = () => {
-        if (props.input.onChange && !props.maskProps) {
-            props.input.onChange('');
-            inputRef.current.value = '';
-        }
-    };
-
-    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (props.input.onChange) {
-            props.input.onChange(e.target.value);
-        }
-    };
-
     const renderLeadIcon = React.useCallback(() => {
         if (!props.leadIcon) {
             return null;
@@ -47,13 +32,15 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                     disabled: props.inputProps.disabled,
                     size: props.size,
                     hasError: !!props.errors,
-                    successful: props.successful,
                     hasLeadIcon: !!props.leadIcon,
                     hasClearIcon: props.showClear && !props.disabled,
-                    filled: !!inputRef.current?.value,
+                    filled: !!props.inputProps.value,
                     hasAddonAfter: !!props.addonAfter,
                     hasAddonBefore: !!props.addonBefore,
                     hasAddon: !!props.addonAfter || !!props.addonBefore,
+                    hasTextAddon: !!props.textAfter || !!props.textBefore,
+                    hasTextAddonBefore: !!props.textBefore,
+                    hasTextAddonAfter: !!props.textAfter,
                 }),
                 props.className,
             )}
@@ -69,45 +56,49 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                     {props.textBefore}
                 </span>
             )}
-            {props.leadIcon && renderLeadIcon()}
-            {props.maskProps
-                ? (
-                    <input
-                        ref={inputRef}
-                        onBlur={props.onBlur}
-                        onFocus={props.onFocus}
-                        onMouseDown={props.onMouseDown}
-                        className={bem(
-                            bem.element('input'),
-                        )}
-                        {...props.inputProps}
-                        type={props.type}
-                        placeholder={props.placeholder}
-                        disabled={props.disabled}
-                        required={props.required}
-                    />
-                )
-                : (
-                    <input
-                        ref={inputRef}
-                        className={bem(
-                            bem.element('input'),
-                        )}
-                        {...props.inputProps}
-                        onChange={e => onChangeHandler(e)}
-                        type={props.type}
-                        placeholder={props.placeholder}
-                        disabled={props.disabled}
-                        required={props.required}
+            <div className={bem.element('input-wrapper')}>
+                {props.leadIcon && renderLeadIcon()}
+                {props.maskProps
+                    ? (
+                        <input
+                            onBlur={props.onBlur}
+                            onFocus={props.onFocus}
+                            onMouseDown={props.onMouseDown}
+                            className={bem(
+                                bem.element('input', {
+                                    size: props.size,
+                                }),
+                            )}
+                            {...props.inputProps}
+                            type={props.type}
+                            placeholder={props.placeholder}
+                            disabled={props.disabled}
+                            required={props.required}
+                        />
+                    )
+                    : (
+                        <input
+                            className={bem(
+                                bem.element('input', {
+                                    size: props.size,
+                                }),
+                            )}
+                            {...props.inputProps}
+                            onChange={e => props.input.onChange(e.target.value)}
+                            type={props.type}
+                            placeholder={props.placeholder}
+                            disabled={props.disabled}
+                            required={props.required}
+                        />
+                    )}
+                {!props.disabled && props.showClear && !props.maskProps && (
+                    <Icon
+                        name="field-close"
+                        className={bem.element('icon-clear')}
+                        onClick={props.onClear}
                     />
                 )}
-            {!props.disabled && props.showClear && !props.maskProps && (
-                <Icon
-                    name="field-close"
-                    className={bem.element('icon-clear')}
-                    onClick={onClearHandler}
-                />
-            )}
+            </div>
             {props.textAfter && (
                 <span className={bem.element('text-after')}>
                     {props.textAfter}
