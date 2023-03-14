@@ -4,14 +4,14 @@
     --accordion-background-dark: #312c3a;
     --accordion-rect-background: #ffffff;
     --accordion-chevron-color: #323232;
+}
 
-    html[data-theme="dark"] {
-        --accordion-background-light: #414141;
-        --accordion-background-intermediate: #5b5c6b;
-        --accordion-background-dark: #4e4f57;
-        --accordion-rect-background: #6f6b76;
-        --accordion-chevron-color: #ffffff;
-    }
+html[data-theme="dark"] {
+    --accordion-background-light: #414141;
+    --accordion-background-intermediate: #5b5c6b;
+    --accordion-background-dark: #4e4f57;
+    --accordion-rect-background: #6f6b76;
+    --accordion-chevron-color: #ffffff;
 }
 
 $accordionBackgroundMap: (
