@@ -22,7 +22,10 @@ export default function CardView(props: ICardViewProps) {
             )}
             {props.cover && (
                 <div className={bem.element('cover')}>
-                    <img src={props.cover} alt='cover-img' />
+                    <img
+                        src={props.cover}
+                        alt='cover-img'
+                    />
                 </div>
             )}
             <div className={bem.element('content')}>

@@ -36,7 +36,7 @@
     },
     "devDependencies": {
         "@steroidsjs/core": "^3.0 || >=3.0.0-beta.9",
-        "@steroidsjs/eslint-config": "^2.1.3",
+        "@steroidsjs/eslint-config": "^2.1.4",
         "@types/enzyme": "^3.10.8",
         "@types/googlemaps": "^3.43.3",
         "@types/jest": "^26.0.22",

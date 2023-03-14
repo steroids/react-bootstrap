@@ -40,7 +40,9 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
     };
 
     const renderBadge = () => {
-        if (!props.badge || !props.badge.enable) return null;
+        if (!props.badge || !props.badge.enable) {
+            return null;
+        }
 
         return (
             <span
