@@ -17,22 +17,22 @@
     padding: 5px 10px;
     display: flex;
     flex-direction: row;
-    color: $list-group-action-color;
-    background-color: $list-group-bg;
+    color: $text-color;
+    background-color: $background-color;
 
-    &:hover {
-      color: $list-group-action-hover-color;
-      background-color: $list-group-hover-bg;
-    }
+    // &:hover {
+    //   color: $list-group-action-hover-color;
+    //   background-color: $list-group-hover-bg;
+    // }
 
     &, &:hover {
       text-decoration: none !important;
     }
   }
   &__item_selected &__item-label {
-    background-color: $list-group-active-bg;
+    background-color: $secondary;
     &, &::before {
-      color: $list-group-active-color;
+      color: $text-color;
     }
   }
   &__item-label::before {
@@ -43,9 +43,8 @@
     height: 20px;
     font-size: 12px;
     font-weight: bold;
-    font-family: $font-family-monospace;
     margin-left: 10px;
-    color: $list-group-action-color;
+    color: $text-color;
     position: relative;
     top: 3px;
     left: 3px;

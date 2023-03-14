@@ -61,50 +61,50 @@ html[data-theme="dark"] {
 /*
  *  SCSS variables implementation
  */
-$primary: var(--primary);
-$primary-dark: var(--primary-dark);
-$primary-light: var(--primary-light);
-$secondary: var(--secondary);
-$secondary-dark: var(--secondary-dark);
-$secondary-light: var(--secondary-light);
-$success: var(--success);
-$success-dark: var(--success-dark);
-$success-light: var(--success-light);
-$danger: var(--danger);
-$danger-dark: var(--danger-dark);
-$danger-light: var(--danger-light);
-$info: var(--info);
-$info-dark: var(--info-dark);
-$info-light: var(--info-light);
-$warning: var(--warning);
-$warning-dark: var(--warning-dark);
-$warning-light: var(--warning-light);
-$graphite: var(--graphite);
-$gray-dark: var(--gray-dark);
-$gray: var(--gray);
-$light-gray: var(--light-gray);
-$dark: var(--dark);
-$light: var(--light);
-$text-color: var(--text-color);
-$background-color: var(--background-color);
-$is-dark: var(--is-dark);
+$primary: var(--primary) !default;
+$primary-dark: var(--primary-dark) !default;
+$primary-light: var(--primary-light) !default;
+$secondary: var(--secondary) !default;
+$secondary-dark: var(--secondary-dark) !default;
+$secondary-light: var(--secondary-light) !default;
+$success: var(--success) !default;
+$success-dark: var(--success-dark) !default;
+$success-light: var(--success-light) !default;
+$danger: var(--danger) !default;
+$danger-dark: var(--danger-dark) !default;
+$danger-light: var(--danger-light) !default;
+$info: var(--info) !default;
+$info-dark: var(--info-dark) !default;
+$info-light: var(--info-light) !default;
+$warning: var(--warning) !default;
+$warning-dark: var(--warning-dark) !default;
+$warning-light: var(--warning-light) !default;
+$graphite: var(--graphite) !default;
+$gray-dark: var(--gray-dark) !default;
+$gray: var(--gray) !default;
+$light-gray: var(--light-gray) !default;
+$dark: var(--dark) !default;
+$light: var(--light) !default;
+$text-color: var(--text-color) !default;
+$background-color: var(--background-color) !default;
+$is-dark: var(--is-dark) !default;
 
 /*
  * Common colors   
  */
 
-$black: rgba(#000, 1);
-$black-60: rgba(#000, 0.6);
-$black-30: rgba(#000, 0.3);
-$black-10: rgba(#000, 0.1);
-$black-4: rgba(#000, 0.04);
-$white: #fff;
+$black: rgba(#000, 1) !default;
+$black-60: rgba(#000, 0.6) !default;
+$black-30: rgba(#000, 0.3) !default;
+$black-10: rgba(#000, 0.1) !default;
+$black-4: rgba(#000, 0.04) !default;
+$white: #fff !default;
 
-$link-color: #2ba3fb;
+$link-color: #2ba3fb !default;
 
-$gradient-blue: linear-gradient(180deg, #651FFF, #BA9BFF);
+$gradient-blue: linear-gradient(180deg, #651FFF, #BA9BFF) !default;
 
-$color-themes: ();
+$color-themes: () !default;
 $color-themes: map-merge(
     (
         "basic": (
