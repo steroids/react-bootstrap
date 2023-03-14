@@ -24,6 +24,7 @@
     --dark: #6f6b76;
     --light: #9088a1;
     --text-color: #312C3A;
+    --background-color: #fff;
     --is-dark: 'false';
 }
 
@@ -53,6 +54,7 @@ html[data-theme="dark"] {
     --dark: #6b6477;
     --light: #b7afc7;
     --text-color: #FFFFFF;
+    --background-color: #414141;
     --is-dark: 'true';
 }
 
