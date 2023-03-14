@@ -53,6 +53,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                     filled: !!inputRef.current?.value,
                     hasAddonAfter: !!props.addonAfter,
                     hasAddonBefore: !!props.addonBefore,
+                    hasAddon: !!props.addonAfter || !!props.addonBefore,
                 }),
                 props.className,
             )}
