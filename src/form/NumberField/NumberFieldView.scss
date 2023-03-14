@@ -1,4 +1,9 @@
-@import "../../scss/variables";
+.NumberFieldView {
+  display: flex;
+  overflow: hidden;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  padding: 0;
 
 :root {
     --number-field-arrow-color: #414141;

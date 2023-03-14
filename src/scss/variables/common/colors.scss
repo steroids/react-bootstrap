@@ -97,28 +97,23 @@ $light: var(--light);
 $text-color: var(--text-color);
 $background-color: var(--background-color);
 $is-dark: var(--is-dark);
-$border-color: var(--border-color);
-$border-color-hover: var(--border-color-hover);
-$placeholder-color: var(--placeholder-color);
-$placeholder-disabled-color: var(--placeholder-disabled-color);
-$background-disabled-color: var(--background-disabled-color);
 
 /*
  * Common colors   
  */
 
-$black: rgba(#000, 1);
-$black-60: rgba(#000, 0.6);
-$black-30: rgba(#000, 0.3);
-$black-10: rgba(#000, 0.1);
-$black-4: rgba(#000, 0.04);
-$white: #fff;
+$black: rgba(#000, 1) !default;
+$black-60: rgba(#000, 0.6) !default;
+$black-30: rgba(#000, 0.3) !default;
+$black-10: rgba(#000, 0.1) !default;
+$black-4: rgba(#000, 0.04) !default;
+$white: #fff !default;
 
-$link-color: #2ba3fb;
+$link-color: #2ba3fb !default;
 
-$gradient-blue: linear-gradient(180deg, #651FFF, #BA9BFF);
+$gradient-blue: linear-gradient(180deg, #651FFF, #BA9BFF) !default;
 
-$color-themes: ();
+$color-themes: () !default;
 $color-themes: map-merge(
     (
         "basic": (

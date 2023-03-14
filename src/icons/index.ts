@@ -255,6 +255,8 @@ export default () => {
         'field-close',
         'arrow',
         'user',
+        'visible-eye',
+        'crossed-out-eye',
     ];
 
     steroidsIcons.forEach(iconName => {

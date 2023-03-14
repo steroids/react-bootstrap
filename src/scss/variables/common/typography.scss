@@ -4,23 +4,23 @@
 
 $font-family-nunito: "Nunito", sans-serif;
 
-$font-size-xs: 12px;
-$font-size-sm: 14px;
-$font-size-base: 16px;
-$font-size-lg: 18px;
-$font-size-xl: 24px;
-$font-size-2xl: 32px;
+$font-size-xs: 12px !default;
+$font-size-sm: 14px !default;
+$font-size-base: 16px !default;
+$font-size-lg: 18px !default;
+$font-size-xl: 24px !default;
+$font-size-2xl: 32px !default;
 
-$line-height-xs: 17px;
-$line-height-sm: 20px;
-$line-height-base: 22px;
-$line-height-lg: 25px;
-$line-height-xl: 34px;
-$line-height-2xl: 45px;
+$line-height-xs: 17px !default;
+$line-height-sm: 20px !default;
+$line-height-base: 22px !default;
+$line-height-lg: 25px !default;
+$line-height-xl: 34px !default;
+$line-height-2xl: 45px !default;
 
-$font-weight-sm: 400;
-$font-weight-md: 500;
-$font-weight-lg: 700;
+$font-weight-sm: 400 !default;
+$font-weight-md: 500 !default;
+$font-weight-lg: 700 !default;
 
 $title-types: () !default;
 $title-types: map-merge(

@@ -1,9 +1,9 @@
+$body-bg: transparent;
+
 .HeaderView {
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
   background-color: $body-bg;
-  &, a {
-    color: $body-color;
-  }
+
   a:hover {
     opacity: .7;
   }
