@@ -7,7 +7,6 @@ $input-border-color: transparent;
   flex-flow: row nowrap;
   align-items: stretch;
   padding: 0;
-  border: $input-border;
   border-radius: $input-border-radius;
 
   &_size {
@@ -102,7 +101,7 @@ $input-border-color: transparent;
   &__addon-before, &__addon-after {
     display: flex;
     align-items: center;
-    padding: 0 $input-addon-padding;
+    // padding: 0 $input-addon-padding;
 
     color: rgba(0, 0, 0, .85);
     text-align: center;
@@ -126,11 +125,11 @@ $input-border-color: transparent;
   }
 
   &__text-before {
-    padding-left: $input-text-padding;
+    // padding-left: $input-text-padding;
   }
 
   &__text-after {
-    padding-right: $input-text-padding;
+    // padding-right: $input-text-padding;
   }
 
 }
