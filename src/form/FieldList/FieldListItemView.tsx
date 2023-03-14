@@ -16,7 +16,10 @@ export default React.memo((props: IFieldListItemViewProps) => {
                         field.className,
                     )}
                 >
-                    <Field {...field} prefix={props.prefix} />
+                    <Field
+                        {...field}
+                        prefix={props.prefix}
+                    />
                 </td>
             ))}
             {props.showRemove && (

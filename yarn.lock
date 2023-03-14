@@ -720,10 +720,10 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.8":
-  version "3.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.8.tgz#b2c4b2a61b0e132e8833123e72a00a1703154a81"
-  integrity sha512-3rtJlsTqxupKO7SvZcSEoMmtcSbz8VghedSXmiWbbl+fj7t18w3yrwxzjHVKo33dCv6S2vsnVNQq2MLEbrdmhw==
+"@steroidsjs/core@^3.0 || >=3.0.0-beta.9":
+  version "3.0.0-beta.9"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.9.tgz#ce5227b4b53abdbecc0e701ad04b8292ba25a38e"
+  integrity sha512-hsZn5gJJHt3+ezNgBfMIm2McyeZ28YQD+KP+M6A4HAHuJfSmGoIMX3TRH29ZS+zvkETN2W6njI9pPh/fks75Mg==
   dependencies:
     axios "^0.21.1"
     connected-react-router "^6.9.3"
@@ -756,10 +756,10 @@
     redux-mock-store "^1.5.4"
     set-cookie-parser "^2.4.8"
 
-"@steroidsjs/eslint-config@^2.1.3":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/eslint-config/-/eslint-config-2.1.3.tgz#7629ff4e84357aaa1afbba224409bc856b31f6ac"
-  integrity sha512-+UI3knedgMUFjzMz7EVZp6jqCfySGaU2RNj1suY2PBxNFP+dwyMRiXA9aB+581aVMXgr3kn+ObcioeVdr8TFqw==
+"@steroidsjs/eslint-config@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/eslint-config/-/eslint-config-2.1.4.tgz#38092cc690cc4b720f5730c470e180d9990c5f6a"
+  integrity sha512-7e0WFQ/wfCSzeUOr0/y58+OXC605vHHtgpWk1ubbKtVXTETbDQF4qHZunLFEVlXlYeSVLvpy5NjZvQuQQcOEaA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.49.0"
     "@typescript-eslint/parser" "^5.49.0"

@@ -42,6 +42,23 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
+    &_block {
+        display: block;
+        width: 100%;
+
+        #{$root}__label {
+            justify-content: center;
+        }
+    }
+
+    &_link { 
+        display: inline;
+        width: auto;
+        #{$root}__label {
+            display: inline;
+        }
+    }
+
     &_disabled {
         opacity: 0.5;
         color: rgba(0, 0, 0, 0.25);
@@ -69,9 +86,10 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-    &_link {
-        justify-content: center;
-        background-color: transparent;
+    &__label {
+        display: flex;
+        flex-direction: row;
+        column-gap: 10px;
     }
 
     &__icon {
@@ -106,12 +124,6 @@ $btn-letter-spacing: 0.1em;
             transform-origin: center;
             animation: rotate 1.45s linear infinite;
         }
-    }
-
-    &__label { 
-        display: flex;
-        flex-direction: row;
-        column-gap: 10px;
     }
 }
 

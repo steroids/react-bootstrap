@@ -106,18 +106,20 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
                         {props.title}
                     </p>
                 </div>
-                <div className={bem.element('icon-wrapper')}>
-                    {props.showIcon && props.icon
-                        ? renderIcon()
-                        : (
-                            <Icon
-                                className={bem.element('icon', {
-                                    active: !props.disabled && props.isShowMore,
-                                })}
-                                name="accordion-chevron"
-                            />
-                        )}
-                </div>
+                {props.showIcon && (
+                    <div className={bem.element('icon-wrapper')}>
+                        {props.icon
+                            ? renderIcon()
+                            : (
+                                <Icon
+                                    className={bem.element('icon', {
+                                        active: !props.disabled && props.isShowMore,
+                                    })}
+                                    name="accordion-chevron"
+                                />
+                            )}
+                    </div>
+                )}
             </div>
             <div className={bem.element('content', {visible: !props.disabled && props.isShowMore})}>
                 {props.children}

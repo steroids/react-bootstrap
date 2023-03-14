@@ -10,7 +10,10 @@ export default function LineProgressBarView(props: IProgressBarViewProps & IBemH
     return (
         <div className={bem.block({size: props.size, status: props.status})}>
             <div className={bem.element('emptyLine')}>
-                <div className={bem.element('progressLine')} style={{width: `${props.percent}%`}} />
+                <div
+                    className={bem.element('progressLine')}
+                    style={{width: `${props.percent}%`}}
+                />
             </div>
             <div className={bem.element('text')}>{props.label}</div>
         </div>
