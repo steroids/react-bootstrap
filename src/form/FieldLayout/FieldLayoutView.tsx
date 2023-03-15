@@ -55,8 +55,16 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                                 <Icon
                                     name="error"
                                     className={bem.element('icon_error')}
+                                    tabIndex={-1}
                                 />
-                                <span className={bem.element('error-text')}>{error}</span>
+                                <span className={bem.element('error-text',
+                                    {
+                                        size: !!props.size || 'md',
+                                    })}
+                                >
+                                    {error}
+
+                                </span>
                             </div>
                         ))}
                     </div>

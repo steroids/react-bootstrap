@@ -20,6 +20,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                 <Icon
                     name={props.leadIcon}
                     className={className}
+                    tabIndex={-1}
                 />
             )
             : <span className={className}>{props.leadIcon}</span>;
@@ -95,6 +96,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                     <Icon
                         name="field-close"
                         className={bem.element('icon-clear')}
+                        tabIndex={-1}
                         onClick={props.onClear}
                     />
                 )}

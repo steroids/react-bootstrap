@@ -12,6 +12,10 @@ $btn-letter-spacing: 0.1em;
 
     width: 160px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &_button {
         position: relative;
         border-radius: $radius-small;
@@ -67,8 +71,9 @@ $btn-letter-spacing: 0.1em;
 
     &_disabled {
         opacity: 0.5;
-        color: rgba(0, 0, 0, 0.25);
+        color: rgba(0, 0, 0, 0.1);
         cursor: not-allowed;
+
         input {
             cursor: inherit;
         }
@@ -125,6 +130,23 @@ $btn-letter-spacing: 0.1em;
         position: relative;
         top: -1px;
         margin-left: 4px;
+        border-radius: $radius-small;
+        padding: 2px 5px;
+
+        $badge-types: (
+            "primary": $primary,
+            "secondary": $secondary,
+            "success": $success,
+            "danger": $danger,
+            "warning": $warning,
+            "info": $info,
+        );
+
+        @each $type, $color in $badge-types {
+            &_#{$type} {
+                background-color: $color;
+            }
+        }
     }
 
     &__loader {

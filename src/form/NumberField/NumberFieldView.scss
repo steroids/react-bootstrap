@@ -168,6 +168,8 @@ $number-field-arrow-color: var(--number-field-arrow-color);
         font-weight: $font-weight-sm;
         color: $text-color;
 
+        background-color: $element-background-color;
+
         &::placeholder {
             color: $placeholder-color;
         }

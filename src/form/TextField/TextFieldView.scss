@@ -1,13 +1,17 @@
 :root {
     --text-field-disabled-clear-color: #e5e9eb;
     --text-field-active-clear-color: #323232;
-
-    html[data-theme="dark"] {
-        --text-field-disabled-clear-color: #4e4f57;
-        --text-field-active-clear-color: #ffffff;
-    }
+    --text-field-background-color: #ffffff;
+    --text-field-border-color: 
 }
 
+html[data-theme="dark"] {
+    --text-field-background-color: #414141;
+    --text-field-disabled-clear-color: #4e4f57;
+    --text-field-active-clear-color: #ffffff;
+}
+
+$text-field-background-color: var(--text-field-background-color);
 $text-field-disabled-clear-color: var(--text-field-disabled-clear-color);
 $text-field-active-clear-color: var(--text-field-active-clear-color);
 
@@ -16,6 +20,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
 
     position: relative;
     font-family: $font-family-nunito;
+    width: fit-content;
 
     &_hasErrors {
         #{$root}__textarea {
@@ -25,9 +30,11 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
 
     &__clear {
         position: absolute;
+        width: 24px;
+        height: 24px;
         z-index: 3;
-        top: 5px;
-        right: 15px;
+        top: 3%;
+        right: 16px;
 
         transition: opacity 150ms ease-in-out;
         opacity: 0;
@@ -46,10 +53,12 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
 
     &__textarea {
         width: 100%;
+        min-width: 240px;
         min-height: 80px;
         height: 80px;
 
         border-radius: $radius-small;
+        background-color: $text-field-background-color;
 
         padding: 5px 40px 8px 8px;
 
@@ -105,6 +114,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         &_lg {
             #{$root}__textarea {
                 height: 130px;
+                min-height: 130px;
                 border-radius: $radius-large;
                 font-size: $font-size-lg;
             }
@@ -113,6 +123,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         &_md {
             #{$root}__textarea {
                 height: 100px;
+                min-height: 100px;
                 border-radius: $radius-large;
                 font-size: $font-size-base;
             }

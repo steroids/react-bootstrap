@@ -1,13 +1,13 @@
 .FieldLayoutView {
     $root: &;
-
     font-family: $font-family-nunito;
+
     &__label {
         font-size: $font-size-sm;
         line-height: 24px;
         font-weight: $font-weight-sm;
         color: $text-color;
-        margin-bottom: 4px;
+        margin-bottom: 8px;
 
         &_size {
             &_sm {
@@ -31,9 +31,10 @@
 
     &__invalid-feedback {
         display: block !important;
+        margin-top: 4.83px;
     }
 
-    &__error-message { 
+    &__error-message {
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
@@ -76,26 +77,46 @@
         }
     }
 
-    @mixin svgSize () {
+    @mixin svgSize() {
         svg {
-            max-width: 16px;
-            max-height: 16px;
+            width: 16px;
+            height: 16px;
         }
     }
 
-    &__icon {
-        &_error {
-            @include svgSize;
+    &__icon_error {
+        width: 16px;
+        height: 16px;
 
-            svg rect {
-                color: $danger;
-            }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include svgSize;
+
+        svg rect {
+            color: $danger;
         }
-        &_successful {
-            @include svgSize;
+    }
 
-            svg rect {
-                color: $success;
+    &__error-text { 
+        color: $danger;
+        &_size {  
+            &_lg {
+                font-size: $font-size-base;
+                line-height: 22px;
+                font-weight: $font-weight-sm;
+            }
+
+            &_md {
+                font-size: $font-size-sm;
+                line-height: 18px;
+                font-weight: $font-weight-sm;
+            }
+
+            &_sm {
+                font-size: $font-size-xs;
+                line-height: 16px;
+                font-weight: $font-weight-sm;
             }
         }
     }
