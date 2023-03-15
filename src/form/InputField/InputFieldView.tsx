@@ -9,10 +9,6 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
     const bem = useBem('InputFieldView');
 
     const renderLeadIcon = React.useCallback(() => {
-        if (!props.leadIcon) {
-            return null;
-        }
-
         const className = bem.element('lead-icon');
 
         return typeof props.leadIcon === 'string'
