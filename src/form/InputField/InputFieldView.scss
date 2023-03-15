@@ -51,9 +51,10 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
     }
 
+   
     //Statements
-    &::before {
-        content: "";
+    &::before { 
+        content: '';
         position: absolute;
         z-index: 99999;
         width: 100%;
@@ -70,19 +71,19 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         opacity: 1;
     }
 
-    &:not(#{$root}_disabled):active::before {
+    &:not(#{$root}_disabled):active::before { 
         border: 1px solid $primary;
         opacity: 1;
     }
 
     &_disabled {
-        #{$root}__input {
+        #{$root}__input { 
             background-color: $background-disabled-color;
             border-color: transparent;
         }
     }
 
-    &_hasError::before {
+    &_hasError::before { 
         border: 1px solid $danger;
         opacity: 1;
     }
@@ -107,7 +108,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
                 padding: 16px 3px;
             }
 
-            &::before {
+            &::before { 
                 border-radius: $radius-large;
             }
         }
@@ -133,7 +134,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
                 padding: 11px 3px;
             }
 
-            &::before {
+            &::before { 
                 border-radius: $radius-large;
             }
         }
@@ -157,7 +158,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
                 padding: 5px 3px;
             }
 
-            &::before {
+            &::before { 
                 border-radius: $radius-small;
             }
         }
@@ -263,12 +264,15 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
     }
 
-    &__text-before {
-        padding-left: $input-text-padding;
+    &__addon-before,
+    &__addon-after {
+        padding: 11px 12px;
+        background-color: $background-disabled-color;
     }
 
-    &__text-after {
-        padding-right: $input-text-padding;
+    &__addon-before {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
     }
 
     &__addon-after {

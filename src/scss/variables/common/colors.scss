@@ -23,9 +23,9 @@
     --light-gray: #f8f8f8;
     --dark: #6f6b76;
     --light: #9088a1;
-    --text-color: #312C3A;
+    --text-color: #312c3a;
     --background-color: #fff;
-    --is-dark: 'false';
+    --is-dark: "false";
     --border-color: #eef1f2;
     --border-color-hover: #e5e9eb;
     --placeholder-color: rgba(0, 0, 0, 0.3);
@@ -58,9 +58,9 @@ html[data-theme="dark"] {
     --light-gray: #928b9d;
     --dark: #6b6477;
     --light: #b7afc7;
-    --text-color: #FFFFFF;
+    --text-color: #ffffff;
     --background-color: #414141;
-    --is-dark: 'true';
+    --is-dark: "true";
     --border-color: #eef1f2;
     --border-color-hover: #4e4f57;
     --placeholder-color: rgba(255, 255, 255, 0.3);
@@ -98,6 +98,11 @@ $light: var(--light);
 $text-color: var(--text-color);
 $background-color: var(--background-color);
 $is-dark: var(--is-dark);
+$border-color: var(--border-color);
+$border-color-hover: var(--border-color-hover);
+$placeholder-color: var(--placeholder-color);
+$placeholder-disabled-color: var(--placeholder-disabled-color);
+$background-disabled-color: var(--background-disabled-color);
 
 /*
  * Common colors   
@@ -112,7 +117,7 @@ $white: #fff !default;
 
 $link-color: #2ba3fb !default;
 
-$gradient-blue: linear-gradient(180deg, #651FFF, #BA9BFF) !default;
+$gradient-blue: linear-gradient(180deg, #651fff, #ba9bff) !default;
 
 $color-themes: () !default;
 $color-themes: map-merge(

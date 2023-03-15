@@ -94,7 +94,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
                 grid-row-end: 2;
             }
 
-            #{$root}__icon {
+            #{$root}__icon-chevron {
                 transform: rotate(180deg);
                 &_active {
                     transform: rotate(0deg);
@@ -120,8 +120,11 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         margin: 0;
     }
 
-    &__icon {
+    &__icon-chevron {
+        width: 24px;
+        height: 24px;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
+        position: absolute;
         border-radius: $radius-small;
 
         transform: rotate(0deg);
@@ -153,6 +156,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: transparent;
 
         &_not_visible {
             width: 0;
@@ -172,6 +176,11 @@ $accordion-chevron-color: var(--accordion-chevron-color);
             padding: 18px 32px 18px 16px;
             border: 1px solid rgba(#000, 0.1);
         }
+    }
+
+    &__close-icon, &__open-icon { 
+        width: 24px;
+        height: 24px;
     }
 
     &__close-icon {

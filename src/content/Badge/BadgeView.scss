@@ -21,6 +21,12 @@
         }
     }
 
+    &__close {
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+    }
+
     $badge-types: (
         "primary": $primary,
         "secondary": $secondary,
@@ -90,7 +96,7 @@
             border-radius: $radius-circle;
         }
 
-        #{$root}__counter-content { 
+        #{$root}__counter-content {
             font-weight: $font-weight-sm;
             font-size: $font-size-xs;
             line-height: 16px;

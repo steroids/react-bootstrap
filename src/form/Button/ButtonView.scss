@@ -42,6 +42,12 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
+    &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &_block {
         display: block;
         width: 100%;
@@ -51,7 +57,7 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-    &_link { 
+    &_link {
         display: inline;
         width: auto;
         #{$root}__label {
@@ -93,6 +99,8 @@ $btn-letter-spacing: 0.1em;
     }
 
     &__icon {
+        width: 16px;
+        height: 16px;
         &_without-label {
             margin: 0;
         }
@@ -120,7 +128,15 @@ $btn-letter-spacing: 0.1em;
     }
 
     &__loader {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         svg {
+            width: 14px;
+            height: 14px;
             transform-origin: center;
             animation: rotate 1.45s linear infinite;
         }
