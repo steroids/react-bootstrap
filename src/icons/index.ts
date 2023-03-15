@@ -220,7 +220,7 @@ const groupedIcons = {
     ],
 };
 
-export default () => {
+export default (customIcons: Record<string, any>) => {
     // All icons
     const icons = {};
     Object.keys(groupedIcons).forEach(group => {
@@ -267,5 +267,8 @@ export default () => {
         icons[name] = icons[coreIconsMap[name]];
     });
 
-    return icons;
+    return {
+        ...icons,
+        ...customIcons,
+    };
 };
