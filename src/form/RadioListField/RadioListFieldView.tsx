@@ -7,20 +7,27 @@ import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 export default function RadioListFieldView(props: IRadioListFieldViewProps & IBemHocOutput) {
     const bem = useBem('RadioListFieldView');
     const prefix = useUniqueId('radio');
+
     return (
         <div className={bem.block()}>
-            {props.items.map((item) => (
+            {props.items.map((item, index) => (
                 <div
                     key={typeof item.id !== 'boolean' ? item.id : (item.id ? 'true' : 'false')}
-                    className='custom-control custom-radio'
+                    className={bem(
+                        bem.element('item', {
+                            hasError: !!props.errors,
+                        }),
+                        props.className,
+                    )}
                 >
                     <input
                         {...props.inputProps}
                         id={`${prefix}_${item.id}`}
+                        tabIndex={index}
                         className={bem(
-                            bem.element('input'),
-                            'custom-control-input',
-                            !!props.errors && 'is-invalid',
+                            bem.element('input', {
+                                checked: props.selectedIds.includes(item.id),
+                            }),
                         )}
                         checked={props.selectedIds.includes(item.id)}
                         disabled={props.disabled || item.disabled}
@@ -29,8 +36,8 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                         }}
                     />
                     <label
-                        className='custom-control-label'
                         htmlFor={`${prefix}_${item.id}`}
+                        className={bem.element('label')}
                     >
                         {item.label}
                     </label>
