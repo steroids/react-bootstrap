@@ -86,10 +86,12 @@
     padding: 5px;
 
     text-align: center;
+    border-bottom: 1px solid gray;
     background-color: $calendar-primary-light-color;
 
     &_months {
       grid-area: HeaderMonths;
+      border-right: 1px solid gray;
     }
 
     &_years {
@@ -98,6 +100,7 @@
   }
 
   &__panel-column-months {
+    border-right: 1px solid gray;
 
     &_first {
       grid-area: Months1stCol;

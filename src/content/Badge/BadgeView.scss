@@ -1,5 +1,15 @@
 @import "../../scss/variables";
 
+:root { 
+    --counter-background-color: #FFFFFF;
+}
+
+html[data-theme="dark"] { 
+    --counter-background-color: #414141;
+}
+
+$counter-background-color: var(--counter-background-color);
+
 .BadgeView {
     $root: &;
 
@@ -19,6 +29,12 @@
         #{$root}__message {
             margin-right: 4px;
         }
+    }
+
+    &__close {
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
     }
 
     $badge-types: (
@@ -88,12 +104,14 @@
             justify-content: center;
             align-items: center;
             border-radius: $radius-circle;
+            background-color: $counter-background-color;
         }
 
-        #{$root}__counter-content { 
+        #{$root}__counter-content {
             font-weight: $font-weight-sm;
             font-size: $font-size-xs;
             line-height: 16px;
+            color: $text-color;
         }
 
         #{$root}__close {

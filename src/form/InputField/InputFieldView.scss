@@ -1,135 +1,307 @@
-$input-border-color: transparent;
+:root {
+    --lead-icon-default-color: #e5e9eb;
+    --lead-icon-focus-color: #323232;
+    --lead-icon-disabled-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] {
+    --lead-icon-default-color: #5b5c6b;
+    --lead-icon-focus-color: #ffffff;
+    --lead-icon-disabled-color: rgba(255, 255, 255, 0.1);
+}
+
+$lead-icon-default-color: var(--lead-icon-default-color);
+$lead-icon-focus-color: var(--lead-icon-focus-color);
+$lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
 .InputFieldView {
-  $root: &;
+    $root: &;
 
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: stretch;
-  padding: 0;
-  border-radius: $input-border-radius;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 
-  &_size {
-    &_small {
-      height: $input-height-sm;
-    }
-    &_medium {
-      height: $input-height-md;
-    }
-    &_large {
-      height: $input-height-lg;
-    }
-  }
+    width: 240px;
+    height: 34px;
 
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 3px $border-typing, 0 0 0 3px $border-typing;
-  }
+    color: $text-color;
+    font-family: $font-family-nunito;
+    font-weight: $font-weight-sm;
+    line-height: 24px;
 
-  &.is-invalid:focus-within{
-    border-color: $border-action;
-    box-shadow: 0 0 0 3px $border-typing, 0 0 0 3px $border-typing;
-  }
-
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    cursor: not-allowed;
-
-    input {
-      cursor: inherit;
+    &__input-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
     }
 
-    &#{$root}_input {
-      background-color: $back-disabled;
+    &__input {
+        width: 100%;
+        height: 100%;
+
+        padding: 0 8px;
+        outline: none;
+
+        background-color: $element-background-color;
+        border: 1px solid $border-color;
+        border-radius: inherit;
+
+        &::placeholder {
+            color: $placeholder-color;
+            font-size: inherit;
+        }
     }
-  }
 
-  &_caption {
+   
+    //Statements
+    &::before { 
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
 
-  }
-
-  &_failed {
-    background: $back-error;
-    &::after {
-      content: 'Error message';
-      color: $border-error;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
     }
-  }
 
-  &_success {
-    background: $back-success;
-    &::after {
-      content: 'Success message';
-      color: $border-success;
+    &:not(#{$root}_disabled):focus-within::before {
+        border: 4px solid $primary-light;
+        transform: translateX(-4px) translateY(-4px);
+        border-radius: 16px;
+        opacity: 1;
     }
-  }
 
-  &__input {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: $white;
-    overflow: hidden;
-    color: $heading;
-    padding: $input-padding-y $input-padding-x;
-    border-radius: $input-border-radius;
+    &:not(#{$root}_disabled):active {
+        #{$root}__input { 
+            border-color: transparent;
+        }
+        
+        &::before { 
+            transform: none;
+            border: 1px solid $primary;
+            opacity: 1;
+        }
+    }
 
     &_disabled {
-      color: rgba(0, 0, 0, .25);
-      background: $back-disabled;
-      cursor: not-allowed;
-
-      input {
-        cursor: inherit;
-      }
+        #{$root}__input { 
+            background-color: $background-disabled-color;
+            border-color: transparent;
+        }
     }
 
-    &_failed {
-      box-sizing: border-box;
+    &_hasError {
+        #{$root}__input {
+            border-color: transparent;
+        }
+
+
+        &::before { 
+            border: 1px solid $danger;
+            border-radius: 16px;
+            transform: translateX(-1px) translateY(-1px);
+            opacity: 1;
+        }
     }
 
-    &:active {
-      color: $heading;
+    //Sizes
+    &_size {
+        &_lg {
+            height: $input-height-lg;
+            border-radius: $radius-large;
+            
+            #{$root}__input {
+                font-size: $font-size-lg;
+                border-radius: $radius-large;
+            }
+
+            #{$root}__addon-before,
+            #{$root}__addon-after {
+                padding: 16px;
+            }
+            #{$root}__text-before,
+            #{$root}__text-after {
+                padding: 16px 3px;
+            }
+
+            &::before { 
+                border-radius: $radius-large;
+            }
+        }
+
+        &_md {
+            height: $input-height-md;
+            border-radius: $radius-large;
+            
+            #{$root}__input {
+                border-radius: $radius-large;
+                font-size: $font-size-base;
+            }
+
+            #{$root}__addon-before,
+            #{$root}__addon-after,
+            #{$root}__text-before,
+            #{$root}__text-after {
+                padding: 11px 12px;
+            }
+
+            #{$root}__text-before,
+            #{$root}__text-after {
+                padding: 11px 3px;
+            }
+
+            &::before { 
+                border-radius: $radius-large;
+            }
+        }
+
+        &_sm {
+            height: $input-height-sm;
+            border-radius: $radius-small;
+            
+            #{$root}__input {
+                font-size: $font-size-sm;
+                border-radius: $radius-small;
+            }
+
+            #{$root}__addon-before,
+            #{$root}__addon-after {
+                padding: 5px 8px;
+            }
+
+            #{$root}__text-before,
+            #{$root}__text-after {
+                padding: 5px 3px;
+            }
+
+            &::before { 
+                border-radius: $radius-small;
+            }
+        }
     }
-    &:focus {
-      color: $heading;
+
+    //LEAD ICON
+    &_hasLeadIcon {
+        #{$root}__input {
+            padding-left: 40px;
+        }
     }
-  }
 
-  &__addon-before, &__addon-after {
-    display: flex;
-    align-items: center;
-    // padding: 0 $input-addon-padding;
+    &__lead-icon {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 50%;
+        left: 8px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        outline: none;
 
-    color: rgba(0, 0, 0, .85);
-    text-align: center;
-    background-color: $back-disabled;
-  }
+        svg circle,
+        path {
+            transition: stroke 150ms ease-in-out;
+            stroke: $lead-icon-default-color;
+        }
+    }
 
-  &__addon-before {
-    border-radius: $input-border-radius 0 0 $input-border-radius;
-    border-right: 1px solid $input-border-color;
-  }
+    //CLEAR ICON
+    &_hasClearIcon {
+        #{$root}__input {
+            padding-right: 40px;
+        }
+    }
 
-  &__addon-after {
-    border-radius: 0 $input-border-radius $input-border-radius 0;
-    border-left: 1px solid $input-border-color;
-  }
+    &__icon-clear {
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
 
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+        pointer-events: none;
 
-  &__text-before, &__text-after {
-    display: flex;
-    align-items: center;
-  }
+        &:focus {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
 
-  &__text-before {
-    // padding-left: $input-text-padding;
-  }
+    &_filled {
+        #{$root}__icon-clear {
+            opacity: 1;
+            pointer-events: all;
+            cursor: pointer;
+        }
 
-  &__text-after {
-    // padding-right: $input-text-padding;
-  }
+        #{$root}__lead-icon {
+            svg circle,
+            path {
+                stroke: $lead-icon-focus-color;
+            }
+        }
+    }
 
+    //Addons
+    &_hasAddon,
+    &_hasTextAddon {
+        width: fit-content;
+
+        #{$root}__input-wrapper {
+            width: auto;
+        }
+
+        #{$root}__input {
+            &_size {
+                &_lg {
+                    width: 206px;
+                }
+
+                &_md {
+                    width: 200px;
+                }
+
+                &_sm {
+                    width: 192px;
+                }
+            }
+        }
+    }
+
+    &_hasAddonBefore {
+        #{$root}__input {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    &_hasAddonAfter {
+        #{$root}__input {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+
+    &__addon-before,
+    &__addon-after {
+        padding: 11px 12px;
+        background-color: $background-disabled-color;
+    }
+
+    &__addon-before {
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+    }
+
+    &__addon-after {
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
 }

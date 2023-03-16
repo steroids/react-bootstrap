@@ -2,14 +2,14 @@
     background-color: map-get($colorMap, color);
     color: map-get($colorMap, text-color);
 
-    &:hover {
+    &:not(:disabled):hover {
         background-color: map-get($colorMap, color-dark);
     }
-    &:focus,
-    &:focus-visible {
+    &:not(:disabled):focus,
+    &:not(:disabled):focus-visible {
         border: 4px solid map-get($colorMap, color-light);
     }
-    &:active {
+    &:not(:disabled):active {
         background-color: map-get($colorMap, color-light);
     }
 
@@ -31,15 +31,15 @@
     color: map-get($colorMap, color);
     border: 1px solid map-get($colorMap, color);
 
-    &:hover {
+    &:not(:disabled):hover {
         color: map-get($colorMap, color-dark);
         border-color: map-get($colorMap, color-dark);
     }
-    &:focus {
+    &:not(:disabled):focus {
         box-shadow: 0 0 0 4px map-get($colorMap, color-light), 0 0 0 4px map-get($colorMap, color-light);
         border: none;
     }
-    &:active {
+    &:not(:disabled):active {
         color: map-get($colorMap, color-light);
         border-color: map-get($colorMap, color-light);
         box-shadow: none;
@@ -47,7 +47,7 @@
 
     @if ($colorName == "basic") {
         color: $text-color;
-    }
+    } 
 
     #{$root}__loader { 
         svg {

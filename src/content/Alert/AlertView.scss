@@ -25,17 +25,25 @@
         }
     }
 
-    &__icon.IconView {
+    &__icon {
+        width: 24px;
         height: 24px;
         margin-right: 12px;
-        
+
         svg {
             width: 24px;
         }
     }
 
-    &__icon-close.IconView {
-        width: 10px;
+    &__icon-close {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;    
     }
 
     &__text-block {
@@ -60,6 +68,7 @@
     &_error {
         background: $danger-light;
     }
+
     &_default {
         background: $light-gray;
     }

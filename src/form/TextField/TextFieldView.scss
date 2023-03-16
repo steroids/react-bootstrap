@@ -1,4 +1,147 @@
+:root {
+    --text-field-disabled-clear-color: #e5e9eb;
+    --text-field-active-clear-color: #323232;
+    --text-field-background-color: #ffffff;
+    --text-field-border-color: 
+}
+
+html[data-theme="dark"] {
+    --text-field-background-color: #414141;
+    --text-field-disabled-clear-color: #4e4f57;
+    --text-field-active-clear-color: #ffffff;
+}
+
+$text-field-background-color: var(--text-field-background-color);
+$text-field-disabled-clear-color: var(--text-field-disabled-clear-color);
+$text-field-active-clear-color: var(--text-field-active-clear-color);
+
 .TextFieldView {
-  min-height: 38px;
-  box-sizing: border-box;
+    $root: &;
+
+    position: relative;
+    font-family: $font-family-nunito;
+    width: fit-content;
+
+    &_hasErrors {
+        #{$root}__textarea {
+            border-color: $danger;
+        }
+    }
+
+    &__clear {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        z-index: 3;
+        top: 3%;
+        right: 16px;
+
+        transition: opacity 150ms ease-in-out;
+        opacity: 0;
+        pointer-events: none;
+
+        svg {
+            path {
+                stroke: $background-disabled-color;
+            }
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__textarea {
+        width: 100%;
+        min-width: 240px;
+        min-height: 80px;
+        height: 80px;
+
+        border-radius: $radius-small;
+        background-color: $text-field-background-color;
+
+        padding: 5px 40px 8px 8px;
+
+        font-size: $font-size-sm;
+        font-weight: 400;
+        line-height: 24px;
+        z-index: 2;
+        outline: none;
+        color: $text-color;
+        border-color: $border-color;
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+
+        &:hover {
+            border-color: $border-color-hover;
+        }
+
+        &:focus {
+            border: 4px solid $primary-light;
+        }
+
+        &:active {
+            border: 1px solid $primary;
+        }
+
+        &:disabled {
+            background-color: $background-disabled-color;
+            border: none;
+            resize: none;
+        }
+
+        &:disabled::placeholder {
+            color: $placeholder-disabled-color;
+        }
+
+        &:disabled + #{$root}__clear {
+            display: none;
+        }
+
+        &:not(:disabled):focus + #{$root}__clear {
+            svg {
+                path {
+                    stroke: $text-field-active-clear-color;
+                }
+            }
+        }
+    }
+
+    &_size {
+        width: 240px;
+        &_lg {
+            #{$root}__textarea {
+                height: 130px;
+                min-height: 130px;
+                border-radius: $radius-large;
+                font-size: $font-size-lg;
+            }
+        }
+
+        &_md {
+            #{$root}__textarea {
+                height: 100px;
+                min-height: 100px;
+                border-radius: $radius-large;
+                font-size: $font-size-base;
+            }
+        }
+
+        &_sm {
+            #{$root}__textarea {
+                height: 80px;
+                border-radius: $radius-small;
+                font-size: $font-size-sm;
+            }
+        }
+    }
+
+    &_filled {
+        #{$root}__clear {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
 }

@@ -220,7 +220,7 @@ const groupedIcons = {
     ],
 };
 
-export default () => {
+export default (customIcons: Record<string, any>) => {
     // All icons
     const icons = {};
     Object.keys(groupedIcons).forEach(group => {
@@ -252,6 +252,9 @@ export default () => {
         'badge-close',
         'loader',
         'accordion-chevron',
+        'field-close',
+        'arrow',
+        'user',
         'visible-eye',
         'crossed-out-eye',
     ];
@@ -264,5 +267,8 @@ export default () => {
         icons[name] = icons[coreIconsMap[name]];
     });
 
-    return icons;
+    return {
+        ...icons,
+        ...customIcons,
+    };
 };

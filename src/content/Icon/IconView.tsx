@@ -16,7 +16,7 @@ export default function IconView(props: IIconViewProps & IBemHocOutput) {
                 onClick={props.onClick}
                 onKeyPress={props.onClick}
                 role='button'
-                tabIndex={0}
+                tabIndex={props.tabIndex || 0}
             />
         );
     }
@@ -26,7 +26,7 @@ export default function IconView(props: IIconViewProps & IBemHocOutput) {
             onClick={props.onClick}
             onKeyPress={props.onClick}
             role='button'
-            tabIndex={0}
+            tabIndex={props.tabIndex || 0}
         >
             <img
                 alt={props.title}
