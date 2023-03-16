@@ -23,14 +23,15 @@
     --light-gray: #f8f8f8;
     --dark: #6f6b76;
     --light: #9088a1;
-    --text-color: #312C3A;
+    --text-color: #312c3a;
     --background-color: #fff;
-    --is-dark: 'false';
+    --is-dark: "false";
     --border-color: #eef1f2;
     --border-color-hover: #e5e9eb;
     --placeholder-color: rgba(0, 0, 0, 0.3);
     --placeholder-disabled-color: rgba(0, 0, 0, 0.3);
     --background-disabled-color: #eef1f2;
+    --element-background-color: #FFFFFF;
 }
 
 html[data-theme="dark"] {
@@ -58,51 +59,53 @@ html[data-theme="dark"] {
     --light-gray: #928b9d;
     --dark: #6b6477;
     --light: #b7afc7;
-    --text-color: #FFFFFF;
+    --text-color: #ffffff;
     --background-color: #414141;
-    --is-dark: 'true';
-    --border-color: #eef1f2;
+    --is-dark: "true";
+    --border-color: #5B5C6B;
     --border-color-hover: #4e4f57;
     --placeholder-color: rgba(255, 255, 255, 0.3);
     --placeholder-disabled-color: rgba(255, 255, 255, 0.1);
     --background-disabled-color: #5b5c6b;
+    --element-background-color: #414141;
 }
 
 /*
  *  SCSS variables implementation
  */
-$primary: var(--primary) !default;
-$primary-dark: var(--primary-dark) !default;
-$primary-light: var(--primary-light) !default;
-$secondary: var(--secondary) !default;
-$secondary-dark: var(--secondary-dark) !default;
-$secondary-light: var(--secondary-light) !default;
-$success: var(--success) !default;
-$success-dark: var(--success-dark) !default;
-$success-light: var(--success-light) !default;
-$danger: var(--danger) !default;
-$danger-dark: var(--danger-dark) !default;
-$danger-light: var(--danger-light) !default;
-$info: var(--info) !default;
-$info-dark: var(--info-dark) !default;
-$info-light: var(--info-light) !default;
-$warning: var(--warning) !default;
-$warning-dark: var(--warning-dark) !default;
-$warning-light: var(--warning-light) !default;
-$graphite: var(--graphite) !default;
-$gray-dark: var(--gray-dark) !default;
-$gray: var(--gray) !default;
-$light-gray: var(--light-gray) !default;
-$dark: var(--dark) !default;
-$light: var(--light) !default;
-$text-color: var(--text-color) !default;
-$background-color: var(--background-color) !default;
-$is-dark: var(--is-dark) !default;
-$border-color: var(--border-color) !default;
-$border-color-hover: var(--border-color-hover) !default;
-$placeholder-color: var(--placeholder-color) !default;
-$placeholder-disabled-color: var(--placeholder-disabled-color) !default;
-$background-disabled-color: var(--background-disabled-color) !default;
+$primary: var(--primary);
+$primary-dark: var(--primary-dark);
+$primary-light: var(--primary-light);
+$secondary: var(--secondary);
+$secondary-dark: var(--secondary-dark);
+$secondary-light: var(--secondary-light);
+$success: var(--success);
+$success-dark: var(--success-dark);
+$success-light: var(--success-light);
+$danger: var(--danger);
+$danger-dark: var(--danger-dark);
+$danger-light: var(--danger-light);
+$info: var(--info);
+$info-dark: var(--info-dark);
+$info-light: var(--info-light);
+$warning: var(--warning);
+$warning-dark: var(--warning-dark);
+$warning-light: var(--warning-light);
+$graphite: var(--graphite);
+$gray-dark: var(--gray-dark);
+$gray: var(--gray);
+$light-gray: var(--light-gray);
+$dark: var(--dark);
+$light: var(--light);
+$text-color: var(--text-color);
+$background-color: var(--background-color);
+$is-dark: var(--is-dark);
+$border-color: var(--border-color);
+$border-color-hover: var(--border-color-hover);
+$placeholder-color: var(--placeholder-color);
+$placeholder-disabled-color: var(--placeholder-disabled-color);
+$background-disabled-color: var(--background-disabled-color);
+$element-background-color: var(--element-background-color);
 
 /*
  * Common colors   
@@ -117,7 +120,7 @@ $white: #fff !default;
 
 $link-color: #2ba3fb !default;
 
-$gradient-blue: linear-gradient(180deg, #651FFF, #BA9BFF) !default;
+$gradient-blue: linear-gradient(180deg, #651fff, #ba9bff) !default;
 
 $color-themes: () !default;
 $color-themes: map-merge(

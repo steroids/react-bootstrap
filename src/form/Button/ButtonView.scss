@@ -12,9 +12,13 @@ $btn-letter-spacing: 0.1em;
 
     width: 160px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     &_button {
         position: relative;
-        border-radius: 8px;
+        border-radius: $radius-small;
         user-select: none;
         border: 3px solid transparent;
 
@@ -42,6 +46,12 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
+    &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     &_block {
         display: block;
         width: 100%;
@@ -51,7 +61,7 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-    &_link { 
+    &_link {
         display: inline;
         width: auto;
         #{$root}__label {
@@ -61,8 +71,9 @@ $btn-letter-spacing: 0.1em;
 
     &_disabled {
         opacity: 0.5;
-        color: rgba(0, 0, 0, 0.25);
+        color: rgba(0, 0, 0, 0.1);
         cursor: not-allowed;
+
         input {
             cursor: inherit;
         }
@@ -93,6 +104,8 @@ $btn-letter-spacing: 0.1em;
     }
 
     &__icon {
+        width: 16px;
+        height: 16px;
         &_without-label {
             margin: 0;
         }
@@ -117,10 +130,35 @@ $btn-letter-spacing: 0.1em;
         position: relative;
         top: -1px;
         margin-left: 4px;
+        border-radius: $radius-small;
+        padding: 2px 5px;
+
+        $badge-types: (
+            "primary": $primary,
+            "secondary": $secondary,
+            "success": $success,
+            "danger": $danger,
+            "warning": $warning,
+            "info": $info,
+        );
+
+        @each $type, $color in $badge-types {
+            &_#{$type} {
+                background-color: $color;
+            }
+        }
     }
 
     &__loader {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         svg {
+            width: 14px;
+            height: 14px;
             transform-origin: center;
             animation: rotate 1.45s linear infinite;
         }

@@ -23,6 +23,7 @@
         "date-fns": "^2.29.3",
         "lodash": "^4.17.20",
         "lodash-es": "^4.17.20",
+        "normalize.css": "^8.0.1",
         "rc-slider": "^9.7.4",
         "react": "^18.2.0",
         "react-collapse": "^5.0.1",

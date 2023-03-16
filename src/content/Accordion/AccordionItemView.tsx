@@ -112,7 +112,7 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
                             ? renderIcon()
                             : (
                                 <Icon
-                                    className={bem.element('icon', {
+                                    className={bem.element('icon-chevron', {
                                         active: !props.disabled && props.isShowMore,
                                     })}
                                     name="accordion-chevron"

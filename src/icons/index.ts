@@ -252,6 +252,9 @@ export default (customIcons: Record<string, any>) => {
         'badge-close',
         'loader',
         'accordion-chevron',
+        'field-close',
+        'arrow',
+        'user',
         'visible-eye',
         'crossed-out-eye',
     ];

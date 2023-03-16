@@ -1,10 +1,9 @@
-$border-color: gray;
 
 .CaptionElement {
   height: 45px;
   display: table-caption;
   padding: 0 10px;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid gray;
 
   & > div {
     font-size: 14px;
@@ -87,12 +86,12 @@ $border-color: gray;
     padding: 5px;
 
     text-align: center;
-    border-bottom: 1px solid $border-color;
+    border-bottom: 1px solid gray;
     background-color: $calendar-primary-light-color;
 
     &_months {
       grid-area: HeaderMonths;
-      border-right: 1px solid $border-color;
+      border-right: 1px solid gray;
     }
 
     &_years {
@@ -101,7 +100,7 @@ $border-color: gray;
   }
 
   &__panel-column-months {
-    border-right: 1px solid $border-color;
+    border-right: 1px solid gray;
 
     &_first {
       grid-area: Months1stCol;

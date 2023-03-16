@@ -19,6 +19,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                     <Icon
                         className={bem.element('loader')}
                         name='loader'
+                        tabIndex={-1}
                     />
                 )}
                 {!props.isLoading && (
@@ -47,9 +48,10 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
         return (
             <span
                 className={bem(
-                    'badge',
-                    props.badge.color && `badge-${props.badge.color}`,
-                    bem.element('badge'),
+                    bem.element('badge',
+                        {
+                            [`${props.badge.color}`]: !!props.badge.color,
+                        }),
                     props.badge.className,
                 )}
             >
