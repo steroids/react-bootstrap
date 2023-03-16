@@ -96,10 +96,10 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                 }
 
                 &__arrow { 
-                    transform: translateX(-3px) translateY(5px);
+                    transform: translateX(-3px) translateY(6px);
 
                     &:last-child{
-                        transform: translateX(-3px) translateY(-6px) rotate(180deg);
+                        transform: translateX(-3px) translateY(-8px) rotate(180deg);
                     }
                 }
             }            
@@ -125,7 +125,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                     transform: translateX(-3px) translateY(4px) scale(0.8);
 
                     &:last-child{
-                        transform: translateX(-3px) translateY(-2px) rotate(180deg) scale(0.8);
+                        transform: translateX(-3px) translateY(-4px) rotate(180deg) scale(0.8);
                     }
                 }
             }
@@ -147,7 +147,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                 }
 
                 &__arrow { 
-                    transform: translateX(1px) translateY(-2px) scale(0.8);
+                    transform: translateX(1px) translateY(0px) scale(0.8);
 
                     &:last-child{
                         transform: translateX(1px) translateY(0px) rotate(180deg) scale(0.8);
