@@ -53,19 +53,26 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     return (
         <div
             ref={props.forwardedRef}
-            className={bem(bem.block({size: props.size}), props.className)}
+            className={bem(bem.block(
+                {
+                    size: props.size,
+                    [`${props.color}`]: !!props.color && !props.outline,
+                    [`outline_${props.color}`]: props.outline,
+                },
+            ), props.className)}
             style={props.style}
+            role="button"
+            tabIndex={0}
         >
             <div
                 className={bem.element('selected-items', {
                     reset: props.showReset,
-                    'no-border': props.noBorder,
                     'is-invalid': !!props.errors,
                     disabled: props.disabled,
                 })}
                 onClick={props.onOpen}
                 onKeyPress={props.onOpen}
-                tabIndex={0}
+                tabIndex={-1}
                 role='button'
             >
                 {props.selectedItems.map((item: any) => (
@@ -118,13 +125,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         )
                 ))}
             </div>
-            {props.showReset && props.selectedIds.length > 0 && (
-                <button
-                    className={bem.element('reset')}
-                    onClick={props.onReset}
-                    aria-label={__('Сбросить')}
-                />
-            )}
             {props.isOpened && (
                 <div className={bem.element('drop-down')}>
                     {props.isAutoComplete && (
@@ -134,8 +134,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                                 ref={inputRef}
                                 onChange={e => props.searchInputProps.onChange(e.target.value)}
                                 className={bem(
-                                    'form-control',
-                                    'form-control-' + props.size,
                                     bem.element('search-input'),
                                     props.searchInputProps.className,
                                 )}
