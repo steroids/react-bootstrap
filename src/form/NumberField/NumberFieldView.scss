@@ -147,10 +147,10 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                 }
 
                 &__arrow { 
-                    transform: translateX(1px) translateY(0px) scale(0.8);
+                    transform: translateX(1px) translateY(2px) scale(0.8);
 
                     &:last-child{
-                        transform: translateX(1px) translateY(0px) rotate(180deg) scale(0.8);
+                        transform: translateX(1px) translateY(-3px) rotate(180deg) scale(0.8);
                     }
                 }
             }

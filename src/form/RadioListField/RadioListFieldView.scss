@@ -1,15 +1,15 @@
 :root {
-    --radio-svg-default: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.210938' y='0.915161' width='12' height='12' rx='6' fill='%23651FFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-hover-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.210938' y='0.915161' width='12' height='12' rx='6' fill='%23651FFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-active-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.210938' y='0.915161' width='12' height='12' rx='6' fill='%23DBCBFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-disabled-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.710938' y='0.915161' width='12' height='12' rx='6' fill='%23EEF1F2'/%3E%3C/svg%3E%0A");
+    --radio-svg-default: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23651FFF'/%3E%3C/svg%3E%0A");
+    --radio-checked-hover-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23651FFF'/%3E%3C/svg%3E%0A");
+    --radio-checked-active-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23DBCBFF'/%3E%3C/svg%3E%0A");
+    --radio-checked-disabled-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23EEF1F2'/%3E%3C/svg%3E%0A");
 }
 
 html[data-theme="dark"] {
-    --radio-svg-default: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.210938' y='0.915161' width='12' height='12' rx='6' fill='%238B57FF'/%3E%3C/svg%3E%0A");
-    --radio-checked-hover-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.210938' y='0.915161' width='12' height='12' rx='6' fill='%236648A7'/%3E%3C/svg%3E%0A");
-    --radio-checked-active-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.210938' y='0.915161' width='12' height='12' rx='6' fill='%23BA9BFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-disabled-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.710938' y='0.915161' width='12' height='12' rx='6' fill='%235B5C6B'/%3E%3C/svg%3E%0A");
+    --radio-svg-default: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%238B57FF'/%3E%3C/svg%3E%0A");
+    --radio-checked-hover-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%236648A7'/%3E%3C/svg%3E%0A");
+    --radio-checked-active-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23BA9BFF'/%3E%3C/svg%3E%0A");
+    --radio-checked-disabled-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.010938' y='0.115161' width='12' height='12' rx='6' fill='%235B5C6B'/%3E%3C/svg%3E%0A");
 }
 
 $radio-svg-default: var(--radio-svg-default);
