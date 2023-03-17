@@ -71,6 +71,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                             placeholder={props.placeholder}
                             disabled={props.disabled}
                             required={props.required}
+                            id={props.id}
                         />
                     )
                     : (
@@ -86,6 +87,7 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                             placeholder={props.placeholder}
                             disabled={props.disabled}
                             required={props.required}
+                            id={props.id}
                         />
                     )}
                 {!props.disabled && props.showClear && !props.maskProps && (

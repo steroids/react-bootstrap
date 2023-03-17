@@ -42,6 +42,7 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                 )}
                 {...props.inputProps}
                 onChange={e => props.input.onChange(e.target.value)}
+                id={props.id}
             />
             {!props.disabled && !props.errors && (
                 <div className={bem.element('arrows-container')}>
@@ -52,7 +53,10 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                         type='button'
                         onClick={onStepUp}
                     >
-                        <Icon name='arrow' />
+                        <Icon
+                            name='arrow'
+                            tabIndex={-1}
+                        />
                     </button>
                     <button
                         className={bem.element('arrow', {
@@ -61,7 +65,10 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                         type='button'
                         onClick={onStepDown}
                     >
-                        <Icon name='arrow' />
+                        <Icon
+                            name='arrow'
+                            tabIndex={-1}
+                        />
                     </button>
                 </div>
             )}

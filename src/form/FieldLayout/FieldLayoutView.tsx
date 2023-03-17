@@ -22,7 +22,8 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
             style={props.layout.style}
         >
             {props.label && (
-                <div
+                <label
+                    htmlFor={props.id}
                     className={bem(
                         bem.element('label', {
                             required: props.required,
@@ -34,7 +35,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                     )}
                 >
                     {props.label + ':'}
-                </div>
+                </label>
             )}
             <div
                 className={bem(

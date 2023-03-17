@@ -20,11 +20,14 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
             )}
         >
             <div
-                className={bem.element('container')}
+                className={bem.element('container', {
+                    disabled: props.inputProps.disabled,
+                })}
             >
                 <input
                     className={bem.element('input')}
                     {...props.inputProps}
+                    id={props.id}
                 />
                 {props.showSecurityIcon && (
                     <span
