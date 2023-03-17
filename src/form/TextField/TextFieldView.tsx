@@ -20,6 +20,7 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
         >
             <textarea
                 className={bem.element('textarea')}
+                id={props.id}
                 {...props.inputProps}
             />
             {props.showClear && (
