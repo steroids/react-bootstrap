@@ -1,4 +1,5 @@
 .TextView {
+  margin-bottom: 1em;
   font-family: $font-family-nunito;
 
   @each $typeName, $typeMap in $text-types {
