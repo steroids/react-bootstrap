@@ -5,6 +5,7 @@ import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/Dr
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _isArray from 'lodash-es/isArray';
+import DropDownItem from './views/DropDownItem';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     const bem = useBem('DropDownFieldView');
@@ -16,52 +17,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             inputRef.current.focus();
         }
     }, [props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
-
-    const renderItem = (item: {
-        id: number,
-        label: string,
-        type?: 'checkbox' | 'radio' | 'dropdown' | 'icon' | 'flag',
-        typeSrc?: 'string' | React.ReactElement,
-    }, level = 0) => {
-        const commonProps = {
-            key: String(item[props.primaryKey]),
-            className: bem.element('drop-down-item', {
-                hover: props.hoveredId === item[props.primaryKey],
-                select: props.selectedIds.includes(item[props.primaryKey]),
-                level,
-            }),
-            onClick: (e: React.MouseEvent) => {
-                e.preventDefault();
-                props.onItemSelect(item[props.primaryKey]);
-            },
-            onFocus: () => props.onItemHover(item[props.primaryKey]),
-            onMouseOver: () => props.onItemHover(item[props.primaryKey]),
-        };
-
-        if (props.groupAttribute && Array.isArray(item[props.groupAttribute])) {
-            return [
-                (
-                    <div
-                        key={String(item[props.primaryKey])}
-                        className={bem.element('drop-down-item', 'group')}
-                    >
-                        {item.label}
-                    </div>
-                ),
-                ...item[props.groupAttribute].map(subItem => renderItem(subItem, level + 1)),
-            ];
-        }
-
-        if (item.type) {
-            return null;
-        }
-
-        return (
-            <div {...commonProps}>
-                {item.label}
-            </div>
-        );
-    };
 
     return (
         <div
@@ -160,7 +115,18 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {props.items.map((item, itemIndex) => renderItem(item))}
+                        {props.items.map((item, itemIndex) => (
+                            <DropDownItem
+                                key={itemIndex}
+                                groupAttribute={props.groupAttribute}
+                                hoveredId={props.hoveredId}
+                                onItemHover={props.onItemHover}
+                                onItemSelect={props.onItemSelect}
+                                primaryKey={props.primaryKey}
+                                selectedIds={props.selectedIds}
+                                item={item}
+                            />
+                        ))}
                     </div>
                 </div>
             )}
