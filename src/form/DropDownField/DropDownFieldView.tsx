@@ -3,6 +3,8 @@ import {ReactText, useEffect, useRef} from 'react';
 
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
+import Icon from '@steroidsjs/core/ui/content/Icon';
+import _isArray from 'lodash-es/isArray';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     const bem = useBem('DropDownFieldView');
@@ -15,7 +17,27 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         }
     }, [props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
 
-    const renderItem = (item, level = 0) => {
+    const renderItem = (item: {
+        id: number,
+        label: string,
+        type?: 'checkbox' | 'radio' | 'dropdown' | 'icon' | 'flag',
+        typeSrc?: 'string' | React.ReactElement,
+    }, level = 0) => {
+        const commonProps = {
+            key: String(item[props.primaryKey]),
+            className: bem.element('drop-down-item', {
+                hover: props.hoveredId === item[props.primaryKey],
+                select: props.selectedIds.includes(item[props.primaryKey]),
+                level,
+            }),
+            onClick: (e: React.MouseEvent) => {
+                e.preventDefault();
+                props.onItemSelect(item[props.primaryKey]);
+            },
+            onFocus: () => props.onItemHover(item[props.primaryKey]),
+            onMouseOver: () => props.onItemHover(item[props.primaryKey]),
+        };
+
         if (props.groupAttribute && Array.isArray(item[props.groupAttribute])) {
             return [
                 (
@@ -30,21 +52,12 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             ];
         }
 
+        if (item.type) {
+            return null;
+        }
+
         return (
-            <div
-                key={String(item[props.primaryKey])}
-                className={bem.element('drop-down-item', {
-                    hover: props.hoveredId === item[props.primaryKey],
-                    select: props.selectedIds.includes(item[props.primaryKey]),
-                    level,
-                })}
-                onClick={e => {
-                    e.preventDefault();
-                    props.onItemSelect(item[props.primaryKey]);
-                }}
-                onFocus={() => props.onItemHover(item[props.primaryKey])}
-                onMouseOver={() => props.onItemHover(item[props.primaryKey])}
-            >
+            <div {...commonProps}>
                 {item.label}
             </div>
         );
@@ -58,8 +71,10 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     size: props.size,
                     [`${props.color}`]: !!props.color && !props.outline,
                     [`outline_${props.color}`]: props.outline,
+                    opened: props.isOpened,
                 },
             ), props.className)}
+            onKeyPress={e => e.key === 'Enter' && props.onOpen()}
             style={props.style}
             role="button"
             tabIndex={0}
@@ -67,11 +82,9 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             <div
                 className={bem.element('selected-items', {
                     reset: props.showReset,
-                    'is-invalid': !!props.errors,
                     disabled: props.disabled,
                 })}
                 onClick={props.onOpen}
-                onKeyPress={props.onOpen}
                 tabIndex={-1}
                 role='button'
             >
@@ -125,6 +138,12 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         )
                 ))}
             </div>
+            <Icon
+                name='accordion-chevron'
+                className={bem.element('icon-chevron')}
+                tabIndex={-1}
+                onClick={props.onOpen}
+            />
             {props.isOpened && (
                 <div className={bem.element('drop-down')}>
                     {props.isAutoComplete && (
@@ -141,7 +160,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {props.items.map(item => renderItem(item))}
+                        {props.items.map((item, itemIndex) => renderItem(item))}
                     </div>
                 </div>
             )}

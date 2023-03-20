@@ -1,0 +1,31 @@
+@mixin custom-scroll($thumbColor, $backgroundColor) {
+    scrollbar-color: $thumbColor $backgroundColor;
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        border-radius: 3px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 3px;
+        background-color: $backgroundColor;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: $thumbColor;
+    }
+}
+
+@mixin scrollWrapper($maxHeight, $paddingRight: 0, $thumbColor, $backgroundColor) {
+    @include custom-scroll($thumbColor, $backgroundColor);
+    padding-right: $paddingRight;
+    max-height: $maxHeight;
+    overflow: auto;
+}
