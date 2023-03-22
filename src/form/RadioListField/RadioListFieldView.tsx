@@ -3,6 +3,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IRadioListFieldViewProps} from '@steroidsjs/core/ui/form/RadioListField/RadioListField';
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 
 export default function RadioListFieldView(props: IRadioListFieldViewProps & IBemHocOutput) {
     const bem = useBem('RadioListFieldView');
@@ -16,6 +17,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                     className={bem(
                         bem.element('item', {
                             hasError: !!props.errors,
+                            size: props.size,
                         }),
                         props.className,
                     )}
@@ -41,6 +43,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                     >
                         {item.label}
                     </label>
+                    <span className={bem.element('ellipse')} />
                 </div>
             ))}
         </div>

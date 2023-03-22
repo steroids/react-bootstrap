@@ -1,23 +1,17 @@
 :root {
-    --radio-svg-default: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23651FFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-hover-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23651FFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-active-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23DBCBFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-disabled-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23EEF1F2'/%3E%3C/svg%3E%0A");
+    --radio-hover-color: #651fff;
 }
 
 html[data-theme="dark"] {
-    --radio-svg-default: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%238B57FF'/%3E%3C/svg%3E%0A");
-    --radio-checked-hover-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%236648A7'/%3E%3C/svg%3E%0A");
-    --radio-checked-active-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.110938' y='0.115161' width='12' height='12' rx='6' fill='%23BA9BFF'/%3E%3C/svg%3E%0A");
-    --radio-checked-disabled-svg: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 13 13' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.010938' y='0.115161' width='12' height='12' rx='6' fill='%235B5C6B'/%3E%3C/svg%3E%0A");
+    --radio-hover-color: #651fff;
 }
 
-$radio-svg-default: var(--radio-svg-default);
-$radio-checked-hover-svg: var(--radio-checked-hover-svg);
-$radio-checked-active-svg: var(--radio-checked-active-svg);
-$radio-checked-disabled-svg: var(--radio-checked-disabled-svg);
+$radio-hover-color: var(--radio-hover-color);
 
 .RadioListFieldView {
+    position: relative;
+    box-sizing: border-box;
+
     $root: &;
 
     font-family: $font-family-nunito;
@@ -26,9 +20,19 @@ $radio-checked-disabled-svg: var(--radio-checked-disabled-svg);
     font-weight: 400;
     font-size: $font-size-sm;
 
-    &__item {
-        width: fit-content;
-        position: relative;
+    &__ellipse {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        width: 12px;
+        height: 12px;
+        background-color: $primary;
+        border-radius: $radius-circle;
+        transform: translate(50%, 50%);
+        opacity: 0;
+        pointer-events: none;
     }
 
     &__input {
@@ -89,19 +93,34 @@ $radio-checked-disabled-svg: var(--radio-checked-disabled-svg);
         opacity: 1;
     }
 
+    &__input:not(:disabled):focus ~ &__ellipse {
+        opacity: 1;
+    }
+
     &__input:checked + &__label::before {
-        background-image: $radio-svg-default;
         border: 1px solid $primary;
+    }
+    &__input:checked ~ &__ellipse {
+        opacity: 1;
     }
 
     &__input:not(:disabled):checked:hover + &__label::before {
         border-color: $primary-dark;
-        background-image: $radio-checked-hover-svg;
+    }
+
+    &__input:not(:disabled):checked:hover ~ &__ellipse {
+        opacity: 1;
+        background-color: $radio-hover-color;
     }
 
     &__input:not(:disabled):checked:active + &__label::before {
-        background-image: $radio-checked-active-svg;
+        background-color: #fff;
         border-color: $primary-light;
+    }
+
+    &__input:not(:disabled):checked:active ~ &__ellipse {
+        opacity: 1;
+        background-color: $primary-light;
     }
 
     &__input:disabled + &__label {
@@ -119,16 +138,90 @@ $radio-checked-disabled-svg: var(--radio-checked-disabled-svg);
 
         background-color: transparent;
         border-color: $background-disabled-color;
+    }
 
-        background-image: $radio-checked-disabled-svg;
+    &__input:disabled:checked ~ &__ellipse {
+       background-color: $background-disabled-color;
     }
 
     &__item_hasError {
         #{$root}__input:not(:disabled):not(:checked) + #{$root}__label {
             color: $danger;
-            
+
             &::before {
                 border-color: $danger;
+            }
+        }
+    }
+
+    &__item {
+        width: fit-content;
+        position: relative;
+
+        &_size {
+            &_lg {
+                #{$root}__label {
+                    font-size: $font-size-lg;
+                    line-height: 24px;
+
+                    &::before {
+                        width: 22px;
+                        height: 22px;
+                    }
+
+                    &::after {
+                        width: 24px;
+                        height: 24px;
+                    }
+                }
+            }
+
+            &_md {
+                #{$root}__label {
+                    font-size: $font-size-base;
+                    line-height: 22px;
+
+                    &::before {
+                        width: 18px;
+                        height: 18px;
+                    }
+
+                    &::after {
+                        width: 20px;
+                        height: 20px;
+                        transform: translate(-14.5%, -10.5%);
+                    }
+                }
+
+                #{$root}__ellipse {
+                    width: 10px;
+                    height: 10px;
+                    transform: translate(50%, 60%);
+                }
+            }
+
+            &_sm {
+                #{$root}__label {
+                    font-size: $font-size-sm;
+                    line-height: 18px;
+
+                    &::before {
+                        width: 14px;
+                        height: 14px;
+                    }
+
+                    &::after {
+                        width: 16px;
+                        height: 16px;
+                        transform: translate(-16.5%, -12.5%);
+                    }
+                }
+
+                #{$root}__ellipse {
+                    width: 8px;
+                    height: 8px;
+                    transform: translate(50%, 60%);
+                }
             }
         }
     }
