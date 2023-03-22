@@ -58,7 +58,11 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         ? (
                             props.selectedItems.map((item, itemIndex) => {
                                 if (props.selectedItems.length === itemIndex + 1) {
-                                    return <React.Fragment key={itemIndex}>{item.label as React.ReactNode}</React.Fragment>;
+                                    return (
+                                        <React.Fragment key={itemIndex}>
+                                            {item.label as React.ReactNode}
+                                        </React.Fragment>
+                                    );
                                 }
 
                                 return (
@@ -111,6 +115,8 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
+                        {/* {props.groupAttribute && props.} */}
+
                         {props.items.map((item, itemIndex) => (
                             <DropDownItem
                                 key={itemIndex}
@@ -122,6 +128,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                                 selectedIds={props.selectedIds}
                                 item={item}
                                 contentProperties={props.contentProperties}
+                                size={props.size}
                             />
                         ))}
                     </div>

@@ -3,16 +3,16 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CheckboxField, RadioListField} from '@steroidsjs/core/ui/form';
 import {ContentType, IDropDownFieldProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-
+import {IFieldWrapperInputProps} from '@steroidsjs/core/ui/form/Field/fieldWrapper';
 import './DropDownItemView.scss';
 
 type PrimaryKey = string | number;
 
-interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'contentProperties'> {
+interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'contentProperties'>, Pick<IFieldWrapperInputProps, 'size'> {
     item: {
         id: number,
         label: string,
-        contentType?: 'checkbox' | 'radio' | 'dropdown' | 'icon' | 'img',
+        contentType?: ContentType,
         contentSrc?: 'string' | React.ReactElement,
     },
     primaryKey?: string,
@@ -26,12 +26,14 @@ interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'contentPrope
 
 export default function DropDownItemView(props: IDropDownItemViewProps) {
     const bem = useBem('DropDownItemView');
+
     const commonProps = {
         className:
             bem.element('option', {
                 hover: props.hoveredId === props.item[props.primaryKey],
                 select: props.selectedIds.includes(props.item[props.primaryKey]),
                 level: !!props.level,
+                size: props.size,
             }),
         onFocus: () => props.onItemHover(props.item[props.primaryKey]),
         onMouseOver: () => props.onItemHover(props.item[props.primaryKey]),
@@ -42,7 +44,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
 
     };
 
-    const renderTypeCases = (type: ContentType, src: string | React.ReactElement) => {
+    const renderTypeCases = (type: ContentType | 'dropdown', src: string | React.ReactElement) => {
         switch (type) {
             case 'icon':
                 return (
@@ -69,6 +71,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                         <CheckboxField
                             label={props.item.label}
                             className={bem.element('checkbox')}
+                            size={props.size}
                             inputProps={{
                                 checked: props.selectedIds.includes(props.item[props.primaryKey]),
                             }}
@@ -97,8 +100,18 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                         <RadioListField
                             items={[props.item]}
                             selectedIds={props.selectedIds}
-                            className={bem.element('radio')}
+                            className={bem.element('radio', {
+                                size: props.size,
+                            })}
+                            size={props.size}
                         />
+                    </div>
+                );
+
+            case 'dropdown':
+                return (
+                    <div {...commonProps}>
+                        {props.item.label}
                     </div>
                 );
 
@@ -106,6 +119,10 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                 return null;
         }
     };
+
+    if (props.groupAttribute && Array.isArray(props.item[props.groupAttribute])) {
+        return renderTypeCases('dropdown', props.item[props.groupAttribute]);
+    }
 
     if (props.item.contentType) {
         return renderTypeCases(props.item.contentType, props.item.contentSrc);
