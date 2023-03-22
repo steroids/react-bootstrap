@@ -59,7 +59,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                             />
                         ) : (
                             <span className={bem.element('icon')}>
-                                    {src}
+                                {src}
                             </span>
                         )}
                         <span>
