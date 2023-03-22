@@ -83,7 +83,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                                     <>
                                         {__('Выбрано')}
                                         {' '}
-                                        {props.selectedItems.length}
+                                        {`(${props.selectedItems.length})`}
                                     </>
                                 )
                         )}
@@ -115,8 +115,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {/* {props.groupAttribute && props.} */}
-
                         {props.items.map((item, itemIndex) => (
                             <DropDownItem
                                 key={itemIndex}

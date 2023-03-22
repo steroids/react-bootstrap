@@ -31,6 +31,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
     &__option {
         display: flex;
         flex-flow: row wrap;
+        position: relative;
         column-gap: 12px;
         align-items: center;
 
@@ -103,26 +104,50 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             position: absolute;
         }
 
-        &_size { 
+        &_size {
             &_lg {
-                span { 
-                    left: 88.2%
+                span {
+                    left: 88.2%;
                 }
             }
 
             &_md {
-                span { 
+                span {
                     left: 90.5%;
                     top: 2%;
                 }
             }
 
-            &_sm { 
-                span { 
+            &_sm {
+                span {
                     left: 92.7%;
                     top: 13.5%;
                 }
             }
+        }
+    }
+
+    &__dropDown {
+        &-icon {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            right: 12px;
+            // border: 1px solid rgba(0, 0, 0, 0.1);
+
+            svg {
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                border-radius: $radius-small;
+            }
+        }
+        &-label {
+            width: 100%;
+        }
+
+        &-group { 
+            overflow: hidden;
+            padding: 0;
+            transform: translateX(5%);
         }
     }
 }
