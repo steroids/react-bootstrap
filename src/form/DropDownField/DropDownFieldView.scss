@@ -9,6 +9,8 @@
     --drop-down-border-color: #e9e9e9;
     --scroll-thumb-color: #e5e9eb;
     --scroll-track-color: #f5f8fa;
+
+    --search-color: #626262;
 }
 
 html[data-theme="dark"] {
@@ -22,6 +24,8 @@ html[data-theme="dark"] {
     --drop-down-border-color: #595959;
     --scroll-thumb-color: #5b5c6b;
     --scroll-track-color: #444147;
+
+    --search-color: #adacac;
 }
 
 $basic-color: var(--basic-color);
@@ -34,6 +38,8 @@ $chevron-inner-color: var(--chevron-inner-color);
 $drop-down-border-color: var(--drop-down-border-color);
 $scroll-thumb-color: var(--scroll-thumb-color);
 $scroll-track-color: var(--scroll-track-color);
+
+$search-color: var(--search-color);
 
 $drop-down-color-themes: () !default;
 $drop-down-color-themes: map-merge(
@@ -63,7 +69,7 @@ $drop-down-color-themes: map-merge(
             "active-color": $warning-dark,
         ),
         "danger": (
-            "background-color": $danger,
+        "background-color": $danger,
             "hover-color": $danger-dark,
             "focus-color": $danger-light,
             "active-color": $danger-dark,
@@ -103,10 +109,7 @@ $drop-down-color-themes: map-merge(
     }
 
     &:active {
-        &::after {
-            opacity: 1;
-            border-color: map-get($colorMap, active-color);
-        }
+        background-color: map-get($colorMap, hover-color);
     }
 
     #{$root}__icon-chevron {
@@ -195,20 +198,6 @@ $drop-down-color-themes: map-merge(
         border-radius: inherit;
     }
 
-    //Pseudo element for active statement
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        pointer-events: none;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        border: 1px solid transparent;
-        border-radius: inherit;
-    }
-
     $sizes: () !default;
     $sizes: map-merge(
         (
@@ -220,6 +209,8 @@ $drop-down-color-themes: map-merge(
                 "afterTransform": translateX(-0.75%) translateY(-1.75%),
                 "afterRadius": 14px,
                 "selectedItemsPadding": 16px,
+                "font-size": $font-size-lg,
+                "line-height": 24px,
             ),
             "md": (
                 "border-radius": $radius-large,
@@ -229,6 +220,8 @@ $drop-down-color-themes: map-merge(
                 "afterTransform": translateX(-0.75%) translateY(-2%),
                 "afterRadius": 14px,
                 "selectedItemsPadding": 12px,
+                "font-size": $font-size-base,
+                "line-height": 22px,
             ),
             "sm": (
                 "border-radius": $radius-small,
@@ -238,11 +231,13 @@ $drop-down-color-themes: map-merge(
                 "afterTransform": translateX(-0.6%) translateY(-2.5%),
                 "afterRadius": 10px,
                 "selectedItemsPadding": 8px,
+                "font-size": $font-size-sm,
+                "line-height": 18px,
             ),
         ),
         $sizes
     );
-    
+
     &_size {
         @each $size, $sizeMap in $sizes {
             &_#{$size} {
@@ -267,6 +262,9 @@ $drop-down-color-themes: map-merge(
                 #{$root}__icon-chevron {
                     height: map-get($sizeMap, height);
                 }
+
+                font-size: map-get($sizeMap, font-size);
+                line-height: map-get($sizeMap, line-height);
             }
         }
     }
@@ -280,9 +278,9 @@ $drop-down-color-themes: map-merge(
             @include dropDownOutlineTheme($colorMap, $root);
         }
     }
-    
+
     &__icon-chevron {
-        width: 50px;
+        width: 36px;
         position: absolute;
         top: 50%;
         right: 0px;
@@ -300,12 +298,16 @@ $drop-down-color-themes: map-merge(
 
     &__selected-items {
         position: absolute;
-        width: calc(100% - 36px);
+        width: calc(100% - 29px);
         height: 100%;
         top: 0;
         left: 0;
         overflow: hidden;
         padding-left: 8px;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     &__drop-down {
@@ -333,5 +335,55 @@ $drop-down-color-themes: map-merge(
                 transform: rotate(180deg);
             }
         }
+    }
+
+    &__search {
+        width: 100%;
+        padding: 8px;
+        position: relative;
+
+        &-input {
+            width: 220px;
+            border-radius: 6px;
+            outline: none;
+
+            font-size: $font-size-base;
+            font-weight: 400;
+            line-height: 22px;
+            border: 1px solid $border-color;
+            background-color: $element-background-color;
+            padding: 4px;
+            padding-left: 32px;
+
+            color: $text-color;
+
+            &::-webkit-search-cancel-button {
+                display: none;
+            }
+        }
+
+        &-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+
+            transform: translateY(-50%);
+
+            svg {
+                circle,
+                path {
+                    stroke: $search-color;
+                }
+            }
+        }
+    }
+
+    &__placeholder {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }

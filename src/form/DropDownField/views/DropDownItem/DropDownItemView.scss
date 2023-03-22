@@ -13,6 +13,13 @@ html[data-theme="dark"] {
 $drop-down-item-select-background-color: var(--drop-down-item-select-background-color);
 $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-color);
 
+%fontProperties {
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: 22px;
+
+}
+
 .DropDownItemView {
     $root: &;
 
@@ -39,6 +46,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
 
     &__checkbox {
         width: 100%;
+        height: 24px;
         pointer-events: none;
 
         label {
@@ -55,6 +63,34 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
         img {
             width: 100%;
             height: 100%;
+        }
+    }
+
+    &__radio { 
+        width: 100%;
+        pointer-events: none;
+
+        div {
+            width: 100%;
+        }
+        input { 
+            position: absolute;
+            right: 0;
+        }
+
+        label {
+            width: 100%;
+        }
+
+        label::before { 
+            position: absolute;
+            right: 0;
+            margin-right: 0;
+        }
+
+        label::after { 
+            position: absolute;
+            right: 0;
         }
     }
 }

@@ -19,18 +19,14 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
             onClick={props.onChange}
         >
             <input
-                className={bem(
-                    bem.element('input'),
-                )}
+                className={bem.element('input')}
                 id={id}
                 {...props.inputProps}
                 disabled={props.disabled}
                 required={props.required}
             />
             <label
-                className={bem(
-                    bem.element('label'),
-                )}
+                className={bem.element('label')}
                 htmlFor={id}
             >
                 <span className={bem.element('label-text', {required: props.required})}>

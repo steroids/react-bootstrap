@@ -1,13 +1,14 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Icon from '@steroidsjs/core/ui/content/Icon';
-import {CheckboxField} from '@steroidsjs/core/ui/form';
+import {CheckboxField, RadioListField} from '@steroidsjs/core/ui/form';
+import {ContentType, IDropDownFieldProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 
 import './DropDownItemView.scss';
 
 type PrimaryKey = string | number;
 
-interface IDropDownItemViewProps {
+interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'contentProperties'> {
     item: {
         id: number,
         label: string,
@@ -25,7 +26,6 @@ interface IDropDownItemViewProps {
 
 export default function DropDownItemView(props: IDropDownItemViewProps) {
     const bem = useBem('DropDownItemView');
-
     const commonProps = {
         className:
             bem.element('option', {
@@ -42,19 +42,19 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
 
     };
 
-    if (props.item.contentType) {
-        switch (props.item.contentType) {
+    const renderTypeCases = (type: ContentType, src: string | React.ReactElement) => {
+        switch (type) {
             case 'icon':
                 return (
                     <div {...commonProps}>
-                        {typeof props.item.contentSrc === 'string' ? (
+                        {typeof src === 'string' ? (
                             <Icon
-                                name={props.item.contentSrc}
+                                name={src}
                                 className={bem.element('icon')}
                             />
                         ) : (
                             <span className={bem.element('icon')}>
-                                {props.item.contentSrc}
+                                    {src}
                             </span>
                         )}
                         <span>
@@ -68,8 +68,10 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                     <div {...commonProps}>
                         <CheckboxField
                             label={props.item.label}
-                            value={props.selectedIds.includes(props.item[props.primaryKey])}
                             className={bem.element('checkbox')}
+                            inputProps={{
+                                checked: props.selectedIds.includes(props.item[props.primaryKey]),
+                            }}
                         />
                     </div>
                 );
@@ -79,7 +81,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                     <div {...commonProps}>
                         <span className={bem.element('img')}>
                             <img
-                                src={typeof props.item.contentSrc === 'string' && props.item.contentSrc}
+                                src={src === 'string' && src}
                                 alt="flag"
                             />
                         </span>
@@ -89,9 +91,28 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                     </div>
                 );
 
+            case 'radio':
+                return (
+                    <div {...commonProps}>
+                        <RadioListField
+                            items={[props.item]}
+                            selectedIds={props.selectedIds}
+                            className={bem.element('radio')}
+                        />
+                    </div>
+                );
+
             default:
                 return null;
         }
+    };
+
+    if (props.item.contentType) {
+        return renderTypeCases(props.item.contentType, props.item.contentSrc);
+    }
+
+    if (props.contentProperties) {
+        return renderTypeCases(props.contentProperties.type, props.contentProperties.src);
     }
 
     return (

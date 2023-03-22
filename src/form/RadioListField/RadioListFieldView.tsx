@@ -9,7 +9,9 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
     const prefix = useUniqueId('radio');
 
     return (
-        <div className={bem.block()}>
+        <div className={bem(bem.block(),
+            props.className)}
+        >
             {props.items.map((item, index) => (
                 <div
                     key={typeof item.id !== 'boolean' ? item.id : (item.id ? 'true' : 'false')}
@@ -17,7 +19,6 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                         bem.element('item', {
                             hasError: !!props.errors,
                         }),
-                        props.className,
                     )}
                 >
                     <input
