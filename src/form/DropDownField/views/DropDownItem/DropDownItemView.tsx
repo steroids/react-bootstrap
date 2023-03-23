@@ -4,12 +4,12 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CheckboxField, RadioListField} from '@steroidsjs/core/ui/form';
 import {ContentType, IDropDownFieldProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {IFieldWrapperInputProps} from '@steroidsjs/core/ui/form/Field/fieldWrapper';
-import {DropDown} from '@steroidsjs/core/ui/content';
+import {Accordion, AccordionItem, DropDown} from '@steroidsjs/core/ui/content';
 import './DropDownItemView.scss';
 
 type PrimaryKey = string | number;
 
-interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'contentProperties'>, Pick<IFieldWrapperInputProps, 'size'> {
+interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'itemsContent'>, Pick<IFieldWrapperInputProps, 'size'> {
     item: {
         id: number,
         label: string,
@@ -22,20 +22,16 @@ interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'contentPrope
     onItemSelect?: (id: PrimaryKey | any) => void,
     onItemHover?: (id: PrimaryKey | any) => void,
     groupAttribute?: string;
-    level?: number;
 }
 
 export default function DropDownItemView(props: IDropDownItemViewProps) {
     const bem = useBem('DropDownItemView');
-
-    console.log(props.id, props);
 
     const commonProps = {
         className:
             bem.element('option', {
                 hover: props.hoveredId === props.item[props.primaryKey],
                 select: props.selectedIds.includes(props.item[props.primaryKey]),
-                level: !!props.level,
                 size: props.size,
             }),
         onFocus: () => props.onItemHover(props.item[props.primaryKey]),
@@ -47,7 +43,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
 
     };
 
-    const renderTypeCases = (type: ContentType | 'dropdown', src: string | React.ReactElement) => {
+    const renderTypeCases = (type: ContentType | 'group', src: string | React.ReactElement) => {
         switch (type) {
             case 'icon':
                 return (
@@ -111,35 +107,25 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                     </div>
                 );
 
-            case 'dropdown':
+            case 'group':
                 return (
-                    <DropDown
-                        content={() => (
-                            <>
-                                {props.item[props.groupAttribute].map((subItem, itemIndex) => (
-                                    <DropDownItemView
-                                        {...props}
-                                        key={itemIndex}
-                                        item={subItem}
-                                        level={props.level + 1}
-                                    />
-                                ))}
-                            </>
-                        )}
-                        className={bem.element('dropDown-group')}
-                        position="right"
-                    >
-                        <div {...commonProps}>
-                            <span className={bem.element('dropDown-label')}>
-                                {props.item.label}
-                                <Icon
-                                    name="accordion-chevron"
-                                    className={bem.element('dropDown-icon')}
+                    <Accordion>
+                        <AccordionItem
+                            title={props.item.label}
+                            position="middle"
+                            className={bem.element('group', {
+                                size: props.size,
+                            })}
+                        >
+                            {props.item[props.groupAttribute].map((subItem, itemIndex) => (
+                                <DropDownItemView
+                                    {...props}
+                                    key={itemIndex}
+                                    item={subItem}
                                 />
-                            </span>
-                        </div>
-                    </DropDown>
-
+                            ))}
+                        </AccordionItem>
+                    </Accordion>
                 );
 
             default:
@@ -148,15 +134,15 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
     };
 
     if (props.groupAttribute && Array.isArray(props.item[props.groupAttribute])) {
-        return renderTypeCases('dropdown', props.item[props.groupAttribute]);
+        return renderTypeCases('group', props.item[props.groupAttribute]);
     }
 
     if (props.item.contentType) {
         return renderTypeCases(props.item.contentType, props.item.contentSrc);
     }
 
-    if (props.contentProperties) {
-        return renderTypeCases(props.contentProperties.type, props.contentProperties.src);
+    if (props.itemsContent) {
+        return renderTypeCases(props.itemsContent.type, props.itemsContent.src);
     }
 
     return (

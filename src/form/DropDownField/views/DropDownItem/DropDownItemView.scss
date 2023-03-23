@@ -13,6 +13,15 @@ html[data-theme="dark"] {
 $drop-down-item-select-background-color: var(--drop-down-item-select-background-color);
 $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-color);
 
+@mixin statements {
+    &_select {
+        background-color: $drop-down-item-select-background-color;
+    }
+    &_hover {
+        background-color: $drop-down-item-hover-background-color;
+    }
+}
+
 %fontProperties {
     font-size: $font-size-base;
     font-weight: 400;
@@ -34,6 +43,8 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
         position: relative;
         column-gap: 12px;
         align-items: center;
+        background-color: $element-background-color;
+        color: $text-color;
 
         &_size {
             &_lg {
@@ -49,12 +60,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             }
         }
 
-        &_select {
-            background-color: $drop-down-item-select-background-color;
-        }
-        &_hover {
-            background-color: $drop-down-item-hover-background-color;
-        }
+        @include statements;
     }
 
     &__checkbox {
@@ -127,27 +133,85 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
         }
     }
 
-    &__dropDown {
-        &-icon {
-            width: 24px;
-            height: 24px;
-            position: absolute;
-            right: 12px;
-            // border: 1px solid rgba(0, 0, 0, 0.1);
+    &__group {
+        width: auto;
+        border-radius: none;
 
-            svg {
-                border: 1px solid rgba(0, 0, 0, 0.1);
-                border-radius: $radius-small;
+        .AccordionItemView {
+            &__content {
+                padding: 0;
+                border: none;
+
+                &_visible {
+                    border-bottom: 1px solid $border-color;
+                }
+            }
+
+            &__header-container {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+
+                border: none;
+                background-color: $element-background-color;
+                
+                &:hover {
+                    background-color: $drop-down-item-hover-background-color;
+                }
+            }
+
+            &__title-container {
+                padding: inherit;
+            }
+
+            &__icon-wrapper {
+                position: static;
+                margin-right: 12px;
+            }
+
+            &__icon-chevron {
+                box-shadow: none;
+                svg {
+                    border: 1px solid $border-color;
+                    border-radius: $radius-small;
+                }
             }
         }
-        &-label {
-            width: 100%;
-        }
 
-        &-group { 
-            overflow: hidden;
-            padding: 0;
-            transform: translateX(5%);
+        &_size {
+            &_lg {
+                font-size: $font-size-lg;
+                line-height: 24px;
+
+                .AccordionItemView__title-container {
+                    font-size: inherit;
+                    line-height: inherit;
+                    padding: 16px;
+                }
+            }
+
+            &_md {
+                font-size: $font-size-base;
+                line-height: 22px;
+
+                .AccordionItemView__title-container {
+                    font-size: inherit;
+                    line-height: inherit;
+                    padding: 12px;
+                }
+            }
+
+            &_sm {
+                font-size: $font-size-sm;
+                line-height: 18px;
+
+                .AccordionItemView__title-container {
+                    font-size: inherit;
+                    line-height: inherit;
+                    padding: 8px;
+                }
+            }
         }
     }
 }

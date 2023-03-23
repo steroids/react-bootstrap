@@ -50,11 +50,10 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                 role='button'
             >
                 {renderPlaceholder()}
-
                 <span
                     className={bem.element('selected-items')}
                 >
-                    {props.ellipses
+                    {props.showEllipses
                         ? (
                             props.selectedItems.map((item, itemIndex) => {
                                 if (props.selectedItems.length === itemIndex + 1) {
@@ -89,6 +88,14 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         )}
                 </span>
             </div>
+            {props.showReset && props.selectedIds.length > 0 && (
+                <Icon
+                    name="field-close"
+                    className={bem.element('icon-close')}
+                    tabIndex={-1}
+                    onClick={props.onReset}
+                />
+            )}
             <Icon
                 name='accordion-chevron'
                 className={bem.element('icon-chevron')}
@@ -98,7 +105,10 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             {props.isOpened && (
                 <div className={bem.element('drop-down')}>
                     {props.isAutoComplete && (
-                        <div className={bem.element('search')}>
+                        <div className={bem.element('search', {
+                            size: props.size,
+                        })}
+                        >
                             <Icon
                                 name='search'
                                 className={bem.element('search-icon')}
@@ -117,16 +127,9 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     <div className={bem.element('drop-down-list')}>
                         {props.items.map((item, itemIndex) => (
                             <DropDownItem
+                                {...props}
                                 key={itemIndex}
-                                groupAttribute={props.groupAttribute}
-                                hoveredId={props.hoveredId}
-                                onItemHover={props.onItemHover}
-                                onItemSelect={props.onItemSelect}
-                                primaryKey={props.primaryKey}
-                                selectedIds={props.selectedIds}
                                 item={item}
-                                contentProperties={props.contentProperties}
-                                size={props.size}
                             />
                         ))}
                     </div>

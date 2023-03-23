@@ -9,8 +9,9 @@
     --drop-down-border-color: #e9e9e9;
     --scroll-thumb-color: #e5e9eb;
     --scroll-track-color: #f5f8fa;
-
     --search-color: #626262;
+    --search-background-color: #f5f8fa;
+    --search-hover-background-color: #eef1f2;
 }
 
 html[data-theme="dark"] {
@@ -24,8 +25,9 @@ html[data-theme="dark"] {
     --drop-down-border-color: #595959;
     --scroll-thumb-color: #5b5c6b;
     --scroll-track-color: #444147;
-
     --search-color: #adacac;
+    --search-background-color: #4e4f57;
+    --search-hover-background-color: #5b5c6b;
 }
 
 $basic-color: var(--basic-color);
@@ -38,8 +40,9 @@ $chevron-inner-color: var(--chevron-inner-color);
 $drop-down-border-color: var(--drop-down-border-color);
 $scroll-thumb-color: var(--scroll-thumb-color);
 $scroll-track-color: var(--scroll-track-color);
-
 $search-color: var(--search-color);
+$search-background-color: var(--search-background-color);
+$search-hover-background-color: var(--search-hover-background-color);
 
 $drop-down-color-themes: () !default;
 $drop-down-color-themes: map-merge(
@@ -69,7 +72,7 @@ $drop-down-color-themes: map-merge(
             "active-color": $warning-dark,
         ),
         "danger": (
-        "background-color": $danger,
+            "background-color": $danger,
             "hover-color": $danger-dark,
             "focus-color": $danger-light,
             "active-color": $danger-dark,
@@ -280,7 +283,7 @@ $drop-down-color-themes: map-merge(
     }
 
     &__icon-chevron {
-        width: 36px;
+        width: 40px;
         position: absolute;
         top: 50%;
         right: 0px;
@@ -339,8 +342,33 @@ $drop-down-color-themes: map-merge(
 
     &__search {
         width: 100%;
-        padding: 8px;
+        padding: 9px;
         position: relative;
+
+        $searchRoot: &;
+
+        &_size {
+            &_lg {
+                #{$searchRoot}-input {
+                    padding: 8px 4px;
+                    padding-left: 32px;
+                }
+            }
+            &_md {
+                #{$searchRoot}-input {
+                    padding: 5px 4px;
+                    padding-left: 32px;
+
+                }
+            }
+            &_sm {
+                #{$searchRoot}-input {
+                    padding: 5px 8px;
+                    padding-left: 32px;
+
+                }
+            }
+        }
 
         &-input {
             width: 220px;
@@ -351,11 +379,13 @@ $drop-down-color-themes: map-merge(
             font-weight: 400;
             line-height: 22px;
             border: 1px solid $border-color;
-            background-color: $element-background-color;
-            padding: 4px;
-            padding-left: 32px;
 
             color: $text-color;
+            background-color: $search-background-color;
+
+            &:hover {
+                background-color: $search-hover-background-color;
+            }
 
             &::-webkit-search-cancel-button {
                 display: none;
@@ -385,5 +415,19 @@ $drop-down-color-themes: map-merge(
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
+    }
+
+    &__icon-close {
+        position: absolute;
+        z-index: 9;
+        width: 24px;
+        height: 24px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        right: 36px;
+        transform: translateY(-50%);
     }
 }
