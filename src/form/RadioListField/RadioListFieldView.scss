@@ -3,7 +3,7 @@
 }
 
 html[data-theme="dark"] {
-    --radio-hover-color: #651fff;
+    --radio-hover-color: #6648A7;
 }
 
 $radio-hover-color: var(--radio-hover-color);
@@ -114,7 +114,6 @@ $radio-hover-color: var(--radio-hover-color);
     }
 
     &__input:not(:disabled):checked:active + &__label::before {
-        background-color: #fff;
         border-color: $primary-light;
     }
 
