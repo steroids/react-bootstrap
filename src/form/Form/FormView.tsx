@@ -29,11 +29,10 @@ function FormView(props: IFormViewProps) {
             ref={formRef}
             className={bem(
                 bem.block({
-                    border: props.isBordered,
                     inline: props.layout.layout === 'inline',
+                    vertical: props.layout.layout === 'vertical',
                 }),
                 props.className,
-                props.layout.layout === 'horizontal' && 'form-horizontal',
             )}
             onSubmit={props.onSubmit}
             style={props.style}

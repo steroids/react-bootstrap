@@ -1,17 +1,13 @@
 .FormView {
-  &_border {
-    padding: 20px;
-    border: 1px solid $border-default;
-    box-sizing: border-box;
-    box-shadow: $shadow-default;
-    border-radius: 0.5rem;
-  }
-  &_inline {
     display: flex;
-    grid-gap: 20px;
-    align-items: flex-start;
-  }
-  .form-control {
-    display: flex;
-  }
+    flex-flow: column nowrap;
+
+    &_inline {
+        column-gap: 12px;
+        flex-flow: row nowrap;
+    }
+
+    &_vertical {
+        row-gap: 24px;
+    }
 }
