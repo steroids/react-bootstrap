@@ -36,22 +36,10 @@
             }
         }
     }
-
-    @each $color, $value in $color-themes {
-        &_color_#{$color} {
-            @include card-theme($root, $value)
-        }
-    }
-
+    
     &_border {
         &_default {
             border: 1px solid $border-default;
-        }
-
-        @each $color, $value in $color-themes {
-            &_#{$color} {
-                @include card-border-theme($root, $value)
-            }
         }
 
         &_light {
