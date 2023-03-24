@@ -8,8 +8,6 @@ export default function CardView(props: ICardViewProps) {
     return (
         <div
             className={bem(bem.block({
-                orientation: props.orientation,
-                shape: props.shape,
             }), props.className)}
             style={props.style}
         >
