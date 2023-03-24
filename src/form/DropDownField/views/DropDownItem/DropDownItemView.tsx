@@ -4,7 +4,9 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CheckboxField, RadioListField} from '@steroidsjs/core/ui/form';
 import {ContentType, IDropDownFieldProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {IFieldWrapperInputProps} from '@steroidsjs/core/ui/form/Field/fieldWrapper';
-import {Accordion, AccordionItem} from '@steroidsjs/core/ui/content';
+import {AccordionItem} from '@steroidsjs/core/ui/content';
+import {IAccordionCommonViewProps} from '@steroidsjs/core/ui/content/Accordion/Accordion';
+
 import './DropDownItemView.scss';
 
 const GROUP_CONTENT_TYPE = 'group';
@@ -28,6 +30,8 @@ interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'itemsContent
 
 export default function DropDownItemView(props: IDropDownItemViewProps) {
     const bem = useBem('DropDownItemView');
+
+    const groupProps = props as IAccordionCommonViewProps;
 
     const commonProps = {
         className:
@@ -111,23 +115,25 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
 
             case 'group':
                 return (
-                    <Accordion>
-                        <AccordionItem
-                            title={props.item.label}
-                            position="middle"
-                            className={bem.element('group', {
-                                size: props.size,
-                            })}
-                        >
-                            {props.item[props.groupAttribute].map((subItem, itemIndex) => (
-                                <DropDownItemView
-                                    {...props}
-                                    key={itemIndex}
-                                    item={subItem}
-                                />
-                            ))}
-                        </AccordionItem>
-                    </Accordion>
+                    <AccordionItem
+                        childIndex={groupProps.childIndex}
+                        isShowMore={groupProps.isShowMore}
+                        toggleAccordion={groupProps.toggleAccordion}
+                        toggleCollapse={groupProps.toggleCollapse}
+                        title={props.item.label}
+                        position="middle"
+                        className={bem.element('group', {
+                            size: props.size,
+                        })}
+                    >
+                        {props.item[props.groupAttribute].map((subItem, itemIndex) => (
+                            <DropDownItemView
+                                {...props}
+                                key={itemIndex}
+                                item={subItem}
+                            />
+                        ))}
+                    </AccordionItem>
                 );
 
             default:

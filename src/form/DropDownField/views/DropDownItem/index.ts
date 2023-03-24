@@ -1,3 +1,3 @@
-import DropDownItem from './DropDownItemView';
+import DropDownItemView from './DropDownItemView';
 
-export default DropDownItem;
+export default DropDownItemView;
