@@ -4,8 +4,10 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CheckboxField, RadioListField} from '@steroidsjs/core/ui/form';
 import {ContentType, IDropDownFieldProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {IFieldWrapperInputProps} from '@steroidsjs/core/ui/form/Field/fieldWrapper';
-import {Accordion, AccordionItem, DropDown} from '@steroidsjs/core/ui/content';
+import {Accordion, AccordionItem} from '@steroidsjs/core/ui/content';
 import './DropDownItemView.scss';
+
+const GROUP_CONTENT_TYPE = 'group';
 
 type PrimaryKey = string | number;
 
@@ -84,7 +86,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                         <span className={bem.element('img')}>
                             <img
                                 src={src === 'string' && src}
-                                alt="flag"
+                                alt="custom source for item"
                             />
                         </span>
                         <span>
@@ -134,7 +136,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
     };
 
     if (props.groupAttribute && Array.isArray(props.item[props.groupAttribute])) {
-        return renderTypeCases('group', props.item[props.groupAttribute]);
+        return renderTypeCases(GROUP_CONTENT_TYPE, props.item[props.groupAttribute]);
     }
 
     if (props.item.contentType) {
