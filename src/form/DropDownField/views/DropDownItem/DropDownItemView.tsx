@@ -2,31 +2,13 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CheckboxField, RadioListField} from '@steroidsjs/core/ui/form';
-import {ContentType, IDropDownFieldProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import {IFieldWrapperInputProps} from '@steroidsjs/core/ui/form/Field/fieldWrapper';
+import {ContentType, IDropDownItemViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {AccordionItem} from '@steroidsjs/core/ui/content';
 import {IAccordionCommonViewProps} from '@steroidsjs/core/ui/content/Accordion/Accordion';
 
 import './DropDownItemView.scss';
 
 const GROUP_CONTENT_TYPE = 'group';
-
-type PrimaryKey = string | number;
-
-interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'itemsContent'>, Pick<IFieldWrapperInputProps, 'size'> {
-    item: {
-        id: number,
-        label: string,
-        contentType?: ContentType,
-        contentSrc?: 'string' | React.ReactElement,
-    },
-    primaryKey?: string,
-    hoveredId?: string,
-    selectedIds?: (PrimaryKey | any)[];
-    onItemSelect?: (id: PrimaryKey | any) => void,
-    onItemHover?: (id: PrimaryKey | any) => void,
-    groupAttribute?: string;
-}
 
 export default function DropDownItemView(props: IDropDownItemViewProps) {
     const bem = useBem('DropDownItemView');
