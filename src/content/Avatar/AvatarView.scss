@@ -13,7 +13,15 @@
     --status-size-medium: 12px;
     --status-size-large: 14px;
     --status-size: var(--status-size-x-large);
+
+    --status-border-color: #FFFFFF;
 }
+
+html[data-theme="dark"] { 
+    --status-border-color: #4E4F57;
+}
+
+$status-border-color: var(--status-border-color);
 
 @mixin border($background) {
     &::before {
@@ -120,7 +128,7 @@
             border-radius: $radius-circle;
             background-color: $success;
 
-            border: var(--status-border-width) solid $white;
+            border: var(--status-border-width) solid $status-border-color;
         }
     }
 

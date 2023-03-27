@@ -1,112 +1,167 @@
+:root {
+    --card-background-color: #ffffff;
+    --card-footer-background-color: #f9fcff;
+    --card-dots-color: #323232;
+}
+
+html[data-theme="dark"] {
+    --card-background-color: #4e4f57;
+    --card-footer-background-color: #6b6477;
+    --card-dots-color: #ffffff;
+}
+
+$card-background-color: var(--card-background-color);
+$card-footer-background-color: var(--card-footer-background-color);
+$card-dots-color: var(--card-dots-color);
+
+%headTemplate {
+    font-weight: 700;
+    font-size: $font-size-lg;
+    line-height: 24px;
+}
+
+%subheadTemplate {
+    font-weight: 400;
+    font-size: $font-size-xs;
+    line-height: 16px;
+}
+
+%dotTemplate {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    background-color: $card-dots-color;
+    border-radius: $radius-circle;
+}
+
 .CardView {
     $root: &;
 
     width: 340px;
-    background: $white;
-    box-sizing: border-box;
-    height: fit-content;
-    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-flow: column;
     overflow: hidden;
+    height: fit-content;
 
-    &_border {
-        &_default {
-            border: 1px solid $border-default;
+    border: 1px solid $border-color;
+    border-radius: $radius-large;
+    color: $text-color;
+    background-color: $card-background-color;
+
+    &__header {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        padding: 16px;
+
+        &-data {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            column-gap: 8px;
         }
 
-        &_light {
-            #{$root}__content {
-                color: $dark;
+        &-text-content {
+            display: flex;
+            flex-flow: column nowrap;
+        }
+
+        &-head {
+            @extend %headTemplate;
+        }
+
+        &-subhead {
+            @extend %subheadTemplate;
+        }
+
+        &-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        &-dots {
+            width: 24px;
+            height: 24px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            rect {
+                fill: $card-dots-color;
             }
         }
     }
 
-    &__content-inner {
-        display: grid;
-        grid-row-gap: 16px;
-    }
-
-    &__children {
-        font-size: $card-children-font-size;
-        line-height: $card-children-line-height;
-        box-sizing: border-box;
-        width: 100%;
-        word-break: break-all;
-    }
-
-    &__header {
-        background: $card-header-background;
-        padding: 20px;
-        border-bottom: 1px solid $border-default;
-        font-weight: bold;
-        font-size: $card-header-font-size;
-        line-height: $card-header-line-height;
-        word-break: break-all;
-    }
-
-    &__footer {
-        background: $card-header-background;
-        padding: 20px;
-        border-top: 1px solid $border-default;
-        font-weight: bold;
-        font-size: $card-header-font-size;
-        line-height: $card-header-line-height;
-        word-break: break-all;
-    }
-
     &__cover {
-        width: 340px;
+        width: 100%;
         height: 227px;
         overflow: hidden;
-        border-radius: $radius-small;
+        border-radius: $radius-large;
 
         img {
+            display: block;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
         }
     }
 
-    &__title {
+    &__content {
+        padding: 8px 16px;
+        padding-bottom: 16px;
+    }
+
+    &__content-inner {
         display: flex;
-        align-items: center;
-        font-weight: bold;
-        font-size: $card-title-font-size;
-        line-height: $card-title-line-height;
-        border-bottom: 8px;
+        flex-flow: column nowrap;
+        row-gap: 16px;
+    }
+
+    &__title {
+        @extend %headTemplate;
         margin-bottom: 8px;
     }
 
-    &__content {
-        padding: 20px;
+    &__description {
+        font-size: $font-size-base;
+        line-height: 22px;
     }
 
-    button {
+    &__buttons {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 10px 20px;
-        position: static;
-        width: 140px;
-        height: 28px;
-        border: none;
-        color: $white;
-        background: $primary;
-        border-radius: $card-button-border-radius;
+        flex-flow: row wrap;
+        row-gap: 8px;
+        column-gap: 6px;
+        button {
+            max-width: 150px;
+            font-weight: 800;
+        }
     }
 
-    img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    &__links {
+        display: flex;
+        flex-flow: row wrap;
+        column-gap: 16px;
+        color: #2ba3fb;
     }
 
-    a {
-        color: $primary;
-        font-size: $card-link-font-size;
-    }
-    p {
-        margin: 0;
+    &__footer {
+        display: flex;
+        flex-flow: column wrap;
+
+        padding: 16px;
+        background-color: $card-footer-background-color;
+
+        &-head {
+            @extend %headTemplate;
+        }
+
+        &-subhead {
+            @extend %subheadTemplate;
+        }
     }
 }
