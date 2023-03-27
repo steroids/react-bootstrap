@@ -14,8 +14,6 @@ $number-field-arrow-color: var(--number-field-arrow-color);
     position: relative;
     padding: 0;
 
-    width: 120px;
-
     font-family: $font-family-nunito;
 
     // Hide default arrows
@@ -158,7 +156,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
     }
 
     &__input {
-        width: 120px;
+        width: 100%;
         outline: none;
         border: 1px solid $border-color;
         border-radius: $radius-small;
@@ -200,12 +198,9 @@ $number-field-arrow-color: var(--number-field-arrow-color);
         top: 0;
         left: 0;
 
-        width: 103.3333333333%;
-        height: 111.7647058824%;
-
-        transform: translate(-1.6666666667%, -5.8823529412%);
+        width: 100%;
+        height: 100%;
         background-color: transparent;
-        
         border: 4px solid $primary-light;
         opacity: 0;
         pointer-events: none;
