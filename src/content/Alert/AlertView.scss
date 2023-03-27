@@ -78,7 +78,9 @@
     }
 
     &__wrapper {
+        width: 508px;
         display: flex;
+        flex-flow: column;
         justify-content: space-between;
     }
 
