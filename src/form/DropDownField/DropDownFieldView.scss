@@ -287,6 +287,7 @@ $drop-down-color-themes: map-merge(
         position: absolute;
         top: 50%;
         right: 0px;
+        outline: none;
 
         transform: translateY(-50%);
 
@@ -307,6 +308,7 @@ $drop-down-color-themes: map-merge(
         left: 0;
         overflow: hidden;
         padding-left: 8px;
+        outline: none;
 
         text-overflow: ellipsis;
         white-space: nowrap;

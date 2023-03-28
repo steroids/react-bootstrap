@@ -71,7 +71,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                     <div {...commonProps}>
                         <span className={bem.element('img')}>
                             <img
-                                src={src === 'string' && src}
+                                src={src as string}
                                 alt="custom source for item"
                             />
                         </span>
