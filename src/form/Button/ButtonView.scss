@@ -59,13 +59,7 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-    &_link {
-        display: inline;
-        width: auto;
-        #{$root}__label {
-            display: inline;
-        }
-    }
+
 
     &_tag { 
         &-a { 
@@ -98,6 +92,16 @@ $btn-letter-spacing: 0.1em;
             height: 56px;
             font-size: $font-size-lg;
             border-radius: $radius-large;
+        }
+    }
+
+    &_link {
+        display: inline;
+        width: auto;
+        height: auto;
+        #{$root}__label {
+            display: inline;
+            color: $link-color;
         }
     }
 
