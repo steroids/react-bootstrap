@@ -23,9 +23,11 @@ $counter-background-color: var(--counter-background-color);
     line-height: 16px;
 
     &__content {
+        width: 100%;
+        height: 100%;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-flow: row nowrap;
+        justify-content: center;
     }
 
     &__close {
@@ -63,15 +65,12 @@ $counter-background-color: var(--counter-background-color);
 
     &_size {
         &_lg {
-            height: 24px;
             padding: 4px 8px;
         }
         &_md {
-            height: 22px;
             padding: 3px 8px;
         }
         &_sm {
-            height: 18px;
             padding: 1px 8px;
         }
     }
@@ -91,7 +90,6 @@ $counter-background-color: var(--counter-background-color);
     }
 
     &_has-counter {
-        height: 24px;
         border: 1px solid #e9e9e9;
         border-radius: 100px;
 
@@ -114,7 +112,7 @@ $counter-background-color: var(--counter-background-color);
             align-items: center;
 
             margin-right: 4px;
-            width: 18px;
+            padding: 0 5.4px;
             background-color: $white;
 
             border-radius: $radius-circle;
