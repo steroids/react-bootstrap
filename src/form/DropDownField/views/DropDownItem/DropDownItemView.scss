@@ -86,7 +86,9 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
     }
 
     &__radio {
+        pointer-events: none;
         width: 100%;
+
         div {
             width: 100%;
         }
@@ -106,28 +108,26 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             right: 0;
         }
 
-        span {
-            position: absolute;
+        .RadioListFieldView__ellipse { 
+            left: auto;
         }
 
         &_size {
             &_lg {
                 span {
-                    left: 88.2%;
+                    right: 6px;
                 }
             }
 
             &_md {
                 span {
-                    left: 90.5%;
-                    top: 2%;
+                    right: 5px;
                 }
             }
 
             &_sm {
                 span {
-                    left: 92.7%;
-                    top: 13.5%;
+                    right: 4px;
                 }
             }
         }
