@@ -20,16 +20,16 @@ export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
         <div
             ref={tooltipRef}
             className={bem.block({
-                    show: props.isTooltipVisible,
-                    position: props.position,
-                })}
+                show: props.isTooltipVisible,
+                position: props.position,
+            })}
             style={props.style}
         >
             <div
                 ref={arrowRef}
                 className={bem.element(
                     'arrow',
-                    {['position_' + props.position]: true},
+                    {position: props.position},
                 )}
                 style={props.arrowPosition}
             />

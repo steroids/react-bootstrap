@@ -1,6 +1,5 @@
 @use 'sass:math';
 
-$tooltip-arrow-color: rgba(65, 65, 65, 0.95);
 $tooltip-arrow-width: 10px;
 $tooltip-arrow-height: 10px;
 $tooltip-arrow-border: math.div($tooltip-arrow-width, 2);
@@ -10,14 +9,17 @@ $tooltip-arrow-offset-horizontal: 20px;
 $tooltip-arrow-offset-vertical-top: 15px;
 $tooltip-arrow-offset-vertical-bottom: 7px;
 
+$tooltip-background-color: rgba(65, 65, 65, 0.95);
+
 .TooltipView {
   position: absolute;
   top: 0;
   left: 0;
   max-width: 300px;
+  word-break: break-all;
   padding: 8px 12px;
   border-radius: 6px;
-  background: rgba(65, 65, 65, 0.95);
+  background: $tooltip-background-color;
 
   transform: translate(0,0);
   opacity: 0;
@@ -33,7 +35,7 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
       transform: translateY(-$tooltip-gap);
     }
 
-    &_bottom, &_bottomLeft, &bottomRight {
+    &_bottom, &_bottomLeft, &_bottomRight {
       transform: translateY($tooltip-gap);
     }
 
@@ -48,23 +50,20 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
 
   &__arrow{
     position: absolute;
-
+    
     width: $tooltip-arrow-width;
     height: $tooltip-arrow-height;
 
     border-style: solid;
     border-width: math.div($tooltip-arrow-height, 2);
+    border-color: $tooltip-background-color;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
-
 
     &_position_top, &_position_topLeft, &_position_topRight{
       bottom: -$tooltip-arrow-border;
       left: 50%;
-
       border-top-color: transparent;
       border-left-color: transparent;
-      border-right-color:  $tooltip-arrow-color;
-      border-bottom-color:  $tooltip-arrow-color;
       transform: translateX(-50%) rotate(45deg);
     }
     &_position_topLeft{
@@ -78,8 +77,6 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
     &_position_bottom, &_position_bottomLeft, &_position_bottomRight{
       top: -$tooltip-arrow-border;
       left: 50%;
-      border-top-color: $tooltip-arrow-color;
-      border-left-color: $tooltip-arrow-color;
       border-right-color: transparent;
       border-bottom-color: transparent;
       transform: translateX(-50%) rotate(45deg);
@@ -95,9 +92,7 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
     &_position_left, &_position_leftTop, &_position_leftBottom{
       right: -$tooltip-arrow-border;
       top: 50%;
-      border-top-color: $tooltip-arrow-color;
       border-left-color: transparent;
-      border-right-color: $tooltip-arrow-color;
       border-bottom-color: transparent;
       transform: translateY(-50%) rotate(45deg);
     }
@@ -113,9 +108,7 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
       left: -$tooltip-arrow-border;
       top: 50%;
       border-top-color: transparent;
-      border-left-color: $tooltip-arrow-color;
       border-right-color: transparent;
-      border-bottom-color: $tooltip-arrow-color;
       transform: translateY(-50%) rotate(45deg);
     }
     &_position_rightTop{
