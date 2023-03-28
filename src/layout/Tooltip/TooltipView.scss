@@ -1,8 +1,7 @@
 @use 'sass:math';
 
-$tooltip-arrow-color: #000;
-$tooltip-arrow-width: 8px;
-$tooltip-arrow-height: 8px;
+$tooltip-arrow-width: 10px;
+$tooltip-arrow-height: 10px;
 $tooltip-arrow-border: math.div($tooltip-arrow-width, 2);
 $tooltip-gap: 12px;
 
@@ -10,10 +9,18 @@ $tooltip-arrow-offset-horizontal: 20px;
 $tooltip-arrow-offset-vertical-top: 15px;
 $tooltip-arrow-offset-vertical-bottom: 7px;
 
+$tooltip-background-color: rgba(65, 65, 65, 0.95);
+
 .TooltipView {
   position: absolute;
   top: 0;
   left: 0;
+  max-width: 300px;
+  word-break: break-all;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: $tooltip-background-color;
+
   transform: translate(0,0);
   opacity: 0;
   transition: opacity .15s ease-in, transform .15s ease-in;
@@ -22,99 +29,100 @@ $tooltip-arrow-offset-vertical-bottom: 7px;
   &_show {
     opacity: 1;
   }
-  &_show.tooltip-position-top, &_show.tooltip-position-topLeft,  &_show.tooltip-position-topRight{
-      transform: translateY(-$tooltip-gap);
-  }
-  &_show.tooltip-position-bottom, &_show.tooltip-position-bottomLeft,  &_show.tooltip-position-bottomRight{
-    transform: translateY($tooltip-gap);
-  }
-  &_show.tooltip-position-left, &_show.tooltip-position-leftTop,  &_show.tooltip-position-leftBottom{
-    transform: translateX(-$tooltip-gap);
-  }
-  &_show.tooltip-position-right, &_show.tooltip-position-rightTop,  &_show.tooltip-position-rightBottom{
-    transform: translateX($tooltip-gap);
-  }
 
+  &_position{
+    &_top, &_topLeft, &_topRight {
+      transform: translateY(-$tooltip-gap);
+    }
+
+    &_bottom, &_bottomLeft, &_bottomRight {
+      transform: translateY($tooltip-gap);
+    }
+
+    &_left, &_leftTop, &_leftBottom {
+      transform: translateX(-$tooltip-gap);
+    }
+
+    &_right, &_rightTop, &_rightBottom {
+      transform: translateX($tooltip-gap);
+    }
+  }
 
   &__arrow{
     position: absolute;
-
+    
     width: $tooltip-arrow-width;
     height: $tooltip-arrow-height;
 
     border-style: solid;
     border-width: math.div($tooltip-arrow-height, 2);
+    border-color: $tooltip-background-color;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
 
-
-    &_position-top, &_position-topLeft, &_position-topRight{
+    &_position_top, &_position_topLeft, &_position_topRight{
       bottom: -$tooltip-arrow-border;
       left: 50%;
-
       border-top-color: transparent;
       border-left-color: transparent;
-      border-right-color:  $tooltip-arrow-color;
-      border-bottom-color:  $tooltip-arrow-color;
       transform: translateX(-50%) rotate(45deg);
     }
-    &_position-topLeft{
+    &_position_topLeft{
       left: $tooltip-arrow-offset-horizontal;
     }
-    &_position-topRight{
+    &_position_topRight{
       left: unset;
       right: $tooltip-arrow-offset-horizontal;
     }
 
-    &_position-bottom, &_position-bottomLeft, &_position-bottomRight{
+    &_position_bottom, &_position_bottomLeft, &_position_bottomRight{
       top: -$tooltip-arrow-border;
       left: 50%;
-      border-top-color: $tooltip-arrow-color;
-      border-left-color: $tooltip-arrow-color;
       border-right-color: transparent;
       border-bottom-color: transparent;
       transform: translateX(-50%) rotate(45deg);
     }
-    &_position-bottomLeft{
+    &_position_bottomLeft{
       left: $tooltip-arrow-offset-horizontal;
     }
-    &_position-bottomRight{
+    &_position_bottomRight{
       left: unset;
       right: $tooltip-arrow-offset-horizontal;
     }
 
-    &_position-left, &_position-leftTop, &_position-leftBottom{
+    &_position_left, &_position_leftTop, &_position_leftBottom{
       right: -$tooltip-arrow-border;
       top: 50%;
-      border-top-color: $tooltip-arrow-color;
       border-left-color: transparent;
-      border-right-color: $tooltip-arrow-color;
       border-bottom-color: transparent;
       transform: translateY(-50%) rotate(45deg);
     }
-    &_position-leftTop{
+    &_position_leftTop{
       top: $tooltip-arrow-offset-vertical-top;
     }
-    &_position-leftBottom{
+    &_position_leftBottom{
       top: unset;
       bottom: $tooltip-arrow-offset-vertical-bottom;
     }
 
-    &_position-right, &_position-rightTop, &_position-rightBottom{
+    &_position_right, &_position_rightTop, &_position_rightBottom{
       left: -$tooltip-arrow-border;
       top: 50%;
       border-top-color: transparent;
-      border-left-color: $tooltip-arrow-color;
       border-right-color: transparent;
-      border-bottom-color: $tooltip-arrow-color;
       transform: translateY(-50%) rotate(45deg);
     }
-    &_position-rightTop{
+    &_position_rightTop{
       top: $tooltip-arrow-offset-vertical-top;
     }
-    &_position-rightBottom{
+    &_position_rightBottom{
       top: unset;
       bottom: $tooltip-arrow-offset-vertical-bottom;
     }
   }
 
+  &__content{
+    color: $white;
+    font-size: 14px;
+    line-height: 24px;
+  }
 }
