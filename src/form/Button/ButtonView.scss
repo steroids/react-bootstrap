@@ -97,6 +97,7 @@ $btn-letter-spacing: 0.1em;
         height: auto;
         #{$root}__label {
             display: inline;
+            color: $link-color;
         }
     }
 

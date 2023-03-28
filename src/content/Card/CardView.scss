@@ -37,7 +37,6 @@ $card-dots-color: var(--card-dots-color);
 .CardView {
     $root: &;
 
-    width: 340px;
     display: flex;
     flex-flow: column;
     overflow: hidden;
@@ -134,11 +133,16 @@ $card-dots-color: var(--card-dots-color);
     &__buttons {
         display: flex;
         flex-flow: row wrap;
+        $columnGap: 6px;
         row-gap: 8px;
-        column-gap: 6px;
-        button {
-            max-width: 150px;
-            font-weight: 800;
+        column-gap: $columnGap;
+
+        button:only-of-type { 
+            width: 100%;
+        }
+
+        button:not(:only-of-type) { 
+            width: calc(50% - $columnGap);
         }
     }
 
@@ -146,7 +150,6 @@ $card-dots-color: var(--card-dots-color);
         display: flex;
         flex-flow: row wrap;
         column-gap: 16px;
-        color: #2ba3fb;
     }
 
     &__footer {
