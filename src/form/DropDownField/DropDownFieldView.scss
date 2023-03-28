@@ -1,228 +1,435 @@
-$text-muted: gray;
-$dropdown-divider-bg: transparent;
+:root {
+    --basic-color: #eef1f2;
+    --basic-focus-color: #f5f8fa;
+    --basic-active-color: #e5e9eb;
+    --chevron-background-color: #ffffff;
+    --chevron-background-color-outline: #f5f8fa;
+    --chevron-background-color-basic: #ffffff;
+    --chevron-inner-color: #323232;
+    --drop-down-border-color: #e9e9e9;
+    --scroll-thumb-color: #e5e9eb;
+    --scroll-track-color: #f5f8fa;
+    --search-color: #626262;
+    --search-background-color: #f5f8fa;
+    --search-hover-background-color: #eef1f2;
+}
 
-.DropDownFieldView {
-  $root: &;
+html[data-theme="dark"] {
+    --basic-color: #5b5c6b;
+    --basic-focus-color: #adaab3;
+    --basic-active-color: #4e4f57;
+    --chevron-background-color: #323232;
+    --chevron-background-color-outline: #323232;
+    --chevron-background-color-basic: #6f6b76;
+    --chevron-inner-color: #ffffff;
+    --drop-down-border-color: #595959;
+    --scroll-thumb-color: #5b5c6b;
+    --scroll-track-color: #444147;
+    --search-color: #adacac;
+    --search-background-color: #4e4f57;
+    --search-hover-background-color: #5b5c6b;
+}
 
-  position: relative;
-  font-size: 1rem;
+$basic-color: var(--basic-color);
+$basic-focus-color: var(--basic-focus-color);
+$basic-active-color: var(--basic-active-color);
+$chevron-background-color: var(--chevron-background-color);
+$chevron-background-color-outline: var(--chevron-background-color-outline);
+$chevron-background-color-basic: var(--chevron-background-color-basic);
+$chevron-inner-color: var(--chevron-inner-color);
+$drop-down-border-color: var(--drop-down-border-color);
+$scroll-thumb-color: var(--scroll-thumb-color);
+$scroll-track-color: var(--scroll-track-color);
+$search-color: var(--search-color);
+$search-background-color: var(--search-background-color);
+$search-hover-background-color: var(--search-hover-background-color);
 
-  &_size_sm {
-    font-size: 0.7875rem;
-  }
+$drop-down-color-themes: () !default;
+$drop-down-color-themes: map-merge(
+    (
+        "basic": (
+            "background-color": $basic-color,
+            "hover-color": $border-color-hover,
+            "focus-color": $basic-focus-color,
+            "active-color": $basic-active-color,
+        ),
+        "primary": (
+            "background-color": $primary,
+            "hover-color": $primary-dark,
+            "focus-color": $primary-light,
+            "active-color": $primary-dark,
+        ),
+        "secondary": (
+            "background-color": $secondary,
+            "hover-color": $secondary-dark,
+            "focus-color": $secondary-light,
+            "active-color": $secondary-dark,
+        ),
+        "warning": (
+            "background-color": $warning,
+            "hover-color": $warning-dark,
+            "focus-color": $warning-light,
+            "active-color": $warning-dark,
+        ),
+        "danger": (
+            "background-color": $danger,
+            "hover-color": $danger-dark,
+            "focus-color": $danger-light,
+            "active-color": $danger-dark,
+        ),
+        "info": (
+            "background-color": $info,
+            "hover-color": $info-dark,
+            "focus-color": $info-light,
+            "active-color": $info-dark,
+        ),
+        "success": (
+            "background-color": $success,
+            "hover-color": $success-dark,
+            "focus-color": $success-light,
+            "active-color": $success-dark,
+        ),
+    ),
+    $drop-down-color-themes
+);
 
-  &_size_lg {
-    font-size: 1.25rem;
-  }
-
-  &__selected-items {
-    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
-    min-width: 100px;
-    min-height: 38px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    background-clip: padding-box;
-
-    background-color: #fff;
-    border: 1px solid $border-default;
-    border-radius: 0.25rem;
-    color: $heading;
-    line-height: 1.5;
-
-    display: flex;
-    flex-flow: row wrap;
-
-
-    &:focus {
-      border: 1px solid $info-dark;
-      box-shadow: 0 0 0 4px $info-light;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      display: inline-block;
-      width: 0;
-      height: 0;
-      border-top: 0.3em solid;
-      border-right: 0.3em solid transparent;
-      border-bottom: 0;
-      border-left: 0.3em solid transparent;
-    }
-
-    &_reset {
-      padding-right: 3rem;
-    }
-
-    &_no-border {
-      padding-left: 0;
-      border-color: transparent;
-      box-shadow: unset;
-
-      &#{$root}__selected-items_is-invalid {
-        border-color: transparent;
-      }
-    }
-
-    &_is-invalid {
-      border-color: red;
-    }
-
-    &_disabled {
-      pointer-events: none;
-      opacity: .5;
-    }
-  }
-
-  &_size_sm &__selected-items {
-    padding: 0.25rem 0.5rem;
-    line-height: 1.5;
-    border-radius: 0.2rem;
-    height: 31px;
-  }
-
-  &_size_lg &__selected-items {
-    padding: 0.5rem 1rem;
-    line-height: 1.5;
-    border-radius: 0.3rem;
-    height: 48px;
-  }
-
-  &__selected-item-multiple {
-    cursor: default;
-    margin-right: 5px;
-    padding: 0 4px 0 8px;
-
-    display: flex;
-
-    border-radius: 2px;
-    background: #f5f5f5;
-  }
-
-  &__selected-item-multiple-remove {
-    cursor: pointer;
-    margin-left: 6px;
-
-    display: flex;
-    align-items: center;
-
-    svg {
-      width: 10px;
-      opacity: .5;
-      transition: opacity .1s ease-in;
-    }
-
-    &:hover {
-      svg {
-        opacity: 1;
-      }
-    }
-  }
-
-  &__reset {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 20px;
-    width: 30px;
-    height: 100%;
-    cursor: pointer;
-
-    &::before,
-    &::after {
-      display: block;
-      position: absolute;
-      top: 50%;
-      margin-top: -5px;
-      left: 50%;
-      width: 1px;
-      height: 10px;
-      background-color: $text-muted;
-      content: '';
-    }
+@mixin dropDownTheme($colorMap, $root, $colorType) {
+    background-color: map-get($colorMap, background-color);
+    color: $text-color;
 
     &::before {
-      transform: rotate(45deg);
+        border-color: map-get($colorMap, focus-color);
     }
 
-    &::after {
-      transform: rotate(-45deg);
+    &:not(:focus):hover {
+        background-color: map-get($colorMap, hover-color);
     }
-  }
 
-  &__drop-down {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    padding: 0.375rem 0;
-    width: 100%;
-    z-index: 100;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #CCCCCC;
-    border-radius: 10px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    line-height: 1.5;
-    color: #152536;
-  }
-
-  &__drop-down-list {
-    max-height: 273px;
-    overflow: auto;
-  }
-
-  &__search {
-    padding: 0.25rem 0.5rem;
-
-    > .form-control {
-      width: 100%;
+    &:not(:active):focus-within {
+        &::before {
+            opacity: 1;
+        }
     }
-  }
 
-  &_size_sm &__search {
-    padding: 0.1rem 0.2rem;
-  }
+    &:active {
+        background-color: map-get($colorMap, hover-color);
+    }
 
-  &__drop-down-item {
-    width: 100%;
-    text-align: left;
-    padding: 0.375rem 0.75rem;
+    #{$root}__icon-chevron {
+        svg {
+            rect {
+                fill: $chevron-background-color;
+
+                @if ($colorType == "basic") {
+                    fill: $chevron-background-color-basic;
+                }
+            }
+            path {
+                stroke: $chevron-inner-color;
+            }
+        }
+    }
+
+    #{$root}__selected-items {
+        color: #ffffff;
+
+        @if ($colorType == "basic") {
+            color: $text-color;
+        }
+
+        @if ($colorType == "warning" or $colorType == "info") {
+            color: #312c3a;
+        }
+    }
+}
+
+@mixin dropDownOutlineTheme($colorMap, $root) {
+    background-color: $element-background-color;
+    border: 1px solid map-get($colorMap, background-color);
+    color: $text-color;
+
+    &::before {
+        border-color: map-get($colorMap, focus-color);
+    }
+
+    &:not(:focus):hover {
+        border-color: map-get($colorMap, active-color);
+    }
+
+    &:not(:active):focus-within {
+        border-color: transparent;
+        &::before {
+            opacity: 1;
+        }
+    }
+
+    &:active {
+        border-color: map-get($colorMap, active-color);
+    }
+
+    #{$root}__icon-chevron {
+        svg {
+            rect {
+                fill: $chevron-background-color-outline;
+            }
+            path {
+                stroke: $chevron-inner-color;
+            }
+        }
+    }
+}
+
+.DropDownFieldView {
+    $root: &;
+
+    position: relative;
+    width: 240px;
+    outline: none;
     cursor: pointer;
-    transition: background-color .2s ease;
-    background-color: transparent;
-    border: unset;
 
-    &_group {
-      font-weight: bold;
+    //Pseudo element for focus statement
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0;
+        border: 4px solid transparent;
+        border-radius: inherit;
     }
 
-    &_level_1 {
-      padding-left: 1.25rem
+    $sizes: () !default;
+    $sizes: map-merge(
+        (
+            "lg": (
+                "border-radius": $radius-large,
+                "height": $input-height-lg,
+                "beforeTransform": translateX(-1.6%) translateY(-6.5%),
+                "beforeRadius": 16px,
+                "afterTransform": translateX(-0.75%) translateY(-1.75%),
+                "afterRadius": 14px,
+                "selectedItemsPadding": 16px,
+                "font-size": $font-size-lg,
+                "line-height": 24px,
+            ),
+            "md": (
+                "border-radius": $radius-large,
+                "height": $input-height-md,
+                "beforeTransform": translateX(-1.6%) translateY(-7.5%),
+                "beforeRadius": 16px,
+                "afterTransform": translateX(-0.75%) translateY(-2%),
+                "afterRadius": 14px,
+                "selectedItemsPadding": 12px,
+                "font-size": $font-size-base,
+                "line-height": 22px,
+            ),
+            "sm": (
+                "border-radius": $radius-small,
+                "height": $input-height-sm,
+                "beforeTransform": translateX(-1.6%) translateY(-9.5%),
+                "beforeRadius": 12px,
+                "afterTransform": translateX(-0.6%) translateY(-2.5%),
+                "afterRadius": 10px,
+                "selectedItemsPadding": 8px,
+                "font-size": $font-size-sm,
+                "line-height": 18px,
+            ),
+        ),
+        $sizes
+    );
+
+    &_size {
+        @each $size, $sizeMap in $sizes {
+            &_#{$size} {
+                border-radius: map-get($sizeMap, border-radius);
+                height: map-get($sizeMap, height);
+
+                &::before {
+                    transform: map-get($sizeMap, beforeTransform);
+                    border-radius: map-get($sizeMap, beforeRadius);
+                }
+
+                &::after {
+                    transform: map-get($sizeMap, afterTransform);
+                    border-radius: map-get($sizeMap, afterRadius);
+                }
+
+                #{$root}__selected-items {
+                    padding-top: map-get($sizeMap, selectedItemsPadding);
+                    padding-bottom: map-get($sizeMap, selectedItemsPadding);
+                }
+
+                #{$root}__icon-chevron {
+                    height: map-get($sizeMap, height);
+                }
+
+                font-size: map-get($sizeMap, font-size);
+                line-height: map-get($sizeMap, line-height);
+            }
+        }
     }
 
-    &_hover {
-      background-color: $dropdown-divider-bg;
+    @each $colorType, $colorMap in $drop-down-color-themes {
+        &_#{$colorType} {
+            @include dropDownTheme($colorMap, $root, $colorType);
+        }
+
+        &_outline_#{$colorType} {
+            @include dropDownOutlineTheme($colorMap, $root);
+        }
     }
 
-    &_select {
-      background-color: #D8CCF6;
-      color: #152536;
+    &__icon-chevron {
+        width: 40px;
+        position: absolute;
+        top: 50%;
+        right: 0px;
+        outline: none;
+
+        transform: translateY(-50%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            transition: transform 125ms ease-in-out;
+        }
     }
-  }
 
-  &_size_sm &__drop-down-item {
-    padding: 0.25rem 0.5rem;
-  }
+    &__selected-items {
+        position: absolute;
+        width: calc(100% - 29px);
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        padding-left: 8px;
+        outline: none;
 
-  &_size_lg &__drop-down-item {
-    padding: 0.5rem 1rem;
-  }
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
 
-  &__placeholder {
-    color: #fff;
-  }
+    &__drop-down {
+        position: absolute;
+        z-index: 2;
+        width: 100%;
+        height: fit-content;
+        top: calc(100% + 8px);
+        left: 0;
+
+        background-color: $element-background-color;
+
+        border: 1px solid $drop-down-border-color;
+        overflow: hidden;
+        border-radius: 12px;
+
+        &-list {
+            @include scrollWrapper(240px, 0, $scroll-thumb-color, $scroll-track-color);
+        }
+    }
+
+    &_opened {
+        #{$root}__icon-chevron {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__search {
+        width: 100%;
+        padding: 9px;
+        position: relative;
+
+        $searchRoot: &;
+
+        &_size {
+            &_lg {
+                #{$searchRoot}-input {
+                    padding: 8px 4px;
+                    padding-left: 32px;
+                }
+            }
+            &_md {
+                #{$searchRoot}-input {
+                    padding: 5px 4px;
+                    padding-left: 32px;
+
+                }
+            }
+            &_sm {
+                #{$searchRoot}-input {
+                    padding: 5px 8px;
+                    padding-left: 32px;
+
+                }
+            }
+        }
+
+        &-input {
+            width: 220px;
+            border-radius: 6px;
+            outline: none;
+
+            font-size: $font-size-base;
+            font-weight: 400;
+            line-height: 22px;
+            border: 1px solid $border-color;
+
+            color: $text-color;
+            background-color: $search-background-color;
+
+            &:hover {
+                background-color: $search-hover-background-color;
+            }
+
+            &::-webkit-search-cancel-button {
+                display: none;
+            }
+        }
+
+        &-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: 50%;
+            left: 10px;
+
+            transform: translateY(-50%);
+
+            svg {
+                circle,
+                path {
+                    stroke: $search-color;
+                }
+            }
+        }
+    }
+
+    &__placeholder {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    &__icon-close {
+        position: absolute;
+        z-index: 9;
+        width: 24px;
+        height: 24px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 50%;
+        right: 36px;
+        transform: translateY(-50%);
+    }
 }

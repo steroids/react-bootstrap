@@ -22,7 +22,6 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     flex-flow: row nowrap;
     align-items: center;
 
-    width: 240px;
     height: 34px;
 
     color: $text-color;
@@ -245,32 +244,6 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             svg circle,
             path {
                 stroke: $lead-icon-focus-color;
-            }
-        }
-    }
-
-    //Addons
-    &_hasAddon,
-    &_hasTextAddon {
-        width: fit-content;
-
-        #{$root}__input-wrapper {
-            width: auto;
-        }
-
-        #{$root}__input {
-            &_size {
-                &_lg {
-                    width: 206px;
-                }
-
-                &_md {
-                    width: 200px;
-                }
-
-                &_sm {
-                    width: 192px;
-                }
             }
         }
     }

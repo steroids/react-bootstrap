@@ -258,6 +258,7 @@ export default (customIcons: Record<string, any>) => {
         'visible-eye',
         'crossed-out-eye',
         'dots',
+        'search',
     ];
 
     steroidsIcons.forEach(iconName => {
