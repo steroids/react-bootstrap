@@ -10,8 +10,6 @@ $btn-letter-spacing: 0.1em;
     transition-duration: 0.15s;
     transition-timing-function: ease-in-out;
 
-    width: 160px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,6 +64,12 @@ $btn-letter-spacing: 0.1em;
         width: auto;
         #{$root}__label {
             display: inline;
+        }
+    }
+
+    &_tag { 
+        &-a { 
+            width: auto;
         }
     }
 

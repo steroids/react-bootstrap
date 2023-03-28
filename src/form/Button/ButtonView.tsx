@@ -73,6 +73,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
             failed: props.isFailed,
             link: props.link,
             block: props.block,
+            [`tag-${props.tag}`]: !!props.tag,
         }),
         props.className,
     );
