@@ -1,11 +1,33 @@
 import * as React from 'react';
 import {useEffect, useRef} from 'react';
-
-import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
+import {IDropDownFieldItem, IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _isArray from 'lodash-es/isArray';
-import DropDownItem from './views/DropDownItem';
+import {Accordion} from '@steroidsjs/core/ui/content';
+import DropDownItemView from './views/DropDownItem';
+
+const getSelectedItemsLabel = (selectedItems: Record<string, any>[]): string => (
+    selectedItems
+        .map(selectedItem => selectedItem.label)
+        .join(', ')
+);
+
+const getSelectedItemsCount = (selectedItems: Record<string, any>) => {
+    if (selectedItems.length <= 1) {
+        return selectedItems[0]?.label;
+    }
+
+    return `${__('Выбрано')} (${selectedItems.length})`;
+};
+
+const toDropDownItem = (props: IDropDownFieldViewProps) => (item: IDropDownFieldItem, itemIndex: number) => (
+    <DropDownItemView
+        {...props}
+        key={itemIndex}
+        item={item}
+    />
+);
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     const bem = useBem('DropDownFieldView');
@@ -18,11 +40,24 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         }
     }, [props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
 
-    const renderPlaceholder = React.useCallback(() => props.placeholder && !(props.selectedIds && props.selectedIds.length)
+    const renderPlaceholder = React.useCallback(() => props.placeholder && !props.selectedIds?.length
         ? (
             <div className={bem.element('placeholder')}>{props.placeholder}</div>
         )
-        : null, [bem, props.placeholder, props.selectedIds]);
+        : null,
+        [bem, props.placeholder, props.selectedIds]);
+
+    const renderItems = React.useCallback(() => props.groupAttribute
+        ? (
+            <Accordion>
+                {props.items.map(toDropDownItem(props))}
+            </Accordion>
+        )
+        : (
+            <>
+                {props.items.map(toDropDownItem(props))}
+            </>
+        ), [props]);
 
     return (
         <div
@@ -54,38 +89,8 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     className={bem.element('selected-items')}
                 >
                     {props.showEllipses
-                        ? (
-                            props.selectedItems.map((item, itemIndex) => {
-                                if (props.selectedItems.length === itemIndex + 1) {
-                                    return (
-                                        <React.Fragment key={itemIndex}>
-                                            {item.label as React.ReactNode}
-                                        </React.Fragment>
-                                    );
-                                }
-
-                                return (
-                                    <React.Fragment key={itemIndex}>
-                                        {`${item.label}, `}
-                                    </React.Fragment>
-                                );
-                            })
-                        )
-                        : (
-                            props.selectedItems.length <= 1
-                                ? (
-                                    <>
-                                        {props.selectedItems[0]?.label}
-                                    </>
-                                )
-                                : (
-                                    <>
-                                        {__('Выбрано')}
-                                        {' '}
-                                        {`(${props.selectedItems.length})`}
-                                    </>
-                                )
-                        )}
+                        ? getSelectedItemsLabel(props.selectedItems)
+                        : getSelectedItemsCount(props.selectedItems)}
                 </span>
             </div>
             {props.showReset && props.selectedIds.length > 0 && (
@@ -94,6 +99,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     className={bem.element('icon-close')}
                     tabIndex={-1}
                     onClick={props.onReset}
+                    aria-label={__('Сбросить')}
                 />
             )}
             <Icon
@@ -125,13 +131,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {props.items.map((item, itemIndex) => (
-                            <DropDownItem
-                                {...props}
-                                key={itemIndex}
-                                item={item}
-                            />
-                        ))}
+                        {renderItems()}
                     </div>
                 </div>
             )}

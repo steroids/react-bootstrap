@@ -2,30 +2,18 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CheckboxField, RadioListField} from '@steroidsjs/core/ui/form';
-import {ContentType, IDropDownFieldProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import {IFieldWrapperInputProps} from '@steroidsjs/core/ui/form/Field/fieldWrapper';
-import {Accordion, AccordionItem, DropDown} from '@steroidsjs/core/ui/content';
+import {ContentType, IDropDownItemViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
+import {AccordionItem} from '@steroidsjs/core/ui/content';
+import {IAccordionCommonViewProps} from '@steroidsjs/core/ui/content/Accordion/Accordion';
+
 import './DropDownItemView.scss';
 
-type PrimaryKey = string | number;
-
-interface IDropDownItemViewProps extends Pick<IDropDownFieldProps, 'itemsContent'>, Pick<IFieldWrapperInputProps, 'size'> {
-    item: {
-        id: number,
-        label: string,
-        contentType?: ContentType,
-        contentSrc?: 'string' | React.ReactElement,
-    },
-    primaryKey?: string,
-    hoveredId?: string,
-    selectedIds?: (PrimaryKey | any)[];
-    onItemSelect?: (id: PrimaryKey | any) => void,
-    onItemHover?: (id: PrimaryKey | any) => void,
-    groupAttribute?: string;
-}
+const GROUP_CONTENT_TYPE = 'group';
 
 export default function DropDownItemView(props: IDropDownItemViewProps) {
     const bem = useBem('DropDownItemView');
+
+    const groupProps = props as IAccordionCommonViewProps;
 
     const commonProps = {
         className:
@@ -83,8 +71,8 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
                     <div {...commonProps}>
                         <span className={bem.element('img')}>
                             <img
-                                src={src === 'string' && src}
-                                alt="flag"
+                                src={src as string}
+                                alt="custom source for item"
                             />
                         </span>
                         <span>
@@ -109,23 +97,25 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
 
             case 'group':
                 return (
-                    <Accordion>
-                        <AccordionItem
-                            title={props.item.label}
-                            position="middle"
-                            className={bem.element('group', {
-                                size: props.size,
-                            })}
-                        >
-                            {props.item[props.groupAttribute].map((subItem, itemIndex) => (
-                                <DropDownItemView
-                                    {...props}
-                                    key={itemIndex}
-                                    item={subItem}
-                                />
-                            ))}
-                        </AccordionItem>
-                    </Accordion>
+                    <AccordionItem
+                        childIndex={groupProps.childIndex}
+                        isShowMore={groupProps.isShowMore}
+                        toggleAccordion={groupProps.toggleAccordion}
+                        toggleCollapse={groupProps.toggleCollapse}
+                        title={props.item.label}
+                        position="middle"
+                        className={bem.element('group', {
+                            size: props.size,
+                        })}
+                    >
+                        {props.item[props.groupAttribute].map((subItem, itemIndex) => (
+                            <DropDownItemView
+                                {...props}
+                                key={itemIndex}
+                                item={subItem}
+                            />
+                        ))}
+                    </AccordionItem>
                 );
 
             default:
@@ -134,7 +124,7 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
     };
 
     if (props.groupAttribute && Array.isArray(props.item[props.groupAttribute])) {
-        return renderTypeCases('group', props.item[props.groupAttribute]);
+        return renderTypeCases(GROUP_CONTENT_TYPE, props.item[props.groupAttribute]);
     }
 
     if (props.item.contentType) {
