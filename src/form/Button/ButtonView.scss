@@ -135,7 +135,9 @@ $btn-letter-spacing: 0.1em;
         top: -1px;
         margin-left: 4px;
         border-radius: $radius-small;
-        padding: 2px 5px;
+        font-size: $font-size-xs;
+        line-height: 16px;
+        padding: 3px 5px;
 
         $badge-types: (
             "primary": $primary,
