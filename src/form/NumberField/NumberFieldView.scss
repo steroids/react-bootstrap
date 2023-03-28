@@ -70,7 +70,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             }
         }
 
-        &:last-child{
+        &:last-child {
             transform: rotate(180deg);
         }
     }
@@ -84,23 +84,18 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                     font-size: $font-size-lg;
 
                     &-effects {
-                        border-radius:$radius-large;
+                        border-radius: $radius-large;
                     }
-
-                    &::placeholder {
-                        font-size: $font-size-sm;
-                    }
-
                 }
 
-                &__arrow { 
+                &__arrow {
                     transform: translateX(-3px) translateY(6px);
 
-                    &:last-child{
+                    &:last-child {
                         transform: translateX(-3px) translateY(-8px) rotate(180deg);
                     }
                 }
-            }            
+            }
         }
 
         &_md {
@@ -113,16 +108,12 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                     &-effects {
                         border-radius: $radius-large;
                     }
-
-                    &::placeholder {
-                        font-size: $font-size-sm;
-                    }
                 }
 
-                &__arrow { 
+                &__arrow {
                     transform: translateX(-3px) translateY(4px) scale(0.8);
 
-                    &:last-child{
+                    &:last-child {
                         transform: translateX(-3px) translateY(-4px) rotate(180deg) scale(0.8);
                     }
                 }
@@ -135,19 +126,15 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                     height: 34px;
                     font-size: $font-size-sm;
 
-                    &::placeholder {
-                        font-size: $font-size-sm;
-                    }
-
                     &-effects {
                         border-radius: $radius-small;
                     }
                 }
 
-                &__arrow { 
+                &__arrow {
                     transform: translateX(1px) translateY(2px) scale(0.8);
 
-                    &:last-child{
+                    &:last-child {
                         transform: translateX(1px) translateY(-3px) rotate(180deg) scale(0.8);
                     }
                 }
@@ -183,10 +170,10 @@ $number-field-arrow-color: var(--number-field-arrow-color);
 
         &:active:not(:disabled) {
             border: 1px solid $primary;
-        } 
+        }
     }
 
-    &:focus-within #{$root}__arrows-container { 
+    &:focus-within #{$root}__arrows-container {
         opacity: 1;
         pointer-events: all;
     }

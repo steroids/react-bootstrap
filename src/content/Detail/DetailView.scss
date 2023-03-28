@@ -68,6 +68,7 @@ $detail-background-color-label: var(--detail-background-color-label);
         line-height: 18px;
         color: $text-color;
         background-color: $detail-background-color-value;
+        text-align: start;
 
         &_size_md {
             padding: 16px 12px;
