@@ -3,6 +3,8 @@ import * as React from 'react';
 import {IListViewProps} from '@steroidsjs/core/ui/list/List/List';
 import {useBem} from '@steroidsjs/core/hooks';
 
+import './ListView.scss';
+
 export default function ListView(props: IListViewProps) {
     const bem = useBem('ListView');
 
@@ -16,10 +18,7 @@ export default function ListView(props: IListViewProps) {
         }
 
         return (
-            <div className={bem('row mb-3', bem.element('pagination'))}>
-                <div className='col-4'>
-                    &nbsp;
-                </div>
+            <div className={bem.element('pagination')}>
                 <div className='col-4'>
                     {pagination}
                 </div>
