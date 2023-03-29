@@ -10,8 +10,6 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
     const bem = useBem('CheckboxListFieldView');
     const prefix = useUniqueId('checkbox');
 
-    console.log('SelectedIds: ', props.selectedIds);
-
     return (
         <div className={bem(bem.block({
             [`${props.orientation}`]: !!props.orientation,
@@ -20,8 +18,10 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
             {props.items.map((checkbox, checkboxIndex) => (
                 <CheckboxField
                     checked={props.selectedIds.includes(checkbox.id)}
-                    onChange={() => {
-                        props.onItemSelect(checkbox.id);
+                    inputProps={{
+                        onChange: () => {
+                            props.onItemSelect(checkbox.id);
+                        },
                     }}
                     label={checkbox.label}
                     id={`${prefix}_${checkbox.id}`}
