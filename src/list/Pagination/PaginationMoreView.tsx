@@ -7,10 +7,11 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function PaginationMoreView(props: IPaginationViewProps) {
     const bem = useBem('PaginationMoreView');
     return (
-        <div className={bem('text-center', bem.block(), props.className)}>
+        <div className={bem(bem.block(), props.className)}>
             <Button
                 color='secondary'
                 outline
+                disabled={props.disabled}
                 label={__('Загрузить еще...')}
                 {...props.buttonProps}
                 onClick={props.onSelectNext}
