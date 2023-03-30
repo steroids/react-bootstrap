@@ -244,7 +244,12 @@ $pagination-disabled-color: var(--pagination-disabled-color);
             color: $pagination-disabled-color;
             cursor: not-allowed;
 
+            button { 
+                cursor: not-allowed;
+            }
+
             #{$pageRoot}-icon {
+                pointer-events: none;
                 path {
                     stroke: $pagination-disabled-color;
                 }

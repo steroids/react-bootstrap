@@ -11,7 +11,6 @@ export default function PaginationMoreView(props: IPaginationViewProps) {
             <Button
                 color='secondary'
                 outline
-                disabled={props.disabled}
                 label={__('Загрузить еще...')}
                 {...props.buttonProps}
                 onClick={props.onSelectNext}

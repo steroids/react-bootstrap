@@ -19,10 +19,10 @@ export default function ListView(props: IListViewProps) {
 
         return (
             <div className={bem.element('pagination')}>
-                <div className='col-4'>
+                <div>
                     {pagination}
                 </div>
-                <div className='col-4 d-flex justify-content-end'>
+                <div>
                     {layout}
                     {paginationSize}
                 </div>
@@ -38,7 +38,7 @@ export default function ListView(props: IListViewProps) {
                 ['top', 'both'].includes(props.paginationSizePosition) && props.renderPaginationSize(),
                 ['top', 'both'].includes(props.layoutNamesPosition) && props.renderLayoutNames(),
             )}
-            <div className={bem('mb-3', bem.element('content'), props.contentClassName)}>
+            <div className={bem(bem.element('content'), props.contentClassName)}>
                 {props.content}
             </div>
             {renderPagination(
