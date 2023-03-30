@@ -18,17 +18,16 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
         disabledStatement?: boolean,
     ) => (
         <li className={bem.element('page', {
-            step: props.showSteps || props.showEdgeSteps,
             'rounding-left': rounding.left,
             'rounding-right': rounding.right,
-            hasIcon: props.showSteps || props.showEdgeSteps,
+            hasIcon: true,
             disabled: disabledStatement,
         })}
         >
             <button
                 className={bem.element('page-button',
                     {
-                        hasIcon: props.showSteps || props.showEdgeSteps,
+                        hasIcon: true,
                     })}
                 onClick={() => onClick()}
             >
@@ -41,7 +40,7 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
                 />
             </button>
         </li>
-    ), [bem, props]);
+    ), [bem]);
 
     return (
         <ul
@@ -53,9 +52,9 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
             )}
         >
             {props.showEdgeSteps
-                && renderArrowStep(props.onSelectFirst, 'double-arrow-left', false, {left: true}, props.currentPage === 1)}
+                && renderArrowStep(props.onSelectFirst, 'double-arrow-left', false, {left: true}, props.isFirstPage)}
             {props.showSteps
-                && renderArrowStep(props.onSelectPrev, 'arrow-left', false, {}, props.currentPage === 1)}
+                && renderArrowStep(props.onSelectPrev, 'arrow-left', false, {}, props.isFirstPage)}
             {props.pages.map((item, index) => (
                 <li
                     key={index}
@@ -75,9 +74,9 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
                 </li>
             ))}
             {props.showSteps
-                && renderArrowStep(props.onSelectNext, 'arrow-left', true, {}, props.currentPage === props.totalPages)}
+                && renderArrowStep(props.onSelectNext, 'arrow-left', true, {}, props.isLastPage)}
             {props.showEdgeSteps
-                && renderArrowStep(props.onSelectFirst, 'double-arrow-left', true, {right: true}, props.currentPage === props.totalPages)}
+                && renderArrowStep(props.onSelectFirst, 'double-arrow-left', true, {right: true}, props.isLastPage)}
         </ul>
     );
 }
