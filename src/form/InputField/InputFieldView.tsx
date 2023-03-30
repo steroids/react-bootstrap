@@ -4,7 +4,7 @@ import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IInputFieldViewProps} from '@steroidsjs/core/ui/form/InputField/InputField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
-import renderIconByType from '@steroidsjs/core/utils/renderIconByType';
+import renderIcon from '../../utils/renderIcon';
 
 export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutput) {
     const bem = useBem('InputFieldView');
@@ -12,18 +12,11 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
     const renderLeadIcon = React.useCallback(() => {
         const className = bem.element('lead-icon');
 
-        return renderIconByType(
-            props.leadIcon,
-            'string',
+        return renderIcon(props.leadIcon,
             {
-                name: props.leadIcon as string,
                 className,
                 tabIndex: -1,
-            },
-            <span className={className}>
-                {props.leadIcon}
-            </span>,
-        );
+            });
     }, [bem, props.leadIcon]);
 
     return (
