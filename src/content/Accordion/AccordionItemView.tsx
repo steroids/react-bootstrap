@@ -26,16 +26,13 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
             return null;
         }
 
-        const openIconClassName = bem.element('open-icon');
-        const closeIconClassName = bem.element('close-icon');
-
         if (typeof props.icon === 'object') {
             const icons = props.icon as IAccordionIcon;
 
             return (
                 <>
-                    {renderIconByType(icons.open, {className: openIconClassName})}
-                    {renderIconByType(icons.close, {className: closeIconClassName})}
+                    {renderIconByType(icons.open, {className: bem.element('open-icon')})}
+                    {renderIconByType(icons.close, {className: bem.element('close-icon')})}
                 </>
             );
         }
