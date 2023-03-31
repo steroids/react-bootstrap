@@ -30,17 +30,17 @@ $btn-letter-spacing: 0.1em;
         font-size: $font-size-sm;
         line-height: $btn-line-height;
         outline: none;
+    }
 
-        @each $colorName, $colorMap in $color-themes {
-            &#{$root}_color_#{$colorName} {
-                @include button-theme($colorMap, $colorName, $root);
-            }
+    @each $colorName, $colorMap in $color-themes {
+        &_color_#{$colorName} {
+            @include button-theme($colorMap, $colorName, $root);
         }
+    }
 
-        @each $colorName, $colorMap in $color-themes {
-            &#{$root}_outline_#{$colorName} {
-                @include button-outline-theme($colorMap, $colorName, $root);
-            }
+    @each $colorName, $colorMap in $color-themes {
+        &_outline_#{$colorName} {
+            @include button-outline-theme($colorMap, $colorName, $root);
         }
     }
 
@@ -99,6 +99,8 @@ $btn-letter-spacing: 0.1em;
         display: inline;
         width: auto;
         height: auto;
+        background-color: transparent;
+        
         #{$root}__label {
             display: inline;
             color: $link-color;
