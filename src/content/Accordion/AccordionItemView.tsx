@@ -2,6 +2,7 @@ import * as React from 'react';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IAccordionCommonViewProps, IAccordionIcon} from '@steroidsjs/core/ui/content/Accordion/Accordion';
+import renderIconByType from '../../utils/renderIcon';
 
 export default function AccordionItemView(props: IAccordionCommonViewProps) {
     const bem = useBem('AccordionItemView');
@@ -33,41 +34,13 @@ export default function AccordionItemView(props: IAccordionCommonViewProps) {
 
             return (
                 <>
-                    {typeof icons.open === 'string'
-                        ? (
-                            <Icon
-                                name={icons.open}
-                                className={openIconClassName}
-                            />
-                        )
-                        : (
-                            <span className={openIconClassName}>
-                                {icons.open}
-                            </span>
-                        )}
-                    {typeof icons.close === 'string'
-                        ? (
-                            <Icon
-                                name={icons.close}
-                                className={closeIconClassName}
-                            />
-                        )
-                        : (
-                            <span className={closeIconClassName}>
-                                {icons.close}
-                            </span>
-                        )}
+                    {renderIconByType(icons.open, {className: openIconClassName})}
+                    {renderIconByType(icons.close, {className: closeIconClassName})}
                 </>
             );
         }
 
-        return typeof props.icon === 'string'
-            ? <Icon name={props.icon} />
-            : (
-                <span className={bem.element('custom-icon')}>
-                    {props.icon}
-                </span>
-            );
+        return renderIconByType(props.icon, {className: bem.element('custom-icon')});
     }, [bem, props.icon]);
 
     const handleHeaderClick = React.useCallback(() => {

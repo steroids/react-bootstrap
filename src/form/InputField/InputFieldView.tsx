@@ -9,16 +9,6 @@ import renderIcon from '../../utils/renderIcon';
 export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutput) {
     const bem = useBem('InputFieldView');
 
-    const renderLeadIcon = React.useCallback(() => {
-        const className = bem.element('lead-icon');
-
-        return renderIcon(props.leadIcon,
-            {
-                className,
-                tabIndex: -1,
-            });
-    }, [bem, props.leadIcon]);
-
     return (
         <div
             className={bem(
@@ -51,7 +41,11 @@ export default function InputFieldView(props: IInputFieldViewProps & IBemHocOutp
                 </span>
             )}
             <div className={bem.element('input-wrapper')}>
-                {props.leadIcon && renderLeadIcon()}
+                {props.leadIcon && renderIcon(props.leadIcon,
+                    {
+                        className: bem.element('lead-icon'),
+                        tabIndex: -1,
+                    })}
                 {props.maskProps
                     ? (
                         <input

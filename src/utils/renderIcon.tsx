@@ -6,7 +6,7 @@ import {IIconProps} from '../../../react/src/ui/content/Icon/Icon';
 /**
 * Функция которая проверяет соответствует ли typeof icon === 'string', если да - то вернет компонент Icon
 * с переданным в него iconProps, если нет то вернется span с классом iconProps.className со вложенным {icon}
-* @example renderIcon(props.leadIcon, {className, tabIndex: -1})
+* @example renderIcon(props.leadIcon, {className: 'leadIcon', tabIndex: -1})
 */
 const renderIcon = (
     icon: string | React.ReactElement,
