@@ -1,5 +1,33 @@
+
+
+:root {
+  --link-last-color: rgba(0, 0, 0, 0.3);;
+}
+
+html[data-theme="dark"] { 
+  --link-last-color: rgba(255, 255, 255, 0.3);
+}
+
+$link-last-color: var(--link-last-color);
+
 .BreadcrumbsView {
   $breadcrumb-item-separator: '/';
+
+  &__icon {
+    display: flex;
+
+    svg {
+      stroke: $link-color;
+    }
+
+    svg:hover { 
+      stroke: $link-color-hover;
+    }
+
+    svg path {
+      stroke:inherit;
+    }
+  }
 
   &__list {
     display: flex;
@@ -8,12 +36,30 @@
     padding: 0;
   }
 
+  &__list {
+    li:last-child span{
+      color: $link-last-color;
+    }
+  }
+
   &__item {
+    display: flex;
+    align-items: center;
+
     &:not(:first-child)::before {
       content: $breadcrumb-item-separator;
       display: inline-block;
       margin: 0 8px;
-      color: $link-color
+      color: $link-color;
+    }
+
+    span {
+      line-height: 24px;
+      font-size: 14px;
+    }
+
+    span:hover {
+      color: $link-color-hover;
     }
   }
 }
