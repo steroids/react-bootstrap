@@ -15,19 +15,20 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
             [`${props.orientation}`]: !!props.orientation,
         }))}
         >
-            {props.items.map((checkbox, checkboxIndex) => (
-                <CheckboxField
-                    checked={props.selectedIds.includes(checkbox.id)}
-                    inputProps={{
-                        onChange: () => {
-                            props.onItemSelect(checkbox.id);
-                        },
-                    }}
-                    label={checkbox.label}
-                    id={`${prefix}_${checkbox.id}`}
-                    key={checkboxIndex}
-                />
-            ))}
+            {props.items.map((checkbox, checkboxIndex) => props.renderCheckbox({
+                inputProps: {
+                    name: `${prefix}_${checkbox.id}`,
+                    checked: props.selectedIds.includes(checkbox.id),
+                    type: 'checkbox',
+                    disabled: false,
+                    onChange: () => {
+                        props.onItemSelect(checkbox.id);
+                    },
+                },
+                label: checkbox.label,
+                id: `${prefix}_${checkbox.id}`,
+                key: checkboxIndex,
+            }))}
         </div>
     );
 }

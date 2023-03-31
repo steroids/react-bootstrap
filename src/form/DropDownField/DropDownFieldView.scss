@@ -12,6 +12,9 @@
     --search-color: #626262;
     --search-background-color: #f5f8fa;
     --search-hover-background-color: #eef1f2;
+
+    --drop-down-item-hover-background-color: #f5f8fa;
+    --drop-down-item-select-background-color: #eef1f2;
 }
 
 html[data-theme="dark"] {
@@ -28,6 +31,9 @@ html[data-theme="dark"] {
     --search-color: #adacac;
     --search-background-color: #4e4f57;
     --search-hover-background-color: #5b5c6b;
+
+    --drop-down-item-select-background-color: #5b5c6b;
+    --drop-down-item-hover-background-color: #4e4f57;
 }
 
 $basic-color: var(--basic-color);
@@ -43,6 +49,9 @@ $scroll-track-color: var(--scroll-track-color);
 $search-color: var(--search-color);
 $search-background-color: var(--search-background-color);
 $search-hover-background-color: var(--search-hover-background-color);
+
+$drop-down-item-select-background-color: var(--drop-down-item-select-background-color);
+$drop-down-item-hover-background-color: var(--drop-down-item-hover-background-color);
 
 $drop-down-color-themes: () !default;
 $drop-down-color-themes: map-merge(
@@ -431,5 +440,208 @@ $drop-down-color-themes: map-merge(
         top: 50%;
         right: 36px;
         transform: translateY(-50%);
+    }
+}
+
+
+
+@mixin statements {
+    &_select {
+        background-color: $drop-down-item-select-background-color;
+    }
+    &_hover {
+        background-color: $drop-down-item-hover-background-color;
+    }
+}
+
+%fontProperties {
+    font-size: $font-size-base;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+.DropDownItemView {
+    &__icon {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+    }
+
+    &__option {
+        display: flex;
+        flex-flow: row wrap;
+        position: relative;
+        column-gap: 12px;
+        align-items: center;
+        background-color: $element-background-color;
+        color: $text-color;
+
+        &_size {
+            &_lg {
+                padding: 16px;
+            }
+
+            &_md {
+                padding: 12px;
+            }
+
+            &_sm {
+                padding: 8px;
+            }
+        }
+
+        @include statements;
+    }
+
+    &__checkbox {
+        width: 100%;
+        height: 24px;
+        pointer-events: none;
+
+        label {
+            width: 100%;
+        }
+    }
+
+    &__img {
+        width: 24px;
+        height: 24px;
+        border-radius: $radius-small;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__radio {
+        pointer-events: none;
+        width: 100%;
+
+        div {
+            width: 100%;
+        }
+
+        label {
+            width: 100%;
+        }
+
+        label::before {
+            position: absolute;
+            right: 0;
+            margin-right: 0;
+        }
+
+        label::after {
+            position: absolute;
+            right: 0;
+        }
+
+        .RadioListFieldView__ellipse { 
+            left: auto;
+        }
+
+        &_size {
+            &_lg {
+                span {
+                    right: 6px;
+                }
+            }
+
+            &_md {
+                span {
+                    right: 5px;
+                }
+            }
+
+            &_sm {
+                span {
+                    right: 4px;
+                }
+            }
+        }
+    }
+
+    &__group {
+        width: auto;
+        border-radius: none;
+
+        .AccordionItemView {
+            &__content {
+                padding: 0;
+                border: none;
+
+                &_visible {
+                    border-bottom: 1px solid $border-color;
+                }
+            }
+
+            &__header-container {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: space-between;
+                align-items: center;
+
+                border: none;
+                background-color: $element-background-color;
+                
+                &:hover {
+                    background-color: $drop-down-item-hover-background-color;
+                }
+            }
+
+            &__title-container {
+                padding: inherit;
+            }
+
+            &__icon-wrapper {
+                position: static;
+                margin-right: 12px;
+            }
+
+            &__icon-chevron {
+                box-shadow: none;
+                svg {
+                    border: 1px solid $border-color;
+                    border-radius: $radius-small;
+                }
+            }
+        }
+
+        &_size {
+            &_lg {
+                font-size: $font-size-lg;
+                line-height: 24px;
+
+                .AccordionItemView__title-container {
+                    font-size: inherit;
+                    line-height: inherit;
+                    padding: 16px;
+                }
+            }
+
+            &_md {
+                font-size: $font-size-base;
+                line-height: 22px;
+
+                .AccordionItemView__title-container {
+                    font-size: inherit;
+                    line-height: inherit;
+                    padding: 12px;
+                }
+            }
+
+            &_sm {
+                font-size: $font-size-sm;
+                line-height: 18px;
+
+                .AccordionItemView__title-container {
+                    font-size: inherit;
+                    line-height: inherit;
+                    padding: 8px;
+                }
+            }
+        }
     }
 }

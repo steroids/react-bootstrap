@@ -15,22 +15,6 @@ export default function DropDownItemView(props: IDropDownItemViewProps) {
 
     const groupProps = props as IAccordionCommonViewProps;
 
-    const commonProps = {
-        className:
-            bem.element('option', {
-                hover: props.hoveredId === props.item[props.primaryKey],
-                select: props.selectedIds.includes(props.item[props.primaryKey]),
-                size: props.size,
-            }),
-        onFocus: () => props.onItemHover(props.item[props.primaryKey]),
-        onMouseOver: () => props.onItemHover(props.item[props.primaryKey]),
-        onClick: (e) => {
-            e.preventDefault();
-            props.onItemSelect(props.item[props.primaryKey]);
-        },
-
-    };
-
     const renderTypeCases = (type: ContentType | 'group', src: string | React.ReactElement) => {
         switch (type) {
             case 'icon':

@@ -4,8 +4,6 @@ import {IDropDownFieldItem, IDropDownFieldViewProps} from '@steroidsjs/core/ui/f
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _isArray from 'lodash-es/isArray';
-import {Accordion} from '@steroidsjs/core/ui/content';
-import DropDownItemView from './views/DropDownItem';
 
 const getSelectedItemsLabel = (selectedItems: Record<string, any>[]): string => (
     selectedItems
@@ -21,17 +19,25 @@ const getSelectedItemsCount = (selectedItems: Record<string, any>) => {
     return `${__('Выбрано')} (${selectedItems.length})`;
 };
 
-const toDropDownItem = (props: IDropDownFieldViewProps) => (item: IDropDownFieldItem, itemIndex: number) => (
-    <DropDownItemView
-        {...props}
-        key={itemIndex}
-        item={item}
-    />
-);
-
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     const bem = useBem('DropDownFieldView');
+    const itemBem = useBem('DropDownItemView');
     const inputRef = useRef<HTMLInputElement>(null);
+
+    const commonProps = (item: IDropDownFieldItem) => ({
+        className:
+            itemBem.element('option', {
+                hover: props.hoveredId === item[props.primaryKey],
+                select: props.selectedIds.includes(item[props.primaryKey]),
+                size: props.size,
+            }),
+        onFocus: () => props.onItemHover(item[props.primaryKey]),
+        onMouseOver: () => props.onItemHover(item[props.primaryKey]),
+        onClick: (e) => {
+            e.preventDefault();
+            props.onItemSelect(item[props.primaryKey]);
+        },
+    });
 
     // Auto focus on search
     useEffect(() => {
@@ -46,18 +52,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         )
         : null,
         [bem, props.placeholder, props.selectedIds]);
-
-    const renderItems = React.useCallback(() => props.groupAttribute
-        ? (
-            <Accordion>
-                {props.items.map(toDropDownItem(props))}
-            </Accordion>
-        )
-        : (
-            <>
-                {props.items.map(toDropDownItem(props))}
-            </>
-        ), [props]);
 
     return (
         <div
@@ -131,7 +125,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {renderItems()}
+                        {props.items.map((item, itemIndex) => props.renderItem(item, itemIndex, commonProps(item), itemBem))}
                     </div>
                 </div>
             )}
