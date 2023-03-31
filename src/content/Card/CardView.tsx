@@ -5,12 +5,11 @@ import {Button} from '@steroidsjs/core/ui/form';
 import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {Link} from '@steroidsjs/core/ui/nav';
-import _isEmpty from 'lodash-es/isEmpty';
 
 export default function CardView(props: ICardViewProps) {
     const bem = useBem('CardView');
 
-    const hasContent = Boolean(props.title || props.buttons || props.links || props.description);
+    const hasContent = !!(props.title || props.buttons || props.links || props.description);
 
     return (
         <div
@@ -21,7 +20,7 @@ export default function CardView(props: ICardViewProps) {
             {props.header && (
                 <div className={bem.element('header',
                     {
-                        withoutCover: _isEmpty(props.cover) && hasContent,
+                        withoutCover: !props.cover && hasContent,
                     })}
                 >
                     <div className={bem.element('header-data')}>
