@@ -11,12 +11,12 @@ $font-size-lg: 18px !default;
 $font-size-xl: 24px !default;
 $font-size-2xl: 32px !default;
 
-$line-height-xs: 17px !default;
-$line-height-sm: 20px !default;
+$line-height-xs: 16px !default;
+$line-height-sm: 18px !default;
 $line-height-base: 22px !default;
-$line-height-lg: 25px !default;
-$line-height-xl: 34px !default;
-$line-height-2xl: 45px !default;
+$line-height-lg: 24px !default;
+$line-height-xl: 32px !default;
+$line-height-2xl: 44px !default;
 
 $font-weight-sm: 400 !default;
 $font-weight-md: 500 !default;
@@ -104,4 +104,4 @@ $typography-colors: (
     "danger": $danger,
     "warning": $warning,
     "info": $info,
-);
+) !default;

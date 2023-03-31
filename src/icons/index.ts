@@ -260,6 +260,9 @@ export default (customIcons: Record<string, any>) => {
         'dots',
         'search',
         'home',
+        'arrow-left',
+        'double-arrow-left',
+
     ];
 
     steroidsIcons.forEach(iconName => {

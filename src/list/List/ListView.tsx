@@ -3,6 +3,8 @@ import * as React from 'react';
 import {IListViewProps} from '@steroidsjs/core/ui/list/List/List';
 import {useBem} from '@steroidsjs/core/hooks';
 
+import './ListView.scss';
+
 export default function ListView(props: IListViewProps) {
     const bem = useBem('ListView');
 
@@ -16,14 +18,11 @@ export default function ListView(props: IListViewProps) {
         }
 
         return (
-            <div className={bem('row mb-3', bem.element('pagination'))}>
-                <div className='col-4'>
-                    &nbsp;
-                </div>
-                <div className='col-4'>
+            <div className={bem.element('pagination')}>
+                <div>
                     {pagination}
                 </div>
-                <div className='col-4 d-flex justify-content-end'>
+                <div>
                     {layout}
                     {paginationSize}
                 </div>
@@ -39,7 +38,7 @@ export default function ListView(props: IListViewProps) {
                 ['top', 'both'].includes(props.paginationSizePosition) && props.renderPaginationSize(),
                 ['top', 'both'].includes(props.layoutNamesPosition) && props.renderLayoutNames(),
             )}
-            <div className={bem('mb-3', bem.element('content'), props.contentClassName)}>
+            <div className={bem(bem.element('content'), props.contentClassName)}>
                 {props.content}
             </div>
             {renderPagination(

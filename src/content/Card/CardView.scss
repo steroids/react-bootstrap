@@ -52,13 +52,22 @@ $card-dots-color: var(--card-dots-color);
         flex-flow: row nowrap;
         justify-content: space-between;
 
-        padding: 16px;
+        padding: 18px;
+        padding-bottom: 20px;
+
+        &_withoutCover { 
+            padding-bottom: 3px;
+        }
 
         &-data {
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
             column-gap: 8px;
+        }
+
+        &-avatar { 
+            margin-right: 2px;
         }
 
         &-text-content {
@@ -92,6 +101,10 @@ $card-dots-color: var(--card-dots-color);
             rect {
                 fill: $card-dots-color;
             }
+
+            svg {
+                transform: translateX(5px);
+            }
         }
     }
 
@@ -110,8 +123,7 @@ $card-dots-color: var(--card-dots-color);
     }
 
     &__content {
-        padding: 8px 16px;
-        padding-bottom: 16px;
+        padding: 16px;
     }
 
     &__content-inner {
@@ -133,7 +145,7 @@ $card-dots-color: var(--card-dots-color);
     &__buttons {
         display: flex;
         flex-flow: row wrap;
-        $columnGap: 6px;
+        $columnGap: 8px;
         row-gap: 8px;
         column-gap: $columnGap;
 
@@ -142,7 +154,7 @@ $card-dots-color: var(--card-dots-color);
         }
 
         button:not(:only-of-type) { 
-            width: calc(50% - $columnGap);
+            width: calc(50% - $columnGap / 2);
         }
     }
 
@@ -150,6 +162,10 @@ $card-dots-color: var(--card-dots-color);
         display: flex;
         flex-flow: row wrap;
         column-gap: 16px;
+
+        a {
+            line-height: 18px;
+        }
     }
 
     &__footer {
