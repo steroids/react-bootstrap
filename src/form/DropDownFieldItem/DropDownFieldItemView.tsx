@@ -8,7 +8,7 @@ import {
     IMG_CONTENT_TYPE,
     RADIO_CONTENT_TYPE,
 } from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import {Icon} from '@steroidsjs/core/ui/content';
+import renderIcon from '../../utils/renderIcon';
 import AccordionItemView from '../../content/Accordion/AccordionItemView';
 import CheckboxFieldView from '../CheckboxField/CheckboxFieldView';
 import RadioFieldView from '../RadioField/RadioFieldView';
@@ -68,16 +68,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                     {...commonProps}
                     key={props.item[props.primaryKey]}
                 >
-                    {typeof props.item.contentSrc === 'string' ? (
-                        <Icon
-                            name={props.item.contentSrc}
-                            className={bem.element('icon')}
-                        />
-                    ) : (
-                        <span className={bem.element('icon')}>
-                            {props.item.contentSrc}
-                        </span>
-                    )}
+                    {renderIcon(props.item.contentSrc, {className: bem.element('icon')})}
                     <span>
                         {props.item.label}
                     </span>
