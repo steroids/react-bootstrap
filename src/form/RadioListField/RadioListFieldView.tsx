@@ -10,44 +10,28 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
 
     return (
         <div className={bem(
-            bem.block(),
+            bem.block({
+                [`${props.orientation}`]: !!props.orientation,
+            }),
             props.className,
         )}
         >
-            {props.items.map((item, index) => (
-                <div
-                    key={typeof item.id !== 'boolean' ? item.id : (item.id ? 'true' : 'false')}
-                    className={bem(
-                        bem.element('item', {
-                            hasError: !!props.errors,
-                            size: props.size,
-                        }),
-                    )}
-                >
-                    <input
-                        {...props.inputProps}
-                        id={`${prefix}_${item.id}`}
-                        tabIndex={index}
-                        className={bem(
-                            bem.element('input', {
-                                checked: props.selectedIds.includes(item.id),
-                            }),
-                        )}
-                        checked={props.selectedIds.includes(item.id)}
-                        disabled={props.disabled || item.disabled}
-                        onChange={() => {
-                            props.onItemSelect(item.id);
-                        }}
-                    />
-                    <label
-                        htmlFor={`${prefix}_${item.id}`}
-                        className={bem.element('label')}
-                    >
-                        <span className={bem.element('ellipse')} />
-                        {item.label}
-                    </label>
-                </div>
-            ))}
+            {props.items.map((radio, radioIndex) => props.renderRadio({
+                inputProps: {
+                    name: `${prefix}_${radio.id}`,
+                    checked: null,
+                    type: 'radio',
+                    disabled: false,
+                    onChange: () => {
+                        props.onItemSelect(radio.id);
+                    },
+                },
+                checked: props.selectedIds.includes(radio.id),
+                label: radio.label,
+                id: `${prefix}_${radio.id}`,
+                key: radioIndex,
+                size: props.size,
+            }))}
         </div>
     );
 }
