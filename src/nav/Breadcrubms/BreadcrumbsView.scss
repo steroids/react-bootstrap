@@ -1,14 +1,14 @@
 
 
 :root {
-  --link-last-color: rgba(0, 0, 0, 0.3);;
+  --last-link-color: rgba(0, 0, 0, 0.3);;
 }
 
 html[data-theme="dark"] { 
-  --link-last-color: rgba(255, 255, 255, 0.3);
+  --last-link-color: rgba(255, 255, 255, 0.3);
 }
 
-$link-last-color: var(--link-last-color);
+$last-link-color: var(--last-link-color);
 
 .BreadcrumbsView {
   $breadcrumb-item-separator: '/';
@@ -38,7 +38,7 @@ $link-last-color: var(--link-last-color);
 
   &__list {
     li:last-child span{
-      color: $link-last-color;
+      color: $last-link-color;
     }
   }
 
