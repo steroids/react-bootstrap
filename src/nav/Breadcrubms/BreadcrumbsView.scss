@@ -13,6 +13,10 @@ $last-link-color: var(--last-link-color);
 .BreadcrumbsView {
   $breadcrumb-item-separator: '/';
 
+  &__custom-icon {
+    display: flex;
+  }
+
   &__icon {
     display: flex;
 

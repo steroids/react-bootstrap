@@ -12,15 +12,15 @@ const renderIcon = (
     icon: string | React.ReactElement,
     iconProps: IIconProps,
 ) => typeof icon === 'string'
-        ? (
-            <Icon
-                name={icon}
-                {...iconProps}
-            />
-        ) : (
-            <span className={iconProps.className}>
-                {icon}
-            </span>
-        );
+    ? (
+        <Icon
+            name={icon}
+            {...iconProps}
+        />
+    ) : (
+        <span className={iconProps.className}>
+            {icon}
+        </span>
+    );
 
 export default renderIcon;

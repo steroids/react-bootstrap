@@ -3,10 +3,32 @@ import Link from '@steroidsjs/core/ui/nav/Link';
 import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Icon} from '@steroidsjs/core/ui/content';
+import renderIcon from '../../utils/renderIcon';
 
 export default function BreadcrumbsView(props: IBreadcrumbsViewProps) {
     const bem = useBem('BreadcrumbsView');
     const items = props.items || [];
+
+    const renderLink = React.useCallback((item, children) => (
+        <Link
+            toRoute={item.id}
+            toRouteParams={props.routeParams}
+            href={item.id}
+        >
+            {children}
+        </Link>
+    ), [props.routeParams]);
+
+    const renderHomeIcon = React.useCallback(() => (
+        props.customIcon
+            ? renderIcon(props.customIcon, {className: bem.element('custom-icon')})
+            : (
+                <Icon
+                    name='home'
+                    className={bem.element('icon')}
+                />
+            )
+    ), [bem, props.customIcon]);
 
     return (
         <nav
@@ -22,30 +44,13 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps) {
                             key={item.id || index}
                             className={bem.element('item')}
                         >
-                            {isFirstItem && (
-                                <Link
-                                    toRoute={item.id}
-                                    toRouteParams={props.routeParams}
-                                    href={item.id}
-                                >
-                                    {props.showIcon
-                                        ? (
-                                            <Icon
-                                                name='home'
-                                                className={bem.element('icon')}
-                                            />
-                                        )
-                                        : item.title}
-                                </Link>
+                            {isFirstItem && item.id && renderLink(
+                                item,
+                                props.showIcon ? renderHomeIcon() : item.title,
                             )}
-                            {!isFirstItem && !isLastItem && item.id && (
-                                <Link
-                                    toRoute={item.id}
-                                    toRouteParams={props.routeParams}
-                                    href={item.id}
-                                >
-                                    {item.title}
-                                </Link>
+                            {!isFirstItem && !isLastItem && item.id && renderLink(
+                                item,
+                                item.title,
                             )}
                             {(isLastItem || !item.id) && (
                                 <span>
