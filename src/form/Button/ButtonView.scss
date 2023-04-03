@@ -14,6 +14,8 @@ $btn-letter-spacing: 0.1em;
     justify-content: center;
     align-items: center;
 
+    cursor: pointer;
+
     &_button {
         position: relative;
         border-radius: $radius-small;
@@ -104,6 +106,10 @@ $btn-letter-spacing: 0.1em;
         #{$root}__label {
             display: inline;
             color: $link-color;
+        }
+
+        &:hover {
+            background-color: transparent;
         }
     }
 
