@@ -2,15 +2,20 @@
     background-color: map-get($colorMap, color);
     color: map-get($colorMap, text-color);
 
-    &:not(:disabled):hover {
+    &:hover {
         background-color: map-get($colorMap, color-dark);
     }
-    &:not(:disabled):focus,
-    &:not(:disabled):focus-visible {
+    &:focus,
+    &:focus-visible {
         border: 4px solid map-get($colorMap, color-light);
     }
-    &:not(:disabled):active {
+    &:active {
         background-color: map-get($colorMap, color-light);
+    }
+
+    &:disabled {
+        background-color: map-get($colorMap, color);
+        color: map-get($colorMap, text-color);
     }
 
     #{$root}__loader { 
@@ -31,18 +36,24 @@
     color: map-get($colorMap, color);
     border: 1px solid map-get($colorMap, color);
 
-    &:not(:disabled):hover {
+    &:hover {
         color: map-get($colorMap, color-dark);
         border-color: map-get($colorMap, color-dark);
     }
-    &:not(:disabled):focus {
+    &:focus {
         box-shadow: 0 0 0 4px map-get($colorMap, color-light), 0 0 0 4px map-get($colorMap, color-light);
         border: none;
     }
-    &:not(:disabled):active {
+    &:active {
         color: map-get($colorMap, color-light);
         border-color: map-get($colorMap, color-light);
         box-shadow: none;
+    }
+
+    &:disabled {
+        background-color: transparent;
+        color: map-get($colorMap, color);
+        border: 1px solid map-get($colorMap, color);
     }
 
     @if ($colorName == "basic") {
