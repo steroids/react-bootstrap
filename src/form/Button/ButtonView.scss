@@ -135,6 +135,10 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
+    &_loading {
+      cursor: default;
+    }
+
     &__preloader {
         position: absolute;
         top: 50%;
