@@ -4,20 +4,7 @@ import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/Dr
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _isArray from 'lodash-es/isArray';
-
-const getSelectedItemsLabel = (selectedItems: Record<string, any>[]): string => (
-    selectedItems
-        .map(selectedItem => selectedItem.label)
-        .join(', ')
-);
-
-const getSelectedItemsCount = (selectedItems: Record<string, any>) => {
-    if (selectedItems.length <= 1) {
-        return selectedItems[0]?.label;
-    }
-
-    return `${__('Выбрано')} (${selectedItems.length})`;
-};
+import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     const bem = useBem('DropDownFieldView');

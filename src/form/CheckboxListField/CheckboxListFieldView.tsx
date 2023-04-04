@@ -24,6 +24,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                         props.onItemSelect(checkbox.id);
                     },
                 },
+                disabled: props.disabled,
                 checked: props.selectedIds.includes(checkbox.id),
                 label: checkbox.label,
                 id: `${prefix}_${checkbox.id}`,

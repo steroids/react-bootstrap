@@ -26,6 +26,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps & IBe
                         props.onItemSelect(radio.id);
                     },
                 },
+                disabled: props.disabled,
                 checked: props.selectedIds.includes(radio.id),
                 label: radio.label,
                 id: `${prefix}_${radio.id}`,
