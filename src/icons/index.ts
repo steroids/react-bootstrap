@@ -259,6 +259,7 @@ export default (customIcons: Record<string, any>) => {
         'crossed-out-eye',
         'dots',
         'search',
+        'home',
         'arrow-left',
         'double-arrow-left',
 
