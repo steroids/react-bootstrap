@@ -12,6 +12,9 @@
     --search-color: #626262;
     --search-background-color: #f5f8fa;
     --search-hover-background-color: #eef1f2;
+
+    --drop-down-item-hover-background-color: #f5f8fa;
+    --drop-down-item-select-background-color: #eef1f2;
 }
 
 html[data-theme="dark"] {
@@ -28,6 +31,9 @@ html[data-theme="dark"] {
     --search-color: #adacac;
     --search-background-color: #4e4f57;
     --search-hover-background-color: #5b5c6b;
+
+    --drop-down-item-select-background-color: #5b5c6b;
+    --drop-down-item-hover-background-color: #4e4f57;
 }
 
 $basic-color: var(--basic-color);
@@ -43,6 +49,9 @@ $scroll-track-color: var(--scroll-track-color);
 $search-color: var(--search-color);
 $search-background-color: var(--search-background-color);
 $search-hover-background-color: var(--search-hover-background-color);
+
+$drop-down-item-select-background-color: var(--drop-down-item-select-background-color);
+$drop-down-item-hover-background-color: var(--drop-down-item-hover-background-color);
 
 $drop-down-color-themes: () !default;
 $drop-down-color-themes: map-merge(
@@ -183,7 +192,7 @@ $drop-down-color-themes: map-merge(
     $root: &;
 
     position: relative;
-    width: 240px;
+    min-width: 240px;
     outline: none;
     cursor: pointer;
 
@@ -207,10 +216,8 @@ $drop-down-color-themes: map-merge(
             "lg": (
                 "border-radius": $radius-large,
                 "height": $input-height-lg,
-                "beforeTransform": translateX(-1.6%) translateY(-6.5%),
+                "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 16px,
-                "afterTransform": translateX(-0.75%) translateY(-1.75%),
-                "afterRadius": 14px,
                 "selectedItemsPadding": 16px,
                 "font-size": $font-size-lg,
                 "line-height": 24px,
@@ -218,10 +225,8 @@ $drop-down-color-themes: map-merge(
             "md": (
                 "border-radius": $radius-large,
                 "height": $input-height-md,
-                "beforeTransform": translateX(-1.6%) translateY(-7.5%),
+                "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 16px,
-                "afterTransform": translateX(-0.75%) translateY(-2%),
-                "afterRadius": 14px,
                 "selectedItemsPadding": 12px,
                 "font-size": $font-size-base,
                 "line-height": 22px,
@@ -229,10 +234,8 @@ $drop-down-color-themes: map-merge(
             "sm": (
                 "border-radius": $radius-small,
                 "height": $input-height-sm,
-                "beforeTransform": translateX(-1.6%) translateY(-9.5%),
+                "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 12px,
-                "afterTransform": translateX(-0.6%) translateY(-2.5%),
-                "afterRadius": 10px,
                 "selectedItemsPadding": 8px,
                 "font-size": $font-size-sm,
                 "line-height": 18px,
@@ -250,11 +253,6 @@ $drop-down-color-themes: map-merge(
                 &::before {
                     transform: map-get($sizeMap, beforeTransform);
                     border-radius: map-get($sizeMap, beforeRadius);
-                }
-
-                &::after {
-                    transform: map-get($sizeMap, afterTransform);
-                    border-radius: map-get($sizeMap, afterRadius);
                 }
 
                 #{$root}__selected-items {
