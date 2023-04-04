@@ -1,7 +1,7 @@
 /* eslint-disable valid-typeof */
 import React from 'react';
+import {IIconProps} from '@steroidsjs/core/ui/content/Icon/Icon';
 import Icon from '../../../react/src/ui/content/Icon';
-import {IIconProps} from '../../../react/src/ui/content/Icon/Icon';
 
 /**
 * Функция которая проверяет соответствует ли typeof icon === 'string', если да - то вернет компонент Icon
