@@ -4,43 +4,45 @@ import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Paginati
 import {useBem} from '@steroidsjs/core/hooks';
 import {Icon} from '@steroidsjs/core/ui/content';
 
+const renderArrowStep = (
+    bem: any,
+    onClick: () => void,
+    iconName: string,
+    rotate = false,
+    rounding?: {
+        left?: boolean,
+        right?: boolean,
+    },
+    disabled?: boolean,
+) => (
+    <li className={bem.element('page', {
+        'rounding-left': rounding.left,
+        'rounding-right': rounding.right,
+        hasIcon: true,
+        disabled,
+    })}
+    >
+        <button
+            className={bem.element('page-button',
+                {
+                    hasIcon: true,
+                })}
+            onClick={() => onClick()}
+            disabled={disabled}
+        >
+            <Icon
+                tabIndex={-1}
+                className={bem.element('page-icon', {
+                    rotate,
+                })}
+                name={iconName}
+            />
+        </button>
+    </li>
+);
+
 export default function PaginationButtonView(props: IPaginationViewProps) {
     const bem = useBem('PaginationButtonView');
-
-    const renderArrowStep = React.useCallback((
-        onClick: () => void,
-        iconName: string,
-        rotate = false,
-        rounding?: {
-            left?: boolean,
-            right?: boolean,
-        },
-        disabledStatement?: boolean,
-    ) => (
-        <li className={bem.element('page', {
-            'rounding-left': rounding.left,
-            'rounding-right': rounding.right,
-            hasIcon: true,
-            disabled: disabledStatement,
-        })}
-        >
-            <button
-                className={bem.element('page-button',
-                    {
-                        hasIcon: true,
-                    })}
-                onClick={() => onClick()}
-            >
-                <Icon
-                    tabIndex={-1}
-                    className={bem.element('page-icon', {
-                        rotate,
-                    })}
-                    name={iconName}
-                />
-            </button>
-        </li>
-    ), [bem]);
 
     return (
         <ul
@@ -52,9 +54,9 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
             )}
         >
             {props.showEdgeSteps
-                && renderArrowStep(props.onSelectFirst, 'double-arrow-left', false, {left: true}, props.isFirstPage)}
+                && renderArrowStep(bem, props.onSelectFirst, 'double-arrow-left', false, {left: true}, props.isFirstPage)}
             {props.showSteps
-                && renderArrowStep(props.onSelectPrev, 'arrow-left', false, {}, props.isFirstPage)}
+                && renderArrowStep(bem, props.onSelectPrev, 'arrow-left', false, {}, props.isFirstPage)}
             {props.pages.map((item, index) => (
                 <li
                     key={index}
@@ -74,9 +76,9 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
                 </li>
             ))}
             {props.showSteps
-                && renderArrowStep(props.onSelectNext, 'arrow-left', true, {}, props.isLastPage)}
+                && renderArrowStep(bem, props.onSelectNext, 'arrow-left', true, {}, props.isLastPage)}
             {props.showEdgeSteps
-                && renderArrowStep(props.onSelectFirst, 'double-arrow-left', true, {right: true}, props.isLastPage)}
+                && renderArrowStep(bem, props.onSelectLast, 'double-arrow-left', true, {right: true}, props.isLastPage)}
         </ul>
     );
 }

@@ -188,7 +188,7 @@ $pagination-disabled-color: var(--pagination-disabled-color);
             }
         }
 
-        &:not(#{$pageRoot}_disabled):not(:active):hover {
+        &:not(#{$pageRoot}_disabled):not(#{$pageRoot}_active):hover {
             border-color: $pagination-hover-color;
             background-color: $pagination-hover-background-color;
         }
