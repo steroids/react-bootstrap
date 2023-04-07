@@ -23,7 +23,6 @@ export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput
             <div className={bem.element('button')}>
                 <ButtonComponent
                     {...props.buttonProps}
-                    layout={false}
                     label={null}
                 >
                     <Icon

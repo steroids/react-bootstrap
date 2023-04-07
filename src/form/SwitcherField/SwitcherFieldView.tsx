@@ -30,7 +30,6 @@ export default function SwitcherFieldView(props: ISwitcherFieldViewProps & IBemH
                     disabled={props.disabled}
                     onClick={() => props.onItemSelect(item[props.primaryKey])}
                     onMouseOver={() => props.onItemHover(item[props.primaryKey])}
-                    layout={false}
                 >
                     {item.label}
                 </Button>
