@@ -9,24 +9,22 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
     const bem = useBem('FieldLayoutView');
 
     return (
-        <div className={bem(bem.block({}))}>
+        <div className={bem.block()}>
             {props.label && (
                 <label
                     htmlFor={props.id}
-                    className={bem(
-                        bem.element('label', {
-                            required: props.required,
-                            size: props.size,
-                        }),
-                    )}
+                    className={bem.element('label', {
+                        required: props.required,
+                        size: props.size,
+                    })}
                 >
                     {props.label + ':'}
                 </label>
             )}
-            <div className={bem(bem.element('field'))}>
+            <div className={bem.element('field')}>
                 {props.children}
                 {!_isEmpty(props.errors) && (
-                    <div className={bem(bem.element('invalid-feedback'), 'invalid-feedback')}>
+                    <div className={bem.element('invalid-feedback')}>
                         {props.errors.filter(error => typeof error === 'string').map((error, index) => (
                             <div
                                 key={index}
@@ -39,7 +37,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                                 />
                                 <span className={bem.element('error-text',
                                     {
-                                        size: !!props.size || 'md',
+                                        size: props.size || 'md',
                                     })}
                                 >
                                     {error}
@@ -51,7 +49,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                 )}
 
                 {_isEmpty(props.errors) && props.hint && (
-                    <div className={bem(bem.element('hint', {size: props.size}))}>
+                    <div className={bem.element('hint', {size: props.size})}>
                         {props.hint}
                     </div>
                 )}
