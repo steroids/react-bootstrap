@@ -4,6 +4,12 @@ export default {
     'crud.CrudView': {
         lazy: () => require('./crud/Crud/CrudView').default,
     },
+    'content.MenuButtonView': {
+        lazy: () => require('./content/Menu/MenuButtonView').default,
+    },
+    'content.MenuItemView': {
+        lazy: () => require('./content/Menu/MenuItemView').default,
+    },
     'content.DropDownView': {
         lazy: () => require('./content/DropDown/DropDownView').default,
     },

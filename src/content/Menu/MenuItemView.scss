@@ -1,0 +1,35 @@
+.MenuItemView {
+    cursor: pointer;
+    display: flex;
+    padding: 8px 12px;
+    &__title {
+        display: flex;
+        align-items: center;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+    }
+
+    &__icon {
+        display: flex;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__none-icon {
+        display: flex;
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+      }
+
+    &:hover {
+        background-color: $light-gray;
+    }
+
+    &_hasBorder{
+        border-bottom: 1px solid $black-10;
+    }
+}
