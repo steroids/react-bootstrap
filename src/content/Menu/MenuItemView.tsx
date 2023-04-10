@@ -7,9 +7,11 @@ export default function MenuItemView(props: IMenuItemViewProps) {
     const bem = useBem('MenuItemView');
 
     return (
-        <div className={bem.block({
-            hasBorder: props.hasBorder,
-        })}
+        <div
+            onClick={props.onClick}
+            className={bem.block({
+                hasBorder: props.hasBorder,
+            })}
         >
             <div className={bem(bem.element('icon-wrapper'))}>
                 { props.icon
