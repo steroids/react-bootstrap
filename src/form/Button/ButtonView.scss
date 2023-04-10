@@ -108,7 +108,15 @@ $btn-letter-spacing: 0.1em;
             color: $link-color;
         }
 
-        &:hover {
+        #{$root}__label:hover {
+            color: $link-color-hover;
+        }
+
+        &:focus-visible, &:focus {
+            border: none;
+        }
+
+        &:hover,&:active {
             background-color: transparent;
         }
     }
