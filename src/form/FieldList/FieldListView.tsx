@@ -48,7 +48,6 @@ export default function FieldListView(props: IFieldListViewProps) {
                             {props.showAdd && !props.disabled && (
                                 <Button
                                     formId={false}
-                                    layout={false}
                                     color='secondary'
                                     className={bem.element('button-add')}
                                     onClick={e => {

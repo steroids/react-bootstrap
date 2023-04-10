@@ -19,7 +19,6 @@ export default function NavListView(props: INavViewProps & IBemHocOutput) {
             >
                 <Link
                     onClick={() => props.onClick(item, index)}
-                    layout={false}
                     {...item}
                     key={item.id || index}
                     className={bem(

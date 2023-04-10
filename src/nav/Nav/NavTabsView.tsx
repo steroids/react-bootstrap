@@ -18,7 +18,6 @@ export default function NavTabsView(props: INavViewProps & IBemHocOutput) {
                         <Button
                             link
                             onClick={() => props.onClick(item, index)}
-                            layout={false}
                             {...item}
                             className={bem(
                                 'nav-link',
