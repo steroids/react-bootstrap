@@ -1,8 +1,23 @@
+:root {
+    --color-menu-item: #323232;
+    --color-border: rgba(0, 0, 0, 0.1);
+  }
+  
+  html[data-theme="dark"] { 
+    --color-menu-item: #ffffff;
+    --color-border: rgba(255, 255, 255, 0.1);
+  }
+
+  $color-menu-item: var(--color-menu-item);
+  $color-border: var(--color-border);
+
 .MenuItemView {
     cursor: pointer;
     display: flex;
     padding: 8px 12px;
+
     &__title {
+        color: $color-menu-item;
         display: flex;
         align-items: center;
         font-size: $font-size-xs;
@@ -16,6 +31,14 @@
         margin-right: 8px;
         align-items: center;
         justify-content: center;
+
+        svg {
+            stroke: $color-menu-item;
+          }
+
+        svg > * {
+            stroke:inherit;
+        }
     }
 
     &__none-icon {
@@ -30,6 +53,6 @@
     }
 
     &_hasBorder{
-        border-bottom: 1px solid $black-10;
+        border-bottom: 1px solid $color-border;
     }
 }
