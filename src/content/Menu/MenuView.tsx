@@ -15,7 +15,7 @@ export default function MenuView(props: IMenuProps) {
                     key={index}
                     icon={item?.icon}
                     label={item.label}
-                    onClick={item?.onClick}
+                    onClick={item.onClick}
                     hasBorder={item?.hasBorder}
                 />
             ))}
