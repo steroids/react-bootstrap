@@ -4,7 +4,6 @@ import {useMount} from 'react-use';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 import {IDropDownViewProps} from '@steroidsjs/core/ui/content/DropDown/DropDown';
 
-import './DropDownView.scss';
 import {useMemo} from 'react';
 
 export default function DropDownView(props: IDropDownViewProps) {

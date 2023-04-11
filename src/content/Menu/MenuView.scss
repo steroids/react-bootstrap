@@ -9,13 +9,13 @@
   $color-icon: var(--color-icon);
 
 .MenuView {
-    width: 248px !important;
-    padding: 0 !important;
-    border: none !important;
+    width: 248px;
+    padding: 0;
+    border: none;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     
     &::before, &::after {
-        content: none !important;
+        content: none;
     }
 
     &__button {
