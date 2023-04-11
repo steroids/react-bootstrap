@@ -32,6 +32,7 @@ $pagination-disabled-color: var(--pagination-disabled-color);
 
     &_size {
         &_lg {
+            height: 48px;
             #{$root}__page {
                 &-button {
                     padding: 12px 18px;
@@ -69,6 +70,7 @@ $pagination-disabled-color: var(--pagination-disabled-color);
             }
         }
         &_md {
+            height: 40px;
             #{$root}__page {
                 &-button {
                     padding: 8px 14px;
@@ -106,6 +108,7 @@ $pagination-disabled-color: var(--pagination-disabled-color);
             }
         }
         &_sm {
+            height: 32px;
             #{$root}__page {
                 &-button {
                     padding: 4px 12px;
