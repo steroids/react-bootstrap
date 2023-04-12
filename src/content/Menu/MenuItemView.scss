@@ -39,12 +39,9 @@
         }
     }
 
-    &__none-icon {
-        display: flex;
-        width: $icon-size;
-        height: $icon-size;
-        margin-right: 8px;
-      }
+    &_noneIcon {
+      padding-left: 36px;
+    }
 
     &:hover {
         background-color: $gray;
