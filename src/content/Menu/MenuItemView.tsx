@@ -12,9 +12,9 @@ export default function MenuItemView(props:IMenuItemProps) {
         >
             {props.icon
                 ? renderIcon(props.icon, {className: bem.element('icon')})
-                : (<div className={bem(bem.element('none-icon'))} />)}
+                : (<div className={bem.element('none-icon')} />)}
 
-            <span className={bem.element('title')}>
+            <span className={bem.element('label')}>
                 {props.label}
             </span>
         </div>

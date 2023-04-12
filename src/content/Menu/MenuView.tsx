@@ -24,11 +24,12 @@ export default function MenuView(props: IMenuProps) {
 
     return (
         <DropDown
+            {...props}
             className="MenuView"
             closeMode={props.closeMode}
             content={renderMenuItems}
             position={props.position}
-            {...props}
+
         >
             <span className={bem.element('button')}>
                 {props.icon
