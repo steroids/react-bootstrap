@@ -27,6 +27,8 @@
         
         svg {
             stroke: $color-icon;
+            width: $icon-size-lg;
+            height: $icon-size-lg;
         }
 
         svg rect {
