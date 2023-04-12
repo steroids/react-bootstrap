@@ -1,3 +1,13 @@
+:root {
+    --disabled-text-color: rgba(0, 0, 0, 0.3);
+ }
+
+ html[data-theme="dark"] { 
+    --disabled-text-color: rgba(255, 255, 255, 0.3);
+ }
+
+ $disabled-text-color: var(--disabled-text-color);
+
 .CheckboxFieldView {
     $root: &;
 
@@ -99,7 +109,7 @@
         &:disabled + #{$root}__label {
             cursor: not-allowed;
             span {
-                color: $black-30;
+                color: $disabled-text-color;
             }
 
             &::before {
