@@ -3,13 +3,30 @@
     margin-bottom: 1em;
     display: flex;
     flex-wrap: wrap;
+
+    &_layout_list {
+      flex-direction: column;
+    }
   }
 
-  &__button-label {
-    vertical-align: middle;
+  &__button {
+    margin-bottom: 16px;
+
+    &_isWall {
+      width: 128px;
+      height: 128px;
+      border: 1px dashed $light;
+      background-color: $gray;
+
+      .ButtonView__label {
+        flex-direction: column;
+        row-gap: 10px;
+      }
+    }
   }
 
-  &__button-icon {
-    margin-right: 5px;
+  .ButtonView__icon {
+    width: 25px;
+    height: 25px;
   }
 }

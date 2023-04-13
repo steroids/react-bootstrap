@@ -8,47 +8,43 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
     const bem = useBem('FileFieldItemView');
     return (
         <div
-            className={bem(
-                bem.block(),
-                'card mb-1 mr-1',
-                props.error && 'border-danger',
-            )}
+            className={bem.block({
+                error: !!props.error,
+                layout: props.layout,
+                images: props.imagesOnly,
+            })}
         >
-            {props.image
-                ? (
-                    <img
-                        src={props.image.url}
-                        className='card-img-top'
-                        width={props.image.width}
-                        height={props.image.height}
-                        alt={props.title}
-                    />
-                )
-                : (
-                    <Icon
-                        className={bem.element('blank-img')}
-                        name={props.imagesOnly ? 'file-image' : 'file'}
-                    />
-                )}
+            <div className={bem.element('left')}>
+                {props.image
+                    ? (
+                        <img
+                            src={props.image.url}
+                            width={props.image.width}
+                            height={props.image.height}
+                            alt={props.title}
+                        />
+                    )
+                    : (
+                        <Icon
+                            className={bem.element('icon')}
+                            name='clip'
+                        />
+                    )}
+                <a
+                    className={bem.element('title')}
+                    title={props.title}
+                    href={props.error ? '#' : props.url}
+                >
+                    {props.title}
+                </a>
+            </div>
             {props.showRemove && (
                 <Icon
-                    onClick={props.onRemove}
+                    name='trash'
                     className={bem.element('remove')}
-                    name='times'
+                    onClick={props.onRemove}
                 />
             )}
-            <div className='card-body'>
-                <p
-                    className={bem(
-                        bem.element('text'),
-                        'card-text text-center',
-                        props.error && 'text-danger',
-                    )}
-                    title={props.error || props.title}
-                >
-                    {props.error || props.title}
-                </p>
-            </div>
         </div>
     );
 }

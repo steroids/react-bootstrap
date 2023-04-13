@@ -1,19 +1,33 @@
 .FileFieldItemView {
-  width: 200px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 8px;
+  padding: 12px 30px 12px 12px;
+  width: 100%;
   font-size: $font-size-sm;
 
-  &:hover &__remove {
-    display: block;
+  &__left {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
   }
 
-  &__blank-img {
-    text-align: center;
-    padding: 35px 0 15px;
-    width: 100%;
+  &_error {
+    @include svg-color($danger);
 
-    &.IconView svg {
-      width: 32px;
+    a {
+      color: $danger;
     }
+  }
+
+  &__icon {
+    height: 25px;
+  }
+
+  &:hover &__remove {
+    opacity: 1;
   }
 
   &__text {
@@ -22,12 +36,9 @@
   }
 
   &__remove {
-    position: absolute;
-    top: 0;
-    righT: 0;
-    display: none;
+    opacity: 0;
     cursor: pointer;
-    padding: 10px;
+    height: 25px;
     z-index: 3;
   }
 }
