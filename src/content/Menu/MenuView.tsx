@@ -19,23 +19,13 @@ export default function MenuView(props: IMenuViewProps) {
         </>
     ), [props.items]);
 
-    const DropDownProps = {
-        componentDestroyDelay: props.componentDestroyDelay,
-        autoPositioning: props.autoPositioning,
-        onVisibleChange: props.onVisibleChange,
-        children: props.children,
-        visible: props.visible,
-        gap: props.gap,
-    };
+    const {icon, items, className, children, ...dropDownProps} = props;
 
     return (
         <DropDown
-            {...DropDownProps}
+            {...dropDownProps}
             className={bem(bem.block(), props.className)}
-            closeMode={props.closeMode}
             content={renderMenuItems}
-            position={props.position}
-
         >
             <span className={bem.element('button')}>
                 {props.icon
