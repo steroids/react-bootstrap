@@ -1,33 +1,10 @@
 import * as React from 'react';
 import {useEffect, useRef} from 'react';
-import {IDropDownFieldItem, IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
+import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _isArray from 'lodash-es/isArray';
-import {Accordion} from '@steroidsjs/core/ui/content';
-import DropDownItemView from './views/DropDownItem';
-
-const getSelectedItemsLabel = (selectedItems: Record<string, any>[]): string => (
-    selectedItems
-        .map(selectedItem => selectedItem.label)
-        .join(', ')
-);
-
-const getSelectedItemsCount = (selectedItems: Record<string, any>) => {
-    if (selectedItems.length <= 1) {
-        return selectedItems[0]?.label;
-    }
-
-    return `${__('Выбрано')} (${selectedItems.length})`;
-};
-
-const toDropDownItem = (props: IDropDownFieldViewProps) => (item: IDropDownFieldItem, itemIndex: number) => (
-    <DropDownItemView
-        {...props}
-        key={itemIndex}
-        item={item}
-    />
-);
+import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     const bem = useBem('DropDownFieldView');
@@ -46,18 +23,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         )
         : null,
         [bem, props.placeholder, props.selectedIds]);
-
-    const renderItems = React.useCallback(() => props.groupAttribute
-        ? (
-            <Accordion>
-                {props.items.map(toDropDownItem(props))}
-            </Accordion>
-        )
-        : (
-            <>
-                {props.items.map(toDropDownItem(props))}
-            </>
-        ), [props]);
 
     return (
         <div
@@ -131,7 +96,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {renderItems()}
+                        {props.items.map((item) => props.renderItem(item))}
                     </div>
                 </div>
             )}

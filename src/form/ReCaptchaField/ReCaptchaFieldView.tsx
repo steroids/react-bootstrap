@@ -16,14 +16,12 @@ export default function ReCaptchaFieldView(props: IReCaptchaFieldViewProps & IBe
                     url='https://policies.google.com/privacy'
                     target='_blank'
                     label={__('Privacy Policy')}
-                    layout={false}
                 />
                 {' ' + __('and') + ' '}
                 <Link
                     url='https://policies.google.com/terms'
                     target='_blank'
                     label={__('Terms of Service')}
-                    layout={false}
                 />
                 {' ' + __('apply')}
                 .

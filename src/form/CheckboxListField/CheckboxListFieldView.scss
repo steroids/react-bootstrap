@@ -1,47 +1,13 @@
 .CheckboxListFieldView {
-  &__label {
-    &-text {
-      &_required:after {
-        display: inline-block;
-        content: '*';
-        color: $danger;
-        margin: 0 0 0 3px;
-      }
-    }
-  }
+    display: flex;
 
-  .custom-control-label {
-    &::before, &::after {
-      border-color: $border-default;
-      top: 0;
+    &_vertical {
+        flex-flow: column wrap;
+        row-gap: 8px;
     }
-  }
 
-  .custom-control-input {
-    &:checked ~ .custom-control-label {
-      &::before {
-        border-color: $primary;
-        background: $primary;
-      }
-      &:hover {
-        &::before {
-          background: $primary-dark;
-        }
-      }
-      &:active {
-        &::before {
-          background: $primary-light;
-        }
-      }
+    &_horizontal {
+        flex-flow: row nowrap;
+        column-gap: 8px;
     }
-    &:disabled ~ .custom-control-label {
-      color: $border-default;
-
-      &::before {
-        border: unset;
-        background-color: $back-disabled;
-      }
-    }
-  }
-
 }

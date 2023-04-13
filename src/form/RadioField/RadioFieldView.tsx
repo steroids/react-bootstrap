@@ -1,27 +1,30 @@
 import * as React from 'react';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {ICheckboxFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxField/CheckboxField';
 import {useBem} from '@steroidsjs/core/hooks';
+import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
+import {IRadioFieldViewProps} from '@steroidsjs/core/ui/form/RadioField/RadioField';
 
-export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemHocOutput) {
-    const bem = useBem('CheckboxFieldView');
-    const id = useUniqueId('checkbox');
+export default function RadioFieldView(props: IRadioFieldViewProps & IBemHocOutput) {
+    const bem = useBem('RadioFieldView');
+    const id = useUniqueId('radio');
 
     return (
         <div
             className={bem(
                 bem.block({
+                    hasError: !!props.errors,
                     size: props.size,
-                    hasErrors: !!props.errors,
                 }),
                 props.className,
             )}
-            style={props.style}
             onClick={props.onChange}
         >
             <input
-                className={bem.element('input')}
+                className={bem(
+                    bem.element('input', {
+                        checked: props.checked,
+                    }),
+                )}
                 id={props.id || id}
                 {...props.inputProps}
                 checked={props.checked}
@@ -32,9 +35,8 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
                 className={bem.element('label')}
                 htmlFor={props.id || id}
             >
-                <span className={bem.element('label-text', {required: props.required})}>
-                    {props.label}
-                </span>
+                <span className={bem.element('ellipse')} />
+                {props.label}
             </label>
         </div>
     );

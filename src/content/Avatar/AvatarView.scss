@@ -69,8 +69,8 @@ $status-border-color: var(--status-border-color);
 
         &_middle {
             #{$root}__body {
-                height: 46px;
-                width: 46px;
+                height: 50px;
+                width: 50px;
                 line-height: 46px;
                 font-size: $font-size-sm;
             }
@@ -81,8 +81,8 @@ $status-border-color: var(--status-border-color);
 
         &_small {
             #{$root}__body {
-                height: 28px;
-                width: 28px;
+                height: 32px;
+                width: 32px;
                 line-height: 28px;
                 font-size: $font-size-xs;
             }

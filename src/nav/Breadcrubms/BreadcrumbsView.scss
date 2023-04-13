@@ -1,5 +1,35 @@
+
+
+:root {
+  --last-link-color: rgba(0, 0, 0, 0.3);;
+}
+
+html[data-theme="dark"] { 
+  --last-link-color: rgba(255, 255, 255, 0.3);
+}
+
+$last-link-color: var(--last-link-color);
+
 .BreadcrumbsView {
   $breadcrumb-item-separator: '/';
+
+
+
+  &__icon, &__custom-icon {
+    display: flex;
+
+    svg {
+      stroke: $link-color;
+    }
+
+    svg:hover { 
+      stroke: $link-color-hover;
+    }
+
+    svg path, svg circle {
+      stroke:inherit;
+    }
+  }
 
   &__list {
     display: flex;
@@ -8,11 +38,30 @@
     padding: 0;
   }
 
+  &__list {
+    li:last-child span{
+      color: $last-link-color;
+    }
+  }
+
   &__item {
+    display: flex;
+    align-items: center;
+
     &:not(:first-child)::before {
       content: $breadcrumb-item-separator;
       display: inline-block;
       margin: 0 8px;
+      color: $link-color;
+    }
+
+    span {
+      line-height: 24px;
+      font-size: 14px;
+    }
+
+    span:hover {
+      color: $link-color-hover;
     }
   }
 }

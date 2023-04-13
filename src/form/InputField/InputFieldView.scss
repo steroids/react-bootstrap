@@ -64,6 +64,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         height: 100%;
 
         pointer-events: none;
+        transform: translate(-1px, -1px);
         opacity: 0;
         transition: opacity 150ms ease-in-out;
     }
@@ -129,7 +130,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             }
 
             &::before { 
-                border-radius: $radius-large;
+                border-radius: 14px;
             }
         }
 
@@ -155,7 +156,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             }
 
             &::before { 
-                border-radius: $radius-large;
+                border-radius: 14px;
             }
         }
 
@@ -179,7 +180,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             }
 
             &::before { 
-                border-radius: $radius-small;
+                border-radius: 10px;
             }
         }
     }
@@ -252,6 +253,11 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         #{$root}__input {
             border-top-left-radius: 0;
             border-bottom-left-radius: 0;
+            border: none;
+        }
+        &::before { 
+            border: 1px solid $border-color;
+            opacity: 1;
         }
     }
 
@@ -259,6 +265,10 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         #{$root}__input {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+        }
+        &::before { 
+            border: 1px solid $border-color;
+            opacity: 1;
         }
     }
 

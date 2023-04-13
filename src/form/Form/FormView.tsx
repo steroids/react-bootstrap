@@ -28,10 +28,7 @@ function FormView(props: IFormViewProps) {
         <form
             ref={formRef}
             className={bem(
-                bem.block({
-                    inline: props.layout.layout === 'inline',
-                    vertical: props.layout.layout === 'vertical',
-                }),
+                bem.block(),
                 props.className,
             )}
             onSubmit={props.onSubmit}
