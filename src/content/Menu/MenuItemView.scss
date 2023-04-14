@@ -1,0 +1,53 @@
+:root {
+    --color-menu-item: #323232;
+    --color-border: rgba(0, 0, 0, 0.1);
+  }
+  
+  html[data-theme="dark"] { 
+    --color-menu-item: #ffffff;
+    --color-border: rgba(255, 255, 255, 0.1);
+  }
+
+  $color-menu-item: var(--color-menu-item);
+  $color-border: var(--color-border);
+
+.MenuItemView {
+    cursor: pointer;
+    display: flex;
+    padding: 8px 12px;
+
+    &__label {
+        color: $color-menu-item;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+    }
+
+    &__icon {
+        display: flex;
+        margin-right: 8px;
+        align-items: center;
+        justify-content: center;
+
+        svg {
+            stroke: $color-menu-item;
+            width: $icon-size;
+            height: $icon-size;
+          }
+
+        svg > * {
+            stroke:inherit;
+        }
+    }
+
+    &_noneIcon {
+      padding-left: 36px;
+    }
+
+    &:hover {
+        background-color: $gray;
+    }
+
+    &_hasBorder{
+        border-bottom: 1px solid $color-border;
+    }
+}

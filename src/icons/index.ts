@@ -262,7 +262,12 @@ export default (customIcons: Record<string, any>) => {
         'home',
         'arrow-left',
         'double-arrow-left',
-
+        'copy',
+        'cut',
+        'edit-duotone',
+        'paste',
+        'pin',
+        'trash',
     ];
 
     steroidsIcons.forEach(iconName => {
