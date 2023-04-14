@@ -6,14 +6,24 @@ import renderIcon from '../../utils/renderIcon';
 
 export default function MenuView(props: IMenuViewProps) {
     const bem = useBem('MenuView');
+    const MenuItemView = props.itemView;
 
-    const {icon, items, className, children, ...dropDownProps} = props;
+    const renderMenuItems = React.useCallback(() => (
+        <>
+            {props.items.map((item, index) => (
+                <MenuItemView
+                    key={index}
+                    {...item}
+                />
+            ))}
+        </>
+    ), [MenuItemView, props.items]);
 
     return (
         <DropDown
-            {...dropDownProps}
+            {...props.dropDownProps}
             className={bem(bem.block(), props.className)}
-            content={props.renderMenuItems}
+            content={renderMenuItems}
         >
             <span className={bem.element('button')}>
                 {props.icon
