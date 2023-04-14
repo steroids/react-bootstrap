@@ -44,6 +44,8 @@
     color: map-get($colorMap, color);
     border: 1px solid map-get($colorMap, color);
 
+    @include svg-color(map-get($colorMap, text-color));
+
     &:hover {
         @include svg-color(map-get($colorMap, color-dark));
         color: map-get($colorMap, color-dark);
