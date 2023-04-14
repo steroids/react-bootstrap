@@ -266,6 +266,11 @@ export default (customIcons: Record<string, any>) => {
         'plus',
         'clip',
         'file-img-type',
+        'copy',
+        'cut',
+        'edit-duotone',
+        'paste',
+        'pin',
         'trash',
     ];
 
