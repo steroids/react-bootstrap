@@ -29,6 +29,14 @@
             }
         }
     }
+
+    #{$root}__link {
+        color: map-get($colorMap, color-dark);
+
+        &:hover {
+            color: map-get($colorMap, color-light);
+        }
+    }
 }
 
 @mixin button-outline-theme($colorMap, $colorName, $root) {

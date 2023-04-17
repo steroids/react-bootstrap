@@ -102,15 +102,6 @@ $btn-letter-spacing: 0.1em;
         width: auto;
         height: auto;
         background-color: transparent;
-        
-        #{$root}__label {
-            display: inline;
-            color: $link-color;
-        }
-
-        #{$root}__label:hover {
-            color: $link-color-hover;
-        }
 
         &:focus-visible, &:focus {
             border: none;
