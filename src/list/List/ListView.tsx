@@ -22,7 +22,7 @@ export default function ListView(props: IListViewProps) {
                 <div>
                     {pagination}
                 </div>
-                <div>
+                <div className={bem.element('pagination-sizes')}>
                     {layout}
                     {paginationSize}
                 </div>
