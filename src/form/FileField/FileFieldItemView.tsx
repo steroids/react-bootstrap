@@ -1,12 +1,13 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
+import {FilesLayout, IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 
 export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemHocOutput) {
     const bem = useBem('FileFieldItemView');
     const isLoading = props.progress && props.progress.percent !== 100;
+    const isWall = props.filesLayout === FilesLayout?.wall;
 
     const renderTitle = React.useCallback(() => (
         <a
@@ -30,10 +31,12 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
 
     const renderUploadingState = React.useCallback(() => (
         <div className={bem.element('left')}>
-            <Icon
-                className={bem.element('icon-loading')}
-                name='file-loading'
-            />
+            <div className={bem.element('icon-wrapper')}>
+                <Icon
+                    className={bem.element('icon-loading')}
+                    name='file-loading'
+                />
+            </div>
             <div className={bem.element('content')}>
                 {renderTitle()}
                 {renderProgressBar()}
@@ -45,30 +48,29 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
         <div className={bem.element('left')}>
             {props.image
                 ? (
-                    <img
+                    <div
                         className={bem.element('image')}
-                        src={props.image.url}
-                        width={props.image.width}
-                        height={props.image.height}
-                        alt={props.title}
+                        style={{backgroundImage: `url(${props.image.url})`}}
                     />
                 )
                 : (
-                    <Icon
-                        className={bem.element('icon')}
-                        name='clip'
-                    />
+                    <div className={bem.element('icon-wrapper')}>
+                        <Icon
+                            className={bem.element('icon')}
+                            name={props.imagesOnly ? 'file-img-type' : 'clip'}
+                        />
+                    </div>
                 )}
             {renderTitle()}
         </div>
-    ), [bem, renderTitle, props.image, props.title]);
+    ), [bem, renderTitle, props.image, props.imagesOnly]);
 
     return (
         <div
             className={bem.block({
                 error: !!props.error,
-                layout: props.filesLayout,
                 images: props.imagesOnly,
+                isWall,
             })}
         >
             {isLoading

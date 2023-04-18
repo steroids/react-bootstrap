@@ -11,18 +11,19 @@ export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput
     const isWall = props.filesLayout === FilesLayout?.wall;
 
     return (
-        <div className={bem.block()}>
+        <div className={bem.block({isWall})}>
             <ButtonView
                 className={bem.element('button', {isWall})}
                 label={props.buttonProps.label}
                 icon={isWall ? 'plus' : 'upload'}
                 {...props.buttonProps}
             />
-            <div className={bem(bem.element('files', {layout: props.filesLayout}))}>
+            <div className={bem(bem.element('files'))}>
                 {props.items.map(item => (
                     <FileItemView
                         key={item.uid}
                         filesLayout={props.filesLayout}
+                        imagesOnly={props.imagesOnly}
                         customRemoveIcon={props.customRemoveIcon}
                         {...item}
                         {...props.itemProps}
