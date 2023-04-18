@@ -1,0 +1,13 @@
+@keyframes loading {
+  from {
+    transform: none;
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin loadingAnimation {
+  animation: loading 1.5s linear infinite;
+}

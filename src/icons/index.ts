@@ -272,6 +272,7 @@ export default (customIcons: Record<string, any>) => {
         'paste',
         'pin',
         'trash',
+        'file-loading',
     ];
 
     steroidsIcons.forEach(iconName => {
