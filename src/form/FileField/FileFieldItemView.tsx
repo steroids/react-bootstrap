@@ -9,16 +9,18 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
     const isLoading = props.progress && props.progress.percent !== 100;
     const isWall = props.filesLayout === FilesLayout?.wall;
 
-    const renderTitle = React.useCallback(() => (
+    const renderLink = React.useCallback(() => (
         <a
-            className={bem.element('title')}
+            className={bem.element('link')}
             title={props.title}
             href={props.error ? '#' : props.item?.url}
             target='blank'
         >
-            {props.title}
+            {isWall
+                ? <Icon name='visible-eye' />
+                : props.title}
         </a>
-    ), [bem, props.title, props.error, props.item]);
+    ), [bem, props.title, props.error, props.item?.url, isWall]);
 
     const renderProgressBar = React.useCallback(() => (
         <div className={bem.element('progress-track')}>
@@ -31,18 +33,23 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
 
     const renderUploadingState = React.useCallback(() => (
         <div className={bem.element('left')}>
-            <div className={bem.element('icon-wrapper')}>
+            <div className={bem.element('icon-wrapper', 'loading')}>
                 <Icon
                     className={bem.element('icon-loading')}
                     name='file-loading'
                 />
             </div>
             <div className={bem.element('content')}>
-                {renderTitle()}
+                <span className={bem.element('title', 'loading')}>
+                    {props.title}
+                </span>
                 {renderProgressBar()}
+                <span className={bem.element('loading-text')}>
+                    {__('Uploading...')}
+                </span>
             </div>
         </div>
-    ), [bem, renderTitle, renderProgressBar]);
+    ), [bem, props.title, renderProgressBar]);
 
     const renderUploadedState = React.useCallback(() => (
         <div className={bem.element('left')}>
@@ -61,9 +68,12 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
                         />
                     </div>
                 )}
-            {renderTitle()}
+            {renderLink()}
+            <span className={bem.element('title')}>
+                {props.title}
+            </span>
         </div>
-    ), [bem, renderTitle, props.image, props.imagesOnly]);
+    ), [bem, props.image, props.imagesOnly, props.title, renderLink]);
 
     return (
         <div
@@ -79,10 +89,11 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
             {props.showRemove && (
                 <Icon
                     name={props.customRemoveIcon || 'trash'}
-                    className={bem.element('remove')}
+                    className={bem.element('remove', {isLoading})}
                     onClick={props.onRemove}
                 />
             )}
+            <div className={bem.element('overlay')} />
         </div>
     );
 }
