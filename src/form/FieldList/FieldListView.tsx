@@ -8,15 +8,13 @@ export default function FieldListView(props: IFieldListViewProps) {
     const bem = useBem('FieldListView');
     return (
         <div
-            className={bem(bem.block(), props.className)}
+            className={bem(bem.block({zebra: props.zebra}), props.className)}
             style={props.style}
             ref={props.forwardedRef}
         >
             <table
                 className={bem(
                     bem.element('table'),
-                    'table',
-                    props.size && 'table-' + props.size,
                     props.tableClassName,
                 )}
             >
@@ -30,7 +28,7 @@ export default function FieldListView(props: IFieldListViewProps) {
                                     field.headerClassName,
                                 )}
                             >
-                                {field.label}
+                                {field.title}
                             </th>
                         ))}
                         {props.showRemove && (
@@ -42,25 +40,28 @@ export default function FieldListView(props: IFieldListViewProps) {
                 <tbody>
                     {props.children}
                 </tbody>
-                <tfoot>
-                    <tr>
-                        <td colSpan={props.items.length}>
-                            {props.showAdd && !props.disabled && (
+                {props.showAdd && !props.disabled && (
+                    <tfoot>
+                        <tr>
+                            <td colSpan={props.items.length + 1}>
                                 <Button
                                     formId={false}
-                                    color='secondary'
+                                    color='primary'
+                                    size='sm'
+                                    outline
+                                    icon='add'
                                     className={bem.element('button-add')}
                                     onClick={e => {
                                         e.preventDefault();
                                         props.onAdd();
                                     }}
                                 >
-                                    {__('Добавить ещё')}
+                                    {__('Добавить')}
                                 </Button>
-                            )}
-                        </td>
-                    </tr>
-                </tfoot>
+                            </td>
+                        </tr>
+                    </tfoot>
+                )}
             </table>
         </div>
     );

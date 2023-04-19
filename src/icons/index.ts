@@ -268,6 +268,8 @@ export default (customIcons: Record<string, any>) => {
         'paste',
         'pin',
         'trash',
+        'close-18',
+        'add',
     ];
 
     steroidsIcons.forEach(iconName => {

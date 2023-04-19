@@ -36,7 +36,6 @@
 
             border: 1px solid $gray;
             border-radius: $radius-small;
-            margin-right: 8px;
 
             background-repeat: no-repeat;
             background-position: center center;
@@ -62,6 +61,7 @@
         }
 
         &-text {
+            margin-left: 8px;
             color: $text-color;
             font-size: $font-size-sm;
             font-weight: $font-weight-md;
@@ -132,7 +132,6 @@
                     width: 24px;
                     height: 24px;
                     border-radius: $radius-small;
-                    margin-right: 12px;
                 }
                 &::after {
                     width: 26px;
@@ -141,6 +140,7 @@
                 }
 
                 &-text {
+                    margin-left: 12px;
                     font-size: $font-size-lg;
                     line-height: 24px;
                 }
@@ -163,6 +163,7 @@
                 }
 
                 &-text {
+                    margin-left: 8px;
                     font-size: $font-size-base;
                     line-height: 22px;
                 }
@@ -185,6 +186,7 @@
                 }
 
                 &-text {
+                    margin-left: 8px;
                     font-size: $font-size-sm;
                     line-height: 18px;
                 }

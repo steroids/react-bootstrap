@@ -128,8 +128,9 @@ $btn-letter-spacing: 0.1em;
     }
 
     &__icon {
-        width: 16px;
-        height: 16px;
+        display: flex;
+        width: fit-content;
+        height: fit-content;
         &_without-label {
             margin: 0;
         }

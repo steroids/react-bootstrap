@@ -3,6 +3,7 @@ import * as React from 'react';
 import {IFieldListItemViewProps} from '@steroidsjs/core/ui/form/FieldList/FieldList';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Field} from '@steroidsjs/core/ui/form';
+import {Icon} from '@steroidsjs/core/ui/content';
 
 export default React.memo((props: IFieldListItemViewProps) => {
     const bem = useBem('FieldListItemView');
@@ -11,10 +12,7 @@ export default React.memo((props: IFieldListItemViewProps) => {
             {props.items.map((field, index) => (
                 <td
                     key={index}
-                    className={bem(
-                        bem.element('table-cell'),
-                        field.className,
-                    )}
+                    className={bem(field.className)}
                 >
                     <Field
                         {...field}
@@ -23,7 +21,7 @@ export default React.memo((props: IFieldListItemViewProps) => {
                 </td>
             ))}
             {props.showRemove && (
-                <td className={bem.element('table-cell', 'remove')}>
+                <td>
                     {(!props.required || props.rowIndex > 0) && (
                         <button
                             type='button'
@@ -33,7 +31,7 @@ export default React.memo((props: IFieldListItemViewProps) => {
                                 props.onRemove(props.rowIndex);
                             }}
                         >
-                            &times;
+                            <Icon name='close-18' />
                         </button>
                     )}
                 </td>

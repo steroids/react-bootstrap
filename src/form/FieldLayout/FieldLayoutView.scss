@@ -1,5 +1,4 @@
 .FieldLayoutView {
-    margin-bottom: 1rem;
     $root: &;
     font-family: $font-family-nunito;
 
@@ -123,8 +122,7 @@
     }
 
     &__field {
-        .form-control,
-        input {
+        .form-control {
             width: 100%;
         }
     }
