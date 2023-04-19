@@ -23,10 +23,7 @@ export default function FieldListView(props: IFieldListViewProps) {
                         {props.items.map((field, rowIndex) => (
                             <th
                                 key={rowIndex}
-                                className={bem(
-                                    bem.element('table-cell-header'),
-                                    field.headerClassName,
-                                )}
+                                className={bem(field.headerClassName)}
                             >
                                 {field.title}
                             </th>
