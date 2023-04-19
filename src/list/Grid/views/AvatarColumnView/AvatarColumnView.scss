@@ -1,0 +1,26 @@
+@import 'style/variables';
+
+.AvatarColumnView {
+    $root: &;
+
+    overflow: hidden;
+    border-radius: $radius-circle;
+
+    &_size {
+        &_lg {
+            width: 56px;
+            height: 56px;
+        }
+        &_md, &_sm {
+            width: 36px;
+            height: 36px;
+        }
+    }
+
+    img { 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}

@@ -1,0 +1,37 @@
+@import 'style/variables';
+
+.LinkColumnView {
+    $root: &;
+
+    display: flex;
+    flex-flow: column;
+    align-self: flex-start;
+
+    &__subtitle {
+        color: $placeholder-color;
+    }
+
+    &_size {
+        &_lg {
+            #{$root}__subtitle {
+                font-size: $font-size-base;
+                line-height: $line-height-base;
+            }
+        }
+
+        &_md {
+            #{$root}__subtitle {
+                font-size: $font-size-sm;
+                line-height: $line-height-sm;
+            }
+        }
+
+        &_sm {
+            #{$root}__subtitle {
+                font-size: $font-size-xs;
+                line-height: $line-height-xs;
+            }
+        }
+    }
+
+}
