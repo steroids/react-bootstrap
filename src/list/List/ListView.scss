@@ -1,12 +1,21 @@
 .ListView {
-
-    &__pagination { 
+    &__pagination {
         display: flex;
+        justify-content: space-between;
         flex-flow: row nowrap;
         margin-bottom: 3px;
-        background: red;
+
+        &-sizes {
+            width: calc(100% / 4);
+
+            .PaginationSizeView__sizes {
+                display: flex;
+                flex-flow: row nowrap;
+            }
+        }
     }
 
-
-
+    &__content {
+        margin-bottom: 3px;
+    }
 }
