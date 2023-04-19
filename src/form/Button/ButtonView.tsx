@@ -23,7 +23,10 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                     />
                 )}
                 {!props.isLoading && (
-                    <span className={bem.element(props.link ? 'link' : 'label')}>
+                    <span
+                        title={props.hint}
+                        className={bem.element(props.link ? 'link' : 'label')}
+                    >
                         {props.icon && (
                             <Icon
                                 name={props.icon}

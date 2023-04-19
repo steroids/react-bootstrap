@@ -112,13 +112,8 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-    &__label {
-        display: flex;
-        flex-direction: row;
-        column-gap: 10px;
-    }
-
     &__icon {
+        margin-right: 10px;
         width: 16px;
         height: 16px;
         &_without-label {
