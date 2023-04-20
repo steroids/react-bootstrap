@@ -7,31 +7,31 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemHocOutput) {
     const bem = useBem('FileFieldItemView');
     const isLoading = props.progress && props.progress.percent !== 100;
-    const isWall = props.filesLayout === FilesLayout?.wall;
+    const isWall = props.filesLayout === FilesLayout.wall;
 
     const renderLink = React.useCallback(() => (
         <a
             className={bem.element('link')}
             title={props.title}
-            href={props.error ? '#' : props.item?.url}
+            href={props.error ? '#' : props.item.url}
             target='blank'
         >
             {isWall
                 ? <Icon name='visible-eye' />
                 : props.title}
         </a>
-    ), [bem, props.title, props.error, props.item?.url, isWall]);
+    ), [bem, props.title, props.error, props.item.url, isWall]);
 
     const renderProgressBar = React.useCallback(() => (
         <div className={bem.element('progress-track')}>
             <div
                 className={bem.element('progress-bar')}
-                style={{width: `${props.progress?.percent}%`}}
+                style={{width: `${props.progress.percent}%`}}
             />
         </div>
     ), [bem, props.progress]);
 
-    const renderUploadingState = React.useCallback(() => (
+    const renderLoadingState = React.useCallback(() => (
         <div className={bem.element('left')}>
             <div className={bem.element('icon-wrapper', 'loading')}>
                 <Icon
@@ -51,7 +51,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
         </div>
     ), [bem, props.title, renderProgressBar]);
 
-    const renderUploadedState = React.useCallback(() => (
+    const renderFileItem = React.useCallback(() => (
         <div className={bem.element('left')}>
             {props.image
                 ? (
@@ -84,8 +84,8 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
             })}
         >
             {isLoading
-                ? renderUploadingState()
-                : renderUploadedState()}
+                ? renderLoadingState()
+                : renderFileItem()}
             {props.showRemove && (
                 <Icon
                     name={props.customRemoveIcon || 'trash'}

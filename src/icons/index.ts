@@ -268,7 +268,7 @@ export default (customIcons: Record<string, any>) => {
         'file-img-type',
         'copy',
         'cut',
-        'edit-duotone',
+        'edit',
         'paste',
         'pin',
         'trash',
