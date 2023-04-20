@@ -173,6 +173,10 @@ $color-themes: map-merge(
             "color-light": $info-light,
             "text-color": $text-color,
         ),
+        "link": (
+            "color-dark": $link-color,
+            "color-light": $link-color-hover,
+        ),
     ),
     $color-themes
 );
