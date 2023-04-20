@@ -222,6 +222,10 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &__icon-clear {
+        svg > * {
+            stroke: $text-color
+        }
+
         width: 24px;
         height: 24px;
         position: absolute;
