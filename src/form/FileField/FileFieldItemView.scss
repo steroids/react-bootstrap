@@ -52,6 +52,7 @@ $image-border-radius: 8px;
     border-radius: 20px;
 
     #{$root}__title {
+      display: block;
       text-align: center;
 
       &_loading {
@@ -155,7 +156,7 @@ $image-border-radius: 8px;
       background-color: $light-gray;
     }
 
-    &#{$root}_error#{$root}_images {
+    &#{$root}_error {
       #{$root}__title {
         display: block;
       }
@@ -245,6 +246,7 @@ $image-border-radius: 8px;
 
   &__icon-loading {
     @include loadingAnimation;
+    display: block;
     width: 24px;
     height: 24px;
   }
