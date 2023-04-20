@@ -102,15 +102,6 @@ $btn-letter-spacing: 0.1em;
         width: auto;
         height: auto;
         background-color: transparent;
-        
-        #{$root}__label {
-            display: inline;
-            color: $link-color;
-        }
-
-        #{$root}__label:hover {
-            color: $link-color-hover;
-        }
 
         &:focus-visible, &:focus {
             border: none;
@@ -121,16 +112,10 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-    &__label {
-        display: flex;
-        flex-direction: row;
-        column-gap: 10px;
-    }
-
     &__icon {
-        display: flex;
-        width: fit-content;
-        height: fit-content;
+        margin-right: 10px;
+        width: 16px;
+        height: 16px;
         &_without-label {
             margin: 0;
         }
