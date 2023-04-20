@@ -6,7 +6,7 @@ $btn-letter-spacing: 0.1em;
 .ButtonView {
     $root: &;
 
-    transition-property: color, background-color, border-color, box-shadow;
+    transition-property: color, background-color, border-color, box-shadow, stroke;
     transition-duration: 0.15s;
     transition-timing-function: ease-in-out;
 
@@ -61,8 +61,6 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-
-
     &_tag { 
         &-a { 
             width: auto;
@@ -114,8 +112,8 @@ $btn-letter-spacing: 0.1em;
 
     &__icon {
         margin-right: 10px;
-        width: 16px;
-        height: 16px;
+        width: fit-content;
+        height: fit-content;
         &_without-label {
             margin: 0;
         }
