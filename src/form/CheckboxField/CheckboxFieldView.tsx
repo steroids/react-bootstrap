@@ -32,9 +32,12 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
                 className={bem.element('label')}
                 htmlFor={props.id || id}
             >
-                <span className={bem.element('label-text', {required: props.required})}>
-                    {props.label}
-                </span>
+                {props.label && (
+                    <span className={bem.element('label-text', {required: props.required})}>
+                        {props.label}
+                    </span>
+                )}
+
             </label>
         </div>
     );

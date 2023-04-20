@@ -24,7 +24,6 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
     height: 34px;
 
-    color: $text-color;
     font-family: $font-family-nunito;
     font-weight: $font-weight-sm;
     line-height: 24px;
@@ -36,6 +35,9 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &__input {
+        color: $text-color;
+        font-family: $font-family-nunito;
+
         width: 100%;
         height: 100%;
 
@@ -112,6 +114,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     //Sizes
     &_size {
         &_lg {
+            color: $text-color;
             height: $input-height-lg;
             border-radius: $radius-large;
             
@@ -135,6 +138,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
 
         &_md {
+            color: $text-color;
             height: $input-height-md;
             border-radius: $radius-large;
             
@@ -161,6 +165,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
 
         &_sm {
+            color: $text-color;
             height: $input-height-sm;
             border-radius: $radius-small;
             
@@ -217,6 +222,10 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &__icon-clear {
+        svg > * {
+            stroke: $text-color
+        }
+
         width: 24px;
         height: 24px;
         position: absolute;
@@ -276,6 +285,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     &__addon-after {
         padding: 11px 12px;
         background-color: $background-disabled-color;
+        color: $text-color;
     }
 
     &__addon-before {
