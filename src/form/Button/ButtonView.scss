@@ -119,6 +119,10 @@ $btn-letter-spacing: 0.1em;
         &_without-label {
             margin: 0;
         }
+
+        svg path {
+            transition: stroke 0.15s ease-in-out;
+        }
     }
 
     &_failed {

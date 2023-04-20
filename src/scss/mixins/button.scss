@@ -1,3 +1,11 @@
+@mixin svg-color($color) {
+    svg {
+        path { 
+            stroke: $color;
+        }
+    }
+}
+
 @mixin button-theme($colorMap, $colorName, $root) {
     background-color: map-get($colorMap, color);
     color: map-get($colorMap, text-color);
@@ -44,7 +52,10 @@
     color: map-get($colorMap, color);
     border: 1px solid map-get($colorMap, color);
 
+    @include svg-color(map-get($colorMap, text-color));
+
     &:hover {
+        @include svg-color(map-get($colorMap, color-dark));
         color: map-get($colorMap, color-dark);
         border-color: map-get($colorMap, color-dark);
     }
@@ -53,6 +64,7 @@
         border: 1px solid transparent;
     }
     &:active {
+        @include svg-color(map-get($colorMap, color-light));
         color: map-get($colorMap, color-light);
         border-color: map-get($colorMap, color-light);
         box-shadow: none;
@@ -60,6 +72,7 @@
 
     &:disabled {
         background-color: transparent;
+        @include svg-color(map-get($colorMap, color));
         color: map-get($colorMap, color);
         border: 1px solid map-get($colorMap, color);
     }
@@ -69,10 +82,6 @@
     } 
 
     #{$root}__loader { 
-        svg {
-            path { 
-                stroke: map-get($colorMap, color);
-            }
-        }
+        @include svg-color(map-get($colorMap, color));
     }
 }
