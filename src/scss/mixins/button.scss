@@ -42,7 +42,7 @@
     }
     &:focus {
         box-shadow: 0 0 0 4px map-get($colorMap, color-light), 0 0 0 4px map-get($colorMap, color-light);
-        border: none;
+        border: 1px solid transparent;
     }
     &:active {
         color: map-get($colorMap, color-light);

@@ -123,8 +123,10 @@
     }
 
     &__field {
-        .form-control,
-        input {
+        display: flex;
+        flex-direction: column;
+
+        .form-control {
             width: 100%;
         }
     }
