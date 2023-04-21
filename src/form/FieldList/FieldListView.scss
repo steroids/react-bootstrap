@@ -52,7 +52,7 @@ $background-th: var(--background-th);
     justify-content: center
   }
 
-  &_zebra {
+  &_hasAlternatingColors {
     tr:nth-child(even) {
       background-color: $additional-light-gray;
     }
