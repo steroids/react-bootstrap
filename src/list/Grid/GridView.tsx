@@ -68,7 +68,7 @@ export default function GridView(props: IGridViewProps) {
                 {
                     loading: props.isLoading || props.list?.isLoading,
                     size: props.size,
-                    'is-zebra': props.isZebra,
+                    alternatingColors: props.hasAlternatingColors,
                 },
             ), props.className,
         )}

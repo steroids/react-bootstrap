@@ -166,26 +166,14 @@ export default {
     'list.CheckboxColumnView': {
         lazy: () => require('./list/CheckboxColumn/CheckboxColumnView').default,
     },
-    'list.LinkColumnView': {
-        lazy: () => require('./list/Grid/views/LinkColumnView/LinkColumnView').default,
-    },
-    'list.IconColumnView': {
-        lazy: () => require('./list/Grid/views/IconColumnView/IconColumnView').default,
-    },
-    'list.PictureColumnView': {
-        lazy: () => require('./list/Grid/views/PictureColumnView/PictureColumnView').default,
-    },
     'list.EmptyView': {
         lazy: () => require('./list/Empty/EmptyView').default,
     },
     'list.GridView': {
         lazy: () => require('./list/Grid/GridView').default,
     },
-    'list.SubtitleColumnView': {
-        lazy: () => require('./list/Grid/views/SubtitleColumnView/SubtitleColumnView').default,
-    },
-    'list.AvatarColumnView': {
-        lazy: () => require('./list/Grid/views/AvatarColumnView/AvatarColumnView').default,
+    'list.ContentColumnView': {
+        lazy: () => require('./list/Grid/views/ContentColumnView/ContentColumnView').default,
     },
     'list.ListView': {
         lazy: () => require('./list/List/ListView').default,

@@ -1,20 +1,20 @@
 :root {
     --grid-header-background-color: #f1f5f7;
     --grid-border-color: #e6e6e6;
-    --grid-zebra-color: #F8F8F8;
+    --grid-alternating-color: #F8F8F8;
     --grid-td-background-color: #FFFFFF;
 }
 
 html[data-theme="dark"] {
     --grid-header-background-color: #414141;
     --grid-border-color: #595959;
-    --grid-zebra-color: #4A4B53;
+    --grid-alternating-color: #4A4B53;
     --grid-td-background-color: #4E4F57;
 }
 
 $grid-header-background-color: var(--grid-header-background-color);
 $grid-border-color: var(--grid-border-color);
-$grid-zebra-color: var(--grid-zebra-color);
+$grid-alternating-color: var(--grid-alternating-color);
 $grid-td-background-color: var(--grid-td-background-color);
 
 .GridView {
@@ -76,9 +76,9 @@ $grid-td-background-color: var(--grid-td-background-color);
         }
     }
 
-    &_is-zebra{
+    &_alternatingColors{
         #{$root}__table tbody tr:nth-child(even) td { 
-            background-color: $grid-zebra-color;
+            background-color: $grid-alternating-color;
         }
     }
 
