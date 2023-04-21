@@ -12,7 +12,7 @@ export default React.memo((props: IFieldListItemViewProps) => {
             {props.items.map((field, index) => (
                 <td
                     key={index}
-                    className={bem(field.className)}
+                    className={field.className}
                 >
                     <Field
                         {...field}
@@ -31,7 +31,7 @@ export default React.memo((props: IFieldListItemViewProps) => {
                                 props.onRemove(props.rowIndex);
                             }}
                         >
-                            <Icon name='close-18' />
+                            <Icon name='cross' />
                         </button>
                     )}
                 </td>

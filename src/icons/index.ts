@@ -268,7 +268,7 @@ export default (customIcons: Record<string, any>) => {
         'paste',
         'pin',
         'trash',
-        'close-18',
+        'cross',
         'add',
     ];
 
