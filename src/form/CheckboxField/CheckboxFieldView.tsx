@@ -37,7 +37,6 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
                         {props.label}
                     </span>
                 )}
-
             </label>
         </div>
     );

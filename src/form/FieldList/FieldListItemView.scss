@@ -1,41 +1,12 @@
-
 .FieldListItemView {
-
-  &__table {
-    th, thead th, td {
-      border: none;
-    }
-  }
-
-  &__table-cell {
-    .form-group {
-      margin-bottom: 0;
-    }
-
-    &_remove {
-      vertical-align: middle !important;
-    }
-  }
-
-  &__table-cell-header {
-    padding-bottom: 0 !important;
-  }
-
   &__remove {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    color: $danger;
-  }
-
-  &__link-add {
-    margin-left: 0.75rem;
-    border-bottom: 1px dashed $link-color;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .FileFieldView__files {
-    margin-bottom: 0;
+    border: none;
+    width: 24px;
+    height: 24px;
   }
 }

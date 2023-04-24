@@ -32,6 +32,11 @@
     --placeholder-disabled-color: rgba(0, 0, 0, 0.3);
     --background-disabled-color: #f1f5f7;
     --element-background-color: #FFFFFF;
+    --additional-gray-dark: #6F6B76;
+    --additional-gray: #E6E6E6;
+    --additional-light-gray: #F8F8F8;
+    --additional-light: #9088A1;
+    --additional-light-blue: #F9FCFF;
 }
 
 html[data-theme="dark"] {
@@ -68,6 +73,11 @@ html[data-theme="dark"] {
     --placeholder-disabled-color: rgba(255, 255, 255, 0.1);
     --background-disabled-color: #5b5c6b;
     --element-background-color: #414141;
+    --additional-gray-dark: #6B6477;
+    --additional-gray: #595959;
+    --additional-light-gray: #4A4B53;
+    --additional-light: #B7AFC7;
+    --additional-light-blue: #DAEAF6;
 }
 
 /*
@@ -107,6 +117,11 @@ $placeholder-color: var(--placeholder-color);
 $placeholder-disabled-color: var(--placeholder-disabled-color);
 $background-disabled-color: var(--background-disabled-color);
 $element-background-color: var(--element-background-color);
+$additional-gray-dark: var(--additional-gray-dark);
+$additional-gray: var(--additional-gray);
+$additional-light-gray: var(--additional-light-gray);
+$additional-light: var(--additional-light);
+$additional-light-blue: var(--additional-light-blue);
 
 /*
  * Common colors   

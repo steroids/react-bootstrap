@@ -247,7 +247,7 @@ export default (customIcons: Record<string, any>) => {
         'info',
         'warning',
         'error',
-        'close',
+        'alert-close',
         'default',
         'badge-close',
         'loader',
@@ -272,6 +272,8 @@ export default (customIcons: Record<string, any>) => {
         'paste',
         'pin',
         'trash',
+        'field-list-remove',
+        'add',
         'file-loading',
     ];
 
