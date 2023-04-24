@@ -115,7 +115,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     &_size {
         &_lg {
             color: $text-color;
-            height: $input-height-lg;
+            height: calc($input-height-lg - 1px);
             border-radius: $radius-large;
             
             #{$root}__input {
@@ -139,7 +139,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
         &_md {
             color: $text-color;
-            height: $input-height-md;
+            height: calc($input-height-md - 1px);
             border-radius: $radius-large;
             
             #{$root}__input {
@@ -166,7 +166,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
         &_sm {
             color: $text-color;
-            height: $input-height-sm;
+            height: calc($input-height-sm - 1px);
             border-radius: $radius-small;
             
             #{$root}__input {
