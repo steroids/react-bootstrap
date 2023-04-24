@@ -46,7 +46,7 @@ export default function Alert(props: IAlertViewProps) {
                                     className={bem.element('icon-close', {
                                         large: !!props.description,
                                     })}
-                                    name='close'
+                                    name='alert-close'
                                     onClick={props.onClose}
                                 />
                             )}
