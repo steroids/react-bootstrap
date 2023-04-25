@@ -1,16 +1,16 @@
 :root {
-    --label-color: #152536;
+    --legend-color: #152536;
     --legend-background-color: #ffffff;
     --fieldset-border-color: #E6E6E6;
 }
   
 html[data-theme="dark"] { 
-    --label-color: #ffffff;
+    --legend-color: #ffffff;
     --legend-background-color: #414141;
     --fieldset-border-color: #595959;
 }
   
-$label-color: var(--label-color);
+$legend-color: var(--legend-color);
 $legend-background-color: var(--legend-background-color);
 $fieldset-border-color: var(--fieldset-border-color);
 
@@ -20,7 +20,7 @@ $fieldset-border-color: var(--fieldset-border-color);
 
     &__legend {
         background-color: $legend-background-color;
-        color: $label-color;
+        color: $legend-color;
 
         padding: 8px;
         margin-left: 16px;
