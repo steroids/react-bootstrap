@@ -8,7 +8,7 @@ import {Icon} from '@steroidsjs/core/ui/content';
 export default React.memo((props: IFieldListItemViewProps) => {
     const bem = useBem('FieldListItemView');
     return (
-        <tr>
+        <tr className={bem.block()}>
             {props.items.map((field, index) => (
                 <td
                     key={index}
