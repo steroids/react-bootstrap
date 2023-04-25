@@ -2,16 +2,22 @@
     &__pagination {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         flex-flow: row nowrap;
         margin-bottom: 3px;
 
         &-sizes {
-            width: calc(100% / 4);
+            width: fit-content;
 
             .PaginationSizeView__sizes {
                 display: flex;
                 flex-flow: row nowrap;
+                
             }
+        }
+
+        &-button { 
+            margin: 0 auto;
         }
     }
 
