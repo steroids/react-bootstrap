@@ -37,6 +37,8 @@
     --additional-light-gray: #F8F8F8;
     --additional-light: #9088A1;
     --additional-light-blue: #F9FCFF;
+    --scroll-thumb-color: #e5e9eb;
+    --scroll-track-color: #f5f8fa;
 }
 
 html[data-theme="dark"] {
@@ -78,6 +80,8 @@ html[data-theme="dark"] {
     --additional-light-gray: #4A4B53;
     --additional-light: #B7AFC7;
     --additional-light-blue: #DAEAF6;
+    --scroll-thumb-color: #5b5c6b;
+    --scroll-track-color: #444147;
 }
 
 /*
@@ -122,6 +126,8 @@ $additional-gray: var(--additional-gray);
 $additional-light-gray: var(--additional-light-gray);
 $additional-light: var(--additional-light);
 $additional-light-blue: var(--additional-light-blue);
+$scroll-thumb-color: var(--scroll-thumb-color);
+$scroll-track-color: var(--scroll-track-color);
 
 /*
  * Common colors   
