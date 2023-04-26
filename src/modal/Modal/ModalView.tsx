@@ -5,6 +5,7 @@ import Controls from '@steroidsjs/core/ui/nav/Controls';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
 import {Icon} from '@steroidsjs/core/ui/content';
+import {Button} from '@steroidsjs/core/ui/form';
 
 export default function ModalView(props: IModalViewProps & IBemHocOutput) {
     const bem = useBem('ModalView');
@@ -39,12 +40,15 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
             <div className={bem.element('content')}>
                 {props.children}
             </div>
-            {props.controls && (
+            {props.buttons && (
                 <div className={bem.element('footer')}>
-                    <Controls
-                        className={bem.element('controls')}
-                        items={props.controls}
-                    />
+                    {props.buttons.map((button, buttonIndex) => (
+                        <Button
+                            key={buttonIndex}
+                            {...button}
+                            size={props.size}
+                        />
+                    ))}
                 </div>
             )}
         </Modal>

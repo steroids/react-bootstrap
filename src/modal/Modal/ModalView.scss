@@ -1,4 +1,6 @@
 .ModalView {
+    $root: &;
+
     &_overlay {
         z-index: 100;
         position: fixed;
@@ -17,6 +19,68 @@
         margin: auto;
         overflow: hidden;
         background-color: $element-background-color;
+        color: $text-color;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+        &_size {
+            &_lg {
+                width: 540px;
+                border-radius: 16px;
+
+                font-size: $font-size-lg;
+                line-height: $line-height-lg;
+
+                #{$root}__header {
+                    padding: 24px;
+                }
+
+                #{$root}__content {
+                    padding: 24px;
+                }
+
+                #{$root}__footer { 
+                    padding: 24px 116px;
+                }
+            }
+            &_md {
+                width: 480px;
+                border-radius: $radius-large;
+
+                font-size: $font-size-base;
+                line-height: $line-height-base;
+
+                #{$root}__header {
+                    padding: 21px 20px;
+                }
+
+                #{$root}__content {
+                    padding: 20px;
+                }
+
+                #{$root}__footer { 
+                    padding: 20px 86px;
+                }
+            }
+            &_sm {
+                width: 420px;
+                border-radius: $radius-small;
+
+                font-size: $font-size-sm;
+                line-height: $line-height-sm;
+
+                #{$root}__header {
+                    padding: 19px 16px;
+                }
+
+                #{$root}__content {
+                    padding: 16px;
+                }
+
+                #{$root}__footer { 
+                    padding: 16px 56px;
+                }
+            }
+        }
     }
 
     &__header {
@@ -30,11 +94,16 @@
         }
     }
 
+    &__title {
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: $font-weight-lg;
+    }
+
     &__close {
         cursor: pointer;
         width: 24px;
         height: 24px;
-
 
         svg {
             path {
@@ -44,13 +113,16 @@
     }
 
     &__content {
+        font-size: inherit;
+        line-height: inherit;
     }
 
     &__footer {
-    }
-
-    &__controls.ControlsView {
-        flex-direction: row-reverse;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        column-gap: 8px;
     }
 
     // Fade animation
