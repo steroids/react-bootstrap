@@ -1,108 +1,74 @@
 .ModalView {
+    &_overlay {
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
-  &_overlay {
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+        display: flex;
+        padding: 50px;
 
-    display: flex;
-    padding: 50px;
-
-    background-color: rgba(0,0,0,0.7);
-  }
-
-  &__body {
-    margin: auto;
-    background: #fff;
-
-    &_size {
-      &_small {
-        width: 400px;
-      }
-      &_middle {
-        width: 600px;
-      }
-      &_large {
-        width: 960px;
-      }
-    }
-  }
-
-  &__header {
-    position: relative;
-    padding: 15px;
-
-    color: #333;
-    font-size: 20px;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  &__close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-
-    &:hover::before,
-    &:hover::after {
-      background-color: #333;
+        background-color: rgba(0, 0, 0, 0.7);
     }
 
-    &::before,
-    &::after
-    {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 50%;
-      margin-top: -8px;
-      left: 50%;
-      width: 1px;
-      height: 16px;
-      background-color: #888;
+    &__body {
+        margin: auto;
+        overflow: hidden;
+        background-color: $element-background-color;
     }
 
-    &::before {
-      transform: rotate(45deg);
+    &__header {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+
+        > * {
+            display: inline-block;
+        }
     }
 
-    &::after {
-      transform: rotate(-45deg);
+    &__close {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+
+
+        svg {
+            path {
+                stroke: $text-color;
+            }
+        }
     }
-  }
 
-  &__content {
-    padding: 15px;
-  }
+    &__content {
+    }
 
-  &__footer {
-    padding: 15px;
-    border-top: 1px solid #f0f0f0;
-  }
-  &__controls.ControlsView {
-    flex-direction: row-reverse;
-  }
+    &__footer {
+    }
 
-  // Fade animation
+    &__controls.ControlsView {
+        flex-direction: row-reverse;
+    }
 
-  &_overlay {
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-  }
+    // Fade animation
+    &_overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
 
-  &_overlay-after {
-    opacity: 1;
-  }
+    &_overlay-after {
+        opacity: 1;
+    }
 
-  &_overlay-before {
-    opacity: 0;
-  }
+    &_overlay-before {
+        opacity: 0;
+    }
 }
 
 // Class to hide body scroll, when Modal is opened
 .ModalView_body-hide-scroll {
-  overflow: hidden;
+    overflow: hidden;
 }

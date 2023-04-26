@@ -4,6 +4,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
+import {Icon} from '@steroidsjs/core/ui/content';
 
 export default function ModalView(props: IModalViewProps & IBemHocOutput) {
     const bem = useBem('ModalView');
@@ -29,13 +30,10 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
                 <span className={bem.element('title')}>
                     {props.title}
                 </span>
-                <button
+                <Icon
+                    name='Cross_12x12'
                     className={bem.element('close')}
-                    onClick={e => {
-                        e.preventDefault();
-                        props.onClose();
-                    }}
-                    aria-label={__('Закрыть')}
+                    onClick={props.onClose}
                 />
             </div>
             <div className={bem.element('content')}>

@@ -275,6 +275,7 @@ export default (customIcons: Record<string, any>) => {
         'field-list-remove',
         'add',
         'file-loading',
+        'Cross_12x12',
     ];
 
     steroidsIcons.forEach(iconName => {
