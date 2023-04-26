@@ -1,5 +1,18 @@
 .ControlsView {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    width: 24px;
+    height: 24px;
+
+    a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .ButtonView {
+        border: none;
+    }
 }
