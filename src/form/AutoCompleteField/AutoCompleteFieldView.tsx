@@ -12,9 +12,8 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
 
     const renderItems = () => {
         const renderItem = (item: any) => {
-            const hasAdditionalIcon = !!item.additional?.icon;
+            const hasIcon = !!item.additional?.icon;
             const hasAdditionalText = !!item.additional?.text;
-            const hasAnyAdditional = hasAdditionalText || hasAdditionalIcon;
 
             return (
                 <button
@@ -28,21 +27,19 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                     onMouseOver={() => props.onItemHover(item[props.primaryKey])}
                 >
                     <span className={bem.element('drop-down-item-label')}>{item.label}</span>
-                    {hasAnyAdditional && (
-                        <div className={bem.element('drop-down-item-additional')}>
-                            {hasAdditionalIcon && (
-                                <Icon
-                                    name={item.additional?.icon}
-                                    className={bem.element('drop-down-item-additional-icon')}
-                                />
-                            )}
-                            {hasAdditionalText && (
-                                <span className={bem.element('drop-down-item-additional-text')}>
-                                    {item.additional.text}
-                                </span>
-                            )}
-                        </div>
-                    )}
+                    <div className={bem.element('drop-down-item-additional')}>
+                        {hasIcon && (
+                            <Icon
+                                name={item.additional?.icon}
+                                className={bem.element('drop-down-item-additional-icon')}
+                            />
+                        )}
+                        {hasAdditionalText && (
+                            <span className={bem.element('drop-down-item-additional-text')}>
+                                {item.additional.text}
+                            </span>
+                        )}
+                    </div>
                 </button>
             );
         };
@@ -66,8 +63,8 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                                 ))}
                             </div>
                         </div>
+
                     ))}
-                    {props.items.map((item) => !item.category && renderItem(item))}
                 </>
             );
         }
@@ -88,7 +85,6 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                     opened: props.isOpened,
                 }), props.className,
             )}
-            style={props.style}
         >
             <input
                 {...props.inputProps}
