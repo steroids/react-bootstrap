@@ -19,13 +19,21 @@ export default function ListView(props: IListViewProps) {
 
         return (
             <div className={bem.element('pagination')}>
-                <div>
-                    {pagination}
-                </div>
-                <div>
-                    {layout}
-                    {paginationSize}
-                </div>
+                {pagination && (
+                    <div className={bem.element('pagination-button')}>
+                        {pagination}
+                    </div>
+                )}
+                {paginationSize && (
+                    <div className={bem.element('pagination-sizes')}>
+                        {paginationSize}
+                    </div>
+                )}
+                {layout && (
+                    <div className={bem.element('pagination-layout')}>
+                        {layout}
+                    </div>
+                )}
             </div>
         );
     };

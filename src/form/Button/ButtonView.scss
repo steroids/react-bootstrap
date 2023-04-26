@@ -6,7 +6,7 @@ $btn-letter-spacing: 0.1em;
 .ButtonView {
     $root: &;
 
-    transition-property: color, background-color, border-color, box-shadow;
+    transition-property: color, background-color, border-color, box-shadow, stroke;
     transition-duration: 0.15s;
     transition-timing-function: ease-in-out;
 
@@ -61,8 +61,6 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-
-
     &_tag { 
         &-a { 
             width: auto;
@@ -102,15 +100,6 @@ $btn-letter-spacing: 0.1em;
         width: auto;
         height: auto;
         background-color: transparent;
-        
-        #{$root}__label {
-            display: inline;
-            color: $link-color;
-        }
-
-        #{$root}__label:hover {
-            color: $link-color-hover;
-        }
 
         &:focus-visible, &:focus {
             border: none;
@@ -121,17 +110,16 @@ $btn-letter-spacing: 0.1em;
         }
     }
 
-    &__label {
-        display: flex;
-        flex-direction: row;
-        column-gap: 10px;
-    }
-
     &__icon {
-        width: 16px;
-        height: 16px;
+        margin-right: 10px;
+        width: fit-content;
+        height: fit-content;
         &_without-label {
             margin: 0;
+        }
+
+        svg path {
+            transition: stroke 0.15s ease-in-out;
         }
     }
 

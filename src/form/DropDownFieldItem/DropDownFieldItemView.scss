@@ -1,4 +1,3 @@
-
 :root {
     --drop-down-item-hover-background-color: #f5f8fa;
     --drop-down-item-select-background-color: #eef1f2;
@@ -107,26 +106,29 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             right: 0;
         }
 
-        .RadioFieldView__label .RadioFieldView__ellipse { 
+        .RadioFieldView__label .RadioFieldView__ellipse {
             left: auto;
         }
 
         &_size {
             &_lg {
                 span {
-                    right: 13.5px;
+                    right: 0;
+                    transform: translateX(-115%) translateY(-50%);
                 }
             }
 
             &_md {
                 span {
-                    right: 12.5px;
+                    right: 0;
+                    transform: translateX(-130%) translateY(-50%);
                 }
             }
 
             &_sm {
                 span {
-                    right: 11.5px;
+                    right: 0;
+                    transform: translateX(-150%) translateY(-50%);
                 }
             }
         }
@@ -154,7 +156,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
 
                 border: none;
                 background-color: $element-background-color;
-                
+
                 &:hover {
                     background-color: $drop-down-item-hover-background-color;
                 }

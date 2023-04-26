@@ -1,5 +1,6 @@
 @import './scss/mixins';
 @import './scss/variables';
+@import './scss/animations';
 @import './scss/fonts';
 
 @import './crud/Crud/CrudView';
@@ -16,6 +17,7 @@
 @import './content/DropDown/DropDownView.scss';
 @import './content/Menu/MenuItemView';
 @import './content/Menu/MenuView';
+@import './content/Icon/IconView';
 @import './form/AutoCompleteField/AutoCompleteFieldView';
 @import './form/Button/ButtonView';
 @import './form/CheckboxField/CheckboxFieldView';
@@ -31,6 +33,7 @@
 @import './form/FieldList/FieldListItemView';
 @import './form/FileField/FileFieldView';
 @import './form/FileField/FileFieldItemView';
+@import './form/FieldSet/FieldSetView';
 @import './form/Form/FormView';
 @import './form/HtmlField/HtmlFieldView';
 @import './form/InputField/InputFieldView';

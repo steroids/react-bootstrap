@@ -1,35 +1,74 @@
+:root {
+  --background-th: #f1f5f7;
+}
+
+html[data-theme="dark"] { 
+  --background-th: #414141;
+}
+
+$background-th: var(--background-th);
+
 .FieldListView {
-
-  &__table {
-    th, thead th, td {
-      border: none;
-    }
+  table {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid $additional-gray;
+    border-collapse: separate;
+    border-radius: 10px;
+    border-spacing: 0;
+    overflow: hidden;
   }
 
-  &__table-cell {
-    .form-group {
-      margin-bottom: 0;
-    }
-
-    &_remove {
-      vertical-align: middle !important;
-    }
+  th:not(:last-child), td:not(:last-child) {
+    border-right: 1px solid $additional-gray;
   }
 
-  &__table-cell-header {
-    padding-bottom: 0 !important;
+  tr th {
+    border-bottom: 1px solid $additional-gray;
+    background-color: $background-th;
+    color: $text-color;
+    font-size: 14px;
+    line-height: 18px;
   }
 
-  &__remove {
-    cursor: pointer;
-    color: $danger;
+  tr:not(:last-child) td {
+    border-bottom: 1px solid $additional-gray;
+  }
+  
+  tfoot > tr > td{
+    border-top: 1px solid $additional-gray;
+  }
+
+  tr td {
+    padding: 12px;
+  }
+
+  tr th {
+    text-align: left;
+    padding: 20px 12px;
+  }
+
+  tr td .CheckboxFieldView{
+    justify-content: center
+  }
+
+  &_hasAlternatingColors {
+    tr:nth-child(even) {
+      background-color: $additional-light-gray;
+    }
   }
 
   &__button-add {
-    margin-left: 0.75rem;
+    > span {
+      gap: 4px;
+    }
+
+    svg > * {
+      stroke: inherit;
+    }
   }
 
-  .FileFieldView__files {
+  .FieldLayoutView {
     margin-bottom: 0;
   }
 }

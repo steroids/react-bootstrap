@@ -1,0 +1,42 @@
+:root {
+    --legend-color: #152536;
+    --legend-background-color: #ffffff;
+    --fieldset-border-color: #E6E6E6;
+}
+  
+html[data-theme="dark"] { 
+    --legend-color: #ffffff;
+    --legend-background-color: #414141;
+    --fieldset-border-color: #595959;
+}
+  
+$legend-color: var(--legend-color);
+$legend-background-color: var(--legend-background-color);
+$fieldset-border-color: var(--fieldset-border-color);
+
+.FieldSetView{
+    border: 1px solid $fieldset-border-color;
+    border-radius: 8px;
+
+    &__legend {
+        background-color: $legend-background-color;
+        color: $legend-color;
+
+        padding: 8px;
+        margin-left: 16px;
+
+        line-height: 32px;
+        font-weight: 700;
+        font-size: 24px;
+
+    }
+
+    .FieldLayoutView {
+        padding: 0px 24px 24px 24px;
+        margin-bottom: 0px;
+    }
+
+    .FieldLayoutView + .FieldLayoutView {
+        padding-top: 0px;
+    }
+}
