@@ -271,8 +271,8 @@ export default (customIcons: Record<string, any>) => {
         'comeback',
         'remove',
         'show',
-        'add',
-        'edit',
+        'add1',
+        'edit1',
     ];
 
     steroidsIcons.forEach(iconName => {
