@@ -9,7 +9,12 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
     const bem = useBem('FieldLayoutView');
 
     return (
-        <div className={bem.block()}>
+        <div
+            className={bem(
+                bem.block(),
+                props.className,
+            )}
+        >
             {props.label && (
                 <label
                     htmlFor={props.id}
