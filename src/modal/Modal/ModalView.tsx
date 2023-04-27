@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Modal from 'react-modal';
 import {useBem} from '@steroidsjs/core/hooks';
-import Controls from '@steroidsjs/core/ui/nav/Controls';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
 import {Icon} from '@steroidsjs/core/ui/content';
@@ -45,8 +44,8 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
                     {props.buttons.map((button, buttonIndex) => (
                         <Button
                             key={buttonIndex}
-                            {...button}
                             size={props.size}
+                            {...button}
                         />
                     ))}
                 </div>
