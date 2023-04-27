@@ -49,56 +49,56 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
         background-color: $element-background-color;
         border: 1px solid $border-color;
         overflow: hidden;
+    }
 
-        &-list {
-            display: flex;
-            flex-flow: column nowrap;
-            @include scrollWrapper(240px, 0, $scroll-thumb-color, $scroll-track-color);
+    &__list {
+        display: flex;
+        flex-flow: column nowrap;
+        @include scrollWrapper(240px, 0, $scroll-thumb-color, $scroll-track-color);
+    }
+
+    &__item {
+        width: 100%;
+        background-color: $element-background-color;
+        outline: none;
+        border: none;
+        text-align: left;
+
+        color: $text-color;
+        cursor: pointer;
+
+        font-size: inherit;
+        line-height: inherit;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        &-label {
+            display: inline-block;
         }
 
-        &-item {
-            width: 100%;
-            background-color: $element-background-color;
-            outline: none;
-            border: none;
-            text-align: left;
+        &_hover {
+            background-color: $autocomplete-hover-color;
+        }
 
-            color: $text-color;
-            cursor: pointer;
+        &_select {
+            background-color: $autocomplete-selected-color;
+        }
 
-            font-size: inherit;
-            line-height: inherit;
-
+        &-additional {
             display: flex;
-            flex-flow: row nowrap;
-            justify-content: space-between;
+            align-items: center;
+            column-gap: 4px;
 
-            &-label {
+            &-icon {
                 display: inline-block;
-            }
+                width: 24px;
+                height: 24px;
 
-            &_hover {
-                background-color: $autocomplete-hover-color;
-            }
-
-            &_select {
-                background-color: $autocomplete-selected-color;
-            }
-
-            &-additional {
-                display: flex;
-                align-items: center;
-                column-gap: 4px;
-
-                &-icon {
-                    display: inline-block;
-                    width: 24px;
-                    height: 24px;
-
-                    path,
-                    circle {
-                        stroke: $autocomplete-icon-color;
-                    }
+                path,
+                circle {
+                    stroke: $autocomplete-icon-color;
                 }
             }
         }
@@ -142,12 +142,12 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
                 border-radius: $radius-large;
             }
 
-            #{$root}__drop-down-item {
+            #{$root}__item {
                 padding: 16px;
             }
 
             #{$root}__category {
-                #{$root}__drop-down-item {
+                #{$root}__item {
                     padding: 16px 24px;
                 }
 
@@ -169,12 +169,12 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
                 border-radius: $radius-large;
             }
 
-            #{$root}__drop-down-item {
+            #{$root}__item {
                 padding: 12px;
             }
 
             #{$root}__category {
-                #{$root}__drop-down-item {
+                #{$root}__item {
                     padding: 12px 20px;
                 }
 
@@ -195,12 +195,12 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
                 border-radius: $radius-small;
             }
 
-            #{$root}__drop-down-item {
+            #{$root}__item {
                 padding: 8px;
             }
 
             #{$root}__category {
-                #{$root}__drop-down-item {
+                #{$root}__item {
                     padding: 8px 16px;
                 }
 
