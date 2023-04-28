@@ -1,46 +1,22 @@
 :root {
   --gradient-color-primary-first: #651FFF;
   --gradient-color-primary-second: #BA9BFF;
-  --color-gray: #DBE2E6;
 }
 
 html[data-theme="dark"] { 
   --gradient-color-primary-first: #9362FF;
   --gradient-color-primary-second: #B898FF;
-  --color-gray: #5B5C6B;
 }
 
 $gradient-color-primary-first: var(--gradient-color-primary-first);
 $gradient-color-primary-second: var(--gradient-color-primary-second);
-$color-gray: var(--color-gray);
 
 .LoaderView {
+  $root: &;
   height: 100%;
 
-  &__loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 100%;
-
-    &_color_primary {
-      svg stop:first-child {
-        stop-color: $gradient-color-primary-first;
-      }
-  
-      svg stop:last-child {
-        stop-color: $gradient-color-primary-second;
-      }
-    }
-
-    &_color_gray {
-      svg stop {
-        stop-color: $color-gray;
-      }
-    }
-
-    &_size_small {
+  &_size {
+    &_sm {
       svg {
         height: 33px;
         width: 33px;
@@ -49,8 +25,7 @@ $color-gray: var(--color-gray);
         }
       }
     }
-
-    &_size_large {
+    &_lg {
       svg {
         height: 55px;
         width: 55px;
@@ -61,11 +36,33 @@ $color-gray: var(--color-gray);
     }
   }
 
+  &__loader {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   &__icon {
     display: flex;
     align-items: center;
     justify-content: center;
     animation: Loader-spin 1.1s infinite linear;
+  }
+
+  &_color_gradient {
+    svg stop:first-child {
+      stop-color: $gradient-color-primary-first;
+    }
+    svg stop:last-child {
+      stop-color: $gradient-color-primary-second;
+    }
+  }
+
+  @each $colorName, $colorMap in $color-themes {
+    &_color_#{$colorName} {
+        @include loader-color($colorMap, $colorName, $root);
+    }
   }
 }
 

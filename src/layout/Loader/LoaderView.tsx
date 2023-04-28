@@ -8,12 +8,12 @@ import {ILoaderProps} from '@steroidsjs/core/ui/layout/Loader/Loader';
 export default function LoaderView(props:ILoaderProps & IBemHocOutput) {
     const bem = useBem('LoaderView');
     return (
-        <div className={bem.block()}>
-            <div className={bem.element('loader', {
-                size: props.size,
-                color: props.color,
-            })}
-            >
+        <div className={bem.block({
+            color: props.color,
+            size: props.size,
+        })}
+        >
+            <div className={bem.element('loader')}>
                 <Icon
                     className={bem.element('icon')}
                     name='loading'
