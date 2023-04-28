@@ -13,12 +13,10 @@ export default function LoaderView(props:ILoaderProps & IBemHocOutput) {
             size: props.size,
         })}
         >
-            <div className={bem.element('loader')}>
-                <Icon
-                    className={bem.element('icon')}
-                    name='loading'
-                />
-            </div>
+            <Icon
+                className={bem.element('icon')}
+                name='loading'
+            />
         </div>
     );
 }

@@ -14,6 +14,9 @@ $gradient-color-primary-second: var(--gradient-color-primary-second);
 .LoaderView {
   $root: &;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &_size {
     &_sm {
@@ -22,6 +25,15 @@ $gradient-color-primary-second: var(--gradient-color-primary-second);
         width: 33px;
         path {
           stroke-width: 4px;
+        }
+      }
+    }
+    &_md {
+      svg {
+        height: 44px;
+        width: 44px;
+        path {
+          stroke-width: 6px;
         }
       }
     }
@@ -34,13 +46,6 @@ $gradient-color-primary-second: var(--gradient-color-primary-second);
         }
       }
     }
-  }
-
-  &__loader {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   &__icon {
