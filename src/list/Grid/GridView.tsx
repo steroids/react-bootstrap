@@ -63,10 +63,19 @@ export default function GridView(props: IGridViewProps) {
     const emptyContent = useMemo(() => props.renderEmpty(), [props]);
 
     return props.renderList(
-        <div className={bem(bem.block({loading: props.isLoading || props.list?.isLoading}), props.className)}>
+        <div className={bem(
+            bem.block(
+                {
+                    loading: props.isLoading || props.list?.isLoading,
+                    size: props.size,
+                    alternatingColors: props.hasAlternatingColors,
+                },
+            ), props.className,
+        )}
+        >
             {props.renderSearchForm()}
             {props.renderPaginationSize()}
-            <table className='table table-striped'>
+            <table className={bem.element('table')}>
                 <thead>
                     <tr>
                         {props.columns.map((column, columnIndex) => (
@@ -93,7 +102,10 @@ export default function GridView(props: IGridViewProps) {
                             {props.columns.map((column, columnIndex) => (
                                 <td
                                     key={columnIndex}
-                                    className={column.className}
+                                    className={bem(
+                                        bem.element('column'),
+                                        column.className,
+                                    )}
                                     data-label={_isString(column.label) ? column.label : null}
                                 >
                                     {props.renderValue(item, column)}

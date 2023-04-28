@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Modal from 'react-modal';
 import {useBem} from '@steroidsjs/core/hooks';
-import Controls from '@steroidsjs/core/ui/nav/Controls';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
+import {Icon} from '@steroidsjs/core/ui/content';
+import {Button} from '@steroidsjs/core/ui/form';
 
 export default function ModalView(props: IModalViewProps & IBemHocOutput) {
     const bem = useBem('ModalView');
@@ -29,24 +30,24 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
                 <span className={bem.element('title')}>
                     {props.title}
                 </span>
-                <button
+                <Icon
+                    name='Cross_12x12'
                     className={bem.element('close')}
-                    onClick={e => {
-                        e.preventDefault();
-                        props.onClose();
-                    }}
-                    aria-label={__('Закрыть')}
+                    onClick={props.onClose}
                 />
             </div>
             <div className={bem.element('content')}>
                 {props.children}
             </div>
-            {props.controls && (
+            {props.buttons && (
                 <div className={bem.element('footer')}>
-                    <Controls
-                        className={bem.element('controls')}
-                        items={props.controls}
-                    />
+                    {props.buttons.map((button, buttonIndex) => (
+                        <Button
+                            key={buttonIndex}
+                            size={props.size}
+                            {...button}
+                        />
+                    ))}
                 </div>
             )}
         </Modal>

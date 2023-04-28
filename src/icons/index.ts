@@ -272,10 +272,16 @@ export default (customIcons: Record<string, any>) => {
         'paste',
         'pin',
         'trash',
+        'comeback',
+        'remove',
+        'show',
+        'add1',
+        'edit1',
         'field-list-remove',
         'add',
         'file-loading',
         'loading',
+        'Cross_12x12',
     ];
 
     steroidsIcons.forEach(iconName => {
