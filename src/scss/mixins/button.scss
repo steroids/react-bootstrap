@@ -1,9 +1,3 @@
-@mixin loader-color($colorMap, $colorName, $root) {
-    svg stop { 
-        stop-color: map-get($colorMap, color);
-    }
-}
-
 @mixin svg-color($color) {
     svg {
         path { 
