@@ -1,157 +1,214 @@
-.AutoCompleteFieldView {
-  position: relative;
+@import "../../scss/variables";
+@import "../../scss/mixins";
 
-  font-size: 1rem;
-  &_size_sm {
-    font-size: 0.7875rem;
-  }
-  &_size_lg {
-    font-size: 1.25rem;
-  }
-
-  &__selected-items {
-    padding: 0.375rem 1.75rem 0.375rem 0.75rem;
-    min-width: 100px;
-    //height: 38px;
-    cursor: pointer;
-    background-color: black; //changed
-    background-clip: blue; //changed
-    border: 1px solid red; //changed
-    border-radius: 0.25rem;
-    line-height: 1.5;
-    color: red; //changed
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      display: inline-block;
-      width: 0;
-      height: 0;
-      border-top: 0.3em solid;
-      border-right: 0.3em solid transparent;
-      border-bottom: 0;
-      border-left: 0.3em solid transparent;
-    }
-
-    &_reset {
-      padding-right: 3rem;
-    }
-
-    &_is-invalid {
-      border-color: black; //changed
-    }
-  }
-  &_size_sm &__selected-items {
-    padding: 0.25rem 0.5rem;
-    line-height: 1.5;
-    border-radius: 0.2rem;
-    //height: 31px;
-  }
-  &_size_lg &__selected-items {
-    padding: 0.5rem 1rem;
-    line-height: 1.5;
-    border-radius: 0.3rem;
-    //height: 48px;
-  }
-
-  &__reset {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 20px;
-    width: 30px;
-    height: 100%;
-    cursor: pointer;
-
-    &::before,
-    &::after
-    {
-      display: block;
-      position: absolute;
-      top: 50%;
-      margin-top: -5px;
-      left: 50%;
-      width: 1px;
-      height: 10px;
-      background-color: yellow; //
-      content: '';
-    }
-
-    &::before {
-      transform: rotate(45deg);
-    }
-
-    &::after {
-      transform: rotate(-45deg);
-    }
-  }
-
-  &__drop-down {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    width: 100%;
-    z-index: 10;  //changed
-    background-color: #fff; //changed
-    line-height: 1.5;
-    padding: 5.5px 0;
-    border: 1px solid #CCCCCC;
-    filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.1));
-    border-radius: 10px;
-  }
-
-  &__drop-down-list {
-    display: flex;
-    flex-direction: column;
-    max-height: 273px;
-    overflow: auto;
-  }
-
-  &__search {
-    padding: 0.25rem 0.5rem;
-
-    > .form-control {
-      width: 100%;
-    }
-  }
-  &_size_sm &__search {
-    padding: 0.1rem 0.2rem;
-  }
-
-  &__drop-down-item {
-    display: flex;
-    justify-content: flex-start;
-    padding: 10px 34px;
-    cursor: pointer;
-    border: unset;
-    background-color: #fff;
-    font-size: 14px;
-    line-height: 140%;
-    &_hover {
-      background-color: #F8F8F8; //
-    }
-
-    &_select {
-      background-color: #F8F8F8; //
-      color: #152536; //
-    }
-  }
-  &_size_sm &__drop-down-item {
-    padding: 0.25rem 0.5rem;
-  }
-  &_size_lg &__drop-down-item {
-    padding: 0.5rem 1rem;
-  }
+:root {
+    --autocomplete-hover-color: #f1f5f7;
+    --autocomplete-selected-color: #dbe2e6;
+    --autocomplete-icon-color: #313131;
 }
 
-.form-control:focus{
-  box-shadow: unset;
-  border: 4px solid #A7EFFF;
-  border-radius: 4px;
+html[data-theme="dark"] {
+    --autocomplete-hover-color: #4e4f57;
+    --autocomplete-selected-color: #5b5c6b;
+    --autocomplete-icon-color: #ffffff;
+}
+
+$autocomplete-hover-color: var(--autocomplete-hover-color);
+$autocomplete-selected-color: var(--autocomplete-selected-color);
+$autocomplete-icon-color: var(--autocomplete-icon-color);
+
+.AutoCompleteFieldView {
+    $root: &;
+
+    position: relative;
+
+    &__input {
+        width: 100%;
+        border: 1px solid $border-color;
+        background-color: $element-background-color;
+        color: $text-color;
+        transition: border-color 150ms ease-in-out;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    &_opened {
+        #{$root}__input {
+            border-color: $primary;
+        }
+    }
+
+    &__drop-down {
+        width: 100%;
+        top: 100%;
+        left: 0;
+        position: absolute;
+        z-index: 9999;
+        margin-top: 8px;
+        border-radius: $radius-large;
+        background-color: $element-background-color;
+        border: 1px solid $border-color;
+        overflow: hidden;
+    }
+
+    &__list {
+        display: flex;
+        flex-flow: column nowrap;
+        @include scrollWrapper(240px, 0, $scroll-thumb-color, $scroll-track-color);
+    }
+
+    &__item {
+        width: 100%;
+        background-color: $element-background-color;
+        outline: none;
+        border: none;
+        text-align: left;
+
+        color: $text-color;
+        cursor: pointer;
+
+        font-size: inherit;
+        line-height: inherit;
+
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+
+        &-label {
+            display: inline-block;
+        }
+
+        &_hover {
+            background-color: $autocomplete-hover-color;
+        }
+
+        &_select {
+            background-color: $autocomplete-selected-color;
+        }
+
+        &-additional {
+            display: flex;
+            align-items: center;
+            column-gap: 4px;
+
+            &-icon {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+
+                path,
+                circle {
+                    stroke: $autocomplete-icon-color;
+                }
+            }
+        }
+    }
+
+    &__category {
+        background-color: $element-background-color;
+        width: 100%;
+
+        &__label {
+            display: block;
+            padding: 12px 8px;
+            color: $placeholder-color;
+        }
+        &__content {
+            width: 100%;
+        }
+
+        &_hidden {
+            display: none;
+        }
+    }
+
+    &__nothing {
+        color: $placeholder-color;
+        width: 100%;
+        margin-bottom: 48px;
+        padding: 8px 12px;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+    }
+
+    &_size {
+        &_lg {
+            font-size: $font-size-lg;
+            line-height: $line-height-lg;
+
+            #{$root}__input {
+                padding: 16px 8px;
+                height: $input-height-lg;
+                border-radius: $radius-large;
+            }
+
+            #{$root}__item {
+                padding: 16px;
+            }
+
+            #{$root}__category {
+                #{$root}__item {
+                    padding: 16px 24px;
+                }
+
+               
+                &__label {
+                    font-size: $font-size-base;
+                    line-height: $line-height-base;
+                }
+            }
+        }
+
+        &_md {
+            font-size: $font-size-base;
+            line-height: $line-height-lg;
+
+            #{$root}__input {
+                padding: 11px 8px;
+                height: $input-height-md;
+                border-radius: $radius-large;
+            }
+
+            #{$root}__item {
+                padding: 12px;
+            }
+
+            #{$root}__category {
+                #{$root}__item {
+                    padding: 12px 20px;
+                }
+
+                &__label {
+                    font-size: $font-size-sm;
+                    line-height: $line-height-sm;
+                }
+            }
+        }
+
+        &_sm {
+            font-size: $font-size-sm;
+            line-height: $line-height-lg;
+
+            #{$root}__input {
+                padding: 5px 8px;
+                height: $input-height-sm;
+                border-radius: $radius-small;
+            }
+
+            #{$root}__item {
+                padding: 8px;
+            }
+
+            #{$root}__category {
+                #{$root}__item {
+                    padding: 8px 16px;
+                }
+
+                &__label {
+                    font-size: $font-size-xs;
+                    line-height: $line-height-xs;
+                }
+            }
+        }
+    }
 }
