@@ -59,12 +59,13 @@ $background-th: var(--background-th);
   }
 
   &__button-add {
+    svg {
+      path { 
+          stroke: $primary;
+      }
+    }
     > span {
       gap: 4px;
-    }
-
-    svg > * {
-      stroke: inherit;
     }
   }
 
