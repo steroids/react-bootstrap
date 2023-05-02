@@ -39,7 +39,7 @@
                 }
 
                 #{$root}__footer { 
-                    padding: 24px 0;
+                    padding: 24px;
                 }
             }
             &_md {
@@ -57,7 +57,7 @@
                 }
 
                 #{$root}__footer { 
-                    padding: 20px 0;
+                    padding: 20px;
                 }
             }
             &_sm {
@@ -75,7 +75,7 @@
                 }
 
                 #{$root}__footer { 
-                    padding: 16px 0;
+                    padding: 16px;
                 }
             }
         }
