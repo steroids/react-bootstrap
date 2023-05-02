@@ -280,6 +280,7 @@ export default (customIcons: Record<string, any>) => {
         'field-list-remove',
         'add',
         'file-loading',
+        'loading',
         'Cross_12x12',
     ];
 
