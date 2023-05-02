@@ -1,5 +1,6 @@
 .ModalView {
     $root: &;
+    min-width: 300px;
 
     &_overlay {
         z-index: 100;
@@ -24,7 +25,6 @@
 
         &_size {
             &_lg {
-                width: 540px;
                 border-radius: 16px;
 
                 font-size: $font-size-lg;
@@ -39,11 +39,10 @@
                 }
 
                 #{$root}__footer { 
-                    padding: 24px 116px;
+                    padding: 24px 0;
                 }
             }
             &_md {
-                width: 480px;
                 border-radius: $radius-large;
 
                 font-size: $font-size-base;
@@ -58,11 +57,10 @@
                 }
 
                 #{$root}__footer { 
-                    padding: 20px 86px;
+                    padding: 20px 0;
                 }
             }
             &_sm {
-                width: 420px;
                 border-radius: $radius-small;
 
                 font-size: $font-size-sm;
@@ -77,7 +75,7 @@
                 }
 
                 #{$root}__footer { 
-                    padding: 16px 56px;
+                    padding: 16px 0;
                 }
             }
         }
