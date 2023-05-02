@@ -280,6 +280,13 @@ export default (customIcons: Record<string, any>) => {
         'field-list-remove',
         'add',
         'file-loading',
+        'Date_range_duotone',
+        'Cross_8x8',
+        'Double_arrow_left',
+        'Double_arrow_right',
+        'eclipse-arrow-left',
+        'eclipse-arrow-right',
+
     ];
 
     steroidsIcons.forEach(iconName => {

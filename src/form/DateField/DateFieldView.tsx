@@ -26,7 +26,6 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                         size: props.size,
                         disabled: props.disabled,
                         'has-icon': !!props.icon,
-                        'is-invalid': !!props.errors,
                     }),
                     props.className,
                 )}
@@ -37,26 +36,27 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                         {...props.inputProps}
                         onChange={e => props.inputProps.onChange(e.target.value)}
                         className={bem(
-                            bem.element('input', {size: props.size}),
+                            bem.element('input'),
                             props.isInvalid && 'is-invalid',
                             props.inputProps.className,
                         )}
                     />
                     <div className={bem.element('icon-container')}>
-                        {props.icon && (
+                        {!props.inputProps.value && props.icon && (
                             <Icon
-                                className={bem.element('icon')}
-                                name={typeof props.icon === 'string' ? props.icon : 'calendar-alt'}
+                                className={bem.element('date-icon')}
+                                name={typeof props.icon === 'string' ? props.icon : 'Date_range_duotone'}
+                                tabIndex={-1}
                             />
                         )}
                         {props.showRemove && props.inputProps.value && (
                             <Icon
-                                className={bem.element('icon', 'close')}
+                                className={bem.element('close-icon')}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     props.onClear();
                                 }}
-                                name='times-circle'
+                                name='Cross_8x8'
                             />
                         )}
                     </div>

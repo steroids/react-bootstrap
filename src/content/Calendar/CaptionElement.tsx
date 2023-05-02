@@ -7,8 +7,7 @@ import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar'
 import _upperFirst from 'lodash-es/upperFirst';
 
 interface ICaptionElementProps extends CaptionElementProps,
-    Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'>
-{
+    Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'> {
     onChange: (value) => void,
     showCalendarFooter?: boolean,
 }
@@ -49,22 +48,6 @@ export default function CaptionElement(props: ICaptionElementProps) {
     return (
         <div className={bem(bem.block())}>
             <div className={bem.element('container')}>
-                <Icon
-                    className={bem.element('button')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleYearChange(currentYear - 1);
-                    }}
-                    name='angle-double-left'
-                />
-                <Icon
-                    className={bem.element('button', 'one-arrow')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleMonthChange(currentMonth - 1);
-                    }}
-                    name='angle-left'
-                />
                 <div
                     className={bem.element('content-container')}
                     onKeyPress={e => {
@@ -85,22 +68,40 @@ export default function CaptionElement(props: ICaptionElementProps) {
                         {years.find(year => year === currentYear)}
                     </span>
                 </div>
-                <Icon
-                    className={bem.element('button', 'one-arrow')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleMonthChange(currentMonth + 1);
-                    }}
-                    name='angle-right'
-                />
-                <Icon
-                    className={bem.element('button')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleYearChange(currentYear + 1);
-                    }}
-                    name='angle-double-right'
-                />
+                <div className={bem.element('container-icons')}>
+                    <Icon
+                        className={bem.element('button')}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleYearChange(currentYear - 1);
+                        }}
+                        name='Double_arrow_left'
+                    />
+                    <Icon
+                        className={bem.element('button', 'one-arrow')}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleMonthChange(currentMonth - 1);
+                        }}
+                        name='eclipse-arrow-left'
+                    />
+                    <Icon
+                        className={bem.element('button', 'one-arrow')}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleMonthChange(currentMonth + 1);
+                        }}
+                        name='eclipse-arrow-right'
+                    />
+                    <Icon
+                        className={bem.element('button')}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleYearChange(currentYear + 1);
+                        }}
+                        name='Double_arrow_right'
+                    />
+                </div>
             </div>
             {isCaptionPanelVisible && (
                 <div className={bem.element('panel', {'full-height': !props.showCalendarFooter})}>

@@ -1,134 +1,148 @@
+:root {
+    --caption-arrow-background-color: #f1f5f7;
+    --caption-arrow-color: #323232;
+}
+
+html[data-theme="dark"] {
+    --caption-arrow-background-color: #323232;
+    --caption-arrow-color: #ffffff;
+}
+
+$caption-arrow-background-color: var(--caption-arrow-background-color);
+$caption-arrow-color: var(--caption-arrow-color);
 
 .CaptionElement {
-  height: 45px;
-  display: table-caption;
-  padding: 0 10px;
-  border-bottom: 1px solid gray;
+    height: 24px;
+    display: table-caption;
 
-  & > div {
-    font-size: 14px;
-  }
+    &__container {
+        height: 100%;
+        display: flex;
+        align-items: center;
 
-  &__container {
-    height: 100%;
-    display: flex;
-  }
 
-  &__content-container {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    cursor: pointer;
-    transition: color .1s ease-in;
-
-    &:hover, &:active, &:focus {
-      color: $calendar-primary-color;
-    }
-  }
-
-  &__button {
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &.IconView svg {
-      width: 12px;
-      fill: rgba(0, 0, 0, 0.25);
-      transition: fill .1s ease-in;
+        &-icons {
+            display: flex;
+            flex-flow: row nowrap;
+            column-gap: 8px;
+        }
     }
 
-    &_one-arrow.IconView svg {
-      width: 8px;
+    &__content-container {
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        cursor: pointer;
+        transition: color 0.1s ease-in;
+
+        font-weight: $font-weight-lg;
+        font-size: $font-size-lg;
+        line-height: $line-height-lg;
+
+        &:hover,
+        &:active,
+        &:focus {
+            color: $calendar-primary-color;
+        }
     }
 
-    &:hover svg {
-      fill: rgba(0, 0, 0, .7);
-    }
-  }
+    &__button {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-  &__selected-month, &__selected-year {
-    font-size: 16px;
-  }
-
-  &__selected-month {
-    margin-right: 5px;
-  }
-
-  // Panel changing Month/Year
-
-
-  &__panel {
-    z-index: 10;
-    position: absolute;
-    top: 45px;
-    left: 0;
-    right: 0;
-    bottom: 50px;
-    background-color: $white;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 0fr 1fr;
-    gap: 0 0;
-    grid-template-areas:
-      "HeaderMonths HeaderMonths HeaderYears"
-      "Months1stCol Months2ndCol YearsCol";
-
-    &_full-height {
-      bottom: 0;
-    }
-  }
-
-  &__panel-header {
-    padding: 5px;
-
-    text-align: center;
-    border-bottom: 1px solid gray;
-    background-color: $calendar-primary-light-color;
-
-    &_months {
-      grid-area: HeaderMonths;
-      border-right: 1px solid gray;
+        rect {
+            fill: $caption-arrow-background-color;
+        }
+        path {
+            stroke: $caption-arrow-color;
+        }
     }
 
-    &_years {
-      grid-area: HeaderYears;
-    }
-  }
-
-  &__panel-column-months {
-    border-right: 1px solid gray;
-
-    &_first {
-      grid-area: Months1stCol;
+    &__selected-month,
+    &__selected-year {
+        font-size: inherit;
     }
 
-    &_second {
-      grid-area: Months2ndCol;
-    }
-  }
-
-  &__panel-column-years {
-    height: 100%;
-    grid-area: YearsCol;
-    overflow: auto;
-  }
-
-  &__panel-cell {
-    padding: 5px 15px;
-    cursor: pointer;
-
-    &_selected {
-      background-color: $calendar-primary-light-color;
+    &__selected-month {
+        margin-right: 5px;
     }
 
-    transition: background-color .1s ease-in;
+    // Panel changing Month/Year
+    &__panel {
+        z-index: 10;
+        position: absolute;
+        top: 45px;
+        left: 0;
+        right: 0;
+        bottom: 50px;
+        background-color: $white;
 
-    &:hover {
-      background-color: $calendar-secondary-light-color;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 0fr 1fr;
+        gap: 0 0;
+        grid-template-areas:
+            "HeaderMonths HeaderMonths HeaderYears"
+            "Months1stCol Months2ndCol YearsCol";
+
+        &_full-height {
+            bottom: 0;
+        }
     }
-  }
+
+    &__panel-header {
+        padding: 5px;
+
+        text-align: center;
+        border-bottom: 1px solid gray;
+        background-color: $calendar-primary-light-color;
+
+        &_months {
+            grid-area: HeaderMonths;
+            border-right: 1px solid gray;
+        }
+
+        &_years {
+            grid-area: HeaderYears;
+        }
+    }
+
+    &__panel-column-months {
+        border-right: 1px solid gray;
+
+        &_first {
+            grid-area: Months1stCol;
+        }
+
+        &_second {
+            grid-area: Months2ndCol;
+        }
+    }
+
+    &__panel-column-years {
+        height: 100%;
+        grid-area: YearsCol;
+        overflow: auto;
+    }
+
+    &__panel-cell {
+        padding: 5px 15px;
+        cursor: pointer;
+
+        &_selected {
+            background-color: $calendar-primary-light-color;
+        }
+
+        transition: background-color 0.1s ease-in;
+
+        &:hover {
+            background-color: $calendar-secondary-light-color;
+        }
+    }
 }
