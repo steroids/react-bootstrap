@@ -36,7 +36,7 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps & IBemH
                         onMouseUp={props.onHidePassword}
                     >
                         <Icon
-                            name={props.inputProps.type === 'password' ? 'crossed-out-eye' : 'visible-eye'}
+                            name={props.inputProps.type === 'password' ? 'view_hide' : 'view'}
                         />
                     </span>
                 )}

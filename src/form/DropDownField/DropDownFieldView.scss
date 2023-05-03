@@ -371,7 +371,7 @@ $drop-down-color-themes: map-merge(
         }
 
         &-input {
-            width: 220px;
+            width: 100%;
             border-radius: 6px;
             outline: none;
 
@@ -429,5 +429,9 @@ $drop-down-color-themes: map-merge(
         top: 50%;
         right: 36px;
         transform: translateY(-50%);
+
+        path {
+            stroke-width: 1.5px;
+        }
     }
 }

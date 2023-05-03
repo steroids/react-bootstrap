@@ -108,6 +108,12 @@ $btn-letter-spacing: 0.1em;
         &:hover,&:active {
             background-color: transparent;
         }
+        
+    }
+
+    &__link { 
+        display: inline-flex;
+        align-items: center;
     }
 
     &__icon {

@@ -54,9 +54,9 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
             )}
         >
             {props.showEdgeSteps
-                && renderArrowStep(bem, props.onSelectFirst, 'double-arrow-left', false, {left: true}, props.isFirstPage)}
+                && renderArrowStep(bem, props.onSelectFirst, 'double_arrow_left', false, {left: true}, props.isFirstPage)}
             {props.showSteps
-                && renderArrowStep(bem, props.onSelectPrev, 'arrow-left', false, {}, props.isFirstPage)}
+                && renderArrowStep(bem, props.onSelectPrev, 'arrow_left_24x24', false, {}, props.isFirstPage)}
             {props.pages.map((item, index) => (
                 <li
                     key={index}
@@ -76,9 +76,9 @@ export default function PaginationButtonView(props: IPaginationViewProps) {
                 </li>
             ))}
             {props.showSteps
-                && renderArrowStep(bem, props.onSelectNext, 'arrow-left', true, {}, props.isLastPage)}
+                && renderArrowStep(bem, props.onSelectNext, 'arrow_left_24x24', true, {}, props.isLastPage)}
             {props.showEdgeSteps
-                && renderArrowStep(bem, props.onSelectLast, 'double-arrow-left', true, {right: true}, props.isLastPage)}
+                && renderArrowStep(bem, props.onSelectLast, 'double_arrow_left', true, {right: true}, props.isLastPage)}
         </ul>
     );
 }

@@ -19,7 +19,7 @@ export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput
         >
             <ButtonView
                 className={bem.element('button', {isWall})}
-                icon={isWall ? 'plus' : 'upload'}
+                icon={isWall ? 'add' : 'import'}
                 {...props.buttonProps}
             />
             <div className={bem(bem.element('files'))}>

@@ -17,7 +17,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
             target='blank'
         >
             {isWall
-                ? <Icon name='visible-eye' />
+                ? <Icon name='view' />
                 : props.title}
         </a>
     ), [bem, props.title, props.error, props.item.url, isWall]);
@@ -36,7 +36,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
             <div className={bem.element('icon-wrapper', 'loading')}>
                 <Icon
                     className={bem.element('icon-loading')}
-                    name='file-loading'
+                    name='loading_icon'
                 />
             </div>
             <div className={bem.element('content')}>
@@ -64,7 +64,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
                     <div className={bem.element('icon-wrapper')}>
                         <Icon
                             className={bem.element('icon')}
-                            name={props.imagesOnly ? 'file-img-type' : 'clip'}
+                            name={props.imagesOnly ? 'img_box' : 'clip'}
                         />
                     </div>
                 )}
@@ -88,7 +88,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
                 : renderFileItem()}
             {props.showRemove && (
                 <Icon
-                    name={props.customRemoveIcon || 'trash'}
+                    name={props.customRemoveIcon || 'trash_8'}
                     className={bem.element('remove', {isLoading})}
                     onClick={props.onRemove}
                 />

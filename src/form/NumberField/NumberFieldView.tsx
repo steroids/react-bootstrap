@@ -54,7 +54,7 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                         onClick={onStepUp}
                     >
                         <Icon
-                            name='arrow'
+                            name='expand_up'
                             tabIndex={-1}
                         />
                     </button>
@@ -66,7 +66,7 @@ export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOu
                         onClick={onStepDown}
                     >
                         <Icon
-                            name='arrow'
+                            name='expand_up'
                             tabIndex={-1}
                         />
                     </button>

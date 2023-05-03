@@ -60,7 +60,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             </div>
             {props.showReset && props.selectedIds.length > 0 && (
                 <Icon
-                    name="field-close"
+                    name="cross_8x8"
                     className={bem.element('icon-close')}
                     tabIndex={-1}
                     onClick={props.onReset}
@@ -68,7 +68,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                 />
             )}
             <Icon
-                name='accordion-chevron'
+                name='arrow_down_24x24'
                 className={bem.element('icon-chevron')}
                 tabIndex={-1}
                 onClick={props.onOpen}

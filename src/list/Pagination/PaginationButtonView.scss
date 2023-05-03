@@ -233,6 +233,10 @@ $pagination-disabled-color: var(--pagination-disabled-color);
             justify-content: center;
             align-items: center;
 
+            rect { 
+                fill: transparent;
+            }
+
             path {
                 stroke: $pagination-arrow-color;
             }

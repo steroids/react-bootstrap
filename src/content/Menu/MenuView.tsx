@@ -30,7 +30,7 @@ export default function MenuView(props: IMenuViewProps) {
                     ? renderIcon(props.icon, {className: bem.element('icon')})
                     : (
                         <Icon
-                            name='dots'
+                            name='meatballs_menu_hor'
                             className={bem.element('icon')}
                         />
                     )}
