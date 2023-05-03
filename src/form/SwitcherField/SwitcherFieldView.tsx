@@ -1,38 +1,47 @@
 import * as React from 'react';
-import _get from 'lodash-es/get';
-
-import Button from '@steroidsjs/core/ui/form/Button';
+import _isPlainObject from 'lodash-es/isPlainObject';
 import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {ISwitcherFieldViewProps} from '@steroidsjs/core/ui/form/SwitcherField/SwitcherField';
-import {useBem} from '@steroidsjs/core/hooks';
+import {ISwitcherFieldViewProps, ISwitcherItem} from '@steroidsjs/core/ui/form/SwitcherField/SwitcherField';
+import {useBem, useUniqueId} from '@steroidsjs/core/hooks';
 
 export default function SwitcherFieldView(props: ISwitcherFieldViewProps & IBemHocOutput) {
     const bem = useBem('SwitcherFieldView');
+    const prefix = useUniqueId('switcher');
+
+    const renderLabel = React.useCallback((item: ISwitcherItem) => {
+        if (typeof item.label === 'object') {
+            return props.selectedIds.includes(item.id) ? item.label?.checked : item.label?.unchecked;
+        }
+
+        return item.label;
+    }, [props.selectedIds]);
+
     return (
         <div
             className={bem(
-                bem.block({
-                    size: props.size,
-                }),
+                bem.block(),
                 props.className,
-                'btn-group',
             )}
+            style={props.style}
         >
-            {props.items.map(item => (
-                <Button
-                    key={String(item[props.primaryKey])}
-                    {...props.buttonProps}
-                    className={bem(
-                        _get(props, 'buttonProps.className'),
-                        props.hoveredId === item[props.primaryKey] && 'hover',
-                        props.selectedIds.includes(item[props.primaryKey]) && 'active',
-                    )}
-                    disabled={props.disabled}
-                    onClick={() => props.onItemSelect(item[props.primaryKey])}
-                    onMouseOver={() => props.onItemHover(item[props.primaryKey])}
+            {props.items.map((switcher, switcherIndex) => (
+                <label
+                    key={switcherIndex}
+                    className={bem.element('switcher', {
+                        size: props.size,
+                    })}
+                    htmlFor={`${prefix}_${switcher.id}`}
                 >
-                    {item.label}
-                </Button>
+                    <input
+                        {...props.inputProps}
+                        id={`${prefix}_${switcher.id}`}
+                        onChange={() => props.onItemSelect(switcher.id)}
+                        checked={props.selectedIds.includes(switcher.id)}
+                        className={bem.element('input')}
+                    />
+                    <span className={bem.element('slider')} />
+                    <span className={bem.element('label')}>{renderLabel(switcher)}</span>
+                </label>
             ))}
         </div>
     );
