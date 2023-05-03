@@ -3,6 +3,10 @@
 .ListView {
     color: $text-color;
 
+    .FormView {
+        margin-bottom: 10px;
+    }
+
     &__pagination {
         display: flex;
         justify-content: space-between;
