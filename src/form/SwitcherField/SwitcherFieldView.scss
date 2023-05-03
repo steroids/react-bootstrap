@@ -141,6 +141,10 @@ $background-color-transition-timing: 150ms;
             }
         }
 
+        &:disabled { 
+            cursor: not-allowed;
+        }
+
         &:disabled ~ #{$root}__label { 
             color: $gray;
         }
