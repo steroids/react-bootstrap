@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IIconViewProps} from '@steroidsjs/core/ui/content/Icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function IconView(props: IIconViewProps & IBemHocOutput) {
+export default function IconView(props: IIconViewProps) {
     const bem = useBem('IconView');
     if (typeof props.icon === 'string' && props.icon.indexOf('<svg') === 0) {
         return (

@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import Link from '@steroidsjs/core/ui/nav/Link';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {ITreeViewProps} from '@steroidsjs/core/ui/nav/Tree/Tree';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function TreeView(props: ITreeViewProps & IBemHocOutput) {
+export default function TreeView(props: ITreeViewProps) {
     const levelPadding = props.levelPadding || 20;
 
     const bem = useBem('TreeView');

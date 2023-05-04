@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import Button from '@steroidsjs/core/ui/form/Button';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function NavLinkView(props: INavViewProps & IBemHocOutput) {
+export default function NavLinkView(props: INavViewProps) {
     const bem = useBem('NavLinkView');
     return (
         <div className={bem(bem.block(), props.className)}>

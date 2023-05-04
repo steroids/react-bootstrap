@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {ISliderFieldViewProps} from '@steroidsjs/core/ui/form/SliderField/SliderField';
 import Slider, {SliderTooltip, Handle, Range} from 'rc-slider';
 
@@ -9,7 +9,7 @@ const createSliderWithTooltip = Slider.createSliderWithTooltip;
 const RangeComponent: any = createRangeWithTooltip(Range);
 const SliderComponent: any = createSliderWithTooltip(Slider);
 
-export default function SliderFieldView(props: ISliderFieldViewProps & IBemHocOutput) {
+export default function SliderFieldView(props: ISliderFieldViewProps) {
     const bem = useBem('SliderFieldView');
 
     const handle = (prevProps) => {

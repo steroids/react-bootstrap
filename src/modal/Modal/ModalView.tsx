@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Modal from 'react-modal';
 import {useBem} from '@steroidsjs/core/hooks';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {Button} from '@steroidsjs/core/ui/form';
 
-export default function ModalView(props: IModalViewProps & IBemHocOutput) {
+export default function ModalView(props: IModalViewProps) {
     const bem = useBem('ModalView');
     const overrideDefaultClasses = {
         base: bem.block('overlay'),

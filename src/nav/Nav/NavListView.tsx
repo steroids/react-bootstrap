@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import Link from '@steroidsjs/core/ui/nav/Link';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function NavListView(props: INavViewProps & IBemHocOutput) {
+export default function NavListView(props: INavViewProps) {
     const bem = useBem('NavListView');
 
     const renderItems = (items) => {
