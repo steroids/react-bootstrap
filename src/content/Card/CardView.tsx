@@ -50,7 +50,7 @@ export default function CardView(props: ICardViewProps) {
                             role='button'
                         >
                             <Icon
-                                name='meatballs_menu_hor'
+                                name='menu_dots'
                                 className={bem.element('header-dots')}
                             />
                         </div>
