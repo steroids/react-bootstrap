@@ -26,7 +26,7 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
             {props.showClear && (
                 <Icon
                     className={bem.element('clear')}
-                    name="field-close"
+                    name="cross_8x8"
                     onClick={props.onClear}
                 />
             )}

@@ -3,6 +3,8 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IAlertViewProps} from '@steroidsjs/core/ui/content/Alert/Alert';
 
+const ICON_SIZE = '_24x24';
+
 export default function Alert(props: IAlertViewProps) {
     const bem = useBem('AlertView');
 
@@ -22,7 +24,7 @@ export default function Alert(props: IAlertViewProps) {
                     <div className={bem.element('content')}>
                         {props.showIcon && (
                             <Icon
-                                name={props.type}
+                                name={props.type + ICON_SIZE}
                                 className={bem.element('icon', {
                                     [props.type]: !!props.type,
                                 })}
@@ -46,7 +48,7 @@ export default function Alert(props: IAlertViewProps) {
                                     className={bem.element('icon-close', {
                                         large: !!props.description,
                                     })}
-                                    name='alert-close'
+                                    name='circle_cross_16x16'
                                     onClick={props.onClose}
                                 />
                             )}

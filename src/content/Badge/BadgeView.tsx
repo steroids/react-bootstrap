@@ -40,7 +40,7 @@ export default function BadgeView(props: IBadgeViewProps) {
                         <Icon
                             onClick={props.onClose}
                             className={bem.element('close')}
-                            name='badge-close'
+                            name='cross_4x4'
                         />
                     )}
                 </div>

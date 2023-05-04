@@ -7,8 +7,6 @@
     --chevron-background-color-basic: #ffffff;
     --chevron-inner-color: #323232;
     --drop-down-border-color: #e9e9e9;
-    --scroll-thumb-color: #e5e9eb;
-    --scroll-track-color: #f5f8fa;
     --search-color: #626262;
     --search-background-color: #f5f8fa;
     --search-hover-background-color: #eef1f2;
@@ -26,8 +24,6 @@ html[data-theme="dark"] {
     --chevron-background-color-basic: #6f6b76;
     --chevron-inner-color: #ffffff;
     --drop-down-border-color: #595959;
-    --scroll-thumb-color: #5b5c6b;
-    --scroll-track-color: #444147;
     --search-color: #adacac;
     --search-background-color: #4e4f57;
     --search-hover-background-color: #5b5c6b;
@@ -44,8 +40,6 @@ $chevron-background-color-outline: var(--chevron-background-color-outline);
 $chevron-background-color-basic: var(--chevron-background-color-basic);
 $chevron-inner-color: var(--chevron-inner-color);
 $drop-down-border-color: var(--drop-down-border-color);
-$scroll-thumb-color: var(--scroll-thumb-color);
-$scroll-track-color: var(--scroll-track-color);
 $search-color: var(--search-color);
 $search-background-color: var(--search-background-color);
 $search-hover-background-color: var(--search-hover-background-color);
@@ -371,7 +365,7 @@ $drop-down-color-themes: map-merge(
         }
 
         &-input {
-            width: 220px;
+            width: 100%;
             border-radius: 6px;
             outline: none;
 
@@ -429,5 +423,9 @@ $drop-down-color-themes: map-merge(
         top: 50%;
         right: 36px;
         transform: translateY(-50%);
+
+        path {
+            stroke-width: 1.5px;
+        }
     }
 }

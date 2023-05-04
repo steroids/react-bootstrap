@@ -42,6 +42,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         svg {
             path {
                 stroke: $background-disabled-color;
+                stroke-width: 1.5px;
             }
         }
 
