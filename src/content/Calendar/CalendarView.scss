@@ -1,78 +1,91 @@
 :root {
     --day-background-color-hover: rgba(0, 0, 0, 0.1);
+    --calendar-border-color: #f1f5f7;
 }
 
 html[data-theme="dark"] {
     --day-background-color-hover: rgba(255, 255, 255, 0.1);
+    --calendar-border-color: #5b5c6b;
 }
 
 $day-background-color-hover: var(--day-background-color-hover);
-
+$calendar-border-color: var(--calendar-border-color);
 
 .CalendarView {
     $root: &;
-    padding: 12px;
-
     position: relative;
     color: $text-color;
-    font-weight: $calendar-font-weight;
+    font-weight: $font-weight-md;
     user-select: none;
+    padding: 12px;
 
     .DayPicker-wrapper {
         padding-bottom: 0;
     }
+
     .DayPicker-Months {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        row-gap: 12px;
     }
+
     .DayPicker-Month {
-        display: table;
-        border-collapse: separate;
-        border-spacing: 16px;
         margin: 0;
     }
 
     // Body
-
     .DayPicker-Weekdays {
-        display: table-header-group;
-        margin-top: 1em;
+        margin-top: 0;
     }
+
     .DayPicker-WeekdaysRow {
-        display: table-row;
+        display: inline-flex;
+        column-gap: 16px;
     }
+
     .DayPicker-Weekday {
-        display: table-cell;
-        width: 30px;
-        height: 30px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 34px;
+        height: 34px;
         padding: 0;
         color: inherit;
         text-align: center;
-        font-size: 0.875em;
+        vertical-align: middle;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        font-weight: $font-weight-lg;
+        text-transform: capitalize;
     }
+
     .DayPicker-Weekday abbr[title] {
         border-bottom: none;
         text-decoration: none;
     }
 
     .DayPicker-Body {
-        display: table-row-group;
+        display: flex;
+        flex-flow: column nowrap;
+        row-gap: 12px;
     }
+
     .DayPicker-Week {
-        display: table-row;
+        display: flex;
+        width: 100%;
+        column-gap: 16px;
 
         &--disabled {
             pointer-events: none;
             opacity: 0.5;
         }
     }
+
     .DayPicker-Day {
         position: relative;
-        display: table-cell;
-
         padding: 0;
-        border-radius: $calendar-day-border-radius;
+        border-radius: $radius-large;
 
         vertical-align: middle;
         text-align: center;
@@ -94,7 +107,7 @@ $day-background-color-hover: var(--day-background-color-hover);
         }
 
         &--outside {
-            color: $calendar-secondary-color;
+            color: $placeholder-color;
         }
 
         &--today {
@@ -111,50 +124,63 @@ $day-background-color-hover: var(--day-background-color-hover);
     }
 
     // Footer
-
     .DayPicker-Footer {
-        height: 50px;
-
+        margin-top: 8px;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        justify-content: center;
-        padding: 0 10px;
-
-        border-top: 1px solid $calendar-secondary-color;
+        justify-content: flex-start;
     }
+
     .DayPicker-TodayButton {
-        border: none;
+        padding: 5px 12.5px;
+        border-radius: $radius-small;
+        border: 1px solid $gray;
         background-color: transparent;
         background-image: none;
         box-shadow: none;
-        font-size: 0.875em;
         cursor: pointer;
-        color: $calendar-primary-color;
-        font-weight: $calendar-font-weight;
+        color: $text-color;
+        font-size: $font-size-sm;
+        line-height: $line-height-lg;
     }
 
     // Days selection
-
     // Selected day
     .DayPicker-Day--selected:not(.DayPicker-Day--inRange) {
-        color: $calendar-selected-text-color;
-        border-radius: $calendar-day-border-radius;
-        background-color: $calendar-primary-color;
+        color: $white;
+        background-color: $primary;
+    }
+
+    .DayPicker-Day--selected.DayPicker-Day--today .CalendarView__day {
+        color: $white;
     }
 
     // Hover
-    .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
-        background-color: $day-background-color-hover !important;
+    .DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):not(
+            .DayPicker-Day--today
+        ):hover {
+        background-color: $day-background-color-hover;
+    }
+
+    .DayPicker-Day--today:hover {
+        background-color: transparent;
+
+        .CalendarView__day {
+            color: $text-color;
+        }
     }
 
     &__day {
         position: relative;
         z-index: 1;
-        width: 30px;
-        height: 30px;
+        width: 34px;
+        height: 34px;
         line-height: 30px;
-        border-radius: $calendar-day-border-radius;
+        border-radius: $radius-large;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     &_ranged {

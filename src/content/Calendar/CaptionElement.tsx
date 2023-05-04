@@ -75,7 +75,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
                             e.preventDefault();
                             handleYearChange(currentYear - 1);
                         }}
-                        name='Double_arrow_left'
+                        name='double_arrow_left'
                     />
                     <Icon
                         className={bem.element('button', 'one-arrow')}
@@ -83,7 +83,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
                             e.preventDefault();
                             handleMonthChange(currentMonth - 1);
                         }}
-                        name='eclipse-arrow-left'
+                        name='arrow_left_24x24'
                     />
                     <Icon
                         className={bem.element('button', 'one-arrow')}
@@ -91,7 +91,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
                             e.preventDefault();
                             handleMonthChange(currentMonth + 1);
                         }}
-                        name='eclipse-arrow-right'
+                        name='arrow_right_24x24'
                     />
                     <Icon
                         className={bem.element('button')}
@@ -99,7 +99,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
                             e.preventDefault();
                             handleYearChange(currentYear + 1);
                         }}
-                        name='Double_arrow_right'
+                        name='double_arrow_right'
                     />
                 </div>
             </div>

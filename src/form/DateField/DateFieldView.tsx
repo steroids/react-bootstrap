@@ -19,6 +19,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
             position='bottomLeft'
             visible={props.isOpened}
             onClose={props.onClose}
+            className={bem.element('dropdown')}
         >
             <div
                 className={bem(
@@ -45,7 +46,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                         {!props.inputProps.value && props.icon && (
                             <Icon
                                 className={bem.element('date-icon')}
-                                name={typeof props.icon === 'string' ? props.icon : 'Date_range_duotone'}
+                                name={typeof props.icon === 'string' ? props.icon : 'calendar_range'}
                                 tabIndex={-1}
                             />
                         )}
@@ -56,7 +57,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                                     e.preventDefault();
                                     props.onClear();
                                 }}
-                                name='Cross_8x8'
+                                name='cross_8x8'
                             />
                         )}
                     </div>

@@ -13,9 +13,13 @@ $caption-arrow-color: var(--caption-arrow-color);
 
 .CaptionElement {
     height: 24px;
-    display: table-caption;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
 
     &__container {
+        width: 100%;
         height: 100%;
         display: flex;
         align-items: center;
@@ -75,13 +79,16 @@ $caption-arrow-color: var(--caption-arrow-color);
 
     // Panel changing Month/Year
     &__panel {
+        border-radius: $radius-large;
+        overflow: hidden;
         z-index: 10;
         position: absolute;
         top: 45px;
         left: 0;
         right: 0;
         bottom: 50px;
-        background-color: $white;
+        background-color: $element-background-color;
+        margin-bottom: 12px;
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -101,7 +108,7 @@ $caption-arrow-color: var(--caption-arrow-color);
 
         text-align: center;
         border-bottom: 1px solid gray;
-        background-color: $calendar-primary-light-color;
+        background-color: $primary-light;
 
         &_months {
             grid-area: HeaderMonths;
@@ -126,23 +133,22 @@ $caption-arrow-color: var(--caption-arrow-color);
     }
 
     &__panel-column-years {
-        height: 100%;
         grid-area: YearsCol;
-        overflow: auto;
+        @include scrollWrapper(278px, 0, $scroll-thumb-color, $scroll-track-color);
     }
 
     &__panel-cell {
+        background-color: $element-background-color;
         padding: 5px 15px;
         cursor: pointer;
-
-        &_selected {
-            background-color: $calendar-primary-light-color;
-        }
-
         transition: background-color 0.1s ease-in;
 
+        &_selected {
+            background-color: $primary-light;
+        }
+
         &:hover {
-            background-color: $calendar-secondary-light-color;
+            background-color: $primary-light;
         }
     }
 }
