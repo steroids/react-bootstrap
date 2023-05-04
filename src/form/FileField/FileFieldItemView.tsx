@@ -88,7 +88,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps & IBemH
                 : renderFileItem()}
             {props.showRemove && (
                 <Icon
-                    name={props.customRemoveIcon || 'trash_8'}
+                    name={props.customRemoveIcon || 'trash'}
                     className={bem.element('remove', {isLoading})}
                     onClick={props.onRemove}
                 />
