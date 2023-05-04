@@ -24,7 +24,6 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps & IBemH
                 className={bem.element('input')}
                 id={props.id || id}
                 {...props.inputProps}
-                checked={props.checked}
                 disabled={props.disabled}
                 required={props.required}
             />
