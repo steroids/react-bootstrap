@@ -31,7 +31,7 @@ export default function ModalView(props: IModalViewProps & IBemHocOutput) {
                     {props.title}
                 </span>
                 <Icon
-                    name='Cross_12x12'
+                    name='cross_12x12'
                     className={bem.element('close')}
                     onClick={props.onClose}
                 />

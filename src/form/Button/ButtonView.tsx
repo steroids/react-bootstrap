@@ -18,7 +18,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                 {props.isLoading && (
                     <Icon
                         className={bem.element('loader')}
-                        name='loader'
+                        name='loading_icon_thick'
                         tabIndex={-1}
                     />
                 )}
@@ -34,7 +34,9 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                                 className={bem.element('icon', !props.label && 'without-label')}
                             />
                         )}
-                        {props.children}
+                        <span className={bem.element('text')}>
+                            {props.children}
+                        </span>
                     </span>
                 )}
             </>

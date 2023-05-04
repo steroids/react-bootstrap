@@ -1,4 +1,8 @@
+@import '../../scss/variables';
+
 .ListView {
+    color: $text-color;
+
     .FormView {
         margin-bottom: 10px;
     }
@@ -19,7 +23,7 @@
             }
         }
 
-        &-button { 
+        &-button {
             margin: 0 auto;
         }
     }
