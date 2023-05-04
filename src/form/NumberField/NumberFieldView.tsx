@@ -2,12 +2,11 @@ import * as React from 'react';
 import {useCallback, useRef} from 'react';
 import _isNumber from 'lodash-es/isNumber';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {INumberFieldViewProps} from '@steroidsjs/core/ui/form/NumberField/NumberField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 
-export default function NumberFieldView(props: INumberFieldViewProps & IBemHocOutput) {
+export default function NumberFieldView(props: INumberFieldViewProps) {
     // Input ref
     const inputRef = useRef(null);
 

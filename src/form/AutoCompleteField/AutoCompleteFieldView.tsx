@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
 import _isEmpty from 'lodash-es/isEmpty';
@@ -36,7 +35,7 @@ const normalizeItems = (items: IAutoCompleteItem[]) => {
     };
 };
 
-const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps & IBemHocOutput, bem: IBem) => {
+const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps, bem: IBem) => {
     const hasAdditionalIcon = !!item.additional?.icon;
     const hasAdditionalText = !!item.additional?.text;
     const hasSomeAdditional = hasAdditionalText || hasAdditionalIcon;
@@ -74,7 +73,7 @@ const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps 
     );
 };
 
-export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps & IBemHocOutput) {
+export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps) {
     const bem = useBem('AutoCompleteFieldView');
 
     const renderItems = React.useCallback(() => {

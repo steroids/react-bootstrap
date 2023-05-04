@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {IListItemViewProps} from '@steroidsjs/core/ui/list/List/List';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function ListItemView(props: IListItemViewProps & IBemHocOutput) {
+export default function ListItemView(props: IListItemViewProps) {
     const bem = useBem('ListItemView');
     return (
         <div className={bem(bem.block(), props.className)}>

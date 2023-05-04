@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {useEffect, useRef} from 'react';
 import {ITooltipViewProps} from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function TooltipView(props: ITooltipViewProps & IBemHocOutput) {
+export default function TooltipView(props: ITooltipViewProps) {
     const tooltipRef = useRef(null);
     const arrowRef = useRef(null);
 
