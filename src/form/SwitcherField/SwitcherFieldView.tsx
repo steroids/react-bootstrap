@@ -1,16 +1,15 @@
 import * as React from 'react';
 import _isPlainObject from 'lodash-es/isPlainObject';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ISwitcherFieldViewProps, ISwitcherItem} from '@steroidsjs/core/ui/form/SwitcherField/SwitcherField';
 import {useBem, useUniqueId} from '@steroidsjs/core/hooks';
 
-export default function SwitcherFieldView(props: ISwitcherFieldViewProps & IBemHocOutput) {
+export default function SwitcherFieldView(props: ISwitcherFieldViewProps) {
     const bem = useBem('SwitcherFieldView');
     const prefix = useUniqueId('switcher');
 
     const renderLabel = React.useCallback((item: ISwitcherItem) => {
         if (typeof item.label === 'object') {
-            return props.selectedIds.includes(item.id) ? item.label?.checked : item.label?.unchecked;
+            return props.selectedIds.includes(item.id) ? item.label.checked : item.label.unchecked;
         }
 
         return item.label;
