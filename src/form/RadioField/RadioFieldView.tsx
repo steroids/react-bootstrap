@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 import {IRadioFieldViewProps} from '@steroidsjs/core/ui/form/RadioField/RadioField';
 
-export default function RadioFieldView(props: IRadioFieldViewProps & IBemHocOutput) {
+export default function RadioFieldView(props: IRadioFieldViewProps) {
     const bem = useBem('RadioFieldView');
     const id = useUniqueId('radio');
 

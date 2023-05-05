@@ -2,11 +2,11 @@ import * as React from 'react';
 import _isString from 'lodash-es/isString';
 
 import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
+export default function ButtonView(props: IButtonViewProps) {
     const bem = useBem('ButtonView');
 
     const renderLabel = () => {
@@ -18,7 +18,7 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                 {props.isLoading && (
                     <Icon
                         className={bem.element('loader')}
-                        name='loader'
+                        name='loading_icon_thick'
                         tabIndex={-1}
                     />
                 )}
@@ -34,7 +34,9 @@ export default function ButtonView(props: IButtonViewProps & IBemHocOutput) {
                                 className={bem.element('icon', !props.label && 'without-label')}
                             />
                         )}
-                        {props.children}
+                        <span className={bem.element('text')}>
+                            {props.children}
+                        </span>
                     </span>
                 )}
             </>

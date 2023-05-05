@@ -1,5 +1,11 @@
 .ControlsView {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+
+    a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+    }
 }

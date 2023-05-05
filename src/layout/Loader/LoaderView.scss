@@ -1,27 +1,72 @@
+:root {
+  --gradient-color-primary-first: #651FFF;
+  --gradient-color-primary-second: #BA9BFF;
+}
+
+html[data-theme="dark"] { 
+  --gradient-color-primary-first: #9362FF;
+  --gradient-color-primary-second: #B898FF;
+}
+
+$gradient-color-primary-first: var(--gradient-color-primary-first);
+$gradient-color-primary-second: var(--gradient-color-primary-second);
+
 .LoaderView {
-  position: relative;
-  width: 100%;
+  $root: &;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &__loader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -27px 0 0 -27px;
-    z-index: 20;
-    font-size: 10px;
-    text-indent: -9999em;
-    border-top: .9em solid rgba(246, 168, 33, 0.2);
-    border-right: .9em solid rgba(246, 168, 33, 0.2);
-    border-bottom: .9em solid rgba(246, 168, 33, 0.2);
-    border-left: .9em solid #db001f;
-    transform: translateZ(0);
+  &_size {
+    &_sm {
+      svg {
+        height: 33px;
+        width: 33px;
+        path {
+          stroke-width: 4px;
+        }
+      }
+    }
+    &_md {
+      svg {
+        height: 44px;
+        width: 44px;
+        path {
+          stroke-width: 6px;
+        }
+      }
+    }
+    &_lg {
+      svg {
+        height: 55px;
+        width: 55px;
+        path {
+          stroke-width: 7px;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: Loader-spin 1.1s infinite linear;
-    opacity: 1 !important;
+  }
 
-    &, &::after {
-      border-radius: 50%;
-      width: 5em;
-      height: 5em;
+  &_color_gradient {
+    svg stop:first-child {
+      stop-color: $gradient-color-primary-first;
+    }
+    svg stop:last-child {
+      stop-color: $gradient-color-primary-second;
+    }
+  }
+
+  @each $colorName, $colorMap in $color-themes {
+    &_color_#{$colorName} {
+        @include loader-color($colorMap, $colorName, $root);
     }
   }
 }

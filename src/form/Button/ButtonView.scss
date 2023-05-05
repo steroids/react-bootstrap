@@ -6,8 +6,8 @@ $btn-letter-spacing: 0.1em;
 .ButtonView {
     $root: &;
 
-    transition-property: color, background-color, border-color, box-shadow, stroke;
-    transition-duration: 0.15s;
+    transition-property: color, background-color, border-color, box-shadow;
+    transition-duration: $transition-duration;
     transition-timing-function: ease-in-out;
 
     display: flex;
@@ -108,6 +108,12 @@ $btn-letter-spacing: 0.1em;
         &:hover,&:active {
             background-color: transparent;
         }
+        
+    }
+
+    &__link { 
+        display: inline-flex;
+        align-items: center;
     }
 
     &__icon {

@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IReCaptchaFieldViewProps} from '@steroidsjs/core/ui/form/ReCaptchaField/ReCaptchaField';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Link} from '@steroidsjs/core/ui/nav';
 
-export default function ReCaptchaFieldView(props: IReCaptchaFieldViewProps & IBemHocOutput) {
+export default function ReCaptchaFieldView(props: IReCaptchaFieldViewProps) {
     const bem = useBem('ReCaptchaFieldView');
 
     return (

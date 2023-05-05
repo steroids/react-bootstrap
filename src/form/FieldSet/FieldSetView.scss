@@ -1,17 +1,14 @@
 :root {
     --legend-color: #152536;
-    --legend-background-color: #ffffff;
     --fieldset-border-color: #E6E6E6;
 }
   
 html[data-theme="dark"] { 
     --legend-color: #ffffff;
-    --legend-background-color: #414141;
     --fieldset-border-color: #595959;
 }
   
 $legend-color: var(--legend-color);
-$legend-background-color: var(--legend-background-color);
 $fieldset-border-color: var(--fieldset-border-color);
 
 .FieldSetView{
@@ -19,7 +16,7 @@ $fieldset-border-color: var(--fieldset-border-color);
     border-radius: 8px;
 
     &__legend {
-        background-color: $legend-background-color;
+        background-color: $background-color;
         color: $legend-color;
 
         padding: 8px;

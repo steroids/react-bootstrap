@@ -1,4 +1,12 @@
+@import '../../scss/variables';
+
 .ListView {
+    color: $text-color;
+
+    .FormView {
+        margin-bottom: 10px;
+    }
+
     &__pagination {
         display: flex;
         justify-content: space-between;
@@ -15,7 +23,7 @@
             }
         }
 
-        &-button { 
+        &-button {
             margin: 0 auto;
         }
     }

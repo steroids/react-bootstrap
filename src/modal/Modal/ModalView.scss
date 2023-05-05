@@ -1,108 +1,144 @@
 .ModalView {
+    $root: &;
+    min-width: 300px;
 
-  &_overlay {
-    z-index: 100;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    &_overlay {
+        z-index: 100;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
 
-    display: flex;
-    padding: 50px;
+        display: flex;
+        padding: 50px;
 
-    background-color: rgba(0,0,0,0.7);
-  }
-
-  &__body {
-    margin: auto;
-    background: #fff;
-
-    &_size {
-      &_small {
-        width: 400px;
-      }
-      &_middle {
-        width: 600px;
-      }
-      &_large {
-        width: 960px;
-      }
-    }
-  }
-
-  &__header {
-    position: relative;
-    padding: 15px;
-
-    color: #333;
-    font-size: 20px;
-    border-bottom: 1px solid #f0f0f0;
-  }
-  &__close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50px;
-    height: 50px;
-
-    &:hover::before,
-    &:hover::after {
-      background-color: #333;
+        background-color: rgba(0, 0, 0, 0.7);
     }
 
-    &::before,
-    &::after
-    {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 50%;
-      margin-top: -8px;
-      left: 50%;
-      width: 1px;
-      height: 16px;
-      background-color: #888;
+    &__body {
+        margin: auto;
+        overflow: hidden;
+        background-color: $element-background-color;
+        color: $text-color;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+        &_size {
+            &_lg {
+                border-radius: 16px;
+
+                font-size: $font-size-lg;
+                line-height: $line-height-lg;
+
+                #{$root}__header {
+                    padding: 24px;
+                }
+
+                #{$root}__content {
+                    padding: 24px;
+                }
+
+                #{$root}__footer { 
+                    padding: 24px;
+                }
+            }
+            &_md {
+                border-radius: $radius-large;
+
+                font-size: $font-size-base;
+                line-height: $line-height-base;
+
+                #{$root}__header {
+                    padding: 21px 20px;
+                }
+
+                #{$root}__content {
+                    padding: 20px;
+                }
+
+                #{$root}__footer { 
+                    padding: 20px;
+                }
+            }
+            &_sm {
+                border-radius: $radius-small;
+
+                font-size: $font-size-sm;
+                line-height: $line-height-sm;
+
+                #{$root}__header {
+                    padding: 19px 16px;
+                }
+
+                #{$root}__content {
+                    padding: 16px;
+                }
+
+                #{$root}__footer { 
+                    padding: 16px;
+                }
+            }
+        }
     }
 
-    &::before {
-      transform: rotate(45deg);
+    &__header {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+
+        > * {
+            display: inline-block;
+        }
     }
 
-    &::after {
-      transform: rotate(-45deg);
+    &__title {
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: $font-weight-lg;
     }
-  }
 
-  &__content {
-    padding: 15px;
-  }
+    &__close {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
 
-  &__footer {
-    padding: 15px;
-    border-top: 1px solid #f0f0f0;
-  }
-  &__controls.ControlsView {
-    flex-direction: row-reverse;
-  }
+        svg {
+            path {
+                stroke: $text-color;
+            }
+        }
+    }
 
-  // Fade animation
+    &__content {
+        font-size: inherit;
+        line-height: inherit;
+    }
 
-  &_overlay {
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-  }
+    &__footer {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        column-gap: 8px;
+    }
 
-  &_overlay-after {
-    opacity: 1;
-  }
+    // Fade animation
+    &_overlay {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
 
-  &_overlay-before {
-    opacity: 0;
-  }
+    &_overlay-after {
+        opacity: 1;
+    }
+
+    &_overlay-before {
+        opacity: 0;
+    }
 }
 
 // Class to hide body scroll, when Modal is opened
 .ModalView_body-hide-scroll {
-  overflow: hidden;
+    overflow: hidden;
 }

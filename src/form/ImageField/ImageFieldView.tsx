@@ -19,7 +19,7 @@ export default function ImageFieldView(props: IImageFieldViewProps) {
                     {!item || !item.progress ? (
                         <Icon
                             className={bem.element('button-icon')}
-                            name='plus'
+                            name='add'
                         />
                     ) : (
                         <div className={bem.element('progress-bar')}>

@@ -1,27 +1,129 @@
 import * as React from 'react';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
-import {IAutoCompleteFieldViewProps} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
+
+import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
+import _isEmpty from 'lodash-es/isEmpty';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import {Icon} from '@steroidsjs/core/ui/content';
+import {IBem} from '@steroidsjs/core/hooks/useBem';
+
 import './AutoCompleteFieldView.scss';
 
-export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps & IBemHocOutput) {
+const normalizeItems = (items: IAutoCompleteItem[]) => {
+    const categories: {
+        [key: string]: IAutoCompleteItem[]
+    } = {};
+
+    const itemsWithoutCategory: IAutoCompleteItem[] = [];
+
+    items.forEach(item => {
+        if (item.category) {
+            if (categories[item.category]) {
+                categories[item.category].push(item);
+                return;
+            }
+
+            categories[item.category] = [item];
+            return;
+        }
+
+        itemsWithoutCategory.push(item);
+    });
+
+    return {
+        categories,
+        itemsWithoutCategory,
+    };
+};
+
+const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps, bem: IBem) => {
+    const hasAdditionalIcon = !!item.additional?.icon;
+    const hasAdditionalText = !!item.additional?.text;
+    const hasSomeAdditional = hasAdditionalText || hasAdditionalIcon;
+
+    const uniqId = item[props.primaryKey];
+
+    return (
+        <button
+            key={String(uniqId)}
+            className={bem.element('item', {
+                hover: props.hoveredId === uniqId,
+                select: props.selectedIds.includes(uniqId),
+            })}
+            onClick={() => props.onItemSelect(uniqId)}
+            onFocus={() => props.onItemHover(uniqId)}
+            onMouseOver={() => props.onItemHover(uniqId)}
+        >
+            <span className={bem.element('item-label')}>{item.label}</span>
+            {hasSomeAdditional && (
+                <div className={bem.element('item-additional')}>
+                    {hasAdditionalIcon && (
+                        <Icon
+                            name={item.additional?.icon}
+                            className={bem.element('item-additional-icon')}
+                        />
+                    )}
+                    {hasAdditionalText && (
+                        <span className={bem.element('item-additional-text')}>
+                            {item.additional.text}
+                        </span>
+                    )}
+                </div>
+            )}
+        </button>
+    );
+};
+
+export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps) {
     const bem = useBem('AutoCompleteFieldView');
+
+    const renderItems = React.useCallback(() => {
+        if (!_isEmpty(props.categories)) {
+            const {categories, itemsWithoutCategory} = normalizeItems(props.items);
+
+            return (
+                <>
+                    {Object.entries(categories).map(([category, categoryItems]) => (
+                        <div
+                            key={category}
+                            className={bem.element('category')}
+                        >
+                            <span className={bem.element('category__label')}>
+                                {category}
+                            </span>
+                            <div className={bem.element('category__content')}>
+                                {categoryItems.map(item => renderItem(item, props, bem))}
+                            </div>
+                        </div>
+                    ))}
+                    {itemsWithoutCategory.map(item => renderItem(item, props, bem))}
+                </>
+            );
+        }
+
+        return (
+            <>
+                {props.items.map(item => renderItem(item, props, bem))}
+            </>
+        );
+    }, [bem, props]);
+
     return (
         <div
             ref={props.forwardedRef}
-            className={bem.block({size: props.size})}
+            className={bem(
+                bem.block({
+                    size: props.size,
+                    opened: props.isOpened,
+                }), props.className,
+            )}
+            style={props.style}
         >
             <input
                 {...props.inputProps}
                 className={bem(
-                    bem.block({
-                        size: props.size,
-                    }),
-                    'form-control',
-                    'form-control-' + props.size,
-                    !!props.errors && 'is-invalid',
+                    bem.element('input'),
                     props.inputProps.className,
-                    props.className,
                 )}
                 onClick={(e) => {
                     e.preventDefault();
@@ -34,22 +136,16 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
             />
             {props.isOpened && (
                 <div className={bem.element('drop-down')}>
-                    {/*TODO same dropdown as in DropDownFieldView*/}
-                    <div className={bem.element('drop-down-list')}>
-                        {props.items.map((item: any) => (
-                            <button
-                                key={String(item[props.primaryKey])}
-                                className={bem.element('drop-down-item', {
-                                    hover: props.hoveredId === item[props.primaryKey],
-                                    select: props.selectedIds.includes(item[props.primaryKey]),
-                                })}
-                                onClick={() => props.onItemSelect(item[props.primaryKey])}
-                                onFocus={() => props.onItemHover(item[props.primaryKey])}
-                                onMouseOver={() => props.onItemHover(item[props.primaryKey])}
-                            >
-                                {item.label}
-                            </button>
-                        ))}
+                    <div className={bem.element('list')}>
+                        {!_isEmpty(props.items)
+                            ? renderItems()
+                            : (
+                                <Text
+                                    type='textSm'
+                                    content={__('Nothing was found')}
+                                    className={bem.element('nothing')}
+                                />
+                            )}
                     </div>
                 </div>
             )}

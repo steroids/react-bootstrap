@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {FilesLayout, IFileFieldViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 import Button from '@steroidsjs/core/ui/form/Button';
 
-export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput) {
+export default function FileFieldView(props: IFileFieldViewProps) {
     const bem = useBem('FileFieldView');
     const ButtonView = props.buttonView || Button;
     const FileItemView = props.itemView;
@@ -19,7 +19,7 @@ export default function FileFieldView(props: IFileFieldViewProps & IBemHocOutput
         >
             <ButtonView
                 className={bem.element('button', {isWall})}
-                icon={isWall ? 'plus' : 'upload'}
+                icon={isWall ? 'add' : 'import'}
                 {...props.buttonProps}
             />
             <div className={bem(bem.element('files'))}>

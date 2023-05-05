@@ -1,15 +1,20 @@
 import * as React from 'react';
 import _isEmpty from 'lodash-es/isEmpty';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 
-export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOutput) {
+export default function FieldLayoutView(props: IFieldLayoutViewProps) {
     const bem = useBem('FieldLayoutView');
 
     return (
-        <div className={bem.block()}>
+        <div
+            className={bem(
+                bem.block(),
+                props.className,
+            )}
+        >
             {props.label && (
                 <label
                     htmlFor={props.id}
@@ -31,7 +36,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps & IBemHocOu
                                 className={bem.element('error-message')}
                             >
                                 <Icon
-                                    name="error"
+                                    name="error_24x24"
                                     className={bem.element('icon_error')}
                                     tabIndex={-1}
                                 />

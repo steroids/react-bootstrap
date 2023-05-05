@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
 import {IControlsViewProps} from '@steroidsjs/core/ui/nav/Controls/Controls';
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
+
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function ControlsView(props: IControlsViewProps & IBemHocOutput) {
+export default function ControlsView(props: IControlsViewProps) {
     const renderControls = (items) => {
         if (items.length === 0) {
             return null;

@@ -1,11 +1,10 @@
 import * as React from 'react';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {ITextFieldViewProps} from '@steroidsjs/core/ui/form/TextField/TextField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 
-export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput) {
+export default function TextFieldView(props: ITextFieldViewProps) {
     const bem = useBem('TextFieldView');
 
     return (
@@ -26,7 +25,7 @@ export default function TextFieldView(props: ITextFieldViewProps & IBemHocOutput
             {props.showClear && (
                 <Icon
                     className={bem.element('clear')}
-                    name="field-close"
+                    name="cross_8x8"
                     onClick={props.onClear}
                 />
             )}

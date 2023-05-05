@@ -1,10 +1,9 @@
 import * as React from 'react';
 
-import {IBemHocOutput} from '@steroidsjs/core/hoc/bem';
 import {IProgressBarViewProps} from '@steroidsjs/core/ui/layout/ProgressBar/ProgressBar';
 import {useBem} from '@steroidsjs/core/hooks';
 
-export default function CircleProgressBarView(props: IProgressBarViewProps & IBemHocOutput) {
+export default function CircleProgressBarView(props: IProgressBarViewProps) {
     const bem = useBem('CircleProgressBarView');
     const size = {
         large: {radius: 64},
