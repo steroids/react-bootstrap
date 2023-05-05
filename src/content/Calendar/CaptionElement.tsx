@@ -48,25 +48,21 @@ export default function CaptionElement(props: ICaptionElementProps) {
     const icons = useMemo(() => [
         {
             name: 'double_arrow_left',
-            value: currentYear - 1,
-            handle: handleYearChange,
+            onClick: () => handleYearChange(currentYear - 1),
         },
         {
             name: 'arrow_left_24x24',
-            value: currentMonth - 1,
             externalClass: 'one-arrow',
-            handle: handleMonthChange,
+            onClick: () => handleMonthChange(currentMonth - 1),
         },
         {
             name: 'arrow_right_24x24',
-            value: currentMonth + 1,
             externalClass: 'one-arrow',
-            handle: handleMonthChange,
+            onClick: () => handleMonthChange(currentMonth + 1),
         },
         {
             name: 'double_arrow_right',
-            value: currentYear + 1,
-            handle: handleYearChange,
+            onClick: () => handleYearChange(currentYear + 1),
         },
 
     ], [currentYear, handleYearChange, currentMonth, handleMonthChange]);
@@ -101,7 +97,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
                             name={icon.name}
                             onClick={(e) => {
                                 e.preventDefault();
-                                icon.handle(icon.value);
+                                icon.onClick();
                             }}
                             className={bem.element('button', icon.externalClass)}
                         />
