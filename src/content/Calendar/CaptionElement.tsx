@@ -7,8 +7,7 @@ import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar'
 import _upperFirst from 'lodash-es/upperFirst';
 
 interface ICaptionElementProps extends CaptionElementProps,
-    Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'>
-{
+    Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'> {
     onChange: (value) => void,
     showCalendarFooter?: boolean,
 }
@@ -46,25 +45,35 @@ export default function CaptionElement(props: ICaptionElementProps) {
         return result;
     }, [fromYear, toYear]);
 
+    const icons = useMemo(() => [
+        {
+            name: 'double_arrow_left',
+            value: currentYear - 1,
+            handle: handleYearChange,
+        },
+        {
+            name: 'arrow_left_24x24',
+            value: currentMonth - 1,
+            externalClass: 'one-arrow',
+            handle: handleMonthChange,
+        },
+        {
+            name: 'arrow_right_24x24',
+            value: currentMonth + 1,
+            externalClass: 'one-arrow',
+            handle: handleMonthChange,
+        },
+        {
+            name: 'double_arrow_right',
+            value: currentYear + 1,
+            handle: handleYearChange,
+        },
+
+    ], [currentYear, handleYearChange, currentMonth, handleMonthChange]);
+
     return (
         <div className={bem(bem.block())}>
             <div className={bem.element('container')}>
-                <Icon
-                    className={bem.element('button')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleYearChange(currentYear - 1);
-                    }}
-                    name='angle-double-left'
-                />
-                <Icon
-                    className={bem.element('button', 'one-arrow')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleMonthChange(currentMonth - 1);
-                    }}
-                    name='angle-left'
-                />
                 <div
                     className={bem.element('content-container')}
                     onKeyPress={e => {
@@ -85,22 +94,19 @@ export default function CaptionElement(props: ICaptionElementProps) {
                         {years.find(year => year === currentYear)}
                     </span>
                 </div>
-                <Icon
-                    className={bem.element('button', 'one-arrow')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleMonthChange(currentMonth + 1);
-                    }}
-                    name='angle-right'
-                />
-                <Icon
-                    className={bem.element('button')}
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleYearChange(currentYear + 1);
-                    }}
-                    name='angle-double-right'
-                />
+                <div className={bem.element('container-icons')}>
+                    {icons.map((icon, iconIndex) => (
+                        <Icon
+                            key={iconIndex}
+                            name={icon.name}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                icon.handle(icon.value);
+                            }}
+                            className={bem.element('button', icon.externalClass)}
+                        />
+                    ))}
+                </div>
             </div>
             {isCaptionPanelVisible && (
                 <div className={bem.element('panel', {'full-height': !props.showCalendarFooter})}>

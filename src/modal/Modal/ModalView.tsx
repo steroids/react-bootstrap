@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Modal from 'react-modal';
 import {useBem} from '@steroidsjs/core/hooks';
-
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {Button} from '@steroidsjs/core/ui/form';
