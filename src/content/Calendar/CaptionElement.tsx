@@ -45,6 +45,32 @@ export default function CaptionElement(props: ICaptionElementProps) {
         return result;
     }, [fromYear, toYear]);
 
+    const icons = useMemo(() => [
+        {
+            name: 'double_arrow_left',
+            value: currentYear - 1,
+            handle: handleYearChange,
+        },
+        {
+            name: 'arrow_left_24x24',
+            value: currentMonth - 1,
+            externalClass: 'one-arrow',
+            handle: handleMonthChange,
+        },
+        {
+            name: 'arrow_right_24x24',
+            value: currentMonth + 1,
+            externalClass: 'one-arrow',
+            handle: handleMonthChange,
+        },
+        {
+            name: 'double_arrow_right',
+            value: currentYear + 1,
+            handle: handleYearChange,
+        },
+
+    ], [currentYear, handleYearChange, currentMonth, handleMonthChange]);
+
     return (
         <div className={bem(bem.block())}>
             <div className={bem.element('container')}>
@@ -69,38 +95,17 @@ export default function CaptionElement(props: ICaptionElementProps) {
                     </span>
                 </div>
                 <div className={bem.element('container-icons')}>
-                    <Icon
-                        className={bem.element('button')}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleYearChange(currentYear - 1);
-                        }}
-                        name='double_arrow_left'
-                    />
-                    <Icon
-                        className={bem.element('button', 'one-arrow')}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleMonthChange(currentMonth - 1);
-                        }}
-                        name='arrow_left_24x24'
-                    />
-                    <Icon
-                        className={bem.element('button', 'one-arrow')}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleMonthChange(currentMonth + 1);
-                        }}
-                        name='arrow_right_24x24'
-                    />
-                    <Icon
-                        className={bem.element('button')}
-                        onClick={(e) => {
-                            e.preventDefault();
-                            handleYearChange(currentYear + 1);
-                        }}
-                        name='double_arrow_right'
-                    />
+                    {icons.map((icon, iconIndex) => (
+                        <Icon
+                            key={iconIndex}
+                            name={icon.name}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                icon.handle(icon.value);
+                            }}
+                            className={bem.element('button', icon.externalClass)}
+                        />
+                    ))}
                 </div>
             </div>
             {isCaptionPanelVisible && (

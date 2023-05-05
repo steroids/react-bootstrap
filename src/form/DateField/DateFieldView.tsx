@@ -27,6 +27,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                         size: props.size,
                         disabled: props.disabled,
                         'has-icon': !!props.icon,
+                        'is-invalid': !!props.errors,
                     }),
                     props.className,
                 )}
@@ -38,7 +39,6 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                         onChange={e => props.inputProps.onChange(e.target.value)}
                         className={bem(
                             bem.element('input'),
-                            props.isInvalid && 'is-invalid',
                             props.inputProps.className,
                         )}
                     />
