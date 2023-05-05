@@ -1,81 +1,165 @@
+:root {
+    --date-icon-default-color: #cbd5db;
+    --date-icon-close-default-color: #323232;
+    --date-icon-disabled-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] {
+    --date-icon-default-color: #5b5c6b;
+    --date-icon-close-default-color: #ffffff;
+    --date-icon-disabled-color: rgba(255, 255, 255, 0.1);
+}
+
+$date-icon-default-color: var(--date-icon-default-color);
+$date-icon-close-default-color: var(--date-icon-close-default-color);
+$date-icon-disabled-color: var(--date-icon-disabled-color);
+
 .DateFieldView {
-  $root: &;
-
-  padding-right: 8px;
-  position: relative;
-
-  background-color: $white;
-  border: 1px solid $border-default;
-  border-radius: 4px;
-
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 1px $border-typing;
-  }
-  *:focus {
-    outline: none;
-  }
-
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $grey-disabled;
-    cursor: not-allowed;
-    input {
-      cursor: inherit;
-    }
-  }
-  &_no-border {
-    border: unset;
-  }
-
-  &__body {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    &:hover #{$root}__icon_close {
-      opacity: 1;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-    padding: $input-padding-y $input-padding-x;
-  }
-
-  &__icon-container {
+    $root: &;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__icon {
-    display: flex;
-    height: 16px;
 
-    path {
-      fill: $grey-light;
-      transition: fill .1s ease-in;
-    }
+    &__input {
+        position: relative;
+        width: 100%;
+        border: 1px solid $border-color;
+        color: $text-color;
+        font-size: inherit;
+        line-height: $line-height-lg;
+        background-color: $element-background-color;
 
-    &_close{
-      position: absolute;
-      background-color: $white;
-
-      opacity: 0;
-      transition: opacity .2s ease-in;
-
-      &:hover {
-        path {
-          fill: $grey-dark;
+        &:active {
+            border-color: $primary;
         }
-      }
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+
+        &:disabled {
+            border: none;
+            background-color: $background-disabled-color;
+        }
     }
-  }
+
+    &__body {
+        position: relative;
+
+        &::before {
+            position: absolute;
+            display: block;
+            width: 100%;
+            height: 100%;
+            content: "";
+            top: 0;
+            left: 0;
+            border: 4px solid $primary-light;
+            transform: translate(-4px, -4px);
+            opacity: 0;
+            transition: opacity 150ms ease-in-out;
+        }
+    }
+
+    &:focus-within:not(:active) {
+        #{$root}__body {
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        #{$root}__input {
+            border-color: transparent;
+        }
+    }
+
+    &__icon-container {
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+
+        > * {
+            display: inline-flex;
+            flex-flow: row nowrap;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #{$root}__date-icon {
+            path,
+            circle {
+                stroke: $date-icon-default-color;
+            }
+        }
+
+        #{$root}__close-icon {
+            cursor: pointer;
+            path,
+            circle {
+                stroke: $date-icon-close-default-color;
+            }
+        }
+    }
+
+    &_size {
+        &_lg {
+            #{$root}__input {
+                border-radius: $radius-large;
+                padding: 16px 8px;
+                padding-right: 40px;
+            }
+
+            #{$root}__body::before {
+                border-radius: calc($radius-large + 4px);
+            }
+
+            font-size: $line-height-sm;
+        }
+
+        &_md {
+            #{$root}__input {
+                border-radius: $radius-large;
+                padding: 11px 8px;
+                padding-right: 40px;
+            }
+
+            #{$root}__body::before {
+                border-radius: calc($radius-large + 4px);
+            }
+
+            font-size: $font-size-base;
+        }
+
+        &_sm {
+            #{$root}__input {
+                border-radius: $radius-small;
+                padding: 5px 8px;
+                padding-right: 40px;
+            }
+
+            font-size: $font-size-sm;
+
+            #{$root}__body::before {
+                border-radius: calc($radius-small + 4px);
+            }
+        }
+    }
+
+    &_disabled {
+        #{$root}__date-icon {
+            path,
+            circle {
+                stroke: $date-icon-disabled-color;
+            }
+        }
+    }
+
+    &_is-invalid {
+        #{$root}__input {
+            border-color: $danger;
+        }
+    }
 }

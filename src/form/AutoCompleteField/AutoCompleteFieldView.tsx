@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
 import _isEmpty from 'lodash-es/isEmpty';

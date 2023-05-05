@@ -13,7 +13,7 @@ export default function LoaderView(props: ILoaderViewProps) {
         >
             <Icon
                 className={bem.element('icon')}
-                name='loading'
+                name='loading_purple'
             />
         </div>
     );
