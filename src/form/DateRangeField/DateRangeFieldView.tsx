@@ -60,7 +60,7 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                         {props.icon && (
                             <Icon
                                 className={bem.element('icon')}
-                                name={_isString(props.icon) ? props.icon as string : 'calendar-alt'}
+                                name={_isString(props.icon) ? props.icon as string : 'calendar_range'}
                             />
                         )}
                         {props.showRemove && (props.inputPropsFrom.value || props.inputPropsTo.value) && (
@@ -70,7 +70,7 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                                     e.preventDefault();
                                     props.onClear();
                                 }}
-                                name='times-circle'
+                                name='circle_cross_12x12'
                             />
                         )}
                     </div>
