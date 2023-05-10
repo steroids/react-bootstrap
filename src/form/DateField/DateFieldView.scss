@@ -14,64 +14,36 @@ $date-icon-default-color: var(--date-icon-default-color);
 $date-icon-close-default-color: var(--date-icon-close-default-color);
 $date-icon-disabled-color: var(--date-icon-disabled-color);
 
-.DateFieldView {
-    $root: &;
-    position: relative;
+$date-sizes: () !default;
+$date-sizes: map-merge(
+    (
+        "lg": (
+            "padding": 16px 8px,
+            "radius": $radius-large,
+            "font-size": $font-size-lg,
+            "height": 56px,
+            "first-input-width": 96px,
+        ),
+        "md": (
+            "padding": 11px 8px,
+            "radius": $radius-large,
+            "font-size": $font-size-base,
+            "height": 46px,
+            "first-input-width": 86px,
+        ),
+        "sm": (
+            "padding": 5px 8px,
+            "radius": $radius-small,
+            "font-size": $font-size-sm,
+            "height": 34px,
+            "first-input-width": 76px,
+        ),
+    ),
+    $date-sizes
+);
 
-    &__input {
-        position: relative;
-        width: 100%;
-        border: 1px solid $border-color;
-        color: $text-color;
-        font-size: inherit;
-        line-height: $line-height-lg;
-        background-color: $element-background-color;
-
-        &:active {
-            border-color: $primary;
-        }
-
-        &::placeholder {
-            color: $placeholder-color;
-        }
-
-        &:disabled {
-            border: none;
-            background-color: $background-disabled-color;
-        }
-    }
-
-    &__body {
-        position: relative;
-
-        &::before {
-            position: absolute;
-            display: block;
-            width: 100%;
-            height: 100%;
-            content: "";
-            top: 0;
-            left: 0;
-            border: 4px solid $primary-light;
-            transform: translate(-4px, -4px);
-            opacity: 0;
-            transition: opacity 150ms ease-in-out;
-        }
-    }
-
-    &:focus-within:not(:active) {
-        #{$root}__body {
-            &::before {
-                opacity: 1;
-            }
-        }
-
-        #{$root}__input {
-            border-color: transparent;
-        }
-    }
-
-    &__icon-container {
+@mixin icon-container($root) {
+    #{$root}__icon-container {
         position: absolute;
         top: 50%;
         right: 8px;
@@ -103,48 +75,87 @@ $date-icon-disabled-color: var(--date-icon-disabled-color);
             }
         }
     }
+}
 
+@mixin date-default-sizes($root) {
     &_size {
-        &_lg {
-            #{$root}__input {
-                border-radius: $radius-large;
-                padding: 16px 8px;
-                padding-right: 40px;
-            }
+        @each $size, $size-map in $date-sizes {
+            &_#{$size} {
+                #{$root}__input {
+                    border-radius: map-get($size-map, radius);
+                    padding: map-get($size-map, padding);
+                    padding-right: 40px;
+                    height: map-get($size-map, height);
+                }
 
-            #{$root}__body::before {
-                border-radius: calc($radius-large + 4px);
-            }
+                #{$root}__body::before {
+                    border-radius: calc(map-get($size-map, radius) + 4px);
+                }
 
-            font-size: $line-height-sm;
+                font-size: map-get($size-map, font-size);
+            }
+        }
+    }
+}
+
+@mixin date-default-input() {
+    &__input {
+        width: 100%;
+        font-size: inherit;
+        line-height: $line-height-lg;
+        background-color: $element-background-color;
+        border: 1px solid $border-color;
+        color: $text-color;
+        transition: border-color 150ms ease-in-out;
+
+        &:active {
+            border-color: $primary;
         }
 
-        &_md {
-            #{$root}__input {
-                border-radius: $radius-large;
-                padding: 11px 8px;
-                padding-right: 40px;
-            }
-
-            #{$root}__body::before {
-                border-radius: calc($radius-large + 4px);
-            }
-
-            font-size: $font-size-base;
+        &::placeholder {
+            color: $placeholder-color;
         }
 
-        &_sm {
-            #{$root}__input {
-                border-radius: $radius-small;
-                padding: 5px 8px;
-                padding-right: 40px;
-            }
+        &:disabled {
+            border: none;
+            background-color: $background-disabled-color;
+        }
+    }
+}
 
-            font-size: $font-size-sm;
+@mixin date-default-body() {
+    &__body {
+        position: relative;
 
-            #{$root}__body::before {
-                border-radius: calc($radius-small + 4px);
+        &::before {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            content: "";
+            border: 4px solid $primary-light;
+            transform: translate(-4px, -4px);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 150ms ease-in-out;
+        }
+    }
+}
+
+@mixin date-default-effects($root) {
+    &:focus-within:not(:active) {
+        #{$root}__body {
+            &::before {
+                opacity: 1;
             }
+        }
+
+        #{$root}__input {
+            border-color: transparent;
         }
     }
 
@@ -162,4 +173,19 @@ $date-icon-disabled-color: var(--date-icon-disabled-color);
             border-color: $danger;
         }
     }
+}
+
+.DateFieldView {
+    $root: &;
+    position: relative;
+
+    @include date-default-input();
+
+    @include date-default-body();
+
+    @include icon-container($root);
+
+    @include date-default-sizes($root);
+
+    @include date-default-effects($root);
 }

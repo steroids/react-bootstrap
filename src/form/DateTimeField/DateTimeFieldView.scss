@@ -1,117 +1,80 @@
-.DateTimeFieldView {
-  $root: &;
+@mixin date-time-panel($root) {
+    &__panel-container {
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        color: $text-color;
 
-  padding: 0 8px;
-  position: relative;
-
-  background-color: $white;
-  border: 1px solid $border-default;
-  border-radius: 4px;
-
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 1px $border-typing;
-  }
-  *:focus {
-    outline: none;
-  }
-
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    cursor: not-allowed;
-
-    input {
-      cursor: inherit;
-    }
-  }
-  &_no-border {
-    border: unset;
-  }
-
-  &__panel-container {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-
-  &__body {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    &:hover #{$root}__icon_close {
-      opacity: 1;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-
-    padding: $input-padding-y $input-padding-x;
-  }
-
-  &__icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__icon {
-    display: flex;
-    height: 16px;
-
-    path {
-      fill: $border-default;
-      transition: fill .1s ease-in;
-    }
-
-    &_close{
-      position: absolute;
-      background-color: $white;
-
-      opacity: 0;
-      transition: opacity .2s ease-in;
-
-      &:hover {
-        path {
-          fill: $grey-dark;
+        #{$root}__separator {
+            position: relative;
+            margin-left: 4px;
+            margin-right: 16px;
+            width: 1px;
+            height: 338px;
+            background-color: $dateRange-separator-color;
+            transform: translateY(12px);
         }
-      }
-    }
-  }
 
-  &__calendar {
-    .DayPicker-Footer {
-      justify-content: flex-start !important;
-    }
-  }
+        .TimePanelView__body {
+            column-gap: 2px;
+            width: 68px;
+        }
 
-  &__time-panel {
-    .TimePanelView__column {
-      height: 291px;
+        .TimePanelView__header {
+            border: none;
+            margin-top: 2px;
+        }
 
-      &:first-child {
-        border-left: 1px solid $border-default;
-      }
-    }
-  }
+        .TimePanelView__column {
+            height: 298px;
+            row-gap: 2px;
+            border: none;
 
-  &__calendar {
-    .DayPicker-Footer {
-      justify-content: flex-start !important;
-    }
-  }
+            &:not(:last-child) {
+                border-right: none;
+            }
 
-  &__time {
-    .TimePanelView__column {
-      height: 291px;
-      border-left: 1px solid $border-default;
+            overflow: scroll;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
+            &::-webkit-scrollbar {
+                width: 0px;
+                height: 0px;
+            }
+
+            .TimePanelView__cell {
+                padding: 0;
+                border-radius: $radius-large;
+
+                &-value {
+                    padding: 6px 7px;
+                }
+            }
+        }
+
+        .TimePanelView__button_ok {
+            @include calendar-button();
+        }
+
+        .TimePanelView__footer {
+            margin-top: 3px;
+        }
     }
-  }
+}
+
+.DateTimeFieldView {
+    $root: &;
+
+    @include date-default-input();
+
+    @include date-default-body();
+
+    @include date-default-sizes($root);
+
+    @include icon-container($root);
+
+    @include date-time-panel($root);
+
+    @include date-default-effects($root);
 }

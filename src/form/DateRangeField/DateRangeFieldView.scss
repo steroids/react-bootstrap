@@ -1,82 +1,195 @@
-.DateRangeFieldView {
-  $root: &;
+:root {
+    --dateRange-separator-color: rgba(0, 0, 0, 0.1);
+}
 
-  padding: 0 8px;
-  position: relative;
+html[dark-theme="dark"] {
+    --dateRange-separator-color: rgba(255, 255, 255, 0.1);
+}
 
-  background-color: $white;
-  border: 1px solid $border-default;
-  border-radius: 4px;
+$dateRange-separator-color: var(--dateRange-separator-color);
 
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 1px $border-typing;
-  }
-  *:focus {
-    outline: none;
-  }
+@mixin date-range-body($root) {
+    &__body {
+        position: relative;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        background-color: $element-background-color;
+        color: $text-color;
+        column-gap: 8px;
 
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    cursor: not-allowed;
-    input {
-      cursor: inherit;
-    }
-  }
-  &_no-border {
-    border: unset;
-  }
+        > * {
+            &:nth-child(1) {
+                width: 91px;
+            }
 
-  &__body {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    &:hover #{$root}__icon_close {
-      opacity: 1;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-
-    padding: 10px 5px;
-  }
-
-  &__icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__icon {
-    display: flex;
-    height: 16px;
-
-    path {
-      fill: $grey-light;
-      transition: fill .1s ease-in;
-    }
-
-    &_close{
-      position: absolute;
-      background-color: $white;
-
-      opacity: 0;
-      transition: opacity .2s ease-in;
-
-      &:hover {
-        path {
-          fill: $grey-dark;
+            &:nth-child(2) {
+                width: 100%;
+                margin-right: 40px;
+            }
         }
-      }
     }
-  }
+}
+
+@mixin date-range-effects($root) {
+    &__effect {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: inherit;
+        pointer-events: none;
+
+        &::before,
+        &::after {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: border-color 150ms ease-in-out, opacity 150ms ease-in-out;
+            opacity: 1;
+            border-radius: inherit;
+            border-width: 1px;
+            border-style: solid;
+            pointer-events: none;
+        }
+
+        &::before {
+            border-color: $border-color;
+        }
+
+        &::after {
+            width: 100%;
+            height: 100%;
+            transform: translate(-4px, -4px);
+            border: 4px solid $primary-light;
+            opacity: 0;
+        }
+    }
+
+    //Effects
+    //Active
+    &__input:active ~ &__effect::before {
+        border-color: $primary;
+    }
+
+    //Focus
+    &__body:focus-within:not(:active) &__effect {
+        &::before {
+            border-color: transparent;
+        }
+
+        &::after {
+            opacity: 1;
+        }
+    }
+
+    &_disabled {
+        #{$root}__body {
+            background-color: $background-disabled-color;
+        }
+
+        #{$root}__effect {
+            opacity: 0;
+        }
+    }
+
+    &_disabled {
+        #{$root}__date-icon {
+            path,
+            circle {
+                stroke: $date-icon-disabled-color;
+            }
+        }
+    }
+
+    &_is-invalid {
+        #{$root}__effect::before {
+            border-color: $danger;
+        }
+
+        #{$root}__input:active ~ #{$root}__effect::before {
+            border-color: $danger;
+        }
+    }
+}
+
+@mixin date-range-sizes($root) {
+    &_size {
+        @each $size, $size-map in $date-sizes {
+            &_#{$size} {
+                #{$root}__body {
+                    padding: map-get($size-map, padding);
+                    border-radius: map-get($size-map, radius);
+                    height: map-get($size-map, height);
+
+                    > * {
+                        &:nth-child(1) {
+                            width: map-get($size-map, first-input-width);
+                        }
+                    }
+                }
+
+                #{$root}__effect::after {
+                    border-radius: calc(map-get($size-map, radius) + 4px);
+                }
+
+                font-size: map-get($size-map, font-size);
+            }
+        }
+    }
+}
+
+@mixin date-range-input() {
+    &__input {
+        border: none;
+        font-size: inherit;
+        background-color: inherit;
+        color: inherit;
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+    }
+}
+
+.DateRangeFieldView {
+    $root: &;
+
+    @include date-range-body($root);
+    @include icon-container($root);
+    @include date-range-input();
+
+    @include date-range-sizes($root);
+
+    &__split {
+        .DayPicker-Months {
+            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            column-gap: 47px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 100%;
+                width: 1px;
+                background-color: $dateRange-separator-color;
+            }
+        }
+    }
+
+    @include date-range-effects($root);
 }

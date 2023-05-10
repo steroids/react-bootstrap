@@ -17,6 +17,7 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
                 {...props.calendarProps}
                 className={bem.element('calendar')}
             />
+            <div className={bem.element('separator')} />
             <TimePanelView
                 {...props.timePanelViewProps}
                 className={bem.element('time-panel')}
@@ -36,8 +37,7 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
                     bem.block({
                         size: props.size,
                         disabled: props.disabled,
-                        'has-icon': !!props.icon,
-                        'is-invalid': !!props.isInvalid,
+                        'is-invalid': !!props.errors,
                     }),
                     props.className,
                 )}
@@ -59,20 +59,21 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
                         onChange={e => props.inputProps.onChange(e.target.value)}
                     />
                     <div className={bem.element('icon-container')}>
-                        {props.icon && (
+                        {!props.inputProps.value && props.icon && (
                             <Icon
-                                className={bem.element('icon')}
-                                name={props.icon || 'calendar-alt'}
+                                className={bem.element('date-icon')}
+                                name={typeof props.icon === 'string' ? props.icon : 'calendar_range'}
+                                tabIndex={-1}
                             />
                         )}
-                        {props.showRemove && props.inputProps.value && props.icon !== false && (
+                        {props.showRemove && props.inputProps.value && (
                             <Icon
-                                className={bem.element('icon', 'close')}
+                                className={bem.element('close-icon')}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     props.onClear();
                                 }}
-                                name={typeof props.icon === 'string' ? props.icon : 'times-circle'}
+                                name={typeof props.icon === 'string' ? props.icon : 'cross_8x8'}
                             />
                         )}
                     </div>

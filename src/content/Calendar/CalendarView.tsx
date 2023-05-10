@@ -64,7 +64,9 @@ export default function CalendarView(props: ICalendarViewProps) {
             renderDay={(day) => {
                 const date = day.getDate();
                 return (
-                    <div className={bem.element('day')}>
+                    <div
+                        className={bem.element('day')}
+                    >
                         {date}
                     </div>
                 );

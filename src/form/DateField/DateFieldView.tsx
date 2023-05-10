@@ -6,6 +6,16 @@ import {useBem} from '@steroidsjs/core/hooks';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 
+const RANKS_SEPARATOR = '.';
+
+// const addDateSeparators = (value: string) => {
+//     if (!value) {
+//         return '';
+//     }
+
+//     return value.replace(/\B(?=(\d{2})+(?!\d))/g, RANKS_SEPARATOR);
+// };
+
 export default function DateFieldView(props: IDateFieldViewProps) {
     const bem = useBem('DateFieldView');
 
@@ -26,17 +36,19 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                     bem.block({
                         size: props.size,
                         disabled: props.disabled,
-                        'has-icon': !!props.icon,
                         'is-invalid': !!props.errors,
                     }),
                     props.className,
                 )}
                 style={props.style}
+
             >
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputProps}
-                        onChange={e => props.inputProps.onChange(e.target.value)}
+                        onChange={e => {
+                            const value = props.inputProps.onChange(e.target.value);
+                        }}
                         className={bem(
                             bem.element('input'),
                             props.inputProps.className,
