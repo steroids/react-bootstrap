@@ -24,6 +24,7 @@
     min-width: 200px;
 
     &_isWall {
+      min-width: auto;
       width: 128px;
       height: 128px;
       border: 1px dashed $light;
