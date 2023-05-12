@@ -11,7 +11,7 @@ export default function NavIconView(props: INavViewProps) {
         <div className={bem(bem.block(), props.className)}>
             {props.items.map((item, index) => (
                 <Button
-                    icon={props.icon ? props.icon : 'circle-notch'}
+                    icon={props.icon ? props.icon : 'add'}
                     key={item.id || index}
                     link
                     onClick={() => props.onClick(item, index)}
