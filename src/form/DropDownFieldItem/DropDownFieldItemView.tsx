@@ -27,6 +27,11 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
         onMouseOver: () => props.onItemHover(props.item[props.primaryKey]),
         onClick: (e) => {
             e.preventDefault();
+            if (props.hasSelectAll) {
+                props.setAllSelected();
+                return;
+            }
+
             props.onItemSelect(props.item[props.primaryKey]);
         },
     };

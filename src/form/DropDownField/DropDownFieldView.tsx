@@ -4,6 +4,7 @@ import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/Dr
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _isArray from 'lodash-es/isArray';
+import {ITEM_ALL_ID} from '@steroidsjs/core/hooks/useDataSelect';
 import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
@@ -96,6 +97,8 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
+                        {props.multiple && props.hasSelectAll
+                            && props.renderItem({id: ITEM_ALL_ID, label: __('All')}, true)}
                         {props.items.map((item) => props.renderItem(item))}
                     </div>
                 </div>
