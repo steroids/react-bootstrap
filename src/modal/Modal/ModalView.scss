@@ -18,7 +18,7 @@
 
     &__body {
         margin: auto;
-        overflow: hidden;
+        overflow: visible;
         background-color: $element-background-color;
         color: $text-color;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
