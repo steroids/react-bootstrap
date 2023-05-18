@@ -52,9 +52,6 @@ export default {
     'form.CheckboxFieldView': {
         lazy: () => require('./form/CheckboxField/CheckboxFieldView').default,
     },
-    'form.MaskFieldView': {
-        lazy: () => require('./form/MaskField/MaskFieldView').default,
-    },
     'form.CheckboxListFieldView': {
         lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default,
     },
