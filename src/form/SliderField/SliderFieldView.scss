@@ -1,10 +1,19 @@
-:root { 
-    --slider-background: 
+:root {
+    --slider-background: #dbe2e6;
+    --slider-handle-border-color: rgba(0, 0, 0, 0.1);
 }
+
+html[data-theme="dark"] {
+    --slider-background: #333646;
+    --slider-handle-border-color: transparent;
+}
+
+$slider-background: var(--slider-background);
+$slider-handle-border-color: var(--slider-handle-border-color);
 
 .SliderFieldView {
     $root: &;
-    margin-top: 10px;
+    margin: 10px 0;
 
     &_hidden {
         display: unset;
@@ -12,10 +21,10 @@
 
     .rc-slider {
         position: relative;
-        height: 6px;
+        height: 8px;
         width: 100%;
         border-radius: 6px;
-        background-color: $primary-light;
+        background-color: $slider-background;
         box-sizing: border-box;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
@@ -30,7 +39,7 @@
     .rc-slider-track {
         position: absolute;
         left: 0;
-        height: 6px;
+        height: 8px;
         border-radius: 6px;
         background-color: $primary;
         z-index: 1;
@@ -38,22 +47,41 @@
     .rc-slider-handle {
         position: absolute;
         margin-left: 0;
-        margin-top: -10px;
+        margin-top: -8px;
         width: 24px;
         height: 24px;
         cursor: pointer;
         border-radius: 50%;
         background-color: $primary;
         z-index: 2;
-        transition: box-shadow 300ms;
         outline: none;
 
-        &:hover {
-            box-shadow: 0 0 0 10px rgba($primary-light, 0.3);
+        border: 1px solid $slider-handle-border-color;
+
+        &::before {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 4px solid $primary-light;
+            transform: translate(-4px, -4px);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 150ms ease-in-out;
+        }
+
+        &-click-focused::before {
+            opacity: 1;
         }
 
         &:active {
-            box-shadow: 0 0 0 15px rgba($primary, 0.3);
+            background-color: $primary-dark;
         }
     }
     .rc-slider-mark {
@@ -104,22 +132,24 @@
         border-color: $primary;
     }
     .rc-slider-disabled {
-        background-color: #e9e9e9;
+        background-color: $slider-background;
 
         .rc-slider-handle,
         .rc-slider-dot {
-            box-shadow: 0 0 4px $border-default;
-            background-color: #ccc;
+            background-color: $slider-background;
         }
     }
     .rc-slider-disabled .rc-slider-track {
-        background-color: #ccc;
+        background-color: $slider-background;
     }
     .rc-slider-disabled .rc-slider-handle,
     .rc-slider-disabled .rc-slider-dot {
-        border-color: #ccc;
-        background-color: #fff;
+        background-color: $slider-background;
         cursor: not-allowed;
+    }
+
+    .rc-slider-disabled .rc-slider-handle-click-focused::before {
+        opacity: 0;
     }
     .rc-slider-disabled .rc-slider-mark-text,
     .rc-slider-disabled .rc-slider-dot {
@@ -283,30 +313,14 @@
         padding: 4px 0 8px 0;
     }
     .rc-slider-tooltip-inner {
-        padding: 6px 2px;
-        min-width: 24px;
-        height: 24px;
-        font-size: 12px;
-        line-height: 1;
-        color: #fff;
+        padding: 8px;
+        font-size: $font-size-lg;
+        line-height: $line-height-base;
+        color: $text-color;
+        border: 1px solid $gray;
         text-align: center;
         text-decoration: none;
-        background-color: #6c6c6c;
-        border-radius: 6px;
-        box-shadow: 0 0 4px #d9d9d9;
-    }
-    .rc-slider-tooltip-arrow {
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-color: transparent;
-        border-style: solid;
-    }
-    .rc-slider-tooltip-placement-top .rc-slider-tooltip-arrow {
-        bottom: 4px;
-        left: 50%;
-        margin-left: -4px;
-        border-width: 4px 4px 0;
-        border-top-color: #6c6c6c;
+        background-color: $element-background-color;
+        border-radius: 21px;
     }
 }
