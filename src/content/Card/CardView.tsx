@@ -9,7 +9,7 @@ import {Link} from '@steroidsjs/core/ui/nav';
 export default function CardView(props: ICardViewProps) {
     const bem = useBem('CardView');
 
-    const hasContent = !!(props.title || props.buttons || props.links || props.description);
+    const hasContent = !!(props.title || props.buttons || props.links || props.description || props.children);
 
     return (
         <div
@@ -98,6 +98,7 @@ export default function CardView(props: ICardViewProps) {
                                 ))}
                             </div>
                         )}
+                        {props.children}
                     </div>
                 </div>
             )}

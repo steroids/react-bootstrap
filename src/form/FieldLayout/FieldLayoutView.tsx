@@ -30,7 +30,7 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps) {
                 {props.children}
                 {!_isEmpty(props.errors) && (
                     <div className={bem.element('invalid-feedback')}>
-                        {props.errors.filter(error => typeof error === 'string').map((error, index) => (
+                        {[].concat(props.errors).filter(error => typeof error === 'string').map((error, index) => (
                             <div
                                 key={index}
                                 className={bem.element('error-message')}

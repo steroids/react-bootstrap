@@ -36,7 +36,7 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps) {
             <div className={bem.element('icon-wrapper', 'loading')}>
                 <Icon
                     className={bem.element('icon-loading')}
-                    name='loading_icon'
+                    name='loading_default'
                 />
             </div>
             <div className={bem.element('content')}>

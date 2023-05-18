@@ -88,11 +88,10 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                         inputProps={{
                             disabled: false,
                             name: props.item.label,
-                            checked: false,
+                            checked: props.selectedIds.includes(props.item[props.primaryKey]),
                             onChange: () => { },
                             type: 'checkbox',
                         }}
-                        checked={props.selectedIds.includes(props.item[props.primaryKey])}
                     />
                 </div>
             );
