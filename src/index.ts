@@ -34,6 +34,9 @@ export default {
     'content.BadgeView': {
         lazy: () => require('./content/Badge/BadgeView').default,
     },
+    'content.CopyToClipboardView': {
+        lazy: () => require('./content/CopyToClipBoard/CopyToClipBoardView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
