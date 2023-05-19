@@ -1,9 +1,9 @@
 import {useBem} from '@steroidsjs/core/hooks';
-import {IMenuItemProps} from '@steroidsjs/core/ui/content/Menu/Menu';
+import {IMenuItem} from '@steroidsjs/core/ui/content/Menu/Menu';
 import React from 'react';
 import renderIcon from '../../utils/renderIcon';
 
-export default function MenuItemView(props:IMenuItemProps) {
+export default function MenuItemView(props: IMenuItem) {
     const bem = useBem('MenuItemView');
     return (
         <div
