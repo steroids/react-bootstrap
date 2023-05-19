@@ -47,10 +47,7 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                     />
                     <input
                         {...props.inputPropsTo}
-                        className={bem(
-                            bem.element('input', {
-                            }),
-                        )}
+                        className={bem.element('input')}
                         onChange={e => props.inputPropsTo.onChange(e.target.value)}
                     />
                     <div className={bem.element('icon-container')}>

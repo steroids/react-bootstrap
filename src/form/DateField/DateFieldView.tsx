@@ -6,16 +6,6 @@ import {useBem} from '@steroidsjs/core/hooks';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 
-const RANKS_SEPARATOR = '.';
-
-// const addDateSeparators = (value: string) => {
-//     if (!value) {
-//         return '';
-//     }
-
-//     return value.replace(/\B(?=(\d{2})+(?!\d))/g, RANKS_SEPARATOR);
-// };
-
 export default function DateFieldView(props: IDateFieldViewProps) {
     const bem = useBem('DateFieldView');
 
