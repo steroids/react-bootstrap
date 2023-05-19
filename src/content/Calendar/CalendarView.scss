@@ -11,6 +11,19 @@ html[data-theme="dark"] {
 $day-background-color-hover: var(--day-background-color-hover);
 $calendar-border-color: var(--calendar-border-color);
 
+@mixin calendar-button () {
+    padding: 5px 12.5px;
+    border-radius: $radius-small;
+    border: 1px solid $gray;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    cursor: pointer;
+    color: $text-color;
+    font-size: $font-size-sm;
+    line-height: $line-height-lg;
+}
+
 .CalendarView {
     $root: &;
     position: relative;
@@ -106,8 +119,37 @@ $calendar-border-color: var(--calendar-border-color);
             z-index: 1;
         }
 
+        &::after {
+            position: absolute;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-width: 4px;
+            border-style: solid;
+            border-radius: 16px;
+            border-color: $day-background-color-hover;
+            transform: translate(-4px, -4px);
+            opacity: 0;
+            transition: opacity 150ms ease-in-out;
+            z-index: 9;
+        }
+
+        &:focus { 
+            outline: none;
+        }
+        
+        &:focus:not(:active)::after {
+            opacity: 1;
+        }
+
         &--outside {
             color: $placeholder-color;
+
         }
 
         &--today {
@@ -133,16 +175,7 @@ $calendar-border-color: var(--calendar-border-color);
     }
 
     .DayPicker-TodayButton {
-        padding: 5px 12.5px;
-        border-radius: $radius-small;
-        border: 1px solid $gray;
-        background-color: transparent;
-        background-image: none;
-        box-shadow: none;
-        cursor: pointer;
-        color: $text-color;
-        font-size: $font-size-sm;
-        line-height: $line-height-lg;
+        @include calendar-button();
     }
 
     // Days selection
@@ -167,7 +200,7 @@ $calendar-border-color: var(--calendar-border-color);
         background-color: transparent;
 
         .CalendarView__day {
-            color: $text-color;
+            transition: background-color 150ms ease-in-out;
         }
     }
 
@@ -189,14 +222,14 @@ $calendar-border-color: var(--calendar-border-color);
                 color: $white;
 
                 #{$root}__day {
-                    background-color: $calendar-primary-color;
-                    box-shadow: $calendar-selected-shadow;
+                    background-color: $primary;
                 }
 
                 &::before {
-                    background-color: $calendar-primary-light-color;
-                    width: 10px;
-                    transform: translate(25px, -50%);
+                    width: 50px;
+                    height: 42px;
+                    background-color: $primary-light;
+                    border-radius: 16px 0px 0px 16px;
                 }
             }
 
@@ -205,19 +238,32 @@ $calendar-border-color: var(--calendar-border-color);
 
                 #{$root}__day {
                     background-color: $calendar-primary-color;
-                    box-shadow: $calendar-selected-shadow;
                 }
 
                 &::before {
-                    background-color: $calendar-primary-light-color;
-                    width: 10px;
+                    width: 46px;
+                    height: 42px;
+                    background-color: $primary-light;
+                    border-radius: 0px 16px 16px 0px;
                 }
             }
 
             &--inRange {
                 &::before {
-                    background-color: $calendar-primary-light-color;
+                    background-color: $primary-light;
+                    width: 50px;
+                    height: 42px;
                 }
+            }
+
+            //Today in range
+            &--inRange.DayPicker-Day--selected.DayPicker-Day--today .CalendarView__day {
+                color: $primary;
+            }
+
+            &--inRange:hover .CalendarView__day {
+                transition: background-color 150ms ease-in-out;
+                background-color: $day-background-color-hover;
             }
 
             &--outRange {

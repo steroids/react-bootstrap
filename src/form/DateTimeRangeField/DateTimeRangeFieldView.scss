@@ -1,102 +1,37 @@
 .DateTimeRangeFieldView {
-  $root: &;
+    $root: &;
 
-  padding: 0 8px;
-  position: relative;
+    @include icon-container($root);
 
-  background-color: $white;
-  border: 1px solid $border-default;
-  border-radius: 4px;
+    @include date-range-body($root);
 
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 1px $border-typing;
-  }
-  *:focus {
-    outline: none;
-  }
-
-  &_disabled {
-    opacity: .7;
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    cursor: not-allowed;
-    input {
-      cursor: inherit;
-    }
-  }
-  &_no-border {
-    border: unset;
-  }
-
-  &__panel-container {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-  &__calendar {
-    .DayPicker-Footer {
-      justify-content: flex-start !important;
-    }
-  }
-  &__time-panel {
-    .TimePanelView__column {
-      height: 291px;
-
-      &:first-child {
-        border-left: 1px solid $border-default;
-      }
-    }
-  }
-
-  &__body {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    &:hover #{$root}__icon_close {
-      opacity: 1;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-
-    padding: 10px 5px;
-  }
-
-  &__icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__icon {
-    display: flex;
-    height: 16px;
-
-    path {
-      fill: $grey-light;
-      transition: fill .1s ease-in;
-    }
-
-    &_close{
-      position: absolute;
-      background-color: $white;
-
-      opacity: 0;
-      transition: opacity .2s ease-in;
-
-      &:hover {
-        path {
-          fill: $grey-dark;
+    &__body {
+        > * {
+            &:nth-child(1) {
+                width: 140px;
+            }
         }
-      }
     }
-  }
+
+    &_size {
+        @each $size, $size-map in $date-sizes {
+            &_#{$size} {
+                #{$root}__body {
+                    #{$root}__input {
+                        &:nth-child(1) {
+                            width: calc(map-get($size-map, first-input-width) + 60px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include date-range-input();
+
+    @include date-range-sizes($root);
+
+    @include date-range-effects($root);
+
+    @include date-time-panel($root);
 }

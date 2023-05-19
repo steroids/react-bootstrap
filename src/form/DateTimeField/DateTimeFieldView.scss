@@ -1,117 +1,15 @@
 .DateTimeFieldView {
-  $root: &;
+    $root: &;
 
-  padding: 0 8px;
-  position: relative;
+    @include date-default-input();
 
-  background-color: $white;
-  border: 1px solid $border-default;
-  border-radius: 4px;
+    @include date-default-body();
 
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 1px $border-typing;
-  }
-  *:focus {
-    outline: none;
-  }
+    @include date-default-sizes($root);
 
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    cursor: not-allowed;
+    @include icon-container($root);
 
-    input {
-      cursor: inherit;
-    }
-  }
-  &_no-border {
-    border: unset;
-  }
+    @include date-time-panel($root);
 
-  &__panel-container {
-    display: flex;
-    flex-flow: row nowrap;
-  }
-
-  &__body {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    &:hover #{$root}__icon_close {
-      opacity: 1;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-
-    padding: $input-padding-y $input-padding-x;
-  }
-
-  &__icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__icon {
-    display: flex;
-    height: 16px;
-
-    path {
-      fill: $border-default;
-      transition: fill .1s ease-in;
-    }
-
-    &_close{
-      position: absolute;
-      background-color: $white;
-
-      opacity: 0;
-      transition: opacity .2s ease-in;
-
-      &:hover {
-        path {
-          fill: $grey-dark;
-        }
-      }
-    }
-  }
-
-  &__calendar {
-    .DayPicker-Footer {
-      justify-content: flex-start !important;
-    }
-  }
-
-  &__time-panel {
-    .TimePanelView__column {
-      height: 291px;
-
-      &:first-child {
-        border-left: 1px solid $border-default;
-      }
-    }
-  }
-
-  &__calendar {
-    .DayPicker-Footer {
-      justify-content: flex-start !important;
-    }
-  }
-
-  &__time {
-    .TimePanelView__column {
-      height: 291px;
-      border-left: 1px solid $border-default;
-    }
-  }
+    @include date-default-effects($root);
 }
