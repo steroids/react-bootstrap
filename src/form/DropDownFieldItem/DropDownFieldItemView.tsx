@@ -8,6 +8,7 @@ import {
     IMG_CONTENT_TYPE,
     RADIO_CONTENT_TYPE,
 } from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
+import {ITEM_TO_SELECT_ALL_ID} from '@steroidsjs/core/hooks/useDataSelect';
 import renderIcon from '../../utils/renderIcon';
 import AccordionItemView from '../../content/Accordion/AccordionItemView';
 import CheckboxFieldView from '../CheckboxField/CheckboxFieldView';
@@ -27,7 +28,20 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
         onMouseOver: () => props.onItemHover(props.item[props.primaryKey]),
         onClick: (e) => {
             e.preventDefault();
-            if (props.itemToSelectAll.id === props.item.id) {
+
+            if (
+                typeof props.itemToSelectAll === 'boolean'
+                && props.itemToSelectAll === true
+                && props.item.id === ITEM_TO_SELECT_ALL_ID
+            ) {
+                props.setSelectedAll();
+                return;
+            }
+
+            if (
+                typeof props.itemToSelectAll !== 'boolean'
+                && props.itemToSelectAll?.id === props.item.id
+            ) {
                 props.setSelectedAll();
                 return;
             }
