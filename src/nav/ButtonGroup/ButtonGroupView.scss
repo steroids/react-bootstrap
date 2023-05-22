@@ -1,23 +1,23 @@
 @import "../../scss/variables/";
 
 :root {
-    --buttonGroup-background: #DBE2E6;
-    --buttonGroup-separator-color: #CBD5DB;
+    --button-group-background: #DBE2E6;
+    --button-group-separator-color: #CBD5DB;
 }
 
 html[data-theme="dark"] {
-    --buttonGroup-background: #333646;
-    --buttonGroup-separator-color: #ADAAB3;
+    --button-group-background: #333646;
+    --button-group-separator-color: #ADAAB3;
 }
 
-$buttonGroup-background: var(--buttonGroup-background);
-$buttonGroup-separator-color: var(--buttonGroup-separator-color);
+$button-group-background: var(--button-group-background);
+$button-group-separator-color: var(--button-group-separator-color);
 
 .ButtonGroupView {
   display: flex;
   padding: 4px;
   width: fit-content;
-  background-color: $buttonGroup-background;
+  background-color: $button-group-background;
 
   $sizes: () !default;
   $sizes: map-merge(
@@ -71,7 +71,7 @@ $buttonGroup-separator-color: var(--buttonGroup-separator-color);
           transform: translateY(-50%);
           width: 1px;
           height: 12px;
-          background-color: $buttonGroup-separator-color;
+          background-color: $button-group-separator-color;
         }
       }
     }
