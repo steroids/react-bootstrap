@@ -1,82 +1,33 @@
 .DateRangeFieldView {
-  $root: &;
+    $root: &;
 
-  padding: 0 8px;
-  position: relative;
+    @include date-range-body($root);
+    @include icon-container($root);
+    @include date-range-input();
 
-  background-color: $white;
-  border: 1px solid $border-default;
-  border-radius: 4px;
+    @include date-range-sizes($root);
 
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 1px $border-typing;
-  }
-  *:focus {
-    outline: none;
-  }
+    &__split {
+        .DayPicker-Months {
+            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            column-gap: 47px;
 
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    cursor: not-allowed;
-    input {
-      cursor: inherit;
-    }
-  }
-  &_no-border {
-    border: unset;
-  }
-
-  &__body {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    &:hover #{$root}__icon_close {
-      opacity: 1;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-
-    padding: 10px 5px;
-  }
-
-  &__icon-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__icon {
-    display: flex;
-    height: 16px;
-
-    path {
-      fill: $grey-light;
-      transition: fill .1s ease-in;
-    }
-
-    &_close{
-      position: absolute;
-      background-color: $white;
-
-      opacity: 0;
-      transition: opacity .2s ease-in;
-
-      &:hover {
-        path {
-          fill: $grey-dark;
+            &::before {
+                content: "";
+                position: absolute;
+                display: block;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 100%;
+                width: 1px;
+                background-color: $date-range-separator-color;
+            }
         }
-      }
     }
-  }
+
+    @include date-range-effects($root);
 }

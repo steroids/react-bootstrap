@@ -12,12 +12,15 @@ import TimePanelView from '../TimeField/TimePanelView';
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {
     const bem = useBem('DateTimeRangeFieldView');
 
+    const hasValue = props.inputPropsFrom.value || props.inputPropsTo.value;
+
     const renderCalendar = useCallback(() => (
         <div className={bem.element('panel-container')}>
             <Calendar
                 {...props.calendarProps}
                 className={bem.element('calendar')}
             />
+            <div className={bem.element('separator')} />
             <TimePanelView
                 {...props.timePanelViewProps}
                 className={bem.element('time-panel')}
@@ -35,7 +38,8 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             <div
                 className={bem(bem.block({
                     disabled: props.disabled,
-                    'no-border': props.noBorder,
+                    size: props.size,
+                    'is-invalid': !!props.errors,
                 }),
                 props.className)}
                 style={props.style}
@@ -47,13 +51,9 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
                             bem.element('input', {
                                 size: props.size,
                             }),
-                            !!props.errorsFrom && 'is-invalid',
                         )}
                         onChange={e => props.inputPropsFrom.onChange(e.target.value)}
                     />
-                    <span className={bem.element('divider')}>
-                        -
-                    </span>
                     <input
                         {...props.inputPropsTo}
                         className={bem(
@@ -65,23 +65,25 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
                         onChange={e => props.inputPropsTo.onChange(e.target.value)}
                     />
                     <div className={bem.element('icon-container')}>
-                        {props.icon && (
+                        {props.icon && !hasValue && (
                             <Icon
-                                className={bem.element('icon')}
-                                name={_isString(props.icon) ? props.icon as string : 'calendar-alt'}
+                                className={bem.element('date-icon')}
+                                name={typeof props.icon === 'string' ? props.icon : 'calendar_range'}
+                                tabIndex={-1}
                             />
                         )}
-                        {props.showRemove && (props.inputPropsFrom.value || props.inputPropsTo.value) && (
+                        {props.showRemove && hasValue && (
                             <Icon
-                                className={bem.element('icon', 'close')}
+                                className={bem.element('close-icon')}
                                 onClick={(e) => {
                                     e.preventDefault();
                                     props.onClear();
                                 }}
-                                name='times-circle'
+                                name='cross_8x8'
                             />
                         )}
                     </div>
+                    <span className={bem.element('effect')} />
                 </div>
             </div>
         </DropDown>
