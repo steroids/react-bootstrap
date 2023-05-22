@@ -22,8 +22,17 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         ? (
             <div className={bem.element('placeholder')}>{props.placeholder}</div>
         )
-        : null,
-        [bem, props.placeholder, props.selectedIds]);
+        : null, [bem, props.placeholder, props.selectedIds]);
+
+    const itemToSelectAllProperties = React.useMemo(() => typeof props.itemToSelectAll === 'boolean'
+        ? {
+            id: ITEM_TO_SELECT_ALL_ID,
+            label: __('Все'),
+        }
+        : {
+            id: props.itemToSelectAll?.id,
+            label: props.itemToSelectAll?.label,
+        }, [props.itemToSelectAll]);
 
     return (
         <div
@@ -98,10 +107,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     )}
                     <div className={bem.element('drop-down-list')}>
                         {props.multiple && props.itemToSelectAll
-                            && props.renderItem({
-                                id: props.itemToSelectAll.id || ITEM_TO_SELECT_ALL_ID,
-                                label: props.itemToSelectAll.label || __('Все'),
-                            })}
+                            && props.renderItem(itemToSelectAllProperties)}
                         {props.items.map((item) => props.renderItem(item))}
                     </div>
                 </div>
