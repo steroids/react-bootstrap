@@ -18,6 +18,7 @@
 @import './content/Menu/MenuItemView';
 @import './content/Menu/MenuView';
 @import './content/Icon/IconView';
+@import './content/CopyToClipboard/CopyToClipboardView';
 @import './form/AutoCompleteField/AutoCompleteFieldView';
 @import './form/Button/ButtonView';
 @import './form/CheckboxField/CheckboxFieldView';
@@ -76,5 +77,6 @@
 @import './nav/Nav/NavListView';
 @import './nav/Nav/NavTabsView';
 @import './nav/Tree/TreeView';
+@import './nav/ButtonGroup/ButtonGroupView';
 @import './typography/Text/TextView';
 @import './typography/Title/TitleView';

@@ -720,10 +720,10 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.35":
-  version "3.0.0-beta.35"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.35.tgz#bc902aa60e924fb5ddcf0e9e80a1f4641d3bbadb"
-  integrity sha512-SQC79RkCsElJiRXuJr53NtVPOSObtQ6sfNU8FIrQaKT1YQftJ/s2YjVbxhb/E/jt1Os2XHFeZrqIH2gqwA6d3w==
+"@steroidsjs/core@^3.0 || >=3.0.0-beta.42":
+  version "3.0.0-beta.42"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.42.tgz#ee1d0c04428805846bc389dd966c944a076f1942"
+  integrity sha512-5r1ZgZvrR9+WG7AX8aKnT5kILCBW3LjpVuBHGdelgKDFlg3fwgGr3ypWcXZ1Se90oWjZQqaQkLP8zKijgj4c3Q==
   dependencies:
     axios "^0.21.1"
     connected-react-router "^6.9.3"
@@ -742,7 +742,7 @@
     query-string "^6.14.0"
     react "^18.2.0"
     react-click-outside "^3.0.1"
-    react-day-picker "^8.2.1"
+    react-day-picker "^8.7.1"
     react-dom "^18.2.0"
     react-grid-gallery "^0.4.8"
     react-helmet "^6.1.0"
@@ -3067,10 +3067,10 @@ react-day-picker@^7.4.10:
   dependencies:
     prop-types "^15.6.2"
 
-react-day-picker@^8.2.1:
-  version "8.5.1"
-  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.5.1.tgz#c0ab712f33753b70cd5e2aab85665bb4e947c69c"
-  integrity sha512-ee3+PUGAEiLHaS3als6LYO7NQW2MPw00cvDSk5oNPLk4axIE5JhXRbIr//r9eX5Zsg1S1NFQpJoeJJ5LtJ0/SA==
+react-day-picker@^8.7.1:
+  version "8.7.1"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.7.1.tgz#b8388c2afa69d4a6da4c5fde5323fae884acfe2f"
+  integrity sha512-Gv426AW8b151CZfh3aP5RUGztLwHB/EyJgWZ5iMgtzbFBkjHfG6Y66CIQFMWGLnYjsQ9DYSJRmJ5S0Pg5HWKjA==
 
 react-dom@^18.2.0:
   version "18.2.0"

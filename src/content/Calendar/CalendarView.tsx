@@ -23,7 +23,7 @@ export default function CalendarView(props: ICalendarViewProps) {
         isCaptionPanelVisible,
     } = props;
 
-    const isRange = !!selectedDates[1];
+    const isRange = !!selectedDates[0] && !!selectedDates[1];
     const {selectedDays, modifiers} = useMemo(() => {
         const from = selectedDates[0];
         const to = selectedDates[1];
@@ -64,7 +64,9 @@ export default function CalendarView(props: ICalendarViewProps) {
             renderDay={(day) => {
                 const date = day.getDate();
                 return (
-                    <div className={bem.element('day')}>
+                    <div
+                        className={bem.element('day')}
+                    >
                         {date}
                     </div>
                 );

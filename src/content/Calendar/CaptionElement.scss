@@ -1,17 +1,25 @@
 :root {
     --caption-arrow-background-color: #f1f5f7;
     --caption-arrow-color: #323232;
+    --caption-header-month-background-color: #f1f5f7;
+    --separator-background-color: rgba(0, 0, 0, 0.1);
 }
 
 html[data-theme="dark"] {
     --caption-arrow-background-color: #323232;
     --caption-arrow-color: #ffffff;
+    --caption-header-month-background-color: #333646;
+    --separator-background-color: rgba(255, 255, 255, 0.1);
 }
 
 $caption-arrow-background-color: var(--caption-arrow-background-color);
 $caption-arrow-color: var(--caption-arrow-color);
+$caption-header-month-background-color: var(--caption-header-month-background-color);
+$separator-background-color: var(--separator-background-color);
 
 .CaptionElement {
+    $root: &;
+
     height: 24px;
     width: 100%;
     display: flex;
@@ -23,7 +31,6 @@ $caption-arrow-color: var(--caption-arrow-color);
         height: 100%;
         display: flex;
         align-items: center;
-
 
         &-icons {
             display: flex;
@@ -79,7 +86,8 @@ $caption-arrow-color: var(--caption-arrow-color);
 
     // Panel changing Month/Year
     &__panel {
-        border-radius: $radius-large;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
         z-index: 10;
         position: absolute;
@@ -89,6 +97,7 @@ $caption-arrow-color: var(--caption-arrow-color);
         bottom: 50px;
         background-color: $element-background-color;
         margin-bottom: 12px;
+        max-height: 294px;
 
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -107,41 +116,65 @@ $caption-arrow-color: var(--caption-arrow-color);
         padding: 5px;
 
         text-align: center;
-        border-bottom: 1px solid gray;
-        background-color: $primary-light;
+        background-color: $caption-header-month-background-color;
+        font-weight: $font-weight-lg;
 
         &_months {
+            position: relative;
             grid-area: HeaderMonths;
-            border-right: 1px solid gray;
+            border-radius: 8px 0px 0px 8px;
+
+            //Separator
+            &::before {
+                display: block;
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 20px;
+                top: 50%;
+                right: 0;
+                background-color: $separator-background-color;
+                transform: translateY(-50%);
+            }
         }
 
         &_years {
             grid-area: HeaderYears;
+            border-radius: 0px 8px 8px 0px;
         }
     }
 
-    &__panel-column-months {
-        border-right: 1px solid gray;
+    &__panel-column {
+        &-months {
+            border-right: 1px solid $separator-background-color;
 
-        &_first {
-            grid-area: Months1stCol;
+            &_first {
+                grid-area: Months1stCol;
+            }
+
+            &_second {
+                grid-area: Months2ndCol;
+            }
         }
 
-        &_second {
-            grid-area: Months2ndCol;
+        &-years {
+            grid-area: YearsCol;
+            @include scrollWrapper(294px, 0, $scroll-thumb-color, $scroll-track-color);
         }
-    }
-
-    &__panel-column-years {
-        grid-area: YearsCol;
-        @include scrollWrapper(278px, 0, $scroll-thumb-color, $scroll-track-color);
     }
 
     &__panel-cell {
+        &:first-child{
+            margin-top: 10px;
+        }
+        display: block;
+        width: fit-content;
         background-color: $element-background-color;
-        padding: 5px 15px;
+        padding: 4px 8px;
         cursor: pointer;
         transition: background-color 0.1s ease-in;
+        margin: 0 auto;
+        border-radius: $radius-large;
 
         &_selected {
             background-color: $primary-light;
@@ -149,6 +182,10 @@ $caption-arrow-color: var(--caption-arrow-color);
 
         &:hover {
             background-color: $primary-light;
+        }
+
+        #{$root}__cell-value {
+            text-align: center;
         }
     }
 }

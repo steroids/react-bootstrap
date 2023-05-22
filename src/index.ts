@@ -34,6 +34,9 @@ export default {
     'content.BadgeView': {
         lazy: () => require('./content/Badge/BadgeView').default,
     },
+    'content.CopyToClipboardView': {
+        lazy: () => require('./content/CopyToClipboard/CopyToClipboardView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
@@ -228,6 +231,9 @@ export default {
     },
     'nav.TreeView': {
         lazy: () => require('./nav/Tree/TreeView').default,
+    },
+    'nav.ButtonGroupView': {
+        lazy: () => require('./nav/ButtonGroup/ButtonGroupView').default,
     },
     'typography.TextView': {
         lazy: () => require('./typography/Text/TextView').default,
