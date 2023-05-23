@@ -4,7 +4,6 @@ import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/Dr
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _isArray from 'lodash-es/isArray';
-import {ITEM_TO_SELECT_ALL_ID} from '@steroidsjs/core/hooks/useDataSelect';
 import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
@@ -23,16 +22,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             <div className={bem.element('placeholder')}>{props.placeholder}</div>
         )
         : null, [bem, props.placeholder, props.selectedIds]);
-
-    const itemToSelectAllProperties = React.useMemo(() => typeof props.itemToSelectAll === 'boolean'
-        ? {
-            id: ITEM_TO_SELECT_ALL_ID,
-            label: __('Все'),
-        }
-        : {
-            id: props.itemToSelectAll?.id,
-            label: props.itemToSelectAll?.label,
-        }, [props.itemToSelectAll]);
 
     return (
         <div
@@ -107,7 +96,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     )}
                     <div className={bem.element('drop-down-list')}>
                         {props.multiple && props.itemToSelectAll
-                            && props.renderItem(itemToSelectAllProperties)}
+                            && props.renderItem(props.itemToSelectAll)}
                         {props.items.map((item) => props.renderItem(item))}
                     </div>
                 </div>
