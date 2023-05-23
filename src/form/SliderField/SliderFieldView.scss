@@ -103,12 +103,12 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         top: 20px;
         left: 0;
         width: 100%;
-        font-size: 16px;
-        line-height: $line-height-base;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
         z-index: 3;
     }
     .rc-slider-mark-text {
-        padding: 8px;
+        padding: 4px;
         position: absolute;
         display: inline-block;
         vertical-align: middle;
@@ -118,9 +118,6 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         color: $text-color;
         border: 1px solid $border-color;
         border-radius: 21px;
-    }
-    .rc-slider-mark-text-active {
-        color: #666;
     }
     .rc-slider-step {
         position: absolute;
