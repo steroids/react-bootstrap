@@ -61,6 +61,7 @@ export default function SliderFieldView(props: ISliderFieldViewProps) {
                 bem.block(),
                 props.className,
             )}
+            style={props.style}
         >
             {props.isRange ? RangeField : SliderField}
         </div>
