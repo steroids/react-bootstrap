@@ -15,19 +15,22 @@ import RadioFieldView from '../RadioField/RadioFieldView';
 
 export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
     const bem = useBem('DropDownItemView');
+    const uniqItemId = props.item[props.primaryKey];
 
     const commonProps = {
         className:
             bem.element('option', {
-                hover: props.hoveredId === props.item[props.primaryKey],
-                select: props.selectedIds.includes(props.item[props.primaryKey]),
+                hover: props.hoveredId === uniqItemId,
+                select: props.isItemToSelectAll
+                    ? props.isSelectedAll
+                    : props.selectedIds.includes(uniqItemId),
                 size: props.size,
             }),
-        onFocus: () => props.onItemHover(props.item[props.primaryKey]),
-        onMouseOver: () => props.onItemHover(props.item[props.primaryKey]),
+        onFocus: () => props.onItemHover(uniqItemId),
+        onMouseOver: () => props.onItemHover(uniqItemId),
         onClick: (e) => {
             e.preventDefault();
-            props.onItemSelect(props.item[props.primaryKey]);
+            props.onItemSelect(uniqItemId);
         },
     };
 
@@ -42,7 +45,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                     showIcon
                     title={props.item.label}
                     position="middle"
-                    key={props.item[props.primaryKey]}
+                    key={uniqItemId}
                     className={
                         bem.element('group', {
                             size: props.size,
@@ -66,7 +69,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
             return (
                 <div
                     {...commonProps}
-                    key={props.item[props.primaryKey]}
+                    key={uniqItemId}
                 >
                     {renderIcon(props.item.contentSrc, {className: bem.element('icon')})}
                     <span>
@@ -79,7 +82,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
             return (
                 <div
                     {...commonProps}
-                    key={props.item[props.primaryKey]}
+                    key={uniqItemId}
                 >
                     <CheckboxFieldView
                         label={props.item.label}
@@ -88,7 +91,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                         inputProps={{
                             disabled: false,
                             name: props.item.label,
-                            checked: props.selectedIds.includes(props.item[props.primaryKey]),
+                            checked: props.selectedIds.includes(uniqItemId),
                             onChange: () => { },
                             type: 'checkbox',
                         }}
@@ -100,7 +103,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
             return (
                 <div
                     {...commonProps}
-                    key={props.item[props.primaryKey]}
+                    key={uniqItemId}
                 >
                     <RadioFieldView
                         label={props.item.label}
@@ -115,7 +118,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                             onChange: () => { },
                             type: 'radio',
                         }}
-                        checked={props.selectedIds.includes(props.item[props.primaryKey])}
+                        checked={props.selectedIds.includes(uniqItemId)}
                     />
                 </div>
             );
@@ -124,7 +127,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
             return (
                 <div
                     {...commonProps}
-                    key={props.item[props.primaryKey]}
+                    key={uniqItemId}
                 >
                     <span className={bem.element('img')}>
                         <img
@@ -142,7 +145,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
             return (
                 <div
                     {...commonProps}
-                    key={props.item[props.primaryKey]}
+                    key={uniqItemId}
                 >
                     {props.item.label}
                 </div>

@@ -21,8 +21,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         ? (
             <div className={bem.element('placeholder')}>{props.placeholder}</div>
         )
-        : null,
-    [bem, props.placeholder, props.selectedIds]);
+        : null, [bem, props.placeholder, props.selectedIds]);
 
     return (
         <div
@@ -96,6 +95,9 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
+                        {props.multiple
+                            && props.itemToSelectAll
+                            && props.renderItem(props.itemToSelectAll)}
                         {props.items.map((item) => props.renderItem(item))}
                     </div>
                 </div>
