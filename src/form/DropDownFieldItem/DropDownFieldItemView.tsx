@@ -21,7 +21,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
         className:
             bem.element('option', {
                 hover: props.hoveredId === uniqItemId,
-                select: props.item.id === props.itemToSelectAllId
+                select: props.isItemToSelectAll
                     ? props.isSelectedAll
                     : props.selectedIds.includes(uniqItemId),
                 size: props.size,
