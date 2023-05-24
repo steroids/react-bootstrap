@@ -17,13 +17,11 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
     const bem = useBem('DropDownItemView');
     const uniqItemId = props.item[props.primaryKey];
 
-    const isItemToSelectAll = props.item.id === props.itemToSelectAllId;
-
     const commonProps = {
         className:
             bem.element('option', {
                 hover: props.hoveredId === uniqItemId,
-                select: isItemToSelectAll
+                select: props.item.id === props.itemToSelectAllId
                     ? props.isSelectedAll
                     : props.selectedIds.includes(uniqItemId),
                 size: props.size,
@@ -32,12 +30,6 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
         onMouseOver: () => props.onItemHover(uniqItemId),
         onClick: (e) => {
             e.preventDefault();
-
-            if (isItemToSelectAll) {
-                props.setSelectedAll();
-                return;
-            }
-
             props.onItemSelect(uniqItemId);
         },
     };
