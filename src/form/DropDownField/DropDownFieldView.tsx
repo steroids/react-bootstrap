@@ -95,7 +95,8 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         </div>
                     )}
                     <div className={bem.element('drop-down-list')}>
-                        {props.multiple && props.itemToSelectAll
+                        {props.multiple
+                            && props.itemToSelectAll
                             && props.renderItem(props.itemToSelectAll)}
                         {props.items.map((item) => props.renderItem(item))}
                     </div>
