@@ -1,0 +1,42 @@
+$justifyValues: center, end, start, stretch, flex-start, flex-end, left, right, space-between, space-around, space-evenly;
+$alignValues: center, end, start, stretch, flex-start, flex-end;
+$directionValues: column-reverse column row-reverse row;
+$colValues: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12;
+$colMaxValue: 12;
+
+.FlexGridView {
+  display: flex;
+  flex-wrap: nowrap;
+
+  &_wrap {
+    flex-wrap: wrap;
+  }
+
+  @each $alignValue in $alignValues {
+    &_align_#{$alignValue} {
+        align-items: $alignValue;
+    }
+  }
+
+  @each $justifyValue in $justifyValues {
+    &_justify_#{$justifyValue} {
+        justify-content: $justifyValue;
+    }
+  }
+
+  @each $directionValue in $directionValues {
+    &_direction_#{$directionValue} {
+        flex-direction: $directionValue;
+    }
+  }
+
+  &__item {
+    @each $colValue in $colValues {
+      &_col_#{$colValue} {
+          flex: 0 0 calc((100% / $colMaxValue) * $colValue);
+      }
+    }
+  }
+
+  
+}
