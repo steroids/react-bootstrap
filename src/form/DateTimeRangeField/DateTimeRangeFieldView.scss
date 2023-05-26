@@ -36,6 +36,7 @@
     @include date-time-panel($root);
 
     &__dropdown { 
+        @include calendar-border();
         background-color: $element-background-color;
     }
 }

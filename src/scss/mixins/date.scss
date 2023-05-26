@@ -410,3 +410,9 @@ $date-sizes: map-merge(
         }
     }
 }
+
+@mixin calendar-border () { 
+    .CalendarView { 
+        border: none;
+    }
+}
