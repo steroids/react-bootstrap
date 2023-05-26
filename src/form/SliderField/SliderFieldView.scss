@@ -116,7 +116,7 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         cursor: pointer;
         background-color: $element-background-color;
         color: $text-color;
-        border: 1px solid $border-color;
+        border: 1px solid $element-border-color;
         border-radius: 21px;
     }
     .rc-slider-step {
