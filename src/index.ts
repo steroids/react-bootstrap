@@ -175,6 +175,9 @@ export default {
     'list.GridView': {
         lazy: () => require('./list/Grid/GridView').default,
     },
+    'list.FlexGridView': {
+        lazy: () => require('./list/FlexGrid/FlexGridView').default,
+    },
     'list.ContentColumnView': {
         lazy: () => require('./list/Grid/views/ContentColumnView/ContentColumnView').default,
     },
