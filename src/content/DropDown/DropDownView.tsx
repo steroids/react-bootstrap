@@ -35,6 +35,7 @@ export default function DropDownView(props: IDropDownViewProps) {
                 bem.block({
                     show: props.isComponentVisible,
                     [`position-${props.position}`]: !!props.position,
+                    hasArrow: props.hasArrow,
                 }),
                 props.className,
             )}

@@ -1,3 +1,4 @@
+//** Themed colors **//
 :root {
     --primary: #651fff;
     --primary-dark: #5218d0;
@@ -17,42 +18,48 @@
     --warning: #ffe457;
     --warning-dark: #ebd251;
     --warning-light: #fff6c6;
+
+    --graphite-dark: #2b2828;
     --graphite: #323232;
+    --mouse: #626262;
     --gray-dark: #cbd5db;
     --gray: #dbe2e6;
     --light-gray: #f1f5f7;
-    --dark: #6f6b76;
-    --light: #9088a1;
+
+    --additional-gray-dark: #26272f;
+    --additional-light-gray: #f8f8f8;
+    --additional-light-blue: #f9fcff;
+
     --text-color: #312c3a;
-    --background-color: #fff;
-    --is-dark: "false";
-    --border-color: #dbe2e6;
-    --border-color-hover: #e5e9eb;
-    --placeholder-color: rgba(0, 0, 0, 0.3);
-    --placeholder-disabled-color: rgba(0, 0, 0, 0.3);
-    --background-disabled-color: #f1f5f7;
+    --link-color: #2BA3FB;
+    --link-color-hover: #00c2ff;
+
+    --background-color: #EDF0F1;
+
+    --element-placeholder-color: rgba(0, 0, 0, 0.3);
+    --element-placeholder-color-disabled: rgba(0, 0, 0, 0.1);
+    --element-border-color: #dbe2e6;
+    --element-border-color-hover: #cbd5db;
     --element-background-color: #FFFFFF;
-    --additional-gray-dark: #6F6B76;
-    --additional-gray: #E6E6E6;
-    --additional-light-gray: #F8F8F8;
-    --additional-light: #9088A1;
-    --additional-light-blue: #F9FCFF;
-    --scroll-thumb-color: #e5e9eb;
-    --scroll-track-color: #f5f8fa;
+    --element-background-color-disabled: #f1f5f7;
+    --element-field-background-color: #FFFFFF;
+
+    --scroll-thumb-color: #cbd5db;
+    --scroll-track-color: #f1f5f7;
 }
 
 html[data-theme="dark"] {
-    --primary: #8b57ff;
-    --primary-dark: #6648a7;
-    --primary-light: #ba9bff;
+    --primary: #9362ff;
+    --primary-dark: #8256e4;
+    --primary-light: #b898ff;
     --secondary: #9ea8db;
-    --secondary-dark: #616a95;
+    --secondary-dark: #727eb7;
     --secondary-light: #bcc3e9;
-    --success: #3cf25a;
-    --success-dark: #34cc4d;
-    --success-light: #74ff8b;
-    --danger: #fc6666;
-    --danger-dark: #dc5858;
+    --success: #5ecc71;
+    --success-dark: #5b9966;
+    --success-light: #89e699;
+    --danger: #f76e6e;
+    --danger-dark: #e95b5b;
     --danger-light: #ffa1a1;
     --info: #9ae1f1;
     --info-dark: #77c4d6;
@@ -60,33 +67,36 @@ html[data-theme="dark"] {
     --warning: #ffe457;
     --warning-dark: #ebd251;
     --warning-light: #fff6c8;
-    --graphite: #414141;
-    --gray-dark: #4e4f57;
-    --gray: #5b5c6b;
-    --light-gray: #928b9d;
-    --dark: #6b6477;
-    --light: #b7afc7;
+
+    --graphite-dark: #16171b;
+    --graphite: #191b1f;
+    --mouse: #adacac;
+    --gray-dark: #272a37;
+    --gray: #333646;
+    --light-gray: #4b4e5e;
+
+    --additional-gray-dark: #26272f;
+    --additional-light-gray: #f8f8f8;
+    --additional-light-blue: #f9fcff;
+
     --text-color: #ffffff;
-    --background-color: #323030;
-    --is-dark: "true";
-    --border-color: #5B5C6B;
-    --border-color-hover: #4e4f57;
-    --placeholder-color: rgba(255, 255, 255, 0.3);
-    --placeholder-disabled-color: rgba(255, 255, 255, 0.1);
-    --background-disabled-color: #5b5c6b;
-    --element-background-color: #414141;
-    --additional-gray-dark: #6B6477;
-    --additional-gray: #595959;
-    --additional-light-gray: #4A4B53;
-    --additional-light: #B7AFC7;
-    --additional-light-blue: #DAEAF6;
-    --scroll-thumb-color: #5b5c6b;
-    --scroll-track-color: #444147;
+    --link-color: #2BA3FB;
+    --link-color-hover: #00c2ff;
+
+    --background-color: #101216;
+
+    --element-placeholder-color: rgba(255, 255, 255, 0.3);
+    --element-placeholder-color-disabled: rgba(255, 255, 255, 0.1);
+    --element-border-color: #333646;
+    --element-border-color-hover: #272a37;
+    --element-background-color: #191B1F;
+    --element-background-color-disabled: #333646;
+    --element-field-background-color: #101216;
+
+    --scroll-thumb-color: #333646;
+    --scroll-track-color: #26272f;
 }
 
-/*
- *  SCSS variables implementation
- */
 $primary: var(--primary);
 $primary-dark: var(--primary-dark);
 $primary-light: var(--primary-light);
@@ -105,34 +115,38 @@ $info-light: var(--info-light);
 $warning: var(--warning);
 $warning-dark: var(--warning-dark);
 $warning-light: var(--warning-light);
+
+$graphite-dark: var(--graphite-dark);
 $graphite: var(--graphite);
+$mouse: var(--mouse);
 $gray-dark: var(--gray-dark);
 $gray: var(--gray);
 $light-gray: var(--light-gray);
-$dark: var(--dark);
-$light: var(--light);
-$text-color: var(--text-color);
-$text-color-revert: var(--text-color-revert);
-$background-color: var(--background-color);
-$is-dark: var(--is-dark);
-$border-color: var(--border-color);
-$border-color-hover: var(--border-color-hover);
-$placeholder-color: var(--placeholder-color);
-$placeholder-disabled-color: var(--placeholder-disabled-color);
-$background-disabled-color: var(--background-disabled-color);
-$element-background-color: var(--element-background-color);
+
 $additional-gray-dark: var(--additional-gray-dark);
-$additional-gray: var(--additional-gray);
-$additional-light-gray: var(--additional-light-gray);
-$additional-light: var(--additional-light);
+$additional-light-gray: var(--additional-gray);
 $additional-light-blue: var(--additional-light-blue);
+
+$text-color: var(--text-color);
+$link-color: var(--link-color);
+$link-color-hover: var(--link-color-hover);
+
+$background-color: var(--background-color);
+
+$element-placeholder-color: var(--element-placeholder-color);
+$element-placeholder-color-disabled: var(--element-placeholder-color-disabled);
+$element-border-color: var(--element-border-color);
+$element-border-color-hover: var(--element-border-color-hover);
+$element-background-color: var(--element-background-color);
+$element-background-color-disabled: var(--element-background-color-disabled);
+$element-field-background-color: var(--element-field-background-color);
+
+
 $scroll-thumb-color: var(--scroll-thumb-color);
 $scroll-track-color: var(--scroll-track-color);
+//** Themed colors **//
 
-/*
- * Common colors   
- */
-
+//! Base colors !//
 $black: rgba(#000, 1) !default;
 $black-60: rgba(#000, 0.6) !default;
 $black-30: rgba(#000, 0.3) !default;
@@ -143,11 +157,9 @@ $white-60: rgba(#ffffff, 0.6) !default;
 $white-30: rgba(#ffffff, 0.3) !default;
 $white-10: rgba(#ffffff, 0.1) !default;
 $white-4: rgba(#ffffff, 0.04) !default;
-
-$link-color: #2ba3fb !default;
-$link-color-hover: #00c2ff !default;
-
-$gradient-blue: linear-gradient(180deg, #651fff, #ba9bff) !default;
+$gradient-blue: linear-gradient(180deg, #651fff, #ba9bff);
+$static-text-color: #312C3A !default;
+//! Base colors !//
 
 $color-themes: () !default;
 $color-themes: map-merge(

@@ -144,7 +144,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
                 border: none;
 
                 &_visible {
-                    border-bottom: 1px solid $border-color;
+                    border-bottom: 1px solid $element-border-color;
                 }
             }
 
@@ -174,7 +174,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             &__icon-chevron {
                 box-shadow: none;
                 svg {
-                    border: 1px solid $border-color;
+                    border: 1px solid $element-border-color;
                     border-radius: $radius-small;
                 }
             }

@@ -1,3 +1,5 @@
+@import "../variables/index";
+
 :root {
     --date-icon-default-color: #cbd5db;
     --date-icon-close-default-color: #323232;
@@ -6,7 +8,7 @@
 }
 
 html[data-theme="dark"] {
-    --date-icon-default-color: #5b5c6b;
+    --date-icon-default-color: #333646;
     --date-icon-close-default-color: #ffffff;
     --date-icon-disabled-color: rgba(255, 255, 255, 0.1);
     --date-range-separator-color: rgba(255, 255, 255, 0.1);
@@ -106,8 +108,8 @@ $date-sizes: map-merge(
         width: 100%;
         font-size: inherit;
         line-height: $line-height-lg;
-        background-color: $element-background-color;
-        border: 1px solid $border-color;
+        background-color: $element-field-background-color;
+        border: 1px solid $element-border-color;
         color: $text-color;
         transition: border-color 150ms ease-in-out;
 
@@ -116,12 +118,16 @@ $date-sizes: map-merge(
         }
 
         &::placeholder {
-            color: $placeholder-color;
+            color: $element-placeholder-color;
         }
 
         &:disabled {
             border: none;
-            background-color: $background-disabled-color;
+            background-color: $element-background-color-disabled;
+
+            &::placeholder {
+                color: $element-placeholder-color-disabled;
+            }
         }
     }
 }
@@ -163,10 +169,12 @@ $date-sizes: map-merge(
     }
 
     &_disabled {
-        #{$root}__date-icon {
-            path,
-            circle {
-                stroke: $date-icon-disabled-color;
+        #{$root}__icon-container {
+            #{$root}__date-icon {
+                path,
+                circle {
+                    stroke: $date-icon-disabled-color;
+                }
             }
         }
     }
@@ -232,7 +240,7 @@ $date-sizes: map-merge(
         }
 
         &::before {
-            border-color: $border-color;
+            border-color: $element-border-color;
         }
 
         &::after {
@@ -263,7 +271,13 @@ $date-sizes: map-merge(
 
     &_disabled {
         #{$root}__body {
-            background-color: $background-disabled-color;
+            background-color: $element-background-color-disabled;
+        }
+
+        #{$root}__input { 
+            &::placeholder { 
+                color: $element-placeholder-color-disabled;
+            }
         }
 
         #{$root}__effect {
@@ -272,10 +286,12 @@ $date-sizes: map-merge(
     }
 
     &_disabled {
-        #{$root}__date-icon {
-            path,
-            circle {
-                stroke: $date-icon-disabled-color;
+        #{$root}__icon-container {
+            #{$root}__date-icon {
+                path,
+                circle {
+                    stroke: $date-icon-disabled-color;
+                }
             }
         }
     }
@@ -325,11 +341,10 @@ $date-sizes: map-merge(
         color: inherit;
 
         &::placeholder {
-            color: $placeholder-color;
+            color: $element-placeholder-color;
         }
     }
 }
-
 
 @mixin date-time-panel($root) {
     &__panel-container {
@@ -393,5 +408,11 @@ $date-sizes: map-merge(
         .TimePanelView__footer {
             margin-top: 3px;
         }
+    }
+}
+
+@mixin calendar-border () { 
+    .CalendarView { 
+        border: none;
     }
 }

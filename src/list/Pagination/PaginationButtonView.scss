@@ -1,27 +1,24 @@
 :root {
-    --pagination-hover-color: #e5e9eb;
-    --pagination-hover-background-color: #ffffff;
+    --pagination-border-color: var(--gray);
+    --pagination-hover-background-color: $white;
+
     --pagination-arrow-color: #323232;
-    --pagination-focus-color: #f5f8fa;
-    --pagination-disabled-background-color: #eef1f2;
-    --pagination-disabled-color: rgba(0, 0, 0, 0.1);
+    --pagination-background-color-disabled: #F1F5F7;
 }
 
 html[data-theme="dark"] {
-    --pagination-hover-color: #5b5c6b;
-    --pagination-hover-background-color: #5b5c6b;
+    --pagination-border-color: var(--background-color);
+    --pagination-hover-background-color: var(--gray-dark);
+
     --pagination-arrow-color: #ffffff;
-    --pagination-focus-color: #adaab3;
-    --pagination-disabled-background-color: #5b5c6b;
-    --pagination-disabled-color: rgba(255, 255, 255, 0.1);
+    --pagination-background-color-disabled: #333646;
 }
 
-$pagination-hover-color: var(--pagination-hover-color);
+$pagination-border-color: var(--pagination-border-color);
 $pagination-hover-background-color: var(--pagination-hover-background-color);
+
 $pagination-arrow-color: var(--pagination-arrow-color);
-$pagination-focus-color: var(--pagination-focus-color);
-$pagination-disabled-background-color: var(--pagination-disabled-background-color);
-$pagination-disabled-color: var(--pagination-disabled-color);
+$pagination-background-color-disabled: var(--pagination-background-color-disabled);
 
 .PaginationButtonView {
     $root: &;
@@ -155,7 +152,7 @@ $pagination-disabled-color: var(--pagination-disabled-color);
         cursor: pointer;
 
         background-color: $element-background-color;
-        border: 1px solid $border-color;
+        border: 1px solid $pagination-border-color;
         border-right: none;
 
         &::before {
@@ -168,12 +165,12 @@ $pagination-disabled-color: var(--pagination-disabled-color);
             height: 100%;
             pointer-events: none;
             border-radius: inherit;
-            border: 4px solid $pagination-focus-color;
+            border: 4px solid $light-gray;
             opacity: 0;
         }
 
         &:last-child {
-            border: 1px solid $border-color;
+            border: 1px solid $pagination-border-color;
         }
 
         &_active {
@@ -192,7 +189,7 @@ $pagination-disabled-color: var(--pagination-disabled-color);
         }
 
         &:not(#{$pageRoot}_disabled):not(#{$pageRoot}_active):hover {
-            border-color: $pagination-hover-color;
+            border-color: $element-border-color-hover;
             background-color: $pagination-hover-background-color;
         }
 
@@ -233,7 +230,7 @@ $pagination-disabled-color: var(--pagination-disabled-color);
             justify-content: center;
             align-items: center;
 
-            rect { 
+            rect {
                 fill: transparent;
             }
 
@@ -247,18 +244,19 @@ $pagination-disabled-color: var(--pagination-disabled-color);
         }
 
         &_disabled {
-            background-color: $pagination-disabled-background-color;
-            color: $pagination-disabled-color;
+            background-color: $element-background-color-disabled;
+            color: $element-placeholder-color-disabled;
+
             cursor: not-allowed;
 
-            button { 
+            button {
                 cursor: not-allowed;
             }
 
             #{$pageRoot}-icon {
                 pointer-events: none;
                 path {
-                    stroke: $pagination-disabled-color;
+                    stroke: $element-placeholder-color-disabled;
                 }
             }
         }

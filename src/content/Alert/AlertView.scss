@@ -1,3 +1,40 @@
+:root {
+    --alert-text-color: #152536;
+}
+
+html[data-theme="dark"] {
+    --alert-text-color: #152536;
+}
+
+$alert-text-color: var(--alert-text-color);
+
+$alert-themes: () !default;
+$alert-themes: map-merge(
+    (
+        "success": (
+            "background-color": $success-light,
+            "icon-color": $success,
+        ),
+        "info": (
+            "background-color": $info-light,
+            "icon-color": $info,
+        ),
+        "warning": (
+            "background-color": $warning-light,
+            "icon-color": $warning,
+        ),
+        "error": (
+            "background-color": $danger-light,
+            "icon-color": $danger,
+        ),
+        "default": (
+            "background-color": $light-gray,
+            "icon-color": $gray-dark,
+        ),
+    ),
+    $alert-themes
+);
+
 .AlertView {
     $root: &;
 
@@ -43,7 +80,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        cursor: pointer;    
+        cursor: pointer;
     }
 
     &__text-block {
@@ -51,26 +88,19 @@
         row-gap: 12px;
         max-width: 444px;
         margin-right: auto;
+        color: $alert-text-color;
     }
 
-    &_success {
-        background: $success-light;
-    }
+    @each $color, $alert-properties in $alert-themes {
+        &_#{$color} {
+            background-color: map-get($alert-properties, background-color);
 
-    &_info {
-        background: $info-light;
-    }
-
-    &_warning {
-        background: $warning-light;
-    }
-
-    &_error {
-        background: $danger-light;
-    }
-
-    &_default {
-        background: $light-gray;
+            #{$root}__icon_#{$color} { 
+                g > circle:not([fill="white"]), rect { 
+                    fill: map-get($alert-properties, icon-color);
+                }
+            }
+        }
     }
 
     &__message {

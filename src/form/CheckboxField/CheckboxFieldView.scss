@@ -113,13 +113,13 @@
             }
 
             &::before {
-                background: $background-disabled-color;
+                background: $element-background-color-disabled;
                 border: none;
             }
         }
 
         &:disabled:checked #{$root}__label::before {
-            background-color: $background-disabled-color;
+            background-color: $element-background-color-disabled;
             border-color: none;
             background-image: url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.8584 1.48401L4.3584 7.48401L1.8584 4.75674' stroke='black' stroke-opacity='0.1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }

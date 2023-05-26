@@ -66,7 +66,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                 cursor: not-allowed;
             }
             span > svg > path {
-                stroke: $background-disabled-color;
+                stroke: $element-background-color-disabled;
             }
         }
 
@@ -145,7 +145,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
     &__input {
         width: 100%;
         outline: none;
-        border: 1px solid $border-color;
+        border: 1px solid $element-border-color;
         border-radius: $radius-small;
         padding: 5px 22px 5px 8px;
         line-height: 24px;
@@ -153,19 +153,19 @@ $number-field-arrow-color: var(--number-field-arrow-color);
         font-weight: $font-weight-sm;
         color: $text-color;
 
-        background-color: $element-background-color;
+        background-color: $element-field-background-color;
 
         &::placeholder {
-            color: $placeholder-color;
+            color: $element-placeholder-color;
         }
 
         &:disabled {
-            background-color: $background-disabled-color;
-            color: $placeholder-disabled-color;
+            background-color: $element-background-color-disabled;
+            color: $element-placeholder-color-disabled;
         }
 
         &:hover:not(:disabled):not(:focus) {
-            border-color: $border-color-hover;
+            border-color: $element-border-color-hover;
         }
 
         &:active:not(:disabled) {

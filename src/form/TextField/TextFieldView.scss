@@ -41,7 +41,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
 
         svg {
             path {
-                stroke: $background-disabled-color;
+                stroke: $element-background-color-disabled;
                 stroke-width: 1.5px;
             }
         }
@@ -58,7 +58,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         height: 80px;
 
         border-radius: $radius-small;
-        background-color: $text-field-background-color;
+        background-color: $element-field-background-color;
 
         padding: 5px 40px 8px 8px;
 
@@ -68,14 +68,14 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         z-index: 2;
         outline: none;
         color: $text-color;
-        border: 1px solid $border-color;
+        border: 1px solid $element-border-color;
 
         &::placeholder {
-            color: $placeholder-color;
+            color: $element-placeholder-color;
         }
 
         &:hover {
-            border-color: $border-color-hover;
+            border-color: $element-border-color-hover;
         }
 
         &:focus {
@@ -87,13 +87,13 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         }
 
         &:disabled {
-            background-color: $background-disabled-color;
+            background-color: $element-background-color-disabled;
             border: none;
             resize: none;
         }
 
         &:disabled::placeholder {
-            color: $placeholder-disabled-color;
+            color: $element-placeholder-color-disabled;
         }
 
         &:disabled + #{$root}__clear {

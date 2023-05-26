@@ -1,23 +1,81 @@
 :root {
-    --accordion-background-light: #f8f8f8;
-    --accordion-background-intermediate: #ffffff;
-    --accordion-background-dark: #312c3a;
-    --accordion-rect-background: #ffffff;
-    --accordion-chevron-color: #323232;
+    --accordion-light-background: var(--gray);
+    --accordion-intermediate-background: #ffffff;
+    --accordion-dark-background: #312c3a;
+
+    --accordion-chevron-light-background: #ffffff;
+    --accordion-chevron-intermediate-background: #ffffff;
+    --accordion-chevron-dark-background: #ffffff;
+
+    --accordion-chevron-inner-default-color: var(--graphite);
+    --accordion-chevron-inner-revert-color: #323232;
+
+    --accordion-chevron-default-box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
+    --accordion-chevron-revert-box-shadow: none;
+
+    --accordion-content-background: #ffffff;
 }
 
 html[data-theme="dark"] {
-    --accordion-background-light: #414141;
-    --accordion-background-intermediate: #5b5c6b;
-    --accordion-background-dark: #4e4f57;
-    --accordion-rect-background: #6f6b76;
-    --accordion-chevron-color: #ffffff;
+    --accordion-light-background: var(--graphite);
+    --accordion-intermediate-background: var(--gray);
+    --accordion-dark-background: var(--gray-dark);
+
+    --accordion-chevron-light-background: var(--gray);
+    --accordion-chevron-intermediate-background: var(--gray-dark);
+    --accordion-chevron-dark-background: #ffffff;
+
+    --accordion-chevron-inner-default-color: #ffffff;
+    --accordion-chevron-inner-revert-color: #323232;
+
+    --accordion-chevron-default-box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
+    --accordion-chevron-revert-box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
+
+    --accordion-content-background: var(--graphite);
 }
 
-$accordionBackgroundMap: (
-    "light": var(--accordion-background-light),
-    "intermediate": var(--accordion-background-intermediate),
-    "dark": var(--accordion-background-dark),
+$accordion-light-background: var(--accordion-light-background);
+$accordion-intermediate-background: var(--accordion-intermediate-background);
+$accordion-dark-background: var(--accordion-dark-background);
+
+$accordion-chevron-light-background: var(--accordion-chevron-light-background);
+$accordion-chevron-intermediate-background: var(--accordion-chevron-intermediate-background);
+$accordion-chevron-dark-background: var(--accordion-chevron-dark-background);
+
+$accordion-chevron-inner-default-color: var(--accordion-chevron-inner-default-color);
+$accordion-chevron-inner-revert-color: var(--accordion-chevron-inner-revert-color);
+
+$accordion-chevron-default-box-shadow: var(--accordion-chevron-default-box-shadow);
+$accordion-chevron-revert-box-shadow: var(--accordion-chevron-revert-box-shadow);
+
+$accordion-content-background: var(--accordion-content-background);
+
+$accordion-themes: () !default;
+$accordion-themes: map-merge(
+    (
+        "light": (
+            "background": $accordion-light-background,
+            "text-color": $text-color,
+            "chevron-box-shadow": $accordion-chevron-default-box-shadow,
+            "chevron-background": $accordion-chevron-light-background,
+            "chevron-inner-color": $accordion-chevron-inner-default-color,
+        ),
+        "intermediate": (
+            "background": $accordion-intermediate-background,
+            "text-color": $text-color,
+            "chevron-box-shadow": $accordion-chevron-default-box-shadow,
+            "chevron-background": $accordion-chevron-intermediate-background,
+            "chevron-inner-color": $accordion-chevron-inner-default-color,
+        ),
+        "dark": (
+            "background": $accordion-dark-background,
+            "text-color": #ffffff,
+            "chevron-box-shadow": $accordion-chevron-revert-box-shadow,
+            "chevron-background": $accordion-chevron-dark-background,
+            "chevron-inner-color": $accordion-chevron-inner-revert-color,
+        ),
+    ),
+    $accordion-themes
 );
 
 $accordion-rect-background: var(--accordion-rect-background);
@@ -28,39 +86,28 @@ $accordion-chevron-color: var(--accordion-chevron-color);
 
     display: grid;
     align-items: center;
+    overflow: hidden;
 
-    background-color: #fff;
+    background-color: $accordion-content-background;
     height: 56px;
     width: 480px;
     height: fit-content;
     font-family: $font-family-nunito;
 
-    &_theme {
-        @each $theme, $backgroundColor in $accordionBackgroundMap {
-            &_#{$theme} {
-                #{$root}__header-container {
-                    background-color: $backgroundColor;
+    @each $theme, $themeProperties in $accordion-themes {
+        &_theme_#{$theme} {
+            #{$root}__header-container {
+                background-color: map-get($themeProperties, background);
+                color: map-get($themeProperties, text-color);
+            }
+
+            #{$root}__icon-chevron {
+                box-shadow: map-get($themeProperties, chevron-box-shadow);
+                rect {
+                    fill: map-get($themeProperties, chevron-background);
                 }
-
-                #{$root}__title-container {
-                    color: $text-color;
-
-                    @if ($theme == "dark" or $is-dark == "false") {
-                        color: $white;
-                    }
-                }
-
-                #{$root}__icon {
-                    svg {
-                        @if ($theme == "light" or $theme == "intermediate") {
-                            rect {
-                                fill: $accordion-rect-background;
-                            }
-                            path {
-                                stroke: $accordion-chevron-color;
-                            }
-                        }
-                    }
+                path {
+                    stroke: map-get($themeProperties, chevron-inner-color);
                 }
             }
         }
@@ -68,28 +115,22 @@ $accordion-chevron-color: var(--accordion-chevron-color);
 
     &_position {
         &_top {
-            #{$root}__header-container {
-                border-bottom: 1px solid rgba(#000, 0.1);
-                border-radius: $radius-large $radius-large 0 0;
-            }
+            border-radius: $radius-large $radius-large 0 0;
         }
 
         &_middle {
-            #{$root}__header-container {
-                border-top: 1px solid rgba(#000, 0.1);
-                border-radius: 0px;
-            }
+            border-radius: 0px;
         }
 
         &_bottom {
+            border-radius: 0 0 $radius-large $radius-large;
+
             #{$root}__content {
                 grid-row-start: 1;
                 grid-row-end: 1;
             }
 
             #{$root}__header-container {
-                border-top: 1px solid rgba(#000, 0.1);
-                border-radius: 0 0 $radius-large $radius-large;
                 grid-row-start: 2;
                 grid-row-end: 2;
             }
@@ -143,6 +184,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         width: 100%;
         padding: 16px;
         align-self: center;
+
         font-size: $font-size-lg;
         line-height: 24px;
     }
@@ -161,7 +203,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         }
     }
 
-    .IconView { 
+    .IconView {
         display: inline-block;
         width: 24px;
         height: 24px;
@@ -172,12 +214,12 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         overflow: hidden;
         max-height: 0;
         padding: 0 16px;
-        color: #343a40;
+        color: $text-color;
 
         &_visible {
             max-height: 1024px;
             padding: 18px 32px 18px 16px;
-            border: 1px solid rgba(#000, 0.1);
+            border: 1px solid $accordion-content-border;
         }
     }
 
@@ -199,11 +241,12 @@ $accordion-chevron-color: var(--accordion-chevron-color);
             opacity: 1;
             pointer-events: all;
         }
-        
+
         #{$root}__open-icon {
             position: absolute;
             opacity: 0;
             pointer-events: none;
         }
     }
+
 }

@@ -1,45 +1,45 @@
 .FileFieldView {
-  $root: &;
+    $root: &;
 
-  &__files {
-    margin-bottom: 1em;
-    display: flex;
-    row-gap: 8px;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-
-  &_isWall {
-    display: flex;
-    column-gap: 10px;
-
-    #{$root}__files {
-      flex-direction: row;
-      column-gap: 10px;
+    &__files {
+        margin-bottom: 1em;
+        display: flex;
+        row-gap: 8px;
+        flex-wrap: wrap;
+        flex-direction: column;
     }
-  }
-
-  &__button {
-    margin-bottom: 16px;
-    min-width: 200px;
 
     &_isWall {
-      min-width: auto;
-      width: 128px;
-      height: 128px;
-      border: 1px dashed $light;
-      background-color: $gray;
-      border-radius: 20px;
+        display: flex;
+        column-gap: 10px;
 
-      .ButtonView__label {
-        flex-direction: column;
-        row-gap: 10px;
-      }
+        #{$root}__files {
+            flex-direction: row;
+            column-gap: 10px;
+        }
     }
-  }
 
-  .ButtonView__icon {
-    width: 25px;
-    height: 25px;
-  }
+    &__button {
+        margin-bottom: 16px;
+        min-width: 200px;
+
+        &_isWall {
+            min-width: auto;
+            width: 128px;
+            height: 128px;
+            border: 1px dashed #6F6B76;
+            background-color: $gray;
+            border-radius: 20px;
+
+            .ButtonView__label {
+                flex-direction: column;
+                row-gap: 10px;
+            }
+        }
+    }
+
+    .ButtonView__icon {
+        width: 25px;
+        height: 25px;
+    }
 }

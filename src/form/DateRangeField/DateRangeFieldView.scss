@@ -8,6 +8,9 @@
     @include date-range-sizes($root);
 
     &__split {
+        background: $element-background-color;
+        @include calendar-border();
+
         .DayPicker-Months {
             position: relative;
             display: flex;
@@ -30,4 +33,5 @@
     }
 
     @include date-range-effects($root);
+
 }

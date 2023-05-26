@@ -12,4 +12,9 @@
     @include date-time-panel($root);
 
     @include date-default-effects($root);
+
+    &__dropdown { 
+        @include calendar-border();
+        background: $element-background-color;
+    }
 }
