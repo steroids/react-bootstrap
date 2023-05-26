@@ -6,7 +6,7 @@
 }
 
 html[data-theme="dark"] {
-    --caption-arrow-background-color: #323232;
+    --caption-arrow-background-color: var(--gray);
     --caption-arrow-color: #ffffff;
     --caption-header-month-background-color: #333646;
     --separator-background-color: rgba(255, 255, 255, 0.1);

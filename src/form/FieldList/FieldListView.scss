@@ -1,75 +1,83 @@
 :root {
-  --background-th: #f1f5f7;
+    --background-th: var(--light-gray);
+    --background-td-alternating: var(--additional-light-gray);
 }
 
-html[data-theme="dark"] { 
-  --background-th: #414141;
+html[data-theme="dark"] {
+    --background-th: var(--additional-gray-dark);
+    --background-td-alternating: var(--graphite-dark);
 }
 
 $background-th: var(--background-th);
+$background-td-alternating: var(--background-td-alternating);
 
 .FieldListView {
-  table {
-    width: 100%;
-    background-color: transparent;
-    border: 1px solid $additional-gray;
-    border-collapse: separate;
-    border-radius: 10px;
-    border-spacing: 0;
-    overflow: hidden;
-  }
-
-  th:not(:last-child), td:not(:last-child) {
-    border-right: 1px solid $additional-gray;
-  }
-
-  tr th {
-    border-bottom: 1px solid $additional-gray;
-    background-color: $background-th;
-    color: $text-color;
-    font-size: 14px;
-    line-height: 18px;
-  }
-
-  tr:not(:last-child) td {
-    border-bottom: 1px solid $additional-gray;
-  }
-  
-  tfoot > tr > td{
-    border-top: 1px solid $additional-gray;
-  }
-
-  tr td {
-    padding: 12px;
-  }
-
-  tr th {
-    text-align: left;
-    padding: 20px 12px;
-  }
-
-  tr td .CheckboxFieldView{
-    justify-content: center
-  }
-
-  &_hasAlternatingColors {
-    tr:nth-child(even) {
-      background-color: $additional-light-gray;
+    table {
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid $gray-dark;
+        border-collapse: separate;
+        border-radius: 10px;
+        border-spacing: 0;
+        overflow: hidden;
     }
-  }
 
-  &__button-add {
-    svg {
-      path { 
-          stroke: $primary;
-      }
+    th:not(:last-child),
+    td:not(:last-child) {
+        border-right: 1px solid $gray-dark;
     }
-    > span {
-      gap: 4px;
-    }
-  }
 
-  .FieldLayoutView {
-    margin-bottom: 0;
-  }
+    tr th {
+        border-bottom: 1px solid $gray-dark;
+        background-color: $background-th;
+        color: $text-color;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    tr:not(:last-child) td {
+        border-bottom: 1px solid $gray-dark;
+    }
+
+    tfoot > tr > td {
+        border-top: 1px solid $gray-dark;
+    }
+
+    tr td {
+        padding: 12px;
+    }
+
+    tr th {
+        text-align: left;
+        padding: 20px 12px;
+    }
+
+    tr td .CheckboxFieldView {
+        justify-content: center;
+    }
+
+    td {
+        background: $element-background-color;
+    }
+
+    &_hasAlternatingColors {
+        tr:nth-child(even) td {
+            background-color: $background-td-alternating;
+        }
+    }
+
+    &__button-add {
+        svg {
+            path {
+                stroke: $primary;
+            }
+        }
+        > span {
+            gap: 4px;
+        }
+    }
+
+    .FieldLayoutView {
+        margin-bottom: 0;
+    }
 }

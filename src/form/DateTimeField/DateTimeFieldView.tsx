@@ -31,6 +31,8 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
             position='bottomLeft'
             visible={props.isOpened}
             onClose={props.onClose}
+            hasArrow={false}
+            className={bem.element('dropdown')}
         >
             <div
                 className={bem(

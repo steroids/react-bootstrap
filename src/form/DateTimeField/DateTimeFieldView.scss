@@ -12,4 +12,8 @@
     @include date-time-panel($root);
 
     @include date-default-effects($root);
+
+    &__dropdown { 
+        background: $element-background-color;
+    }
 }

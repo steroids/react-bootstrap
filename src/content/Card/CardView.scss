@@ -1,12 +1,12 @@
 :root {
-    --card-background-color: #ffffff;
-    --card-footer-background-color: #f9fcff;
+    --card-background-color: $white;
+    --card-footer-background-color: var(--additional-light-blue);
     --card-dots-color: #323232;
 }
 
 html[data-theme="dark"] {
-    --card-background-color: #4e4f57;
-    --card-footer-background-color: #6b6477;
+    --card-background-color: var(--graphite);
+    --card-footer-background-color: var(--gray-dark);
     --card-dots-color: #ffffff;
 }
 
@@ -42,7 +42,7 @@ $card-dots-color: var(--card-dots-color);
     overflow: hidden;
     height: fit-content;
 
-    border: 1px solid $border-color;
+    border: 1px solid $element-border-color;
     border-radius: $radius-large;
     color: $text-color;
     background-color: $card-background-color;

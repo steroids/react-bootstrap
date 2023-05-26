@@ -2,13 +2,19 @@
 
 :root {
     --counter-background-color: #ffffff;
+    --counter-border-color: var(--gray);
+    --counter-cross-color: #000000;
 }
 
 html[data-theme="dark"] {
-    --counter-background-color: #414141;
+    --counter-background-color: rgba(255, 255, 255, 0.1);;
+    --counter-border-color: transparent;
+    --counter-cross-color: #FFFFFF;
 }
 
 $counter-background-color: var(--counter-background-color);
+$counter-border-color: var(--counter-border-color);
+$counter-cross-color: var(--counter-cross-color);
 
 .BadgeView {
     $root: &;
@@ -50,7 +56,7 @@ $counter-background-color: var(--counter-background-color);
             background-color: $color;
 
             @if ($type == "warning" or $type == "info") {
-                color: $text-color;
+                color: $static-text-color;
 
                 #{$root}__close {
                     svg {
@@ -90,7 +96,7 @@ $counter-background-color: var(--counter-background-color);
     }
 
     &_has-counter {
-        border: 1px solid #e9e9e9;
+        border: 1px solid $counter-border-color;
         border-radius: 100px;
 
         background: $light-gray;
@@ -128,7 +134,7 @@ $counter-background-color: var(--counter-background-color);
 
         #{$root}__close {
             path {
-                stroke: #000;
+                stroke: $counter-cross-color;
             }
         }
     }

@@ -1,3 +1,13 @@
+:root { 
+    --modal-background-color:  #FFFFFF;
+}
+
+html[data-theme="dark"] {
+    --modal-background-color:  #272A37;
+}
+
+$modal-background-color: var(--modal-background-color);
+
 .ModalView {
     $root: &;
     min-width: 300px;
@@ -19,7 +29,7 @@
     &__body {
         margin: auto;
         overflow: visible;
-        background-color: $element-background-color;
+        background-color: $modal-background-color;
         color: $text-color;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 

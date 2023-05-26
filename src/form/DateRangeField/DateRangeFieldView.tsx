@@ -24,6 +24,7 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
             visible={props.isOpened}
             onClose={props.onClose}
             className={bem.element('split')}
+            hasArrow={false}
         >
             <div
                 className={bem(

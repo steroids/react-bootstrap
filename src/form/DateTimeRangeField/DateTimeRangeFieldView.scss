@@ -34,4 +34,8 @@
     @include date-range-effects($root);
 
     @include date-time-panel($root);
+
+    &__dropdown { 
+        background-color: $element-background-color;
+    }
 }

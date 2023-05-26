@@ -3,6 +3,8 @@
 @import './scss/animations';
 @import './scss/fonts';
 
+@import './content/Accordion/AccordionView';
+@import './content/Accordion/AccordionItemView';
 @import './crud/Crud/CrudView';
 @import './content/Alert/AlertView';
 @import './content/Avatar/AvatarView';
@@ -11,8 +13,6 @@
 @import './content/Calendar/CalendarView';
 @import './content/Calendar/CaptionElement';
 @import './content/Card/CardView';
-@import './content/Accordion/AccordionView';
-@import './content/Accordion/AccordionItemView';
 @import './content/Detail/DetailView';
 @import './content/DropDown/DropDownView.scss';
 @import './content/Menu/MenuItemView';

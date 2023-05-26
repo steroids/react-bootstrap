@@ -1,21 +1,24 @@
 :root {
-    --grid-header-background-color: #f1f5f7;
-    --grid-border-color: #e6e6e6;
-    --grid-alternating-color: #F8F8F8;
+    --grid-header-background-color: var(--light-gray);
+    --grid-border-color: var(--gray);
+
     --grid-td-background-color: #FFFFFF;
+    --grid-td-alternating-color: var(--additional-light-gray);
 }
 
 html[data-theme="dark"] {
-    --grid-header-background-color: #414141;
-    --grid-border-color: #595959;
-    --grid-alternating-color: #4A4B53;
-    --grid-td-background-color: #4E4F57;
+    --grid-header-background-color: var(--additional-gray-dark);
+    --grid-border-color: var(--additional-gray-dark);
+
+    --grid-td-background-color: var(--graphite);
+    --grid-td-alternating-color: var(--graphite-dark);
 }
 
 $grid-header-background-color: var(--grid-header-background-color);
 $grid-border-color: var(--grid-border-color);
-$grid-alternating-color: var(--grid-alternating-color);
+
 $grid-td-background-color: var(--grid-td-background-color);
+$grid-td-alternating-color: var(--grid-td-alternating-color);
 
 .GridView {
     $root: &;
@@ -78,7 +81,7 @@ $grid-td-background-color: var(--grid-td-background-color);
 
     &_alternatingColors{
         #{$root}__table tbody tr:nth-child(even) td { 
-            background-color: $grid-alternating-color;
+            background-color: $grid-td-alternating-color;
         }
     }
 

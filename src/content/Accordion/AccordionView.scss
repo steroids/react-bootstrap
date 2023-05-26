@@ -1,14 +1,28 @@
+:root {
+    --accordion-content-border: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] {
+    --accordion-content-border: rgba(255, 255, 255, 0.1);
+}
+
+$accordion-content-border: var(--accordion-content-border);
+
 .AccordionView {
-  height: fit-content;
+    height: fit-content;
 
-  display: grid;
-  grid-gap: 0;
+    display: grid;
+    grid-gap: 0;
 
-  & > :first-child {
-    border-radius: 14px 14px 0 0;
-  }
+    .AccordionItemView {
+        $root: &;
 
-  & > :last-child {
-    border-radius: 0 0 14px 14px;
-  }
+        &__header-container {
+            border-bottom: 1px solid $accordion-content-border;
+        }
+    }
+
+    .AccordionItemView:last-of-type .AccordionItemView__header-container {
+        border-bottom: none;
+    }
 }

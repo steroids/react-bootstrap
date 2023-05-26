@@ -1,7 +1,7 @@
 .DateFieldView {
     $root: &;
     position: relative;
-
+    
     @include date-default-input();
 
     @include date-default-body();
@@ -11,4 +11,8 @@
     @include date-default-sizes($root);
 
     @include date-default-effects($root);
+
+    &__dropdown { 
+        background: $element-background-color;
+    }
 }
