@@ -108,7 +108,7 @@ $alert-themes: map-merge(
     }
 
     &__wrapper {
-        width: 508px;
+        max-width: 508px;
         display: flex;
         flex-flow: column;
         justify-content: space-between;

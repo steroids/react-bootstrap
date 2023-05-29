@@ -3,8 +3,8 @@ import {useEffect, useState} from 'react';
 
 import {INotificationsItemViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import {CSSTransition} from 'react-transition-group';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
+import AlertView from '../../content/Alert/AlertView';
 
 export default function NotificationsItemView(props: INotificationsItemViewProps) {
     const [isShow, setIsShow] = useState(false);
@@ -17,33 +17,25 @@ export default function NotificationsItemView(props: INotificationsItemViewProps
         <CSSTransition
             in={isShow}
             timeout={1000}
-            classNames={bem(bem.block({
+            classNames={bem.block({
                 [props.position]: true,
-            }))}
+            })}
             unmountOnExit
         >
             <div
-                className={bem(
-                    bem.block({
-                        [props.level]: true,
-                        [props.position]: true,
-                    }),
-                    'alert',
-                    'alert-' + props.level,
-                )}
+                className={bem.block({
+                    [props.position]: true,
+                })}
             >
-                <div className={bem.element('body')}>
-                    <div className={bem.element('message')}>
-                        {props.message}
-                    </div>
-                    <button
-                        className={bem.element('close')}
-                        onClick={props.onClose}
-                    >
-                        {/*// TODO fix icon*/}
-                        {/*<Icon name='reject' />*/}
-                    </button>
-                </div>
+                <AlertView
+                    onClose={props.onClose}
+                    message={props.message}
+                    type={props.level}
+                    showClose
+                    isExist
+                    isVisible
+                    showIcon
+                />
             </div>
         </CSSTransition>
     );
