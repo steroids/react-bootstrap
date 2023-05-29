@@ -15,7 +15,7 @@ export default function NavLinkView(props: INavViewProps) {
                         key={item.id || index}
                         link
                         onClick={() => props.onClick(item, index)}
-                        className={bem.element('nav-item')}
+                        className={bem.element('nav-item', {active: item.isActive})}
                         {...item}
                     />
                 ))}
