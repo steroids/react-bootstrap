@@ -5,6 +5,8 @@ import Button from '@steroidsjs/core/ui/form/Button';
 import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
 import {useBem} from '@steroidsjs/core/hooks';
 
+const DEFAULT_ICON = 'add';
+
 export default function NavIconView(props: INavViewProps) {
     const bem = useBem('NavIconView');
     return (
@@ -19,7 +21,7 @@ export default function NavIconView(props: INavViewProps) {
                         }), props.navClassName)}
                     >
                         <Button
-                            icon={props.icon ? props.icon : 'add'}
+                            icon={props.icon ? props.icon : DEFAULT_ICON}
                             link
                             onClick={() => props.onClick(item, index)}
                             {...item}
