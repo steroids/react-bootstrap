@@ -114,6 +114,16 @@ $btn-letter-spacing: 0.1em;
     &__link { 
         display: inline-flex;
         align-items: center;
+
+        #{$root}__text {
+            color: $link-color;
+        }
+
+        &:hover { 
+            #{$root}__text { 
+                color: $link-color-hover;
+            }
+        }
     }
 
     &__icon {

@@ -1,2 +1,48 @@
 .NavTabsView {
+    $root: &;
+
+    color: $text-color;
+
+    &__list {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        align-items: center;
+
+        border-bottom: 1px solid $element-border-color;
+
+        &-item {
+            .ButtonView__text {
+                color: $element-placeholder-color;
+            }
+
+            &_active {
+                .ButtonView__text {
+                    color: $white;
+                }
+
+                .ButtonView {
+                    &_size {
+                        &_sm {
+                            border-radius: $radius-small $radius-small 0 0;
+                        }
+                        &_md {
+                            border-radius: $radius-large $radius-large 0 0;
+                        }
+                        &_lg {
+                            border-radius: $radius-large $radius-large 0 0;
+                        }
+                    }
+                }
+            }
+
+            &_disabled {
+                cursor: not-allowed;
+                .ButtonView {
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    @include navs-sizes($root);
 }

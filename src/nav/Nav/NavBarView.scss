@@ -1,2 +1,33 @@
 .NavBarView {
+    $root: &;
+
+    color: $text-color;
+
+    &__list {
+        display: flex;
+        flex-flow: column nowrap;
+        row-gap: 8px;
+
+        &-item {
+            .ButtonView__text {
+                color: $element-placeholder-color;
+            }
+
+
+            &_active { 
+                .ButtonView__text { 
+                    color: $white;
+                }
+            }
+
+            &_disabled {
+                cursor: not-allowed;
+                .ButtonView {
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+
+    @include navs-sizes($root);
 }

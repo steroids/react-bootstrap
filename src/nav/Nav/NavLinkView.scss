@@ -1,7 +1,16 @@
 .NavLinkView {
-  &__nav-item {
-    &:not(:last-child) {
-      margin-right: 10px;
+    &__list {
+        display: flex;
+        flex-flow: row nowrap;
+        column-gap: 24px;
+
+        &-item {
+            &_disabled {
+                cursor: not-allowed;
+                .ButtonView {
+                    pointer-events: none;
+                }
+            }
+        }
     }
-  }
 }

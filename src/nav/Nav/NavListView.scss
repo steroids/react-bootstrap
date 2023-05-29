@@ -1,12 +1,13 @@
 .NavListView {
-  &__item {
+    
+    &__list{ 
+        display: flex;
+        flex-flow: column nowrap;
+    }
 
-  }
-  &__item-link {
-    padding: 5px 10px;
-    display: inline-block;
-  }
-  &__sub-list {
-    margin-left: 15px;
-  }
+    &__sub-list { 
+        display: flex;
+        flex-flow: column;
+        padding: 5px;
+    }    
 }
