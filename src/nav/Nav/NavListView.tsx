@@ -8,28 +8,26 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function NavListView(props: INavViewProps) {
     const bem = useBem('NavListView');
 
-    const renderItems = (items) => {
+    const renderItems = (items, parentItemProps = null) => {
         if (!items || items.length === 0) {
             return null;
         }
         return items.map((item, index) => (
             <li
-                key={index}
-                className={bem('nav-item', bem.element('item'), props.navClassName)}
+                key={item.id || index}
+                className={bem(bem.element('list-item', {
+                    active: item.isActive,
+                    disabled: item.disabled,
+                }), props.navClassName)}
             >
                 <Link
                     onClick={() => props.onClick(item, index)}
                     {...item}
-                    key={item.id || index}
-                    className={bem(
-                        item.isActive && 'active',
-                        bem.element('item-link'),
-                        item.className,
-                    )}
+                    disabled={parentItemProps?.disabled || item.disabled}
                 />
                 {item.items && item.items.length > 0 && (
-                    <ul className={bem('nav flex-column', bem.element('sub-list'))}>
-                        {renderItems(item.items)}
+                    <ul className={bem.element('sub-list')}>
+                        {renderItems(item.items, item)}
                     </ul>
                 )}
             </li>
@@ -37,9 +35,13 @@ export default function NavListView(props: INavViewProps) {
     };
 
     return (
-        <ul className={bem('nav flex-column', bem.block(), props.className)}>
-            {renderItems(props.items)}
-            {props.children}
-        </ul>
+        <div className={bem(bem.block(), props.className)}>
+            <ul className={bem.element('list')}>
+                {renderItems(props.items)}
+            </ul>
+            <div className={bem.element('content')}>
+                {props.children}
+            </div>
+        </div>
     );
 }

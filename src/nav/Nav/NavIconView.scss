@@ -1,9 +1,8 @@
 .NavIconView {
-  > a {
-    margin-right: 5px;
-
-    &:last-child {
-      margin-right: 0;
+    &__list {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: 24px;
     }
-  }
 }

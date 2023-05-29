@@ -9,35 +9,31 @@ export default function NavBarView(props: INavViewProps) {
     const bem = useBem('NavBarView');
     return (
         <div
-            className={bem(
-                'navbar-expand-lg navbar-nav',
-                props.dark && 'navbar-dark bg-dark',
-                bem.block(),
-                props.className,
-            )}
+            className={bem(bem.block({
+                size: props.size,
+            }), props.className)}
         >
-            <div className='navbar-nav px-3'>
+            <ul className={bem.element('list')}>
                 {props.items.map((item, index) => (
                     <li
                         key={item.id || index}
-                        className={bem(
-                            'nav-item text-nowrap',
-                            item.isActive && 'active',
-                        )}
+                        className={bem(bem.element('list-item', {
+                            active: item.isActive,
+                            disabled: item.disabled,
+                        }), props.navClassName)}
                     >
                         <Button
-                            link
-                            className={bem(
-                                'nav-link',
-                                item.isActive && 'active',
-                            )}
+                            size={props.size}
+                            link={!item.isActive}
                             onClick={() => props.onClick(item, index)}
                             {...item}
                         />
                     </li>
                 ))}
+            </ul>
+            <div className={bem.element('content')}>
+                {props.children}
             </div>
-            {props.children}
         </div>
     );
 }

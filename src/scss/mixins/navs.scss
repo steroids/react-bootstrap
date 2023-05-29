@@ -1,0 +1,27 @@
+@mixin navs-sizes($root) {
+    &_size {
+        &_lg {
+            #{$root}__list-item_active {
+                .ButtonView {
+                    padding: 16px;
+                }
+            }
+        }
+
+        &_md {
+            #{$root}__list-item_active {
+                .ButtonView {
+                    padding: 12px;
+                }
+            }
+        }
+
+        &_sm {
+            #{$root}__list-item_active {
+                .ButtonView {
+                    padding: 8px;
+                }
+            }
+        }
+    }
+}

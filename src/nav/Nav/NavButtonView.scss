@@ -1,7 +1,8 @@
 .NavButtonView {
-  &__nav-item {
-    &:not(:last-child) {
-      margin-right: 5px;
+  
+    &__list { 
+        display: flex;
+        flex-flow: column nowrap;
+        row-gap: 8px;
     }
-  }
 }
