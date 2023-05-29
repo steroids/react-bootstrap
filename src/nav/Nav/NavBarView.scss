@@ -29,23 +29,5 @@
         }
     }
 
-    &_size { 
-        &_lg {
-            .ButtonView__link { 
-                padding: 16px;
-            }
-        }
-        &_md {
-            .ButtonView__link { 
-                padding: 12px;
-            }
-        }
-        &_sm {
-            .ButtonView__link { 
-                padding: 8px;
-            }
-        }
-    }
-
     @include navs-sizes($root);
 }

@@ -1,6 +1,10 @@
 @mixin navs-sizes($root) {
     &_size {
         &_lg {
+            .ButtonView__link {
+                padding: 16px;
+            }
+
             #{$root}__list-item_active {
                 .ButtonView {
                     padding: 16px;
@@ -9,6 +13,10 @@
         }
 
         &_md {
+            .ButtonView__link {
+                padding: 12px;
+            }
+
             #{$root}__list-item_active {
                 .ButtonView {
                     padding: 12px;
@@ -17,6 +25,10 @@
         }
 
         &_sm {
+            .ButtonView__link {
+                padding: 8px;
+            }
+
             #{$root}__list-item_active {
                 .ButtonView {
                     padding: 8px;
