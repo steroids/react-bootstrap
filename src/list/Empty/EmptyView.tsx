@@ -9,9 +9,9 @@ export default function EmptyView(props: IEmptyViewProps) {
         <div
             className={bem(
                 bem.block(),
-                'text-center p-5',
                 props.className,
             )}
+            style={props.style}
         >
             {props.text}
         </div>
