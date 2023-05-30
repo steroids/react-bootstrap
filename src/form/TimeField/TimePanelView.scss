@@ -1,85 +1,79 @@
 .TimePanelView {
+    font-weight: 500;
+    user-select: none;
 
-  font-weight: 500;
-  user-select: none;
+    &__header {
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
-  &__header {
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-left: 1px solid $border-default;
-    border-bottom: 1px solid $border-default;
-  }
-
-  &__body {
-    display: flex;
-    flex-flow: row nowrap;
-    border-radius: $input-border-radius;
-  }
-
-  &__column {
-    height: 220px;
-    overflow-y: auto;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    border-bottom: 1px solid $border-default;
-    &:not(:last-child) {
-      border-right: 1px solid $border-default;
-    }
-  }
-
-  &__cell {
-    padding: 5px 20px;
-    cursor: pointer;
-
-    &_selected {
-      background-color: $primary-light;
+        border-left: 1px solid $border-default;
+        border-bottom: 1px solid $border-default;
     }
 
-    transition: background-color .1s ease-in;
-    &:hover {
-      background-color: $back-disabled;
-    }
-  }
-
-  &__footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-
-    &_to-end {
-      justify-content: flex-end;
-    }
-  }
-
-  &__button {
-    border: none;
-
-    &_now {
-      color: $primary;
-      background-color: unset;
-
-      transition: color .1s ease-in;
-      &:hover {
-        color: $primary-dark;
-      }
+    &__body {
+        display: flex;
+        flex-flow: row nowrap;
+        border-radius: $input-border-radius;
     }
 
-    &_ok {
-      color: #fff;
-      border-radius: 4px;
-      background-color: $primary;
-
-      transition: background-color .1s ease-in;
-      &:hover {
-        background-color: $primary-dark;
-      }
+    &__column {
+        height: 220px;
+        overflow-y: auto;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        @include scrollWrapper(298px, 0, $scroll-thumb-color, $scroll-track-color);
     }
-  }
 
+    &__cell {
+        padding: 5px 20px;
+        cursor: pointer;
+
+        &_selected {
+            background-color: $primary-light;
+        }
+
+        transition: background-color 0.1s ease-in;
+        &:hover {
+            background-color: $back-disabled;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+
+        &_to-end {
+            justify-content: flex-end;
+        }
+    }
+
+    &__button {
+        border: none;
+
+        &_now {
+            color: $primary;
+            background-color: unset;
+
+            transition: color 0.1s ease-in;
+            &:hover {
+                color: $primary-dark;
+            }
+        }
+
+        &_ok {
+            color: #fff;
+            border-radius: 4px;
+            background-color: $primary;
+
+            transition: background-color 0.1s ease-in;
+            &:hover {
+                background-color: $primary-dark;
+            }
+        }
+    }
 }

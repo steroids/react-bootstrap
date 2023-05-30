@@ -401,6 +401,10 @@ $date-sizes: map-merge(
             }
         }
 
+        .TimePanelView__button_now {
+            @include calendar-button();
+        }
+
         .TimePanelView__button_ok {
             @include calendar-button();
         }
