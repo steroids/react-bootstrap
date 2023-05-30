@@ -7,7 +7,7 @@ export default function ButtonGroupView(props: IButtonGroupViewProps) {
     const bem = useBem('ButtonGroupView');
 
     return (
-        <div
+        <ul
             className={bem(
                 bem.block({
                     size: props.size,
@@ -20,18 +20,19 @@ export default function ButtonGroupView(props: IButtonGroupViewProps) {
                 const isActive = props.activeButton === item.id;
 
                 return (
-                    <Button
-                        key={index}
-                        className={bem.element('button', {
-                            default: !isActive,
-                            active: isActive,
-                        })}
-                        label={item.label}
-                        onClick={() => props.onClick(item.id)}
-                        {...props.buttonProps}
-                    />
+                    <li key={index}>
+                        <Button
+                            className={bem.element('button', {
+                                default: !isActive,
+                                active: isActive,
+                            })}
+                            label={item.label}
+                            onClick={() => props.onClick(item.id)}
+                            {...props.buttonProps}
+                        />
+                    </li>
                 );
             })}
-        </div>
+        </ul>
     );
 }
