@@ -1,7 +1,15 @@
 .ControlsView {
-    display: flex;
+    display: inline-flex;
     flex-flow: row;
     justify-content: space-between;
+
+    .ButtonView__icon { 
+         svg {
+            path, circle, rect { 
+                stroke: inherit;
+            }
+        }
+    }
 
     a {
         display: inline-block;

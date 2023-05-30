@@ -1,83 +1,34 @@
 .TimeFieldView {
-
-  $root : &;
-
-  padding: 0 8px;
-  position: relative;
-
-  background-color: $white;
-  border: 1px solid $border-default;
-  border-radius: 4px;
-
-  &:focus-within{
-    outline: 0;
-    border-color: $border-action;
-    box-shadow: 0 0 0 1px $border-typing;
-  }
-  *:focus {
-    outline: none;
-  }
-
-  &_disabled {
-    color: rgba(0, 0, 0, .25);
-    background-color: $back-disabled;
-    cursor: not-allowed;
-    input {
-      cursor: inherit;
-    }
-  }
-  &_no-border {
-    border: unset;
-  }
-
-  &__body {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-
-    &:hover #{$root}__icon_close {
-      opacity: 1;
-    }
-  }
-
-  &__input {
-    width: 100%;
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    background-color: transparent;
-
-    padding: 10px 5px;
-  }
-
-  &__icon-container {
+    $root: &;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &__icon {
-    display: flex;
 
-    path {
-      fill: $border-default;
-      transition: fill .1s ease-in;
+    @include date-default-input();
+
+    @include date-default-body();
+
+    @include icon-container($root);
+
+    @include date-default-sizes($root);
+
+    @include date-default-effects($root);
+
+    &__dropdown { 
+        background: $element-background-color;
+
+        @include calendar-border();
     }
 
-    &_close{
-      position: absolute;
-      background-color: $white;
+    @include date-time-panel($root);
 
-      opacity: 0;
-      transition: opacity .2s ease-in;
+    &__panel-container {
 
-      &:hover {
-        path {
-          fill: $border-default;
+        .TimePanelView__footer { 
+            padding: 0;
+            padding-top: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            column-gap: 10px;
         }
-      }
     }
-  }
-
 }
+
