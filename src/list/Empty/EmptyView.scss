@@ -1,4 +1,7 @@
+@import '../../scss/variables';
+
 .EmptyView {
   text-align: center;
   padding: 20px;
+  color: $text-color;
 }
