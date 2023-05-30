@@ -1,0 +1,77 @@
+.TimeRangeFieldView {
+    $root: &;
+    
+    @include icon-container($root);
+
+    @include date-range-body($root);
+
+    &__body {
+        > * {
+            &:nth-child(1) {
+                width: 140px;
+            }
+        }
+    }
+
+    &_size {
+        @each $size, $size-map in $date-sizes {
+            &_#{$size} {
+                #{$root}__body {
+                    #{$root}__input {
+                        &:nth-child(1) {
+                            width: calc(map-get($size-map, first-input-width) + 60px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @include date-range-input();
+
+    @include date-range-sizes($root);
+
+    @include date-range-effects($root);
+
+    @include date-time-panel($root);
+
+    &__dropdown { 
+        background-color: $element-background-color;
+
+        display: flex;
+    }
+
+    &__panel-container {
+        display: flex;
+        flex-flow: row nowrap;
+        column-gap: 47px;
+
+        .TimePanelView__footer { 
+            padding: 0;
+            padding-top: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            column-gap: 10px;
+        }
+
+        .TimePanelView:nth-child(1) {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                display: block;
+                top: 0;
+                right: -23px;
+                transform: translateX(-50%);
+                height: 100%;
+                width: 1px;
+                background-color: $date-range-separator-color;
+            }
+        }
+
+        .TimePanelView__button_ok { 
+            display: none;
+        }
+    }
+}

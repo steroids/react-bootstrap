@@ -133,6 +133,9 @@ export default {
     'form.TimeFieldView': {
         lazy: () => require('./form/TimeField/TimeFieldView').default,
     },
+    'form.TimeRangeFieldView': {
+        lazy: () => require('./form/TimeRangeField/TimeRangeFieldView').default,
+    },
     'format.BooleanFormatterView': {
         lazy: () => require('./format/BooleanFormatter/BooleanFormatterView').default,
     },
