@@ -22,21 +22,12 @@
 
     &__panel-container {
 
-        .TimeFieldView { 
-            width: 100%;
-            display: block;
-        }
-
-        .TimePanelView__body { 
-            width: 100%;
-        }
-        .TimePanelView__column { 
-            width: 50%;
-        }
-
         .TimePanelView__footer { 
             padding: 0;
             padding-top: 10px;
+            display: flex;
+            flex-flow: row nowrap;
+            column-gap: 10px;
         }
     }
 }
