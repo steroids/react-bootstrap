@@ -192,7 +192,7 @@ $date-sizes: map-merge(
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        background-color: $element-background-color;
+        background-color: $element-field-background-color;
         color: $text-color;
         column-gap: 8px;
 

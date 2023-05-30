@@ -10,18 +10,20 @@ export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {
     const hasValue = props.inputPropsFrom.value || props.inputPropsTo.value;
 
     const renderTimeRange = useCallback(() => (
-        <div>
+        <div className={bem.element('panel-container')}>
             <TimePanelView {...props.timePanelFromViewProps} />
             <TimePanelView {...props.timePanelToViewProps} />
         </div>
-    ), [props.timePanelFromViewProps, props.timePanelToViewProps]);
+    ), [bem, props.timePanelFromViewProps, props.timePanelToViewProps]);
 
     return (
         <DropDown
             position="bottomLeft"
             content={renderTimeRange}
+            onClose={props.onClose}
             visible={props.isOpened}
-        // arrow={false}
+            className={bem.element('dropdown')}
+            hasArrow={false}
         >
             <div
                 className={bem(
@@ -38,8 +40,7 @@ export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {
                     <input
                         {...props.inputPropsFrom}
                         className={bem(
-                            bem.element('input', {
-                            }),
+                            bem.element('input'),
                         )}
                         onChange={e => props.inputPropsFrom.onChange(e.target.value)}
                     />
