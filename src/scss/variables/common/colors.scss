@@ -194,6 +194,12 @@ $color-themes: map-merge(
             "color-light": $danger-light,
             "text-color": $white,
         ),
+        "error": (
+            "color": $danger,
+            "color-dark": $danger-dark,
+            "color-light": $danger-light,
+            "text-color": $white,
+        ),
         "warning": (
             "color": $warning,
             "color-dark": $warning-dark,

@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+
 .RateFieldView {
 
   $root: &;
@@ -47,7 +49,7 @@
       width: $icon-size;
 
       path {
-        fill: $back-disabled;
+        fill: $gray-dark;
       }
     }
   }

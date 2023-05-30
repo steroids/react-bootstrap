@@ -1,15 +1,22 @@
-$body-bg: transparent;
+@import '../../scss/variables';
 
 .HeaderView {
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-  background-color: $body-bg;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 20px;
+  width: 100%;
+  background-color: $gray;
 
   a:hover {
     opacity: .7;
   }
 
   &__logo {
+    .ButtonView__text {
+      color: $text-color;
+    }
   }
+  
   &__logo-image {
     margin-right: 12px;
     display: inline-block;

@@ -9,11 +9,8 @@ import {useBem} from '@steroidsjs/core/hooks';
 export default function HeaderView(props: IHeaderViewProps) {
     const bem = useBem('HeaderView');
     return (
-        <nav
+        <header
             className={bem(
-                'navbar navbar-expand-lg',
-                props.dark ? 'navbar-dark' : 'navbar-light',
-                props.dark ? 'bg-dark' : 'bg-light',
                 bem.block(),
                 props.className,
             )}
@@ -41,6 +38,6 @@ export default function HeaderView(props: IHeaderViewProps) {
                 />
             )}
             {props.children}
-        </nav>
+        </header>
     );
 }
