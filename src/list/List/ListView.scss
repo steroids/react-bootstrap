@@ -15,16 +15,12 @@
         margin-bottom: 3px;
 
         &-sizes {
-            width: fit-content;
-
-            .PaginationSizeView__sizes {
-                display: flex;
-                flex-flow: row nowrap;
-            }
+            margin-bottom: 10px;
+            width: 100%;
         }
 
         &-button {
-            margin: 0 auto;
+            margin: 16px auto 0;
         }
     }
 
