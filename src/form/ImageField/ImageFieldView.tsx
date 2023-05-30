@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IImageFieldViewProps} from '@steroidsjs/core/ui/form/ImageField/ImageField';
+import {Button} from '@steroidsjs/core/ui/form';
 
 export default function ImageFieldView(props: IImageFieldViewProps) {
     const bem = useBem('ImageFieldView');
@@ -10,11 +11,12 @@ export default function ImageFieldView(props: IImageFieldViewProps) {
     return (
         <div className={bem.block()}>
             {!item || !item.image ? (
-                <button
+                <Button
                     className={bem.element('button', {
                         loading: item ? item.progress : false,
                     })}
                     onClick={props.onClick}
+                    {...props.buttonProps}
                 >
                     {!item || !item.progress ? (
                         <Icon
@@ -34,7 +36,7 @@ export default function ImageFieldView(props: IImageFieldViewProps) {
                     <span className={bem.element('button-label')}>
                         {!item || !item.progress ? props.label : 'Uploading...'}
                     </span>
-                </button>
+                </Button>
             ) : (
                 <div className={bem.element('content')}>
                     <img
