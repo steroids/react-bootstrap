@@ -1,8 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
-
 import {IInputFieldViewProps} from '@steroidsjs/core/ui/form/InputField/InputField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
+
 import renderIcon from '../../utils/renderIcon';
 
 export default function InputFieldView(props: IInputFieldViewProps) {
@@ -45,7 +46,7 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                         className: bem.element('lead-icon'),
                         tabIndex: -1,
                     })}
-                {props.maskProps
+                {props.maskOptions
                     ? (
                         <input
                             onBlur={props.onBlur}
@@ -56,11 +57,13 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                                     size: props.size,
                                 }),
                             )}
+                            {...props.inputProps}
                             type={props.type}
                             placeholder={props.placeholder}
                             disabled={props.disabled}
                             required={props.required}
                             id={props.id}
+                            ref={props.maskOptions ? props.maskedInputRef : null}
                         />
                     )
                     : (
