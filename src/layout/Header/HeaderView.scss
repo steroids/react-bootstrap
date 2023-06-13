@@ -1,32 +1,38 @@
-@import '../../scss/variables';
-
 .HeaderView {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  width: 100%;
-  background-color: $gray;
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    width: 100%;
+    background-color: $element-background-color;
+    border-bottom: 1px solid $element-placeholder-color-disabled;
 
-  a:hover {
-    opacity: .7;
-  }
+    &__logo {
 
-  &__logo {
-    .ButtonView__text {
-      color: $text-color;
+        //Logo wrapper
+        .ButtonView__text { 
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            column-gap: 9px;
+        }
+
+
+        &-image {
+            width: 36px;
+            height: 36px;
+        }
+
+        &-title {
+            color: $text-color;
+            font-weight: $font-weight-lg;
+            font-size: $font-size-base;
+            line-height: $line-height-base;
+        }
     }
-  }
-  
-  &__logo-image {
-    margin-right: 12px;
-    display: inline-block;
-    position: relative;
-    top: -2px;
-    width: 24px;
-    height: 24px;
-  }
-  &__logo-svg {
-    margin-right: 12px;
-  }
 
+    
+    &__logo-svg {
+        margin-right: 12px;
+    }
 }

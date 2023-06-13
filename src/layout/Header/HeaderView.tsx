@@ -3,8 +3,11 @@ import * as React from 'react';
 import {Link} from '@steroidsjs/core/ui/nav';
 import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
+import {Button} from '@steroidsjs/core/ui/form';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
+import renderIcon from '../../utils/renderIcon';
 
 export default function HeaderView(props: IHeaderViewProps) {
     const bem = useBem('HeaderView');
@@ -14,21 +17,23 @@ export default function HeaderView(props: IHeaderViewProps) {
                 bem.block(),
                 props.className,
             )}
+            style={props.style}
         >
             {props.logo && (
                 <Link
-                    className={bem('navbar-brand', bem.element('logo'))}
+                    className={bem.element('logo')}
                     toRoute='root'
                     {...props.logo.linkProps}
                 >
                     {props.logo.icon && (
-                        <Icon
-                            className={bem.element('logo-image')}
-                            name={props.logo.icon}
-                            title={props.logo.title}
-                        />
+                        renderIcon(props.logo.icon, {
+                            className: bem.element('logo-image'),
+                            title: props.logo.title,
+                        })
                     )}
-                    {props.logo.title || ''}
+                    <span className={bem.element('logo-title')}>
+                        {props.logo.title || ''}
+                    </span>
                 </Link>
             )}
             {props.nav && (
@@ -37,6 +42,17 @@ export default function HeaderView(props: IHeaderViewProps) {
                     {...props.nav}
                 />
             )}
+            {props.auth && (typeof props.auth === 'string'
+                ? <Button toRoute={props.auth}>{__('Войти')}</Button>
+                : (
+                    <div className={bem.element('user')}>
+                        <Text className={bem.element('user-name')}>{props.auth?.username}</Text>
+                        <Avatar
+                            {...props.auth?.userAvatar}
+                            className={bem.element('user-avatar')}
+                        />
+                    </div>
+                ))}
             {props.children}
         </header>
     );
