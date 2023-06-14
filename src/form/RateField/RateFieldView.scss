@@ -1,57 +1,130 @@
-@import '../../scss/variables';
+$ratefield-sizes: () !default;
+$ratefield-sizes: map-merge(
+    (
+        "sm": (
+            "size": 18px,
+            "badge-gap": 8px,
+            "badge-paddings": 1px 8px,
+            "badge-radius": 6px,
+        ),
+        "md": (
+            "size": 22px,
+            "badge-gap": 12px,
+            "badge-paddings": 3px 8px,
+            "badge-radius": 6px,
+        ),
+        "lg": (
+            "size": 24px,
+            "badge-gap": 16px,
+            "badge-paddings": 4px 8px,
+            "badge-radius": $radius-small,
+        ),
+    ),
+    $ratefield-sizes
+);
 
 .RateFieldView {
+    $root: &;
 
-  $root: &;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
 
-  &:focus, & *:focus {
-    outline: none!important;
-  }
+    &:focus,
+    & *:focus {
+        outline: none !important;
+    }
 
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+    &__rate-list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        column-gap: 2px;
+    }
 
-  &__rate-item {
-    cursor: pointer;
-    position: relative;
-    margin-right: 10px;
-    line-height: 0;
+    &__rate-item {
+        cursor: pointer;
+        position: relative;
+        line-height: 0;
 
-    &_is-full{
-      #{$root}__rate-value-second {
-        width: 100%;
+        &_is-full {
+            #{$root}__rate-value-second {
+                width: 100%;
 
-        #{$root}__rate-icon {
-          path {
-            fill: $icon-color;
-          }
+                #{$root}__rate-icon {
+                    path {
+                        fill: $primary;
+                    }
+                }
+            }
         }
-      }
     }
-  }
 
-  &__rate-value-first, &__rate-value-second {
-    display: inline-block;
-    width: $icon-size;
-    height: $icon-size;
-  }
-
-  &__rate-value-second {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-  }
-
-  &__rate-icon {
-    &.IconView svg {
-      width: $icon-size;
-
-      path {
-        fill: $gray-dark;
-      }
+    &__rate-value-first,
+    &__rate-value-second {
+        display: inline-block;
     }
-  }
 
+    &__rate-value-second {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+    }
+
+    &__rate-icon {
+        &.IconView svg {
+            path {
+                fill: $gray;
+            }
+        }
+    }
+
+    &__badge {
+        display: block;
+        background-color: $primary;
+        color: $white;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+    }
+
+    &_size {
+        @each $size, $sizeMap in $ratefield-sizes {
+            &_#{$size} {
+                #{$root}__rate-icon {
+                    &.IconView svg {
+                        width: map-get($sizeMap, size);
+                        height: map-get($sizeMap, size);
+                    }
+                }
+
+                #{$root}__rate-value-first,
+                #{$root}__rate-value-second {
+                    width: map-get($sizeMap, size);
+                    height: map-get($sizeMap, size);
+                }
+
+                #{$root}__badge {
+                    margin-left: map-get($sizeMap, badge-gap);
+                    padding: map-get($sizeMap, badge-paddings);
+                    border-radius: map-get($sizeMap, badge-radius);
+                }
+            }
+        }
+    }
+
+    &_disabled {
+        cursor: not-allowed;
+
+        #{$root}__rate-item {
+            pointer-events: none;
+        }
+        #{$root}__rate-icon {
+            &.IconView svg {
+                path {
+                    fill: $light-gray;
+                }
+            }
+        }
+    }
 }
