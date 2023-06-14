@@ -41,7 +41,11 @@ export default function RateFieldView(props: IRateFieldViewProps) {
                     </div>
                 ))}
             </ul>
-            {props.badge && <span className={bem.element('badge')}>{props.badge?.title}</span>}
+            {props.badge && (
+                <span className={bem.element('badge')}>
+                    {props.badge?.title}
+                </span>
+            )}
         </div>
     );
 }
