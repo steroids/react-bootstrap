@@ -43,7 +43,16 @@ export default function HeaderView(props: IHeaderViewProps) {
                 />
             )}
             {props.auth && (typeof props.auth === 'string'
-                ? <Button toRoute={props.auth}>{__('Войти')}</Button>
+                ? (
+                    <Button
+                        outline
+                        color='basic'
+                        toRoute={props.auth}
+                        className={bem.element('auth-btn')}
+                    >
+                        {__('Войти')}
+                    </Button>
+                )
                 : (
                     <div className={bem.element('user')}>
                         <Text className={bem.element('user-name')}>{props.auth?.username}</Text>

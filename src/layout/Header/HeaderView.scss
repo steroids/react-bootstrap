@@ -1,22 +1,20 @@
 .HeaderView {
-    display: flex; 
+    width: 1000px;
+    display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 8px 16px;
-    width: 100%;
+    // width: 100%;
     background-color: $element-background-color;
     border-bottom: 1px solid $element-placeholder-color-disabled;
 
     &__logo {
-
-        //Logo wrapper
-        .ButtonView__text { 
+        margin-right: 136px;
+        .ButtonView__text {
             display: flex;
             flex-flow: row nowrap;
             align-items: center;
             column-gap: 9px;
         }
-
 
         &-image {
             width: 36px;
@@ -31,8 +29,31 @@
         }
     }
 
-    
     &__logo-svg {
         margin-right: 12px;
+    }
+
+    .NavBarView__list {
+        flex-flow: row nowrap;
+        column-gap: 8px;
+    }
+
+    &__user {
+        margin-left: auto;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: 8px;
+
+        &-name.TextView_type_body {
+            margin: 0;
+            font-weight: $font-weight-lg;
+            font-size: $font-size-base;
+            line-height: $line-height-base;
+        }
+    }
+
+    &__auth-btn {
+        margin-left: auto;
     }
 }
