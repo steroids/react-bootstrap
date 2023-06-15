@@ -1,16 +1,13 @@
 :root {
-    --card-background-color: $white;
     --card-footer-background-color: var(--additional-light-blue);
     --card-dots-color: #323232;
 }
 
 html[data-theme="dark"] {
-    --card-background-color: var(--graphite);
     --card-footer-background-color: var(--gray-dark);
     --card-dots-color: #ffffff;
 }
 
-$card-background-color: var(--card-background-color);
 $card-footer-background-color: var(--card-footer-background-color);
 $card-dots-color: var(--card-dots-color);
 
@@ -45,7 +42,7 @@ $card-dots-color: var(--card-dots-color);
     border: 1px solid $element-border-color;
     border-radius: $radius-large;
     color: $text-color;
-    background-color: $card-background-color;
+    background-color: $element-background-color;
 
     &__header {
         display: flex;
@@ -55,7 +52,7 @@ $card-dots-color: var(--card-dots-color);
         padding: 18px;
         padding-bottom: 20px;
 
-        &_withoutCover { 
+        &_withoutCover {
             padding-bottom: 3px;
         }
 
@@ -66,7 +63,7 @@ $card-dots-color: var(--card-dots-color);
             column-gap: 8px;
         }
 
-        &-avatar { 
+        &-avatar {
             margin-right: 2px;
         }
 
@@ -88,22 +85,22 @@ $card-dots-color: var(--card-dots-color);
             justify-content: center;
             align-items: center;
             cursor: pointer;
-        }
 
-        &-dots {
-            width: 24px;
-            height: 24px;
+            .MenuView__icon {
+                width: 24px;
+                height: 24px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
-            rect {
-                fill: $card-dots-color;
-            }
+                rect {
+                    fill: $card-dots-color;
+                }
 
-            svg {
-                transform: translateX(5px);
+                svg {
+                    transform: translateX(5px);
+                }
             }
         }
     }
@@ -149,11 +146,11 @@ $card-dots-color: var(--card-dots-color);
         row-gap: 8px;
         column-gap: $columnGap;
 
-        button:only-of-type { 
+        button:only-of-type {
             width: 100%;
         }
 
-        button:not(:only-of-type) { 
+        button:not(:only-of-type) {
             width: calc(50% - $columnGap / 2);
         }
     }
