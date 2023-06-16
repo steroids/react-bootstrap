@@ -38,6 +38,7 @@ export default function HeaderView(props: IHeaderViewProps) {
             )}
             {props.nav && (
                 <Nav
+                    size={props.size}
                     layout='navbar'
                     {...props.nav}
                 />
@@ -49,6 +50,7 @@ export default function HeaderView(props: IHeaderViewProps) {
                         color='basic'
                         toRoute={props.auth}
                         className={bem.element('auth-btn')}
+                        size={props.size}
                     >
                         {__('Войти')}
                     </Button>
@@ -59,6 +61,7 @@ export default function HeaderView(props: IHeaderViewProps) {
                         <Avatar
                             {...props.auth?.userAvatar}
                             className={bem.element('user-avatar')}
+                            size={props.size}
                         />
                     </div>
                 ))}
