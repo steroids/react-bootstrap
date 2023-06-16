@@ -1,0 +1,202 @@
+@import "style/variables";
+
+:root {
+    --diagram-success: var(--success-light);
+    --diagram-warning: var(--warning-light);
+    --diagram-danger: var(--danger-light);
+    --diagram-secondary: var(--secondary-light);
+}
+
+html[data-theme="dark"] {
+    --diagram-success: var(--success-dark);
+    --diagram-warning: var(--warning-dark);
+    --diagram-danger: var(--danger-dark);
+    --diagram-secondary: var(--secondary-dark);
+}
+
+$diagram-success: var(--diagram-success);
+$diagram-warning: var(--diagram-warning);
+$diagram-danger: var(--diagram-danger);
+$diagram-secondary: var(--diagram-secondary);
+
+$diagram-colors: () !default;
+$diagram-colors: map-merge(
+    (
+        "success": (
+            "color": $success,
+            "color-themed": $diagram-success,
+        ),
+        "warning": (
+            "color": $warning,
+            "color-themed": $diagram-warning,
+        ),
+        "danger": (
+            "color": $danger,
+            "color-themed": $diagram-danger,
+        ),
+        "secondary": (
+            "color": $secondary,
+            "color-themed": $diagram-secondary,
+        ),
+    ),
+    $diagram-colors
+);
+
+.DiagramColumnView {
+    $root: &;
+
+    &_size {
+        &_sm {
+            #{$root}__diagram_isHorizontal,
+            #{$root}__diagram_isVertical {
+                min-height: 51px !important;
+            }
+
+            #{$root}__diagram_isCircle {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        &_md {
+            #{$root}__diagram_isHorizontal,
+            #{$root}__diagram_isVertical {
+                min-height: 65px !important;
+            }
+
+            #{$root}__diagram_isCircle {
+                width: 36px;
+                height: 36px;
+            }
+        }
+        &_lg {
+            #{$root}__diagram_isHorizontal,
+            #{$root}__diagram_isVertical {
+                min-height: 73px !important;
+            }
+
+            #{$root}__diagram_isCircle {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    &__diagram {
+        font-weight: $font-weight-lg;
+        font-size: $font-size-xs;
+        line-height: $line-height-xs;
+        color: $text-color;
+        width: 100%;
+    }
+
+    &_isHorizontal {
+        #{$root}__diagram {
+            position: relative;
+
+            &-percentage {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            &-filling {
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                &_color {
+                    @each $color, $color-map in $diagram-colors {
+                        &_#{$color} {
+                            background-color: map-get($color-map, color-themed);
+                            border-right: 1px solid map-get($color-map, color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_isVertical {
+        display: flex;
+        flex-flow: row nowrap;
+        height: 100%;
+
+        #{$root}__diagram {
+            position: relative;
+
+            &-percentage {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            &-filling {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
+                &_color {
+                    @each $color, $color-map in $diagram-colors {
+                        &_#{$color} {
+                            background-color: map-get($color-map, color-themed);
+                            border-top: 1px solid map-get($color-map, color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_isCircle {
+        display: flex;
+        justify-content: center;
+
+        #{$root}__diagram {
+            position: relative;
+            border-radius: 100%;
+            margin: -1px;
+
+            &_color {
+                @each $color, $color-map in $diagram-colors {
+                    &_#{$color} {
+                        border: 2px solid map-get($color-map, color);
+                    }
+                }
+            }
+
+            &-percentage {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+
+        &-diagrams {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+        }
+
+        #{$root}__subtitle {
+            margin: 0 auto;
+
+            font-weight: $font-weight-sm;
+            font-size: $font-size-base;
+            line-height: $line-height-base;
+            color: $element-placeholder-color;
+        }
+    }
+}
