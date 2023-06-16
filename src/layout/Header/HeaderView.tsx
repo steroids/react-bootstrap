@@ -14,7 +14,9 @@ export default function HeaderView(props: IHeaderViewProps) {
     return (
         <header
             className={bem(
-                bem.block(),
+                bem.block({
+                    size: props.size,
+                }),
                 props.className,
             )}
             style={props.style}
@@ -23,6 +25,7 @@ export default function HeaderView(props: IHeaderViewProps) {
                 <Link
                     className={bem.element('logo')}
                     toRoute='root'
+                    size={props.size}
                     {...props.logo.linkProps}
                 >
                     {props.logo.icon && (
