@@ -3,8 +3,8 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {ICardViewProps} from '@steroidsjs/core/ui/content/Card/Card';
 import {Button} from '@steroidsjs/core/ui/form';
 import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {Link} from '@steroidsjs/core/ui/nav';
+import {Menu} from '@steroidsjs/core/ui/content';
 
 export default function CardView(props: ICardViewProps) {
     const bem = useBem('CardView');
@@ -49,9 +49,8 @@ export default function CardView(props: ICardViewProps) {
                             className={bem.element('header-menu')}
                             role='button'
                         >
-                            <Icon
-                                name='menu_dots'
-                                className={bem.element('header-dots')}
+                            <Menu
+                                {...props.header.menu}
                             />
                         </div>
                     )}
