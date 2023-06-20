@@ -10,7 +10,7 @@ export default function MenuView(props: IMenuViewProps) {
 
     const renderMenuItems = React.useCallback(() => (
         <>
-            {props.items.map((item, index) => (
+            {props.items?.map((item, index) => (
                 <MenuItemView
                     key={index}
                     {...item}
