@@ -1,3 +1,4 @@
+
 .HeaderView {
     width: 1000px;
     display: flex;
@@ -20,6 +21,7 @@
 
     &__logo {
         margin-right: 136px;
+
         .ButtonView__text {
             display: flex;
             flex-flow: row nowrap;
@@ -56,7 +58,6 @@
     }
 
     &__menu {
-        margin-left: auto;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
@@ -67,6 +68,10 @@
             font-weight: $font-weight-lg;
             font-size: $font-size-base;
             line-height: $line-height-base;
+
+            @media (max-width: 360px){
+                display: none;
+            }
         }
     }
 
@@ -79,7 +84,7 @@
         margin-left: auto;
         display: none;
 
-        @media (max-width: 361px) {
+        @media (max-width: 360px) {
             display: block;
         }
 
@@ -98,6 +103,15 @@
                 opacity: 1;
                 pointer-events: all;
             }
+            .ButtonView__text {
+                color: $element-placeholder-color;
+            }
+        }
+
+        &-icon { 
+            svg path { 
+                stroke: $icon-color;
+            }
         }
 
         &-list {
@@ -106,6 +120,15 @@
             display: flex;
             row-gap: 16px;
             align-items: flex-start;
+            background-color: $element-background-color;
         }
+    }
+
+    &__interaction {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin-left: auto;
+        column-gap: 16px;
     }
 }

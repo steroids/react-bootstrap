@@ -57,7 +57,7 @@ export default function HeaderView(props: IHeaderViewProps) {
     const renderBurger = React.useCallback(() => (
         <div className={bem.element('burger')}>
             <Icon
-                name='burger'
+                name={!props.isBurgerOpened ? 'burger' : 'cross_12x12'}
                 className={bem.element('burger-icon')}
                 onClick={props.toggleBurger}
             />
@@ -115,8 +115,10 @@ export default function HeaderView(props: IHeaderViewProps) {
                 />
 
             )}
-            {props?.authParams?.isAuth ? renderAuthBlock() : renderUserBlock()}
-            {props.burgerMenu && renderBurger()}
+            <div className={bem.element('interaction')}>
+                {props?.authParams?.isAuth ? renderAuthBlock() : renderUserBlock()}
+                {props.burgerMenu && renderBurger()}
+            </div>
             {props.children}
         </header>
     );

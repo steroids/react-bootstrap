@@ -46,6 +46,7 @@
 
     --scroll-thumb-color: #cbd5db;
     --scroll-track-color: #f1f5f7;
+    --icon-color: #323232;
 }
 
 html[data-theme="dark"] {
@@ -95,6 +96,7 @@ html[data-theme="dark"] {
 
     --scroll-thumb-color: #333646;
     --scroll-track-color: #26272f;
+    --icon-color: #FFFFFF;
 }
 
 $primary: var(--primary);
@@ -144,6 +146,8 @@ $element-field-background-color: var(--element-field-background-color);
 
 $scroll-thumb-color: var(--scroll-thumb-color);
 $scroll-track-color: var(--scroll-track-color);
+$icon-color: var(--icon-color);
+
 //** Themed colors **//
 
 //! Base colors !//
