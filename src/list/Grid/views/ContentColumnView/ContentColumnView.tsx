@@ -6,8 +6,6 @@ import _get from 'lodash-es/get';
 import {Link} from '@steroidsjs/core/ui/nav';
 import {Icon} from '@steroidsjs/core/ui/content';
 
-import './ContentColumnView.scss';
-
 export default function ContentColumnView(props: IContentColumnViewProps) {
     const bem = useBem('ContentColumnView');
 
