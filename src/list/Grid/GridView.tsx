@@ -104,7 +104,7 @@ export default function GridView(props: IGridViewProps) {
                                     key={columnIndex}
                                     className={bem(
                                         bem.element('column', {
-                                            isDiagram: !!column.diagrams,
+                                            isDiagram: !!column.diagram,
                                         }),
                                         column.className,
                                     )}
