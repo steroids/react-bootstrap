@@ -1,3 +1,5 @@
+@import '~@splidejs/splide/dist/css/splide.min.css';
+
 @import './scss/mixins';
 @import './scss/variables';
 @import './scss/animations';
@@ -19,6 +21,7 @@
 @import './content/Menu/MenuView';
 @import './content/Icon/IconView';
 @import './content/CopyToClipboard/CopyToClipboardView';
+@import './content/Slider//SliderView';
 @import './form/AutoCompleteField/AutoCompleteFieldView';
 @import './form/Button/ButtonView';
 @import './form/CheckboxField/CheckboxFieldView';

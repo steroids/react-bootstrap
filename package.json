@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-react": "^3.0.2",
+        "@splidejs/react-splide": "^0.7.12",
         "@steroidsjs/ckeditor5": "^27.0.2-rc.2",
         "date-fns": "^2.29.3",
         "lodash": "^4.17.20",
