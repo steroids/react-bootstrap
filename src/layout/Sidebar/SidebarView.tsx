@@ -51,7 +51,7 @@ export default function SidebarView(props: ISidebarViewProps) {
                 </div>
             </header>
             <Nav
-                items={props.navItems}
+                items={props.items}
                 layout="icon"
                 className={bem.element('nav')}
             />
