@@ -4,5 +4,25 @@
         flex-flow: row nowrap;
         align-items: center;
         column-gap: 24px;
+
+        &-item {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            color: $text-color;
+            column-gap: 8px;
+
+            .ButtonView__text {
+                color: $text-color;
+            }
+
+            &_disabled .ButtonView_disabled .ButtonView__link:hover .ButtonView__text {
+               color: $element-placeholder-color-disabled;
+            }
+
+            &_disabled .ButtonView_disabled .ButtonView__link .ButtonView__text { 
+                color: $element-placeholder-color-disabled;
+            }
+        }
     }
 }

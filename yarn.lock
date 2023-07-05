@@ -639,6 +639,21 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
+"@maskito/core@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-0.12.1.tgz#3878661f7ddd9001669a3e5c83fa292e8f9482b1"
+  integrity sha512-/Np9ZaRBN2beutO/21yFKm+flBWt5LU7n9GKzSQ30Ia5uCTrkxjNPyyuJCOMCRe/f5Ldt1F9aIpwokZiAKazCg==
+
+"@maskito/kit@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-0.12.1.tgz#0301f78c399f1836de4cefb00d3ca2d39b33a66d"
+  integrity sha512-9Va1GaBJzvtwQn3nYKhmnMgoktqzEwCwOtUcr+LsNCx1lWWSWSD0LkeUoNOVoY3b4xy7E6yT4jxiJX1gUJNtMw==
+
+"@maskito/react@^0.12.1":
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/@maskito/react/-/react-0.12.1.tgz#44655526db15086ce894866515722a69d0cd2d51"
+  integrity sha512-3kZSU+VdAb522pxHeraJPbOhxYr8QqYmlxbaGAOBPj0yquGS9sKAXi7tVD5Q7CBk9u+WrQC3BbBPvXAOiiSyVg==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -720,11 +735,14 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.47":
-  version "3.0.0-beta.47"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.47.tgz#cac3f44b2a158c5a36af405dd46520aae09aad4b"
-  integrity sha512-kIFyuvCR7gEQ8/PVBo9n5zycJ8Z3X/FpdERF4NmfQgJZxpRv1u296KV3/DEO97G4iz93dbhmrOSKIMGsa5mrDw==
+"@steroidsjs/core@^3.0 || >=3.0.0-beta.52":
+  version "3.0.0-beta.52"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.52.tgz#49c92406c1f11e8547aa9c3ed6bf0a4ae934d78f"
+  integrity sha512-s+JCeBaxh8ArSV24dVnbDS3RS7S19vY1k+PpvPaxLwxnVNmT5vzuxecE+y7i9eZY5dNSk4/zHeAUZfTPmw8TTQ==
   dependencies:
+    "@maskito/core" "^0.12.1"
+    "@maskito/kit" "^0.12.1"
+    "@maskito/react" "^0.12.1"
     axios "^0.21.1"
     connected-react-router "^6.9.3"
     domready "^1.0.8"
@@ -747,7 +765,6 @@
     react-grid-gallery "^0.4.8"
     react-helmet "^6.1.0"
     react-image-crop "^9.0.2"
-    react-input-mask "^3.0.0-alpha.2"
     react-redux "^8.0.5"
     react-router "^5.2.0"
     react-router-dom "^5.2.0"
@@ -2281,13 +2298,6 @@ intl-messageformat@^10.1.4:
     "@formatjs/icu-messageformat-parser" "2.2.0"
     tslib "^2.4.0"
 
-invariant@^2.2.4:
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
-  integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
-  dependencies:
-    loose-envify "^1.0.0"
-
 is-arguments@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/is-arguments/-/is-arguments-1.1.1.tgz#15b3f88fda01f2a97fec84ca761a560f123efa9b"
@@ -2943,7 +2953,7 @@ process-nextick-args@~2.0.0:
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
   integrity sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==
 
-prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
+prop-types@^15.5.0, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -3048,6 +3058,14 @@ rc-util@^5.16.1, rc-util@^5.19.2, rc-util@^5.21.0, rc-util@^5.26.0:
     "@babel/runtime" "^7.18.3"
     react-is "^16.12.0"
 
+react-async-script@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-async-script/-/react-async-script-1.2.0.tgz#ab9412a26f0b83f5e2e00de1d2befc9400834b21"
+  integrity sha512-bCpkbm9JiAuMGhkqoAiC0lLkb40DJ0HOEJIku+9JDjxX3Rcs+ztEOG13wbrOskt3n2DTrjshhaQ/iay+SnGg5Q==
+  dependencies:
+    hoist-non-react-statics "^3.3.0"
+    prop-types "^15.5.0"
+
 react-click-outside@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-click-outside/-/react-click-outside-3.0.1.tgz#6e77e84d2f17afaaac26dbad743cbbf909f5e24c"
@@ -3085,6 +3103,14 @@ react-fast-compare@^3.1.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
+react-google-recaptcha@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-google-recaptcha/-/react-google-recaptcha-3.1.0.tgz#44aaab834495d922b9d93d7d7a7fb2326315b4ab"
+  integrity sha512-cYW2/DWas8nEKZGD7SCu9BSuVz8iOcOLHChHyi7upUuVhkpkhYG/6N3KDiTQ3XAiZ2UAZkfvYKMfAHOzBOcGEg==
+  dependencies:
+    prop-types "^15.5.0"
+    react-async-script "^1.2.0"
+
 react-grid-gallery@^0.4.8:
   version "0.4.11"
   resolved "https://registry.yarnpkg.com/react-grid-gallery/-/react-grid-gallery-0.4.11.tgz#409d9d49d35a751cd53787a5645d386b08f7540c"
@@ -3118,15 +3144,6 @@ react-images@^0.5.6:
     prop-types "^15.6.0"
     react-scrolllock "^2.0.1"
     react-transition-group "2"
-
-react-input-mask@^3.0.0-alpha.2:
-  version "3.0.0-alpha.2"
-  resolved "https://registry.yarnpkg.com/react-input-mask/-/react-input-mask-3.0.0-alpha.2.tgz#113102942a557edc7a192e66020b8ce1ba699a5c"
-  integrity sha512-9U7qL+mvDMOJcbOFPdt6Vj+zzmCMNnBjhhjGDrL8BGQmymgvMVKhu/oOVfAkl+5VWOsLr+G3EhZOmae5fBcAkA==
-  dependencies:
-    invariant "^2.2.4"
-    prop-types "^15.7.2"
-    warning "^4.0.3"
 
 react-is@^16.12.0, react-is@^16.13.1, react-is@^16.6.0, react-is@^16.7.0:
   version "16.13.1"

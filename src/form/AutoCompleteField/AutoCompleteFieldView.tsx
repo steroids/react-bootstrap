@@ -6,8 +6,6 @@ import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {IBem} from '@steroidsjs/core/hooks/useBem';
 
-import './AutoCompleteFieldView.scss';
-
 const normalizeItems = (items: IAutoCompleteItem[]) => {
     const categories: {
         [key: string]: IAutoCompleteItem[]
