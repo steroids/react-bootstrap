@@ -6,7 +6,7 @@ import _get from 'lodash-es/get';
 import {Link} from '@steroidsjs/core/ui/nav';
 import {Icon} from '@steroidsjs/core/ui/content';
 
-export default function ContentColumnView(props: IContentColumnViewProps) {
+export default function ContentColumnView(props: IColumnViewProps) {
     const bem = useBem('ContentColumnView');
 
     const hasLink = !!props.link?.attribute;
