@@ -25,7 +25,7 @@ export default function NavIconView(props: INavViewProps) {
                             link
                             onClick={() => props.onClick(item, index)}
                             {...item}
-                            label={null}
+                            label={item.label}
                             hint={item.hint || item.label || null}
                         />
                     </li>
