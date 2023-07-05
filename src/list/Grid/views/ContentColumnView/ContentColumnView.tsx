@@ -1,12 +1,12 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {IContentColumnViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
+import {IColumnViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
 import Format from '@steroidsjs/core/ui/format/Format';
 import _get from 'lodash-es/get';
 import {Link} from '@steroidsjs/core/ui/nav';
 import {Icon} from '@steroidsjs/core/ui/content';
 
-export default function ContentColumnView(props: IContentColumnViewProps) {
+export default function ContentColumnView(props: IColumnViewProps) {
     const bem = useBem('ContentColumnView');
 
     const hasLink = !!props.link?.attribute;
