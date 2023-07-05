@@ -17,20 +17,19 @@ export default function HeaderView(props: IHeaderViewProps) {
     const dispatch = useDispatch();
 
     const renderAuthBlock = React.useCallback(() => (
-        <>
-            <Button
-                outline
-                color='basic'
-                toRoute={props.auth}
-                className={bem.element('auth-btn')}
-                size={props.size}
-                onClick={() => dispatch(openModal(props.authParams?.modal))}
-            >
-                {__('Войти')}
-            </Button>
-        </>
+        <Button
+            outline
+            color='basic'
+            toRoute={props.authParams.toRoute}
+            className={bem.element('auth-btn')}
+            size={props.size}
+            {...props.authParams?.buttonProps}
+            onClick={() => dispatch(openModal(props.authParams?.modal))}
+        >
+            {__('Войти')}
+        </Button>
 
-    ), [bem, dispatch, props.auth, props.authParams?.modal, props.size]);
+    ), [bem, dispatch, props.authParams?.buttonProps, props.authParams?.modal, props.authParams.toRoute, props.size]);
 
     const renderUserBlock = React.useCallback(() => {
         if (!props.user) {
