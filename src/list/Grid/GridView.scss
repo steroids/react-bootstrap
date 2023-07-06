@@ -93,7 +93,7 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
             }
 
             th,
-            td {
+            td:not(#{$root}__column_isDiagram) {
                 padding: 24px 16px;
             }
         }
@@ -105,7 +105,7 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
             }
 
             th,
-            td {
+            td:not(#{$root}__column_isDiagram) {
                 padding: 21px 12px;
             }
         }
@@ -117,7 +117,7 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
             }
 
             th,
-            td {
+            td:not(#{$root}__column_isDiagram) {
                 padding: 16px 8px;
             }
         }

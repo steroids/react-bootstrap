@@ -103,7 +103,9 @@ export default function GridView(props: IGridViewProps) {
                                 <td
                                     key={columnIndex}
                                     className={bem(
-                                        bem.element('column'),
+                                        bem.element('column', {
+                                            isDiagram: !!column.diagram,
+                                        }),
                                         column.className,
                                     )}
                                     data-label={_isString(column.label) ? column.label : null}

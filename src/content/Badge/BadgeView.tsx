@@ -3,8 +3,6 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import {IBadgeViewProps} from '@steroidsjs/core/ui/content/Badge/Badge';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 
-import './BadgeView.scss';
-
 export default function BadgeView(props: IBadgeViewProps) {
     const bem = useBem('BadgeView');
 

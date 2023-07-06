@@ -1,5 +1,6 @@
 @import '~@splidejs/splide/dist/css/splide.min.css';
 
+@import './scss/normalize';
 @import './scss/mixins';
 @import './scss/variables';
 @import './scss/animations';
@@ -16,7 +17,7 @@
 @import './content/Calendar/CaptionElement';
 @import './content/Card/CardView';
 @import './content/Detail/DetailView';
-@import './content/DropDown/DropDownView.scss';
+@import './content/DropDown/DropDownView';
 @import './content/Menu/MenuItemView';
 @import './content/Menu/MenuView';
 @import './content/Icon/IconView';
@@ -66,6 +67,7 @@
 @import './list/CheckboxColumn/CheckboxColumnView';
 @import './list/Empty/EmptyView';
 @import './list/Grid/GridView';
+@import './list/Grid/views/ContentColumnView/ContentColumnView';
 @import './list/FlexGrid/FlexGridView';
 @import './list/List/ListView';
 @import './list/Pagination/PaginationButtonView';
