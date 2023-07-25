@@ -37,6 +37,9 @@ export default {
     'content.CopyToClipboardView': {
         lazy: () => require('./content/CopyToClipboard/CopyToClipboardView').default,
     },
+    'content.SliderView': {
+        lazy: () => require('./content/Slider/SliderView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
