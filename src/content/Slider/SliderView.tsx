@@ -20,6 +20,9 @@ export default function SliderView(props: ISliderViewProps) {
             <Splide
                 options={props.sliderOptions}
                 extensions={props.extensions}
+                hasTrack={props.hasTrack}
+                tag={props.tag}
+                transition={props.transition}
             >
                 {props.items?.map((item, itemIndex) => (
                     <SplideSlide key={itemIndex}>
