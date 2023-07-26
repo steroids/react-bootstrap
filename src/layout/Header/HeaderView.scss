@@ -68,7 +68,7 @@
             font-size: $font-size-base;
             line-height: $line-height-base;
 
-            @media (max-width: 360px){
+            @media (max-width: 360px) {
                 display: none;
             }
         }
@@ -81,7 +81,10 @@
     &__burger {
         cursor: pointer;
         margin-left: auto;
-        display: none;
+        display: block;
+
+        width: 24px;
+        height: 24px;
 
         @media (max-width: 360px) {
             display: block;
@@ -107,8 +110,10 @@
             }
         }
 
-        &-icon { 
-            svg path { 
+        &-icon {
+            width: 24px;
+            height: 24px;
+            svg path {
                 stroke: $icon-color;
             }
         }

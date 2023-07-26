@@ -20,7 +20,7 @@ export default function HeaderView(props: IHeaderViewProps) {
         <Button
             outline
             color='basic'
-            toRoute={props.authParams.toRoute}
+            toRoute={props.authParams?.toRoute}
             className={bem.element('auth-btn')}
             size={props.size}
             {...props.authParams?.buttonProps}
@@ -29,7 +29,7 @@ export default function HeaderView(props: IHeaderViewProps) {
             {__('Войти')}
         </Button>
 
-    ), [bem, dispatch, props.authParams?.buttonProps, props.authParams?.modal, props.authParams.toRoute, props.size]);
+    ), [bem, dispatch, props.authParams?.buttonProps, props.authParams?.modal, props.authParams?.toRoute, props.size]);
 
     const renderUserBlock = React.useCallback(() => {
         if (!props.user) {
@@ -56,7 +56,7 @@ export default function HeaderView(props: IHeaderViewProps) {
     const renderBurger = React.useCallback(() => (
         <div className={bem.element('burger')}>
             <Icon
-                name={!props.isBurgerOpened ? 'burger' : 'cross_12x12'}
+                name={!props.isBurgerOpened ? 'sort' : 'cross_12x12'}
                 className={bem.element('burger-icon')}
                 onClick={props.toggleBurger}
             />

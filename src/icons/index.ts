@@ -85,6 +85,7 @@ export default (customIcons: Record<string, any>) => {
         'left_12x12',
         'cancel_ellips',
         'burger',
+        'sort',
     ];
 
     steroidsIcons.forEach(iconName => {
