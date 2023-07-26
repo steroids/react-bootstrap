@@ -1,30 +1,138 @@
 .HeaderView {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 20px;
-  width: 100%;
-  background-color: $gray;
-
-  a:hover {
-    opacity: .7;
-  }
-
-  &__logo {
-    .ButtonView__text {
-      color: $text-color;
-    }
-  }
-  
-  &__logo-image {
-    margin-right: 12px;
-    display: inline-block;
+    width: 1000px;
+    display: flex;
+    align-items: center;
+    background-color: $element-background-color;
+    border-bottom: 1px solid $element-placeholder-color-disabled;
     position: relative;
-    top: -2px;
-    width: 24px;
-    height: 24px;
-  }
-  &__logo-svg {
-    margin-right: 12px;
-  }
 
+    &_size {
+        &_sm {
+            padding: 6px 16px;
+        }
+        &_md {
+            padding: 14px 16px;
+        }
+        &_lg {
+            padding: 22px 16px;
+        }
+    }
+
+    &__logo {
+        margin-right: 136px;
+
+        .ButtonView__text {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            column-gap: 9px;
+        }
+
+        &-image {
+            width: 36px;
+            height: 36px;
+        }
+
+        &-title {
+            color: $text-color;
+            font-weight: $font-weight-lg;
+            font-size: $font-size-base;
+            line-height: $line-height-base;
+        }
+    }
+
+    &__logo-svg {
+        margin-right: 12px;
+    }
+
+    .NavBarView__list {
+        flex-flow: row nowrap;
+        column-gap: 8px;
+    }
+
+    &__nav {
+        @media (max-width: 361px) {
+            display: none;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        column-gap: 8px;
+
+        &-name.TextView_type_body {
+            margin: 0;
+            font-weight: $font-weight-lg;
+            font-size: $font-size-base;
+            line-height: $line-height-base;
+
+            @media (max-width: 360px) {
+                display: none;
+            }
+        }
+    }
+
+    &__auth-btn {
+        margin-left: auto;
+    }
+
+    &__burger {
+        cursor: pointer;
+        margin-left: auto;
+        display: block;
+
+        width: 24px;
+        height: 24px;
+
+        @media (max-width: 360px) {
+            display: block;
+        }
+
+        &-menu {
+            z-index: 999;
+            width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: $white;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 150ms ease-in-out;
+
+            &_isVisible {
+                opacity: 1;
+                pointer-events: all;
+            }
+            .ButtonView__text {
+                color: $element-placeholder-color;
+            }
+        }
+
+        &-icon {
+            width: 24px;
+            height: 24px;
+            svg path {
+                stroke: $icon-color;
+            }
+        }
+
+        &-list {
+            padding: 32px 16px;
+            flex-flow: column nowrap;
+            display: flex;
+            row-gap: 16px;
+            align-items: flex-start;
+            background-color: $element-background-color;
+        }
+    }
+
+    &__interaction {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        margin-left: auto;
+        column-gap: 16px;
+    }
 }
