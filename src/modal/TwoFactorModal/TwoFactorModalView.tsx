@@ -4,7 +4,6 @@ import Modal from '@steroidsjs/core/ui/modal/Modal';
 import {Button, Form, InputField} from '@steroidsjs/core/ui/form';
 import {ITwoFactorModalViewProps} from '@steroidsjs/core/ui/modal/TwoFactorModal/TwoFactorModal';
 
-import './TwoFactorModalView.scss';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function TwoFactorModalView(props: ITwoFactorModalViewProps) {

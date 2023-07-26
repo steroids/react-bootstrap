@@ -1,6 +1,6 @@
 {
     "name": "@steroidsjs/bootstrap",
-    "version": "3.0.0-beta.71",
+    "version": "3.0.0-beta.81",
     "description": "",
     "main": "index.js",
     "author": "Vladimir Kozhin <hello@kozhindev.com>",
@@ -19,6 +19,7 @@
     },
     "dependencies": {
         "@ckeditor/ckeditor5-react": "^3.0.2",
+        "@splidejs/react-splide": "^0.7.12",
         "@steroidsjs/ckeditor5": "^27.0.2-rc.2",
         "date-fns": "^2.29.3",
         "lodash": "^4.17.20",
@@ -29,13 +30,14 @@
         "react-collapse": "^5.0.1",
         "react-day-picker": "^7.4.10",
         "react-dom": "^18.2.0",
+        "react-google-recaptcha": "^3.1.0",
         "react-image-crop": "^9.0.2",
         "react-modal": "^3.11.2",
         "react-transition-group": "^2.9.0",
         "react-use": "^17.4.0"
     },
     "devDependencies": {
-        "@steroidsjs/core": "^3.0 || >=3.0.0-beta.49",
+        "@steroidsjs/core": "^3.0 || >=3.0.0-beta.59",
         "@steroidsjs/eslint-config": "^2.1.4",
         "@types/enzyme": "^3.10.8",
         "@types/googlemaps": "^3.43.3",
@@ -53,6 +55,6 @@
         "typescript": "^4.9.5"
     },
     "peerDependencies": {
-        "@steroidsjs/core": "^3.0 || >=3.0.0-beta.47"
+        "@steroidsjs/core": "^3.0 || >=3.0.0-beta.52"
     }
 }

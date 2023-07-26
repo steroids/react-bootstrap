@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {ReactText} from 'react';
 
 import {ICheckboxListFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxListField/CheckboxListField';
 import {useBem} from '@steroidsjs/core/hooks';
