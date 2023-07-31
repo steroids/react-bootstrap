@@ -89,6 +89,8 @@ export default (customIcons: Record<string, any>) => {
         'telegram',
         'vk',
         'whatsapp',
+        'burger',
+        'sort',
     ];
 
     steroidsIcons.forEach(iconName => {

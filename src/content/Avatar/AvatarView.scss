@@ -55,7 +55,7 @@ $status-border-color: var(--status-border-color);
 
     &_size {
 
-        &_large {
+        &_lg {
             #{$root}__body {
                 height: 64px;
                 width: 64px;
@@ -67,11 +67,11 @@ $status-border-color: var(--status-border-color);
             --status-size: var(--status-size-large);
         }
 
-        &_middle {
+        &_md {
             #{$root}__body {
                 height: 50px;
                 width: 50px;
-                line-height: 46px;
+                line-height: 50px;
                 font-size: $font-size-sm;
             }
             --border-width: var(--border-width-medium);
@@ -79,11 +79,11 @@ $status-border-color: var(--status-border-color);
             --status-size: var(--status-size-medium);
         }
 
-        &_small {
+        &_sm {
             #{$root}__body {
                 height: 32px;
                 width: 32px;
-                line-height: 28px;
+                line-height: 32px;
                 font-size: $font-size-xs;
             }
             --border-width: var(--border-width-small);
