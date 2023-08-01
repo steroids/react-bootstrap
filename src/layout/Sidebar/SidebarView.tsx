@@ -1,6 +1,6 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {ISidebarItem, ISidebarViewProps} from '@steroidsjs/core/ui/layout/Sidebar/Sidebar';
+import {ISidebarViewProps} from '@steroidsjs/core/ui/layout/Sidebar/Sidebar';
 import {Nav} from '@steroidsjs/core/ui/nav';
 import SidebarUser from './SidebarUser';
 import SidebarLogo from './SidebarLogo';
@@ -8,10 +8,6 @@ import FooterIcons from './FooterIcons';
 
 export default function SidebarView(props: ISidebarViewProps) {
     const bem = useBem('SidebarView');
-
-    const {ite} = props;
-
-    const zalupa: ISidebarItem[] = props.items;
 
     return (
         <aside
