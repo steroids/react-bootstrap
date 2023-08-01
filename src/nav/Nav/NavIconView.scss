@@ -7,7 +7,7 @@
 
         &-item {
             display: flex;
-            flex-flow: row nowrap;
+            flex-flow: column nowrap;
             align-items: center;
             color: $text-color;
             column-gap: 8px;
@@ -22,6 +22,12 @@
 
             &_disabled .ButtonView_disabled .ButtonView__link .ButtonView__text { 
                 color: $element-placeholder-color-disabled;
+            }
+
+            &-nested { 
+                display: flex;
+                flex-flow: column nowrap;
+                margin-left: 54px;
             }
         }
     }

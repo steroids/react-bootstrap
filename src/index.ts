@@ -169,6 +169,9 @@ export default {
     'layout.TooltipView': {
         lazy: () => require('./layout/Tooltip/TooltipView').default,
     },
+    'layout.SidebarView': {
+        lazy: () => require('./layout/Sidebar/SidebarView').default,
+    },
     'list.ControlsColumnView': {
         lazy: () => require('./list/ControlsColumnView/ControlsColumnView').default,
     },

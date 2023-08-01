@@ -52,6 +52,7 @@
     --diagram-warning: var(--warning-light);
     --diagram-danger: var(--danger-light);
     --diagram-secondary: var(--secondary-light);
+    --sidebar-label-color: #312C3A;
 }
 
 html[data-theme="dark"] {
@@ -107,6 +108,7 @@ html[data-theme="dark"] {
     --diagram-warning: var(--warning-dark);
     --diagram-danger: var(--danger-dark);
     --diagram-secondary: var(--secondary-dark);
+    --sidebar-label-color: #ffffff;
 }
 
 $primary: var(--primary);
@@ -163,6 +165,7 @@ $diagram-success: var(--diagram-success);
 $diagram-warning: var(--diagram-warning);
 $diagram-danger: var(--diagram-danger);
 $diagram-secondary: var(--diagram-secondary);
+$sidebar-label-color: var(--sidebar-label-color);
 //** Themed colors **//
 
 //! Base colors !//

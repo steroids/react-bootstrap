@@ -1,0 +1,302 @@
+:root {
+    --sidebar-text-color: #00000099;
+    --sidebar-text-hover-color: #312c3a;
+    --sidebar-text-active-color: #312c3a;
+    --sidebar-item-hover-color: #f1f5f7;
+    --sidebar-item-active-color: #dbe2e6;
+    --sidebar-border-color: rgba(0, 0, 0, 0.1);
+    --sidebar-parent-icon: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAyNCAyNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb25zL0ljb25zMjQmIzIwOTsmIzEzMzsyNC9XaGl0ZS9hcnJvdy9FeHBhbmRfcmlnaHRfOCI+CjxwYXRoIGlkPSJWZWN0b3IgOSIgZD0iTTEwIDguODk3NThMMTQgMTIuODk3NkwxMCAxNi44OTc2IiBzdHJva2U9IiM2MjYyNjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L2c+Cjwvc3ZnPgo=");
+    --sidebar-default-icon-color: #626262;
+    --sidebar-hover-icon-color: #323232;
+    --sidebar-active-icon-color: #323232;
+
+    --sidebar-badge-border-color: #dbe2e6;
+}
+
+html[data-theme="dark"] {
+    --sidebar-text-color: #ffffff99;
+    --sidebar-text-hover-color: #ffffff;
+    --sidebar-text-active-color: #fff;
+    --sidebar-item-hover-color: rgba(0, 0, 0, 0.3);
+    --sidebar-item-active-color: #272a37;
+    --sidebar-border-color: rgba(255, 255, 255, 0.1);
+    --sidebar-parent-icon: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAyNCAyNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9Ikljb25zL0ljb25zMjQmIzIwOTsmIzEzMzsyNC9XaGl0ZS9hcnJvdy9FeHBhbmRfcmlnaHRfOCI+CjxwYXRoIGlkPSJWZWN0b3IgOSIgZD0iTTEwIDguODk3NThMMTQgMTIuODk3NkwxMCAxNi44OTc2IiBzdHJva2U9IiNBREFDQUMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L2c+Cjwvc3ZnPgo=");
+    --sidebar-default-icon-color: rgba(255, 255, 255, 0.6);
+    --sidebar-hover-icon-color: #ffffff;
+    --sidebar-active-icon-color: #ffffff;
+
+    --sidebar-badge-border-color: #272a37;
+}
+
+$sidebar-text-color: var(--sidebar-text-color);
+$sidebar-text-hover-color: var(--sidebar-text-hover-color);
+$sidebar-text-active-color: var(--sidebar-text-active-color);
+$sidebar-item-hover-color: var(--sidebar-item-hover-color);
+$sidebar-item-active-color: var(--sidebar-item-active-color);
+$sidebar-border-color: var(--sidebar-border-color);
+$sidebar-parent-icon: var(--sidebar-parent-icon);
+$sidebar-default-icon-color: var(--sidebar-default-icon-color);
+$sidebar-hover-icon-color: var(--sidebar-hover-icon-color);
+$sidebar-active-icon-color: var(--sidebar-active-icon-color);
+
+$sidebar-badge-border-color: var(--sidebar-badge-border-color);
+
+.SidebarView {
+    $root: &;
+    position: relative;
+    padding: 8px;
+    max-width: 72px;
+    transition: max-width 250ms ease-in-out;
+    background-color: $element-background-color;
+
+    &__header {
+        margin-bottom: 80px;
+    }
+
+    .ButtonView .ButtonView__link .ButtonView__text {
+        color: $sidebar-text-color;
+        font-size: $font-size-14;
+        font-weight: $font-weight-sm;
+        line-height: $line-height-18;
+        transition: color 150ms ease-in-out;
+        opacity: 0;
+    }
+
+    .NavIconView__list-item .ButtonView .ButtonView__link {
+        width: 24px;
+    }
+
+    .ButtonView {
+        width: 100%;
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__icon {
+            margin-right: 0;
+            min-width: 24px;
+        }
+
+        &__link {
+            gap: 8px;
+        }
+    }
+
+    &__nav {
+        .NavIconView__list {
+            flex-flow: column nowrap;
+            align-items: flex-start;
+            gap: 4px;
+
+            &-item {
+                position: relative;
+                width: 100%;
+                border-radius: $radius-large;
+
+                svg path,
+                rect,
+                circle {
+                    stroke: $icon-color;
+                }
+
+                transition: background-color 150ms ease-in-out;
+
+                //Состояние hover для элемента
+                .ButtonView:hover {
+                    background-color: $sidebar-item-hover-color;
+
+                    .ButtonView__icon {
+                        svg path,
+                        circle,
+                        rect {
+                            stroke: $sidebar-hover-icon-color;
+                        }
+                    }
+                    .ButtonView__text {
+                        color: $sidebar-text-hover-color;
+                    }
+                }
+
+                //Состояние active для элемента
+                &_active > .ButtonView {
+                    background-color: $sidebar-item-active-color;
+
+                    .ButtonView__icon {
+                        svg path,
+                        circle,
+                        rect {
+                            stroke: $sidebar-active-icon-color;
+                        }
+                    }
+
+                    .ButtonView__text {
+                        color: $sidebar-text-active-color;
+                    }
+                }
+
+                &_hasBorder {
+                    &::before {
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 1px;
+                        margin-bottom: 4px;
+                        background-color: $sidebar-border-color;
+                    }
+                }
+
+                //Стрелка для родительского элемента внутри которого есть другие пункты
+                &_hasItems > .ButtonView {
+                    position: relative;
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        pointer-events: none;
+                        top: 50%;
+                        right: 12px;
+                        width: 24px;
+                        height: 24px;
+                        background-image: $sidebar-parent-icon;
+                        background-size: cover;
+                        transform: translateY(-50%);
+                        transition: transform 150ms ease-in-out;
+                    }
+                }
+
+                //Поворот стрелки при активации элемента
+                &_active.NavIconView__list-item_hasItems > .ButtonView::after {
+                    transform: translateY(-50%) rotate(90deg);
+                }
+
+                //Поворот стрелки если есть дочерний активированный элемент
+                &_nestedActive > .ButtonView::after {
+                    transform: translateY(-50%) rotate(90deg);
+                }
+
+                .ButtonView__badge {
+                    position: absolute;
+                    bottom: 3px;
+                    top: auto;
+                    right: 7px;
+                    border-radius: 160px;
+                    padding: 1px;
+                    border: 2px solid $sidebar-badge-border-color;
+                }
+
+                .ButtonView__icon {
+                    svg path,
+                    rect,
+                    circle {
+                        stroke: $sidebar-default-icon-color;
+                    }
+                }
+
+                &-nested {
+                    width: 100%;
+                    margin: 0;
+                    &-item {
+                        .ButtonView {
+                            padding-left: 54px;
+                        }
+
+                        //Состояние hover для вложенного элемента
+                        &:hover:not(.NavIconView__list-item-nested-item_active) > .ButtonView {
+                            background-color: $sidebar-item-hover-color;
+
+                            .ButtonView__text {
+                                color: $sidebar-text-hover-color;
+                            }
+                        }
+
+                        //Состояние active для вложенного элемента
+                        &_active > .ButtonView {
+                            background-color: $sidebar-item-active-color;
+
+                            .ButtonView__text {
+                                color: $sidebar-text-active-color;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .NavIconView__list-item:nth-last-child(1) {
+        margin-bottom: 160px;
+    }
+
+    &_hasSeparatedItem {
+        //Декоративный элемент перед последним пунктом
+        .NavIconView__list-item:nth-last-child(2) {
+            margin-bottom: 160px;
+        }
+
+        .NavIconView__list-item:nth-last-child(1) {
+            margin-bottom: 0;
+        }
+    }
+
+    &__footer {
+        border-top: 1px solid $element-border-color;
+    }
+
+    &__trigger {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
+    &_isOpened {
+        max-width: 276px;
+
+        .SidebarLogo__label {
+            opacity: 1;
+        }
+
+        .SidebarLogo__right {
+            opacity: 1;
+        }
+
+        .SidebarUser__name {
+            opacity: 1;
+        }
+
+        .SidebarUser .MenuView__button .IconView.MenuView__icon {
+            opacity: 1;
+        }
+
+        .ButtonView .ButtonView__link .ButtonView__text {
+            opacity: 1;
+        }
+
+        .NavIconView__list-item .ButtonView .ButtonView__link {
+            width: auto;
+        }
+
+        .ButtonView {
+            justify-content: flex-start;
+        }
+
+        .ButtonView__badge {
+            position: absolute;
+            padding: 3px 8px !important;
+            top: 50%;
+            right: 12px;
+            border-radius: 160px;
+            padding: 1px;
+            border: none;
+            transform: translateY(-30%);
+        }
+        #{$root}__trigger {
+            display: none;
+        }
+    }
+}
