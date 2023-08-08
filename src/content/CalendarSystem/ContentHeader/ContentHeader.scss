@@ -1,0 +1,31 @@
+@import "style/variables";
+
+.ContentHeader {
+    display: flex;
+    align-items: center;
+
+    &__month {
+        display: inline-block;
+        font-size: $font-size-24;
+        font-weight: $font-weight-lg;
+        line-height: $line-height-32;
+        margin-right: 93px;
+        margin-bottom: 0;
+    }
+
+    &__controls {
+        display: inline-flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        margin-right: auto;
+        gap: 8px;
+        
+        &-item {
+            cursor: pointer; 
+            
+        }
+    }
+
+    &__measures {
+    }
+}

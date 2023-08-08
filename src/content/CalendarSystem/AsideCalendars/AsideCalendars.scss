@@ -1,0 +1,81 @@
+@import "style/variables";
+
+:root {
+    --calendar-system-icon-background-color: #f1f5f7;
+    --calendar-system-icon-chevron-color: #323232;
+}
+
+html[data-theme="dark"] {
+    --calendar-system-icon-background-color: #4b4e5e;
+    --calendar-system-separator-color: rgba(255, 255, 255, 0.1);
+}
+
+$calendar-system-icon-background-color: var(--calendar-system-icon-background-color);
+$calendar-system-separator-color: var(--calendar-system-separator-color);
+
+.AsideCalendars {
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        position: relative;
+        height: 1px;
+        width: 100%;
+        margin: 32px 0px;
+
+        background-color: $calendar-system-separator-color;
+    }
+
+    .AccordionItemView {
+        width: 100%;
+
+        &_opened {
+            overflow: visible;
+        }
+
+        &__icon-chevron {
+            box-shadow: none;
+
+            svg {
+                rect {
+                    fill: $calendar-system-icon-background-color;
+                }
+                path {
+                    stroke: $icon-color;
+                }
+            }
+        }
+
+        &__icon-wrapper {
+            top: 14px;
+        }
+
+        &__header-container {
+            background-color: $element-background-color;
+        }
+
+        &__content {
+            padding: 0;
+            padding-top: 0;
+        }
+
+        &__content_visible {
+            padding: 0;
+            border: none;
+            overflow: visible;
+        }
+
+        &__title-container {
+            width: 238px;
+            padding-left: 0;
+            padding-top: 12px;
+
+            p {
+                font-size: $font-size-16;
+                font-weight: $font-weight-lg;
+                line-height: $line-height-22;
+            }
+        }
+    }
+}
