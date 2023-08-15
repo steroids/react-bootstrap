@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../scss/variables" as vars;
+
 :root {
     --button-group-background: #DBE2E6;
     --button-group-separator-color: #CBD5DB;
@@ -18,7 +21,7 @@ $button-group-separator-color: var(--button-group-separator-color);
   background-color: $button-group-background;
 
   $sizes: () !default;
-  $sizes: map-merge(
+  $sizes: map.merge(
       (
           "lg": (
               "border-radius": 16px,
@@ -36,7 +39,7 @@ $button-group-separator-color: var(--button-group-separator-color);
   &_size {
       @each $size, $sizeMap in $sizes {
           &_#{$size} {
-              border-radius: map-get($sizeMap, border-radius);
+              border-radius: map.get($sizeMap, border-radius);
           }
       }
   }
@@ -45,13 +48,13 @@ $button-group-separator-color: var(--button-group-separator-color);
     &_default {
       background-color: transparent;
       border-color: transparent;
-      color: $text-color;
-      transition: opacity $transition-duration ease-in-out;
+      color: vars.$text-color;
+      transition: opacity vars.$transition-duration ease-in-out;
 
       &:hover {
         background-color: transparent;
         border-color: transparent;
-        color: $text-color;
+        color: vars.$text-color;
         opacity: 0.7;
       }
 

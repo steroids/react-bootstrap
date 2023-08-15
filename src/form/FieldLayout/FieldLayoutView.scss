@@ -1,31 +1,33 @@
+@use "../../scss/variables" as vars;
+
 .FieldLayoutView {
     margin-bottom: 1rem;
     $root: &;
-    font-family: $font-family-nunito;
+    font-family: vars.$font-family-nunito;
 
     &__label {
-        font-size: $font-size-sm;
+        font-size: vars.$font-size-sm;
         line-height: 24px;
-        font-weight: $font-weight-sm;
-        color: $text-color;
+        font-weight: vars.$font-weight-sm;
+        color: vars.$text-color;
         margin-bottom: 8px;
 
         &_size {
             &_sm {
-                font-size: $font-size-sm;
+                font-size: vars.$font-size-sm;
             }
             &_md {
-                font-size: $font-size-base;
+                font-size: vars.$font-size-base;
             }
             &_lg {
-                font-size: $font-size-lg;
+                font-size: vars.$font-size-lg;
             }
         }
 
         &_required:after {
             display: inline-block;
             content: "*";
-            color: $danger;
+            color: vars.$danger;
             margin: 0 0 0 3px;
         }
     }
@@ -48,10 +50,10 @@
         margin-top: 4px;
         font-size: 80%;
 
-        color: $text-color;
-        font-size: $font-size-sm;
+        color: vars.$text-color;
+        font-size: vars.$font-size-sm;
         line-height: 16px;
-        font-weight: $font-weight-sm;
+        font-weight: vars.$font-weight-sm;
 
         display: flex;
         align-items: center;
@@ -59,21 +61,21 @@
 
         &_size {
             &_lg {
-                font-size: $font-size-base;
+                font-size: vars.$font-size-base;
                 line-height: 22px;
-                font-weight: $font-weight-sm;
+                font-weight: vars.$font-weight-sm;
             }
 
             &_md {
-                font-size: $font-size-sm;
+                font-size: vars.$font-size-sm;
                 line-height: 18px;
-                font-weight: $font-weight-sm;
+                font-weight: vars.$font-weight-sm;
             }
 
             &_sm {
-                font-size: $font-size-xs;
+                font-size: vars.$font-size-xs;
                 line-height: 16px;
-                font-weight: $font-weight-sm;
+                font-weight: vars.$font-weight-sm;
             }
         }
     }
@@ -91,30 +93,30 @@
             height: 100%;
 
             rect {
-                color: $danger;
+                color: vars.$danger;
             }
         }
     }
 
     &__error-text {
-        color: $danger;
+        color: vars.$danger;
         &_size {
             &_lg {
-                font-size: $font-size-base;
+                font-size: vars.$font-size-base;
                 line-height: 22px;
-                font-weight: $font-weight-sm;
+                font-weight: vars.$font-weight-sm;
             }
 
             &_md {
-                font-size: $font-size-sm;
+                font-size: vars.$font-size-sm;
                 line-height: 18px;
-                font-weight: $font-weight-sm;
+                font-weight: vars.$font-weight-sm;
             }
 
             &_sm {
-                font-size: $font-size-xs;
+                font-size: vars.$font-size-xs;
                 line-height: 16px;
-                font-weight: $font-weight-sm;
+                font-weight: vars.$font-weight-sm;
             }
         }
     }

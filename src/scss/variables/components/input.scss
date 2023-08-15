@@ -1,3 +1,5 @@
+@use "../common/old-variables";
+
 $input-height-sm: 34px;
 $input-height-md: 46px;
 $input-height-lg: 56px;
@@ -58,7 +60,7 @@ $input-message-margin-top-lg: $input-message-margin-top-sm;
 $input-message-icon-size-lg: $input-message-icon-size-sm;
 $input-message-icon-margin-right-lg: $input-message-icon-margin-right-sm;
 
-$input-border: 1px solid $border-default !default;
+$input-border: 1px solid old-variables.$border-default !default;
 $input-border-radius: 4px !default;
 
 $input-padding-y: 0 !default;

@@ -1,3 +1,6 @@
+@use "../../scss/variables" as vars;
+@use '../../scss/mixins';
+
 :root {
   --gradient-color-primary-first: #651FFF;
   --gradient-color-primary-second: #BA9BFF;
@@ -64,9 +67,9 @@ $gradient-color-primary-second: var(--gradient-color-primary-second);
     }
   }
 
-  @each $colorName, $colorMap in $color-themes {
+  @each $colorName, $colorMap in vars.$color-themes {
     &_color_#{$colorName} {
-        @include loader-color($colorMap, $colorName, $root);
+        @include mixins.loader-color($colorMap, $colorName, $root);
     }
   }
 }

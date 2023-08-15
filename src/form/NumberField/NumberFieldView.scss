@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 :root {
     --number-field-arrow-color: #414141;
 }
@@ -14,7 +16,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
     position: relative;
     padding: 0;
 
-    font-family: $font-family-nunito;
+    font-family: vars.$font-family-nunito;
 
     // Hide default arrows
     /* Chrome, Safari, Edge, Opera */
@@ -66,7 +68,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                 cursor: not-allowed;
             }
             span > svg > path {
-                stroke: $element-background-color-disabled;
+                stroke: vars.$element-background-color-disabled;
             }
         }
 
@@ -80,11 +82,11 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 56px;
-                    border-radius: $radius-large;
-                    font-size: $font-size-lg;
+                    border-radius: vars.$radius-large;
+                    font-size: vars.$font-size-lg;
 
                     &-effects {
-                        border-radius: $radius-large;
+                        border-radius: vars.$radius-large;
                     }
                 }
 
@@ -102,11 +104,11 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 46px;
-                    border-radius: $radius-large;
-                    font-size: $font-size-base;
+                    border-radius: vars.$radius-large;
+                    font-size: vars.$font-size-base;
 
                     &-effects {
-                        border-radius: $radius-large;
+                        border-radius: vars.$radius-large;
                     }
                 }
 
@@ -124,10 +126,10 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 34px;
-                    font-size: $font-size-sm;
+                    font-size: vars.$font-size-sm;
 
                     &-effects {
-                        border-radius: $radius-small;
+                        border-radius: vars.$radius-small;
                     }
                 }
 
@@ -145,31 +147,31 @@ $number-field-arrow-color: var(--number-field-arrow-color);
     &__input {
         width: 100%;
         outline: none;
-        border: 1px solid $element-border-color;
-        border-radius: $radius-small;
+        border: 1px solid vars.$element-border-color;
+        border-radius: vars.$radius-small;
         padding: 5px 22px 5px 8px;
         line-height: 24px;
         z-index: 1;
-        font-weight: $font-weight-sm;
-        color: $text-color;
+        font-weight: vars.$font-weight-sm;
+        color: vars.$text-color;
 
-        background-color: $element-field-background-color;
+        background-color: vars.$element-field-background-color;
 
         &::placeholder {
-            color: $element-placeholder-color;
+            color: vars.$element-placeholder-color;
         }
 
         &:disabled {
-            background-color: $element-background-color-disabled;
-            color: $element-placeholder-color-disabled;
+            background-color: vars.$element-background-color-disabled;
+            color: vars.$element-placeholder-color-disabled;
         }
 
         &:hover:not(:disabled):not(:focus) {
-            border-color: $element-border-color-hover;
+            border-color: vars.$element-border-color-hover;
         }
 
         &:active:not(:disabled) {
-            border: 1px solid $primary;
+            border: 1px solid vars.$primary;
         }
     }
 
@@ -188,7 +190,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
         width: 100%;
         height: 100%;
         background-color: transparent;
-        border: 4px solid $primary-light;
+        border: 4px solid vars.$primary-light;
         opacity: 0;
         pointer-events: none;
     }

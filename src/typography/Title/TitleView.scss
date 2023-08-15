@@ -1,14 +1,17 @@
+@use "../../scss/variables" as vars;
+@use '../../scss/mixins';
+
 .TitleView {
   margin-bottom: 1em;
-  font-family: $font-family-nunito;
+  font-family: vars.$font-family-nunito;
 
-  @each $typeName, $typeMap in $title-types {
+  @each $typeName, $typeMap in vars.$title-types {
     &_type_#{$typeName} {
-        @include typography-type($typeMap);
+        @include mixins.typography-type($typeMap);
     }
   }
 
-  @each $colorName, $color in $typography-colors {
+  @each $colorName, $color in vars.$typography-colors {
     &_color_#{$colorName} {
       color: $color;
     }

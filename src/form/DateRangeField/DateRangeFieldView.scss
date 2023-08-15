@@ -1,15 +1,29 @@
+@use "../../scss/variables" as vars;
+@use '../../scss/mixins';
+
+:root {
+    --date-range-separator-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] {
+    --date-range-separator-color: rgba(255, 255, 255, 0.1);
+}
+
+$date-range-separator-color: var(--date-range-separator-color);
+
+
 .DateRangeFieldView {
     $root: &;
 
-    @include date-range-body($root);
-    @include icon-container($root);
-    @include date-range-input();
+    @include mixins.date-range-body($root);
+    @include mixins.icon-container($root);
+    @include mixins.date-range-input();
 
-    @include date-range-sizes($root);
+    @include mixins.date-range-sizes($root);
 
     &__split {
-        background: $element-background-color;
-        @include calendar-border();
+        background: vars.$element-background-color;
+        @include mixins.calendar-border();
 
         .DayPicker-Months {
             position: relative;
@@ -32,6 +46,6 @@
         }
     }
 
-    @include date-range-effects($root);
+    @include mixins.date-range-effects($root);
 
 }

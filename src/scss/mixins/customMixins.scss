@@ -1,5 +1,6 @@
+@use "sass:map";
 @mixin loader-color($colorMap, $colorName, $root) {
     svg stop {
-        stop-color: map-get($colorMap, color);
+        stop-color: map.get($colorMap, color);
     }
 }

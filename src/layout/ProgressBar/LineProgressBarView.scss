@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 .LineProgressBarView{
   $root: &;
 
@@ -35,27 +37,27 @@
   &_status{
     &_success{
       #{$root}__progressLine{
-        background-color: $success;
+        background-color: vars.$success;
       }
 
       svg{
-          fill: $success;
+          fill: vars.$success;
       }
     }
 
     &_exception{
       #{$root}__progressLine{
-        background-color: $danger;
+        background-color: vars.$danger;
       }
 
       svg{
-        fill: $danger;
+        fill: vars.$danger;
       }
     }
 
     &_normal{
       #{$root}__progressLine{
-        background-color: $primary;
+        background-color: vars.$primary;
       }
     }
 
@@ -63,7 +65,7 @@
 
   &__emptyLine{
     position: relative;
-    background-color: $back-disabled;
+    background-color: vars.$back-disabled;
     border-radius: 20px;
   }
 
@@ -85,7 +87,7 @@
         content: "";
         position: absolute;
         transform: translateX(-100%);
-        background: linear-gradient(90deg, transparent, rgba($white, 0.5), transparent);
+        background: linear-gradient(90deg, transparent, rgba(vars.$white, 0.5), transparent);
         animation: wave-animation 1.6s linear 0.5s infinite;
     }
 
@@ -109,7 +111,7 @@
   }
 
   &__text{
-    color: $graphite;
+    color: vars.$graphite;
     margin-left: 8px;
   }
 }

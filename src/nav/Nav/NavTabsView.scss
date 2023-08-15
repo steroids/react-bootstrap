@@ -1,35 +1,38 @@
+@use "../../scss/variables" as vars;
+@use '../../scss/mixins';
+
 .NavTabsView {
     $root: &;
 
-    color: $text-color;
+    color: vars.$text-color;
 
     &__list {
         display: inline-flex;
         flex-flow: row nowrap;
         align-items: center;
 
-        border-bottom: 1px solid $element-border-color;
+        border-bottom: 1px solid vars.$element-border-color;
 
         &-item {
             .ButtonView__text {
-                color: $element-placeholder-color;
+                color: vars.$element-placeholder-color;
             }
 
             &_active {
                 .ButtonView__text {
-                    color: $white;
+                    color: vars.$white;
                 }
 
                 .ButtonView {
                     &_size {
                         &_sm {
-                            border-radius: $radius-small $radius-small 0 0;
+                            border-radius: vars.$radius-small vars.$radius-small 0 0;
                         }
                         &_md {
-                            border-radius: $radius-large $radius-large 0 0;
+                            border-radius: vars.$radius-large vars.$radius-large 0 0;
                         }
                         &_lg {
-                            border-radius: $radius-large $radius-large 0 0;
+                            border-radius: vars.$radius-large vars.$radius-large 0 0;
                         }
                     }
                 }
@@ -44,5 +47,5 @@
         }
     }
 
-    @include navs-sizes($root);
+    @include mixins.navs-sizes($root);
 }

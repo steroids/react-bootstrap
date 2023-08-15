@@ -1,8 +1,11 @@
-$calendar-primary-color: $primary !default;
-$calendar-primary-light-color: $primary-light !default;
-$calendar-secondary-color: $border-default !default;
-$calendar-text-color: $heading !default;
-$calendar-selected-text-color: $white !default;
+@use "../common/colors";
+@use "../common/old-variables";
+
+$calendar-primary-color: colors.$primary !default;
+$calendar-primary-light-color: colors.$primary-light !default;
+$calendar-secondary-color: old-variables.$border-default !default;
+$calendar-text-color: old-variables.$heading !default;
+$calendar-selected-text-color: colors.$white !default;
 
 $calendar-font-weight: 500 !default;
 

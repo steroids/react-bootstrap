@@ -1,3 +1,6 @@
+@use "../../scss/variables" as vars;
+@use '../../scss/mixins';
+
 $btn-font-weight-sm: 400;
 $btn-font-weight-lg: 800;
 $btn-line-height: 24px;
@@ -7,7 +10,7 @@ $btn-letter-spacing: 0.1em;
     $root: &;
 
     transition-property: color, background-color, border-color, box-shadow;
-    transition-duration: $transition-duration;
+    transition-duration: vars.$transition-duration;
     transition-timing-function: ease-in-out;
 
     display: flex;
@@ -18,7 +21,7 @@ $btn-letter-spacing: 0.1em;
 
     &_button {
         position: relative;
-        border-radius: $radius-small;
+        border-radius: vars.$radius-small;
         user-select: none;
         border: 3px solid transparent;
 
@@ -27,22 +30,21 @@ $btn-letter-spacing: 0.1em;
         justify-content: center;
         align-items: center;
 
-        font-family: $font-family-nunito;
         font-weight: $btn-font-weight-sm;
-        font-size: $font-size-sm;
+        font-size: vars.$font-size-sm;
         line-height: $btn-line-height;
         outline: none;
     }
 
-    @each $colorName, $colorMap in $color-themes {
+    @each $colorName, $colorMap in vars.$color-themes {
         &_color_#{$colorName} {
-            @include button-theme($colorMap, $colorName, $root);
+            @include mixins.button-theme($colorMap, $colorName, $root);
         }
     }
 
-    @each $colorName, $colorMap in $color-themes {
+    @each $colorName, $colorMap in vars.$color-themes {
         &_outline_#{$colorName} {
-            @include button-outline-theme($colorMap, $colorName, $root);
+            @include mixins.button-outline-theme($colorMap, $colorName, $root);
         }
     }
 
@@ -80,18 +82,18 @@ $btn-letter-spacing: 0.1em;
     &_size {
         &_sm {
             height: 34px;
-            font-size: $font-size-sm;
-            border-radius: $radius-small;
+            font-size: vars.$font-size-sm;
+            border-radius: vars.$radius-small;
         }
         &_md {
             height: 46px;
-            font-size: $font-size-base;
-            border-radius: $radius-large;
+            font-size: vars.$font-size-base;
+            border-radius: vars.$radius-large;
         }
         &_lg {
             height: 56px;
-            font-size: $font-size-lg;
-            border-radius: $radius-large;
+            font-size: vars.$font-size-lg;
+            border-radius: vars.$radius-large;
         }
     }
 
@@ -116,12 +118,12 @@ $btn-letter-spacing: 0.1em;
         align-items: center;
 
         #{$root}__text {
-            color: $link-color;
+            color: vars.$link-color;
         }
 
         &:hover { 
             #{$root}__text { 
-                color: $link-color-hover;
+                color: vars.$link-color-hover;
             }
         }
     }
@@ -138,8 +140,8 @@ $btn-letter-spacing: 0.1em;
     &_failed {
         &,
         &:hover {
-            border-color: $danger;
-            box-shadow: 0 0 1rem rgba($danger, 0.2);
+            border-color: vars.$danger;
+            box-shadow: 0 0 1rem rgba(vars.$danger, 0.2);
         }
     }
 
@@ -158,18 +160,18 @@ $btn-letter-spacing: 0.1em;
         position: relative;
         top: -1px;
         margin-left: 4px;
-        border-radius: $radius-small;
-        font-size: $font-size-xs;
+        border-radius: vars.$radius-small;
+        font-size: vars.$font-size-xs;
         line-height: 16px;
         padding: 3px 5px;
 
         $badge-types: (
-            "primary": $primary,
-            "secondary": $secondary,
-            "success": $success,
-            "danger": $danger,
-            "warning": $warning,
-            "info": $info,
+            "primary": vars.$primary,
+            "secondary": vars.$secondary,
+            "success": vars.$success,
+            "danger": vars.$danger,
+            "warning": vars.$warning,
+            "info": vars.$info,
         );
 
         @each $type, $color in $badge-types {

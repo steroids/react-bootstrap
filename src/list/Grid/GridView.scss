@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 :root {
     --grid-header-background-color: var(--light-gray);
     --grid-border-color: var(--gray);
@@ -33,16 +35,16 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
         border-spacing: 0;
         border-collapse: separate;
         border: 1px solid $grid-border-color;
-        border-radius: $radius-large;
+        border-radius: vars.$radius-large;
         margin: 24px 0;
 
         th,
         td {
-            color: $text-color;
+            color: vars.$text-color;
             background-color: $grid-td-background-color;
         }
         th {
-            font-weight: $font-weight-lg;
+            font-weight: vars.$font-weight-lg;
             background-color: $grid-header-background-color;
         }
 
@@ -61,20 +63,20 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
 
         thead > tr > th {
             &:first-child {
-                border-top-left-radius: $radius-large;
+                border-top-left-radius: vars.$radius-large;
             }
             &:last-child {
-                border-top-right-radius: $radius-large;
+                border-top-right-radius: vars.$radius-large;
             }
         }
 
         tbody > tr:last-child > td {
             &:first-child {
-                border-bottom-left-radius: $radius-large;
+                border-bottom-left-radius: vars.$radius-large;
             }
 
             &:last-child {
-                border-bottom-right-radius: $radius-large;
+                border-bottom-right-radius: vars.$radius-large;
             }
         }
     }
@@ -88,8 +90,8 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
     &_size {
         &_lg {
             #{$root}__table {
-                font-size: $font-size-lg;
-                line-height: $line-height-lg;
+                font-size: vars.$font-size-lg;
+                line-height: vars.$line-height-lg;
             }
 
             th,
@@ -100,8 +102,8 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
 
         &_md {
             #{$root}__table {
-                font-size: $font-size-base;
-                line-height: $line-height-base;
+                font-size: vars.$font-size-base;
+                line-height: vars.$line-height-base;
             }
 
             th,
@@ -112,8 +114,8 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
 
         &_sm {
             #{$root}__table {
-                font-size: $font-size-sm;
-                line-height: $line-height-sm;
+                font-size: vars.$font-size-sm;
+                line-height: vars.$line-height-sm;
             }
 
             th,

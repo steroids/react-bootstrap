@@ -1,3 +1,5 @@
+@use "sass:map";
+
 //** Themed colors **//
 :root {
     --primary: #651fff;
@@ -184,7 +186,7 @@ $static-text-color: #312C3A !default;
 //! Base colors !//
 
 $color-themes: () !default;
-$color-themes: map-merge(
+$color-themes: map.merge(
     (
         "basic": (
             "color": $gray,
@@ -244,7 +246,7 @@ $color-themes: map-merge(
 
 
 $diagram-colors: () !default;
-$diagram-colors: map-merge(
+$diagram-colors: map.merge(
     (
         "success": (
             "color": $success,
