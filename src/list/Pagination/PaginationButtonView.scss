@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --pagination-border-color: var(--gray);
@@ -27,7 +27,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
 
     display: flex;
     flex-flow: row nowrap;
-    color: vars.$text-color;
+    color: variables.$text-color;
 
     &_size {
         &_lg {
@@ -35,7 +35,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
             #{$root}__page {
                 &-button {
                     padding: 12px 18px;
-                    font-size: vars.$font-size-lg;
+                    font-size: variables.$font-size-lg;
                     line-height: 24px;
 
                     &_hasIcon {
@@ -73,7 +73,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
             #{$root}__page {
                 &-button {
                     padding: 8px 14px;
-                    font-size: vars.$font-size-base;
+                    font-size: variables.$font-size-base;
                     line-height: 24px;
 
                     &_hasIcon {
@@ -111,7 +111,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
             #{$root}__page {
                 &-button {
                     padding: 4px 12px;
-                    font-size: vars.$font-size-sm;
+                    font-size: variables.$font-size-sm;
                     line-height: 25px;
 
                     &_hasIcon {
@@ -153,7 +153,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
         display: inline-block;
         cursor: pointer;
 
-        background-color: vars.$element-background-color;
+        background-color: variables.$element-background-color;
         border: 1px solid $pagination-border-color;
         border-right: none;
 
@@ -167,7 +167,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
             height: 100%;
             pointer-events: none;
             border-radius: inherit;
-            border: 4px solid vars.$light-gray;
+            border: 4px solid variables.$light-gray;
             opacity: 0;
         }
 
@@ -176,12 +176,12 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
         }
 
         &_active {
-            background-color: vars.$primary;
-            color: vars.$white;
+            background-color: variables.$primary;
+            color: variables.$white;
         }
 
         &_hasIcon:not(#{$pageRoot}_disabled):active {
-            background-color: vars.$primary;
+            background-color: variables.$primary;
 
             #{$pageRoot}-icon {
                 path {
@@ -191,7 +191,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
         }
 
         &:not(#{$pageRoot}_disabled):not(#{$pageRoot}_active):hover {
-            border-color: vars.$element-border-color-hover;
+            border-color: variables.$element-border-color-hover;
             background-color: $pagination-hover-background-color;
         }
 
@@ -246,8 +246,8 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
         }
 
         &_disabled {
-            background-color: vars.$element-background-color-disabled;
-            color: vars.$element-placeholder-color-disabled;
+            background-color: variables.$element-background-color-disabled;
+            color: variables.$element-placeholder-color-disabled;
 
             cursor: not-allowed;
 
@@ -258,7 +258,7 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
             #{$pageRoot}-icon {
                 pointer-events: none;
                 path {
-                    stroke: vars.$element-placeholder-color-disabled;
+                    stroke: variables.$element-placeholder-color-disabled;
                 }
             }
         }

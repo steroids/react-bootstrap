@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --border-width-small: 1px;
@@ -62,7 +62,7 @@ $status-border-color: var(--status-border-color);
                 height: 64px;
                 width: 64px;
                 line-height: 64px;
-                font-size: vars.$font-size-base;
+                font-size: variables.$font-size-base;
             }
             --border-width: var(--border-width-large);
             --status-border-width: var(--status-border-width-large);
@@ -74,7 +74,7 @@ $status-border-color: var(--status-border-color);
                 height: 50px;
                 width: 50px;
                 line-height: 50px;
-                font-size: vars.$font-size-sm;
+                font-size: variables.$font-size-sm;
             }
             --border-width: var(--border-width-medium);
             --status-border-width: var(--status-border-width-medium);
@@ -86,7 +86,7 @@ $status-border-color: var(--status-border-color);
                 height: 32px;
                 width: 32px;
                 line-height: 32px;
-                font-size: vars.$font-size-xs;
+                font-size: variables.$font-size-xs;
             }
             --border-width: var(--border-width-small);
             --status-border-width: var(--status-border-width-small);
@@ -125,17 +125,17 @@ $status-border-color: var(--status-border-color);
             height: var(--status-size);
             z-index: 10;
 
-            color: vars.$success;
+            color: variables.$success;
 
-            border-radius: vars.$radius-circle;
-            background-color: vars.$success;
+            border-radius: variables.$radius-circle;
+            background-color: variables.$success;
 
             border: var(--status-border-width) solid $status-border-color;
         }
     }
 
     &_has-border {
-        @include border(vars.$gradient-blue);
+        @include border(variables.$gradient-blue);
     }
 
     &__body {
@@ -146,12 +146,12 @@ $status-border-color: var(--status-border-color);
         white-space: nowrap;
         vertical-align: middle;
 
-        color: vars.$white;
-        background: vars.$primary;
+        color: variables.$white;
+        background: variables.$primary;
 
         span {
             display: block;
-            font-family: vars.$font-family-nunito;
+            font-family: variables.$font-family-nunito;
             font-weight: 800;
             letter-spacing: 0.1em;
         }

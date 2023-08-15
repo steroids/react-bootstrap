@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 @use '../../scss/mixins';
 
 
@@ -42,6 +42,6 @@
 
     &__dropdown { 
         @include mixins.calendar-border();
-        background-color: vars.$element-background-color;
+        background-color: variables.$element-background-color;
     }
 }

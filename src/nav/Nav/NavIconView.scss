@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 .NavIconView {
     &__list {
@@ -11,19 +11,19 @@
             display: flex;
             flex-flow: column nowrap;
             align-items: center;
-            color: vars.$text-color;
+            color: variables.$text-color;
             column-gap: 8px;
 
             .ButtonView__text {
-                color: vars.$text-color;
+                color: variables.$text-color;
             }
 
             &_disabled .ButtonView_disabled .ButtonView__link:hover .ButtonView__text {
-               color: vars.$element-placeholder-color-disabled;
+               color: variables.$element-placeholder-color-disabled;
             }
 
             &_disabled .ButtonView_disabled .ButtonView__link .ButtonView__text { 
-                color: vars.$element-placeholder-color-disabled;
+                color: variables.$element-placeholder-color-disabled;
             }
 
             &-nested { 

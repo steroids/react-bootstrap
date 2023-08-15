@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --alert-text-color: #152536;
@@ -15,24 +15,24 @@ $alert-themes: () !default;
 $alert-themes: map.merge(
     (
         "success": (
-            "background-color": vars.$success-light,
-            "icon-color": vars.$success,
+            "background-color": variables.$success-light,
+            "icon-color": variables.$success,
         ),
         "info": (
-            "background-color": vars.$info-light,
-            "icon-color": vars.$info,
+            "background-color": variables.$info-light,
+            "icon-color": variables.$info,
         ),
         "warning": (
-            "background-color": vars.$warning-light,
-            "icon-color": vars.$warning,
+            "background-color": variables.$warning-light,
+            "icon-color": variables.$warning,
         ),
         "error": (
-            "background-color": vars.$danger-light,
-            "icon-color": vars.$danger,
+            "background-color": variables.$danger-light,
+            "icon-color": variables.$danger,
         ),
         "default": (
-            "background-color": vars.$light-gray,
-            "icon-color": vars.$gray-dark,
+            "background-color": variables.$light-gray,
+            "icon-color": variables.$gray-dark,
         ),
     ),
     $alert-themes
@@ -43,8 +43,8 @@ $alert-themes: map.merge(
 
     position: relative;
     padding: 16px;
-    border-radius: vars.$radius-large;
-    font-family: vars.$font-family-nunito;
+    border-radius: variables.$radius-large;
+    font-family: variables.$font-family-nunito;
 
     &_close-animation {
         animation: hide_slide 0.4s ease-in;
@@ -107,7 +107,7 @@ $alert-themes: map.merge(
     }
 
     &__message {
-        font-size: vars.$font-size-lg;
+        font-size: variables.$font-size-lg;
     }
 
     &__wrapper {
@@ -124,6 +124,6 @@ $alert-themes: map.merge(
     }
 
     &__description {
-        font-size: vars.$font-size-base;
+        font-size: variables.$font-size-base;
     }
 }

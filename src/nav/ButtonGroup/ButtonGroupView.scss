@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --button-group-background: #DBE2E6;
@@ -48,13 +48,13 @@ $button-group-separator-color: var(--button-group-separator-color);
     &_default {
       background-color: transparent;
       border-color: transparent;
-      color: vars.$text-color;
-      transition: opacity vars.$transition-duration ease-in-out;
+      color: variables.$text-color;
+      transition: opacity variables.$transition-duration ease-in-out;
 
       &:hover {
         background-color: transparent;
         border-color: transparent;
-        color: vars.$text-color;
+        color: variables.$text-color;
         opacity: 0.7;
       }
 

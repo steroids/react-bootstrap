@@ -1,5 +1,5 @@
 
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --background-th: var(--light-gray);
@@ -18,7 +18,7 @@ $background-td-alternating: var(--background-td-alternating);
     table {
         width: 100%;
         background-color: transparent;
-        border: 1px solid vars.$gray-dark;
+        border: 1px solid variables.$gray-dark;
         border-collapse: separate;
         border-radius: 10px;
         border-spacing: 0;
@@ -27,23 +27,23 @@ $background-td-alternating: var(--background-td-alternating);
 
     th:not(:last-child),
     td:not(:last-child) {
-        border-right: 1px solid vars.$gray-dark;
+        border-right: 1px solid variables.$gray-dark;
     }
 
     tr th {
-        border-bottom: 1px solid vars.$gray-dark;
+        border-bottom: 1px solid variables.$gray-dark;
         background-color: $background-th;
-        color: vars.$text-color;
+        color: variables.$text-color;
         font-size: 14px;
         line-height: 18px;
     }
 
     tr:not(:last-child) td {
-        border-bottom: 1px solid vars.$gray-dark;
+        border-bottom: 1px solid variables.$gray-dark;
     }
 
     tfoot > tr > td {
-        border-top: 1px solid vars.$gray-dark;
+        border-top: 1px solid variables.$gray-dark;
     }
 
     tr td {
@@ -60,7 +60,7 @@ $background-td-alternating: var(--background-td-alternating);
     }
 
     td {
-        background: vars.$element-background-color;
+        background: variables.$element-background-color;
     }
 
     &_hasAlternatingColors {
@@ -72,7 +72,7 @@ $background-td-alternating: var(--background-td-alternating);
     &__button-add {
         svg {
             path {
-                stroke: vars.$primary;
+                stroke: variables.$primary;
             }
         }
         > span {

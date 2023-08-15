@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --accordion-light-background: var(--gray);
@@ -125,7 +125,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
 
     &_position {
         &_top {
-            border-radius: vars.$radius-large vars.$radius-large 0 0;
+            border-radius: variables.$radius-large variables.$radius-large 0 0;
         }
 
         &_middle {
@@ -133,7 +133,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         }
 
         &_bottom {
-            border-radius: 0 0 vars.$radius-large vars.$radius-large;
+            border-radius: 0 0 variables.$radius-large variables.$radius-large;
 
             #{$root}__content {
                 grid-row-start: 1;
@@ -175,7 +175,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         width: 24px;
         height: 24px;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
-        border-radius: vars.$radius-small;
+        border-radius: variables.$radius-small;
 
         transform: rotate(0deg);
         transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -195,7 +195,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         padding: 16px;
         align-self: center;
 
-        font-size: vars.$font-size-lg;
+        font-size: variables.$font-size-lg;
         line-height: 24px;
     }
 
@@ -224,7 +224,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         overflow: hidden;
         max-height: 0;
         padding: 0 16px;
-        color: vars.$text-color;
+        color: variables.$text-color;
 
         &_visible {
             max-height: 1024px;

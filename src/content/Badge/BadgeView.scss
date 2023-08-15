@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --counter-background-color: #ffffff;
@@ -23,9 +23,9 @@ $counter-cross-color: var(--counter-cross-color);
     position: relative;
     width: fit-content;
 
-    font-family: vars.$font-family-nunito;
-    color: vars.$white;
-    font-size: vars.$font-size-xs;
+    font-family: variables.$font-family-nunito;
+    color: variables.$white;
+    font-size: variables.$font-size-xs;
     line-height: 16px;
 
     &__content {
@@ -43,12 +43,12 @@ $counter-cross-color: var(--counter-cross-color);
     }
 
     $badge-types: (
-        "primary": vars.$primary,
-        "secondary": vars.$secondary,
-        "success": vars.$success,
-        "danger": vars.$danger,
-        "warning": vars.$warning,
-        "info": vars.$info,
+        "primary": variables.$primary,
+        "secondary": variables.$secondary,
+        "success": variables.$success,
+        "danger": variables.$danger,
+        "warning": variables.$warning,
+        "info": variables.$info,
     );
 
     @each $type, $color in $badge-types {
@@ -56,7 +56,7 @@ $counter-cross-color: var(--counter-cross-color);
             background-color: $color;
 
             @if ($type == "warning" or $type == "info") {
-                color: vars.$static-text-color;
+                color: variables.$static-text-color;
 
                 #{$root}__close {
                     svg {
@@ -82,11 +82,11 @@ $counter-cross-color: var(--counter-cross-color);
     }
 
     &_squarer {
-        border-radius: vars.$radius-small;
+        border-radius: variables.$radius-small;
     }
 
     &_rounder {
-        border-radius: vars.$radius-xlarge;
+        border-radius: variables.$radius-xlarge;
     }
 
     &_hasClose {
@@ -99,8 +99,8 @@ $counter-cross-color: var(--counter-cross-color);
         border: 1px solid $counter-border-color;
         border-radius: 100px;
 
-        background: vars.$light-gray;
-        color: vars.$text-color;
+        background: variables.$light-gray;
+        color: variables.$text-color;
         padding: 3px 12px;
 
         #{$root}__content {
@@ -119,17 +119,17 @@ $counter-cross-color: var(--counter-cross-color);
 
             margin-right: 4px;
             padding: 0 5.4px;
-            background-color: vars.$white;
+            background-color: variables.$white;
 
-            border-radius: vars.$radius-circle;
+            border-radius: variables.$radius-circle;
             background-color: $counter-background-color;
         }
 
         #{$root}__counter-content {
-            font-weight: vars.$font-weight-sm;
-            font-size: vars.$font-size-xs;
+            font-weight: variables.$font-weight-sm;
+            font-size: variables.$font-size-xs;
             line-height: 16px;
-            color: vars.$text-color;
+            color: variables.$text-color;
         }
 
         #{$root}__close {

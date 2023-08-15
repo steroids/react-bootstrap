@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 
 $justifyValues: center, end, start, stretch, flex-start, flex-end, left, right, space-between, space-around, space-evenly;
@@ -47,13 +47,13 @@ $colMaxValue: 12;
     @include col(col, $root);
     @include col(offset, $root, margin-inline-start);
 
-    @media (max-width: vars.$desktop-width) {
+    @media (max-width: variables.$desktop-width) {
       @include col(lg, $root);
     }
-    @media (max-width: vars.$tablet-width) {
+    @media (max-width: variables.$tablet-width) {
       @include col(md, $root);
     }
-    @media (max-width: vars.$mobile-width) {
+    @media (max-width: variables.$mobile-width) {
       @include col(sm, $root);
     }
   }

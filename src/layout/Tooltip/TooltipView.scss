@@ -1,5 +1,5 @@
 @use 'sass:math';
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 $tooltip-arrow-width: 10px;
 $tooltip-arrow-height: 10px;
@@ -122,7 +122,7 @@ $tooltip-background-color: rgba(65, 65, 65, 0.95);
   }
 
   &__content{
-    color: vars.$white;
+    color: variables.$white;
     font-size: 14px;
     line-height: 24px;
   }

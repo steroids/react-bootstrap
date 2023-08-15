@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 @use '../../scss/mixins';
 
 :root {
@@ -53,45 +53,45 @@ $drop-down-color-themes: map.merge(
     (
         "basic": (
             "background-color": $basic-color,
-            "hover-color": vars.$element-border-color-hover,
+            "hover-color": variables.$element-border-color-hover,
             "focus-color": $basic-focus-color,
             "active-color": $basic-active-color
         ),
         "primary": (
-            "background-color": vars.$primary,
-            "hover-color": vars.$primary-dark,
-            "focus-color": vars.$primary-light,
-            "active-color": vars.$primary-dark
+            "background-color": variables.$primary,
+            "hover-color": variables.$primary-dark,
+            "focus-color": variables.$primary-light,
+            "active-color": variables.$primary-dark
         ),
         "secondary": (
-            "background-color": vars.$secondary,
-            "hover-color": vars.$secondary-dark,
-            "focus-color": vars.$secondary-light,
-            "active-color": vars.$secondary-dark
+            "background-color": variables.$secondary,
+            "hover-color": variables.$secondary-dark,
+            "focus-color": variables.$secondary-light,
+            "active-color": variables.$secondary-dark
         ),
         "warning": (
-            "background-color": vars.$warning,
-            "hover-color": vars.$warning-dark,
-            "focus-color": vars.$warning-light,
-            "active-color": vars.$warning-dark
+            "background-color": variables.$warning,
+            "hover-color": variables.$warning-dark,
+            "focus-color": variables.$warning-light,
+            "active-color": variables.$warning-dark
         ),
         "danger": (
-            "background-color": vars.$danger,
-            "hover-color": vars.$danger-dark,
-            "focus-color": vars.$danger-light,
-            "active-color": vars.$danger-dark
+            "background-color": variables.$danger,
+            "hover-color": variables.$danger-dark,
+            "focus-color": variables.$danger-light,
+            "active-color": variables.$danger-dark
         ),
         "info": (
-            "background-color": vars.$info,
-            "hover-color": vars.$info-dark,
-            "focus-color": vars.$info-light,
-            "active-color": vars.$info-dark
+            "background-color": variables.$info,
+            "hover-color": variables.$info-dark,
+            "focus-color": variables.$info-light,
+            "active-color": variables.$info-dark
         ),
         "success": (
-            "background-color": vars.$success,
-            "hover-color": vars.$success-dark,
-            "focus-color": vars.$success-light,
-            "active-color": vars.$success-dark
+            "background-color": variables.$success,
+            "hover-color": variables.$success-dark,
+            "focus-color": variables.$success-light,
+            "active-color": variables.$success-dark
         )
     ),
     $drop-down-color-themes
@@ -99,7 +99,7 @@ $drop-down-color-themes: map.merge(
 
 @mixin dropDownTheme($colorMap, $root, $colorType) {
     background-color: map.get($colorMap, background-color);
-    color: vars.$text-color;
+    color: variables.$text-color;
 
     &::before {
         border-color: map.get($colorMap, focus-color);
@@ -134,7 +134,7 @@ $drop-down-color-themes: map.merge(
         color: #ffffff;
 
         @if ($colorType == "basic") {
-            color: vars.$text-color;
+            color: variables.$text-color;
         }
 
         @if ($colorType == "warning" or $colorType == "info") {
@@ -144,9 +144,9 @@ $drop-down-color-themes: map.merge(
 }
 
 @mixin dropDownOutlineTheme($colorMap, $root) {
-    background-color: vars.$element-field-background-color;
+    background-color: variables.$element-field-background-color;
     border: 1px solid map.get($colorMap, background-color);
-    color: vars.$text-color;
+    color: variables.$text-color;
 
     &::before {
         border-color: map.get($colorMap, focus-color);
@@ -205,30 +205,30 @@ $drop-down-color-themes: map.merge(
     $sizes: map.merge(
         (
             "lg": (
-                "border-radius": vars.$radius-large,
-                "height": vars.$input-height-lg,
+                "border-radius": variables.$radius-large,
+                "height": variables.$input-height-lg,
                 "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 16px,
                 "selectedItemsPadding": 16px,
-                "font-size": vars.$font-size-lg,
+                "font-size": variables.$font-size-lg,
                 "line-height": 24px
             ),
             "md": (
-                "border-radius": vars.$radius-large,
-                "height": vars.$input-height-md,
+                "border-radius": variables.$radius-large,
+                "height": variables.$input-height-md,
                 "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 16px,
                 "selectedItemsPadding": 12px,
-                "font-size": vars.$font-size-base,
+                "font-size": variables.$font-size-base,
                 "line-height": 22px
             ),
             "sm": (
-                "border-radius": vars.$radius-small,
-                "height": vars.$input-height-sm,
+                "border-radius": variables.$radius-small,
+                "height": variables.$input-height-sm,
                 "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 12px,
                 "selectedItemsPadding": 8px,
-                "font-size": vars.$font-size-sm,
+                "font-size": variables.$font-size-sm,
                 "line-height": 18px
             )
         ),
@@ -312,14 +312,14 @@ $drop-down-color-themes: map.merge(
         top: calc(100% + 8px);
         left: 0;
 
-        background-color: vars.$element-background-color;
+        background-color: variables.$element-background-color;
 
         border: 1px solid $drop-down-border-color;
         overflow: hidden;
         border-radius: 12px;
 
         &-list {
-            @include mixins.scrollWrapper(240px, 0, vars.$scroll-thumb-color, vars.$scroll-track-color);
+            @include mixins.scrollWrapper(240px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
         }
     }
 
@@ -364,12 +364,12 @@ $drop-down-color-themes: map.merge(
             border-radius: 6px;
             outline: none;
 
-            font-size: vars.$font-size-base;
+            font-size: variables.$font-size-base;
             font-weight: 400;
             line-height: 22px;
-            border: 1px solid vars.$element-border-color;
+            border: 1px solid variables.$element-border-color;
 
-            color: vars.$text-color;
+            color: variables.$text-color;
             background-color: $search-background-color;
 
             &:hover {

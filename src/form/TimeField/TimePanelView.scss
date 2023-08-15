@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 @use '../../scss/mixins';
 
 .TimePanelView {
@@ -11,14 +11,14 @@
         align-items: center;
         justify-content: center;
 
-        border-left: 1px solid vars.$border-default;
-        border-bottom: 1px solid vars.$border-default;
+        border-left: 1px solid variables.$border-default;
+        border-bottom: 1px solid variables.$border-default;
     }
 
     &__body {
         display: flex;
         flex-flow: row nowrap;
-        border-radius: vars.$input-border-radius;
+        border-radius: variables.$input-border-radius;
     }
 
     &__column {
@@ -27,7 +27,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        @include mixins.scrollWrapper(298px, 0, vars.$scroll-thumb-color, vars.$scroll-track-color);
+        @include mixins.scrollWrapper(298px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
     }
 
     &__cell {
@@ -35,12 +35,12 @@
         cursor: pointer;
 
         &_selected {
-            background-color: vars.$primary-light;
+            background-color: variables.$primary-light;
         }
 
         transition: background-color 0.1s ease-in;
         &:hover {
-            background-color: vars.$back-disabled;
+            background-color: variables.$back-disabled;
         }
     }
 
@@ -59,23 +59,23 @@
         border: none;
 
         &_now {
-            color: vars.$primary;
+            color: variables.$primary;
             background-color: unset;
 
             transition: color 0.1s ease-in;
             &:hover {
-                color: vars.$primary-dark;
+                color: variables.$primary-dark;
             }
         }
 
         &_ok {
             color: #fff;
             border-radius: 4px;
-            background-color: vars.$primary;
+            background-color: variables.$primary;
 
             transition: background-color 0.1s ease-in;
             &:hover {
-                background-color: vars.$primary-dark;
+                background-color: variables.$primary-dark;
             }
         }
     }

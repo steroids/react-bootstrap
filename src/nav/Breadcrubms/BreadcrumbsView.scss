@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
   --last-link-color: rgba(0, 0, 0, 0.3);;
@@ -19,11 +19,11 @@ $last-link-color: var(--last-link-color);
     display: flex;
 
     svg {
-      stroke: vars.$link-color;
+      stroke: variables.$link-color;
     }
 
     svg:hover { 
-      stroke: vars.$link-color-hover;
+      stroke: variables.$link-color-hover;
     }
 
     svg path, svg circle {
@@ -52,7 +52,7 @@ $last-link-color: var(--last-link-color);
       content: $breadcrumb-item-separator;
       display: inline-block;
       margin: 0 8px;
-      color: vars.$link-color;
+      color: variables.$link-color;
     }
 
     span {
@@ -61,7 +61,7 @@ $last-link-color: var(--last-link-color);
     }
 
     span:hover {
-      color: vars.$link-color-hover;
+      color: variables.$link-color-hover;
     }
   }
 }

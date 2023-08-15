@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 @use '../../scss/mixins';
 
 :root {
@@ -17,12 +17,12 @@ $calendar-border-color: var(--calendar-border-color);
 .CalendarView {
     $root: &;
 
-    background-color: vars.$element-background-color;
-    border-radius: vars.$radius-large;
+    background-color: variables.$element-background-color;
+    border-radius: variables.$radius-large;
     border: 4px solid $calendar-border-color;
     position: relative;
-    color: vars.$text-color;
-    font-weight: vars.$font-weight-md;
+    color: variables.$text-color;
+    font-weight: variables.$font-weight-md;
     user-select: none;
     padding: 12px;
 
@@ -61,9 +61,9 @@ $calendar-border-color: var(--calendar-border-color);
         color: inherit;
         text-align: center;
         vertical-align: middle;
-        font-size: vars.$font-size-base;
-        line-height: vars.$line-height-base;
-        font-weight: vars.$font-weight-lg;
+        font-size: variables.$font-size-base;
+        line-height: variables.$line-height-base;
+        font-weight: variables.$font-weight-lg;
         text-transform: capitalize;
     }
 
@@ -92,7 +92,7 @@ $calendar-border-color: var(--calendar-border-color);
     .DayPicker-Day {
         position: relative;
         padding: 0;
-        border-radius: vars.$radius-large;
+        border-radius: variables.$radius-large;
 
         vertical-align: middle;
         text-align: center;
@@ -142,14 +142,14 @@ $calendar-border-color: var(--calendar-border-color);
         }
 
         &--outside {
-            color: vars.$element-placeholder-color;
+            color: variables.$element-placeholder-color;
 
         }
 
         &--today {
             #{$root}__day {
-                border: 1px solid vars.$primary;
-                color: vars.$primary;
+                border: 1px solid variables.$primary;
+                color: variables.$primary;
             }
         }
 
@@ -175,12 +175,12 @@ $calendar-border-color: var(--calendar-border-color);
     // Days selection
     // Selected day
     .DayPicker-Day--selected:not(.DayPicker-Day--inRange) {
-        color: vars.$white;
-        background-color: vars.$primary;
+        color: variables.$white;
+        background-color: variables.$primary;
     }
 
     .DayPicker-Day--selected.DayPicker-Day--today .CalendarView__day {
-        color: vars.$white;
+        color: variables.$white;
     }
 
     // Hover
@@ -204,7 +204,7 @@ $calendar-border-color: var(--calendar-border-color);
         width: 34px;
         height: 34px;
         line-height: 30px;
-        border-radius: vars.$radius-large;
+        border-radius: variables.$radius-large;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -213,16 +213,16 @@ $calendar-border-color: var(--calendar-border-color);
     &_ranged {
         .DayPicker-Day {
             &--start {
-                color: vars.$white;
+                color: variables.$white;
 
                 #{$root}__day {
-                    background-color: vars.$primary;
+                    background-color: variables.$primary;
                 }
 
                 &::before {
                     width: 50px;
                     height: 42px;
-                    background-color: vars.$primary-light;
+                    background-color: variables.$primary-light;
                     border-radius: 16px 0px 0px 16px;
                 }
             }
@@ -231,20 +231,20 @@ $calendar-border-color: var(--calendar-border-color);
                 color: #fff;
 
                 #{$root}__day {
-                    background-color: vars.$calendar-primary-color;
+                    background-color: variables.$calendar-primary-color;
                 }
 
                 &::before {
                     width: 46px;
                     height: 42px;
-                    background-color: vars.$primary-light;
+                    background-color: variables.$primary-light;
                     border-radius: 0px 16px 16px 0px;
                 }
             }
 
             &--inRange {
                 &::before {
-                    background-color: vars.$primary-light;
+                    background-color: variables.$primary-light;
                     width: 50px;
                     height: 42px;
                 }
@@ -252,7 +252,7 @@ $calendar-border-color: var(--calendar-border-color);
 
             //Today in range
             &--inRange.DayPicker-Day--selected.DayPicker-Day--today .CalendarView__day {
-                color: vars.$primary;
+                color: variables.$primary;
             }
 
             &--inRange:hover .CalendarView__day {
@@ -263,7 +263,7 @@ $calendar-border-color: var(--calendar-border-color);
             &--outRange {
                 pointer-events: none;
                 &::before {
-                    background-color: vars.$calendar-primary-light-color;
+                    background-color: variables.$calendar-primary-light-color;
                 }
             }
         }

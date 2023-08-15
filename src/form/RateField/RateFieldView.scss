@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 $ratefield-sizes: () !default;
 $ratefield-sizes: map.merge(
@@ -20,7 +20,7 @@ $ratefield-sizes: map.merge(
             "size": 24px,
             "badge-gap": 16px,
             "badge-paddings": 4px 8px,
-            "badge-radius": vars.$radius-small,
+            "badge-radius": variables.$radius-small,
         ),
     ),
     $ratefield-sizes
@@ -56,7 +56,7 @@ $ratefield-sizes: map.merge(
 
                 #{$root}__rate-icon {
                     path {
-                        fill: vars.$primary;
+                        fill: variables.$primary;
                     }
                 }
             }
@@ -78,17 +78,17 @@ $ratefield-sizes: map.merge(
     &__rate-icon {
         &.IconView svg {
             path {
-                fill: vars.$gray;
+                fill: variables.$gray;
             }
         }
     }
 
     &__badge {
         display: block;
-        background-color: vars.$primary;
-        color: vars.$white;
-        font-size: vars.$font-size-xs;
-        line-height: vars.$line-height-xs;
+        background-color: variables.$primary;
+        color: variables.$white;
+        font-size: variables.$font-size-xs;
+        line-height: variables.$line-height-xs;
     }
 
     &_size {
@@ -125,7 +125,7 @@ $ratefield-sizes: map.merge(
         #{$root}__rate-icon {
             &.IconView svg {
                 path {
-                    fill: vars.$light-gray;
+                    fill: variables.$light-gray;
                 }
             }
         }
