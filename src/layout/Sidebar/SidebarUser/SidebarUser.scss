@@ -1,4 +1,4 @@
-@import "style/variables";
+@use "style/variables" as vars;
 
 .SidebarUser {
     display: flex;
@@ -23,10 +23,10 @@
     &__name {
         width: 128px;
 
-        font-size: $font-size-sm;
-        font-weight: $font-weight-sm;
-        line-height: $line-height-sm;
-        color: $sidebar-label-color;
+        font-size: vars.$font-size-sm;
+        font-weight: vars.$font-weight-sm;
+        line-height: vars.$line-height-sm;
+        color: vars.$sidebar-label-color;
         opacity: 0;
         transition: opacity 150ms ease-in-out;
     }

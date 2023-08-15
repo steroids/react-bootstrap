@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 :root {
     --color-menu-item: #323232;
     --color-border: rgba(0, 0, 0, 0.1);
@@ -7,6 +9,8 @@
     --color-menu-item: #ffffff;
     --color-border: rgba(255, 255, 255, 0.1);
   }
+
+  $icon-size: 20px;
 
   $color-menu-item: var(--color-menu-item);
   $color-border: var(--color-border);
@@ -28,8 +32,8 @@
 
     &__label {
         color: $color-menu-item;
-        font-size: $font-size-xs;
-        line-height: $line-height-xs;
+        font-size: vars.$font-size-xs;
+        line-height: vars.$line-height-xs;
     }
 
     &__icon {
@@ -54,7 +58,7 @@
     }
 
     &:hover {
-        background-color: $gray;
+        background-color: vars.$gray;
     }
 
     &_hasBorder{

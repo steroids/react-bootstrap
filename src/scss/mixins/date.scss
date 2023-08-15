@@ -1,4 +1,5 @@
-@import "../variables/index";
+@use "sass:map";
+@use "../variables/index" as variables;
 
 :root {
     --date-icon-default-color: #cbd5db;
@@ -20,32 +21,45 @@ $date-icon-disabled-color: var(--date-icon-disabled-color);
 $date-range-separator-color: var(--date-range-separator-color);
 
 $date-sizes: () !default;
-$date-sizes: map-merge(
+$date-sizes: map.merge(
     (
         "lg": (
             "padding": 16px 8px,
-            "radius": $radius-large,
-            "font-size": $font-size-lg,
+            "radius": variables.$radius-large,
+            "font-size": variables.$font-size-lg,
             "height": 56px,
             "first-input-width": 96px,
         ),
         "md": (
             "padding": 11px 8px,
-            "radius": $radius-large,
-            "font-size": $font-size-base,
+            "radius": variables.$radius-large,
+            "font-size": variables.$font-size-base,
             "height": 46px,
             "first-input-width": 86px,
         ),
         "sm": (
             "padding": 5px 8px,
-            "radius": $radius-small,
-            "font-size": $font-size-sm,
+            "radius": variables.$radius-small,
+            "font-size": variables.$font-size-sm,
             "height": 34px,
             "first-input-width": 76px,
         ),
     ),
     $date-sizes
 );
+
+@mixin calendar-button () {
+    padding: 5px 12.5px;
+    border-radius: variables.$radius-small;
+    border: 1px solid variables.$gray;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    cursor: pointer;
+    color: variables.$text-color;
+    font-size: variables.$font-size-sm;
+    line-height: variables.$line-height-lg;
+}
 
 @mixin icon-container($root) {
     #{$root}__icon-container {
@@ -87,17 +101,17 @@ $date-sizes: map-merge(
         @each $size, $size-map in $date-sizes {
             &_#{$size} {
                 #{$root}__input {
-                    border-radius: map-get($size-map, radius);
-                    padding: map-get($size-map, padding);
+                    border-radius: map.get($size-map, radius);
+                    padding: map.get($size-map, padding);
                     padding-right: 40px;
-                    height: map-get($size-map, height);
+                    height: map.get($size-map, height);
                 }
 
                 #{$root}__body::before {
-                    border-radius: calc(map-get($size-map, radius) + 4px);
+                    border-radius: calc(map.get($size-map, radius) + 4px);
                 }
 
-                font-size: map-get($size-map, font-size);
+                font-size: map.get($size-map, font-size);
             }
         }
     }
@@ -107,26 +121,26 @@ $date-sizes: map-merge(
     &__input {
         width: 100%;
         font-size: inherit;
-        line-height: $line-height-lg;
-        background-color: $element-field-background-color;
-        border: 1px solid $element-border-color;
-        color: $text-color;
+        line-height: variables.$line-height-lg;
+        background-color: variables.$element-field-background-color;
+        border: 1px solid variables.$element-border-color;
+        color: variables.$text-color;
         transition: border-color 150ms ease-in-out;
 
         &:active {
-            border-color: $primary;
+            border-color: variables.$primary;
         }
 
         &::placeholder {
-            color: $element-placeholder-color;
+            color: variables.$element-placeholder-color;
         }
 
         &:disabled {
             border: none;
-            background-color: $element-background-color-disabled;
+            background-color: variables.$element-background-color-disabled;
 
             &::placeholder {
-                color: $element-placeholder-color-disabled;
+                color: variables.$element-placeholder-color-disabled;
             }
         }
     }
@@ -146,7 +160,7 @@ $date-sizes: map-merge(
             width: 100%;
             height: 100%;
             content: "";
-            border: 4px solid $primary-light;
+            border: 4px solid variables.$primary-light;
             transform: translate(-4px, -4px);
             pointer-events: none;
             opacity: 0;
@@ -181,7 +195,7 @@ $date-sizes: map-merge(
 
     &_is-invalid {
         #{$root}__input {
-            border-color: $danger;
+            border-color: variables.$danger;
         }
     }
 }
@@ -192,8 +206,8 @@ $date-sizes: map-merge(
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        background-color: $element-field-background-color;
-        color: $text-color;
+        background-color: variables.$element-field-background-color;
+        color: variables.$text-color;
         column-gap: 8px;
 
         > * {
@@ -240,14 +254,14 @@ $date-sizes: map-merge(
         }
 
         &::before {
-            border-color: $element-border-color;
+            border-color: variables.$element-border-color;
         }
 
         &::after {
             width: 100%;
             height: 100%;
             transform: translate(-4px, -4px);
-            border: 4px solid $primary-light;
+            border: 4px solid variables.$primary-light;
             opacity: 0;
         }
     }
@@ -255,7 +269,7 @@ $date-sizes: map-merge(
     //Effects
     //Active
     &__input:active ~ &__effect::before {
-        border-color: $primary;
+        border-color: variables.$primary;
     }
 
     //Focus
@@ -271,12 +285,12 @@ $date-sizes: map-merge(
 
     &_disabled {
         #{$root}__body {
-            background-color: $element-background-color-disabled;
+            background-color: variables.$element-background-color-disabled;
         }
 
         #{$root}__input { 
             &::placeholder { 
-                color: $element-placeholder-color-disabled;
+                color: variables.$element-placeholder-color-disabled;
             }
         }
 
@@ -298,11 +312,11 @@ $date-sizes: map-merge(
 
     &_is-invalid {
         #{$root}__effect::before {
-            border-color: $danger;
+            border-color: variables.$danger;
         }
 
         #{$root}__input:active ~ #{$root}__effect::before {
-            border-color: $danger;
+            border-color: variables.$danger;
         }
     }
 }
@@ -312,22 +326,22 @@ $date-sizes: map-merge(
         @each $size, $size-map in $date-sizes {
             &_#{$size} {
                 #{$root}__body {
-                    padding: map-get($size-map, padding);
-                    border-radius: map-get($size-map, radius);
-                    height: map-get($size-map, height);
+                    padding: map.get($size-map, padding);
+                    border-radius: map.get($size-map, radius);
+                    height: map.get($size-map, height);
 
                     > * {
                         &:nth-child(1) {
-                            width: map-get($size-map, first-input-width);
+                            width: map.get($size-map, first-input-width);
                         }
                     }
                 }
 
                 #{$root}__effect::after {
-                    border-radius: calc(map-get($size-map, radius) + 4px);
+                    border-radius: calc(map.get($size-map, radius) + 4px);
                 }
 
-                font-size: map-get($size-map, font-size);
+                font-size: map.get($size-map, font-size);
             }
         }
     }
@@ -341,7 +355,7 @@ $date-sizes: map-merge(
         color: inherit;
 
         &::placeholder {
-            color: $element-placeholder-color;
+            color: variables.$element-placeholder-color;
         }
     }
 }
@@ -351,7 +365,7 @@ $date-sizes: map-merge(
         position: relative;
         display: flex;
         flex-flow: row nowrap;
-        color: $text-color;
+        color: variables.$text-color;
 
         #{$root}__separator {
             position: relative;
@@ -393,7 +407,7 @@ $date-sizes: map-merge(
 
             .TimePanelView__cell {
                 padding: 0;
-                border-radius: $radius-large;
+                border-radius: variables.$radius-large;
 
                 &-value {
                     padding: 6px 7px;

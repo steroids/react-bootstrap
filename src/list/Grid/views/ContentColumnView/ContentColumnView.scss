@@ -1,3 +1,5 @@
+@use "../../../../scss/variables" as vars;
+
 :root {
     --grid-icon-color: #323232;
 }
@@ -26,7 +28,7 @@ $grid-icon-color: var(--grid-icon-color);
     }
 
     &__subtitle {
-        color: $element-placeholder-color;
+        color: vars.$element-placeholder-color;
     }
 
     &__picture {
@@ -53,8 +55,8 @@ $grid-icon-color: var(--grid-icon-color);
     &_size {
         &_lg {
             #{$root}__subtitle {
-                font-size: $font-size-base;
-                line-height: $line-height-base;
+                font-size: vars.$font-size-base;
+                line-height: vars.$line-height-base;
             }
 
             #{$root}__avatar-wrapper {
@@ -65,15 +67,15 @@ $grid-icon-color: var(--grid-icon-color);
 
         &_md {
             #{$root}__subtitle {
-                font-size: $font-size-sm;
-                line-height: $line-height-sm;
+                font-size: vars.$font-size-sm;
+                line-height: vars.$line-height-sm;
             }
         }
 
         &_sm {
             #{$root}__subtitle {
-                font-size: $font-size-xs;
-                line-height: $line-height-xs;
+                font-size: vars.$font-size-xs;
+                line-height: vars.$line-height-xs;
             }
         }
     }

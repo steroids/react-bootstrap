@@ -1,9 +1,11 @@
+@use "../../scss/variables" as vars;
+
 .HeaderView {
     width: 1000px;
     display: flex;
     align-items: center;
-    background-color: $element-background-color;
-    border-bottom: 1px solid $element-placeholder-color-disabled;
+    background-color: vars.$element-background-color;
+    border-bottom: 1px solid vars.$element-placeholder-color-disabled;
     position: relative;
 
     &_size {
@@ -34,10 +36,10 @@
         }
 
         &-title {
-            color: $text-color;
-            font-weight: $font-weight-lg;
-            font-size: $font-size-base;
-            line-height: $line-height-base;
+            color: vars.$text-color;
+            font-weight: vars.$font-weight-lg;
+            font-size: vars.$font-size-base;
+            line-height: vars.$line-height-base;
         }
     }
 
@@ -64,9 +66,9 @@
 
         &-name.TextView_type_body {
             margin: 0;
-            font-weight: $font-weight-lg;
-            font-size: $font-size-base;
-            line-height: $line-height-base;
+            font-weight: vars.$font-weight-lg;
+            font-size: vars.$font-size-base;
+            line-height: vars.$line-height-base;
 
             @media (max-width: 360px) {
                 display: none;
@@ -96,7 +98,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: $white;
+            background-color: vars.$white;
             opacity: 0;
             pointer-events: none;
             transition: opacity 150ms ease-in-out;
@@ -106,7 +108,7 @@
                 pointer-events: all;
             }
             .ButtonView__text {
-                color: $element-placeholder-color;
+                color: vars.$element-placeholder-color;
             }
         }
 
@@ -114,7 +116,7 @@
             width: 24px;
             height: 24px;
             svg path {
-                stroke: $icon-color;
+                stroke: vars.$icon-color;
             }
         }
 
@@ -124,7 +126,7 @@
             display: flex;
             row-gap: 16px;
             align-items: flex-start;
-            background-color: $element-background-color;
+            background-color: vars.$element-background-color;
         }
     }
 

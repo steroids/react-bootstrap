@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 :root {
     --slider-background: #dbe2e6;
     --slider-handle-border-color: rgba(0, 0, 0, 0.1);
@@ -42,7 +44,7 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     }
     .rc-slider-rail {
-        background-color: $primary;
+        background-color: vars.$primary;
     }
 
     .rc-slider * {
@@ -54,7 +56,7 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         left: 0;
         height: 8px;
         border-radius: 6px;
-        background-color: $primary;
+        background-color: vars.$primary;
         z-index: 1;
     }
     .rc-slider-handle {
@@ -65,7 +67,7 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         height: 24px;
         cursor: pointer;
         border-radius: 50%;
-        background-color: $primary;
+        background-color: vars.$primary;
         z-index: 2;
         outline: none;
 
@@ -81,7 +83,7 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
             left: 0;
             right: 0;
             bottom: 0;
-            border: 4px solid $primary-light;
+            border: 4px solid vars.$primary-light;
             transform: translate(-4px, -4px);
             border-radius: 50%;
             pointer-events: none;
@@ -94,7 +96,7 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         }
 
         &:active {
-            background-color: $primary-dark;
+            background-color: vars.$primary-dark;
         }
     }
     .rc-slider-mark {
@@ -103,8 +105,8 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         top: 20px;
         left: 0;
         width: 100%;
-        font-size: $font-size-xs;
-        line-height: $line-height-xs;
+        font-size: vars.$font-size-xs;
+        line-height: vars.$line-height-xs;
         z-index: 3;
     }
     .rc-slider-mark-text {
@@ -114,9 +116,9 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
         vertical-align: middle;
         text-align: center;
         cursor: pointer;
-        background-color: $element-background-color;
-        color: $text-color;
-        border: 1px solid $element-border-color;
+        background-color: vars.$element-background-color;
+        color: vars.$text-color;
+        border: 1px solid vars.$element-border-color;
         border-radius: 21px;
     }
     .rc-slider-step {
@@ -331,13 +333,13 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
     }
     .rc-slider-tooltip-inner {
         padding: 8px;
-        font-size: $font-size-lg;
-        line-height: $line-height-base;
-        color: $text-color;
-        border: 1px solid $gray;
+        font-size: vars.$font-size-lg;
+        line-height: vars.$line-height-base;
+        color: vars.$text-color;
+        border: 1px solid vars.$gray;
         text-align: center;
         text-decoration: none;
-        background-color: $element-background-color;
+        background-color: vars.$element-background-color;
         border-radius: 21px;
     }
 }

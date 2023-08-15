@@ -1,5 +1,7 @@
+@use "../../scss/variables" as vars;
+
 .ListView {
-    color: $text-color;
+    color: vars.$text-color;
 
     .FormView {
         margin-bottom: 10px;

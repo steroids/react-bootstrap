@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 .FileFieldView {
     $root: &;
 
@@ -28,7 +30,7 @@
             width: 128px;
             height: 128px;
             border: 1px dashed #6F6B76;
-            background-color: $gray;
+            background-color: vars.$gray;
             border-radius: 20px;
 
             .ButtonView__label {

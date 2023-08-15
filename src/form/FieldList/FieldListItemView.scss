@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 .FieldListItemView {
     &__remove {
         background-color: transparent;
@@ -13,7 +15,7 @@
             fill: #323232;
         }
         path {
-            stroke: $white;
+            stroke: vars.$white;
         }
     }
 }

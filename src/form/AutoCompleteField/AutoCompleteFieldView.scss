@@ -1,3 +1,6 @@
+@use "../../scss/variables" as vars;
+@use '../../scss/mixins';
+
 :root {
     --autocomplete-hover-color: #f1f5f7;
     --autocomplete-selected-color: #dbe2e6;
@@ -21,9 +24,9 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
 
     &__input {
         width: 100%;
-        border: 1px solid $element-border-color;
-        background-color: $element-field-background-color;
-        color: $text-color;
+        border: 1px solid vars.$element-border-color;
+        background-color: vars.$element-field-background-color;
+        color: vars.$text-color;
         transition: border-color 150ms ease-in-out;
         font-size: inherit;
         line-height: inherit;
@@ -31,7 +34,7 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
 
     &_opened {
         #{$root}__input {
-            border-color: $primary;
+            border-color: vars.$primary;
         }
     }
 
@@ -42,26 +45,26 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
         position: absolute;
         z-index: 9999;
         margin-top: 8px;
-        border-radius: $radius-large;
-        background-color: $element-background-color;
-        border: 1px solid $element-border-color;
+        border-radius: vars.$radius-large;
+        background-color: vars.$element-background-color;
+        border: 1px solid vars.$element-border-color;
         overflow: hidden;
     }
 
     &__list {
         display: flex;
         flex-flow: column nowrap;
-        @include scrollWrapper(240px, 0, $scroll-thumb-color, $scroll-track-color);
+        @include mixins.scrollWrapper(240px, 0, vars.$scroll-thumb-color, vars.$scroll-track-color);
     }
 
     &__item {
         width: 100%;
-        background-color: $element-background-color;
+        background-color: vars.$element-background-color;
         outline: none;
         border: none;
         text-align: left;
 
-        color: $text-color;
+        color: vars.$text-color;
         cursor: pointer;
 
         font-size: inherit;
@@ -102,13 +105,13 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
     }
 
     &__category {
-        background-color: $element-background-color;
+        background-color: vars.$element-background-color;
         width: 100%;
 
         &__label {
             display: block;
             padding: 12px 8px;
-            color: $element-placeholder-color;
+            color: vars.$element-placeholder-color;
         }
         &__content {
             width: 100%;
@@ -120,23 +123,23 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
     }
 
     &__nothing {
-        color: $element-placeholder-color;
+        color: vars.$element-placeholder-color;
         width: 100%;
         margin-bottom: 48px;
         padding: 8px 12px;
-        font-size: $font-size-xs;
-        line-height: $line-height-xs;
+        font-size: vars.$font-size-xs;
+        line-height: vars.$line-height-xs;
     }
 
     &_size {
         &_lg {
-            font-size: $font-size-lg;
-            line-height: $line-height-lg;
+            font-size: vars.$font-size-lg;
+            line-height: vars.$line-height-lg;
 
             #{$root}__input {
                 padding: 16px 8px;
-                height: $input-height-lg;
-                border-radius: $radius-large;
+                height: vars.$input-height-lg;
+                border-radius: vars.$radius-large;
             }
 
             #{$root}__item {
@@ -150,20 +153,20 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
 
                
                 &__label {
-                    font-size: $font-size-base;
-                    line-height: $line-height-base;
+                    font-size: vars.$font-size-base;
+                    line-height: vars.$line-height-base;
                 }
             }
         }
 
         &_md {
-            font-size: $font-size-base;
-            line-height: $line-height-lg;
+            font-size: vars.$font-size-base;
+            line-height: vars.$line-height-lg;
 
             #{$root}__input {
                 padding: 11px 8px;
-                height: $input-height-md;
-                border-radius: $radius-large;
+                height: vars.$input-height-md;
+                border-radius: vars.$radius-large;
             }
 
             #{$root}__item {
@@ -176,20 +179,20 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
                 }
 
                 &__label {
-                    font-size: $font-size-sm;
-                    line-height: $line-height-sm;
+                    font-size: vars.$font-size-sm;
+                    line-height: vars.$line-height-sm;
                 }
             }
         }
 
         &_sm {
-            font-size: $font-size-sm;
-            line-height: $line-height-lg;
+            font-size: vars.$font-size-sm;
+            line-height: vars.$line-height-lg;
 
             #{$root}__input {
                 padding: 5px 8px;
-                height: $input-height-sm;
-                border-radius: $radius-small;
+                height: vars.$input-height-sm;
+                border-radius: vars.$radius-small;
             }
 
             #{$root}__item {
@@ -202,8 +205,8 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
                 }
 
                 &__label {
-                    font-size: $font-size-xs;
-                    line-height: $line-height-xs;
+                    font-size: vars.$font-size-xs;
+                    line-height: vars.$line-height-xs;
                 }
             }
         }

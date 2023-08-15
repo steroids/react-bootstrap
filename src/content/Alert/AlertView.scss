@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../scss/variables" as vars;
+
 :root {
     --alert-text-color: #152536;
 }
@@ -9,27 +12,27 @@ html[data-theme="dark"] {
 $alert-text-color: var(--alert-text-color);
 
 $alert-themes: () !default;
-$alert-themes: map-merge(
+$alert-themes: map.merge(
     (
         "success": (
-            "background-color": $success-light,
-            "icon-color": $success,
+            "background-color": vars.$success-light,
+            "icon-color": vars.$success,
         ),
         "info": (
-            "background-color": $info-light,
-            "icon-color": $info,
+            "background-color": vars.$info-light,
+            "icon-color": vars.$info,
         ),
         "warning": (
-            "background-color": $warning-light,
-            "icon-color": $warning,
+            "background-color": vars.$warning-light,
+            "icon-color": vars.$warning,
         ),
         "error": (
-            "background-color": $danger-light,
-            "icon-color": $danger,
+            "background-color": vars.$danger-light,
+            "icon-color": vars.$danger,
         ),
         "default": (
-            "background-color": $light-gray,
-            "icon-color": $gray-dark,
+            "background-color": vars.$light-gray,
+            "icon-color": vars.$gray-dark,
         ),
     ),
     $alert-themes
@@ -40,8 +43,8 @@ $alert-themes: map-merge(
 
     position: relative;
     padding: 16px;
-    border-radius: $radius-large;
-    font-family: $font-family-nunito;
+    border-radius: vars.$radius-large;
+    font-family: vars.$font-family-nunito;
 
     &_close-animation {
         animation: hide_slide 0.4s ease-in;
@@ -93,18 +96,18 @@ $alert-themes: map-merge(
 
     @each $color, $alert-properties in $alert-themes {
         &_#{$color} {
-            background-color: map-get($alert-properties, background-color);
+            background-color: map.get($alert-properties, background-color);
 
             #{$root}__icon_#{$color} { 
                 g > circle:not([fill="white"]), rect { 
-                    fill: map-get($alert-properties, icon-color);
+                    fill: map.get($alert-properties, icon-color);
                 }
             }
         }
     }
 
     &__message {
-        font-size: $font-size-lg;
+        font-size: vars.$font-size-lg;
     }
 
     &__wrapper {
@@ -121,6 +124,6 @@ $alert-themes: map-merge(
     }
 
     &__description {
-        font-size: $font-size-base;
+        font-size: vars.$font-size-base;
     }
 }

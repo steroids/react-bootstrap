@@ -1,3 +1,5 @@
+@use "../../scss/variables" as vars;
+
 :root {
     --radio-hover-color: #651fff;
 }
@@ -14,11 +16,11 @@ $radio-hover-color: var(--radio-hover-color);
 
     $root: &;
 
-    font-family: $font-family-nunito;
-    color: $text-color;
+    font-family: vars.$font-family-nunito;
+    color: vars.$text-color;
     line-height: 24px;
     font-weight: 400;
-    font-size: $font-size-sm;
+    font-size: vars.$font-size-sm;
 
     &__ellipse {
         position: absolute;
@@ -28,8 +30,8 @@ $radio-hover-color: var(--radio-hover-color);
         display: inline-block;
         width: 12px;
         height: 12px;
-        background-color: $primary;
-        border-radius: $radius-circle;
+        background-color: vars.$primary;
+        border-radius: vars.$radius-circle;
         opacity: 0;
         pointer-events: none;
     }
@@ -58,8 +60,8 @@ $radio-hover-color: var(--radio-hover-color);
         display: inline-block;
         width: 24px;
         height: 24px;
-        border-radius: $radius-circle;
-        border: 1px solid $element-border-color;
+        border-radius: vars.$radius-circle;
+        border: 1px solid vars.$element-border-color;
         margin-right: 8px;
         cursor: pointer;
 
@@ -75,8 +77,8 @@ $radio-hover-color: var(--radio-hover-color);
         position: absolute;
         top: 0;
         left: 0;
-        border: 4px solid $primary-light;
-        border-radius: $radius-circle;
+        border: 4px solid vars.$primary-light;
+        border-radius: vars.$radius-circle;
         pointer-events: none;
         opacity: 0;
 
@@ -86,11 +88,11 @@ $radio-hover-color: var(--radio-hover-color);
     }
 
     &__input:not(:disabled):not(:checked):hover + &__label::before {
-        border-color: $element-border-color-hover;
+        border-color: vars.$element-border-color-hover;
     }
 
     &__input:not(:disabled):not(:checked):active + &__label::before {
-        border-color: $primary;
+        border-color: vars.$primary;
     }
 
     &__input:not(:disabled):focus + &__label::after {
@@ -102,14 +104,14 @@ $radio-hover-color: var(--radio-hover-color);
     }
 
     &__input:checked + &__label::before {
-        border: 1px solid $primary;
+        border: 1px solid vars.$primary;
     }
     &__input:checked + &__label &__ellipse {
         opacity: 1;
     }
 
     &__input:not(:disabled):checked:hover + &__label::before {
-        border-color: $primary-dark;
+        border-color: vars.$primary-dark;
     }
 
     &__input:not(:disabled):checked:hover + &__label &__ellipse {
@@ -118,21 +120,21 @@ $radio-hover-color: var(--radio-hover-color);
     }
 
     &__input:not(:disabled):checked:active + &__label::before {
-        border-color: $primary-light;
+        border-color: vars.$primary-light;
     }
 
     &__input:not(:disabled):checked:active + &__label &__ellipse {
         opacity: 1;
-        background-color: $primary-light;
+        background-color: vars.$primary-light;
     }
 
     &__input:disabled + &__label {
         cursor: not-allowed;
-        color: $element-placeholder-color;
+        color: vars.$element-placeholder-color;
 
         &::before {
             cursor: not-allowed;
-            background-color: $element-background-color-disabled;
+            background-color: vars.$element-background-color-disabled;
         }
     }
 
@@ -140,19 +142,19 @@ $radio-hover-color: var(--radio-hover-color);
         cursor: not-allowed;
 
         background-color: transparent;
-        border-color: $element-background-color-disabled;
+        border-color: vars.$element-background-color-disabled;
     }
 
     &__input:disabled:checked + &__label &__ellipse {
-        background-color: $element-background-color-disabled;
+        background-color: vars.$element-background-color-disabled;
     }
 
     &_hasError {
         #{$root}__input:not(:disabled):not(:checked) + #{$root}__label {
-            color: $danger;
+            color: vars.$danger;
 
             &::before {
-                border-color: $danger;
+                border-color: vars.$danger;
             }
         }
     }
@@ -160,7 +162,7 @@ $radio-hover-color: var(--radio-hover-color);
     &_size {
         &_lg {
             #{$root}__label {
-                font-size: $font-size-lg;
+                font-size: vars.$font-size-lg;
                 line-height: 24px;
 
                 &::before {
@@ -177,7 +179,7 @@ $radio-hover-color: var(--radio-hover-color);
 
         &_md {
             #{$root}__label {
-                font-size: $font-size-base;
+                font-size: vars.$font-size-base;
                 line-height: 22px;
 
                 &::before {
@@ -201,7 +203,7 @@ $radio-hover-color: var(--radio-hover-color);
 
         &_sm {
             #{$root}__label {
-                font-size: $font-size-sm;
+                font-size: vars.$font-size-sm;
                 line-height: 18px;
 
                 &::before {

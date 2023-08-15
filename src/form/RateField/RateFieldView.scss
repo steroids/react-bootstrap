@@ -1,5 +1,8 @@
+@use "sass:map";
+@use "../../scss/variables" as vars;
+
 $ratefield-sizes: () !default;
-$ratefield-sizes: map-merge(
+$ratefield-sizes: map.merge(
     (
         "sm": (
             "size": 18px,
@@ -17,7 +20,7 @@ $ratefield-sizes: map-merge(
             "size": 24px,
             "badge-gap": 16px,
             "badge-paddings": 4px 8px,
-            "badge-radius": $radius-small,
+            "badge-radius": vars.$radius-small,
         ),
     ),
     $ratefield-sizes
@@ -53,7 +56,7 @@ $ratefield-sizes: map-merge(
 
                 #{$root}__rate-icon {
                     path {
-                        fill: $primary;
+                        fill: vars.$primary;
                     }
                 }
             }
@@ -75,17 +78,17 @@ $ratefield-sizes: map-merge(
     &__rate-icon {
         &.IconView svg {
             path {
-                fill: $gray;
+                fill: vars.$gray;
             }
         }
     }
 
     &__badge {
         display: block;
-        background-color: $primary;
-        color: $white;
-        font-size: $font-size-xs;
-        line-height: $line-height-xs;
+        background-color: vars.$primary;
+        color: vars.$white;
+        font-size: vars.$font-size-xs;
+        line-height: vars.$line-height-xs;
     }
 
     &_size {
@@ -93,21 +96,21 @@ $ratefield-sizes: map-merge(
             &_#{$size} {
                 #{$root}__rate-icon {
                     &.IconView svg {
-                        width: map-get($sizeMap, size);
-                        height: map-get($sizeMap, size);
+                        width: map.get($sizeMap, size);
+                        height: map.get($sizeMap, size);
                     }
                 }
 
                 #{$root}__rate-value-first,
                 #{$root}__rate-value-second {
-                    width: map-get($sizeMap, size);
-                    height: map-get($sizeMap, size);
+                    width: map.get($sizeMap, size);
+                    height: map.get($sizeMap, size);
                 }
 
                 #{$root}__badge {
-                    margin-left: map-get($sizeMap, badge-gap);
-                    padding: map-get($sizeMap, badge-paddings);
-                    border-radius: map-get($sizeMap, badge-radius);
+                    margin-left: map.get($sizeMap, badge-gap);
+                    padding: map.get($sizeMap, badge-paddings);
+                    border-radius: map.get($sizeMap, badge-radius);
                 }
             }
         }
@@ -122,7 +125,7 @@ $ratefield-sizes: map-merge(
         #{$root}__rate-icon {
             &.IconView svg {
                 path {
-                    fill: $light-gray;
+                    fill: vars.$light-gray;
                 }
             }
         }

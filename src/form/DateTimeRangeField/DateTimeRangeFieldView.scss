@@ -1,9 +1,14 @@
+@use "sass:map";
+@use "../../scss/variables" as vars;
+@use '../../scss/mixins';
+
+
 .DateTimeRangeFieldView {
     $root: &;
 
-    @include icon-container($root);
+    @include mixins.icon-container($root);
 
-    @include date-range-body($root);
+    @include mixins.date-range-body($root);
 
     &__body {
         > * {
@@ -14,12 +19,12 @@
     }
 
     &_size {
-        @each $size, $size-map in $date-sizes {
+        @each $size, $size-map in mixins.$date-sizes {
             &_#{$size} {
                 #{$root}__body {
                     #{$root}__input {
                         &:nth-child(1) {
-                            width: calc(map-get($size-map, first-input-width) + 60px);
+                            width: calc(map.get($size-map, first-input-width) + 60px);
                         }
                     }
                 }
@@ -27,16 +32,16 @@
         }
     }
 
-    @include date-range-input();
+    @include mixins.date-range-input();
 
-    @include date-range-sizes($root);
+    @include mixins.date-range-sizes($root);
 
-    @include date-range-effects($root);
+    @include mixins.date-range-effects($root);
 
-    @include date-time-panel($root);
+    @include mixins.date-time-panel($root);
 
     &__dropdown { 
-        @include calendar-border();
-        background-color: $element-background-color;
+        @include mixins.calendar-border();
+        background-color: vars.$element-background-color;
     }
 }

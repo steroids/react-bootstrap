@@ -1,9 +1,11 @@
-:root { 
-    --modal-background-color:  #FFFFFF;
+@use "../../scss/variables" as vars;
+
+:root {
+    --modal-background-color: #ffffff;
 }
 
 html[data-theme="dark"] {
-    --modal-background-color:  #272A37;
+    --modal-background-color: #272a37;
 }
 
 $modal-background-color: var(--modal-background-color);
@@ -29,15 +31,15 @@ $modal-background-color: var(--modal-background-color);
         margin: auto;
         overflow: visible;
         background-color: $modal-background-color;
-        color: $text-color;
+        color: vars.$text-color;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
         &_size {
             &_lg {
                 border-radius: 16px;
 
-                font-size: $font-size-lg;
-                line-height: $line-height-lg;
+                font-size: vars.$font-size-lg;
+                line-height: vars.$line-height-lg;
 
                 #{$root}__header {
                     padding: 24px;
@@ -47,15 +49,15 @@ $modal-background-color: var(--modal-background-color);
                     padding: 24px;
                 }
 
-                #{$root}__footer { 
+                #{$root}__footer {
                     padding: 24px;
                 }
             }
             &_md {
-                border-radius: $radius-large;
+                border-radius: vars.$radius-large;
 
-                font-size: $font-size-base;
-                line-height: $line-height-base;
+                font-size: vars.$font-size-base;
+                line-height: vars.$line-height-base;
 
                 #{$root}__header {
                     padding: 21px 20px;
@@ -65,15 +67,15 @@ $modal-background-color: var(--modal-background-color);
                     padding: 20px;
                 }
 
-                #{$root}__footer { 
+                #{$root}__footer {
                     padding: 20px;
                 }
             }
             &_sm {
-                border-radius: $radius-small;
+                border-radius: vars.$radius-small;
 
-                font-size: $font-size-sm;
-                line-height: $line-height-sm;
+                font-size: vars.$font-size-sm;
+                line-height: vars.$line-height-sm;
 
                 #{$root}__header {
                     padding: 19px 16px;
@@ -83,7 +85,7 @@ $modal-background-color: var(--modal-background-color);
                     padding: 16px;
                 }
 
-                #{$root}__footer { 
+                #{$root}__footer {
                     padding: 16px;
                 }
             }
@@ -104,7 +106,7 @@ $modal-background-color: var(--modal-background-color);
     &__title {
         font-size: inherit;
         line-height: inherit;
-        font-weight: $font-weight-lg;
+        font-weight: vars.$font-weight-lg;
     }
 
     &__close {
@@ -114,7 +116,7 @@ $modal-background-color: var(--modal-background-color);
 
         svg {
             path {
-                stroke: $text-color;
+                stroke: vars.$text-color;
             }
         }
     }

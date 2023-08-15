@@ -1,6 +1,7 @@
+@use "../../scss/variables" as vars;
 
 .EmptyView {
   text-align: center;
   padding: 20px;
-  color: $text-color;
+  color: vars.$text-color;
 }
