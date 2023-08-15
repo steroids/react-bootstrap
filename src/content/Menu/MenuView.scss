@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --color-icon: #323232;
@@ -31,8 +31,8 @@ $color-icon: var(--color-icon);
 
         svg {
             stroke: $color-icon;
-            width: vars.$icon-size-lg;
-            height: vars.$icon-size-lg;
+            width: variables.$icon-size-lg;
+            height: variables.$icon-size-lg;
         }
 
         svg rect {

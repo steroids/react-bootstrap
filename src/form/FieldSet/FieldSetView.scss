@@ -1,5 +1,5 @@
 
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --legend-color: #152536;
@@ -19,7 +19,7 @@ $fieldset-border-color: var(--fieldset-border-color);
     border-radius: 8px;
 
     &__legend {
-        background-color: vars.$background-color;
+        background-color: variables.$background-color;
         color: $legend-color;
 
         padding: 8px;

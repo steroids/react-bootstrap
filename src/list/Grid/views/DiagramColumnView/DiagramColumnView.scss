@@ -1,4 +1,4 @@
-@use "../../../../scss/variables" as vars;
+@use "../../../../scss/variables";
 
 .DiagramColumnView {
     $root: &;
@@ -40,10 +40,10 @@
     }
 
     &__diagram {
-        font-weight: vars.$font-weight-lg;
-        font-size: vars.$font-size-xs;
-        line-height: vars.$line-height-xs;
-        color: vars.$text-color;
+        font-weight: variables.$font-weight-lg;
+        font-size: variables.$font-size-xs;
+        line-height: variables.$line-height-xs;
+        color: variables.$text-color;
         width: 100%;
     }
 
@@ -66,7 +66,7 @@
                 top: 0;
 
                 &_color {
-                    @each $color, $color-map in vars.$diagram-colors {
+                    @each $color, $color-map in variables.$diagram-colors {
                         &_#{$color} {
                             background-color: map-get($color-map, color-themed);
                             border-right: 1px solid map-get($color-map, color);
@@ -105,7 +105,7 @@
                 bottom: 0;
 
                 &_color {
-                    @each $color, $color-map in vars.$diagram-colors {
+                    @each $color, $color-map in variables.$diagram-colors {
                         &_#{$color} {
                             background-color: map-get($color-map, color-themed);
                             border-top: 1px solid map-get($color-map, color);
@@ -133,10 +133,10 @@
             #{$root}__subtitle {
                 margin: 0 auto;
 
-                font-weight: vars.$font-weight-sm;
-                font-size: vars.$font-size-base;
-                line-height: vars.$line-height-base;
-                color: vars.$element-placeholder-color;
+                font-weight: variables.$font-weight-sm;
+                font-size: variables.$font-size-base;
+                line-height: variables.$line-height-base;
+                color: variables.$element-placeholder-color;
             }
         }
 
@@ -150,7 +150,7 @@
                 border-radius: 100%;
 
                 &_color {
-                    @each $color, $color-map in vars.$diagram-colors {
+                    @each $color, $color-map in variables.$diagram-colors {
                         &_#{$color} {
                             border: 2px solid map-get($color-map, color);
                         }

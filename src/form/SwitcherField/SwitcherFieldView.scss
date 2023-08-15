@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --switcher-dot-disabled-color: #dbe2e6;
@@ -40,8 +40,8 @@ $background-color-transition-timing: 150ms;
                     "dotSize": 18px,
                     "dotTranslateDefault": translateY(-50%) translateX(4px),
                     "dotTranslateActive": translateY(-50%) translateX(16px),
-                    "font-size": vars.$font-size-lg,
-                    "line-height": vars.$line-height-lg,
+                    "font-size": variables.$font-size-lg,
+                    "line-height": variables.$line-height-lg,
                 ),
                 "md": (
                     "width": 34px,
@@ -49,8 +49,8 @@ $background-color-transition-timing: 150ms;
                     "dotSize": 14px,
                     "dotTranslateDefault": translateY(-50%) translateX(3px),
                     "dotTranslateActive": translateY(-50%) translateX(15px),
-                    "font-size": vars.$font-size-base,
-                    "line-height": vars.$line-height-base,
+                    "font-size": variables.$font-size-base,
+                    "line-height": variables.$line-height-base,
                 ),
                 "sm": (
                     "width": 28px,
@@ -58,8 +58,8 @@ $background-color-transition-timing: 150ms;
                     "dotSize": 12px,
                     "dotTranslateDefault": translateY(-50%) translateX(2px),
                     "dotTranslateActive": translateY(-50%) translateX(12px),
-                    "font-size": vars.$font-size-sm,
-                    "line-height": vars.$line-height-sm,
+                    "font-size": variables.$font-size-sm,
+                    "line-height": variables.$line-height-sm,
                 ),
             ),
             $sizes
@@ -105,26 +105,26 @@ $background-color-transition-timing: 150ms;
         bottom: 0;
 
         &:checked + #{$root}__slider {
-            background-color: vars.$primary;
+            background-color: variables.$primary;
             border-color: transparent;
 
             &::before {
-                background-color: vars.$white;
+                background-color: variables.$white;
             }
 
             &::after {
-                border-color: vars.$primary-light;
+                border-color: variables.$primary-light;
             }
         }
 
         &:hover:not(:checked):not(:disabled) + #{$root}__slider {
             &::before {
-                background-color: vars.$gray-dark;
+                background-color: variables.$gray-dark;
             }
         }
 
         &:checked:hover + #{$root}__slider {
-            background-color: vars.$primary-dark;
+            background-color: variables.$primary-dark;
         }
 
         &:focus:not(:active) + #{$root}__slider {
@@ -138,7 +138,7 @@ $background-color-transition-timing: 150ms;
         }
 
         &:disabled ~ #{$root}__label {
-            color: vars.$gray;
+            color: variables.$gray;
         }
 
         &:disabled + #{$root}__slider {
@@ -155,7 +155,7 @@ $background-color-transition-timing: 150ms;
         height: 100%;
         position: relative;
         display: inline-block;
-        border: 1px solid vars.$gray;
+        border: 1px solid variables.$gray;
         border-radius: 200px;
         transition: background-color $background-color-transition-timing ease-in-out;
 
@@ -170,7 +170,7 @@ $background-color-transition-timing: 150ms;
             height: calc(100% + 2px);
             width: calc(100% + 2px);
             border-radius: inherit;
-            border: 4px solid vars.$gray;
+            border: 4px solid variables.$gray;
             transform: translateX(-5px) translateY(-5px);
             opacity: 0;
             pointer-events: none;
@@ -181,13 +181,13 @@ $background-color-transition-timing: 150ms;
             content: "";
             display: inline-block;
             top: 50%;
-            border-radius: vars.$radius-circle;
-            background-color: vars.$gray;
+            border-radius: variables.$radius-circle;
+            background-color: variables.$gray;
             transition: transform 100ms ease-in-out, background-color $background-color-transition-timing ease-in-out;
         }
     }
 
     &__label {
-        color: vars.$text-color;
+        color: variables.$text-color;
     }
 }

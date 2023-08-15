@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --text-field-disabled-clear-color: #e5e9eb;
@@ -22,11 +22,11 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
     $root: &;
 
     position: relative;
-    font-family: vars.$font-family-nunito;
+    font-family: variables.$font-family-nunito;
 
     &_hasErrors {
         #{$root}__textarea {
-            border-color: vars.$danger;
+            border-color: variables.$danger;
         }
     }
 
@@ -44,7 +44,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
 
         svg {
             path {
-                stroke: vars.$element-background-color-disabled;
+                stroke: variables.$element-background-color-disabled;
                 stroke-width: 1.5px;
             }
         }
@@ -60,43 +60,43 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         min-height: 80px;
         height: 80px;
 
-        border-radius: vars.$radius-small;
-        background-color: vars.$element-field-background-color;
+        border-radius: variables.$radius-small;
+        background-color: variables.$element-field-background-color;
 
         padding: 5px 40px 8px 8px;
 
-        font-size: vars.$font-size-sm;
+        font-size: variables.$font-size-sm;
         font-weight: 400;
         line-height: 24px;
         z-index: 2;
         outline: none;
-        color: vars.$text-color;
-        border: 1px solid vars.$element-border-color;
+        color: variables.$text-color;
+        border: 1px solid variables.$element-border-color;
 
         &::placeholder {
-            color: vars.$element-placeholder-color;
+            color: variables.$element-placeholder-color;
         }
 
         &:hover {
-            border-color: vars.$element-border-color-hover;
+            border-color: variables.$element-border-color-hover;
         }
 
         &:focus {
-            border: 4px solid vars.$primary-light;
+            border: 4px solid variables.$primary-light;
         }
 
         &:active {
-            border: 1px solid vars.$primary;
+            border: 1px solid variables.$primary;
         }
 
         &:disabled {
-            background-color: vars.$element-background-color-disabled;
+            background-color: variables.$element-background-color-disabled;
             border: none;
             resize: none;
         }
 
         &:disabled::placeholder {
-            color: vars.$element-placeholder-color-disabled;
+            color: variables.$element-placeholder-color-disabled;
         }
 
         &:disabled + #{$root}__clear {
@@ -117,8 +117,8 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
             #{$root}__textarea {
                 height: 130px;
                 min-height: 130px;
-                border-radius: vars.$radius-large;
-                font-size: vars.$font-size-lg;
+                border-radius: variables.$radius-large;
+                font-size: variables.$font-size-lg;
             }
         }
 
@@ -126,16 +126,16 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
             #{$root}__textarea {
                 height: 100px;
                 min-height: 100px;
-                border-radius: vars.$radius-large;
-                font-size: vars.$font-size-base;
+                border-radius: variables.$radius-large;
+                font-size: variables.$font-size-base;
             }
         }
 
         &_sm {
             #{$root}__textarea {
                 height: 80px;
-                border-radius: vars.$radius-small;
-                font-size: vars.$font-size-sm;
+                border-radius: variables.$radius-small;
+                font-size: variables.$font-size-sm;
             }
         }
     }

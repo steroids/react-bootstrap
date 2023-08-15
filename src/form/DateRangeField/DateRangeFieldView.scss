@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 @use '../../scss/mixins';
 
 :root {
@@ -22,7 +22,7 @@ $date-range-separator-color: var(--date-range-separator-color);
     @include mixins.date-range-sizes($root);
 
     &__split {
-        background: vars.$element-background-color;
+        background: variables.$element-background-color;
         @include mixins.calendar-border();
 
         .DayPicker-Months {

@@ -1,11 +1,11 @@
-@use "../../../scss/variables" as vars;
+@use "../../../scss/variables";
 
 .SidebarLogo {
     padding: 19px 12px 8px 12px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    border-bottom: 1px solid vars.$element-border-color;
+    border-bottom: 1px solid variables.$element-border-color;
 
     &__left {
         display: flex;
@@ -18,10 +18,10 @@
     }
 
     &__label {
-        font-size: vars.$font-size-base;
-        font-weight: vars.$font-weight-lg;
-        line-height: vars.$line-height-base;
-        color: vars.$sidebar-label-color;
+        font-size: variables.$font-size-base;
+        font-weight: variables.$font-weight-lg;
+        line-height: variables.$line-height-base;
+        color: variables.$sidebar-label-color;
         opacity: 0;
         transition: opacity 150ms ease-in-out;
 
@@ -46,7 +46,7 @@
         transition: opacity 150ms ease-in-out;
 
         svg path, rect, circle { 
-            stroke: vars.$icon-color;
+            stroke: variables.$icon-color;
         }
     }
 }

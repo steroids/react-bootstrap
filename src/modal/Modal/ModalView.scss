@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --modal-background-color: #ffffff;
@@ -31,15 +31,15 @@ $modal-background-color: var(--modal-background-color);
         margin: auto;
         overflow: visible;
         background-color: $modal-background-color;
-        color: vars.$text-color;
+        color: variables.$text-color;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 
         &_size {
             &_lg {
                 border-radius: 16px;
 
-                font-size: vars.$font-size-lg;
-                line-height: vars.$line-height-lg;
+                font-size: variables.$font-size-lg;
+                line-height: variables.$line-height-lg;
 
                 #{$root}__header {
                     padding: 24px;
@@ -54,10 +54,10 @@ $modal-background-color: var(--modal-background-color);
                 }
             }
             &_md {
-                border-radius: vars.$radius-large;
+                border-radius: variables.$radius-large;
 
-                font-size: vars.$font-size-base;
-                line-height: vars.$line-height-base;
+                font-size: variables.$font-size-base;
+                line-height: variables.$line-height-base;
 
                 #{$root}__header {
                     padding: 21px 20px;
@@ -72,10 +72,10 @@ $modal-background-color: var(--modal-background-color);
                 }
             }
             &_sm {
-                border-radius: vars.$radius-small;
+                border-radius: variables.$radius-small;
 
-                font-size: vars.$font-size-sm;
-                line-height: vars.$line-height-sm;
+                font-size: variables.$font-size-sm;
+                line-height: variables.$line-height-sm;
 
                 #{$root}__header {
                     padding: 19px 16px;
@@ -106,7 +106,7 @@ $modal-background-color: var(--modal-background-color);
     &__title {
         font-size: inherit;
         line-height: inherit;
-        font-weight: vars.$font-weight-lg;
+        font-weight: variables.$font-weight-lg;
     }
 
     &__close {
@@ -116,7 +116,7 @@ $modal-background-color: var(--modal-background-color);
 
         svg {
             path {
-                stroke: vars.$text-color;
+                stroke: variables.$text-color;
             }
         }
     }

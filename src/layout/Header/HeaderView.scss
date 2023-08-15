@@ -1,11 +1,11 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 .HeaderView {
     width: 1000px;
     display: flex;
     align-items: center;
-    background-color: vars.$element-background-color;
-    border-bottom: 1px solid vars.$element-placeholder-color-disabled;
+    background-color: variables.$element-background-color;
+    border-bottom: 1px solid variables.$element-placeholder-color-disabled;
     position: relative;
 
     &_size {
@@ -36,10 +36,10 @@
         }
 
         &-title {
-            color: vars.$text-color;
-            font-weight: vars.$font-weight-lg;
-            font-size: vars.$font-size-base;
-            line-height: vars.$line-height-base;
+            color: variables.$text-color;
+            font-weight: variables.$font-weight-lg;
+            font-size: variables.$font-size-base;
+            line-height: variables.$line-height-base;
         }
     }
 
@@ -66,9 +66,9 @@
 
         &-name.TextView_type_body {
             margin: 0;
-            font-weight: vars.$font-weight-lg;
-            font-size: vars.$font-size-base;
-            line-height: vars.$line-height-base;
+            font-weight: variables.$font-weight-lg;
+            font-size: variables.$font-size-base;
+            line-height: variables.$line-height-base;
 
             @media (max-width: 360px) {
                 display: none;
@@ -98,7 +98,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: vars.$white;
+            background-color: variables.$white;
             opacity: 0;
             pointer-events: none;
             transition: opacity 150ms ease-in-out;
@@ -108,7 +108,7 @@
                 pointer-events: all;
             }
             .ButtonView__text {
-                color: vars.$element-placeholder-color;
+                color: variables.$element-placeholder-color;
             }
         }
 
@@ -116,7 +116,7 @@
             width: 24px;
             height: 24px;
             svg path {
-                stroke: vars.$icon-color;
+                stroke: variables.$icon-color;
             }
         }
 
@@ -126,7 +126,7 @@
             display: flex;
             row-gap: 16px;
             align-items: flex-start;
-            background-color: vars.$element-background-color;
+            background-color: variables.$element-background-color;
         }
     }
 

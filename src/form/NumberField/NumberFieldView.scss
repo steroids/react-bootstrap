@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --number-field-arrow-color: #414141;
@@ -16,7 +16,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
     position: relative;
     padding: 0;
 
-    font-family: vars.$font-family-nunito;
+    font-family: variables.$font-family-nunito;
 
     // Hide default arrows
     /* Chrome, Safari, Edge, Opera */
@@ -68,7 +68,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
                 cursor: not-allowed;
             }
             span > svg > path {
-                stroke: vars.$element-background-color-disabled;
+                stroke: variables.$element-background-color-disabled;
             }
         }
 
@@ -82,11 +82,11 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 56px;
-                    border-radius: vars.$radius-large;
-                    font-size: vars.$font-size-lg;
+                    border-radius: variables.$radius-large;
+                    font-size: variables.$font-size-lg;
 
                     &-effects {
-                        border-radius: vars.$radius-large;
+                        border-radius: variables.$radius-large;
                     }
                 }
 
@@ -104,11 +104,11 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 46px;
-                    border-radius: vars.$radius-large;
-                    font-size: vars.$font-size-base;
+                    border-radius: variables.$radius-large;
+                    font-size: variables.$font-size-base;
 
                     &-effects {
-                        border-radius: vars.$radius-large;
+                        border-radius: variables.$radius-large;
                     }
                 }
 
@@ -126,10 +126,10 @@ $number-field-arrow-color: var(--number-field-arrow-color);
             #{$root} {
                 &__input {
                     height: 34px;
-                    font-size: vars.$font-size-sm;
+                    font-size: variables.$font-size-sm;
 
                     &-effects {
-                        border-radius: vars.$radius-small;
+                        border-radius: variables.$radius-small;
                     }
                 }
 
@@ -147,31 +147,31 @@ $number-field-arrow-color: var(--number-field-arrow-color);
     &__input {
         width: 100%;
         outline: none;
-        border: 1px solid vars.$element-border-color;
-        border-radius: vars.$radius-small;
+        border: 1px solid variables.$element-border-color;
+        border-radius: variables.$radius-small;
         padding: 5px 22px 5px 8px;
         line-height: 24px;
         z-index: 1;
-        font-weight: vars.$font-weight-sm;
-        color: vars.$text-color;
+        font-weight: variables.$font-weight-sm;
+        color: variables.$text-color;
 
-        background-color: vars.$element-field-background-color;
+        background-color: variables.$element-field-background-color;
 
         &::placeholder {
-            color: vars.$element-placeholder-color;
+            color: variables.$element-placeholder-color;
         }
 
         &:disabled {
-            background-color: vars.$element-background-color-disabled;
-            color: vars.$element-placeholder-color-disabled;
+            background-color: variables.$element-background-color-disabled;
+            color: variables.$element-placeholder-color-disabled;
         }
 
         &:hover:not(:disabled):not(:focus) {
-            border-color: vars.$element-border-color-hover;
+            border-color: variables.$element-border-color-hover;
         }
 
         &:active:not(:disabled) {
-            border: 1px solid vars.$primary;
+            border: 1px solid variables.$primary;
         }
     }
 
@@ -190,7 +190,7 @@ $number-field-arrow-color: var(--number-field-arrow-color);
         width: 100%;
         height: 100%;
         background-color: transparent;
-        border: 4px solid vars.$primary-light;
+        border: 4px solid variables.$primary-light;
         opacity: 0;
         pointer-events: none;
     }

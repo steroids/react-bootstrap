@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --detail-background-color-value: $white;
@@ -14,7 +14,7 @@ $detail-background-color-value: var(--detail-background-color-value);
 $detail-background-color-label: var(--detail-background-color-label);
 
 .DetailView {
-    font-family: vars.$font-family-nunito;
+    font-family: variables.$font-family-nunito;
 
     &__header {
         display: flex;
@@ -24,10 +24,10 @@ $detail-background-color-label: var(--detail-background-color-label);
     }
 
     &__title {
-        color: vars.$black-30;
+        color: variables.$black-30;
         font-size: 56px;
         line-height: 56px;
-        font-weight: vars.$font-weight-lg;
+        font-weight: variables.$font-weight-lg;
     }
 
     &__controls {
@@ -37,7 +37,7 @@ $detail-background-color-label: var(--detail-background-color-label);
     &__table-container {
         display: flex;
         border-radius: 10px;
-        border: 1px solid vars.$gray;
+        border: 1px solid variables.$gray;
         overflow: hidden;
     }
 
@@ -51,33 +51,33 @@ $detail-background-color-label: var(--detail-background-color-label);
     }
 
     &__row:not(:last-child) {
-        border-bottom: 1px solid vars.$gray;
+        border-bottom: 1px solid variables.$gray;
     }
 
     &__label,
     &__value {
         &:not(:last-child) {
-            border-right: 1px solid vars.$gray;
+            border-right: 1px solid variables.$gray;
         }
 
         padding: 12px;
 
-        font-weight: vars.$font-weight-md;
-        font-size: vars.$font-size-sm;
+        font-weight: variables.$font-weight-md;
+        font-size: variables.$font-size-sm;
         line-height: 18px;
-        color: vars.$text-color;
+        color: variables.$text-color;
         background-color: $detail-background-color-value;
         text-align: start;
 
         &_size_md {
             padding: 16px 12px;
-            font-size: vars.$font-size-base;
+            font-size: variables.$font-size-base;
             line-height: 22px;
         }
 
         &_size_lg {
             padding: 18px 12px;
-            font-size: vars.$font-size-lg;
+            font-size: variables.$font-size-lg;
             line-height: 24px;
         }
     }

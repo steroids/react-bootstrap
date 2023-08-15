@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 @use '../../scss/mixins';
 
 .TimeRangeFieldView {
@@ -40,7 +40,7 @@
     @include mixins.date-time-panel($root);
 
     &__dropdown { 
-        background-color: vars.$element-background-color;
+        background-color: variables.$element-background-color;
 
         display: flex;
     }

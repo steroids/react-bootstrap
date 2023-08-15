@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --sidebar-text-color: #00000099;
@@ -49,7 +49,7 @@ $sidebar-badge-border-color: var(--sidebar-badge-border-color);
     padding: 8px;
     max-width: 72px;
     transition: max-width 250ms ease-in-out;
-    background-color: vars.$element-background-color;
+    background-color: variables.$element-background-color;
 
     &__header {
         margin-bottom: 80px;
@@ -57,9 +57,9 @@ $sidebar-badge-border-color: var(--sidebar-badge-border-color);
 
     .ButtonView .ButtonView__link .ButtonView__text {
         color: $sidebar-text-color;
-        font-size: vars.$font-size-sm;
-        font-weight: vars.$font-weight-sm;
-        line-height: vars.$line-height-sm;
+        font-size: variables.$font-size-sm;
+        font-weight: variables.$font-weight-sm;
+        line-height: variables.$line-height-sm;
         transition: color 150ms ease-in-out;
         opacity: 0;
     }
@@ -94,12 +94,12 @@ $sidebar-badge-border-color: var(--sidebar-badge-border-color);
             &-item {
                 position: relative;
                 width: 100%;
-                border-radius: vars.$radius-large;
+                border-radius: variables.$radius-large;
 
                 svg path,
                 rect,
                 circle {
-                    stroke: vars.$icon-color;
+                    stroke: variables.$icon-color;
                 }
 
                 transition: background-color 150ms ease-in-out;
@@ -243,7 +243,7 @@ $sidebar-badge-border-color: var(--sidebar-badge-border-color);
     }
 
     &__footer {
-        border-top: 1px solid vars.$element-border-color;
+        border-top: 1px solid variables.$element-border-color;
     }
 
     &__trigger {

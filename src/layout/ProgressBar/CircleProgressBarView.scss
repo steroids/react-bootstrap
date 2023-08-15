@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 .CircleProgressBarView{
   $root: &;
@@ -86,31 +86,31 @@
   &_status{
     &_success{
       #{$root}__progressCircle{
-        stroke: vars.$success;
+        stroke: variables.$success;
       }
 
       #{$root}__content{
         svg{
-          fill: vars.$success;
+          fill: variables.$success;
         }
       }
     }
 
     &_exception{
       #{$root}__progressCircle{
-        stroke: vars.$danger;
+        stroke: variables.$danger;
       }
 
       #{$root}__content{
         svg{
-          fill: vars.$danger;
+          fill: variables.$danger;
         }
       }
     }
 
     &_normal{
       #{$root}__progressCircle{
-        stroke: vars.$primary;
+        stroke: variables.$primary;
       }
     }
   }
@@ -125,7 +125,7 @@
 
 
     #{$root}__emptyCircle{
-      stroke: vars.$back-disabled;
+      stroke: variables.$back-disabled;
       stroke-dashoffset: 0;
     }
 
@@ -144,7 +144,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: vars.$secondary-dark;
+    color: variables.$secondary-dark;
     font-weight: bold;
     transform: rotate(90deg);
   }

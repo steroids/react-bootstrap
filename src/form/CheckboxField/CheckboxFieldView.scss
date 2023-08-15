@@ -1,4 +1,4 @@
-@use "../../scss/variables" as vars;
+@use "../../scss/variables";
 
 :root {
     --disabled-text-color: rgba(0, 0, 0, 0.3);
@@ -15,7 +15,7 @@ $disabled-text-color: var(--disabled-text-color);
 
     display: inline-flex;
 
-    font-family: vars.$font-family-nunito;
+    font-family: variables.$font-family-nunito;
 
     &__input + &__label {
         display: inline-flex;
@@ -36,8 +36,8 @@ $disabled-text-color: var(--disabled-text-color);
             flex-shrink: 0;
             flex-grow: 0;
 
-            border: 1px solid vars.$gray;
-            border-radius: vars.$radius-small;
+            border: 1px solid variables.$gray;
+            border-radius: variables.$radius-small;
 
             background-repeat: no-repeat;
             background-position: center center;
@@ -58,15 +58,15 @@ $disabled-text-color: var(--disabled-text-color);
             transition: opacity 150ms ease-in-out;
             opacity: 0;
 
-            border-radius: vars.$radius-large;
-            border: 4px solid vars.$primary-light;
+            border-radius: variables.$radius-large;
+            border: 4px solid variables.$primary-light;
         }
 
         &-text {
             margin-left: 8px;
-            color: vars.$text-color;
-            font-size: vars.$font-size-sm;
-            font-weight: vars.$font-weight-md;
+            color: variables.$text-color;
+            font-size: variables.$font-size-sm;
+            font-weight: variables.$font-weight-md;
             transform: translateY(1px);
         }
     }
@@ -83,7 +83,7 @@ $disabled-text-color: var(--disabled-text-color);
 
         //ACTIVE
         &:not(:disabled):not(:checked):active + #{$root}__label::before {
-            border-color: vars.$primary;
+            border-color: variables.$primary;
         }
 
         &:active:checked + #{$root}__label::after {
@@ -91,7 +91,7 @@ $disabled-text-color: var(--disabled-text-color);
         }
 
         &:checked:active + #{$root}__label::before {
-            background-color: vars.$primary-light;
+            background-color: variables.$primary-light;
             border-color: transparent;
         }
 
@@ -102,8 +102,8 @@ $disabled-text-color: var(--disabled-text-color);
 
         //CHECKED
         &:checked + #{$root}__label::before {
-            border-color: vars.$primary;
-            background-color: vars.$primary;
+            border-color: variables.$primary;
+            background-color: variables.$primary;
             background-image: url("data:image/svg+xml,%3Csvg width='11' height='8' viewBox='0 0 11 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.20898 1L3.70898 7L1.20898 4.27273' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
 
@@ -115,13 +115,13 @@ $disabled-text-color: var(--disabled-text-color);
             }
 
             &::before {
-                background: vars.$element-background-color-disabled;
+                background: variables.$element-background-color-disabled;
                 border: none;
             }
         }
 
         &:disabled:checked #{$root}__label::before {
-            background-color: vars.$element-background-color-disabled;
+            background-color: variables.$element-background-color-disabled;
             border-color: none;
             background-image: url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.8584 1.48401L4.3584 7.48401L1.8584 4.75674' stroke='black' stroke-opacity='0.1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
@@ -133,17 +133,17 @@ $disabled-text-color: var(--disabled-text-color);
                 &::before {
                     width: 24px;
                     height: 24px;
-                    border-radius: vars.$radius-small;
+                    border-radius: variables.$radius-small;
                 }
                 &::after {
                     width: 26px;
                     height: 26px;
-                    border-radius: vars.$radius-large;
+                    border-radius: variables.$radius-large;
                 }
 
                 &-text {
                     margin-left: 12px;
-                    font-size: vars.$font-size-lg;
+                    font-size: variables.$font-size-lg;
                     line-height: 24px;
                 }
             }
@@ -160,13 +160,13 @@ $disabled-text-color: var(--disabled-text-color);
                 &::after {
                     width: 22px;
                     height: 22px;
-                    border-radius: vars.$radius-medium;
+                    border-radius: variables.$radius-medium;
                     transform: translate(-13.5%, -13.5%);
                 }
 
                 &-text {
                     margin-left: 8px;
-                    font-size: vars.$font-size-base;
+                    font-size: variables.$font-size-base;
                     line-height: 22px;
                 }
             }
@@ -183,13 +183,13 @@ $disabled-text-color: var(--disabled-text-color);
                 &::after {
                     width: 18px;
                     height: 18px;
-                    border-radius: vars.$radius-medium;
+                    border-radius: variables.$radius-medium;
                     transform: translate(-15.5%, -15.5%);
                 }
 
                 &-text {
                     margin-left: 8px;
-                    font-size: vars.$font-size-sm;
+                    font-size: variables.$font-size-sm;
                     line-height: 18px;
                 }
             }
@@ -198,10 +198,10 @@ $disabled-text-color: var(--disabled-text-color);
 }
 .has-errors label {
     &::before {
-        border-color: vars.$danger;
+        border-color: variables.$danger;
     }
 
     span {
-        color: vars.$danger;
+        color: variables.$danger;
     }
 }
