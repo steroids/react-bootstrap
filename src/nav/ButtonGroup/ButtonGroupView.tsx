@@ -20,7 +20,10 @@ export default function ButtonGroupView(props: IButtonGroupViewProps) {
                 const isActive = props.activeButton === item.id;
 
                 return (
-                    <li key={index}>
+                    <li
+                        key={index}
+                        className={item.className ? item.className as string : null}
+                    >
                         <Button
                             className={bem.element('button', {
                                 default: !isActive,
