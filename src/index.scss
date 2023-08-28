@@ -1,5 +1,4 @@
 @use "sass:meta";
-@use '~@splidejs/splide/dist/css/splide.min.css';
 
 @include meta.load-css('scss/normalize');
 @include meta.load-css('scss/animations');

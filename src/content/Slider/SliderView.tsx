@@ -4,6 +4,8 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import {Splide, SplideSlide} from '@splidejs/react-splide';
 import {ISliderViewProps} from '@steroidsjs/core/ui/content/Slider/Slider';
 
+import '@splidejs/splide/dist/css/splide.min.css';
+
 export default function SliderView(props: ISliderViewProps) {
     const bem = useBem('Slider');
 
