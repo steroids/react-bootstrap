@@ -1,56 +1,66 @@
+@use "style/variables";
+
 .NotificationsItemView {
+    overflow: hidden;
+    max-height: 120px;
+    padding: 0;
 
-  overflow: hidden;
-  max-height: 120px;
-  padding: 0;
+    border-width: 0;
 
-  border-width: 0;
+    transition:
+        opacity 0.6s,
+        transform 0.4s,
+        max-height 0.6s 0.4s,
+        margin 0.6s 0.6s;
+    // Styles for React-Transition-Groups
+    ////////////////////////////////////////
+    ///
 
-  transition: opacity .6s, transform .4s,
-  max-height .6s .4s, margin .6s .6s;
-  // Styles for React-Transition-Groups
-  ////////////////////////////////////////
+    // Opacity + Size
+    &_top-right,
+    &_bottom-right,
+    &_top-left,
+    &_bottom-left {
+        &-enter {
+            opacity: 0;
+        }
+        &-enter-active {
+            opacity: 1;
+        }
+        &-exit {
+            opacity: 1;
+        }
+        &-exit-active {
+            opacity: 0;
+            max-height: 0;
+            margin: 0;
+        }
+    }
 
-  // Opacity + Size
-  &_top-right,&_bottom-right,&_top-left,&_bottom-left{
-    &-enter {
-      opacity: 0;
+    // Transform-Translate
+    &_top-right,
+    &_bottom-right {
+        &-enter {
+            transform: translateX(450px);
+        }
+        &-enter-active {
+            transform: translateX(0px);
+        }
+        &-exit-active {
+            transform: translateX(450px);
+        }
     }
-    &-enter-active {
-      opacity: 1;
-    }
-    &-exit {
-      opacity: 1;
-    }
-    &-exit-active {
-      opacity: 0;
-      max-height: 0;
-      margin: 0;
-    }
-  }
 
-  // Transform-Translate
-  &_top-right,&_bottom-right{
-     &-enter {
-       transform: translateX(450px);
-     }
-     &-enter-active {
-       transform: translateX(0px);
-     }
-     &-exit-active {
-       transform: translateX(450px);
-     }
-   }
-
-  &_top-left,&_bottom-left{
-    &-enter {
-      transform: translateX(-450px);
+    &_top-left,
+    &_bottom-left {
+        &-enter {
+            transform: translateX(-450px);
+        }
+        &-enter-active {
+            transform: translateX(0px);
+        }
+        &-exit-active {
+            transform: translateX(-450px);
+        }
     }
-    &-enter-active {
-      transform: translateX(0px);
-    }
-    &-exit-active {
-      transform: translateX(-450px);
-    }
-  }
 }

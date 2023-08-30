@@ -50,6 +50,10 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         border: 1px solid variables.$element-border-color;
         border-radius: inherit;
 
+        white-space: nowrap; /* Запретить перенос текста */
+        overflow: hidden; /* Скрыть содержимое, выходящее за границы ячейки */
+        text-overflow: ellipsis; /* Добавить многоточие, если текст обрезается */
+
         &::placeholder {
             color: variables.$element-placeholder-color;
             font-size: inherit;
@@ -283,8 +287,14 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
     }
 
+    &__text-before,
+    &__text-after { 
+        flex-shrink: 0;
+    }
+
     &__addon-before,
     &__addon-after {
+        flex-shrink: 0;
         padding: 11px 12px;
         background-color: variables.$element-background-color-disabled;
         color: variables.$text-color;

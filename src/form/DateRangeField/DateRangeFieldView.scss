@@ -18,7 +18,6 @@ $date-range-separator-color: var(--date-range-separator-color);
     @include mixins.date-range-body($root);
     @include mixins.icon-container($root);
     @include mixins.date-range-input();
-
     @include mixins.date-range-sizes($root);
 
     &__split {

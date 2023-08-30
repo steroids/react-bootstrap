@@ -1,9 +1,10 @@
 @use "../../scss/variables";
 
 .HeaderView {
-    width: 1000px;
+    width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     background-color: variables.$element-background-color;
     border-bottom: 1px solid variables.$element-placeholder-color-disabled;
     position: relative;
@@ -21,7 +22,6 @@
     }
 
     &__logo {
-        margin-right: 136px;
 
         .ButtonView__text {
             display: flex;
@@ -134,7 +134,6 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        margin-left: auto;
         column-gap: 16px;
     }
 }
