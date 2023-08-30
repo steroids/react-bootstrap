@@ -114,7 +114,7 @@ export default function HeaderView(props: IHeaderViewProps) {
                 />
 
             )}
-            {(props.burgerMenu || props?.authParams || props?.user) && (
+            {(props.burgerMenu || props.authParams || props.user) && (
                 <div className={bem.element('interaction')}>
                     {props?.authParams?.isAuth ? renderAuthBlock() : renderUserBlock()}
                     {props.burgerMenu && renderBurger()}

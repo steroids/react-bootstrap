@@ -39,22 +39,10 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
                     line-height: 24px;
 
                     @media (max-width: 460px) {
-                        padding: 10px 16px;
-                    }
-
-                    @media (max-width: 428px) {
-                        padding: 10px 14px;
-                    }
-
-                    @media (max-width: 392px) {
                         padding: 10px 12px;
                     }
 
                     @media (max-width: 372px) {
-                        padding: 10px 8px;
-                    }
-
-                    @media (max-width: 340px) {
                         padding: 10px 6px;
                     }
 
@@ -97,14 +85,6 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
                     line-height: 24px;
 
                     @media (max-width: 428px) {
-                        padding: 8px 12px;
-                    }
-
-                    @media (max-width: 378px) {
-                        padding: 8px 10px;
-                    }
-
-                    @media (max-width: 340px) {
                         padding: 8px;
                     }
 
