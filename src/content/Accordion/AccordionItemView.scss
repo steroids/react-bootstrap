@@ -101,7 +101,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
 
     background-color: $accordion-content-background;
     height: 56px;
-    width: 480px;
+    width: 100%;
     height: fit-content;
 
     @each $theme, $themeProperties in $accordion-themes {

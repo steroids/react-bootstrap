@@ -23,6 +23,7 @@ $grid-td-background-color: var(--grid-td-background-color);
 $grid-td-alternating-color: var(--grid-td-alternating-color);
 
 .GridView {
+    overflow-x: auto;
     $root: &;
 
     text-align: left;
