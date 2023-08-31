@@ -9,7 +9,7 @@ import CaptionElement from './CaptionElement';
 
 export default function CalendarView(props: ICalendarViewProps) {
     const bem = useBem('CalendarView');
-    const {locale} = useComponents();
+    const {locale: localeComponent} = useComponents();
 
     const {
         month,
@@ -89,7 +89,7 @@ export default function CalendarView(props: ICalendarViewProps) {
             selectedDays={selectedDays}
             numberOfMonths={numberOfMonths}
             localeUtils={MomentLocaleUtils}
-            locale={locale.language}
+            locale={localeComponent.language}
         />
     );
 }
