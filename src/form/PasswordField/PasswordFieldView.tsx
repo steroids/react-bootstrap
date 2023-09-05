@@ -30,9 +30,10 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps) {
                 />
                 {props.showSecurityIcon && (
                     <span
-                        className={bem(bem.element('icon-eye'))}
-                        onMouseDown={props.onShowPassword}
-                        onMouseUp={props.onHidePassword}
+                        className={bem(bem.element('icon-eye', {
+                            view_hide: props.inputProps.type === 'password',
+                        }))}
+                        onClick={props.onShowClick}
                     >
                         <Icon
                             name={props.inputProps.type === 'password' ? 'view_hide' : 'view'}
