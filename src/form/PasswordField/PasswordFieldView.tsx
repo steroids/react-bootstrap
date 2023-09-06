@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {IPasswordFieldViewProps} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
+import {IPasswordFieldViewProps, InputType} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 
@@ -31,9 +31,9 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps) {
                 {props.showSecurityIcon && (
                     <span
                         className={bem(bem.element('icon-eye', {
-                            view_hide: props.inputProps.type === 'password',
+                            viewHide: props.inputProps.type === InputType.PASSWORD,
                         }))}
-                        onClick={props.onShowClick}
+                        onClick={props.onShowButtonClick}
                     >
                         <Icon
                             name={props.inputProps.type === 'password' ? 'view_hide' : 'view'}
