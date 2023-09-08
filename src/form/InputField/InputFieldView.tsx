@@ -58,12 +58,12 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                                 }),
                             )}
                             {...props.inputProps}
-                            onInput={event => props.inputProps.onChange(event, event.currentTarget.value)}
                             type={props.type}
                             placeholder={props.placeholder}
                             disabled={props.disabled}
                             required={props.required}
                             id={props.id}
+                            ref={props.inputRef}
                         />
                     )
                     : (
@@ -79,6 +79,7 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                             disabled={props.disabled}
                             required={props.required}
                             id={props.id}
+                            ref={props.inputRef}
                         />
                     )}
                 {!props.disabled && props.showClear && !props.maskProps && (
