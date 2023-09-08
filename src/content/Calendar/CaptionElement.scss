@@ -1,5 +1,5 @@
 @use "../../scss/variables";
-@use '../../scss/mixins';
+@use "../../scss/mixins";
 
 :root {
     --caption-arrow-background-color: #f1f5f7;
@@ -123,6 +123,7 @@ $separator-background-color: var(--separator-background-color);
         font-weight: variables.$font-weight-lg;
 
         &_months {
+            height: 32px;
             position: relative;
             grid-area: HeaderMonths;
             border-radius: 8px 0px 0px 8px;
@@ -167,7 +168,7 @@ $separator-background-color: var(--separator-background-color);
     }
 
     &__panel-cell {
-        &:first-child{
+        &:first-child {
             margin-top: 10px;
         }
         display: block;

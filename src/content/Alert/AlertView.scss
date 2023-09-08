@@ -68,6 +68,7 @@ $alert-themes: map.merge(
     &__icon {
         width: 24px;
         height: 24px;
+        min-width: 24px;
         margin-right: 12px;
 
         svg {
@@ -79,6 +80,7 @@ $alert-themes: map.merge(
         display: inline-block;
         width: 24px;
         height: 24px;
+        min-width: 24px;
 
         display: flex;
         justify-content: center;
@@ -121,6 +123,7 @@ $alert-themes: map.merge(
         width: 100%;
         display: flex;
         flex-direction: row;
+        align-items: flex-start;
     }
 
     &__description {

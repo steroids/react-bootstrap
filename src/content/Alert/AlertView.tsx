@@ -42,17 +42,15 @@ export default function Alert(props: IAlertViewProps) {
                                 </div>
                             )}
                         </div>
-                        <div>
-                            {props.showClose && (
-                                <Icon
-                                    className={bem.element('icon-close', {
-                                        large: !!props.description,
-                                    })}
-                                    name='circle_cross_16x16'
-                                    onClick={props.onClose}
-                                />
-                            )}
-                        </div>
+                        {props.showClose && (
+                            <Icon
+                                className={bem.element('icon-close', {
+                                    large: !!props.description,
+                                })}
+                                name='circle_cross_16x16'
+                                onClick={props.onClose}
+                            />
+                        )}
                     </div>
                     {props.children || null}
                 </div>

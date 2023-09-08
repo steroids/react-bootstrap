@@ -47,8 +47,19 @@ $calendar-border-color: var(--calendar-border-color);
     }
 
     .DayPicker-WeekdaysRow {
+        width: 100%;
         display: inline-flex;
         column-gap: 16px;
+
+        @media (max-width: 392px) {
+            column-gap: 10px;
+        }
+        @media (max-width: 370px) {
+            column-gap: 6px;
+        }
+        @media (max-width: 334px) {
+            column-gap: 4px;
+        }
     }
 
     .DayPicker-Weekday {
@@ -83,6 +94,16 @@ $calendar-border-color: var(--calendar-border-color);
         width: 100%;
         column-gap: 16px;
 
+        @media (max-width: 392px) {
+            column-gap: 10px;
+        }
+        @media (max-width: 370px) {
+            column-gap: 6px;
+        }
+        @media (max-width: 334px) {
+            column-gap: 4px;
+        }
+
         &--disabled {
             pointer-events: none;
             opacity: 0.5;
@@ -91,6 +112,7 @@ $calendar-border-color: var(--calendar-border-color);
 
     .DayPicker-Day {
         position: relative;
+        flex-shrink: 0;
         padding: 0;
         border-radius: variables.$radius-large;
 

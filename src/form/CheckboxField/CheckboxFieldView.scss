@@ -12,7 +12,7 @@ $disabled-text-color: var(--disabled-text-color);
 
 .CheckboxFieldView {
     $root: &;
-
+    position: relative;
     display: inline-flex;
 
     font-family: variables.$font-family-nunito;

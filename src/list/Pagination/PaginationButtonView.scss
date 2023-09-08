@@ -5,7 +5,7 @@
     --pagination-hover-background-color: $white;
 
     --pagination-arrow-color: #323232;
-    --pagination-background-color-disabled: #F1F5F7;
+    --pagination-background-color-disabled: #f1f5f7;
 }
 
 html[data-theme="dark"] {
@@ -37,6 +37,14 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
                     padding: 12px 18px;
                     font-size: variables.$font-size-lg;
                     line-height: 24px;
+
+                    @media (max-width: 460px) {
+                        padding: 10px 12px;
+                    }
+
+                    @media (max-width: 372px) {
+                        padding: 10px 6px;
+                    }
 
                     &_hasIcon {
                         padding: 12px;
@@ -75,6 +83,10 @@ $pagination-background-color-disabled: var(--pagination-background-color-disable
                     padding: 8px 14px;
                     font-size: variables.$font-size-base;
                     line-height: 24px;
+
+                    @media (max-width: 428px) {
+                        padding: 8px;
+                    }
 
                     &_hasIcon {
                         padding: 8px 11px;

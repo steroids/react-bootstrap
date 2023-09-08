@@ -59,6 +59,7 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
 
     &__item {
         width: 100%;
+        flex-shrink: 0;
         background-color: variables.$element-background-color;
         outline: none;
         border: none;
@@ -107,6 +108,7 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
     &__category {
         background-color: variables.$element-background-color;
         width: 100%;
+        flex-shrink: 0;
 
         &__label {
             display: block;
