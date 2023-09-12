@@ -14,19 +14,18 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
         }))}
         >
             {props.items.map((checkbox, checkboxIndex) => props.renderCheckbox({
+                key: checkboxIndex,
+                id: `${prefix}_${checkbox.id}`,
+                label: checkbox.label,
                 inputProps: {
                     name: `${prefix}_${checkbox.id}`,
-                    checked: null,
                     type: 'checkbox',
-                    disabled: false,
+                    checked: props.selectedIds.includes(checkbox.id),
                     onChange: () => {
                         props.onItemSelect(checkbox.id);
                     },
+                    disabled: props.disabled,
                 },
-                disabled: props.disabled,
-                label: checkbox.label,
-                id: `${prefix}_${checkbox.id}`,
-                key: checkboxIndex,
             }))}
         </div>
     );
