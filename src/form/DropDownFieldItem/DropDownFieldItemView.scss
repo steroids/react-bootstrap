@@ -1,3 +1,5 @@
+@use "../../scss/variables";
+
 :root {
     --drop-down-item-hover-background-color: #f5f8fa;
     --drop-down-item-select-background-color: #eef1f2;
@@ -21,7 +23,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
 }
 
 %fontProperties {
-    font-size: $font-size-base;
+    font-size: variables.$font-size-base;
     font-weight: 400;
     line-height: 22px;
 }
@@ -41,8 +43,8 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
         position: relative;
         column-gap: 12px;
         align-items: center;
-        background-color: $element-background-color;
-        color: $text-color;
+        background-color: variables.$element-background-color;
+        color: variables.$text-color;
 
         &_size {
             &_lg {
@@ -74,7 +76,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
     &__img {
         width: 24px;
         height: 24px;
-        border-radius: $radius-small;
+        border-radius:variables.$radius-small;
         overflow: hidden;
 
         img {
@@ -144,7 +146,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
                 border: none;
 
                 &_visible {
-                    border-bottom: 1px solid $element-border-color;
+                    border-bottom: 1px solid variables.$element-border-color;
                 }
             }
 
@@ -155,7 +157,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
                 align-items: center;
 
                 border: none;
-                background-color: $element-background-color;
+                background-color:variables.$element-background-color;
 
                 &:hover {
                     background-color: $drop-down-item-hover-background-color;
@@ -174,15 +176,15 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             &__icon-chevron {
                 box-shadow: none;
                 svg {
-                    border: 1px solid $element-border-color;
-                    border-radius: $radius-small;
+                    border: 1px solid variables.$element-border-color;
+                    border-radius: variables.$radius-small;
                 }
             }
         }
 
         &_size {
             &_lg {
-                font-size: $font-size-lg;
+                font-size: variables.$font-size-lg;
                 line-height: 24px;
 
                 .AccordionItemView__title-container {
@@ -193,7 +195,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             }
 
             &_md {
-                font-size: $font-size-base;
+                font-size: variables.$font-size-base;
                 line-height: 22px;
 
                 .AccordionItemView__title-container {
@@ -204,7 +206,7 @@ $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-co
             }
 
             &_sm {
-                font-size: $font-size-sm;
+                font-size: variables.$font-size-sm;
                 line-height: 18px;
 
                 .AccordionItemView__title-container {

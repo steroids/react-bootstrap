@@ -1,9 +1,12 @@
+@use "../../scss/variables";
+
 .HeaderView {
-    width: 1000px;
+    width: 100%;
     display: flex;
     align-items: center;
-    background-color: $element-background-color;
-    border-bottom: 1px solid $element-placeholder-color-disabled;
+    justify-content: space-between;
+    background-color: variables.$element-background-color;
+    border-bottom: 1px solid variables.$element-placeholder-color-disabled;
     position: relative;
 
     &_size {
@@ -19,7 +22,6 @@
     }
 
     &__logo {
-        margin-right: 136px;
 
         .ButtonView__text {
             display: flex;
@@ -34,10 +36,10 @@
         }
 
         &-title {
-            color: $text-color;
-            font-weight: $font-weight-lg;
-            font-size: $font-size-base;
-            line-height: $line-height-base;
+            color: variables.$text-color;
+            font-weight: variables.$font-weight-lg;
+            font-size: variables.$font-size-base;
+            line-height: variables.$line-height-base;
         }
     }
 
@@ -64,9 +66,9 @@
 
         &-name.TextView_type_body {
             margin: 0;
-            font-weight: $font-weight-lg;
-            font-size: $font-size-base;
-            line-height: $line-height-base;
+            font-weight: variables.$font-weight-lg;
+            font-size: variables.$font-size-base;
+            line-height: variables.$line-height-base;
 
             @media (max-width: 360px) {
                 display: none;
@@ -96,7 +98,7 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: $white;
+            background-color: variables.$white;
             opacity: 0;
             pointer-events: none;
             transition: opacity 150ms ease-in-out;
@@ -106,7 +108,7 @@
                 pointer-events: all;
             }
             .ButtonView__text {
-                color: $element-placeholder-color;
+                color: variables.$element-placeholder-color;
             }
         }
 
@@ -114,7 +116,7 @@
             width: 24px;
             height: 24px;
             svg path {
-                stroke: $icon-color;
+                stroke: variables.$icon-color;
             }
         }
 
@@ -124,7 +126,7 @@
             display: flex;
             row-gap: 16px;
             align-items: flex-start;
-            background-color: $element-background-color;
+            background-color: variables.$element-background-color;
         }
     }
 
@@ -132,7 +134,6 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        margin-left: auto;
         column-gap: 16px;
     }
 }

@@ -1,3 +1,5 @@
+@use "../../scss/variables";
+
 :root {
     --card-footer-background-color: var(--additional-light-blue);
     --card-dots-color: #323232;
@@ -13,13 +15,13 @@ $card-dots-color: var(--card-dots-color);
 
 %headTemplate {
     font-weight: 700;
-    font-size: $font-size-lg;
+    font-size: variables.$font-size-lg;
     line-height: 24px;
 }
 
 %subheadTemplate {
     font-weight: 400;
-    font-size: $font-size-xs;
+    font-size: variables.$font-size-xs;
     line-height: 16px;
 }
 
@@ -28,7 +30,7 @@ $card-dots-color: var(--card-dots-color);
     width: 4px;
     height: 4px;
     background-color: $card-dots-color;
-    border-radius: $radius-circle;
+    border-radius: variables.$radius-circle;
 }
 
 .CardView {
@@ -39,10 +41,10 @@ $card-dots-color: var(--card-dots-color);
     overflow: hidden;
     height: fit-content;
 
-    border: 1px solid $element-border-color;
-    border-radius: $radius-large;
-    color: $text-color;
-    background-color: $element-background-color;
+    border: 1px solid variables.$element-border-color;
+    border-radius: variables.$radius-large;
+    color: variables.$text-color;
+    background-color: variables.$element-background-color;
 
     &__header {
         display: flex;
@@ -109,7 +111,7 @@ $card-dots-color: var(--card-dots-color);
         width: 100%;
         height: 227px;
         overflow: hidden;
-        border-radius: $radius-large;
+        border-radius: variables.$radius-large;
 
         img {
             display: block;
@@ -135,7 +137,7 @@ $card-dots-color: var(--card-dots-color);
     }
 
     &__description {
-        font-size: $font-size-base;
+        font-size: variables.$font-size-base;
         line-height: 22px;
     }
 

@@ -1,2 +1,4 @@
+@use "../common/colors";
+
 $icon-size: 20px !default;
-$icon-color: $primary !default;
+$icon-color: colors.$primary !default;

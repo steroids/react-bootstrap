@@ -1,4 +1,4 @@
-@import '../../scss/variables';
+@use "../../scss/variables";
 
 .ImageFieldView {
   $root: &;
@@ -20,7 +20,7 @@
 
   &__button-label {
     font-size: 16px;
-    color: $text-color;
+    color: variables.$text-color;
   }
 
   &__progress-bar {

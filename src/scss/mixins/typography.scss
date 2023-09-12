@@ -1,26 +1,29 @@
-@mixin typography-type($typeMap) {
-  font-family: map-get($typeMap, font-family);
-  font-size: map-get($typeMap, font-size);
-  font-weight: map-get($typeMap, font-weight);
-  line-height: map-get($typeMap, line-height);
-  color: map-get($typeMap, color);
-  text-transform: map-get($typeMap, text-transform);
-  text-decoration: map-get($typeMap, text-decoration);
-  text-align: map-get($typeMap, text-align);
+@use "sass:map";
+@use "../variables/common/media";
 
-  @media (max-width: $tablet-width) {
-    font-size: map-get($typeMap, tablet-font-size);
-    font-weight: map-get($typeMap, tablet-font-weight);
-    line-height: map-get($typeMap, tablet-line-height);
-    text-transform: map-get($typeMap, tablet-text-transform);
-    text-align: map-get($typeMap, tablet-text-align);
+@mixin typography-type($typeMap) {
+  font-family: map.get($typeMap, font-family);
+  font-size: map.get($typeMap, font-size);
+  font-weight: map.get($typeMap, font-weight);
+  line-height: map.get($typeMap, line-height);
+  color: map.get($typeMap, color);
+  text-transform: map.get($typeMap, text-transform);
+  text-decoration: map.get($typeMap, text-decoration);
+  text-align: map.get($typeMap, text-align);
+
+  @media (max-width: media.$tablet-width) {
+    font-size: map.get($typeMap, tablet-font-size);
+    font-weight: map.get($typeMap, tablet-font-weight);
+    line-height: map.get($typeMap, tablet-line-height);
+    text-transform: map.get($typeMap, tablet-text-transform);
+    text-align: map.get($typeMap, tablet-text-align);
   }
 
-  @media (max-width: $mobile-width) {
-    font-size: map-get($typeMap, mobile-font-size);
-    font-weight: map-get($typeMap, mobile-font-weight);
-    line-height: map-get($typeMap, mobile-line-height);
-    text-transform: map-get($typeMap, mobile-text-transform);
-    text-align: map-get($typeMap, mobile-text-align);
+  @media (max-width: media.$mobile-width) {
+    font-size: map.get($typeMap, mobile-font-size);
+    font-weight: map.get($typeMap, mobile-font-weight);
+    line-height: map.get($typeMap, mobile-line-height);
+    text-transform: map.get($typeMap, mobile-text-transform);
+    text-align: map.get($typeMap, mobile-text-align);
   }
 }

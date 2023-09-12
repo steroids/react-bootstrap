@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../scss/variables";
+
 :root {
     --alert-text-color: #152536;
 }
@@ -9,27 +12,27 @@ html[data-theme="dark"] {
 $alert-text-color: var(--alert-text-color);
 
 $alert-themes: () !default;
-$alert-themes: map-merge(
+$alert-themes: map.merge(
     (
         "success": (
-            "background-color": $success-light,
-            "icon-color": $success,
+            "background-color": variables.$success-light,
+            "icon-color": variables.$success,
         ),
         "info": (
-            "background-color": $info-light,
-            "icon-color": $info,
+            "background-color": variables.$info-light,
+            "icon-color": variables.$info,
         ),
         "warning": (
-            "background-color": $warning-light,
-            "icon-color": $warning,
+            "background-color": variables.$warning-light,
+            "icon-color": variables.$warning,
         ),
         "error": (
-            "background-color": $danger-light,
-            "icon-color": $danger,
+            "background-color": variables.$danger-light,
+            "icon-color": variables.$danger,
         ),
         "default": (
-            "background-color": $light-gray,
-            "icon-color": $gray-dark,
+            "background-color": variables.$light-gray,
+            "icon-color": variables.$gray-dark,
         ),
     ),
     $alert-themes
@@ -40,8 +43,8 @@ $alert-themes: map-merge(
 
     position: relative;
     padding: 16px;
-    border-radius: $radius-large;
-    font-family: $font-family-nunito;
+    border-radius: variables.$radius-large;
+    font-family: variables.$font-family-nunito;
 
     &_close-animation {
         animation: hide_slide 0.4s ease-in;
@@ -65,6 +68,7 @@ $alert-themes: map-merge(
     &__icon {
         width: 24px;
         height: 24px;
+        min-width: 24px;
         margin-right: 12px;
 
         svg {
@@ -76,6 +80,7 @@ $alert-themes: map-merge(
         display: inline-block;
         width: 24px;
         height: 24px;
+        min-width: 24px;
 
         display: flex;
         justify-content: center;
@@ -93,18 +98,18 @@ $alert-themes: map-merge(
 
     @each $color, $alert-properties in $alert-themes {
         &_#{$color} {
-            background-color: map-get($alert-properties, background-color);
+            background-color: map.get($alert-properties, background-color);
 
             #{$root}__icon_#{$color} { 
                 g > circle:not([fill="white"]), rect { 
-                    fill: map-get($alert-properties, icon-color);
+                    fill: map.get($alert-properties, icon-color);
                 }
             }
         }
     }
 
     &__message {
-        font-size: $font-size-lg;
+        font-size: variables.$font-size-lg;
     }
 
     &__wrapper {
@@ -118,9 +123,10 @@ $alert-themes: map-merge(
         width: 100%;
         display: flex;
         flex-direction: row;
+        align-items: flex-start;
     }
 
     &__description {
-        font-size: $font-size-base;
+        font-size: variables.$font-size-base;
     }
 }

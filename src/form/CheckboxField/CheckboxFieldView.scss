@@ -1,19 +1,21 @@
+@use "../../scss/variables";
+
 :root {
     --disabled-text-color: rgba(0, 0, 0, 0.3);
- }
+}
 
- html[data-theme="dark"] { 
+html[data-theme="dark"] {
     --disabled-text-color: rgba(255, 255, 255, 0.3);
- }
+}
 
- $disabled-text-color: var(--disabled-text-color);
+$disabled-text-color: var(--disabled-text-color);
 
 .CheckboxFieldView {
     $root: &;
-
+    position: relative;
     display: inline-flex;
 
-    font-family: $font-family-nunito;
+    font-family: variables.$font-family-nunito;
 
     &__input + &__label {
         display: inline-flex;
@@ -34,8 +36,8 @@
             flex-shrink: 0;
             flex-grow: 0;
 
-            border: 1px solid $gray;
-            border-radius: $radius-small;
+            border: 1px solid variables.$gray;
+            border-radius: variables.$radius-small;
 
             background-repeat: no-repeat;
             background-position: center center;
@@ -56,15 +58,15 @@
             transition: opacity 150ms ease-in-out;
             opacity: 0;
 
-            border-radius: $radius-large;
-            border: 4px solid $primary-light;
+            border-radius: variables.$radius-large;
+            border: 4px solid variables.$primary-light;
         }
 
         &-text {
             margin-left: 8px;
-            color: $text-color;
-            font-size: $font-size-sm;
-            font-weight: $font-weight-md;
+            color: variables.$text-color;
+            font-size: variables.$font-size-sm;
+            font-weight: variables.$font-weight-md;
             transform: translateY(1px);
         }
     }
@@ -81,7 +83,7 @@
 
         //ACTIVE
         &:not(:disabled):not(:checked):active + #{$root}__label::before {
-            border-color: $primary;
+            border-color: variables.$primary;
         }
 
         &:active:checked + #{$root}__label::after {
@@ -89,7 +91,7 @@
         }
 
         &:checked:active + #{$root}__label::before {
-            background-color: $primary-light;
+            background-color: variables.$primary-light;
             border-color: transparent;
         }
 
@@ -100,8 +102,8 @@
 
         //CHECKED
         &:checked + #{$root}__label::before {
-            border-color: $primary;
-            background-color: $primary;
+            border-color: variables.$primary;
+            background-color: variables.$primary;
             background-image: url("data:image/svg+xml,%3Csvg width='11' height='8' viewBox='0 0 11 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.20898 1L3.70898 7L1.20898 4.27273' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
 
@@ -113,13 +115,13 @@
             }
 
             &::before {
-                background: $element-background-color-disabled;
+                background: variables.$element-background-color-disabled;
                 border: none;
             }
         }
 
         &:disabled:checked #{$root}__label::before {
-            background-color: $element-background-color-disabled;
+            background-color: variables.$element-background-color-disabled;
             border-color: none;
             background-image: url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.8584 1.48401L4.3584 7.48401L1.8584 4.75674' stroke='black' stroke-opacity='0.1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
@@ -131,17 +133,17 @@
                 &::before {
                     width: 24px;
                     height: 24px;
-                    border-radius: $radius-small;
+                    border-radius: variables.$radius-small;
                 }
                 &::after {
                     width: 26px;
                     height: 26px;
-                    border-radius: $radius-large;
+                    border-radius: variables.$radius-large;
                 }
 
                 &-text {
                     margin-left: 12px;
-                    font-size: $font-size-lg;
+                    font-size: variables.$font-size-lg;
                     line-height: 24px;
                 }
             }
@@ -158,13 +160,13 @@
                 &::after {
                     width: 22px;
                     height: 22px;
-                    border-radius: $radius-medium;
+                    border-radius: variables.$radius-medium;
                     transform: translate(-13.5%, -13.5%);
                 }
 
                 &-text {
                     margin-left: 8px;
-                    font-size: $font-size-base;
+                    font-size: variables.$font-size-base;
                     line-height: 22px;
                 }
             }
@@ -181,13 +183,13 @@
                 &::after {
                     width: 18px;
                     height: 18px;
-                    border-radius: $radius-medium;
+                    border-radius: variables.$radius-medium;
                     transform: translate(-15.5%, -15.5%);
                 }
 
                 &-text {
                     margin-left: 8px;
-                    font-size: $font-size-sm;
+                    font-size: variables.$font-size-sm;
                     line-height: 18px;
                 }
             }
@@ -196,10 +198,10 @@
 }
 .has-errors label {
     &::before {
-        border-color: $danger;
+        border-color: variables.$danger;
     }
 
     span {
-        color: $danger;
+        color: variables.$danger;
     }
 }

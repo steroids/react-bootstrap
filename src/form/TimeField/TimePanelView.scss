@@ -1,3 +1,6 @@
+@use "../../scss/variables";
+@use '../../scss/mixins';
+
 .TimePanelView {
     font-weight: 500;
     user-select: none;
@@ -8,14 +11,14 @@
         align-items: center;
         justify-content: center;
 
-        border-left: 1px solid $border-default;
-        border-bottom: 1px solid $border-default;
+        border-left: 1px solid variables.$border-default;
+        border-bottom: 1px solid variables.$border-default;
     }
 
     &__body {
         display: flex;
         flex-flow: row nowrap;
-        border-radius: $input-border-radius;
+        border-radius: variables.$input-border-radius;
     }
 
     &__column {
@@ -24,7 +27,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        @include scrollWrapper(298px, 0, $scroll-thumb-color, $scroll-track-color);
+        @include mixins.scrollWrapper(298px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
     }
 
     &__cell {
@@ -32,12 +35,12 @@
         cursor: pointer;
 
         &_selected {
-            background-color: $primary-light;
+            background-color: variables.$primary-light;
         }
 
         transition: background-color 0.1s ease-in;
         &:hover {
-            background-color: $back-disabled;
+            background-color: variables.$back-disabled;
         }
     }
 
@@ -56,23 +59,23 @@
         border: none;
 
         &_now {
-            color: $primary;
+            color: variables.$primary;
             background-color: unset;
 
             transition: color 0.1s ease-in;
             &:hover {
-                color: $primary-dark;
+                color: variables.$primary-dark;
             }
         }
 
         &_ok {
             color: #fff;
             border-radius: 4px;
-            background-color: $primary;
+            background-color: variables.$primary;
 
             transition: background-color 0.1s ease-in;
             &:hover {
-                background-color: $primary-dark;
+                background-color: variables.$primary-dark;
             }
         }
     }

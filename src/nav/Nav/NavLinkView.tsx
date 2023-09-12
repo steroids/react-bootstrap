@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import * as React from 'react';
 
 import Button from '@steroidsjs/core/ui/form/Button';
@@ -20,10 +21,10 @@ export default function NavLinkView(props: INavViewProps) {
                             active: item.isActive,
                             disabled: item.disabled,
                         }), props.navClassName)}
+                        onClick={() => props.onClick(item, index)}
                     >
                         <Button
                             link
-                            onClick={() => props.onClick(item, index)}
                             {...item}
                         />
                     </li>

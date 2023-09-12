@@ -1,7 +1,8 @@
 .ControlsView {
     display: inline-flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: space-between;
+    gap: 8px;
 
     .ButtonView__icon { 
          svg {

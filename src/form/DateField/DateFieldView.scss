@@ -1,22 +1,26 @@
+@use "../../scss/variables";
+@use '../../scss/mixins';
+
+
 .DateFieldView {
     $root: &;
     position: relative;
     
-    @include date-default-input();
+    @include mixins.date-default-input();
 
-    @include date-default-body();
+    @include mixins.date-default-body();
 
-    @include icon-container($root);
+    @include mixins.icon-container($root);
 
-    @include date-default-sizes($root);
+    @include mixins.date-default-sizes($root);
 
-    @include date-default-effects($root);
+    @include mixins.date-default-effects($root);
 
     
 
     &__dropdown { 
-        background: $element-background-color;
+        background: variables.$element-background-color;
 
-        @include calendar-border();
+        @include mixins.calendar-border();
     }
 }

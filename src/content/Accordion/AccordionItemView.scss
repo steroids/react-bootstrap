@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../scss/variables";
+
 :root {
     --accordion-light-background: var(--gray);
     --accordion-intermediate-background: #ffffff;
@@ -14,6 +17,8 @@
     --accordion-chevron-revert-box-shadow: none;
 
     --accordion-content-background: #ffffff;
+    --accordion-text-color: #312c3a;
+    --accordion-content-border: rgba(0, 0, 0, 0.1);
 }
 
 html[data-theme="dark"] {
@@ -32,6 +37,8 @@ html[data-theme="dark"] {
     --accordion-chevron-revert-box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
 
     --accordion-content-background: var(--graphite);
+    --accordion-text-color: #ffffff;
+    --accordion-content-border: rgba(255, 255, 255, 0.1);
 }
 
 $accordion-light-background: var(--accordion-light-background);
@@ -50,19 +57,23 @@ $accordion-chevron-revert-box-shadow: var(--accordion-chevron-revert-box-shadow)
 
 $accordion-content-background: var(--accordion-content-background);
 
+$accordion-text-color: var(--accordion-text-color);
+
+$accordion-content-border: var(--accordion-content-border);
+
 $accordion-themes: () !default;
-$accordion-themes: map-merge(
+$accordion-themes: map.merge(
     (
         "light": (
             "background": $accordion-light-background,
-            "text-color": $text-color,
+            "text-color": $accordion-text-color,
             "chevron-box-shadow": $accordion-chevron-default-box-shadow,
             "chevron-background": $accordion-chevron-light-background,
             "chevron-inner-color": $accordion-chevron-inner-default-color,
         ),
         "intermediate": (
             "background": $accordion-intermediate-background,
-            "text-color": $text-color,
+            "text-color": $accordion-text-color,
             "chevron-box-shadow": $accordion-chevron-default-box-shadow,
             "chevron-background": $accordion-chevron-intermediate-background,
             "chevron-inner-color": $accordion-chevron-inner-default-color,
@@ -90,24 +101,23 @@ $accordion-chevron-color: var(--accordion-chevron-color);
 
     background-color: $accordion-content-background;
     height: 56px;
-    width: 480px;
+    width: 100%;
     height: fit-content;
-    font-family: $font-family-nunito;
 
     @each $theme, $themeProperties in $accordion-themes {
         &_theme_#{$theme} {
             #{$root}__header-container {
-                background-color: map-get($themeProperties, background);
-                color: map-get($themeProperties, text-color);
+                background-color: map.get($themeProperties, background);
+                color: map.get($themeProperties, text-color);
             }
 
             #{$root}__icon-chevron {
-                box-shadow: map-get($themeProperties, chevron-box-shadow);
+                box-shadow: map.get($themeProperties, chevron-box-shadow);
                 rect {
-                    fill: map-get($themeProperties, chevron-background);
+                    fill: map.get($themeProperties, chevron-background);
                 }
                 path {
-                    stroke: map-get($themeProperties, chevron-inner-color);
+                    stroke: map.get($themeProperties, chevron-inner-color);
                 }
             }
         }
@@ -115,7 +125,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
 
     &_position {
         &_top {
-            border-radius: $radius-large $radius-large 0 0;
+            border-radius: variables.$radius-large variables.$radius-large 0 0;
         }
 
         &_middle {
@@ -123,7 +133,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         }
 
         &_bottom {
-            border-radius: 0 0 $radius-large $radius-large;
+            border-radius: 0 0 variables.$radius-large variables.$radius-large;
 
             #{$root}__content {
                 grid-row-start: 1;
@@ -165,7 +175,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         width: 24px;
         height: 24px;
         box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
-        border-radius: $radius-small;
+        border-radius: variables.$radius-small;
 
         transform: rotate(0deg);
         transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -185,7 +195,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         padding: 16px;
         align-self: center;
 
-        font-size: $font-size-lg;
+        font-size: variables.$font-size-lg;
         line-height: 24px;
     }
 
@@ -214,7 +224,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         overflow: hidden;
         max-height: 0;
         padding: 0 16px;
-        color: $text-color;
+        color: variables.$text-color;
 
         &_visible {
             max-height: 1024px;

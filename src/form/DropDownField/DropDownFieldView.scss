@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "../../scss/variables";
+@use '../../scss/mixins';
+
 :root {
     --basic-color: #eef1f2;
     --basic-focus-color: #f5f8fa;
@@ -18,8 +22,8 @@ html[data-theme="dark"] {
     --basic-color: #333646;
     --basic-focus-color: #adaab3;
     --basic-active-color: #4e4f57;
-    --chevron-background-color: #16171B;
-    --chevron-background-color-outline: #191B1F;
+    --chevron-background-color: #16171b;
+    --chevron-background-color-outline: #191b1f;
     --chevron-inner-color: #ffffff;
     --drop-down-border-color: #595959;
     --search-color: #adacac;
@@ -45,64 +49,64 @@ $drop-down-item-select-background-color: var(--drop-down-item-select-background-
 $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-color);
 
 $drop-down-color-themes: () !default;
-$drop-down-color-themes: map-merge(
+$drop-down-color-themes: map.merge(
     (
         "basic": (
             "background-color": $basic-color,
-            "hover-color": $element-border-color-hover,
+            "hover-color": variables.$element-border-color-hover,
             "focus-color": $basic-focus-color,
-            "active-color": $basic-active-color,
+            "active-color": $basic-active-color
         ),
         "primary": (
-            "background-color": $primary,
-            "hover-color": $primary-dark,
-            "focus-color": $primary-light,
-            "active-color": $primary-dark,
+            "background-color": variables.$primary,
+            "hover-color": variables.$primary-dark,
+            "focus-color": variables.$primary-light,
+            "active-color": variables.$primary-dark
         ),
         "secondary": (
-            "background-color": $secondary,
-            "hover-color": $secondary-dark,
-            "focus-color": $secondary-light,
-            "active-color": $secondary-dark,
+            "background-color": variables.$secondary,
+            "hover-color": variables.$secondary-dark,
+            "focus-color": variables.$secondary-light,
+            "active-color": variables.$secondary-dark
         ),
         "warning": (
-            "background-color": $warning,
-            "hover-color": $warning-dark,
-            "focus-color": $warning-light,
-            "active-color": $warning-dark,
+            "background-color": variables.$warning,
+            "hover-color": variables.$warning-dark,
+            "focus-color": variables.$warning-light,
+            "active-color": variables.$warning-dark
         ),
         "danger": (
-            "background-color": $danger,
-            "hover-color": $danger-dark,
-            "focus-color": $danger-light,
-            "active-color": $danger-dark,
+            "background-color": variables.$danger,
+            "hover-color": variables.$danger-dark,
+            "focus-color": variables.$danger-light,
+            "active-color": variables.$danger-dark
         ),
         "info": (
-            "background-color": $info,
-            "hover-color": $info-dark,
-            "focus-color": $info-light,
-            "active-color": $info-dark,
+            "background-color": variables.$info,
+            "hover-color": variables.$info-dark,
+            "focus-color": variables.$info-light,
+            "active-color": variables.$info-dark
         ),
         "success": (
-            "background-color": $success,
-            "hover-color": $success-dark,
-            "focus-color": $success-light,
-            "active-color": $success-dark,
-        ),
+            "background-color": variables.$success,
+            "hover-color": variables.$success-dark,
+            "focus-color": variables.$success-light,
+            "active-color": variables.$success-dark
+        )
     ),
     $drop-down-color-themes
 );
 
 @mixin dropDownTheme($colorMap, $root, $colorType) {
-    background-color: map-get($colorMap, background-color);
-    color: $text-color;
+    background-color: map.get($colorMap, background-color);
+    color: variables.$text-color;
 
     &::before {
-        border-color: map-get($colorMap, focus-color);
+        border-color: map.get($colorMap, focus-color);
     }
 
     &:not(:focus):hover {
-        background-color: map-get($colorMap, hover-color);
+        background-color: map.get($colorMap, hover-color);
     }
 
     &:not(:active):focus-within {
@@ -112,7 +116,7 @@ $drop-down-color-themes: map-merge(
     }
 
     &:active {
-        background-color: map-get($colorMap, hover-color);
+        background-color: map.get($colorMap, hover-color);
     }
 
     #{$root}__icon-chevron {
@@ -130,7 +134,7 @@ $drop-down-color-themes: map-merge(
         color: #ffffff;
 
         @if ($colorType == "basic") {
-            color: $text-color;
+            color: variables.$text-color;
         }
 
         @if ($colorType == "warning" or $colorType == "info") {
@@ -140,16 +144,16 @@ $drop-down-color-themes: map-merge(
 }
 
 @mixin dropDownOutlineTheme($colorMap, $root) {
-    background-color: $element-field-background-color;
-    border: 1px solid map-get($colorMap, background-color);
-    color: $text-color;
+    background-color: variables.$element-field-background-color;
+    border: 1px solid map.get($colorMap, background-color);
+    color: variables.$text-color;
 
     &::before {
-        border-color: map-get($colorMap, focus-color);
+        border-color: map.get($colorMap, focus-color);
     }
 
     &:not(:focus):hover {
-        border-color: map-get($colorMap, active-color);
+        border-color: map.get($colorMap, active-color);
     }
 
     &:not(:active):focus-within {
@@ -160,7 +164,7 @@ $drop-down-color-themes: map-merge(
     }
 
     &:active {
-        border-color: map-get($colorMap, active-color);
+        border-color: map.get($colorMap, active-color);
     }
 
     #{$root}__icon-chevron {
@@ -198,35 +202,35 @@ $drop-down-color-themes: map-merge(
     }
 
     $sizes: () !default;
-    $sizes: map-merge(
+    $sizes: map.merge(
         (
             "lg": (
-                "border-radius": $radius-large,
-                "height": $input-height-lg,
+                "border-radius": variables.$radius-large,
+                "height": variables.$input-height-lg,
                 "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 16px,
                 "selectedItemsPadding": 16px,
-                "font-size": $font-size-lg,
-                "line-height": 24px,
+                "font-size": variables.$font-size-lg,
+                "line-height": 24px
             ),
             "md": (
-                "border-radius": $radius-large,
-                "height": $input-height-md,
+                "border-radius": variables.$radius-large,
+                "height": variables.$input-height-md,
                 "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 16px,
                 "selectedItemsPadding": 12px,
-                "font-size": $font-size-base,
-                "line-height": 22px,
+                "font-size": variables.$font-size-base,
+                "line-height": 22px
             ),
             "sm": (
-                "border-radius": $radius-small,
-                "height": $input-height-sm,
+                "border-radius": variables.$radius-small,
+                "height": variables.$input-height-sm,
                 "beforeTransform": translateX(-4px) translateY(-4px),
                 "beforeRadius": 12px,
                 "selectedItemsPadding": 8px,
-                "font-size": $font-size-sm,
-                "line-height": 18px,
-            ),
+                "font-size": variables.$font-size-sm,
+                "line-height": 18px
+            )
         ),
         $sizes
     );
@@ -234,25 +238,25 @@ $drop-down-color-themes: map-merge(
     &_size {
         @each $size, $sizeMap in $sizes {
             &_#{$size} {
-                border-radius: map-get($sizeMap, border-radius);
-                height: map-get($sizeMap, height);
+                border-radius: map.get($sizeMap, border-radius);
+                height: map.get($sizeMap, height);
 
                 &::before {
-                    transform: map-get($sizeMap, beforeTransform);
-                    border-radius: map-get($sizeMap, beforeRadius);
+                    transform: map.get($sizeMap, beforeTransform);
+                    border-radius: map.get($sizeMap, beforeRadius);
                 }
 
                 #{$root}__selected-items {
-                    padding-top: map-get($sizeMap, selectedItemsPadding);
-                    padding-bottom: map-get($sizeMap, selectedItemsPadding);
+                    padding-top: map.get($sizeMap, selectedItemsPadding);
+                    padding-bottom: map.get($sizeMap, selectedItemsPadding);
                 }
 
                 #{$root}__icon-chevron {
-                    height: map-get($sizeMap, height);
+                    height: map.get($sizeMap, height);
                 }
 
-                font-size: map-get($sizeMap, font-size);
-                line-height: map-get($sizeMap, line-height);
+                font-size: map.get($sizeMap, font-size);
+                line-height: map.get($sizeMap, line-height);
             }
         }
     }
@@ -308,14 +312,14 @@ $drop-down-color-themes: map-merge(
         top: calc(100% + 8px);
         left: 0;
 
-        background-color: $element-background-color;
+        background-color: variables.$element-background-color;
 
         border: 1px solid $drop-down-border-color;
         overflow: hidden;
         border-radius: 12px;
 
         &-list {
-            @include scrollWrapper(240px, 0, $scroll-thumb-color, $scroll-track-color);
+            @include mixins.scrollWrapper(240px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
         }
     }
 
@@ -345,14 +349,12 @@ $drop-down-color-themes: map-merge(
                 #{$searchRoot}-input {
                     padding: 5px 4px;
                     padding-left: 32px;
-
                 }
             }
             &_sm {
                 #{$searchRoot}-input {
                     padding: 5px 8px;
                     padding-left: 32px;
-
                 }
             }
         }
@@ -362,12 +364,12 @@ $drop-down-color-themes: map-merge(
             border-radius: 6px;
             outline: none;
 
-            font-size: $font-size-base;
+            font-size: variables.$font-size-base;
             font-weight: 400;
             line-height: 22px;
-            border: 1px solid $element-border-color;
+            border: 1px solid variables.$element-border-color;
 
-            color: $text-color;
+            color: variables.$text-color;
             background-color: $search-background-color;
 
             &:hover {

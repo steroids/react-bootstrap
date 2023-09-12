@@ -1,3 +1,7 @@
+@use "../../scss/variables";
+@use '../../scss/mixins';
+@use '../../scss/animations' as anim;
+
 $small-image-size: 48px;
 $image-border-radius: 8px;
 
@@ -22,11 +26,11 @@ $image-border-radius: 8px;
   column-gap: 8px;
   padding: 12px 30px 12px 12px;
   width: 100%;
-  font-size: $font-size-sm;
+  font-size: variables.$font-size-sm;
 
   &_images {
     padding: 8px;
-    border: 1px solid $gray;
+    border: 1px solid variables.$gray;
     border-radius: 12px;
 
     #{$root}__icon-wrapper {
@@ -36,7 +40,7 @@ $image-border-radius: 8px;
       width: $small-image-size;
       height: $small-image-size;
       border-radius: $image-border-radius;
-      background-color: $light-gray;
+      background-color: variables.$light-gray;
     }
   }
 
@@ -48,7 +52,7 @@ $image-border-radius: 8px;
     padding: 5px;
     width: 128px;
     height: 128px;
-    border: 1px solid $gray;
+    border: 1px solid variables.$gray;
     border-radius: 20px;
 
     #{$root}__title {
@@ -98,7 +102,7 @@ $image-border-radius: 8px;
     }
 
     #{$root}__link {
-      @include svg-color($white);
+      @include mixins.svg-color(variables.$white);
       position: absolute;
       top: 52px;
       left: 70px;
@@ -106,7 +110,7 @@ $image-border-radius: 8px;
       opacity: 0;
 
       circle {
-        stroke: $white;
+        stroke: variables.$white;
       }
     }
 
@@ -122,7 +126,7 @@ $image-border-radius: 8px;
     }
 
     #{$root}__remove {
-      @include svg-color($white);
+      @include mixins.svg-color(variables.$white);
       position: absolute;
       left: 30px;
       z-index: 4;
@@ -153,7 +157,7 @@ $image-border-radius: 8px;
     }
 
     &#{$root}_error {
-      background-color: $light-gray;
+      background-color: variables.$light-gray;
     }
 
     &#{$root}_error {
@@ -181,10 +185,10 @@ $image-border-radius: 8px;
 
   &__link {
     @include textEllipsis;
-    color: $link-color;
+    color: variables.$link-color;
 
     &:hover {
-      color: $link-color-hover;
+      color: variables.$link-color-hover;
       text-decoration: none;
     }
   }
@@ -199,21 +203,21 @@ $image-border-radius: 8px;
   }
 
   &_error {
-    @include svg-color($danger);
+    @include mixins.svg-color(variables.$danger);
 
     #{$root}__icon {
       circle {
-        fill: $danger;
+        fill: variables.$danger;
       }
     }
 
     #{$root}__title {
-      color: $danger;
+      color: variables.$danger;
     }
 
     a,
     a:hover {
-      color: $danger;
+      color: variables.$danger;
       cursor: default;
       pointer-events: none;
     }
@@ -245,7 +249,7 @@ $image-border-radius: 8px;
   }
 
   &__icon-loading {
-    @include loadingAnimation;
+    @include anim.loadingAnimation;
     display: block;
     width: 24px;
     height: 24px;
@@ -262,13 +266,13 @@ $image-border-radius: 8px;
   &__progress-track {
     margin-top: 4px;
     height: 4px;
-    background-color: $gray;
+    background-color: variables.$gray;
     border-radius: 4px;
   }
 
   &__progress-bar {
     height: inherit;
-    background-color: $primary;
+    background-color: variables.$primary;
     border-radius: 4px;
   }
 }

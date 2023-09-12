@@ -1,7 +1,10 @@
 .HtmlFieldView {
-  --ck-color-toolbar-background: #f1f5f7;
-  --ck-color-toolbar-border: #dbe2e6;
-  --ck-color-base-border: #dbe2e6;
-  --ck-border-radius: 12px;
-  max-width: 610px;
+    --ck-color-toolbar-background: #f1f5f7;
+    --ck-color-toolbar-border: #dbe2e6;
+    --ck-color-base-border: #dbe2e6;
+    --ck-border-radius: 12px;
+
+    .ck .ck-toolbar__items { 
+        flex-wrap: wrap !important;
+    }
 }
