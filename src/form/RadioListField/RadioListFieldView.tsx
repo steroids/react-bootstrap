@@ -17,20 +17,18 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps) {
         )}
         >
             {props.items.map((radio, radioIndex) => props.renderRadio({
+                key: radioIndex,
+                id: `${prefix}_${radio.id}`,
+                label: radio.label,
                 inputProps: {
                     name: `${prefix}_${radio.id}`,
-                    checked: null,
                     type: 'radio',
-                    disabled: false,
+                    checked: props.selectedIds.includes(radio.id),
                     onChange: () => {
                         props.onItemSelect(radio.id);
                     },
+                    disabled: props.disabled,
                 },
-                disabled: props.disabled,
-                checked: props.selectedIds.includes(radio.id),
-                label: radio.label,
-                id: `${prefix}_${radio.id}`,
-                key: radioIndex,
                 size: props.size,
             }))}
         </div>
