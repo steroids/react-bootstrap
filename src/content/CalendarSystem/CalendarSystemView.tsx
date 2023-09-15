@@ -7,6 +7,7 @@ import AsideHeader from './AsideHeader';
 import AsideCalendars from './AsideCalendars';
 import ContentHeader from './ContentHeader';
 import MonthGrid from './MonthGrid';
+import WeekGrid from './WeekGrid';
 
 export default function CalendarSystemView(props: ICalendarSystemViewProps) {
     const bem = useBem('CalendarSystemView');
@@ -24,7 +25,10 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     onClick={props.onCreateHandler}
                     className={bem.element('aside-header')}
                 />
-                <Calendar showFooter={false} />
+                <Calendar
+                    showFooter={false}
+                    onMonthChange={props.onMonthChange}
+                />
                 <AsideCalendars
                     calendars={props.calendars}
                     calendarsTitle={props.calendarsTitle}
@@ -32,12 +36,13 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
             </aside>
             <div className={bem.element('content')}>
                 <ContentHeader
-                    allDateInfo={props.allDateInfo}
+                    dateToDisplay={props.dateToDisplay}
                     onChangeType={props.onChangeType}
+                    onClickControls={props.onClickControls}
                 />
                 {props.calendarType === CalendarEnum.Month
                     ? <MonthGrid monthCalendar={props.monthCalendar} />
-                    : null}
+                    : <WeekGrid onClickHour={props.onClickHour} />}
             </div>
         </div>
     );

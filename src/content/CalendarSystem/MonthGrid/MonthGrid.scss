@@ -1,4 +1,4 @@
-@import "style/variables";
+@use "style/variables";
 
 :root {
     --month-day-background-color: #ffffff;
@@ -40,9 +40,10 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
         text-align: right;
 
         &-day {
-            font-size: $font-size-14;
-            font-weight: $font-weight-md;
-            line-height: $line-height-18;
+            color: $month-day-color-text;
+            font-size: variables.$font-size-14;
+            font-weight: variables.$font-weight-md;
+            line-height: variables.$line-height-18;
             padding: 8px 10px;
         }
     }
@@ -50,7 +51,8 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
     &__day {
         $dayRoot: &;
         padding: 4px 8px 0px 8px;
-        border-radius: $radius-large;
+        min-height: 84px;
+        border-radius: variables.$radius-large;
         background-color: $month-day-background-color;
 
         &-wrapper {
@@ -63,9 +65,9 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            font-size: $font-size-14;
-            font-weight: $font-weight-sm;
-            line-height: $line-height-18;
+            font-size: variables.$font-size-14;
+            font-weight: variables.$font-weight-sm;
+            line-height: variables.$line-height-18;
             color: $month-day-color-text;
             width: 24px;
             height: 24px;
@@ -84,13 +86,13 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
                 &::before {
                     position: absolute;
                     content: "";
-                    border: 1px solid $primary;
+                    border: 1px solid variables.$primary;
                     display: block;
                     width: 100%;
                     height: 100%;
-                    border-radius: $radius-small;
+                    border-radius: variables.$radius-small;
                 }
-                color: $primary;
+                color: variables.$primary;
             }
         }
     }

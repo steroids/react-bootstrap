@@ -1,18 +1,8 @@
 import React, {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {Day} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {Day, WEEK_DAYS} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 
 import './MonthGrid.scss';
-
-const WEEK_DAYS = [
-    __('Mo'),
-    __('Tu'),
-    __('We'),
-    __('Th'),
-    __('Fr'),
-    __('Sa'),
-    __('Su'),
-];
 
 interface IMonthGridProps {
     monthCalendar: Day[];

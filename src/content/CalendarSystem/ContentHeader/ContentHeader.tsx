@@ -1,43 +1,42 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {ButtonGroup} from '@steroidsjs/core/ui/nav';
-import {PresentDateInfo} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Icon} from '@steroidsjs/core/ui/content';
 import CalendarEnum from '@steroidsjs/core/enums/CalendarType';
+import DateControlEnum from '@steroidsjs/core/enums/DateControlType';
 
 import './ContentHeader.scss';
 
-const CONTROLS = [
-    'double_arrow_left',
-    'arrow_left_24x24',
-    'arrow_right_24x24',
-    'double_arrow_right',
-];
-
 interface IContentHeaderProps {
-    allDateInfo: PresentDateInfo;
+    dateToDisplay: string;
     onChangeType: (newType: string) => void;
+    onClickControls: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
-export default function ContentHeader(props: IContentHeaderProps) {
+function ContentHeader(props: IContentHeaderProps) {
     const bem = useBem('ContentHeader');
 
     return (
         <div className={bem.block()}>
             <Text
-                content={props.allDateInfo.dateToDisplay}
+                content={props.dateToDisplay}
                 className={bem.element('month')}
             />
-            <ul className={bem.element('controls')}>
-                {CONTROLS.map((control, controlIndex) => (
+            <ul
+                className={bem.element('controls')}
+                onClick={props.onClickControls}
+            >
+                {Object.entries(DateControlEnum.getIcons()).map(([controlLabel, controlIcon], controlIndex) => (
                     <li
                         key={controlIndex}
                         className={bem.element('controls-item')}
+                        data-control={controlLabel}
                     >
                         <Icon
                             className={bem.element('controls-item-icon')}
-                            name={control}
+                            name={controlIcon}
                         />
                     </li>
                 ))}
@@ -51,3 +50,5 @@ export default function ContentHeader(props: IContentHeaderProps) {
         </div>
     );
 }
+
+export default React.memo(ContentHeader);

@@ -1,4 +1,4 @@
-@import "style/variables";
+@use "style/variables";
 
 .AsideHeader {
     display: flex;
@@ -6,10 +6,10 @@
     justify-content: space-between;
     
     &__title {
-        font-size: $font-size-24;
-        font-weight: $font-weight-lg;
-        line-height: $line-height-32;
-        color: $text-color;
+        font-size: variables.$font-size-24;
+        font-weight: variables.$font-weight-lg;
+        line-height: variables.$line-height-32;
+        color: variables.$text-color;
         margin-bottom: 0;
     }
 
@@ -24,9 +24,9 @@
         }
 
         &__text {
-            font-size: $font-size-14;
-            font-weight: $font-weight-sm;
-            line-height: $line-height-24;
+            font-size: variables.$font-size-14;
+            font-weight: variables.$font-weight-sm;
+            line-height: variables.$line-height-24;
         }
 
         &__icon {

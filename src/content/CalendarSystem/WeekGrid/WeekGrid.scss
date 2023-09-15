@@ -1,0 +1,104 @@
+@use "style/variables";
+
+:root {
+    --calendar-system-hour-border-color: #dbe2e6;
+    --calendar-system-time-background-color: #fff;
+}
+
+html[data-theme="dark"] {
+    --calendar-system-hour-border-color: #333646;
+    --calendar-system-time-background-color: #4b4e5e;
+}
+
+$calendar-system-hour-border-color: var(--calendar-system-hour-border-color);
+$calendar-border-style: 1px solid $calendar-system-hour-border-color;
+$calendar-system-time-background-color: var(--calendar-system-time-background-color);
+
+.WeekGrid {
+    $root: &;
+    overflow-y: scroll;
+    margin-top: 11px;
+
+    @include variables.scrollWrapper(568px, 20px, variables.$scroll-thumb-color, variables.$scroll-track-color);
+
+    &__content {
+        display: flex;
+
+        #{$root}__hours-time {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            margin-right: 8px;
+
+            &-item {
+                width: 40px;
+                height: 24px;
+                border-radius: variables.$radius-small;
+                background-color: $calendar-system-time-background-color;
+                color: variables.$custom-text-color-base;
+                font-size: variables.$font-size-xs;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-xs;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    &__table {
+        display: grid;
+        width: calc(100% - 48px);
+        grid-template-columns: repeat(7, 1fr);
+
+        //Borders
+        #{$root}__column:first-child {
+            #{$root}__hour {
+                border-left: $calendar-border-style;
+            }
+        }
+
+        #{$root}__day-hours {
+            display: grid;
+            grid-template-rows: repeat(24, 80px);
+
+            #{$root}__hour {
+                border-top: $calendar-border-style;
+            }
+
+            &:last-child {
+                #{$root}__hour {
+                    border-right: $calendar-border-style;
+                }
+            }
+
+            #{$root}__hour:last-child {
+                border-bottom: $calendar-border-style;
+            }
+
+            &:not(:last-child) {
+                #{$root}__hour {
+                    border-right: $calendar-border-style;
+                }
+            }
+        }
+    }
+
+    &__hours-time {
+        margin-top: 22px;
+    }
+
+    &__day {
+        font-size: variables.$font-size-sm;
+        font-weight: variables.$font-weight-md;
+        line-height: variables.$line-height-sm;
+        text-align: center;
+        padding: 8px 10px;
+        margin-bottom: 0;
+    }
+
+    &__hour { 
+        cursor: pointer;
+    }
+}

@@ -1,4 +1,4 @@
-@import "style/variables";
+@use "style/variables";
 
 :root {
     --calendar-system-icon-background-color: #f1f5f7;
@@ -42,7 +42,7 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
                     fill: $calendar-system-icon-background-color;
                 }
                 path {
-                    stroke: $icon-color;
+                    stroke: variables.$icon-color;
                 }
             }
         }
@@ -52,7 +52,7 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
         }
 
         &__header-container {
-            background-color: $element-background-color;
+            background-color: variables.$element-background-color;
         }
 
         &__content {
@@ -72,9 +72,9 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
             padding-top: 12px;
 
             p {
-                font-size: $font-size-16;
-                font-weight: $font-weight-lg;
-                line-height: $line-height-22;
+                font-size: variables.$font-size-16;
+                font-weight: variables.$font-weight-lg;
+                line-height: variables.$line-height-22;
             }
         }
     }

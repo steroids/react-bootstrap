@@ -5,6 +5,7 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import _upperFirst from 'lodash-es/upperFirst';
+import DateControlEnum from '@steroidsjs/core/enums/DateControlType';
 
 interface ICaptionElementProps extends CaptionElementProps,
     Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'> {
@@ -48,20 +49,22 @@ export default function CaptionElement(props: ICaptionElementProps) {
     const icons = useMemo(() => [
         {
             name: 'double_arrow_left',
+            externalClass: DateControlEnum.PrevYear,
             onClick: () => handleYearChange(currentYear - 1),
         },
         {
             name: 'arrow_left_24x24',
-            externalClass: 'one-arrow',
+            externalClass: DateControlEnum.PrevMonth,
             onClick: () => handleMonthChange(currentMonth - 1),
         },
         {
             name: 'arrow_right_24x24',
-            externalClass: 'one-arrow',
+            externalClass: DateControlEnum.NextMonth,
             onClick: () => handleMonthChange(currentMonth + 1),
         },
         {
             name: 'double_arrow_right',
+            externalClass: DateControlEnum.NextYear,
             onClick: () => handleYearChange(currentYear + 1),
         },
 

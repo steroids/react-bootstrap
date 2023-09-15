@@ -1,3 +1,5 @@
+@use 'style/variables';
+
 :root {
     --calendar-system-content-background-color: #f1f5f7;
 }
@@ -10,6 +12,7 @@ $calendar-system-content-background-color: var(--calendar-system-content-backgro
 
 .CalendarSystemView {
     $root: &;
+    max-height: 1080px;
 
     display: flex;
     &__aside {
@@ -20,7 +23,7 @@ $calendar-system-content-background-color: var(--calendar-system-content-backgro
         max-width: 310px;
         padding: 12px;
 
-        background-color: $element-background-color;
+        background-color: variables.$element-background-color;
 
         .CalendarView {
             padding: 0;
