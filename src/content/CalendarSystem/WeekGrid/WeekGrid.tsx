@@ -2,12 +2,12 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 
 import './WeekGrid.scss';
-import {HOURS, WEEK_DAYS} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import {convertDate} from '@steroidsjs/core/utils/calendar';
+import {HOURS, Day} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 
 interface IWeekGridProps {
     onClickHour: () => void,
+    currentWeek: Day[]
 }
 
 function WeekGrid(props: IWeekGridProps) {
@@ -36,17 +36,21 @@ function WeekGrid(props: IWeekGridProps) {
                     ))}
                 </div>
                 <div className={bem.element('table')}>
-                    {WEEK_DAYS.map((weekDay, weekDayIndex) => (
+                    {props.currentWeek?.map((weekDay, weekDayIndex) => (
                         <div
                             key={weekDayIndex}
-                            className={bem.element('column')}
+                            className={bem.element('column', {
+                                isToday: weekDay.isToday,
+                            })}
                             onClick={props.onClickHour}
                         >
                             <Text className={bem.element('day')}>
-                                {weekDay}
+                                <span className={bem.element('day-wrapper')}>
+                                    {weekDay.formattedDisplay}
+                                </span>
                             </Text>
                             <div
-                                key={weekDay}
+                                key={weekDay.dayNumber}
                                 className={bem.element('day-hours')}
                             >
                                 {renderHours(weekDayIndex)}

@@ -1,6 +1,6 @@
 import React, {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {Day, WEEK_DAYS} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {Day, DAYS_OF_WEEK} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 
 import './MonthGrid.scss';
 
@@ -14,7 +14,7 @@ function MonthGrid(props: IMonthGridProps) {
     return (
         <div className={bem.block()}>
             <div className={bem.element('week-days')}>
-                {WEEK_DAYS.map((day, dayIndex) => (
+                {DAYS_OF_WEEK.map((day, dayIndex) => (
                     <span
                         key={dayIndex}
                         className={bem.element('week-days-day')}

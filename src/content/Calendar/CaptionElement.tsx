@@ -49,22 +49,22 @@ export default function CaptionElement(props: ICaptionElementProps) {
     const icons = useMemo(() => [
         {
             name: 'double_arrow_left',
-            externalClass: DateControlEnum.PrevYear,
+            externalClass: DateControlEnum.PrevDouble,
             onClick: () => handleYearChange(currentYear - 1),
         },
         {
             name: 'arrow_left_24x24',
-            externalClass: DateControlEnum.PrevMonth,
+            externalClass: DateControlEnum.PrevOne,
             onClick: () => handleMonthChange(currentMonth - 1),
         },
         {
             name: 'arrow_right_24x24',
-            externalClass: DateControlEnum.NextMonth,
+            externalClass: DateControlEnum.NextOne,
             onClick: () => handleMonthChange(currentMonth + 1),
         },
         {
             name: 'double_arrow_right',
-            externalClass: DateControlEnum.NextYear,
+            externalClass: DateControlEnum.NextDouble,
             onClick: () => handleYearChange(currentYear + 1),
         },
 

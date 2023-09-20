@@ -22,7 +22,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
         >
             <aside className={bem.element('aside')}>
                 <AsideHeader
-                    onClick={props.onCreateHandler}
+                    onClick={props.onClickCreate}
                     className={bem.element('aside-header')}
                 />
                 <Calendar
@@ -42,7 +42,12 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 />
                 {props.calendarType === CalendarEnum.Month
                     ? <MonthGrid monthCalendar={props.monthCalendar} />
-                    : <WeekGrid onClickHour={props.onClickHour} />}
+                    : (
+                        <WeekGrid
+                            onClickHour={props.onClickHour}
+                            currentWeek={props.currentWeek}
+                        />
+                    )}
             </div>
         </div>
     );

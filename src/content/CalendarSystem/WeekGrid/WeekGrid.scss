@@ -3,16 +3,25 @@
 :root {
     --calendar-system-hour-border-color: #dbe2e6;
     --calendar-system-time-background-color: #fff;
+    --calendar-system-today-background-color: #dbe2e6;
+    --calendar-system-today-border-color: #cbd5db;
 }
 
 html[data-theme="dark"] {
     --calendar-system-hour-border-color: #333646;
     --calendar-system-time-background-color: #4b4e5e;
+    --calendar-system-today-background-color: #191b1f;
+    --calendar-system-today-border-color: #333646;
+    --calendar-system-today-day-background-color: #651fff;
 }
 
 $calendar-system-hour-border-color: var(--calendar-system-hour-border-color);
-$calendar-border-style: 1px solid $calendar-system-hour-border-color;
 $calendar-system-time-background-color: var(--calendar-system-time-background-color);
+$calendar-system-today-background-color: var(--calendar-system-today-background-color);
+$calendar-system-today-border-color: var(--calendar-system-today-border-color);
+
+$calendar-border-style: 1px solid $calendar-system-hour-border-color;
+$calendar-today-border-style: 1px solid $calendar-system-today-border-color;
 
 .WeekGrid {
     $root: &;
@@ -67,20 +76,16 @@ $calendar-system-time-background-color: var(--calendar-system-time-background-co
                 border-top: $calendar-border-style;
             }
 
-            &:last-child {
-                #{$root}__hour {
-                    border-right: $calendar-border-style;
-                }
+            &:last-child #{$root}__hour {
+                border-right: $calendar-border-style;
             }
 
             #{$root}__hour:last-child {
                 border-bottom: $calendar-border-style;
             }
 
-            &:not(:last-child) {
-                #{$root}__hour {
-                    border-right: $calendar-border-style;
-                }
+            &:not(:last-child) #{$root}__hour {
+                border-right: $calendar-border-style;
             }
         }
     }
@@ -93,12 +98,74 @@ $calendar-system-time-background-color: var(--calendar-system-time-background-co
         font-size: variables.$font-size-sm;
         font-weight: variables.$font-weight-md;
         line-height: variables.$line-height-sm;
-        text-align: center;
         padding: 8px 10px;
         margin-bottom: 0;
+        display: flex;
+        justify-content: flex-end;
     }
 
-    &__hour { 
+    &__hour {
         cursor: pointer;
+    }
+
+    //Styles for today column
+    &__column {
+        &_isToday {
+            #{$root}__hour {
+                background-color: $calendar-system-today-background-color;
+            }
+
+            #{$root}__day-hours {
+                #{$root}__hour {
+                    border-top: $calendar-today-border-style;
+                }
+
+                &:last-child #{$root}__hour {
+                    border-right: $calendar-today-border-style;
+                }
+
+                #{$root}__hour:last-child {
+                    border-bottom: $calendar-today-border-style;
+                }
+
+                &:not(:last-child) #{$root}__hour {
+                    border-right: $calendar-today-border-style;
+                }
+            }
+
+            #{$root}__day {
+                padding: 4px 10px;
+                color: variables.$white;
+
+                &-wrapper {
+                    position: relative;
+                    padding: 4px;
+                    background-color: variables.$primary;
+                    border-radius: 200px;
+
+                    &::before {
+                        content: "";
+                        display: block;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        border: 3px solid variables.$primary-light;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        border-radius: inherit;
+                        transform: translate(-3px, -3px);
+                    }
+                }
+            }
+        }
+    }
+
+    //Borders
+    &__column:first-child#{$root}__column_isToday {
+        #{$root}__hour {
+            border-left: $calendar-today-border-style;
+        }
     }
 }
