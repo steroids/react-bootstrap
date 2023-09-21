@@ -95,5 +95,35 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
                 color: variables.$primary;
             }
         }
+
+        &-content {
+            overflow: hidden;
+            display: flex;
+            flex-flow: column nowrap;
+            gap: 1px;
+        }
+
+        &-event {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            font-size: variables.$font-size-xs;
+            font-weight: variables.$font-weight-sm;
+            line-height: variables.$line-height-xs;
+
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+            cursor: pointer;
+
+
+            &-dot {
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                margin-right: 8px;
+                border-radius: 100px;
+            } 
+        }
     }
 }

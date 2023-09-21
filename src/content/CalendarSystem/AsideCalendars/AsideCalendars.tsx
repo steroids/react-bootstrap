@@ -9,6 +9,8 @@ import {CheckboxListField} from '@steroidsjs/core/ui/form';
 interface IAsideCalendarsProps {
     calendars: ICalendar[]
     calendarsTitle: string;
+    selectedCalendarsIds: number[],
+    onChangeCalendarsIds: (selectedIds: number[]) => void,
 }
 
 function AsideCalendars(props: IAsideCalendarsProps) {
@@ -18,7 +20,11 @@ function AsideCalendars(props: IAsideCalendarsProps) {
         <div className={bem.block()}>
             <Accordion>
                 <AccordionItem title={props.calendarsTitle}>
-                    <CheckboxListField items={props.calendars} />
+                    <CheckboxListField
+                        items={props.calendars}
+                        selectedIds={props.selectedCalendarsIds}
+                        onChange={(selectedIds) => props.onChangeCalendarsIds(selectedIds)}
+                    />
                 </AccordionItem>
             </Accordion>
         </div>
