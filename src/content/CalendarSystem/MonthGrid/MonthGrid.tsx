@@ -40,6 +40,7 @@ function MonthGrid(props: IMonthGridProps) {
                                     <span
                                         key={eventIndex}
                                         className={bem.element('day-event')}
+                                        title={event.title}
                                     >
                                         <span
                                             className={bem.element('day-event-dot')}

@@ -4,11 +4,13 @@ import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {HOURS, IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 
 import './WeekGrid.scss';
+import {convertDate} from '@steroidsjs/core/utils/calendar';
 
 interface IWeekGridProps {
     onClickHour: () => void,
     currentWeek: IDay[]
     getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
+    isHorizontalEvents: boolean,
 }
 
 function WeekGrid(props: IWeekGridProps) {
@@ -28,11 +30,27 @@ function WeekGrid(props: IWeekGridProps) {
         return (
             <div
                 key={hourIndex}
-                className={bem.element('hour')}
+                className={bem.element('hour', {
+                    isVertical: !props.isHorizontalEvents,
+                    isHorizontal: props.isHorizontalEvents,
+                })}
                 data-weekday={weekDayIndex}
                 data-hour={hourIndex}
             >
-                {events.map((event, eventIndex) => <div key={eventIndex}>{event.title}</div>)}
+                {events.map((event, eventIndex) => (
+                    <div
+                        key={eventIndex}
+                        className={bem.element('hour-event')}
+                        style={{backgroundColor: event.color}}
+                    >
+                        <span className={bem.element('hour-event-time')}>
+                            {convertDate(event.date, null, 'HH:mm')}
+                        </span>
+                        <span className={bem.element('hour-event-title')}>
+                            {event.title}
+                        </span>
+                    </div>
+                ))}
             </div>
         );
     });
@@ -51,13 +69,32 @@ function WeekGrid(props: IWeekGridProps) {
                     ))}
                 </div>
                 <div className={bem.element('table')}>
+
                     {currentWeek.map((weekDay, weekDayIndex) => (
                         <div
                             key={weekDayIndex}
                             className={bem.element('column', {
                                 isToday: weekDay.isToday,
                             })}
-                            onClick={onClickHour}
+                        >
+                            <Text className={bem.element('day')}>
+                                <span className={bem.element('day-wrapper')}>
+                                    {weekDay.formattedDisplay}
+                                </span>
+                            </Text>
+                        </div>
+                    ))}
+
+                    {HOURS.map(hour => {
+
+                    })}
+
+                    {/* {currentWeek.map((weekDay, weekDayIndex) => (
+                        <div
+                            key={weekDayIndex}
+                            className={bem.element('column', {
+                                isToday: weekDay.isToday,
+                            })}
                         >
                             <Text className={bem.element('day')}>
                                 <span className={bem.element('day-wrapper')}>
@@ -71,7 +108,7 @@ function WeekGrid(props: IWeekGridProps) {
                                 {renderHours(weekDay.date, weekDayIndex)}
                             </div>
                         </div>
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </div>

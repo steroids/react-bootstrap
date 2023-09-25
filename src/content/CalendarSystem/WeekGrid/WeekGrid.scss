@@ -59,7 +59,9 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
     &__table {
         display: grid;
         width: calc(100% - 48px);
+        max-height: 100%;
         grid-template-columns: repeat(7, 1fr);
+        
 
         //Borders
         #{$root}__column:first-child {
@@ -105,7 +107,48 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
     }
 
     &__hour {
+        $hourRoot: &;
+
         cursor: pointer;
+
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1px;
+
+
+        &-event {
+            position: relative;
+            display: flex;
+            flex-flow: column nowrap;
+            border-radius: variables.$radius-small;
+            padding: 8px 4px;
+            z-index: 1;
+
+            overflow: hidden;
+
+            &-time {
+                color: variables.$black-60;
+                font-size: variables.$font-size-xs;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-xs;
+
+
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+
+            &-title {
+                color: #312c3a;
+                font-size: variables.$font-size-sm;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-sm;
+
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
     }
 
     //Styles for today column

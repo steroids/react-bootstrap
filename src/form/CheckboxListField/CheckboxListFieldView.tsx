@@ -27,6 +27,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                 label: checkbox.label,
                 id: `${prefix}_${checkbox.id}`,
                 key: checkboxIndex,
+                color: checkbox.color,
             }))}
         </div>
     );

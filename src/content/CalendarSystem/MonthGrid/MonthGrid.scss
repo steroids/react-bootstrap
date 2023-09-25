@@ -115,6 +115,7 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
             white-space: nowrap;
             overflow: hidden;
             cursor: pointer;
+            text-align: left;
 
 
             &-dot {

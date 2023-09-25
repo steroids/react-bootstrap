@@ -1,4 +1,5 @@
 @use "../../scss/variables";
+@use "sass:meta";
 
 :root {
     --disabled-text-color: rgba(0, 0, 0, 0.3);
@@ -92,6 +93,7 @@ $disabled-text-color: var(--disabled-text-color);
 
         &:checked:active + #{$root}__label::before {
             background-color: variables.$primary-light;
+
             border-color: transparent;
         }
 
@@ -104,6 +106,7 @@ $disabled-text-color: var(--disabled-text-color);
         &:checked + #{$root}__label::before {
             border-color: variables.$primary;
             background-color: variables.$primary;
+
             background-image: url("data:image/svg+xml,%3Csvg width='11' height='8' viewBox='0 0 11 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.20898 1L3.70898 7L1.20898 4.27273' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
         }
 
@@ -124,6 +127,29 @@ $disabled-text-color: var(--disabled-text-color);
             background-color: variables.$element-background-color-disabled;
             border-color: none;
             background-image: url("data:image/svg+xml,%3Csvg width='11' height='9' viewBox='0 0 11 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.8584 1.48401L4.3584 7.48401L1.8584 4.75674' stroke='black' stroke-opacity='0.1' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        }
+    }
+
+    &__input#{$root}__input_hasCustomColor {
+        //ACTIVE
+        &:not(:disabled):not(:checked):active + #{$root}__label::before {
+            border-color: var(--checkbox-custom-color);
+        }
+
+        &:checked:active + #{$root}__label::before {
+            background-color: var(--checkbox-custom-color);
+        }
+
+        //CHECKED
+        &:checked + #{$root}__label::before {
+            border-color: var(--checkbox-custom-color);
+            background-color: var(--checkbox-custom-color);
+        }
+
+        
+        //FOCUS
+        &:focus + #{$root}__label::after {
+            opacity: 0;
         }
     }
 
@@ -196,6 +222,7 @@ $disabled-text-color: var(--disabled-text-color);
         }
     }
 }
+
 .has-errors label {
     &::before {
         border-color: variables.$danger;

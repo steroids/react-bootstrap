@@ -8,6 +8,8 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps) {
     const bem = useBem('CheckboxFieldView');
     const id = useUniqueId('checkbox');
 
+    const customVariableColorStyle = {'--checkbox-custom-color': props.color} as React.CSSProperties;
+
     return (
         <div
             className={bem(
@@ -17,11 +19,16 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps) {
                 }),
                 props.className,
             )}
-            style={props.style}
+            style={{
+                ...props.style,
+                ...customVariableColorStyle,
+            }}
             onClick={props.onChange}
         >
             <input
-                className={bem.element('input')}
+                className={bem.element('input', {
+                    hasCustomColor: !!props.color,
+                })}
                 id={props.id || id}
                 {...props.inputProps}
                 disabled={props.disabled}
