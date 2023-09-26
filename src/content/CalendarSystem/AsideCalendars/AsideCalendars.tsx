@@ -24,6 +24,7 @@ function AsideCalendars(props: IAsideCalendarsProps) {
                         items={props.calendars}
                         selectedIds={props.selectedCalendarsIds}
                         onChange={(selectedIds) => props.onChangeCalendarsIds(selectedIds)}
+
                     />
                 </AccordionItem>
             </Accordion>

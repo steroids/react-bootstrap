@@ -1,0 +1,14 @@
+@use "style/variables";
+
+.WeekHour {
+    &__expand-button {
+        font-size: variables.$font-size-xs;
+        font-weight: variables.$font-weight-sm;
+        line-height: variables.$line-height-xs;
+        text-align: center;
+       
+        .ButtonView__text { 
+            color: #312C3A;
+        }
+    }
+}

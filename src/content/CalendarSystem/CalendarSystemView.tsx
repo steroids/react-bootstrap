@@ -54,7 +54,6 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                             getEventsFromDate={props.getEventsFromDate}
                             onClickHour={props.onClickHour}
                             currentWeek={props.currentWeek}
-                            isHorizontalEvents={props.isHorizontalEvents}
                         />
                     )}
             </div>

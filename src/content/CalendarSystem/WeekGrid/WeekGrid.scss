@@ -57,46 +57,65 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
     }
 
     &__table {
-        display: grid;
+        display: flex;
+        flex-flow: column nowrap;
         width: calc(100% - 48px);
-        max-height: 100%;
-        grid-template-columns: repeat(7, 1fr);
-        
 
-        //Borders
-        #{$root}__column:first-child {
-            #{$root}__hour {
-                border-left: $calendar-border-style;
-            }
+        &-heading {
+            display: grid;
+            max-height: 100%;
+            grid-template-columns: repeat(7, 1fr);
         }
 
-        #{$root}__day-hours {
+        &-grid {
+            width: auto;
             display: grid;
-            grid-template-rows: repeat(24, 80px);
+            grid-template-rows: repeat(24, 1fr);
 
-            #{$root}__hour {
-                border-top: $calendar-border-style;
-            }
+            &-row {
+                display: grid;
+                height: auto;
+                grid-template-columns: repeat(7, 1fr);
+                min-height: 80px;
 
-            &:last-child #{$root}__hour {
-                border-right: $calendar-border-style;
-            }
+                //Borders
+                &:first-child #{$root}__hour {
+                    border-top: $calendar-border-style;
+                }
 
-            #{$root}__hour:last-child {
-                border-bottom: $calendar-border-style;
-            }
+                #{$root}__hour {
+                    border-right: $calendar-border-style;
+                    border-bottom: $calendar-border-style;
 
-            &:not(:last-child) #{$root}__hour {
-                border-right: $calendar-border-style;
+                    &:first-child {
+                        border-left: $calendar-border-style;
+                    }
+                }
+
+                &:first-child #{$root}__hour_isToday {
+                    border-top: $calendar-today-border-style;
+                }
+
+                #{$root}__hour_isToday {
+                    background-color: $calendar-system-today-background-color;
+                    border-right: $calendar-today-border-style;
+                    border-bottom: $calendar-today-border-style;
+
+                    &:first-child {
+                        border-left: $calendar-today-border-style;
+                    }
+                }
             }
         }
     }
 
     &__hours-time {
-        margin-top: 22px;
+        margin-top: 32px;
     }
 
     &__day {
+        $dayRoot: &;
+
         font-size: variables.$font-size-sm;
         font-weight: variables.$font-weight-md;
         line-height: variables.$line-height-sm;
@@ -104,111 +123,103 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
         margin-bottom: 0;
         display: flex;
         justify-content: flex-end;
+
+        &_isToday {
+            padding: 4px 10px;
+            color: variables.$white;
+
+            #{$dayRoot}-wrapper {
+                position: relative;
+                padding: 4px;
+                background-color: variables.$primary;
+                border-radius: 200px;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border: 3px solid variables.$primary-light;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: inherit;
+                    transform: translate(-3px, -3px);
+                }
+            }
+        }
     }
 
     &__hour {
-        $hourRoot: &;
-
-        cursor: pointer;
-
+        $rootHour: &;
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column nowrap;
         gap: 1px;
-
+        max-height: 80px;
 
         &-event {
             position: relative;
-            display: flex;
-            flex-flow: column nowrap;
-            border-radius: variables.$radius-small;
-            padding: 8px 4px;
-            z-index: 1;
-
+            padding: 4px 8px;
             overflow: hidden;
-
-            &-time {
-                color: variables.$black-60;
-                font-size: variables.$font-size-xs;
-                font-weight: variables.$font-weight-sm;
-                line-height: variables.$line-height-xs;
-
-
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                overflow: hidden;
-            }
+            border-radius: 4px;
 
             &-title {
-                color: #312c3a;
                 font-size: variables.$font-size-sm;
                 font-weight: variables.$font-weight-sm;
                 line-height: variables.$line-height-sm;
+                color: #312c3a;
 
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                padding-right: 36px;
+            }
+
+            &-time {
+                top: 4px;
+                right: 8px;
+                position: absolute;
+                display: inline-block;
+                font-size: variables.$font-size-xs;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-xs;
+            }
+        }
+
+        &_hasOneEvent {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 4; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
                 overflow: hidden;
             }
         }
-    }
 
-    //Styles for today column
-    &__column {
-        &_isToday {
-            #{$root}__hour {
-                background-color: $calendar-system-today-background-color;
-            }
-
-            #{$root}__day-hours {
-                #{$root}__hour {
-                    border-top: $calendar-today-border-style;
-                }
-
-                &:last-child #{$root}__hour {
-                    border-right: $calendar-today-border-style;
-                }
-
-                #{$root}__hour:last-child {
-                    border-bottom: $calendar-today-border-style;
-                }
-
-                &:not(:last-child) #{$root}__hour {
-                    border-right: $calendar-today-border-style;
-                }
-            }
-
-            #{$root}__day {
-                padding: 4px 10px;
-                color: variables.$white;
-
-                &-wrapper {
-                    position: relative;
-                    padding: 4px;
-                    background-color: variables.$primary;
-                    border-radius: 200px;
-
-                    &::before {
-                        content: "";
-                        display: block;
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        border: 3px solid variables.$primary-light;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        border-radius: inherit;
-                        transform: translate(-3px, -3px);
-                    }
-                }
+        &_hasTwoEvents {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 2; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
             }
         }
-    }
 
-    //Borders
-    &__column:first-child#{$root}__column_isToday {
-        #{$root}__hour {
-            border-left: $calendar-today-border-style;
+        &_hasTreeEvents {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 1; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
+            }
+
+            #{$rootHour}-event { 
+                max-height: 18px;
+                padding: 0 8px;
+            }
+
+            #{$rootHour}-event-time { 
+                top: 0;
+                right: 8px
+            }
         }
     }
 }
