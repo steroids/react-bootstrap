@@ -12,8 +12,6 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
         <Modal
             title={__('New Event')}
             onClose={props.onClose}
-        >
-
-        </Modal>
+        />
     );
 }
