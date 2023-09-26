@@ -1,3 +1,6 @@
+@use "../../scss/variables";
+
+
 $justifyValues: center, end, start, stretch, flex-start, flex-end, left, right, space-between, space-around, space-evenly;
 $alignValues: center, end, start, stretch, flex-start, flex-end;
 $directionValues: column-reverse column row-reverse row;
@@ -44,13 +47,13 @@ $colMaxValue: 12;
     @include col(col, $root);
     @include col(offset, $root, margin-inline-start);
 
-    @media (max-width: $desktop-width) {
+    @media (max-width: variables.$desktop-width) {
       @include col(lg, $root);
     }
-    @media (max-width: $tablet-width) {
+    @media (max-width: variables.$tablet-width) {
       @include col(md, $root);
     }
-    @media (max-width: $mobile-width) {
+    @media (max-width: variables.$mobile-width) {
       @include col(sm, $root);
     }
   }

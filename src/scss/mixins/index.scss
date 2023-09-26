@@ -1,6 +1,6 @@
-@import "button";
-@import "typography";
-@import "scroll";
-@import "customMixins";
-@import "date";
-@import "navs";
+@forward "button";
+@forward "typography";
+@forward "scroll";
+@forward "customMixins";
+@forward "date";
+@forward "navs";

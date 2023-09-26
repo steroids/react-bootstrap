@@ -40,6 +40,9 @@ export default {
     'content.ChartView': {
         lazy: () => require('./content/Chart/ChartView').default,
     },
+    'content.SliderView': {
+        lazy: () => require('./content/Slider/SliderView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
@@ -169,6 +172,9 @@ export default {
     'layout.TooltipView': {
         lazy: () => require('./layout/Tooltip/TooltipView').default,
     },
+    'layout.SidebarView': {
+        lazy: () => require('./layout/Sidebar/SidebarView').default,
+    },
     'list.ControlsColumnView': {
         lazy: () => require('./list/ControlsColumnView/ControlsColumnView').default,
     },
@@ -186,6 +192,9 @@ export default {
     },
     'list.ContentColumnView': {
         lazy: () => require('./list/Grid/views/ContentColumnView/ContentColumnView').default,
+    },
+    'list.DiagramColumnView': {
+        lazy: () => require('./list/Grid/views/DiagramColumnView/DiagramColumnView').default,
     },
     'list.ListView': {
         lazy: () => require('./list/List/ListView').default,

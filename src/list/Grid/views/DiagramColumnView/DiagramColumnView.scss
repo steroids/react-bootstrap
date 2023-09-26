@@ -1,0 +1,170 @@
+@use "../../../../scss/variables";
+
+.DiagramColumnView {
+    $root: &;
+
+    &_size {
+        &_sm {
+            #{$root}__diagram_type_horizontal,
+            #{$root}__diagram_type_vertical {
+                min-height: 51px !important;
+            }
+
+            #{$root}__diagram_type_circle {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        &_md {
+            #{$root}__diagram_type_horizontal,
+            #{$root}__diagram_type_vertical {
+                min-height: 65px !important;
+            }
+
+            #{$root}__diagram_type_circle {
+                width: 36px;
+                height: 36px;
+            }
+        }
+        &_lg {
+            #{$root}__diagram_type_horizontal,
+            #{$root}__diagram_type_vertical {
+                min-height: 73px !important;
+            }
+
+            #{$root}__diagram_type_circle {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    &__diagram {
+        font-weight: variables.$font-weight-lg;
+        font-size: variables.$font-size-xs;
+        line-height: variables.$line-height-xs;
+        color: variables.$text-color;
+        width: 100%;
+    }
+
+    &_type_horizontal {
+        #{$root}__diagram {
+            position: relative;
+
+            &-percentage {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            &-filling {
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+
+                &_color {
+                    @each $color, $color-map in variables.$diagram-colors {
+                        &_#{$color} {
+                            background-color: map-get($color-map, color-themed);
+                            border-right: 1px solid map-get($color-map, color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_type_vertical {
+        #{$root}__wrapper-diagrams {
+            display: flex;
+            flex-flow: row nowrap;
+            height: 100%;
+        }
+
+        #{$root}__diagram {
+            position: relative;
+
+            &-percentage {
+                position: absolute;
+                white-space: nowrap;
+                width: 100%;
+                text-align: center;
+                z-index: 2;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+
+            &-filling {
+                width: 100%;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
+                &_color {
+                    @each $color, $color-map in variables.$diagram-colors {
+                        &_#{$color} {
+                            background-color: map-get($color-map, color-themed);
+                            border-top: 1px solid map-get($color-map, color);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &_type_circle {
+        display: flex;
+        justify-content: center;
+
+        #{$root}__wrapper {
+            display: flex;
+            flex-flow: column nowrap;
+
+            &-diagrams {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+            }
+
+            #{$root}__subtitle {
+                margin: 0 auto;
+
+                font-weight: variables.$font-weight-sm;
+                font-size: variables.$font-size-base;
+                line-height: variables.$line-height-base;
+                color: variables.$element-placeholder-color;
+            }
+        }
+
+        #{$root}__diagram {
+            position: relative;
+            margin: -1px;
+
+            &-filling {
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+
+                &_color {
+                    @each $color, $color-map in variables.$diagram-colors {
+                        &_#{$color} {
+                            border: 2px solid map-get($color-map, color);
+                        }
+                    }
+                }
+            }
+
+            &-percentage {
+                position: absolute;
+                z-index: 2;
+                left: 50%;
+                top: 50%;
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+    }
+}

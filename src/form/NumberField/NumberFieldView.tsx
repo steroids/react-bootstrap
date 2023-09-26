@@ -41,6 +41,7 @@ export default function NumberFieldView(props: INumberFieldViewProps) {
                 )}
                 {...props.inputProps}
                 onChange={e => props.input.onChange(e.target.value)}
+                onWheel={event => event.currentTarget.blur()}
                 id={props.id}
             />
             {!props.disabled && !props.errors && (

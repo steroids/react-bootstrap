@@ -1,0 +1,36 @@
+@use "style/variables";
+
+:root {
+    --footer-shrink-icon-color: #626262;
+}
+
+html[data-theme="dark"] {
+    --footer-shrink-icon-color: #adacac;
+}
+
+$footer-shrink-icon-color: var(--footer-shrink-icon-color);
+
+.FooterIcons {
+    padding: 16px 12px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    &__item {
+        cursor: pointer;
+    }
+
+    &_isShrink {
+        justify-content: center;
+        align-items: center;
+
+        .IconView {
+            svg path,
+            rect,
+            circle {
+                stroke: $footer-shrink-icon-color;
+            }
+        }
+    }
+}

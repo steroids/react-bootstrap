@@ -1,7 +1,7 @@
-@import '../../scss/variables';
+@use "../../scss/variables";
 
 .ListView {
-    color: $text-color;
+    color: variables.$text-color;
 
     .FormView {
         margin-bottom: 10px;
@@ -11,7 +11,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         margin-bottom: 3px;
 
         &-sizes {

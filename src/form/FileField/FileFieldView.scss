@@ -1,5 +1,8 @@
+@use "../../scss/variables";
+
 .FileFieldView {
     $root: &;
+    width: 100%;
 
     &__files {
         margin-bottom: 1em;
@@ -24,11 +27,11 @@
         min-width: 200px;
 
         &_isWall {
-            min-width: auto;
+            min-width: 128px;
             width: 128px;
             height: 128px;
             border: 1px dashed #6F6B76;
-            background-color: $gray;
+            background-color: variables.$gray;
             border-radius: 20px;
 
             .ButtonView__label {

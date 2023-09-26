@@ -1,3 +1,5 @@
+@use "../../scss/variables";
+
 :root {
     --border-width-small: 1px;
     --border-width-medium: 2px;
@@ -55,36 +57,36 @@ $status-border-color: var(--status-border-color);
 
     &_size {
 
-        &_large {
+        &_lg {
             #{$root}__body {
                 height: 64px;
                 width: 64px;
                 line-height: 64px;
-                font-size: $font-size-base;
+                font-size: variables.$font-size-base;
             }
             --border-width: var(--border-width-large);
             --status-border-width: var(--status-border-width-large);
             --status-size: var(--status-size-large);
         }
 
-        &_middle {
+        &_md {
             #{$root}__body {
                 height: 50px;
                 width: 50px;
-                line-height: 46px;
-                font-size: $font-size-sm;
+                line-height: 50px;
+                font-size: variables.$font-size-sm;
             }
             --border-width: var(--border-width-medium);
             --status-border-width: var(--status-border-width-medium);
             --status-size: var(--status-size-medium);
         }
 
-        &_small {
+        &_sm {
             #{$root}__body {
                 height: 32px;
                 width: 32px;
-                line-height: 28px;
-                font-size: $font-size-xs;
+                line-height: 32px;
+                font-size: variables.$font-size-xs;
             }
             --border-width: var(--border-width-small);
             --status-border-width: var(--status-border-width-small);
@@ -123,17 +125,17 @@ $status-border-color: var(--status-border-color);
             height: var(--status-size);
             z-index: 10;
 
-            color: $success;
+            color: variables.$success;
 
-            border-radius: $radius-circle;
-            background-color: $success;
+            border-radius: variables.$radius-circle;
+            background-color: variables.$success;
 
             border: var(--status-border-width) solid $status-border-color;
         }
     }
 
     &_has-border {
-        @include border($gradient-blue);
+        @include border(variables.$gradient-blue);
     }
 
     &__body {
@@ -144,12 +146,12 @@ $status-border-color: var(--status-border-color);
         white-space: nowrap;
         vertical-align: middle;
 
-        color: $white;
-        background: $primary;
+        color: variables.$white;
+        background: variables.$primary;
 
         span {
             display: block;
-            font-family: $font-family-nunito;
+            font-family: variables.$font-family-nunito;
             font-weight: 800;
             letter-spacing: 0.1em;
         }

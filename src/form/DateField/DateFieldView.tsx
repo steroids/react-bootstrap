@@ -16,7 +16,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
     return (
         <DropDown
             content={renderCalendar}
-            position='bottomLeft'
+            position="bottom"
             visible={props.isOpened}
             onClose={props.onClose}
             className={bem.element('dropdown')}

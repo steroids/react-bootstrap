@@ -1,3 +1,5 @@
+@use "sass:map";
+
 //** Themed colors **//
 :root {
     --primary: #651fff;
@@ -46,6 +48,13 @@
 
     --scroll-thumb-color: #cbd5db;
     --scroll-track-color: #f1f5f7;
+    --icon-color: #323232;
+
+    --diagram-success: var(--success-light);
+    --diagram-warning: var(--warning-light);
+    --diagram-danger: var(--danger-light);
+    --diagram-secondary: var(--secondary-light);
+    --sidebar-label-color: #312C3A;
 }
 
 html[data-theme="dark"] {
@@ -95,6 +104,13 @@ html[data-theme="dark"] {
 
     --scroll-thumb-color: #333646;
     --scroll-track-color: #26272f;
+    --icon-color: #FFFFFF;
+
+    --diagram-success: var(--success-dark);
+    --diagram-warning: var(--warning-dark);
+    --diagram-danger: var(--danger-dark);
+    --diagram-secondary: var(--secondary-dark);
+    --sidebar-label-color: #ffffff;
 }
 
 $primary: var(--primary);
@@ -144,6 +160,14 @@ $element-field-background-color: var(--element-field-background-color);
 
 $scroll-thumb-color: var(--scroll-thumb-color);
 $scroll-track-color: var(--scroll-track-color);
+$icon-color: var(--icon-color);
+
+
+$diagram-success: var(--diagram-success);
+$diagram-warning: var(--diagram-warning);
+$diagram-danger: var(--diagram-danger);
+$diagram-secondary: var(--diagram-secondary);
+$sidebar-label-color: var(--sidebar-label-color);
 //** Themed colors **//
 
 //! Base colors !//
@@ -162,7 +186,7 @@ $static-text-color: #312C3A !default;
 //! Base colors !//
 
 $color-themes: () !default;
-$color-themes: map-merge(
+$color-themes: map.merge(
     (
         "basic": (
             "color": $gray,
@@ -218,4 +242,28 @@ $color-themes: map-merge(
         ),
     ),
     $color-themes
+);
+
+
+$diagram-colors: () !default;
+$diagram-colors: map.merge(
+    (
+        "success": (
+            "color": $success,
+            "color-themed": $diagram-success,
+        ),
+        "warning": (
+            "color": $warning,
+            "color-themed": $diagram-warning,
+        ),
+        "danger": (
+            "color": $danger,
+            "color-themed": $diagram-danger,
+        ),
+        "secondary": (
+            "color": $secondary,
+            "color-themed": $diagram-secondary,
+        ),
+    ),
+    $diagram-colors
 );

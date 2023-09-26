@@ -1,3 +1,4 @@
+@use "../../scss/variables";
 
 .StepItemView{
   $root: &;
@@ -14,31 +15,31 @@
   }
 
   &__icon{
-    background-color: rgba($white, .2);
+    background-color: rgba(variables.$white, .2);
     padding: 5px;
     border-radius: 10px;
   }
 
   &_wait{
     #{$root}__icon{
-      background-color: $grey-darker;
+      background-color: variables.$grey-darker;
       svg{
-        fill: $white;
+        fill:variables.$white;
       }
     }
 
     #{$root}__title, #{$root}__subtitle, #{$root}__description{
-      color: $grey-darker;
+      color: variables.$grey-darker;
     }
 
     #{$root}__divider{
-      border-top-color: $grey-darker;
+      border-top-color: variables.$grey-darker;
     }
   }
 
   &_active{
     #{$root}__body{
-      background-color: $primary;
+      background-color: variables.$primary;
     }
 
     #{$root}__icon svg{
@@ -50,13 +51,13 @@
     }
 
     #{$root}__divider{
-      border-top-color: $primary;
+      border-top-color: variables.$primary;
     }
   }
 
   &_finish{
     #{$root}__body{
-      background-color: $success;
+      background-color: variables.$success;
     }
 
     #{$root}__icon svg{
@@ -68,13 +69,13 @@
     }
 
     #{$root}__divider{
-      border-top-color: $success;
+      border-top-color: variables.$success;
     }
   }
 
   &_error{
     #{$root}__body{
-      background-color: $danger;
+      background-color: variables.$danger;
     }
 
     #{$root}__icon svg{
@@ -86,7 +87,7 @@
     }
 
     #{$root}__divider{
-      border-top-color: $danger;
+      border-top-color: variables.$danger;
     }
   }
 
@@ -115,7 +116,7 @@
   &__icon{
     margin-right: 5px;
 
-    color: $white;
+    color: variables.$white;
     font-size: 12px;
     font-weight: 500;
 

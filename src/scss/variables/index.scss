@@ -1,13 +1,11 @@
-@import 'normalize.scss';
-@import 'common/colors';
-@import 'common/media';
-@import 'common/typography';
-@import 'common/radiuses';
-@import 'common/old-variables';
-@import 'common/variables';
+@forward 'common/colors';
+@forward 'common/media';
+@forward 'common/typography';
+@forward 'common/radiuses';
+@forward 'common/old-variables';
+@forward 'common/variables';
 
-@import 'components/button';
-@import 'components/calendar';
-@import 'components/icon';
-@import 'components/input';
-@import 'components/ratefield';
+@forward 'components/button';
+@forward 'components/calendar';
+@forward 'components/icon';
+@forward 'components/input';

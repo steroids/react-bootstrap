@@ -1,3 +1,5 @@
+@use "../../scss/variables";
+
 :root {
     --lead-icon-default-color: #e5e9eb;
     --lead-icon-focus-color: #323232;
@@ -24,8 +26,8 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
     height: 34px;
 
-    font-family: $font-family-nunito;
-    font-weight: $font-weight-sm;
+    font-family: variables.$font-family-nunito;
+    font-weight: variables.$font-weight-sm;
     line-height: 24px;
 
     &__input-wrapper {
@@ -35,8 +37,8 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &__input {
-        color: $text-color;
-        font-family: $font-family-nunito;
+        color: variables.$text-color;
+        font-family: variables.$font-family-nunito;
 
         width: 100%;
         height: 100%;
@@ -44,12 +46,16 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         padding: 0 8px;
         outline: none;
 
-        background-color: $element-field-background-color;
-        border: 1px solid $element-border-color;
+        background-color: variables.$element-field-background-color;
+        border: 1px solid variables.$element-border-color;
         border-radius: inherit;
 
+        white-space: nowrap; /* Запретить перенос текста */
+        overflow: hidden; /* Скрыть содержимое, выходящее за границы ячейки */
+        text-overflow: ellipsis; /* Добавить многоточие, если текст обрезается */
+
         &::placeholder {
-            color: $element-placeholder-color;
+            color: variables.$element-placeholder-color;
             font-size: inherit;
         }
     }
@@ -72,7 +78,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &:not(#{$root}_disabled):focus-within::before {
-        border: 4px solid $primary-light;
+        border: 4px solid variables.$primary-light;
         transform: translateX(-4px) translateY(-4px);
         border-radius: 16px;
         opacity: 1;
@@ -85,14 +91,14 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         
         &::before { 
             transform: none;
-            border: 1px solid $primary;
+            border: 1px solid variables.$primary;
             opacity: 1;
         }
     }
 
     &_disabled {
         #{$root}__input { 
-            background-color: $element-background-color-disabled;
+            background-color: variables.$element-background-color-disabled;
             border-color: transparent;
         }
     }
@@ -104,7 +110,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
 
         &::before { 
-            border: 1px solid $danger;
+            border: 1px solid variables.$danger;
             border-radius: 16px;
             transform: translateX(-1px) translateY(-1px);
             opacity: 1;
@@ -114,13 +120,13 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     //Sizes
     &_size {
         &_lg {
-            color: $text-color;
-            height: $input-height-lg;
-            border-radius: $radius-large;
+            color: variables.$text-color;
+            height: variables.$input-height-lg;
+            border-radius: variables.$radius-large;
             
             #{$root}__input {
-                font-size: $font-size-lg;
-                border-radius: $radius-large;
+                font-size: variables.$font-size-lg;
+                border-radius: variables.$radius-large;
             }
 
             #{$root}__addon-before,
@@ -138,13 +144,13 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
 
         &_md {
-            color: $text-color;
-            height: $input-height-md;
-            border-radius: $radius-large;
+            color: variables.$text-color;
+            height: variables.$input-height-md;
+            border-radius: variables.$radius-large;
             
             #{$root}__input {
-                border-radius: $radius-large;
-                font-size: $font-size-base;
+                border-radius: variables.$radius-large;
+                font-size: variables.$font-size-base;
             }
 
             #{$root}__addon-before,
@@ -165,13 +171,13 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
 
         &_sm {
-            color: $text-color;
-            height: $input-height-sm;
-            border-radius: $radius-small;
+            color: variables.$text-color;
+            height: variables.$input-height-sm;
+            border-radius: variables.$radius-small;
             
             #{$root}__input {
-                font-size: $font-size-sm;
-                border-radius: $radius-small;
+                font-size: variables.$font-size-sm;
+                border-radius: variables.$radius-small;
             }
 
             #{$root}__addon-before,
@@ -223,7 +229,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
 
     &__icon-clear {
         svg > * {
-            stroke: $text-color
+            stroke: variables.$text-color
         }
 
         width: 24px;
@@ -265,7 +271,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             border: none;
         }
         &::before { 
-            border: 1px solid $element-border-color;
+            border: 1px solid variables.$element-border-color;
             opacity: 1;
         }
     }
@@ -276,16 +282,22 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             border-bottom-right-radius: 0;
         }
         &::before { 
-            border: 1px solid $element-border-color;
+            border: 1px solid variables.$element-border-color;
             opacity: 1;
         }
     }
 
+    &__text-before,
+    &__text-after { 
+        flex-shrink: 0;
+    }
+
     &__addon-before,
     &__addon-after {
+        flex-shrink: 0;
         padding: 11px 12px;
-        background-color: $element-background-color-disabled;
-        color: $text-color;
+        background-color: variables.$element-background-color-disabled;
+        color: variables.$text-color;
     }
 
     &__addon-before {

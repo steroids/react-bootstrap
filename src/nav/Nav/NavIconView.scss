@@ -1,8 +1,36 @@
+@use "../../scss/variables";
+
 .NavIconView {
     &__list {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: row wrap;
         align-items: center;
         column-gap: 24px;
+
+        &-item {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            color: variables.$text-color;
+            column-gap: 8px;
+
+            .ButtonView__text {
+                color: variables.$text-color;
+            }
+
+            &_disabled .ButtonView_disabled .ButtonView__link:hover .ButtonView__text {
+               color: variables.$element-placeholder-color-disabled;
+            }
+
+            &_disabled .ButtonView_disabled .ButtonView__link .ButtonView__text { 
+                color: variables.$element-placeholder-color-disabled;
+            }
+
+            &-nested { 
+                display: flex;
+                flex-flow: column nowrap;
+                margin-left: 54px;
+            }
+        }
     }
 }

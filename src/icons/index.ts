@@ -84,6 +84,13 @@ export default (customIcons: Record<string, any>) => {
         'expand_up',
         'left_12x12',
         'cancel_ellips',
+        'facebook',
+        'instagram',
+        'telegram',
+        'vk',
+        'whatsapp',
+        'burger',
+        'sort',
     ];
 
     steroidsIcons.forEach(iconName => {

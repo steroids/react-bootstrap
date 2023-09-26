@@ -1,3 +1,6 @@
+@use "../../scss/variables";
+@use "../../scss/mixins";
+
 :root {
     --caption-arrow-background-color: #f1f5f7;
     --caption-arrow-color: #323232;
@@ -48,14 +51,14 @@ $separator-background-color: var(--separator-background-color);
         cursor: pointer;
         transition: color 0.1s ease-in;
 
-        font-weight: $font-weight-lg;
-        font-size: $font-size-lg;
-        line-height: $line-height-lg;
+        font-weight: variables.$font-weight-lg;
+        font-size: variables.$font-size-lg;
+        line-height: variables.$line-height-lg;
 
         &:hover,
         &:active,
         &:focus {
-            color: $calendar-primary-color;
+            color: variables.$calendar-primary-color;
         }
     }
 
@@ -95,7 +98,7 @@ $separator-background-color: var(--separator-background-color);
         left: 0;
         right: 0;
         bottom: 50px;
-        background-color: $element-background-color;
+        background-color: variables.$element-background-color;
         margin-bottom: 12px;
         max-height: 294px;
 
@@ -117,9 +120,10 @@ $separator-background-color: var(--separator-background-color);
 
         text-align: center;
         background-color: $caption-header-month-background-color;
-        font-weight: $font-weight-lg;
+        font-weight: variables.$font-weight-lg;
 
         &_months {
+            height: 32px;
             position: relative;
             grid-area: HeaderMonths;
             border-radius: 8px 0px 0px 8px;
@@ -159,29 +163,29 @@ $separator-background-color: var(--separator-background-color);
 
         &-years {
             grid-area: YearsCol;
-            @include scrollWrapper(294px, 0, $scroll-thumb-color, $scroll-track-color);
+            @include mixins.scrollWrapper(294px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
         }
     }
 
     &__panel-cell {
-        &:first-child{
+        &:first-child {
             margin-top: 10px;
         }
         display: block;
         width: fit-content;
-        background-color: $element-background-color;
+        background-color: variables.$element-background-color;
         padding: 4px 8px;
         cursor: pointer;
         transition: background-color 0.1s ease-in;
         margin: 0 auto;
-        border-radius: $radius-large;
+        border-radius: variables.$radius-large;
 
         &_selected {
-            background-color: $primary-light;
+            background-color: variables.$primary-light;
         }
 
         &:hover {
-            background-color: $primary-light;
+            background-color: variables.$primary-light;
         }
 
         #{$root}__cell-value {
