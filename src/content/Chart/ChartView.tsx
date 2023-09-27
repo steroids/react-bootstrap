@@ -1,10 +1,12 @@
 import React from 'react';
 import {IChartViewProps} from '@steroidsjs/core/ui/content/Chart/Chart';
+import {useBem} from '@steroidsjs/core/hooks';
 
 const DEFAULT_AXIS_PARAMS = {
     tickSize: 5,
     tickPadding: 5,
     tickRotation: 0,
+    legend: '',
     legendPosition: 'middle',
 };
 
@@ -31,12 +33,16 @@ const DEFAULT_LINE_CHART_CONFIG = {
 };
 
 export default function ChartView(props: IChartViewProps) {
+    const bem = useBem('ChartView');
     const ChartComponent = props.chartComponent;
-    const defaultChartConfig = (props.useLineChartConfig && DEFAULT_LINE_CHART_CONFIG) || {};
+    const defaultChartConfig = (props.useDefaultLineChartConfig && DEFAULT_LINE_CHART_CONFIG) || {};
 
     return (
         <div
-            className={props.className}
+            className={bem(
+                bem.block(),
+                props.className,
+            )}
             style={{
                 height: `${props.height}px`,
                 ...props.style,
