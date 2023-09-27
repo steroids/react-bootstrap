@@ -11,7 +11,6 @@ const DEFAULT_AXIS_PARAMS = {
 };
 
 const DEFAULT_LINE_CHART_CONFIG = {
-    margin: {top: 50, right: 110, bottom: 50, left: 60},
     yScale: {
         type: 'linear',
         min: 'auto',
