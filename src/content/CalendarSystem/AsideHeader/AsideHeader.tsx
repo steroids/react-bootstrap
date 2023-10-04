@@ -20,13 +20,13 @@ function AsideHeader(props: IAsideHeaderProps) {
         )}
         >
             <Title
-                content={__('Calendar')}
+                content={__('Календарь')}
                 className={bem.element('title')}
             />
             <Button
                 icon="add"
                 size="sm"
-                label={__('Create')}
+                label={__('Создать')}
                 className={bem.element('create')}
                 onClick={props.onClick}
             />

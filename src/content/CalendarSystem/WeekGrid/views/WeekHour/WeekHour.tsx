@@ -29,7 +29,7 @@ export default function WeekHour(props: IWeekHourProps) {
         return props.getEventsFromDate(callingDate, false);
     }, [props]);
 
-    const getFormattedExpandLabel = React.useCallback(() => `${__('Показать еще')} +${events.length - 3}`, [events.length]);
+    const getFormattedExpandLabel = React.useCallback(() => `${__('Показать ещё')} +${events.length - 3}`, [events.length]);
 
     const hasOneEvent = events.length <= 1;
     const hasTwoEvents = events.length === 2;
