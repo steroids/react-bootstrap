@@ -5,7 +5,7 @@ import {DAYS_OF_WEEK, IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSy
 import './MonthGrid.scss';
 
 interface IMonthGridProps {
-    monthCalendar: IDay[];
+    monthCalendarDays: IDay[];
     getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[];
 }
 
@@ -25,7 +25,7 @@ function MonthGrid(props: IMonthGridProps) {
                 ))}
             </div>
             <div className={bem.element('grid')}>
-                {props.monthCalendar.map((day, dayIndex) => (
+                {props.monthCalendarDays.map((day, dayIndex) => (
                     <div
                         key={dayIndex}
                         className={bem.element('day', {

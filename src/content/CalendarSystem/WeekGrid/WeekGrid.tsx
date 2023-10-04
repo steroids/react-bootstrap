@@ -9,17 +9,17 @@ import './WeekGrid.scss';
 
 interface IWeekGridProps {
     onClickHour: () => void,
-    currentWeek: IDay[]
+    currentWeekDays: IDay[]
     getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
 }
 
 function WeekGrid(props: IWeekGridProps) {
     const bem = useBem('WeekGrid');
 
-    const {currentWeek, onClickHour, getEventsFromDate} = props;
+    const {currentWeekDays, onClickHour, getEventsFromDate} = props;
 
     const renderWeekHours = React.useCallback(
-        (hour) => currentWeek.map((dayOfWeek, dayOfWeekIndex) => (
+        (hour) => currentWeekDays.map((dayOfWeek, dayOfWeekIndex) => (
             <WeekHour
                 parentBem={bem}
                 hour={hour}
@@ -28,7 +28,7 @@ function WeekGrid(props: IWeekGridProps) {
                 dayOfWeek={dayOfWeek}
             />
         )),
-        [bem, currentWeek, getEventsFromDate],
+        [bem, currentWeekDays, getEventsFromDate],
     );
 
     return (
@@ -47,7 +47,7 @@ function WeekGrid(props: IWeekGridProps) {
 
                 <div className={bem.element('table')}>
                     <div className={bem.element('table-heading')}>
-                        {currentWeek.map((weekDay, weekDayIndex) => (
+                        {currentWeekDays.map((weekDay, weekDayIndex) => (
                             <Text
                                 key={weekDayIndex}
                                 className={bem.element('day', {

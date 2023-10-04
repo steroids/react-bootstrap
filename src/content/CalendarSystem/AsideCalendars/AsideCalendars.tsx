@@ -1,16 +1,16 @@
 import React, {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {ICalendar} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 
 import './AsideCalendars.scss';
 import {Accordion, AccordionItem} from '@steroidsjs/core/ui/content';
 import {CheckboxListField} from '@steroidsjs/core/ui/form';
+import {ICalendarGroups} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 
 interface IAsideCalendarsProps {
-    calendars: ICalendar[]
+    calendarGroups: ICalendarGroups[]
     calendarsTitle: string;
-    selectedCalendarsIds: number[],
-    onChangeCalendarsIds: (selectedIds: number[]) => void,
+    selectedCalendarGroupsIds: number[],
+    onChangeCalendarGroupsIds: (selectedIds: number[]) => void,
 }
 
 function AsideCalendars(props: IAsideCalendarsProps) {
@@ -21,9 +21,9 @@ function AsideCalendars(props: IAsideCalendarsProps) {
             <Accordion>
                 <AccordionItem title={props.calendarsTitle}>
                     <CheckboxListField
-                        items={props.calendars}
-                        selectedIds={props.selectedCalendarsIds}
-                        onChange={(selectedIds) => props.onChangeCalendarsIds(selectedIds)}
+                        items={props.calendarGroups}
+                        selectedIds={props.selectedCalendarGroupsIds}
+                        onChange={(selectedIds) => props.onChangeCalendarGroupsIds(selectedIds)}
 
                     />
                 </AccordionItem>

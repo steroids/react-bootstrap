@@ -30,10 +30,10 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     onMonthChange={props.onMonthChange}
                 />
                 <AsideCalendars
-                    calendars={props.calendars}
-                    calendarsTitle={props.calendarsTitle}
-                    selectedCalendarsIds={props.selectedCalendarsIds}
-                    onChangeCalendarsIds={props.onChangeCalendarsIds}
+                    calendarGroups={props.calendarGroups}
+                    calendarsTitle={props.calendarGroupsTitle}
+                    selectedCalendarGroupsIds={props.selectedCalendarGroups}
+                    onChangeCalendarGroupsIds={props.onChangeCalendarGroupsIds}
                 />
             </aside>
             <div className={bem.element('content')}>
@@ -42,10 +42,10 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     onChangeType={props.onChangeType}
                     onClickControls={props.onClickControls}
                 />
-                {props.calendarType === CalendarEnum.Month
+                {props.calendarType === CalendarEnum.MONTH
                     ? (
                         <MonthGrid
-                            monthCalendar={props.monthCalendar}
+                            monthCalendarDays={props.monthCalendarDays}
                             getEventsFromDate={props.getEventsFromDate}
                         />
                     )
@@ -53,7 +53,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                         <WeekGrid
                             getEventsFromDate={props.getEventsFromDate}
                             onClickHour={props.onClickHour}
-                            currentWeek={props.currentWeek}
+                            currentWeekDays={props.currentWeekDays}
                         />
                     )}
             </div>

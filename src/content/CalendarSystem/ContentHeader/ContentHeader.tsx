@@ -45,7 +45,7 @@ function ContentHeader(props: IContentHeaderProps) {
                 className={bem.element('measures')}
                 items={CalendarEnum}
                 onClick={props.onChangeType}
-                defaultActiveButton={CalendarEnum.Month}
+                defaultActiveButton={CalendarEnum.MONTH}
             />
         </div>
     );

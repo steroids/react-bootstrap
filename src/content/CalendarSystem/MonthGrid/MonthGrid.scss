@@ -110,6 +110,7 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
             font-size: variables.$font-size-xs;
             font-weight: variables.$font-weight-sm;
             line-height: variables.$line-height-xs;
+            color: variables.$text-color;
 
             text-overflow: ellipsis;
             white-space: nowrap;
