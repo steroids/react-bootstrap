@@ -2,7 +2,7 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import CalendarEnum from '@steroidsjs/core/enums/CalendarType';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import AsideHeader from './AsideHeader';
 import AsideCalendars from './AsideCalendars';
 import ContentHeader from './ContentHeader';
@@ -33,20 +33,21 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     calendarGroups={props.calendarGroups}
                     calendarsTitle={props.calendarGroupsTitle}
                     selectedCalendarGroupsIds={props.selectedCalendarGroups}
-                    onChangeCalendarGroupsIds={props.onChangeCalendarGroupsIds}
+                    onChangeEventGroupsIds={props.onChangeEventGroupsIds}
                 />
             </aside>
             <div className={bem.element('content')}>
                 <ContentHeader
                     dateToDisplay={props.dateToDisplay}
-                    onChangeType={props.onChangeType}
-                    onClickControls={props.onClickControls}
+                    onChangeCalendarType={props.onChangeCalendarType}
+                    applyControl={props.applyControl}
                 />
                 {props.calendarType === CalendarEnum.MONTH
                     ? (
                         <MonthGrid
                             monthCalendarDays={props.monthCalendarDays}
                             getEventsFromDate={props.getEventsFromDate}
+                            weekDays={props.weekDays}
                         />
                     )
                     : (

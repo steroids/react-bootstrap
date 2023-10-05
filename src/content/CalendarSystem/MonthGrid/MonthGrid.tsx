@@ -1,12 +1,14 @@
 import React, {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {DAYS_OF_WEEK, IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 
 import './MonthGrid.scss';
 
 interface IMonthGridProps {
     monthCalendarDays: IDay[];
-    getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[];
+    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
+    weekDays: string[],
 }
 
 function MonthGrid(props: IMonthGridProps) {
@@ -15,7 +17,7 @@ function MonthGrid(props: IMonthGridProps) {
     return (
         <div className={bem.block()}>
             <div className={bem.element('week-days')}>
-                {DAYS_OF_WEEK.map((day, dayIndex) => (
+                {props.weekDays.map((day, dayIndex) => (
                     <span
                         key={dayIndex}
                         className={bem.element('week-days-day')}
@@ -36,7 +38,7 @@ function MonthGrid(props: IMonthGridProps) {
                         <div className={bem.element('day-wrapper')}>
                             <span className={bem.element('day-number')}>{day.dayNumber.toString()}</span>
                             <div className={bem.element('day-content')}>
-                                {props.getEventsFromDate(day.date, true).map((event, eventIndex) => (
+                                {props.getEventsFromDate(day.date, CalendarEnum.MONTH)?.map((event, eventIndex) => (
                                     <span
                                         key={eventIndex}
                                         className={bem.element('day-event')}

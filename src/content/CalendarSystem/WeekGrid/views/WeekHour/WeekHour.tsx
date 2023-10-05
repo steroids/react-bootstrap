@@ -3,12 +3,13 @@ import useBem, {IBem} from '@steroidsjs/core/hooks/useBem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Button} from '@steroidsjs/core/ui/form';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 
 import './WeekHour.scss';
 
 interface IWeekHourProps {
     dayOfWeek: IDay,
-    getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[]
+    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     hour: string,
     parentBem: IBem;
 }
@@ -26,7 +27,7 @@ export default function WeekHour(props: IWeekHourProps) {
 
         callingDate.setHours(Number(timeArray[0] + timeArray[1]), 0, 0, 0);
 
-        return props.getEventsFromDate(callingDate, false);
+        return props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
     }, [props]);
 
     const getFormattedExpandLabel = React.useCallback(() => `${__('Показать ещё')} +${events.length - 3}`, [events.length]);

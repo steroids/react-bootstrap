@@ -2,7 +2,6 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {HOURS, IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import {convertDate} from '@steroidsjs/core/utils/calendar';
 import WeekHour from './views/WeekHour';
 
 import './WeekGrid.scss';

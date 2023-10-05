@@ -4,15 +4,15 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {ButtonGroup} from '@steroidsjs/core/ui/nav';
 import {Icon} from '@steroidsjs/core/ui/content';
-import CalendarEnum from '@steroidsjs/core/enums/CalendarType';
-import DateControlEnum from '@steroidsjs/core/enums/DateControlType';
+import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 
 import './ContentHeader.scss';
 
 interface IContentHeaderProps {
     dateToDisplay: string;
-    onChangeType: (newType: string) => void;
-    onClickControls: (event: React.MouseEvent<HTMLElement>) => void;
+    onChangeCalendarType: (newType: string) => void;
+    applyControl: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 function ContentHeader(props: IContentHeaderProps) {
@@ -26,7 +26,7 @@ function ContentHeader(props: IContentHeaderProps) {
             />
             <ul
                 className={bem.element('controls')}
-                onClick={props.onClickControls}
+                onClick={props.applyControl}
             >
                 {Object.entries(DateControlEnum.getIcons()).map(([controlLabel, controlIcon], controlIndex) => (
                     <li
@@ -44,7 +44,7 @@ function ContentHeader(props: IContentHeaderProps) {
             <ButtonGroup
                 className={bem.element('measures')}
                 items={CalendarEnum}
-                onClick={props.onChangeType}
+                onClick={props.onChangeCalendarType}
                 defaultActiveButton={CalendarEnum.MONTH}
             />
         </div>

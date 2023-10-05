@@ -5,7 +5,7 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import _upperFirst from 'lodash-es/upperFirst';
-import DateControlEnum from '@steroidsjs/core/enums/DateControlType';
+import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
 
 interface ICaptionElementProps extends CaptionElementProps,
     Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'> {
