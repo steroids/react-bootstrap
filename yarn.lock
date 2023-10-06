@@ -747,10 +747,10 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.77":
-  version "3.0.0-beta.77"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.77.tgz#21dfafb69b9a9de5979a1df8c1081e613a1ebae5"
-  integrity sha512-hNmvJTys3qqTH+QMLGQpjeBU1iSRuAo6vR024kbqXAWbfD1HLrZg+WHH5A9o/kuH417camoqkeTazDWbmgwbQg==
+"@steroidsjs/core@^3.0 || >=3.0.0-beta.82":
+  version "3.0.0-beta.82"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.82.tgz#b6be974fc79afea3ab8b1ae20899929353ed49ff"
+  integrity sha512-m61d3M7La3s/O/rc+yyUw9LcMRQP8DaRL1JpH2SffdjUJZj4Obl5jJ/5qMQ0oJ4RdHhMpNCsg3wCDdIen8WNmw==
   dependencies:
     "@maskito/core" "^0.12.1"
     "@maskito/kit" "^0.12.1"
@@ -758,6 +758,7 @@
     "@splidejs/react-splide" "^0.7.12"
     axios "^0.21.1"
     connected-react-router "^6.9.3"
+    dayjs "^1.11.9"
     domready "^1.0.8"
     dot-prop-immutable "^2.1.0"
     fileup-core "^1.2.7"
@@ -767,7 +768,6 @@
     load-js "^3.0.3"
     lodash "^4.17.21"
     lodash-es "^4.17.21"
-    moment "^2.29.1"
     path-to-regexp "^1.7.0"
     qs "^6.9.4"
     query-string "^6.14.0"
@@ -1446,6 +1446,11 @@ date-fns@^2.29.3:
   version "2.29.3"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
+
+dayjs@^1.11.9:
+  version "1.11.10"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.10.tgz#68acea85317a6e164457d6d6947564029a6a16a0"
+  integrity sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==
 
 debug@4, debug@^4.1.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.4"
@@ -2721,11 +2726,6 @@ mkdirp@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
-
-moment@^2.29.1:
-  version "2.29.4"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
-  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
 
 ms@2.1.2:
   version "2.1.2"

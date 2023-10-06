@@ -1,0 +1,8 @@
+@use "../../scss/variables";
+
+.ChartView {
+
+  text {
+    fill: variables.$text-color !important;
+  }
+}
