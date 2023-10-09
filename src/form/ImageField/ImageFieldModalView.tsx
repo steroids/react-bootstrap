@@ -1,13 +1,16 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {useState} from 'react';
-import ReactCrop from 'react-image-crop';
+import ReactCropSource from 'react-image-crop';
 import {IImageFieldModalViewProps} from '@steroidsjs/core/ui/form/ImageField/ImageField';
 import Modal from '@steroidsjs/core/ui/modal/Modal';
 import 'react-image-crop/dist/ReactCrop.css';
 
 export default function ImageFieldModalView(props: IImageFieldModalViewProps) {
     const bem = useBem('ImageFieldModalView');
+
+    //TODO Исправить тип, связано с yarn tsc в action publish.yml
+    const ReactCrop: any = ReactCropSource;
 
     const [crop, setCrop] = useState(props.crop.initialValues);
 
