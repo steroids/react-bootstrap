@@ -7,8 +7,8 @@ import {IEventGroup} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSy
 import './AsideCalendars.scss';
 
 interface IAsideCalendarsProps {
-    calendarGroups: IEventGroup[]
-    calendarsTitle: string;
+    eventGroups: IEventGroup[]
+    eventGroupsTitle: string;
     selectedCalendarGroupsIds: number[],
     onChangeEventGroupsIds: (selectedIds: number[]) => void,
 }
@@ -19,9 +19,9 @@ function AsideCalendars(props: IAsideCalendarsProps) {
     return (
         <div className={bem.block()}>
             <Accordion>
-                <AccordionItem title={props.calendarsTitle}>
+                <AccordionItem title={props.eventGroupsTitle}>
                     <CheckboxListField
-                        items={props.calendarGroups}
+                        items={props.eventGroups}
                         selectedIds={props.selectedCalendarGroupsIds}
                         onChange={(selectedIds) => props.onChangeEventGroupsIds(selectedIds)}
 

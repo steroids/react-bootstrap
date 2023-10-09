@@ -30,8 +30,8 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     onMonthChange={props.onMonthChange}
                 />
                 <AsideCalendars
-                    calendarGroups={props.calendarGroups}
-                    calendarsTitle={props.calendarGroupsTitle}
+                    eventGroups={props.eventGroups}
+                    eventGroupsTitle={props.eventGroupsTitle}
                     selectedCalendarGroupsIds={props.selectedCalendarGroups}
                     onChangeEventGroupsIds={props.onChangeEventGroupsIds}
                 />
@@ -52,6 +52,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     )
                     : (
                         <WeekGrid
+                            allHours={props.allHours}
                             getEventsFromDate={props.getEventsFromDate}
                             onClickHour={props.onClickHour}
                             currentWeekDays={props.currentWeekDays}

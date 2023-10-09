@@ -9,6 +9,7 @@ import './WeekGrid.scss';
 interface IWeekGridProps {
     onClickHour: () => void,
     currentWeekDays: IDay[]
+    allHours: string[],
     getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
 }
 
@@ -34,7 +35,7 @@ function WeekGrid(props: IWeekGridProps) {
         <div className={bem.block()}>
             <div className={bem.element('content')}>
                 <div className={bem.element('hours-time')}>
-                    {HOURS.map((hour, hourIndex) => (
+                    {props.allHours.map((hour, hourIndex) => (
                         <div
                             key={hourIndex}
                             className={bem.element('hours-time-item')}
@@ -60,7 +61,7 @@ function WeekGrid(props: IWeekGridProps) {
                         ))}
                     </div>
                     <div className={bem.element('table-grid')}>
-                        {HOURS.map((hour, hourIndex) => (
+                        {props.allHours.map((hour, hourIndex) => (
                             <div
                                 key={hourIndex}
                                 className={bem.element('table-grid-row')}
