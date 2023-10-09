@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 
 import {ISliderFieldViewProps} from '@steroidsjs/core/ui/form/SliderField/SliderField';
-import Slider, {SliderTooltip, Handle, Range} from 'rc-slider';
+import Slider, {SliderTooltip, Handle as HandleSource, Range} from 'rc-slider';
 
 const createRangeWithTooltip = Slider.createSliderWithTooltip;
 const createSliderWithTooltip = Slider.createSliderWithTooltip;
@@ -11,6 +11,9 @@ const SliderComponent: any = createSliderWithTooltip(Slider);
 
 export default function SliderFieldView(props: ISliderFieldViewProps) {
     const bem = useBem('SliderFieldView');
+
+    //TODO Исправить тип, связано с yarn tsc в action publish.yml
+    const Handle: any = HandleSource;
 
     const handle = (prevProps) => {
         const {value} = prevProps;

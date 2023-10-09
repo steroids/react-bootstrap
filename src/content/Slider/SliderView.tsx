@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {Splide, SplideSlide} from '@splidejs/react-splide';
+import {Splide as SplideSource, SplideSlide} from '@splidejs/react-splide';
 import {ISliderViewProps} from '@steroidsjs/core/ui/content/Slider/Slider';
 
 import '@splidejs/splide/dist/css/splide.min.css';
@@ -9,7 +9,8 @@ import '@splidejs/splide/dist/css/splide.min.css';
 export default function SliderView(props: ISliderViewProps) {
     const bem = useBem('Slider');
 
-    const SplideHardCoded: any = Splide;
+    //TODO Исправить тип, связано с yarn tsc в action publish.yml
+    const Splide: any = SplideSource;
 
     const {itemView: ItemView} = props;
 
@@ -21,7 +22,7 @@ export default function SliderView(props: ISliderViewProps) {
             )}
             style={props.style}
         >
-            <SplideHardCoded
+            <Splide
                 options={props.sliderOptions}
                 extensions={props.extensions}
                 hasTrack={props.hasTrack}
@@ -33,7 +34,7 @@ export default function SliderView(props: ISliderViewProps) {
                         <ItemView item={item} />
                     </SplideSlide>
                 ))}
-            </SplideHardCoded>
+            </Splide>
         </div>
     );
 }
