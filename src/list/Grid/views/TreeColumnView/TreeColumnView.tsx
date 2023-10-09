@@ -11,7 +11,7 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
     const bem = useBem('TreeColumnView');
 
     const levelPadding = props.levelPadding || DEFAULT_PADDING_LEFT;
-    const iconPadding = props.item.hasItems ? PADDING_WITH_ICON : PADDING_WITHOUT_ICON;
+    const paddingBasedOnIcon = props.item.hasItems ? PADDING_WITH_ICON : PADDING_WITHOUT_ICON;
 
     const renderFormat = () => (
         <Format
@@ -35,7 +35,7 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
             <div
                 className={bem.element('data')}
                 style={{
-                    paddingLeft: `${props.item.level * levelPadding + iconPadding}px`,
+                    paddingLeft: `${props.item.level * levelPadding + paddingBasedOnIcon}px`,
                 }}
             >
                 {props.item.hasItems && (
