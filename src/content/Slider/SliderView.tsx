@@ -9,6 +9,8 @@ import '@splidejs/splide/dist/css/splide.min.css';
 export default function SliderView(props: ISliderViewProps) {
     const bem = useBem('Slider');
 
+    const SplideHardCoded: any = Splide;
+
     const {itemView: ItemView} = props;
 
     return (
@@ -19,7 +21,7 @@ export default function SliderView(props: ISliderViewProps) {
             )}
             style={props.style}
         >
-            <Splide
+            <SplideHardCoded
                 options={props.sliderOptions}
                 extensions={props.extensions}
                 hasTrack={props.hasTrack}
@@ -31,7 +33,7 @@ export default function SliderView(props: ISliderViewProps) {
                         <ItemView item={item} />
                     </SplideSlide>
                 ))}
-            </Splide>
+            </SplideHardCoded>
         </div>
     );
 }
