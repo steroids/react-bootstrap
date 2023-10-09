@@ -27,7 +27,6 @@ export default function RadioFieldView(props: IRadioFieldViewProps) {
                 )}
                 id={props.id || id}
                 {...props.inputProps}
-                checked={props.checked}
                 disabled={props.disabled}
                 required={props.required}
             />
