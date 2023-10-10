@@ -71,6 +71,7 @@
 @include meta.load-css('list/FlexGrid/FlexGridView');
 @include meta.load-css('list/List/ListView');
 @include meta.load-css('list/Grid/views/ContentColumnView/ContentColumnView');
+@include meta.load-css('list/Grid/views/TreeColumnView/TreeColumnView');
 @include meta.load-css('list/Pagination/PaginationButtonView');
 @include meta.load-css('list/Pagination/PaginationMoreView');
 @include meta.load-css('list/PaginationSize/PaginationSizeView');
