@@ -43,9 +43,9 @@ function ContentHeader(props: IContentHeaderProps) {
             </ul>
             <ButtonGroup
                 className={bem.element('measures')}
-                items={CalendarEnum}
+                items={Object.entries(CalendarEnum.getLabels()).map(([_, label]) => label)}
                 onClick={props.onChangeCalendarType}
-                defaultActiveButton={CalendarEnum.MONTH}
+                defaultActiveButton={CalendarEnum.getLabels()[CalendarEnum.MONTH]}
             />
         </div>
     );
