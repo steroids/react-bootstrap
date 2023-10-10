@@ -1,0 +1,225 @@
+@use "style/variables";
+
+:root {
+    --calendar-system-hour-border-color: #dbe2e6;
+    --calendar-system-time-background-color: #fff;
+    --calendar-system-today-background-color: #dbe2e6;
+    --calendar-system-today-border-color: #cbd5db;
+}
+
+html[data-theme="dark"] {
+    --calendar-system-hour-border-color: #333646;
+    --calendar-system-time-background-color: #4b4e5e;
+    --calendar-system-today-background-color: #191b1f;
+    --calendar-system-today-border-color: #333646;
+    --calendar-system-today-day-background-color: #651fff;
+}
+
+$calendar-system-hour-border-color: var(--calendar-system-hour-border-color);
+$calendar-system-time-background-color: var(--calendar-system-time-background-color);
+$calendar-system-today-background-color: var(--calendar-system-today-background-color);
+$calendar-system-today-border-color: var(--calendar-system-today-border-color);
+
+$calendar-border-style: 1px solid $calendar-system-hour-border-color;
+$calendar-today-border-style: 1px solid $calendar-system-today-border-color;
+
+.WeekGrid {
+    $root: &;
+    overflow-y: scroll;
+    margin-top: 11px;
+
+    @include variables.scrollWrapper(568px, 20px, variables.$scroll-thumb-color, variables.$scroll-track-color);
+
+    &__content {
+        display: flex;
+
+        #{$root}__hours-time {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            margin-right: 8px;
+
+            &-item {
+                width: 40px;
+                height: 24px;
+                border-radius: variables.$radius-small;
+                background-color: $calendar-system-time-background-color;
+                color: variables.$custom-text-color-base;
+                font-size: variables.$font-size-xs;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-xs;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    &__table {
+        display: flex;
+        flex-flow: column nowrap;
+        width: calc(100% - 48px);
+
+        &-heading {
+            display: grid;
+            max-height: 100%;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        &-grid {
+            width: auto;
+            display: grid;
+            grid-template-rows: repeat(24, 1fr);
+
+            &-row {
+                display: grid;
+                height: auto;
+                grid-template-columns: repeat(7, 1fr);
+                min-height: 80px;
+
+                //Borders
+                &:first-child #{$root}__hour {
+                    border-top: $calendar-border-style;
+                }
+
+                #{$root}__hour {
+                    border-right: $calendar-border-style;
+                    border-bottom: $calendar-border-style;
+
+                    &:first-child {
+                        border-left: $calendar-border-style;
+                    }
+                }
+
+                &:first-child #{$root}__hour_isToday {
+                    border-top: $calendar-today-border-style;
+                }
+
+                #{$root}__hour_isToday {
+                    background-color: $calendar-system-today-background-color;
+                    border-right: $calendar-today-border-style;
+                    border-bottom: $calendar-today-border-style;
+
+                    &:first-child {
+                        border-left: $calendar-today-border-style;
+                    }
+                }
+            }
+        }
+    }
+
+    &__hours-time {
+        margin-top: 32px;
+    }
+
+    &__day {
+        $dayRoot: &;
+
+        font-size: variables.$font-size-sm;
+        font-weight: variables.$font-weight-md;
+        line-height: variables.$line-height-sm;
+        padding: 8px 10px;
+        margin-bottom: 0;
+        display: flex;
+        justify-content: flex-end;
+
+        &_isToday {
+            padding: 4px 10px;
+            color: variables.$white;
+
+            #{$dayRoot}-wrapper {
+                position: relative;
+                padding: 4px;
+                background-color: variables.$primary;
+                border-radius: 200px;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border: 3px solid variables.$primary-light;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: inherit;
+                    transform: translate(-3px, -3px);
+                }
+            }
+        }
+    }
+
+    &__hour {
+        $rootHour: &;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1px;
+        max-height: 80px;
+
+        &-event {
+            position: relative;
+            padding: 4px 8px;
+            overflow: hidden;
+            border-radius: 4px;
+
+            &-title {
+                font-size: variables.$font-size-sm;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-sm;
+                color: #312c3a;
+
+                padding-right: 36px;
+            }
+
+            &-time {
+                top: 4px;
+                right: 8px;
+                position: absolute;
+                display: inline-block;
+                font-size: variables.$font-size-xs;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-xs;
+            }
+        }
+
+        &_hasOneEvent {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 4; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
+            }
+        }
+
+        &_hasTwoEvents {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 2; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
+            }
+        }
+
+        &_hasTreeEvents {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 1; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
+            }
+
+            #{$rootHour}-event { 
+                max-height: 18px;
+                padding: 0 8px;
+            }
+
+            #{$rootHour}-event-time { 
+                top: 0;
+                right: 8px
+            }
+        }
+    }
+}

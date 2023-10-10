@@ -1,0 +1,57 @@
+@use "style/variables";
+
+:root {
+    --calendar-system-caption-arrow-background-color: #fff;
+    --calendar-system-caption-arrow-color: #323232;
+}
+
+html[data-theme="dark"] {
+    --calendar-system-caption-arrow-background-color: var(--gray);
+    --calendar-system-caption-arrow-color: #ffffff;
+}
+
+$calendar-system-caption-arrow-color: var(--calendar-system-caption-arrow-color);
+$calendar-system-caption-arrow-background-color: var(--calendar-system-caption-arrow-background-color);
+
+.ContentHeader {
+    display: flex;
+    align-items: center;
+
+    &__month {
+        display: inline-block;
+        font-size: variables.$font-size-24;
+        font-weight: variables.$font-weight-lg;
+        line-height: variables.$line-height-32;
+        margin-right: 93px;
+        margin-bottom: 0;
+        width: 190px;
+    }
+
+    &__controls {
+        display: inline-flex;
+        align-items: center;
+        flex-flow: row nowrap;
+        margin-right: auto;
+        gap: 8px;
+
+        &-item {
+            cursor: pointer;
+
+            svg {
+                path {
+                    stroke: $calendar-system-caption-arrow-color;
+                }
+                rect {
+                    fill: $calendar-system-caption-arrow-background-color;
+                }
+            }
+
+            &-icon { 
+                pointer-events: none;
+            }
+        }
+    }
+
+    &__measures {
+    }
+}

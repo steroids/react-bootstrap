@@ -1,0 +1,41 @@
+@use "style/variables";
+
+.AsideHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    &__title {
+        font-size: variables.$font-size-24;
+        font-weight: variables.$font-weight-lg;
+        line-height: variables.$line-height-32;
+        color: variables.$text-color;
+        margin-bottom: 0;
+    }
+
+    .ButtonView {
+        width: 94px;
+        height: 34px;
+        border: none;
+        padding: 5px 12px;
+
+        &__label {
+            gap: 4px;
+        }
+
+        &__text {
+            font-size: variables.$font-size-14;
+            font-weight: variables.$font-weight-sm;
+            line-height: variables.$line-height-24;
+        }
+
+        &__icon {
+            margin: 0;
+            svg path,
+            rect,
+            circle {
+                stroke: #FFFFFF;
+            }
+        }
+    }
+}

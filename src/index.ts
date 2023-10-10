@@ -43,6 +43,9 @@ export default {
     'content.SliderView': {
         lazy: () => require('./content/Slider/SliderView').default,
     },
+    'content.CalendarSystemView': {
+        lazy: () => require('./content/CalendarSystem/CalendarSystemView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },

@@ -5,6 +5,7 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import _upperFirst from 'lodash-es/upperFirst';
+import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
 
 interface ICaptionElementProps extends CaptionElementProps,
     Pick<ICalendarViewProps, 'fromYear' | 'toYear' | 'isCaptionPanelVisible' | 'toggleCaptionPanel'> {
@@ -48,20 +49,22 @@ export default function CaptionElement(props: ICaptionElementProps) {
     const icons = useMemo(() => [
         {
             name: 'double_arrow_left',
+            sourceControl: DateControlEnum.PREV_DOUBLE,
             onClick: () => handleYearChange(currentYear - 1),
         },
         {
             name: 'arrow_left_24x24',
-            externalClass: 'one-arrow',
+            sourceControl: DateControlEnum.PREV_ONE,
             onClick: () => handleMonthChange(currentMonth - 1),
         },
         {
             name: 'arrow_right_24x24',
-            externalClass: 'one-arrow',
+            sourceControl: DateControlEnum.NEXT_ONE,
             onClick: () => handleMonthChange(currentMonth + 1),
         },
         {
             name: 'double_arrow_right',
+            sourceControl: DateControlEnum.NEXT_DOUBLE,
             onClick: () => handleYearChange(currentYear + 1),
         },
 
@@ -99,7 +102,8 @@ export default function CaptionElement(props: ICaptionElementProps) {
                                 e.preventDefault();
                                 icon.onClick();
                             }}
-                            className={bem.element('button', icon.externalClass)}
+                            className={bem.element('button')}
+                            data-sourcecontrol={icon.sourceControl}
                         />
                     ))}
                 </div>

@@ -1,0 +1,50 @@
+@use 'style/variables';
+
+:root {
+    --calendar-system-content-background-color: #f1f5f7;
+}
+
+html[data-theme="dark"] {
+    --calendar-system-content-background-color: #101216;
+}
+
+$calendar-system-content-background-color: var(--calendar-system-content-background-color);
+
+.CalendarSystemView {
+    $root: &;
+    max-height: 1080px;
+
+    display: flex;
+    &__aside {
+        display: flex;
+        flex-flow: column nowrap;
+        flex-shrink: 0;
+        gap: 32px;
+        max-width: 310px;
+        padding: 12px;
+
+        background-color: variables.$element-background-color;
+
+        .CalendarView {
+            padding: 0;
+            border: none;
+
+            .DayPicker-WeekdaysRow {
+                gap: 8px;
+            }
+
+            .DayPicker-Week {
+                gap: 8px;
+            }
+        }
+    }
+
+    &__content {
+        background-color: $calendar-system-content-background-color;
+        width: 100%;
+        padding: 12px;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 11px;
+    }
+}
