@@ -43,6 +43,15 @@ export default {
     'content.SliderView': {
         lazy: () => require('./content/Slider/SliderView').default,
     },
+    'content.KanbanView': {
+        lazy: () => require('./content/Kanban/KanbanView').default,
+    },
+    'content.KanbanColumnView': {
+        lazy: () => require('./content/Kanban/views/KanbanColumn/KanbanColumnView').default,
+    },
+    'content.KanbanTaskView': {
+        lazy: () => require('./content/Kanban/views/KanbanTask/KanbanTaskView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
