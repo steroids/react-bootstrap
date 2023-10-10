@@ -8,6 +8,8 @@ import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Da
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 
 import './ContentHeader.scss';
+import CalendarType from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
+import {DataProviderItem} from '@steroidsjs/core/hooks/useDataProvider';
 
 interface IContentHeaderProps {
     dateToDisplay: string;
@@ -43,9 +45,9 @@ function ContentHeader(props: IContentHeaderProps) {
             </ul>
             <ButtonGroup
                 className={bem.element('measures')}
-                items={CalendarEnum}
+                items={Object.entries(CalendarEnum.getLabels()).map(([_, label]) => label)}
                 onClick={props.onChangeCalendarType}
-                defaultActiveButton={CalendarEnum.MONTH}
+                defaultActiveButton={CalendarEnum.getLabels()[CalendarEnum.MONTH]}
             />
         </div>
     );
