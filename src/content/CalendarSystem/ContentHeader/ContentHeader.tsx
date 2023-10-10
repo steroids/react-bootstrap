@@ -8,8 +8,6 @@ import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Da
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 
 import './ContentHeader.scss';
-import CalendarType from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-import {DataProviderItem} from '@steroidsjs/core/hooks/useDataProvider';
 
 interface IContentHeaderProps {
     dateToDisplay: string;
