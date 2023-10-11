@@ -1,6 +1,7 @@
 @use "style/variables";
 
 .WeekHour {
+    height: max-content;
     &__expand-button {
         font-size: variables.$font-size-xs;
         font-weight: variables.$font-weight-sm;
@@ -8,7 +9,7 @@
         text-align: center;
        
         .ButtonView__text { 
-            color: #312C3A;
+            color: variables.$text-color;
         }
     }
 }
