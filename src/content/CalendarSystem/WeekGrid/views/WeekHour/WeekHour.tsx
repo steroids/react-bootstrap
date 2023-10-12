@@ -67,6 +67,7 @@ export default function WeekHour(props: IWeekHourProps) {
         <Tooltip
             position='rightBottom'
             content={event.title}
+            className={bem.element('tooltip')}
         >
             <div
                 key={eventIndex}
@@ -82,7 +83,7 @@ export default function WeekHour(props: IWeekHourProps) {
                 </span>
             </div>
         </Tooltip>
-    ), [parentBem]);
+    ), [bem, parentBem]);
 
     const getFormattedExpandLabel = React.useCallback(() => `${__('Показать ещё')} +${restEvents.length}`, [restEvents.length]);
 

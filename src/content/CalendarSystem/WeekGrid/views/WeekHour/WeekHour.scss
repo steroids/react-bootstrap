@@ -1,5 +1,14 @@
 @use "style/variables";
 
+:root {
+    --tooltip-background-color: rgba(255, 255, 255, 0.4);
+}
+
+html[data-theme="dark"] {
+    --tooltip-background-color: rgba(255, 255, 255, 0.4);
+}
+$tooltip-background-color: var(--tooltip-background-color);
+
 .WeekHour {
     height: max-content;
     &__expand-button {
@@ -7,9 +16,22 @@
         font-weight: variables.$font-weight-sm;
         line-height: variables.$line-height-xs;
         text-align: center;
-       
-        .ButtonView__text { 
+
+        .ButtonView__text {
             color: variables.$text-color;
+        }
+    }
+
+    &__tooltip {
+        background-color: $tooltip-background-color;
+        border-radius: 4px;
+
+        .TooltipView__arrow {
+            display: none;
+        }
+
+        .TooltipView__content {
+            color: variables.$text-color !important;
         }
     }
 }
