@@ -7,13 +7,14 @@ import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Calen
 import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
 import _isEmpty from 'lodash-es/isEmpty';
-import {useClickAway} from 'react-use';
+import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
+import {useExpand} from '@steroidsjs/core/hooks';
+import {getFormattedExpandLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './WeekHour.scss';
-import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 
-const THREE_ELEMENTS_IN_ARRAY = 3;
-const THIRD_ELEMENT_INDEX = 2;
+const THIRD_ELEMENT_INDEX = 4;
+const THREE_ELEMENTS_IN_ARRAY = 5;
 
 interface IWeekHourProps {
     dayOfWeek: IDay,
@@ -26,8 +27,7 @@ export default function WeekHour(props: IWeekHourProps) {
     const bem = useBem('WeekHour');
     const {parentBem} = props;
 
-    const [isExpanded, setIsExpanded] = React.useState(false);
-    const weekHourRef = React.useRef<HTMLDivElement>(null);
+    const {isExpanded, setIsExpanded, triggerRef: weekHourRef} = useExpand();
 
     const {
         eventsFromHour: events,
@@ -85,15 +85,7 @@ export default function WeekHour(props: IWeekHourProps) {
         </Tooltip>
     ), [bem, parentBem]);
 
-    const getFormattedExpandLabel = React.useCallback(() => `${__('Показать ещё')} +${restEvents.length}`, [restEvents.length]);
-
-    useClickAway(weekHourRef, () => {
-        if (!isExpanded) {
-            return;
-        }
-
-        setIsExpanded(false);
-    });
+    const formattedExpandLabel = React.useMemo(() => getFormattedExpandLabel(restEvents), [restEvents]);
 
     return (
         <div
@@ -114,7 +106,7 @@ export default function WeekHour(props: IWeekHourProps) {
                     className={bem.element('expand-button')}
                     onClick={() => setIsExpanded(true)}
                 >
-                    {getFormattedExpandLabel()}
+                    {formattedExpandLabel}
                 </Button>
             )}
         </div>

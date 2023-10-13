@@ -1,37 +1,14 @@
 @use "style/variables";
+@use "../../../../../scss/mixins";
 
-:root {
-    --tooltip-background-color: rgba(255, 255, 255, 0.4);
-}
-
-html[data-theme="dark"] {
-    --tooltip-background-color: rgba(255, 255, 255, 0.4);
-}
-$tooltip-background-color: var(--tooltip-background-color);
 
 .WeekHour {
     height: max-content;
     &__expand-button {
-        font-size: variables.$font-size-xs;
-        font-weight: variables.$font-weight-sm;
-        line-height: variables.$line-height-xs;
-        text-align: center;
-
-        .ButtonView__text {
-            color: variables.$text-color;
-        }
+        @include mixins.expand-button();
     }
 
     &__tooltip {
-        background-color: $tooltip-background-color;
-        border-radius: 4px;
-
-        .TooltipView__arrow {
-            display: none;
-        }
-
-        .TooltipView__content {
-            color: variables.$text-color !important;
-        }
+        @include mixins.calendar-tooltip();
     }
 }
