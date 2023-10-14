@@ -5,8 +5,6 @@ import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
 
 import TaskTags from '../TaskTags';
 
-import './KanbanTaskView.scss';
-
 function KanbanTaskView(props: IKanbanTaskViewProps) {
     const bem = useBem('KanbanTaskView');
     const {id, title, description, tags, assigner, status} = props.task;

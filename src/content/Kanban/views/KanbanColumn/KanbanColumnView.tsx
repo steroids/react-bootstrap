@@ -4,8 +4,6 @@ import {IKanbanColumnViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban'
 import {Title} from '@steroidsjs/core/ui/typography';
 import {Button} from '@steroidsjs/core/ui/form';
 
-import './KanbanColumnView.scss';
-
 export default function KanbanColumnView(props: IKanbanColumnViewProps) {
     const bem = useBem('KanbanColumnView');
 
@@ -15,7 +13,7 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
 
     return (
         <Draggable
-            draggableId={`${id}`}
+            draggableId={id}
             index={props.columnIndex}
         >
             {(provided) => (
