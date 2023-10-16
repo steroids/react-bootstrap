@@ -16,15 +16,15 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
             draggableId={id}
             index={props.columnIndex}
         >
-            {(provided) => (
+            {(providedDraggable) => (
                 <div
                     className={bem.block()}
-                    {...provided.draggableProps}
-                    ref={provided.innerRef}
+                    {...providedDraggable.draggableProps}
+                    ref={providedDraggable.innerRef}
                 >
                     <div
                         className={bem.element('header')}
-                        {...provided.dragHandleProps}
+                        {...providedDraggable.dragHandleProps}
                     >
                         <Title
                             className={bem.element('title')}
@@ -41,16 +41,16 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
                         droppableId={id}
                         type="task"
                     >
-                        {(prov) => (
+                        {(providedDroppable) => (
                             <div
                                 className={bem.element('content')}
-                                ref={prov.innerRef}
-                                {...prov.droppableProps}
+                                ref={providedDroppable.innerRef}
+                                {...providedDroppable.droppableProps}
                             >
                                 {tasks.map((task, taskIndex) => (
                                     props.renderTask(task, taskIndex)
                                 ))}
-                                {prov.placeholder}
+                                {providedDroppable.placeholder}
                             </div>
                         )}
                     </Droppable>
