@@ -2,6 +2,7 @@ import React, {memo} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IKanbanTaskViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
+import {Text} from '@steroidsjs/core/ui/typography';
 
 import TaskTags from '../TaskTags';
 
@@ -37,9 +38,11 @@ function KanbanTaskView(props: IKanbanTaskViewProps) {
                                 </h4>
                             </div>
                             {description && (
-                                <p className={bem.element('description')}>
-                                    {description}
-                                </p>
+                                <Text
+                                    type='body2'
+                                    content={description}
+                                    className={bem.element('description')}
+                                />
                             )}
                         </div>
                         <div className={bem.element('footer')}>
