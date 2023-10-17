@@ -7,7 +7,7 @@ import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
 import {Button} from '@steroidsjs/core/ui/form';
 import _isEmpty from 'lodash-es/isEmpty';
-import useExpand from '@steroidsjs/core/hooks/useExpand';
+import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
 import {getFormattedExpandLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './MonthDay.scss';
@@ -25,7 +25,7 @@ export default function MonthDay(props: IMonthDayProps) {
 
     const {day, getEventsFromDate} = props;
 
-    const {isExpanded, setIsExpanded, triggerRef: monthDayRef} = useExpand();
+    const {isExpanded, setIsExpanded, triggerRef: monthDayRef} = useExpandClickAway();
 
     const {
         eventsFromDay: events,

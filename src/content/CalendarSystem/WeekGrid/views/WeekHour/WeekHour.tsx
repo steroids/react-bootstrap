@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import useBem, {IBem} from '@steroidsjs/core/hooks/useBem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
@@ -8,13 +9,13 @@ import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
 import _isEmpty from 'lodash-es/isEmpty';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
-import {useExpand} from '@steroidsjs/core/hooks';
+import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
 import {getFormattedExpandLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './WeekHour.scss';
 
-const THIRD_ELEMENT_INDEX = 4;
-const THREE_ELEMENTS_IN_ARRAY = 5;
+const FOURTH_ELEMENT_INDEX = 3;
+const THREE_ELEMENTS_IN_ARRAY = 3;
 
 interface IWeekHourProps {
     dayOfWeek: IDay,
@@ -27,7 +28,7 @@ export default function WeekHour(props: IWeekHourProps) {
     const bem = useBem('WeekHour');
     const {parentBem} = props;
 
-    const {isExpanded, setIsExpanded, triggerRef: weekHourRef} = useExpand();
+    const {isExpanded, setIsExpanded, triggerRef: weekHourRef} = useExpandClickAway();
 
     const {
         eventsFromHour: events,
@@ -35,6 +36,7 @@ export default function WeekHour(props: IWeekHourProps) {
         hasOneEvent,
         hasTreeEvents,
         hasTwoEvents,
+        hasMoreThanFourEvents,
     } = React.useMemo(() => {
         const callingDate = new Date(props.dayOfWeek.date);
         let restEventsFromHour: IEvent[];
@@ -48,9 +50,10 @@ export default function WeekHour(props: IWeekHourProps) {
         const hourHasOneEvent = eventsFromHour.length <= 1;
         const hourHasTwoEvents = eventsFromHour.length === 2;
         const hourHasTreeEvents = eventsFromHour.length >= 3;
+        const hasMoreThanFourEvents = eventsFromHour.length > 3;
 
-        if (hourHasTreeEvents) {
-            restEventsFromHour = _slice([...eventsFromHour], THIRD_ELEMENT_INDEX);
+        if (hasMoreThanFourEvents) {
+            restEventsFromHour = _slice([...eventsFromHour], FOURTH_ELEMENT_INDEX);
             eventsFromHour = _take([...eventsFromHour], THREE_ELEMENTS_IN_ARRAY);
         }
 
@@ -60,6 +63,7 @@ export default function WeekHour(props: IWeekHourProps) {
             hasOneEvent: hourHasOneEvent,
             hasTwoEvents: hourHasTwoEvents,
             hasTreeEvents: hourHasTreeEvents,
+            hasMoreThanFourEvents,
         };
     }, [props]);
 
@@ -100,7 +104,7 @@ export default function WeekHour(props: IWeekHourProps) {
         >
             {events.map(renderEvent)}
             {isExpanded && !_isEmpty(restEvents) && restEvents.map(renderEvent)}
-            {hasTreeEvents && !isExpanded && (
+            {hasMoreThanFourEvents && !isExpanded && (
                 <Button
                     link
                     className={bem.element('expand-button')}
