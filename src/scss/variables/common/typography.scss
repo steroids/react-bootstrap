@@ -83,6 +83,12 @@ $text-types: map.merge(
             "line-height": $line-height-base,
             "color": colors.$text-color,
         ),
+        "body2": (
+            "font-size": $font-size-sm,
+            "font-weight": $font-weight-sm,
+            "line-height": $line-height-sm,
+            "color": colors.$text-color,
+        ),
         "span": (
             "font-size": $font-size-base,
             "font-weight": $font-weight-sm,
