@@ -19,10 +19,13 @@ export default function TooltipView(props: ITooltipViewProps) {
     return (
         <div
             ref={tooltipRef}
-            className={bem.block({
-                show: props.isTooltipVisible,
-                position: props.position,
-            })}
+            className={bem(
+                bem.block({
+                    show: props.isTooltipVisible,
+                    position: props.position,
+                }),
+                props.className,
+            )}
             style={props.style}
         >
             <div
