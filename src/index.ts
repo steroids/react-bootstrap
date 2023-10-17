@@ -51,6 +51,7 @@ export default {
     },
     'content.KanbanTaskView': {
         lazy: () => require('./content/Kanban/views/KanbanTask/KanbanTaskView').default,
+    },
     'content.CalendarSystemView': {
         lazy: () => require('./content/CalendarSystem/CalendarSystemView').default,
     },
