@@ -22,7 +22,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
         >
             <aside className={bem.element('aside')}>
                 <AsideHeader
-                    onClick={props.onClickCreate}
+                    onClick={props.openCreateModal}
                     className={bem.element('aside-header')}
                 />
                 <Calendar

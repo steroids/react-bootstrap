@@ -1,5 +1,37 @@
-@import 'style/variables';
+@import "style/variables";
 
 .CalendarSystemModalView {
+    $root: &;
 
+    &__default-form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 16px;
+
+        > div {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        #{$root}__label {
+            margin-bottom: 0;
+            margin-right: 16px;
+            width: 140px;
+            height: 46px;
+        }
+
+
+        #{$root}__name-field { 
+            width: 585px;
+        }
+
+
+        .ButtonView { 
+            width: 86px;
+            padding: 11px 12px;
+        }
+    }
 }
