@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
@@ -8,7 +9,7 @@ import _slice from 'lodash-es/slice';
 import {Button} from '@steroidsjs/core/ui/form';
 import _isEmpty from 'lodash-es/isEmpty';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
-import {getFormattedExpandLabel} from '../../../../../utils/getFormattedExpandLabel';
+import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './MonthDay.scss';
 
@@ -28,30 +29,30 @@ export default function MonthDay(props: IMonthDayProps) {
     const {isExpanded, setIsExpanded, triggerRef: monthDayRef} = useExpandClickAway();
 
     const {
-        eventsFromDay: events,
-        restEventsFromDay: restEvents,
+        events,
+        restEvents,
         hasSixEvents,
     } = React.useMemo(() => {
         const callingDate = new Date(props.day.date);
-        let restEventsFromDay: IEvent[];
+        let restEvents: IEvent[];
 
-        let eventsFromDay = getEventsFromDate(callingDate, CalendarEnum.MONTH);
+        let events = getEventsFromDate(callingDate, CalendarEnum.MONTH);
 
-        const dayHasMoreThanSixEvents = eventsFromDay.length > 6;
+        const dayHasMoreThanSixEvents = events.length > 6;
 
         if (dayHasMoreThanSixEvents) {
-            restEventsFromDay = _slice([...eventsFromDay], SIXTH_ELEMENT_INDEX);
-            eventsFromDay = _take([...eventsFromDay], SIX_ELEMENTS_IN_ARRAY);
+            restEvents = _slice([...events], SIXTH_ELEMENT_INDEX);
+            events = _take([...events], SIX_ELEMENTS_IN_ARRAY);
         }
 
         return {
-            eventsFromDay,
-            restEventsFromDay: restEventsFromDay ?? [],
+            events,
+            restEvents: restEvents ?? [],
             hasSixEvents: dayHasMoreThanSixEvents,
         };
     }, [getEventsFromDate, props.day.date]);
 
-    const formattedExpandLabel = React.useMemo(() => getFormattedExpandLabel(restEvents.length), [restEvents.length]);
+    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(restEvents), [restEvents]);
 
     const renderEvent = React.useCallback((event: IEvent, eventIndex: number) => (
         <Tooltip

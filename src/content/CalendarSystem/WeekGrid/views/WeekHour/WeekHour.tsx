@@ -10,7 +10,7 @@ import _slice from 'lodash-es/slice';
 import _isEmpty from 'lodash-es/isEmpty';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
-import {getFormattedExpandLabel} from '../../../../../utils/getFormattedExpandLabel';
+import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './WeekHour.scss';
 
@@ -34,8 +34,8 @@ export default function WeekHour(props: IWeekHourProps) {
         eventsFromHour: events,
         restEventsFromHour: restEvents,
         hasOneEvent,
-        hasTreeEvents,
         hasTwoEvents,
+        hasTreeEvents,
         hasMoreThanFourEvents,
     } = React.useMemo(() => {
         const callingDate = new Date(props.dayOfWeek.date);
@@ -45,24 +45,24 @@ export default function WeekHour(props: IWeekHourProps) {
 
         callingDate.setHours(Number(timeArray[0] + timeArray[1]), 0, 0, 0);
 
-        let eventsFromHour = props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
+        let events = props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
 
-        const hourHasOneEvent = eventsFromHour.length <= 1;
-        const hourHasTwoEvents = eventsFromHour.length === 2;
-        const hourHasTreeEvents = eventsFromHour.length >= 3;
-        const hasMoreThanFourEvents = eventsFromHour.length > 3;
+        const hasOneEvent = events.length === 1;
+        const hasTwoEvents = events.length === 2;
+        const hasMoreThanTreeEvents = events.length >= 3;
+        const hasMoreThanFourEvents = events.length > 3;
 
         if (hasMoreThanFourEvents) {
-            restEventsFromHour = _slice([...eventsFromHour], FOURTH_ELEMENT_INDEX);
-            eventsFromHour = _take([...eventsFromHour], THREE_ELEMENTS_IN_ARRAY);
+            restEventsFromHour = _slice([...events], FOURTH_ELEMENT_INDEX);
+            events = _take([...events], THREE_ELEMENTS_IN_ARRAY);
         }
 
         return {
-            eventsFromHour,
+            eventsFromHour: events,
             restEventsFromHour: restEventsFromHour ?? [],
-            hasOneEvent: hourHasOneEvent,
-            hasTwoEvents: hourHasTwoEvents,
-            hasTreeEvents: hourHasTreeEvents,
+            hasOneEvent,
+            hasTwoEvents,
+            hasTreeEvents: hasMoreThanTreeEvents,
             hasMoreThanFourEvents,
         };
     }, [props]);
@@ -89,7 +89,7 @@ export default function WeekHour(props: IWeekHourProps) {
         </Tooltip>
     ), [bem, parentBem]);
 
-    const formattedExpandLabel = React.useMemo(() => getFormattedExpandLabel(restEvents), [restEvents]);
+    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(restEvents), [restEvents]);
 
     return (
         <div
