@@ -1,14 +1,14 @@
 @use "style/variables";
+@use "../../../../../scss/mixins";
+
 
 .WeekHour {
+    height: max-content;
     &__expand-button {
-        font-size: variables.$font-size-xs;
-        font-weight: variables.$font-weight-sm;
-        line-height: variables.$line-height-xs;
-        text-align: center;
-       
-        .ButtonView__text { 
-            color: #312C3A;
-        }
+        @include mixins.expand-button();
+    }
+
+    &__tooltip {
+        @include mixins.calendar-tooltip();
     }
 }

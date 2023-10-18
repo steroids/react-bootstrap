@@ -4,6 +4,7 @@ import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarS
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 
 import './MonthGrid.scss';
+import MonthDay from './views/MonthDay';
 
 interface IMonthGridProps {
     monthCalendarDays: IDay[];
@@ -28,33 +29,11 @@ function MonthGrid(props: IMonthGridProps) {
             </div>
             <div className={bem.element('grid')}>
                 {props.monthCalendarDays.map((day, dayIndex) => (
-                    <div
+                    <MonthDay
                         key={dayIndex}
-                        className={bem.element('day', {
-                            outOfRange: day.outOfRange,
-                            isToday: day.isToday,
-                        })}
-                    >
-                        <div className={bem.element('day-wrapper')}>
-                            <span className={bem.element('day-number')}>{day.dayNumber.toString()}</span>
-                            <div className={bem.element('day-content')}>
-                                {props.getEventsFromDate(day.date, CalendarEnum.MONTH)?.map((event, eventIndex) => (
-                                    <span
-                                        key={eventIndex}
-                                        className={bem.element('day-event')}
-                                        title={event.title}
-                                    >
-                                        <span
-                                            className={bem.element('day-event-dot')}
-                                            style={{backgroundColor: event.color}}
-                                        />
-                                        {event.title}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
-
-                    </div>
+                        getEventsFromDate={props.getEventsFromDate}
+                        day={day}
+                    />
                 ))}
             </div>
         </div>

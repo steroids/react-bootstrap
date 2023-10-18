@@ -1,11 +1,21 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import useBem, {IBem} from '@steroidsjs/core/hooks/useBem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Button} from '@steroidsjs/core/ui/form';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
+import _take from 'lodash-es/take';
+import _slice from 'lodash-es/slice';
+import _isEmpty from 'lodash-es/isEmpty';
+import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
+import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
+import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './WeekHour.scss';
+
+const FOURTH_ELEMENT_INDEX = 3;
+const THREE_ELEMENTS_IN_ARRAY = 3;
 
 interface IWeekHourProps {
     dayOfWeek: IDay,
@@ -18,23 +28,68 @@ export default function WeekHour(props: IWeekHourProps) {
     const bem = useBem('WeekHour');
     const {parentBem} = props;
 
-    const [isExpanded, setIsExpanded] = React.useState(false);
+    const {isExpanded, setIsExpanded, triggerRef: weekHourRef} = useExpandClickAway();
 
-    const events = React.useMemo(() => {
+    const {
+        eventsFromHour: events,
+        restEventsFromHour: restEvents,
+        hasOneEvent,
+        hasTwoEvents,
+        hasTreeEvents,
+        hasMoreThanFourEvents,
+    } = React.useMemo(() => {
         const callingDate = new Date(props.dayOfWeek.date);
+        let restEventsFromHour: IEvent[];
 
         const timeArray = props.hour.replace(':', '').split('');
 
         callingDate.setHours(Number(timeArray[0] + timeArray[1]), 0, 0, 0);
 
-        return props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
+        let events = props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
+
+        const hasOneEvent = events.length === 1;
+        const hasTwoEvents = events.length === 2;
+        const hasMoreThanTreeEvents = events.length >= 3;
+        const hasMoreThanFourEvents = events.length > 3;
+
+        if (hasMoreThanFourEvents) {
+            restEventsFromHour = _slice([...events], FOURTH_ELEMENT_INDEX);
+            events = _take([...events], THREE_ELEMENTS_IN_ARRAY);
+        }
+
+        return {
+            eventsFromHour: events,
+            restEventsFromHour: restEventsFromHour ?? [],
+            hasOneEvent,
+            hasTwoEvents,
+            hasTreeEvents: hasMoreThanTreeEvents,
+            hasMoreThanFourEvents,
+        };
     }, [props]);
 
-    const getFormattedExpandLabel = React.useCallback(() => `${__('Показать ещё')} +${events.length - 3}`, [events.length]);
+    const renderEvent = React.useCallback((event: IEvent, eventIndex: number) => (
+        <Tooltip
+            position='rightBottom'
+            content={event.title}
+            className={bem.element('tooltip')}
+        >
+            <div
+                key={eventIndex}
+                className={parentBem.element('hour-event')}
+                style={{backgroundColor: event.color}}
+                title={event.title}
+            >
+                <span className={parentBem.element('hour-event-title')}>
+                    {event.title}
+                </span>
+                <span className={parentBem.element('hour-event-time')}>
+                    {convertDate(event.date, null, 'HH:mm')}
+                </span>
+            </div>
+        </Tooltip>
+    ), [bem, parentBem]);
 
-    const hasOneEvent = events.length <= 1;
-    const hasTwoEvents = events.length === 2;
-    const hasTreeEvents = events.length >= 3;
+    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(restEvents), [restEvents]);
 
     return (
         <div
@@ -45,28 +100,17 @@ export default function WeekHour(props: IWeekHourProps) {
                 hasTreeEvents,
                 isExpanded,
             })}
+            ref={weekHourRef}
         >
-            {events.map((event, eventIndex) => (
-                <div
-                    key={eventIndex}
-                    className={parentBem.element('hour-event')}
-                    style={{backgroundColor: event.color}}
-                    title={event.title}
-                >
-                    <span className={parentBem.element('hour-event-title')}>
-                        {event.title}
-                    </span>
-                    <span className={parentBem.element('hour-event-time')}>
-                        {convertDate(event.date, null, 'HH:mm')}
-                    </span>
-                </div>
-            ))}
-            {hasTreeEvents && events.length > 3 && (
+            {events.map(renderEvent)}
+            {isExpanded && !_isEmpty(restEvents) && restEvents.map(renderEvent)}
+            {hasMoreThanFourEvents && !isExpanded && (
                 <Button
                     link
                     className={bem.element('expand-button')}
+                    onClick={() => setIsExpanded(true)}
                 >
-                    {getFormattedExpandLabel()}
+                    {formattedExpandLabel}
                 </Button>
             )}
         </div>
