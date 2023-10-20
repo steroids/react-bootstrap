@@ -79,11 +79,11 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
                 min-height: 80px;
 
                 //Borders
-                &:first-child #{$root}__hour {
+                &:first-child .WeekHour__hour {
                     border-top: $calendar-border-style;
                 }
 
-                #{$root}__hour {
+                .WeekHour__hour {
                     border-right: $calendar-border-style;
                     border-bottom: $calendar-border-style;
 
@@ -92,11 +92,11 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
                     }
                 }
 
-                &:first-child #{$root}__hour_isToday {
+                &:first-child .WeekHour__hour_isToday {
                     border-top: $calendar-today-border-style;
                 }
 
-                #{$root}__hour_isToday {
+                .WeekHour__hour_isToday {
                     background-color: $calendar-system-today-background-color;
                     border-right: $calendar-today-border-style;
                     border-bottom: $calendar-today-border-style;
@@ -148,86 +148,6 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
                     border-radius: inherit;
                     transform: translate(-3px, -3px);
                 }
-            }
-        }
-    }
-
-    &__hour {
-        $rootHour: &;
-        display: flex;
-        flex-flow: column nowrap;
-        gap: 1px;
-        min-height: 80px;
-
-        &-event {
-            position: relative;
-            padding: 4px 8px;
-            overflow: hidden;
-            border-radius: 4px;
-            max-height: 78px;
-
-            &-title {
-                font-size: variables.$font-size-sm;
-                font-weight: variables.$font-weight-sm;
-                line-height: variables.$line-height-sm;
-                color: #312c3a;
-
-                padding-right: 36px;
-            }
-
-            &-time {
-                top: 4px;
-                right: 8px;
-                position: absolute;
-                display: inline-block;
-                font-size: variables.$font-size-xs;
-                font-weight: variables.$font-weight-sm;
-                line-height: variables.$line-height-xs;
-            }
-        }
-
-        &_hasOneEvent {
-            #{$rootHour}-event-title {
-                -webkit-line-clamp: 4; /* Число отображаемых строк */
-                display: -webkit-box; /* Включаем флексбоксы */
-                -webkit-box-orient: vertical; /* Вертикальная ориентация */
-                overflow: hidden;
-            }
-
-            #{$rootHour}-event { 
-                max-height: 78px;
-            }
-        }
-
-        &_hasTwoEvents {
-            #{$rootHour}-event-title {
-                -webkit-line-clamp: 2; /* Число отображаемых строк */
-                display: -webkit-box; /* Включаем флексбоксы */
-                -webkit-box-orient: vertical; /* Вертикальная ориентация */
-                overflow: hidden;
-            }
-
-            #{$rootHour}-event { 
-                max-height: 38px;
-            }
-        }
-
-        &_hasTreeEvents {
-            #{$rootHour}-event-title {
-                -webkit-line-clamp: 1; /* Число отображаемых строк */
-                display: -webkit-box; /* Включаем флексбоксы */
-                -webkit-box-orient: vertical; /* Вертикальная ориентация */
-                overflow: hidden;
-            }
-
-            #{$rootHour}-event { 
-                max-height: 26px;
-                padding: 0 8px;
-            }
-
-            #{$rootHour}-event-time { 
-                top: 0;
-                right: 8px
             }
         }
     }

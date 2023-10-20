@@ -30,29 +30,23 @@ export default function MonthDay(props: IMonthDayProps) {
 
     const {
         events,
-        restEvents,
         hasSixEvents,
     } = React.useMemo(() => {
         const callingDate = new Date(props.day.date);
-        let restEvents: IEvent[];
 
-        let events = getEventsFromDate(callingDate, CalendarEnum.MONTH);
+        const events = getEventsFromDate(callingDate, CalendarEnum.MONTH);
 
         const dayHasMoreThanSixEvents = events.length > 6;
 
-        if (dayHasMoreThanSixEvents) {
-            restEvents = _slice([...events], SIXTH_ELEMENT_INDEX);
-            events = _take([...events], SIX_ELEMENTS_IN_ARRAY);
-        }
-
         return {
             events,
-            restEvents: restEvents ?? [],
             hasSixEvents: dayHasMoreThanSixEvents,
         };
     }, [getEventsFromDate, props.day.date]);
 
-    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(restEvents), [restEvents]);
+    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(
+        _slice([...events], SIXTH_ELEMENT_INDEX),
+    ), [events]);
 
     const renderEvent = React.useCallback((event: IEvent, eventIndex: number) => (
         <Tooltip
@@ -86,9 +80,11 @@ export default function MonthDay(props: IMonthDayProps) {
         >
             <div className={bem.element('wrapper')}>
                 <span className={bem.element('number')}>{day.dayNumber.toString()}</span>
-                <div className={bem.element('content')}>
+                <div className={bem.element('content', {
+                    isExpanded,
+                })}
+                >
                     {events.map(renderEvent)}
-                    {isExpanded && !_isEmpty(restEvents) && restEvents.map(renderEvent)}
                     {hasSixEvents && !isExpanded && (
                         <Button
                             link

@@ -73,6 +73,12 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
         display: flex;
         flex-flow: column nowrap;
         gap: 1px;
+
+        &_isExpanded {
+            #{$dayRoot}__event {
+                display: block;
+            }
+        }
     }
 
     &__event {
@@ -90,6 +96,10 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
         cursor: pointer;
         text-align: left;
 
+        &:nth-child(n + 7) {
+            display: none;
+        }
+
         &-dot {
             display: inline-block;
             width: 6px;
@@ -99,11 +109,17 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
         }
     }
 
+    &__content_isExpanded {
+        #{$dayRoot}__event {
+            display: block;
+        }
+    }
+
     &__tooltip {
         @include mixins.calendar-tooltip();
     }
 
-    &__expand-button { 
+    &__expand-button {
         @include mixins.expand-button();
     }
 }
