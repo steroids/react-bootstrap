@@ -1,0 +1,82 @@
+@use "../../../../scss/variables";
+
+.CreateOrEditTaskModalContentView {
+  &__content {
+    font-size: 14px;
+    gap: 16px;
+    display: flex;
+    flex-flow: column nowrap;
+
+    .FieldLayoutView {
+      flex-grow: 1;
+      margin: 0;
+    }
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+
+    &_radio {
+      height: 46px;
+    }
+
+    &_label-top {
+      align-items: flex-start;
+    }
+  }
+
+  &__left {
+    flex: 16%;
+  }
+
+  &__label {
+    flex-shrink: 0;
+  }
+
+  &__right {
+    flex: 84%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 24px;
+
+    &_column {
+      flex-flow: column nowrap;
+      gap: 16px;
+    }
+  }
+
+  .RadioListFieldView_horizontal {
+    gap: 24px;
+  }
+
+  &__sub-right {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 8px;
+
+    .FieldLayoutView {
+      margin: 0;
+      min-width: 140px;
+      width: 100%;
+    }
+  }
+
+  .ck-editor__editable {
+    max-height: 333px;
+    height: 333px;
+  }
+
+  .DropDownItemView__img {
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .DropDownItemView__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

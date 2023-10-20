@@ -1,3 +1,18 @@
+@use "../../scss/variables";
+
+:root {
+  --badge-background-color: #f8f8f8;
+  --badge-text-color: variables.$static-text-color;
+}
+
+html[data-theme="dark"] {
+  --badge-background-color: #4b4e5e;
+  --badge-text-color: variables.$white;
+}
+
+$badge-background-color: var(--badge-background-color);
+$badge-text-color: var(--badge-text-color);
+
 .KanbanView {
   display: flex;
   justify-content: flex-start;
@@ -8,4 +23,63 @@
   margin-top: 10px;
   white-space: nowrap;
   padding: 10px 20px;
+}
+
+.CreateOrEditTaskModalContentView,
+.TaskDetailsModalContentView {
+  .ModalView {
+    &__header {
+      align-items: flex-start;
+      padding-bottom: 16px;
+    }
+
+    &__title {
+      max-width: 440px;
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    &__content {
+      padding-top: 0 !important;
+      min-width: 536px;
+    }
+
+    &__footer {
+      padding-top: 0 !important;
+      justify-content: flex-end;
+
+      .ButtonView {
+        width: 46px;
+        height: 46px;
+
+        background-color: variables.$secondary;
+
+        &__label {
+          width: 24px;
+          height: 24px;
+          flex-shrink: 0;
+        }
+      }
+
+      svg {
+        width: 24px;
+        height: 24px;
+        path {
+          stroke: #fff;
+        }
+      }
+    }
+  }
+
+  .BadgeView {
+    &_light-gray {
+      background-color: $badge-background-color;
+      color: $badge-text-color;
+    }
+  }
+}
+
+
+.ModalView {
+  overflow-y: auto;
 }

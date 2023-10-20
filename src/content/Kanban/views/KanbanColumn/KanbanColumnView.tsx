@@ -13,7 +13,7 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
 
     return (
         <Draggable
-            draggableId={id}
+            draggableId={`${id}`}
             index={props.columnIndex}
         >
             {(providedDraggable) => (
@@ -38,7 +38,7 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
                     </div>
 
                     <Droppable
-                        droppableId={id}
+                        droppableId={`${id}`}
                         type="task"
                     >
                         {(providedDroppable) => (
@@ -48,7 +48,7 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
                                 {...providedDroppable.droppableProps}
                             >
                                 {tasks.map((task, taskIndex) => (
-                                    props.renderTask(task, taskIndex)
+                                    props.renderTask(task, props.column.id, taskIndex)
                                 ))}
                                 {providedDroppable.placeholder}
                             </div>
@@ -60,6 +60,7 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
                             size="sm"
                             color='basic'
                             icon="add"
+                            onClick={() => props.onOpenCreateTaskModal(props.column.id)}
                             block
                         />
                     </div>

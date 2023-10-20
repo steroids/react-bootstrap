@@ -1,0 +1,64 @@
+@use "../../../../scss/variables/index";
+
+.TaskDetailsModalContentView {
+  .ModalView {
+    &__header {
+      padding-bottom: 16px !important;
+    }
+    &__content {
+      padding-bottom: 0 !important;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 24px;
+    max-width: 488px;
+    width: 100%;
+    word-break: break-all;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &_tags {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 4px;
+    }
+  }
+
+  &__left {
+    flex: 20%;
+    min-width: 96px;
+  }
+
+  &__label {
+    margin: 0;
+  }
+
+  &__right {
+    flex: 84%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 24px;
+
+    &_column {
+      flex-flow: column nowrap;
+      gap: 16px;
+    }
+  }
+
+  &__assigner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .TextView {
+    margin: 0;
+  }
+}

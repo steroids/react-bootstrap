@@ -8,13 +8,13 @@ import TaskTags from '../TaskTags';
 
 function KanbanTaskView(props: IKanbanTaskViewProps) {
     const bem = useBem('KanbanTaskView');
-    const {id, title, description, tags, assigner, status} = props.task;
+    const {id, title, description, tags, assigner, priority} = props.task;
 
     const Draggable = props.draggableComponent;
 
     return (
         <Draggable
-            draggableId={id}
+            draggableId={`${id}`}
             index={props.index}
         >
             {(provided) => (
@@ -30,6 +30,7 @@ function KanbanTaskView(props: IKanbanTaskViewProps) {
                                 <h4
                                     className={bem.element('title')}
                                     aria-hidden="true"
+                                    onClick={() => props.onOpenTaskDetailsModal(props.task, props.columnId)}
                                 >
                                     <span className={bem.element('task-id')}>
                                         {__(`#${id} `)}
@@ -59,8 +60,8 @@ function KanbanTaskView(props: IKanbanTaskViewProps) {
                             )}
                         </div>
                     </div>
-                    {status && (
-                        <span className={bem.element('status', !!status && `${status.type}`)} />
+                    {priority && (
+                        <span className={bem.element('priority', !!priority && `${priority.type}`)} />
                     )}
                 </div>
             )}

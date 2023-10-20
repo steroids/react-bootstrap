@@ -27,6 +27,8 @@
 @include meta.load-css('content/Kanban/KanbanView');
 @include meta.load-css('content/Kanban/views/KanbanColumn/KanbanColumnView');
 @include meta.load-css('content/Kanban/views/KanbanTask/KanbanTaskView');
+@include meta.load-css('content/Kanban/CreateOrEditTaskModalContent/CreateOrEditTaskModalContentView');
+@include meta.load-css('content/Kanban/TaskDetailsModalContent/TaskDetailsModalContentView');
 @include meta.load-css('crud/Crud/CrudView');
 @include meta.load-css('form/AutoCompleteField/AutoCompleteFieldView');
 @include meta.load-css('form/Button/ButtonView');
