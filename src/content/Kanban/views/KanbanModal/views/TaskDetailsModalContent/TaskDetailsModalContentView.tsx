@@ -35,7 +35,7 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
                     tag="p"
                 />
             )}
-            {tags && (
+            {!!tags?.length && (
                 <div
                     className={props.bem.element('row', 'tags')}
                 >

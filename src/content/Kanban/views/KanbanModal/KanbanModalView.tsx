@@ -22,7 +22,6 @@ export default function KanbanModalView(props: IKanbanModalViewProps) {
                         assigners={props.assigners}
                         submitButtonLabel={__('Создать')}
                         onSubmit={props.onSubmit}
-
                     />
                 );
             case KanbanModalTypeEnum.DETAILS:

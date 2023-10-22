@@ -58,7 +58,7 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
                 }
                 : {}}
             onSubmit={(data) => {
-                props.onSubmit(props.task?.id, data);
+                props.onSubmit(props.task?.id, data, props.columnId);
             }}
         >
             <div className={props.bem.element('form-content')}>
