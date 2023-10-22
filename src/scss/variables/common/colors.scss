@@ -45,6 +45,7 @@
     --element-background-color: #FFFFFF;
     --element-background-color-disabled: #f1f5f7;
     --element-field-background-color: #FFFFFF;
+    --element-light-label-color: rgba(0, 0, 0, 0.6);
 
     --scroll-thumb-color: #cbd5db;
     --scroll-track-color: #f1f5f7;
@@ -101,6 +102,7 @@ html[data-theme="dark"] {
     --element-background-color: #191B1F;
     --element-background-color-disabled: #333646;
     --element-field-background-color: #101216;
+    --element-light-label-color: #fff;
 
     --scroll-thumb-color: #333646;
     --scroll-track-color: #26272f;
@@ -140,7 +142,7 @@ $gray: var(--gray);
 $light-gray: var(--light-gray);
 
 $additional-gray-dark: var(--additional-gray-dark);
-$additional-light-gray: var(--additional-gray);
+$additional-light-gray: var(--additional-light-gray);
 $additional-light-blue: var(--additional-light-blue);
 
 $text-color: var(--text-color);
@@ -156,6 +158,7 @@ $element-border-color-hover: var(--element-border-color-hover);
 $element-background-color: var(--element-background-color);
 $element-background-color-disabled: var(--element-background-color-disabled);
 $element-field-background-color: var(--element-field-background-color);
+$element-light-label-color: var(--element-light-label-color);
 
 
 $scroll-thumb-color: var(--scroll-thumb-color);

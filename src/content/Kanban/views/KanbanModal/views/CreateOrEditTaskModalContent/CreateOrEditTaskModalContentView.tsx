@@ -1,10 +1,9 @@
 import React, {useMemo} from 'react';
-import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICreateOrEditTaskModalContentViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
-import PriorityEnum from '@steroidsjs/core/ui/content/Kanban/enums/PriorityEnum';
+import KanbanPrioritiesEnum from '@steroidsjs/core/ui/content/Kanban/enums/KanbanPrioritiesEnum';
 import {Button, DropDownField, Form, HtmlField, InputField, RadioListField} from '@steroidsjs/core/ui/form';
 import {Badge} from '@steroidsjs/core/ui/content';
-
+import {Text} from '@steroidsjs/core/ui/typography';
 import TagsSelector from './views/TagsSelector';
 
 const DEFAULT_PRIORITIES = [
@@ -13,8 +12,8 @@ const DEFAULT_PRIORITIES = [
         label: <Badge
             size="md"
             roundingStyle="squarer"
-            message={PriorityEnum.getLabels()[PriorityEnum.HIGH]}
-            type={PriorityEnum.getColorByType()[PriorityEnum.HIGH]}
+            message={KanbanPrioritiesEnum.getLabels()[KanbanPrioritiesEnum.HIGH]}
+            type={KanbanPrioritiesEnum.getColorByType()[KanbanPrioritiesEnum.HIGH]}
         />,
     },
     {
@@ -22,8 +21,8 @@ const DEFAULT_PRIORITIES = [
         label: <Badge
             size="md"
             roundingStyle="squarer"
-            message={PriorityEnum.getLabels()[PriorityEnum.MIDDLE]}
-            type={PriorityEnum.getColorByType()[PriorityEnum.MIDDLE]}
+            message={KanbanPrioritiesEnum.getLabels()[KanbanPrioritiesEnum.MIDDLE]}
+            type={KanbanPrioritiesEnum.getColorByType()[KanbanPrioritiesEnum.MIDDLE]}
         />,
     },
     {
@@ -31,15 +30,13 @@ const DEFAULT_PRIORITIES = [
         label: <Badge
             size="md"
             roundingStyle="squarer"
-            message={PriorityEnum.getLabels()[PriorityEnum.DEFAULT]}
-            type={PriorityEnum.getColorByType()[PriorityEnum.DEFAULT]}
+            message={KanbanPrioritiesEnum.getLabels()[KanbanPrioritiesEnum.DEFAULT]}
+            type={KanbanPrioritiesEnum.getColorByType()[KanbanPrioritiesEnum.DEFAULT]}
         />,
     },
 ];
 
 export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTaskModalContentViewProps) {
-    const bem = useBem('CreateOrEditTaskModalContentView');
-
     const columns = useMemo(() => (
         props.columns.map((column) => (
             {
@@ -52,7 +49,7 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
     return (
         <Form
             formId={props.formId}
-            className={bem.block()}
+            className={props.bem.element('form')}
             initialValues={props.task
                 ? {
                     title: props.task.title || '',
@@ -64,14 +61,16 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
                 props.onSubmit(props.task?.id, data);
             }}
         >
-            <div className={bem.element('content')}>
-                <div className={bem.element('field')}>
-                    <div className={bem.element('left')}>
-                        <span className={bem.element('label')}>{__('Заголовок')}</span>
-                    </div>
-                    <div className={bem.element('right')}>
+            <div className={props.bem.element('form-content')}>
+                <div className={props.bem.element('row')}>
+                    <Text
+                        className={props.bem.element('label')}
+                        type='body2'
+                        content={__('Заголовок')}
+                        color="light-dark"
+                    />
+                    <div className={props.bem.element('right')}>
                         <InputField
-                            className={bem.element('input')}
                             attribute="title"
                             size="md"
                             showClear
@@ -79,11 +78,15 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
                             outline
                         />
 
-                        <div className={bem.element('sub-right')}>
-                            <span className={bem.element('label')}>{__('Переместить в')}</span>
+                        <div className={props.bem.element('sub-right')}>
+                            <Text
+                                className={props.bem.element('label')}
+                                type='body2'
+                                content={__('Переместить в')}
+                                color="light-dark"
+                            />
 
                             <DropDownField
-                                className={bem.element('input')}
                                 attribute='columnId'
                                 selectedIds={[props.columnId]}
                                 items={columns}
@@ -93,77 +96,82 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
                         </div>
                     </div>
                 </div>
-
-                <div className={bem.element('field')}>
-                    <div className={bem.element('left')}>
-                        <span className={bem.element('label')}>{__('Описание')}</span>
-                    </div>
-                    <div className={bem.element('right', 'column')}>
+                <div className={props.bem.element('row')}>
+                    <Text
+                        className={props.bem.element('label')}
+                        type='body2'
+                        content={__('Описание')}
+                        color="light-dark"
+                    />
+                    <div className={props.bem.element('right', 'column')}>
                         <InputField
-                            className={bem.element('input')}
                             attribute="description"
                             size="md"
                             showClear
                         />
                     </div>
                 </div>
-
-                <div className={bem.element('field')}>
-                    <div className={bem.element('left')} />
-                    <div className={bem.element('right', 'column')}>
+                <div className={props.bem.element('row')}>
+                    <div className={props.bem.element('label')} />
+                    <div className={props.bem.element('right', 'column')}>
                         <HtmlField
                             attribute="fullDescription"
                             size="md"
                         />
                     </div>
                 </div>
+                <div className={props.bem.element('row', 'tags-field')}>
+                    <Text
+                        className={props.bem.element('label')}
+                        type='body2'
+                        content={__('Добавить теги')}
+                        color="light-dark"
+                    />
 
-                <div className={bem.element('field', 'label-top')}>
-                    <div className={bem.element('left')}>
-                        <span className={bem.element('label')}>{__('Добавить теги')}</span>
-                    </div>
-
-                    <div className={bem.element('right', 'column')}>
+                    <div className={props.bem.element('right', 'column')}>
                         <TagsSelector
                             taskTags={props.task?.tags}
                             tags={props.tags}
                         />
                     </div>
                 </div>
-
-                <div className={bem.element('field')}>
-                    <div className={bem.element('left')}>
-                        <span className={bem.element('label')}>{__('Исполнители')}</span>
-                    </div>
-                    <div className={bem.element('right')}>
+                <div className={props.bem.element('row')}>
+                    <Text
+                        className={props.bem.element('label')}
+                        type='body2'
+                        content={__('Исполнители')}
+                        color="light-dark"
+                    />
+                    <div className={props.bem.element('right')}>
                         <DropDownField
-                            className={bem.element('input')}
                             attribute='assigner'
                             selectedIds={props.task?.assigner?.id && [props.task.assigner.id]}
                             items={props.assigners}
+                            showReset
                             outline
                         />
                     </div>
                 </div>
-
-                <div className={bem.element('field', 'radio')}>
-                    <div className={bem.element('left')}>
-                        <span className={bem.element('label')}>{__('Приоритет')}</span>
-                    </div>
-                    <div className={bem.element('right')}>
+                <div className={props.bem.element('row', 'radio')}>
+                    <Text
+                        className={props.bem.element('label')}
+                        type='body2'
+                        content={__('Приоритет')}
+                        color="light-dark"
+                    />
+                    <div className={props.bem.element('right')}>
                         <RadioListField
                             attribute='priority'
                             items={DEFAULT_PRIORITIES}
                             selectedIds={props.task?.priority?.id
                                 ? [props.task.priority.id]
-                                : PriorityEnum.getDefaultSelectedPriorityId()}
+                                : KanbanPrioritiesEnum.getDefaultSelectedPriorityId()}
                             multiple={false}
                             orientation='horizontal'
                         />
                     </div>
                 </div>
-
-                <div className={bem.element('button')}>
+                <div className={props.bem.element('button')}>
                     <Button
                         type="submit"
                         label={props.submitButtonLabel}

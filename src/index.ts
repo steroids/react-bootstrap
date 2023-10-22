@@ -52,11 +52,8 @@ export default {
     'content.KanbanTaskView': {
         lazy: () => require('./content/Kanban/views/KanbanTask/KanbanTaskView').default,
     },
-    'content.CreateOrEditTaskModalContentView': {
-        lazy: () => require('./content/Kanban/views/CreateOrEditTaskModalContent/CreateOrEditTaskModalContentView').default,
-    },
-    'content.TaskDetailsModalContentView': {
-        lazy: () => require('./content/Kanban/views/TaskDetailsModalContent/TaskDetailsModalContentView').default,
+    'content.KanbanModalView': {
+        lazy: () => require('./content/Kanban/views/KanbanModal/KanbanModalView').default,
     },
     'content.CalendarSystemView': {
         lazy: () => require('./content/CalendarSystem/CalendarSystemView').default,

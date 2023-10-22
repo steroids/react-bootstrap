@@ -2,7 +2,7 @@ import React, {useCallback, useMemo, useState} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import {DropDownField} from '@steroidsjs/core/ui/form';
-import TaskTags from '../../../TaskTags';
+import TaskTags from '../../../../../TaskTags';
 import './TagsSelector.scss';
 
 interface ITagsSelectorProps {
@@ -40,7 +40,7 @@ export default function TagsSelector(props: ITagsSelectorProps) {
 
     return (
         <div className={bem.block()}>
-            {selectedTags && (
+            {!!selectedTags.length && (
                 <TaskTags
                     tags={selectedTags}
                     showClose

@@ -1,12 +1,10 @@
 import React, {useCallback, useMemo} from 'react';
-import useBem from '@steroidsjs/core/hooks/useBem';
 import {Avatar, Badge} from '@steroidsjs/core/ui/content';
 import {Text} from '@steroidsjs/core/ui/typography';
 import {IKanbanTaskDetailsModalViewProps, ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';
-import PriorityEnum from '@steroidsjs/core/ui/content/Kanban/enums/PriorityEnum';
+import KanbanPrioritiesEnum from '@steroidsjs/core/ui/content/Kanban/enums/KanbanPrioritiesEnum';
 
 export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsModalViewProps) {
-    const bem = useBem('TaskDetailsModalContentView');
     const {tags, priority, description, assigner} = props.task;
 
     const toTags = useCallback((tag: ITaskTag) => (
@@ -20,16 +18,16 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
     ), []);
 
     const priorityLabel = useMemo(
-        () => PriorityEnum.getLabels()[priority?.type || PriorityEnum.DEFAULT],
+        () => KanbanPrioritiesEnum.getLabels()[priority?.type || KanbanPrioritiesEnum.DEFAULT],
         [priority?.type],
     );
     const priorityColor = useMemo(
-        () => PriorityEnum.getColorByType()[priority?.type || PriorityEnum.DEFAULT],
+        () => KanbanPrioritiesEnum.getColorByType()[priority?.type || KanbanPrioritiesEnum.DEFAULT],
         [priority?.type],
     );
 
     return (
-        <div className={bem.element('content')}>
+        <div className={props.bem.element('content')}>
             {description && (
                 <Text
                     type="body"
@@ -39,21 +37,19 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
             )}
             {tags && (
                 <div
-                    className={bem.element('row', 'tags')}
+                    className={props.bem.element('row', 'tags')}
                 >
                     {tags.map(toTags)}
                 </div>
             )}
-
-            <div className={bem.element('row')}>
-                <div className={bem.element('left')}>
-                    <Text
-                        className={bem.element('label')}
-                        type='body3'
-                        content={__('Приоритет')}
-                    />
-                </div>
-                <div className={bem.element('right')}>
+            <div className={props.bem.element('row')}>
+                <Text
+                    className={props.bem.element('label')}
+                    type='body3'
+                    content={__('Приоритет')}
+                    color="light-dark"
+                />
+                <div className={props.bem.element('data')}>
                     <Badge
                         size="md"
                         roundingStyle="squarer"
@@ -62,20 +58,16 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
                     />
                 </div>
             </div>
-
             {assigner && (
-                <div className={bem.element('row')}>
-                    <div className={bem.element('left')}>
-                        <Text
-                            className={bem.element('label')}
-                            type='body3'
-                            content={__('Исполнитель')}
-                        />
-                    </div>
-                    <div className={bem.element('right')}>
-                        <div
-                            className={bem.element('assigner')}
-                        >
+                <div className={props.bem.element('row')}>
+                    <Text
+                        className={props.bem.element('label')}
+                        type='body3'
+                        content={__('Исполнитель')}
+                        color="light-dark"
+                    />
+                    <div className={props.bem.element('data')}>
+                        <div className={props.bem.element('assigner')}>
                             <Avatar
                                 src={assigner.avatar.src}
                                 title={assigner.firstName}

@@ -16,7 +16,7 @@ export default function TaskTags(props: ITaskTagsProps) {
 
     return (
         <div
-            className={bem.element('wrapper')}
+            className={bem.block()}
         >
             {props.tags.map((tag) => (
                 <Badge

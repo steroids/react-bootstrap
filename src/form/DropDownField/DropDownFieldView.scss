@@ -419,8 +419,9 @@ $drop-down-color-themes: map.merge(
         right: 36px;
         transform: translateY(-50%);
 
-        path {
-            stroke-width: 1.5px;
+        svg > * {
+            stroke: variables.$text-color
         }
+
     }
 }
