@@ -56,6 +56,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                             getEventsFromDate={props.getEventsFromDate}
                             onClickHour={props.onClickHour}
                             currentWeekDays={props.currentWeekDays}
+                            openEventModal={props.openEventModal}
                         />
                     )}
             </div>

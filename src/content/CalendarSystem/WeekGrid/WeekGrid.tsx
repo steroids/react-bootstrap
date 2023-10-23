@@ -11,6 +11,7 @@ interface IWeekGridProps {
     currentWeekDays: IDay[]
     allHours: string[],
     getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
+    openEventModal: (event: IEvent) => void,
 }
 
 function WeekGrid(props: IWeekGridProps) {
@@ -26,9 +27,10 @@ function WeekGrid(props: IWeekGridProps) {
                 getEventsFromDate={getEventsFromDate}
                 key={dayOfWeekIndex}
                 dayOfWeek={dayOfWeek}
+                openEventModal={props.openEventModal}
             />
         )),
-        [bem, currentWeekDays, getEventsFromDate],
+        [bem, currentWeekDays, getEventsFromDate, props.openEventModal],
     );
 
     return (

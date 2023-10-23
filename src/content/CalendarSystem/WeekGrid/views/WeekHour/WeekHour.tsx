@@ -8,6 +8,7 @@ import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Calen
 import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
 import _isEmpty from 'lodash-es/isEmpty';
+import _get from 'lodash-es/get';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
 import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
@@ -22,6 +23,7 @@ interface IWeekHourProps {
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     hour: string,
     parentBem: IBem;
+    openEventModal: (event: IEvent) => void;
 }
 
 export default function WeekHour(props: IWeekHourProps) {
@@ -74,10 +76,11 @@ export default function WeekHour(props: IWeekHourProps) {
             className={bem.element('tooltip')}
         >
             <div
-                key={eventIndex}
+                key={event.id}
                 className={parentBem.element('hour-event')}
                 style={{backgroundColor: event.color}}
                 title={event.title}
+                data-eventid={event.id}
             >
                 <span className={parentBem.element('hour-event-title')}>
                     {event.title}
@@ -91,6 +94,19 @@ export default function WeekHour(props: IWeekHourProps) {
 
     const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(restEvents), [restEvents]);
 
+    const handleHourClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
+        const eventFromHour = event.target as HTMLDivElement;
+        const eventId: number = _get(eventFromHour, 'dataset.eventid');
+
+        if (!eventId) {
+            return;
+        }
+
+        const [requiredEvent] = events.filter(hourEvent => hourEvent.id === Number(eventId));
+
+        props.openEventModal(requiredEvent);
+    }, [events, props]);
+
     return (
         <div
             className={parentBem.element('hour', {
@@ -101,6 +117,7 @@ export default function WeekHour(props: IWeekHourProps) {
                 isExpanded,
             })}
             ref={weekHourRef}
+            onClick={handleHourClick}
         >
             {events.map(renderEvent)}
             {isExpanded && !_isEmpty(restEvents) && restEvents.map(renderEvent)}

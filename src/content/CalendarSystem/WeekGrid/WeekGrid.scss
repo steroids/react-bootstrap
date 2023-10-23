@@ -173,6 +173,7 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
                 color: #312c3a;
 
                 padding-right: 36px;
+                pointer-events: none;
             }
 
             &-time {
@@ -183,6 +184,8 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
                 font-size: variables.$font-size-xs;
                 font-weight: variables.$font-weight-sm;
                 line-height: variables.$line-height-xs;
+                pointer-events: none;
+
             }
         }
 
