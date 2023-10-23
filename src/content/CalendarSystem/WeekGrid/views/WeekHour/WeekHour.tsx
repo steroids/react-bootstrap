@@ -15,7 +15,6 @@ import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpa
 import './WeekHour.scss';
 
 const FOURTH_ELEMENT_INDEX = 3;
-const THREE_ELEMENTS_IN_ARRAY = 3;
 
 interface IWeekHourProps {
     dayOfWeek: IDay,
