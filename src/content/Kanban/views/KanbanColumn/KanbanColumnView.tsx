@@ -13,7 +13,7 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
 
     return (
         <Draggable
-            draggableId={`${id}`}
+            draggableId={id.toString()}
             index={props.columnIndex}
         >
             {(providedDraggable) => (
@@ -38,7 +38,7 @@ export default function KanbanColumnView(props: IKanbanColumnViewProps) {
                     </div>
 
                     <Droppable
-                        droppableId={`${id}`}
+                        droppableId={id.toString()}
                         type="task"
                     >
                         {(providedDroppable) => (

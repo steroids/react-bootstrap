@@ -3,18 +3,18 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {IKanbanTaskViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
 import {Text} from '@steroidsjs/core/ui/typography';
-
 import TaskTags from '../TaskTags';
 
 function KanbanTaskView(props: IKanbanTaskViewProps) {
     const bem = useBem('KanbanTaskView');
+
     const {id, title, description, tags, assigner, priority} = props.task;
 
     const Draggable = props.draggableComponent;
 
     return (
         <Draggable
-            draggableId={`${id}`}
+            draggableId={id.toString()}
             index={props.index}
         >
             {(provided) => (
@@ -53,7 +53,8 @@ function KanbanTaskView(props: IKanbanTaskViewProps) {
                                     className={bem.element('assigner')}
                                 >
                                     <Avatar
-                                        {...assigner.avatar}
+                                        src={assigner.avatar?.src}
+                                        title={`${assigner.firstName} ${assigner.lastName}`}
                                         size='sm'
                                     />
                                 </div>

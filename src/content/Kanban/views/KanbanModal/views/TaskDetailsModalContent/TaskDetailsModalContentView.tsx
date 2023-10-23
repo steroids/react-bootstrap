@@ -18,11 +18,11 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
     ), []);
 
     const priorityLabel = useMemo(
-        () => KanbanPrioritiesEnum.getLabels()[priority?.type || KanbanPrioritiesEnum.DEFAULT],
+        () => KanbanPrioritiesEnum.getLabel(priority?.type),
         [priority?.type],
     );
     const priorityColor = useMemo(
-        () => KanbanPrioritiesEnum.getColorByType()[priority?.type || KanbanPrioritiesEnum.DEFAULT],
+        () => KanbanPrioritiesEnum.getColorByType(priority?.type),
         [priority?.type],
     );
 
@@ -69,7 +69,7 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
                     <div className={props.bem.element('data')}>
                         <div className={props.bem.element('assigner')}>
                             <Avatar
-                                src={assigner.avatar.src}
+                                src={assigner.avatar?.src}
                                 title={assigner.firstName}
                                 size='sm'
                             />

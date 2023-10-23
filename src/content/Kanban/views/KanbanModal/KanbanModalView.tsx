@@ -50,13 +50,20 @@ export default function KanbanModalView(props: IKanbanModalViewProps) {
         }
     }, [bem, props.assigners, props.columnId, props.columns, props.formId, props.onSubmit, props.tags, props.task]);
 
+    const renderModalButton = useCallback((modalType: KanbanModalTypeEnum) => modalType !== KanbanModalTypeEnum.CREATE
+        ? [{
+            icon: KanbanModalTypeEnum.getModalIconByType(modalType),
+            onClick: props.onToggleModalType,
+        }]
+        : null, [props.modalType]);
+
     return (
         <Modal
             className={bem.block()}
             title={props.title}
             onClose={props.onClose}
             size="lg"
-            buttons={props.buttons}
+            buttons={renderModalButton(props.modalType)}
         >
             {renderModalContent(props.modalType)}
         </Modal>

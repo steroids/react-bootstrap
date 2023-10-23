@@ -1,21 +1,24 @@
-import React, {useCallback, useMemo, useState} from 'react';
-import {useBem} from '@steroidsjs/core/hooks';
+import React, {useMemo} from 'react';
+import {useBem, useSelector} from '@steroidsjs/core/hooks';
+import {getFormValues} from '@steroidsjs/core/reducers/form';
 import {ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import {DropDownField} from '@steroidsjs/core/ui/form';
 import TaskTags from '../../../../../TaskTags';
 import './TagsSelector.scss';
 
 interface ITagsSelectorProps {
-    taskTags?: ITaskTag[];
     tags?: ITaskTag[];
+    formId?: string;
 }
-
-const getSelectedTagsIds = (tags: ITaskTag[]) => tags.map((tag) => tag.id);
 
 export default function TagsSelector(props: ITagsSelectorProps) {
     const bem = useBem('TagsSelector');
 
-    const [selectedTags, setSelectedTags] = useState(props.taskTags || []);
+    const {tags: selectedTags} = useSelector(state => getFormValues(state, props.formId));
+
+    const taskTags = useMemo(() => (
+        props.tags.filter((tag) => selectedTags?.includes(tag.id))
+    ), [props.tags, selectedTags]);
 
     const tagsList = useMemo(() => (
         props.tags.map((tag) => (
@@ -28,23 +31,11 @@ export default function TagsSelector(props: ITagsSelectorProps) {
         ))
     ), [bem, props.tags]);
 
-    const onTagSelect = useCallback((args) => {
-        const filteredTags = props.tags.filter((tag) => args.includes(tag.id));
-        setSelectedTags(filteredTags);
-    }, [props.tags]);
-
-    const onTagRemove = useCallback((id: number) => {
-        const filteredTags = selectedTags.filter((tag) => tag.id !== id);
-        setSelectedTags(filteredTags);
-    }, [selectedTags]);
-
     return (
         <div className={bem.block()}>
-            {!!selectedTags.length && (
+            {!!selectedTags?.length && (
                 <TaskTags
-                    tags={selectedTags}
-                    showClose
-                    onClose={onTagRemove}
+                    tags={taskTags}
                 />
             )}
             <DropDownField
@@ -52,10 +43,9 @@ export default function TagsSelector(props: ITagsSelectorProps) {
                 placeholder={__('Выберите теги')}
                 multiple
                 items={tagsList}
-                selectedIds={getSelectedTagsIds(selectedTags)}
+                selectedIds={selectedTags}
                 autoComplete
                 outline
-                onChange={onTagSelect}
             />
         </div>
     );
