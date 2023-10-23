@@ -22,7 +22,6 @@ function WeekGrid(props: IWeekGridProps) {
     const renderWeekHours = React.useCallback(
         (hour) => currentWeekDays.map((dayOfWeek, dayOfWeekIndex) => (
             <WeekHour
-                parentBem={bem}
                 hour={hour}
                 getEventsFromDate={getEventsFromDate}
                 key={dayOfWeekIndex}
@@ -30,7 +29,7 @@ function WeekGrid(props: IWeekGridProps) {
                 openEventModal={props.openEventModal}
             />
         )),
-        [bem, currentWeekDays, getEventsFromDate, props.openEventModal],
+        [currentWeekDays, getEventsFromDate, props.openEventModal],
     );
 
     return (

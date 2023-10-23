@@ -1,0 +1,100 @@
+@use "../../../../scss/variables";
+
+.KanbanTaskView {
+  $root: &;
+
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  flex: 1 0 auto;
+  overflow: hidden;
+  height: fit-content;
+  width: 100%;
+  margin-bottom: 8px;
+  border-radius: variables.$radius-small;
+
+  &__wrapper {
+    border: 1px solid variables.$element-border-color;
+    border-radius: variables.$radius-small;
+    color: variables.$text-color;
+    background-color: variables.$element-background-color;
+
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    padding: 16px;
+  }
+
+  $card-statuses: (
+          "high": variables.$danger,
+          "middle": variables.$warning,
+  );
+
+  @each $status, $color in $card-statuses {
+    &__status_#{$status} {
+      background-color: $color;
+    }
+  }
+
+  &__status {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column nowrap;
+    row-gap: 8px;
+    font-size: 14px;
+  }
+
+  &__header {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__task-id {
+    color: variables.$element-placeholder-color;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    margin-top: 16px;
+  }
+
+  &__assigner {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .TextView {
+    margin: 0;
+  }
+}

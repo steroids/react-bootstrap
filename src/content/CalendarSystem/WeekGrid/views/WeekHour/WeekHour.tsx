@@ -16,52 +16,41 @@ import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpa
 import './WeekHour.scss';
 
 const FOURTH_ELEMENT_INDEX = 3;
-const THREE_ELEMENTS_IN_ARRAY = 3;
 
 interface IWeekHourProps {
     dayOfWeek: IDay,
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     hour: string,
-    parentBem: IBem;
     openEventModal: (event: IEvent) => void;
 }
 
 export default function WeekHour(props: IWeekHourProps) {
     const bem = useBem('WeekHour');
-    const {parentBem} = props;
 
     const {isExpanded, setIsExpanded, triggerRef: weekHourRef} = useExpandClickAway();
 
     const {
-        eventsFromHour: events,
-        restEventsFromHour: restEvents,
+        events,
         hasOneEvent,
         hasTwoEvents,
         hasTreeEvents,
         hasMoreThanFourEvents,
     } = React.useMemo(() => {
         const callingDate = new Date(props.dayOfWeek.date);
-        let restEventsFromHour: IEvent[];
 
         const timeArray = props.hour.replace(':', '').split('');
 
         callingDate.setHours(Number(timeArray[0] + timeArray[1]), 0, 0, 0);
 
-        let events = props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
+        const events = props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
 
         const hasOneEvent = events.length === 1;
         const hasTwoEvents = events.length === 2;
         const hasMoreThanTreeEvents = events.length >= 3;
         const hasMoreThanFourEvents = events.length > 3;
 
-        if (hasMoreThanFourEvents) {
-            restEventsFromHour = _slice([...events], FOURTH_ELEMENT_INDEX);
-            events = _take([...events], THREE_ELEMENTS_IN_ARRAY);
-        }
-
         return {
-            eventsFromHour: events,
-            restEventsFromHour: restEventsFromHour ?? [],
+            events,
             hasOneEvent,
             hasTwoEvents,
             hasTreeEvents: hasMoreThanTreeEvents,
@@ -74,25 +63,27 @@ export default function WeekHour(props: IWeekHourProps) {
             position='rightBottom'
             content={event.title}
             className={bem.element('tooltip')}
+            key={eventIndex}
         >
             <div
-                key={event.id}
-                className={parentBem.element('hour-event')}
+                className={bem.element('hour-event')}
                 style={{backgroundColor: event.color}}
                 title={event.title}
                 data-eventid={event.id}
             >
-                <span className={parentBem.element('hour-event-title')}>
+                <span className={bem.element('hour-event-title')}>
                     {event.title}
                 </span>
-                <span className={parentBem.element('hour-event-time')}>
+                <span className={bem.element('hour-event-time')}>
                     {convertDate(event.date, null, 'HH:mm')}
                 </span>
             </div>
         </Tooltip>
-    ), [bem, parentBem]);
+    ), [bem]);
 
-    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(restEvents), [restEvents]);
+    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(
+        _slice([...events], FOURTH_ELEMENT_INDEX),
+    ), [events]);
 
     const handleHourClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
@@ -109,7 +100,7 @@ export default function WeekHour(props: IWeekHourProps) {
 
     return (
         <div
-            className={parentBem.element('hour', {
+            className={bem.element('hour', {
                 isToday: props.dayOfWeek.isToday,
                 hasOneEvent,
                 hasTwoEvents,
@@ -120,7 +111,6 @@ export default function WeekHour(props: IWeekHourProps) {
             onClick={handleHourClick}
         >
             {events.map(renderEvent)}
-            {isExpanded && !_isEmpty(restEvents) && restEvents.map(renderEvent)}
             {hasMoreThanFourEvents && !isExpanded && (
                 <Button
                     link
