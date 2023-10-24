@@ -1,8 +1,19 @@
 @use "../../../../scss/variables";
 @use "../../../../scss/mixins";
 
+:root {
+  --kanban-background-color: #fff;
+  --add-task-icon-color: #323232;
+}
+
+html[data-theme="dark"] {
+  --kanban-background-color: #333646;
+  --add-task-icon-color: #fff;
+}
+
 $sidebar-scroll-thumb-color: var(--sidebar-scroll-thumb-color);
 $sidebar-scroll-track-color: var(--sidebar-scroll-track-color);
+$add-task-icon-color: var(--add-task-icon-color);
 
 .KanbanColumnView {
   white-space: normal;
@@ -53,7 +64,12 @@ $sidebar-scroll-track-color: var(--sidebar-scroll-track-color);
     padding-right: 8px;
 
     .ButtonView {
+      margin-top: 1em;
       background-color: variables.$light-gray;
+
+      svg path {
+        stroke: $add-task-icon-color;
+      }
     }
   }
 }

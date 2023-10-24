@@ -1,5 +1,15 @@
 @use "../../../../scss/variables";
 
+:root {
+  --kanban-background-color: #fff;
+}
+
+html[data-theme="dark"] {
+  --kanban-background-color: #333646;
+}
+
+$kanban-background-color: var(--kanban-background-color);
+
 .KanbanTaskView {
   $root: &;
 
@@ -17,7 +27,7 @@
     border: 1px solid variables.$element-border-color;
     border-radius: variables.$radius-small;
     color: variables.$text-color;
-    background-color: variables.$element-background-color;
+    background-color: $kanban-background-color;
 
     position: relative;
     display: flex;
@@ -25,18 +35,18 @@
     padding: 16px;
   }
 
-  $card-statuses: (
+  $card-priorities: (
           "high": variables.$danger,
           "middle": variables.$warning,
   );
 
-  @each $status, $color in $card-statuses {
-    &__status_#{$status} {
+  @each $priority, $color in $card-priorities {
+    &__priority_#{$priority} {
       background-color: $color;
     }
   }
 
-  &__status {
+  &__priority {
     position: absolute;
     top: 0;
     left: 0;
