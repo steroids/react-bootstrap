@@ -7,17 +7,17 @@ import WeekHour from './views/WeekHour';
 import './WeekGrid.scss';
 
 interface IWeekGridProps {
-    onClickHour: () => void,
     currentWeekDays: IDay[]
     allHours: string[],
     getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
     openEventModal: (event: IEvent) => void,
+    openCreateModal: () => void;
 }
 
 function WeekGrid(props: IWeekGridProps) {
     const bem = useBem('WeekGrid');
 
-    const {currentWeekDays, onClickHour, getEventsFromDate} = props;
+    const {currentWeekDays, getEventsFromDate} = props;
 
     const renderWeekHours = React.useCallback(
         (hour) => currentWeekDays.map((dayOfWeek, dayOfWeekIndex) => (
@@ -27,9 +27,10 @@ function WeekGrid(props: IWeekGridProps) {
                 key={dayOfWeekIndex}
                 dayOfWeek={dayOfWeek}
                 openEventModal={props.openEventModal}
+                openCreateModal={props.openCreateModal}
             />
         )),
-        [currentWeekDays, getEventsFromDate, props.openEventModal],
+        [currentWeekDays, getEventsFromDate, props.openCreateModal, props.openEventModal],
     );
 
     return (

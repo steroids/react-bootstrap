@@ -1,23 +1,43 @@
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-undef */
 import Modal from '@steroidsjs/core/ui/modal/Modal';
-import {ICalendarSystemModalViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import {InputField, Form, DropDownField, DateTimeField, TextField, Button} from '@steroidsjs/core/ui/form';
+import {
+    CalendarSystemModalFields,
+    EventInitialValues,
+    ICalendarSystemModalViewProps,
+} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {InputField, Form, DropDownField, DateTimeField, TextField} from '@steroidsjs/core/ui/form';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
+import _omit from 'lodash-es/omit';
+import _isEmpty from 'lodash-es/isEmpty';
 
 export default function CalendarSystemModalView(props: ICalendarSystemModalViewProps) {
     const bem = useBem('CalendarSystemModalView');
+
+    const eventInitialValues: EventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
+
+    const callOnEventSubmit = (fields: Record<CalendarSystemModalFields, string>) =>
+        eventInitialValues ? props.onEventSubmit(fields, eventInitialValues) : props.onEventSubmit(fields);
 
     return (
         <Modal
             title={__('Новое событие')}
             onClose={props.onClose}
             className={bem.block()}
+            shouldCloseOnEsc
+            shouldCloseOnOverlayClick
         >
             <Form
                 className={bem.element('default-form')}
-                onSubmit={props.onEventCreate}
-                submitLabel={__('Создать')}
+                onSubmit={(fields) => {
+                    callOnEventSubmit(fields);
+                    props.onClose();
+                }}
+                initialValues={eventInitialValues ?? null}
+                submitLabel={_isEmpty(eventInitialValues) ? __('Создать') : __('Сохранить')}
             >
                 <div>
                     <Text
@@ -25,12 +45,12 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
                         className={bem.element('label')}
                     />
                     <InputField
-                        attribute='name'
+                        attribute='title'
                         required
                         className={bem.element('name-field')}
                     />
                     <DropDownField
-                        attribute='eventGroup'
+                        attribute='eventGroupId'
                         items={props.eventGroups}
                         placeholder='Группа'
                         color="primary"

@@ -22,6 +22,7 @@ interface IWeekHourProps {
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     hour: string,
     openEventModal: (event: IEvent) => void;
+    openCreateModal: () => void;
 }
 
 export default function WeekHour(props: IWeekHourProps) {
@@ -85,7 +86,7 @@ export default function WeekHour(props: IWeekHourProps) {
         _slice([...events], FOURTH_ELEMENT_INDEX),
     ), [events]);
 
-    const handleHourClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
+    const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
         const eventId: number = _get(eventFromHour, 'dataset.eventid');
 
@@ -108,7 +109,11 @@ export default function WeekHour(props: IWeekHourProps) {
                 isExpanded,
             })}
             ref={weekHourRef}
-            onClick={handleHourClick}
+            onClick={handleEventClick}
+            onContextMenu={(e) => {
+                e.preventDefault();
+                props.openCreateModal();
+            }}
         >
             {events.map(renderEvent)}
             {hasMoreThanFourEvents && !isExpanded && (

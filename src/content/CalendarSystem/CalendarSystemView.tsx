@@ -48,15 +48,17 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                             monthCalendarDays={props.monthCalendarDays}
                             getEventsFromDate={props.getEventsFromDate}
                             weekDays={props.weekDays}
+                            openEventModal={props.openEventModal}
+                            openCreateModal={props.openCreateModal}
                         />
                     )
                     : (
                         <WeekGrid
                             allHours={props.allHours}
                             getEventsFromDate={props.getEventsFromDate}
-                            onClickHour={props.onClickHour}
                             currentWeekDays={props.currentWeekDays}
                             openEventModal={props.openEventModal}
+                            openCreateModal={props.openCreateModal}
                         />
                     )}
             </div>
