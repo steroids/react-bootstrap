@@ -43,6 +43,18 @@ export default {
     'content.SliderView': {
         lazy: () => require('./content/Slider/SliderView').default,
     },
+    'content.KanbanView': {
+        lazy: () => require('./content/Kanban/KanbanView').default,
+    },
+    'content.KanbanColumnView': {
+        lazy: () => require('./content/Kanban/views/KanbanColumn/KanbanColumnView').default,
+    },
+    'content.KanbanTaskView': {
+        lazy: () => require('./content/Kanban/views/KanbanTask/KanbanTaskView').default,
+    },
+    'content.KanbanModalView': {
+        lazy: () => require('./content/Kanban/views/KanbanModal/KanbanModalView').default,
+    },
     'content.CalendarSystemView': {
         lazy: () => require('./content/CalendarSystem/CalendarSystemView').default,
     },

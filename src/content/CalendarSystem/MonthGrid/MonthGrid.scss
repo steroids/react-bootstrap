@@ -1,23 +1,14 @@
 @use "style/variables";
 
 :root {
-    --month-day-background-color: #ffffff;
-    --month-day-out-of-range-color: #f9fcff;
     --month-day-color-text: #000000;
-    --month-day-out-of-range-color-text: rgba(0, 0, 0, 0.3);
 }
 
 html[data-theme="dark"] {
-    --month-day-background-color: #333646;
-    --month-day-out-of-range-color: #161b20;
     --month-day-color-text: #ffffff;
-    --month-day-out-of-range-color-text: rgba(255, 255, 255, 0.3);
 }
 
-$month-day-background-color: var(--month-day-background-color);
-$month-day-out-of-range-color: var(--month-day-out-of-range-color);
 $month-day-color-text: var(--month-day-color-text);
-$month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
 
 .MonthGrid {
     display: flex;
@@ -31,7 +22,7 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
         height: 90%;
         gap: 5px;
         grid-template-columns: repeat(7, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: repeat(6, auto);
     }
 
     &__week-days {
@@ -45,87 +36,6 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
             font-weight: variables.$font-weight-md;
             line-height: variables.$line-height-18;
             padding: 8px 10px;
-        }
-    }
-
-    &__day {
-        $dayRoot: &;
-        padding: 4px 8px 0px 8px;
-        min-height: 84px;
-        border-radius: variables.$radius-large;
-        background-color: $month-day-background-color;
-
-        &-wrapper {
-            display: block;
-            text-align: right;
-        }
-
-        &-number {
-            position: relative;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            font-size: variables.$font-size-14;
-            font-weight: variables.$font-weight-sm;
-            line-height: variables.$line-height-18;
-            color: $month-day-color-text;
-            width: 24px;
-            height: 24px;
-        }
-
-        &_outOfRange {
-            background-color: $month-day-out-of-range-color;
-
-            #{$dayRoot}-number {
-                color: $month-day-out-of-range-color-text;
-            }
-        }
-
-        &_isToday {
-            #{$dayRoot}-number {
-                &::before {
-                    position: absolute;
-                    content: "";
-                    border: 1px solid variables.$primary;
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: variables.$radius-small;
-                }
-                color: variables.$primary;
-            }
-        }
-
-        &-content {
-            overflow: hidden;
-            display: flex;
-            flex-flow: column nowrap;
-            gap: 1px;
-        }
-
-        &-event {
-            position: relative;
-            display: inline-block;
-            width: 100%;
-            font-size: variables.$font-size-xs;
-            font-weight: variables.$font-weight-sm;
-            line-height: variables.$line-height-xs;
-            color: variables.$text-color;
-
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            cursor: pointer;
-            text-align: left;
-
-
-            &-dot {
-                display: inline-block;
-                width: 6px;
-                height: 6px;
-                margin-right: 8px;
-                border-radius: 100px;
-            } 
         }
     }
 }

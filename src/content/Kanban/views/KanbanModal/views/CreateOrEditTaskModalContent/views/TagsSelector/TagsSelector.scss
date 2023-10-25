@@ -1,0 +1,30 @@
+@use "../../../../../../../../scss/variables";
+
+.TagsSelector {
+  $root: &;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  $tag-types: (
+          "primary": variables.$primary,
+          "secondary": variables.$secondary,
+          "success": variables.$success,
+          "danger": variables.$danger,
+          "warning": variables.$warning,
+          "info": variables.$info,
+  );
+
+  @each $type, $color in $tag-types {
+    &__tag-color_#{$type} {
+      background-color: $color;
+    }
+  }
+
+  &__tag-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+  }
+}

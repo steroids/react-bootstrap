@@ -24,6 +24,10 @@
 @include meta.load-css('content/Icon/IconView');
 @include meta.load-css('content/Slider/SliderView');
 @include meta.load-css('content/CopyToClipboard/CopyToClipboardView');
+@include meta.load-css('content/Kanban/KanbanView');
+@include meta.load-css('content/Kanban/views/KanbanColumn/KanbanColumnView');
+@include meta.load-css('content/Kanban/views/KanbanTask/KanbanTaskView');
+@include meta.load-css('content/Kanban/views/KanbanModal/KanbanModalView');
 @include meta.load-css('crud/Crud/CrudView');
 @include meta.load-css('form/AutoCompleteField/AutoCompleteFieldView');
 @include meta.load-css('form/Button/ButtonView');
