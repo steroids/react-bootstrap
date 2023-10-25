@@ -4,7 +4,7 @@
 import Modal from '@steroidsjs/core/ui/modal/Modal';
 import {
     CalendarSystemModalFields,
-    EventInitialValues,
+    IEventInitialValues,
     ICalendarSystemModalViewProps,
 } from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {InputField, Form, DropDownField, DateTimeField, TextField} from '@steroidsjs/core/ui/form';
@@ -17,14 +17,14 @@ import _isEmpty from 'lodash-es/isEmpty';
 export default function CalendarSystemModalView(props: ICalendarSystemModalViewProps) {
     const bem = useBem('CalendarSystemModalView');
 
-    const eventInitialValues: EventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
+    const eventInitialValues: IEventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
 
     const callOnEventSubmit = (fields: Record<CalendarSystemModalFields, string>) =>
         eventInitialValues ? props.onEventSubmit(fields, eventInitialValues) : props.onEventSubmit(fields);
 
     return (
         <Modal
-            title={__('Новое событие')}
+            title={eventInitialValues ? __('Редактирование события') : __('Новое событие')}
             onClose={props.onClose}
             className={bem.block()}
             shouldCloseOnEsc

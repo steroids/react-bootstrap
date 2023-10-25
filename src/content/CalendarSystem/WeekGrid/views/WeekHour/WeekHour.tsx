@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
-import useBem, {IBem} from '@steroidsjs/core/hooks/useBem';
+import useBem from '@steroidsjs/core/hooks/useBem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Button} from '@steroidsjs/core/ui/form';
@@ -21,7 +21,7 @@ interface IWeekHourProps {
     dayOfWeek: IDay,
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     hour: string,
-    openEventModal: (event: IEvent) => void;
+    openEditModal: (event: IEvent) => void;
     openCreateModal: () => void;
 }
 
@@ -96,7 +96,7 @@ export default function WeekHour(props: IWeekHourProps) {
 
         const [requiredEvent] = events.filter(hourEvent => hourEvent.id === Number(eventId));
 
-        props.openEventModal(requiredEvent);
+        props.openEditModal(requiredEvent);
     }, [events, props]);
 
     return (

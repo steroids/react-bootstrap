@@ -19,7 +19,7 @@ const SIXTH_ELEMENT_INDEX = 6;
 interface IMonthDayProps {
     day: IDay;
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
-    openEventModal: (event: IEvent) => void,
+    openEditModal: (event: IEvent) => void,
     openCreateModal: () => void;
 }
 
@@ -80,7 +80,7 @@ export default function MonthDay(props: IMonthDayProps) {
 
         const [requiredEvent] = events.filter(hourEvent => hourEvent.id === Number(eventId));
 
-        props.openEventModal(requiredEvent);
+        props.openEditModal(requiredEvent);
     }, [events, props]);
 
     return (

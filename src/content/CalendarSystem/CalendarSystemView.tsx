@@ -48,7 +48,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                             monthCalendarDays={props.monthCalendarDays}
                             getEventsFromDate={props.getEventsFromDate}
                             weekDays={props.weekDays}
-                            openEventModal={props.openEventModal}
+                            openEditModal={props.openEditModal}
                             openCreateModal={props.openCreateModal}
                         />
                     )
@@ -57,7 +57,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                             allHours={props.allHours}
                             getEventsFromDate={props.getEventsFromDate}
                             currentWeekDays={props.currentWeekDays}
-                            openEventModal={props.openEventModal}
+                            openEditModal={props.openEditModal}
                             openCreateModal={props.openCreateModal}
                         />
                     )}
