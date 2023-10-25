@@ -17,6 +17,7 @@
             overflow: hidden;
             border-radius: 4px;
             max-height: 78px;
+            cursor: pointer;
 
             &:nth-child(n+4) {
                 display: none;
@@ -29,6 +30,7 @@
                 color: #312c3a;
 
                 padding-right: 36px;
+                pointer-events: none;
             }
 
             &-time {
@@ -39,6 +41,8 @@
                 font-size: variables.$font-size-xs;
                 font-weight: variables.$font-weight-sm;
                 line-height: variables.$line-height-xs;
+                pointer-events: none;
+
             }
         }
 

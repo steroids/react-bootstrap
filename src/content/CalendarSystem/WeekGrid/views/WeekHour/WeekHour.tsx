@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
-import useBem, {IBem} from '@steroidsjs/core/hooks/useBem';
+import useBem from '@steroidsjs/core/hooks/useBem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Button} from '@steroidsjs/core/ui/form';
@@ -8,6 +8,7 @@ import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Calen
 import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
 import _isEmpty from 'lodash-es/isEmpty';
+import _get from 'lodash-es/get';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
 import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
@@ -20,6 +21,8 @@ interface IWeekHourProps {
     dayOfWeek: IDay,
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     hour: string,
+    openEditModal: (event: IEvent) => void;
+    openCreateModal: () => void;
 }
 
 export default function WeekHour(props: IWeekHourProps) {
@@ -67,6 +70,7 @@ export default function WeekHour(props: IWeekHourProps) {
                 className={bem.element('hour-event')}
                 style={{backgroundColor: event.color}}
                 title={event.title}
+                data-eventid={event.id}
             >
                 <span className={bem.element('hour-event-title')}>
                     {event.title}
@@ -82,6 +86,19 @@ export default function WeekHour(props: IWeekHourProps) {
         _slice([...events], FOURTH_ELEMENT_INDEX),
     ), [events]);
 
+    const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
+        const eventFromHour = event.target as HTMLDivElement;
+        const eventId: number = _get(eventFromHour, 'dataset.eventid');
+
+        if (!eventId) {
+            return;
+        }
+
+        const [requiredEvent] = events.filter(hourEvent => hourEvent.id === Number(eventId));
+
+        props.openEditModal(requiredEvent);
+    }, [events, props]);
+
     return (
         <div
             className={bem.element('hour', {
@@ -92,6 +109,11 @@ export default function WeekHour(props: IWeekHourProps) {
                 isExpanded,
             })}
             ref={weekHourRef}
+            onClick={handleEventClick}
+            onContextMenu={(e) => {
+                e.preventDefault();
+                props.openCreateModal();
+            }}
         >
             {events.map(renderEvent)}
             {hasMoreThanFourEvents && !isExpanded && (

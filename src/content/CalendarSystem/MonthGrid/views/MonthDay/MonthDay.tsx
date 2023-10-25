@@ -6,6 +6,7 @@ import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarS
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
+import _get from 'lodash-es/get';
 import {Button} from '@steroidsjs/core/ui/form';
 import _isEmpty from 'lodash-es/isEmpty';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
@@ -14,11 +15,12 @@ import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpa
 import './MonthDay.scss';
 
 const SIXTH_ELEMENT_INDEX = 6;
-const SIX_ELEMENTS_IN_ARRAY = 6;
 
 interface IMonthDayProps {
     day: IDay;
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
+    openEditModal: (event: IEvent) => void,
+    openCreateModal: () => void;
 }
 
 export default function MonthDay(props: IMonthDayProps) {
@@ -50,14 +52,14 @@ export default function MonthDay(props: IMonthDayProps) {
 
     const renderEvent = React.useCallback((event: IEvent, eventIndex: number) => (
         <Tooltip
-            key={eventIndex}
+            key={event.id}
             position='rightBottom'
             content={event.title}
             className={bem.element('tooltip')}
         >
             <span
-                key={eventIndex}
                 className={bem.element('event')}
+                data-eventid={event.id}
             >
                 <span
                     className={bem.element('event-dot')}
@@ -68,6 +70,19 @@ export default function MonthDay(props: IMonthDayProps) {
         </Tooltip>
     ), [bem]);
 
+    const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
+        const eventFromHour = event.target as HTMLDivElement;
+        const eventId: number = _get(eventFromHour, 'dataset.eventid');
+
+        if (!eventId) {
+            return;
+        }
+
+        const [requiredEvent] = events.filter(hourEvent => hourEvent.id === Number(eventId));
+
+        props.openEditModal(requiredEvent);
+    }, [events, props]);
+
     return (
         <div
             className={bem(
@@ -77,6 +92,11 @@ export default function MonthDay(props: IMonthDayProps) {
                 }),
             )}
             ref={monthDayRef}
+            onClick={handleEventClick}
+            onContextMenu={(e) => {
+                e.preventDefault();
+                props.openCreateModal();
+            }}
         >
             <div className={bem.element('wrapper')}>
                 <span className={bem.element('number')}>{day.dayNumber.toString()}</span>
