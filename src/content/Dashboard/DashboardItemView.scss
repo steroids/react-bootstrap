@@ -1,0 +1,8 @@
+@use "sass:map";
+@use "../../scss/variables";
+
+.DashboardItemView {
+  padding: 15px;
+  border-radius: 12px;
+  background-color: variables.$white;
+}
