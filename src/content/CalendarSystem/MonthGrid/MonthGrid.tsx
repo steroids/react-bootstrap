@@ -10,6 +10,8 @@ interface IMonthGridProps {
     monthCalendarDays: IDay[];
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     weekDays: string[],
+    openEditModal: (event: IEvent) => void,
+    openCreateModal: (eventInitialDay?: IDay) => void;
 }
 
 function MonthGrid(props: IMonthGridProps) {
@@ -31,7 +33,9 @@ function MonthGrid(props: IMonthGridProps) {
                 {props.monthCalendarDays.map((day, dayIndex) => (
                     <MonthDay
                         key={dayIndex}
+                        openEditModal={props.openEditModal}
                         getEventsFromDate={props.getEventsFromDate}
+                        openCreateModal={props.openCreateModal}
                         day={day}
                     />
                 ))}

@@ -106,6 +106,7 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
             height: 6px;
             margin-right: 8px;
             border-radius: 100px;
+            pointer-events: none;
         }
     }
 

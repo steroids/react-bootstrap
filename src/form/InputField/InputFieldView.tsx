@@ -58,7 +58,7 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                                 }),
                             )}
                             {...props.inputProps}
-                            type={props.type}
+                            type={props.inputProps.type}
                             placeholder={props.placeholder}
                             disabled={props.disabled}
                             required={props.required}
@@ -74,7 +74,7 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                                 }),
                             )}
                             {...props.inputProps}
-                            type={props.type}
+                            type={props.inputProps.type}
                             placeholder={props.placeholder}
                             disabled={props.disabled}
                             required={props.required}
