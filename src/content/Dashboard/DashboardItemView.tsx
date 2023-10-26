@@ -8,7 +8,10 @@ export default function DashboardItemView(props: IDashboardItemViewProps) {
 
     return (
         <div className={bem.block()}>
-            <Title content={props.title} />
+            <Title
+                content={props.title}
+                type='h3'
+            />
             {props.children}
         </div>
     );
