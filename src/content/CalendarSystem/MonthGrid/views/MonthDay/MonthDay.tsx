@@ -10,8 +10,8 @@ import _get from 'lodash-es/get';
 import {Button} from '@steroidsjs/core/ui/form';
 import _isEmpty from 'lodash-es/isEmpty';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
+import _cloneDeep from 'lodash-es/cloneDeep';
 import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
-
 import './MonthDay.scss';
 
 const SIXTH_ELEMENT_INDEX = 6;
@@ -20,7 +20,7 @@ interface IMonthDayProps {
     day: IDay;
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     openEditModal: (event: IEvent) => void,
-    openCreateModal: () => void;
+    openCreateModal: (eventInitialDay?: IDay) => void;
 }
 
 export default function MonthDay(props: IMonthDayProps) {
@@ -83,6 +83,14 @@ export default function MonthDay(props: IMonthDayProps) {
         props.openEditModal(requiredEvent);
     }, [events, props]);
 
+    const handleOnContextMenuCreateClick = React.useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+
+        const day: IDay = _cloneDeep(props.day);
+        day.date.setHours(0, 0, 0, 0);
+        props.openCreateModal(day);
+    }, [props]);
+
     return (
         <div
             className={bem(
@@ -93,10 +101,7 @@ export default function MonthDay(props: IMonthDayProps) {
             )}
             ref={monthDayRef}
             onClick={handleEventClick}
-            onContextMenu={(e) => {
-                e.preventDefault();
-                props.openCreateModal();
-            }}
+            onContextMenu={handleOnContextMenuCreateClick}
         >
             <div className={bem.element('wrapper')}>
                 <span className={bem.element('number')}>{day.dayNumber.toString()}</span>

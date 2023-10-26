@@ -11,7 +11,7 @@ interface IWeekGridProps {
     allHours: string[],
     getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
     openEditModal: (event: IEvent) => void,
-    openCreateModal: () => void;
+    openCreateModal: (eventInitialDay?: IDay) => void;
 }
 
 function WeekGrid(props: IWeekGridProps) {

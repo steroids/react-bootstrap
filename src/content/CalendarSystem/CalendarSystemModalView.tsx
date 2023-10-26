@@ -20,11 +20,11 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
     const eventInitialValues: IEventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
 
     const callOnEventSubmit = (fields: Record<CalendarSystemModalFields, string>) =>
-        eventInitialValues ? props.onEventSubmit(fields, eventInitialValues) : props.onEventSubmit(fields);
+        eventInitialValues && !props.isCreate ? props.onEventSubmit(fields, eventInitialValues) : props.onEventSubmit(fields);
 
     return (
         <Modal
-            title={eventInitialValues ? __('Редактирование события') : __('Новое событие')}
+            title={props.isCreate ? __('Новое событие') : __('Редактирование события')}
             onClose={props.onClose}
             className={bem.block()}
             shouldCloseOnEsc
@@ -37,7 +37,7 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
                     props.onClose();
                 }}
                 initialValues={eventInitialValues ?? null}
-                submitLabel={_isEmpty(eventInitialValues) ? __('Создать') : __('Сохранить')}
+                submitLabel={props.isCreate ? __('Создать') : __('Сохранить')}
             >
                 <div>
                     <Text
