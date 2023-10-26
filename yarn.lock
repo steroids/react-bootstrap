@@ -747,10 +747,10 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.94":
-  version "3.0.0-beta.94"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.94.tgz#00fffaf39c329da27bdbdf3fe9d380adfee7860e"
-  integrity sha512-pJt9GFVWKlqvwQVPfTBfHAFPqQsaFZRtvT0RyUkCfEtLlWCok6ti9krWNrTWg12DEEnrkOypgRwBvsW4PLK+TQ==
+"@steroidsjs/core@^3.0 || >=3.0.0-beta.96":
+  version "3.0.0-beta.96"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.96.tgz#57121847faec5c1ea25b5dbe0aa26d78686cd239"
+  integrity sha512-N2qQvllr+s4oSdXp4QV4hKznEp/Uo/4dMHegLr/vPwowkdabmr4Fx6pFaWyGd5BwPtGNZOpB3qderxw/QgsHIQ==
   dependencies:
     "@maskito/core" "1.7.0"
     "@maskito/kit" "1.7.0"
