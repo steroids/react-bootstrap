@@ -11,6 +11,7 @@ import _isEmpty from 'lodash-es/isEmpty';
 import _get from 'lodash-es/get';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
+import _cloneDeep from 'lodash-es/cloneDeep';
 import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './WeekHour.scss';
@@ -22,7 +23,7 @@ interface IWeekHourProps {
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     hour: string,
     openEditModal: (event: IEvent) => void;
-    openCreateModal: () => void;
+    openCreateModal: (eventInitialDay?: IDay) => void;
 }
 
 export default function WeekHour(props: IWeekHourProps) {
@@ -99,6 +100,14 @@ export default function WeekHour(props: IWeekHourProps) {
         props.openEditModal(requiredEvent);
     }, [events, props]);
 
+    const handleOnContextMenuCreateClick = React.useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+
+        const day: IDay = _cloneDeep(props.dayOfWeek);
+        day.date.setHours(Number(convertDate(props.hour, 'HH:mm', 'H')), 0, 0, 0);
+        props.openCreateModal(day);
+    }, [props]);
+
     return (
         <div
             className={bem.element('hour', {
@@ -110,10 +119,7 @@ export default function WeekHour(props: IWeekHourProps) {
             })}
             ref={weekHourRef}
             onClick={handleEventClick}
-            onContextMenu={(e) => {
-                e.preventDefault();
-                props.openCreateModal();
-            }}
+            onContextMenu={handleOnContextMenuCreateClick}
         >
             {events.map(renderEvent)}
             {hasMoreThanFourEvents && !isExpanded && (

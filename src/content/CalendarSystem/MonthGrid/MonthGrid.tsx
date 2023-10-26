@@ -11,7 +11,7 @@ interface IMonthGridProps {
     getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     weekDays: string[],
     openEditModal: (event: IEvent) => void,
-    openCreateModal: () => void;
+    openCreateModal: (eventInitialDay?: IDay) => void;
 }
 
 function MonthGrid(props: IMonthGridProps) {
