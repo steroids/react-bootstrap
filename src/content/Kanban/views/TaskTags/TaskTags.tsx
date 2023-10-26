@@ -6,7 +6,9 @@ import {ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import './TaskTags.scss';
 
 interface ITaskTagsProps {
-    tags: ITaskTag[]
+    tags: ITaskTag[];
+    showClose?: boolean;
+    onClose?: (id: number) => void,
 }
 
 export default function TaskTags(props: ITaskTagsProps) {
@@ -14,7 +16,7 @@ export default function TaskTags(props: ITaskTagsProps) {
 
     return (
         <div
-            className={bem.element('wrapper')}
+            className={bem.block()}
         >
             {props.tags.map((tag) => (
                 <Badge
@@ -23,6 +25,8 @@ export default function TaskTags(props: ITaskTagsProps) {
                     roundingStyle="squarer"
                     message={tag.message}
                     type={tag.type}
+                    showClose={props.showClose}
+                    onClose={() => props.onClose(tag.id)}
                 />
             ))}
         </div>

@@ -1,5 +1,80 @@
-@import 'style/variables';
+@use "style/variables";
 
 .CalendarSystemModalView {
+    $root: &;
+    width: 941px;
 
+    .FieldLayoutView {
+        margin-bottom: 0;
+    }
+
+    .ModalView__header {
+        .ModalView__title {
+            font-size: variables.$font-size-lg;
+            font-weight: variables.$font-weight-lg;
+            line-height: variables.$line-height-lg;
+        }
+    }
+
+    .ModalView__content {
+        padding: 0;
+    }
+
+    &__default-form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 16px;
+
+        > div {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            gap: 12px;
+
+            &:nth-child(3) {
+                > .FieldLayoutView {
+                    width: calc(84%);
+
+                    .TextFieldView textarea {
+                        height: 160px;
+                    }
+                }
+            }
+        }
+
+        #{$root}__label {
+            align-self: flex-start;
+            margin-bottom: 0;
+            margin-right: 16px;
+            width: 140px;
+            height: 46px;
+        }
+
+        #{$root}__name-field {
+            width: 585px;
+        }
+
+        .ButtonView {
+            width: 120px;
+            padding: 11px 12px;
+        }
+
+        .InputFieldView {
+            max-width: 420px;
+        }
+
+        .DropDownFieldView_primary {
+            width: 300px;
+
+            background-color: variables.$element-field-background-color;
+
+            .CheckboxFieldView__label-text {
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
 }

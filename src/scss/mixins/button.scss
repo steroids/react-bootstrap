@@ -1,9 +1,10 @@
 @use "sass:map";
 @use "../variables/common/colors";
+@use "../variables/index" as variables;
 
 @mixin svg-color($color) {
     svg {
-        path { 
+        path {
             stroke: $color;
         }
     }
@@ -18,7 +19,9 @@
     }
     &:focus,
     &:focus-visible {
-        box-shadow: 0 0 0 4px map.get($colorMap, color-light), 0 0 0 4px map.get($colorMap, color-light);
+        box-shadow:
+            0 0 0 4px map.get($colorMap, color-light),
+            0 0 0 4px map.get($colorMap, color-light);
     }
     &:active {
         background-color: map.get($colorMap, color-light);
@@ -29,12 +32,12 @@
         color: map.get($colorMap, text-color);
     }
 
-    #{$root}__loader { 
+    #{$root}__loader {
         svg {
-            path { 
+            path {
                 stroke: map.get($colorMap, color-light);
 
-                @if ($colorName == 'basic' ) {
+                @if ($colorName == "basic") {
                     stroke: map.get($colorMap, color-dark);
                 }
             }
@@ -64,7 +67,9 @@
         border-color: map.get($colorMap, color-dark);
     }
     &:focus {
-        box-shadow: 0 0 0 4px map.get($colorMap, color-light), 0 0 0 4px map.get($colorMap, color-light);
+        box-shadow:
+            0 0 0 4px map.get($colorMap, color-light),
+            0 0 0 4px map.get($colorMap, color-light);
         border: 1px solid transparent;
     }
     &:active {
@@ -84,9 +89,20 @@
 
     @if ($colorName == "basic") {
         color: colors.$text-color;
-    } 
+    }
 
-    #{$root}__loader { 
+    #{$root}__loader {
         @include svg-color(map.get($colorMap, color));
+    }
+}
+
+@mixin expand-button() {
+    font-size: variables.$font-size-xs;
+    font-weight: variables.$font-weight-sm;
+    line-height: variables.$line-height-xs;
+    text-align: center;
+
+    .ButtonView__text {
+        color: variables.$text-color;
     }
 }

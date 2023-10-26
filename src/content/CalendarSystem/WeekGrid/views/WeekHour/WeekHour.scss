@@ -1,14 +1,108 @@
 @use "style/variables";
+@use "../../../../../scss/mixins";
 
 .WeekHour {
-    &__expand-button {
-        font-size: variables.$font-size-xs;
-        font-weight: variables.$font-weight-sm;
-        line-height: variables.$line-height-xs;
-        text-align: center;
-       
-        .ButtonView__text { 
-            color: #312C3A;
+    height: max-content;
+
+    &__hour {
+        $rootHour: &;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1px;
+        min-height: 80px;
+        
+        &-event {
+            position: relative;
+            padding: 4px 8px;
+            overflow: hidden;
+            border-radius: 4px;
+            max-height: 78px;
+            cursor: pointer;
+
+            &:nth-child(n+4) {
+                display: none;
+            }
+
+            &-title {
+                font-size: variables.$font-size-sm;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-sm;
+                color: #312c3a;
+
+                padding-right: 36px;
+                pointer-events: none;
+            }
+
+            &-time {
+                top: 4px;
+                right: 8px;
+                position: absolute;
+                display: inline-block;
+                font-size: variables.$font-size-xs;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-xs;
+                pointer-events: none;
+
+            }
         }
+
+        &_hasOneEvent {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 4; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
+            }
+
+            #{$rootHour}-event {
+                max-height: 78px;
+            }
+        }
+
+        &_hasTwoEvents {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 2; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
+            }
+
+            #{$rootHour}-event {
+                max-height: 38px;
+            }
+        }
+
+        &_hasTreeEvents {
+            #{$rootHour}-event-title {
+                -webkit-line-clamp: 1; /* Число отображаемых строк */
+                display: -webkit-box; /* Включаем флексбоксы */
+                -webkit-box-orient: vertical; /* Вертикальная ориентация */
+                overflow: hidden;
+            }
+
+            #{$rootHour}-event {
+                max-height: 26px;
+                padding: 0 8px;
+            }
+
+            #{$rootHour}-event-time {
+                top: 0;
+                right: 8px;
+            }
+        }
+
+        &_isExpanded #{$rootHour}-event  { 
+            &:nth-child(n+4) {
+                display: block;
+            }
+        }
+    }
+
+    &__expand-button {
+        @include mixins.expand-button();
+    }
+
+    &__tooltip {
+        @include mixins.calendar-tooltip();
     }
 }
