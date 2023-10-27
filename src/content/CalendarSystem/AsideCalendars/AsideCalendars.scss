@@ -14,6 +14,8 @@ $calendar-system-icon-background-color: var(--calendar-system-icon-background-co
 $calendar-system-separator-color: var(--calendar-system-separator-color);
 
 .AsideCalendars {
+    $root: &;
+
     position: relative;
 
     &::before {
@@ -58,6 +60,10 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
         &__content {
             padding: 0;
             padding-top: 0;
+
+            > .FieldLayoutView { 
+                margin-bottom: 0;
+            }
         }
 
         &__content_visible {
@@ -76,6 +82,26 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
                 font-weight: variables.$font-weight-lg;
                 line-height: variables.$line-height-22;
             }
+        }
+    }
+
+    &__add {
+        width: 24px;
+        height: 24px;
+        max-width: 24px;
+        min-width: auto;
+        padding: 4px;
+        position: relative;
+        margin-top: 8px;
+
+        svg {
+            position: absolute;
+            width: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
     }
 }
