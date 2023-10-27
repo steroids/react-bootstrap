@@ -52,6 +52,7 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
                     <DropDownField
                         attribute='eventGroupId'
                         items={props.eventGroups}
+                        outline
                         placeholder='Группа'
                         color="primary"
                         required

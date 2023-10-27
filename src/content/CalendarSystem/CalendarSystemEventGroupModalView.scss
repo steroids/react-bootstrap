@@ -1,0 +1,53 @@
+@use "style/variables";
+
+.CalendarSystemEventGroupModalView {
+    $root: &;
+    width: 584px;
+
+    .FieldLayoutView {
+        margin-bottom: 0;
+    }
+
+    .ModalView__header {
+        .ModalView__title {
+            font-size: variables.$font-size-lg;
+            font-weight: variables.$font-weight-lg;
+            line-height: variables.$line-height-lg;
+        }
+    }
+
+    &__form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 16px;
+
+        > div {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            gap: 12px;
+
+            &:nth-child(2) .FieldLayoutView .InputFieldView{ 
+                width: 120px;
+            }
+        }
+
+        #{$root}__label {
+            align-self: flex-start;
+            margin-bottom: 0;
+            margin-right: 16px;
+            width: 140px;
+            height: 46px;
+        }
+
+        #{$root}__name-field {
+            width: 380px;
+        }
+
+        .ButtonView {
+            width: 120px;
+            padding: 11px 12px;
+        }
+    }
+}

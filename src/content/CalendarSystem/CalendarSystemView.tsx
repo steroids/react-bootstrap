@@ -34,6 +34,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     eventGroupsTitle={props.eventGroupsTitle}
                     selectedCalendarGroupsIds={props.selectedCalendarGroups}
                     onChangeEventGroupsIds={props.onChangeEventGroupsIds}
+                    openCreateEventGroupModal={props.openCreateEventGroupModal}
                 />
             </aside>
             <div className={bem.element('content')}>
