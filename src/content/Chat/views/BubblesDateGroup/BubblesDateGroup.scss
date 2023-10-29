@@ -1,0 +1,78 @@
+@use "../../../../scss/variables";
+
+:root {
+  --date-text-color: #191b1f;
+  --date-background-color: #f1f5f7;
+  --decorative-line-color: rgba(0, 0, 0, 0.10);
+}
+
+html[data-theme="dark"] {
+  --date-text-color: #fff;
+  --date-background-color: #272a37;
+  --decorative-line-color: rgba(255, 255, 255, 0.10);
+}
+
+$date-text-color: var(--date-text-color);
+$date-background-color: var(--date-background-color);
+$decorative-line-color: var(--decorative-line-color);
+
+.BubblesDateGroup {
+  display: flex;
+  flex-flow: column nowrap;
+  position: relative;
+
+  &__date {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    line-height: 16px;
+    margin: 8px 0 16px 0;
+
+    &_invisible-date {
+      position: absolute;
+      top: 0;
+
+      &::before,
+      &::after {
+        content: "";
+        flex: 1 1;
+        border-bottom: 1px solid;
+        margin: auto;
+        color: $decorative-line-color;
+      }
+
+      &::before {
+        margin-right: 10px
+      }
+
+      &::after {
+        margin-left: 10px
+      }
+    }
+  }
+
+  &__date-wrapper {
+    padding: 8px;
+    border-radius: 16px;
+    background: $date-background-color;
+
+    &_invisible-date {
+      opacity: 0;
+    }
+  }
+
+  &__date-text {
+    font-weight: 700;
+    color: $date-text-color;
+    opacity: 0.4;
+  }
+
+  &__bubbles {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}

@@ -1,0 +1,53 @@
+@use "../../scss/variables";
+@use "../../scss/mixins";
+
+:root {
+  --chat-background-color: #fff;
+}
+
+html[data-theme="dark"] {
+  --chat-background-color: #101216;
+}
+
+$chat-background-color: var(--chat-background-color);
+$sidebar-scroll-thumb-color: var(--sidebar-scroll-thumb-color);
+$sidebar-scroll-track-color: var(--sidebar-scroll-track-color);
+
+.ChatView {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 16px;
+  background-color: $chat-background-color;
+
+  &__screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    margin-right: -8px;
+    overflow-y: scroll;
+
+    @include mixins.scrollWrapper(#{700px}, 8px, $sidebar-scroll-thumb-color, $sidebar-scroll-track-color);
+
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin-bottom: 16px;
+      margin-top: 16px;
+    }
+
+    &:first-child {
+      margin-top: 15px;
+    }
+  }
+}

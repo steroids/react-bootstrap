@@ -1,0 +1,157 @@
+@use "../../../../scss/variables";
+
+:root {
+  --bubble-background-color: #6b76ad;
+  --bubble-border-color: #6b76ad;
+  --username-text-color: #fff;
+  --message-text-color: #fff;
+  --message-time-color: #fff;
+
+  --another-user-bubble-background-color: #f8f8f8;
+  --another-user-bubble-border-color: #f1f5f7;
+  --another-user-username-text-color: #fff;
+  --another-user-message-text-color: #323232;
+  --another-user-message-time-color: rgba(0, 0, 0, 0.30);
+}
+
+html[data-theme="dark"] {
+  --bubble-background-color: #727EB7;
+  --bubble-border-color: #727EB7;
+  --message-text-color: #fff;
+  --message-time-color: #fff;
+
+  --another-user-bubble-background-color: #333646;
+  --another-user-bubble-border-color: #333646;
+  --another-user-message-text-color: #fff;
+  --another-user-message-time-color: rgba(255, 255, 255, 0.30);
+}
+
+$bubble-background-color: var(--bubble-background-color);
+$bubble-border-color: var(--bubble-border-color);
+$message-text-color: var(--message-text-color);
+$message-time-color: var(--message-time-color);
+
+$another-user-bubble-background-color: var(--another-user-bubble-background-color);
+$another-user-bubble-border-color: var(--another-user-bubble-border-color);
+$another-user-message-text-color: var(--another-user-message-text-color);
+$another-user-message-time-color: var(--another-user-message-time-color);
+
+.BubbleMessageView {
+  $root: &;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-self: flex-end;
+  gap: 8px;
+  max-width: 548px;
+  width: 100%;
+  margin-bottom: 4px;
+
+  &_another-user {
+    justify-content: flex-start;
+    align-self: flex-start;
+
+    #{$root}__avatar {
+      order: -1;
+    }
+
+    #{$root}__username {
+      color: $another-user-message-text-color;
+    }
+
+    #{$root}__user-message {
+      border: 1px solid $another-user-bubble-border-color;
+      background: $another-user-bubble-background-color;
+      color: $another-user-message-text-color;
+    }
+
+    #{$root}__text {
+      text-align: left;
+      color: $another-user-message-text-color;
+    }
+
+    #{$root}__time {
+      color: $another-user-message-time-color;
+    }
+
+    &#{$root}_last-message {
+      #{$root}__user-message {
+        border-radius: 16px 16px 16px 0;
+      }
+
+      #{$root}__avatar {
+        visibility: visible;
+      }
+
+      #{$root}__username {
+        color: $another-user-message-text-color;
+      }
+    }
+  }
+
+  &_last-message {
+    margin-bottom: 8px;
+
+    #{$root}__user-message {
+      border-radius: 16px 16px 0 16px;
+    }
+
+    #{$root}__avatar {
+      visibility: visible;
+    }
+  }
+
+  &__avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 36px;
+    visibility: hidden;
+  }
+
+  &__username {
+    align-self: flex-start;
+    margin-bottom: 0;
+    color: $message-text-color;
+  }
+
+  &__user-message {
+    display: flex;
+    padding: 12px;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 4px;
+    border-radius: 16px;
+
+    border: 1px solid $bubble-border-color;
+    background: $bubble-background-color;
+    color: $message-text-color;
+  }
+
+  &__text {
+    margin-bottom: 0;
+    white-space: break-spaces;
+    width: 100%;
+    text-align: left;
+    color: $message-text-color;
+  }
+
+  &__indicators {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__time {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: $message-time-color;
+  }
+
+  &__check {
+    margin-left: 4px;
+  }
+}

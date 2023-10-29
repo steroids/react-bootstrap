@@ -1,0 +1,36 @@
+@use "../../../../scss/variables";
+
+.ChatInputView {
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  &__action {
+    svg > * {
+      stroke: variables.$text-color
+    }
+  }
+
+  &__input {
+    .InputFieldView__addon-after {
+      background-color: inherit;
+    }
+
+    .InputFieldView__input {
+      border: none;
+      padding: 16px 0 16px 16px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 18px;
+    }
+
+    .ButtonView_button {
+      background-color: inherit;
+      padding: 0;
+    }
+  }
+}
