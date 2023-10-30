@@ -23,6 +23,7 @@ export default function CalendarSystemEventGroupModalView(props: CalendarSystemE
                     props.onClose();
                 }}
                 submitLabel={props.isCreate ? __('Создать') : __('Сохранить')}
+                initialValues={props.eventGroupInitialValues}
             >
                 <div>
                     <Text
