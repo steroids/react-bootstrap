@@ -15,10 +15,6 @@ export default function ChatInputView(props: IChatInputProps) {
         <div className={bem.element('actions')}>
             <Button
                 className={bem.element('action')}
-                icon="clip"
-            />
-            <Button
-                className={bem.element('action')}
                 icon="send"
                 type="submit"
             />

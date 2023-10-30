@@ -59,7 +59,7 @@ function BubbleMessageView(props: IBubbleMessageProps) {
                     <Avatar
                         src={props.user.avatar?.src}
                         title={`${props.user.firstName} ${props.user.lastName}`}
-                        status={props.user.isOnline}
+                        status={props.user.avatar?.status}
                         size='sm'
                     />
                 </div>

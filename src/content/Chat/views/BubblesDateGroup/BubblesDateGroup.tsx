@@ -1,7 +1,7 @@
 import React, {memo, useCallback} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {calculateMessageTimeAgo} from '@steroidsjs/core/ui/content/Chat/utils';
-import {IBubbleMessage} from '@steroidsjs/core/ui/content/Chat/hooks/useChat';
+import {IGroupedMessage} from '@steroidsjs/core/ui/content/Chat/hooks/useChat';
 import {IChatUser} from '@steroidsjs/core/ui/content/Chat/Chat';
 
 import BubbleMessageView from '../BubbleMessage';
@@ -9,16 +9,16 @@ import './BubblesDateGroup.scss';
 
 interface IBubblesDateGroupProps {
     date: string;
-    bubbleMessagesByDate: IBubbleMessage[][];
+    groupedMessages: IGroupedMessage[][];
     currentUser: IChatUser;
 }
 
 function BubblesDateGroup(props: IBubblesDateGroupProps) {
     const bem = useBem('BubblesDateGroup');
 
-    const toBubbles = useCallback((bubbleMessages, index) => (
+    const toBubbles = useCallback((groupedMessages) => (
         <div className={bem.element('bubbles')}>
-            {bubbleMessages.map((bubbleMessage) => (
+            {groupedMessages.map((bubbleMessage) => (
                 <BubbleMessageView
                     key={bubbleMessage.id}
                     user={bubbleMessage.user}
@@ -52,7 +52,7 @@ function BubblesDateGroup(props: IBubblesDateGroupProps) {
     return (
         <div className={bem.block()}>
             {renderDate()}
-            {props.bubbleMessagesByDate?.map(toBubbles)}
+            {props.groupedMessages?.map(toBubbles)}
         </div>
     );
 }

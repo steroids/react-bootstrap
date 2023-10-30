@@ -13,24 +13,24 @@ export default function ChatView(props: IChatViewProps) {
 
     useUpdateEffect(() => {
         endOfMessagesRef?.current.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'});
-    }, [props.bubbleMessagesByDates]);
+    }, [props.groupedMessagesByDates]);
 
     const renderChatScreen = useCallback(() => (
         <div className={bem.element('screen')}>
             <div className={bem.element('content')}>
-                {Object.entries(props.bubbleMessagesByDates)
-                    .map(([date, bubbleMessagesByDate]) => (
+                {Object.entries(props.groupedMessagesByDates)
+                    .map(([date, groupedMessages]) => (
                         <BubblesDateGroup
                             key={date}
                             date={date}
-                            bubbleMessagesByDate={bubbleMessagesByDate}
+                            groupedMessages={groupedMessages}
                             currentUser={props.currentUser}
                         />
                     ))}
                 <div ref={endOfMessagesRef} />
             </div>
         </div>
-    ), [bem, props.bubbleMessagesByDates, props.currentUser]);
+    ), [bem, props.groupedMessagesByDates, props.currentUser]);
 
     return (
         <div className={bem.block()}>
