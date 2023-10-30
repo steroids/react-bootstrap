@@ -64,10 +64,14 @@
             max-width: 420px;
         }
 
-        .DropDownFieldView_primary {
+        .DropDownFieldView_outline_primary {
             width: 300px;
-
+            border-color: variables.$element-border-color;
             background-color: variables.$element-field-background-color;
+
+            &:hover {
+                border-color: variables.$element-border-color;
+            }
 
             .CheckboxFieldView__label-text {
                 display: -webkit-box;
