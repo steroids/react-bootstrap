@@ -2,6 +2,7 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import WeekHour from './views/WeekHour';
 
 import './WeekGrid.scss';
@@ -9,7 +10,7 @@ import './WeekGrid.scss';
 interface IWeekGridProps {
     currentWeekDays: IDay[]
     allHours: string[],
-    getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
+    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
     openEditModal: (event: IEvent) => void,
     openCreateModal: (eventInitialDay?: IDay) => void;
 }
