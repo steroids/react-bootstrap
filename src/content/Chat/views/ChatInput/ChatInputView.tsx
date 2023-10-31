@@ -6,6 +6,7 @@ import './ChatInputView.scss';
 
 interface IChatInputProps {
     chatId: string;
+    onSendMessage: (data) => void;
 }
 
 export default function ChatInputView(props: IChatInputProps) {
@@ -26,6 +27,7 @@ export default function ChatInputView(props: IChatInputProps) {
             <Form
                 formId={props.chatId}
                 className={bem.element('form')}
+                onSubmit={props.onSendMessage}
                 useRedux
             >
                 <InputField

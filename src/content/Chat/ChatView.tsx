@@ -37,6 +37,7 @@ export default function ChatView(props: IChatViewProps) {
             {renderChatScreen()}
             <ChatInputView
                 chatId={props.chatId}
+                onSendMessage={props.onSendMessage}
             />
         </div>
     );
