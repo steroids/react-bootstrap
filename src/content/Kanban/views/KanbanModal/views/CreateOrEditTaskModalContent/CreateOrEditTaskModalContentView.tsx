@@ -94,7 +94,7 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
                 </div>
                 <div className={props.bem.element('row')}>
                     <div className={props.bem.element('label')} />
-                    <div className={props.bem.element('right', 'column')}>
+                    <div className={props.bem.element('right', 'html-field')}>
                         <HtmlField
                             attribute="fullDescription"
                             size="md"
