@@ -61,6 +61,9 @@ export default {
     'content.CalendarSystemView': {
         lazy: () => require('./content/CalendarSystem/CalendarSystemView').default,
     },
+    'content.ChatView': {
+        lazy: () => require('./content/Chat/ChatView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
