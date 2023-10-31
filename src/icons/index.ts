@@ -6,6 +6,7 @@ export default (customIcons: Record<string, any>) => {
 
     const steroidsIcons = [
         'add',
+        'add_16x16',
         'add_square',
         'arrow_down_18x18',
         'arrow_down_24x24',

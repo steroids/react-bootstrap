@@ -25,6 +25,9 @@ export default {
     'content.CalendarView': {
         lazy: () => require('./content/Calendar/CalendarView').default,
     },
+    'content.DashboardItemView': {
+        lazy: () => require('./content/Dashboard/DashboardItemView').default,
+    },
     'content.DetailView': {
         lazy: () => require('./content/Detail/DetailView').default,
     },

@@ -2,21 +2,23 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import WeekHour from './views/WeekHour';
 
 import './WeekGrid.scss';
 
 interface IWeekGridProps {
-    onClickHour: () => void,
     currentWeekDays: IDay[]
     allHours: string[],
-    getEventsFromDate: (dateFromDay: Date, isMonth: boolean) => IEvent[],
+    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
+    openEditModal: (event: IEvent) => void,
+    openCreateModal: (eventInitialDay?: IDay) => void;
 }
 
 function WeekGrid(props: IWeekGridProps) {
     const bem = useBem('WeekGrid');
 
-    const {currentWeekDays, onClickHour, getEventsFromDate} = props;
+    const {currentWeekDays, getEventsFromDate} = props;
 
     const renderWeekHours = React.useCallback(
         (hour) => currentWeekDays.map((dayOfWeek, dayOfWeekIndex) => (
@@ -25,9 +27,11 @@ function WeekGrid(props: IWeekGridProps) {
                 getEventsFromDate={getEventsFromDate}
                 key={dayOfWeekIndex}
                 dayOfWeek={dayOfWeek}
+                openEditModal={props.openEditModal}
+                openCreateModal={props.openCreateModal}
             />
         )),
-        [currentWeekDays, getEventsFromDate],
+        [currentWeekDays, getEventsFromDate, props.openCreateModal, props.openEditModal],
     );
 
     return (

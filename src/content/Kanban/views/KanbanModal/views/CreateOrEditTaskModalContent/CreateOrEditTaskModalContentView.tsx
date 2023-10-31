@@ -36,7 +36,7 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
             className={props.bem.element('form')}
             initialValues={props.task
                 ? {
-                    columnId: props.columnId || '',
+                    columnId: props.columnId || null,
                     title: props.task.title || '',
                     description: props.task.description || '',
                     fullDescription: props.task.fullDescription || '',
@@ -44,7 +44,9 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
                     priority: props.task.priority?.id || null,
                     assigner: props.task.assigner?.id || null,
                 }
-                : {}}
+                : {
+                    columnId: props.columnId || null,
+                }}
             onSubmit={(data) => {
                 props.onSubmit(props.task?.id, data, props.columnId);
             }}
@@ -71,9 +73,9 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
                             />
                             <DropDownField
                                 attribute='columnId'
-                                selectedIds={[props.columnId]}
                                 items={columns}
                                 size="md"
+                                required
                                 outline
                             />
                         </div>
