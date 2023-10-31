@@ -12,6 +12,7 @@ html[data-theme="dark"] {
 
 $badge-background-color: var(--badge-background-color);
 $badge-text-color: var(--badge-text-color);
+$html-field-text-color: #312c3a;
 
 .KanbanModalView {
   min-width: 536px;
@@ -45,6 +46,10 @@ $badge-text-color: var(--badge-text-color);
     &_column {
       flex-flow: column nowrap;
       gap: 16px;
+    }
+
+    &_html-field {
+      width: 1040px;
     }
   }
 
@@ -179,6 +184,12 @@ $badge-text-color: var(--badge-text-color);
 
   .RadioListFieldView_horizontal {
     gap: 24px;
+  }
+
+  .ck-content {
+    max-height: 332px;
+    overflow: scroll;
+    color: $html-field-text-color;
   }
 }
 
