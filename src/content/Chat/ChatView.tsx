@@ -27,7 +27,7 @@ export default function ChatView(props: IChatViewProps) {
         }
 
         prevContentHeightRef.current = contentHeight;
-    });
+    }, [props.groupedMessagesByDates]);
 
     const renderChatScreen = useCallback(() => (
         <div
