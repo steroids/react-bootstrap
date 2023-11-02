@@ -1,8 +1,24 @@
 @use "../../scss/variables";
 
 .ChartView {
+    height: auto;
+    &__title {
+        font-size: variables.$font-size-lg;
+        font-weight: variables.$font-weight-lg;
+        line-height: variables.$line-height-lg;
+    }
 
-  text {
-    fill: variables.$text-color !important;
-  }
+    &__controls {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    &__controls + div { 
+        height: var(--chart-custom-height) !important;
+    }
+
+    text {
+        fill: variables.$text-color !important;
+    }
 }
