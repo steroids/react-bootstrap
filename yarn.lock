@@ -747,44 +747,10 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.100":
-  version "3.0.0-beta.100"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.100.tgz#1cc3fb13da327e51681875a342add4942d4a8219"
-  integrity sha512-zu2tnfD8ymCl4g1HK5pSpNoXtlSghIQEzikXX/Zrpyon6xgv9n2dh4QqIvo+cs++g7pRthC2nsx4IcLyE6i+qw==
-  dependencies:
-    "@maskito/core" "1.7.0"
-    "@maskito/kit" "1.7.0"
-    "@maskito/react" "^0.12.1"
-    "@splidejs/react-splide" "^0.7.12"
-    axios "^0.21.1"
-    connected-react-router "^6.9.3"
-    dayjs "^1.11.9"
-    domready "^1.0.8"
-    dot-prop-immutable "^2.1.0"
-    fileup-core "^1.2.7"
-    history "^4.10.1"
-    intl-messageformat "^10.1.4"
-    js-cookie "^2.2.1"
-    load-js "^3.0.3"
-    lodash "^4.17.21"
-    lodash-es "^4.17.21"
-    path-to-regexp "^1.7.0"
-    qs "^6.9.4"
-    query-string "^6.14.0"
-    react "^18.2.0"
-    react-click-outside "^3.0.1"
-    react-day-picker "^8.7.1"
-    react-dom "^18.2.0"
-    react-grid-gallery "^0.4.8"
-    react-helmet "^6.1.0"
-    react-image-crop "^9.0.2"
-    react-redux "^8.0.5"
-    react-router "^5.2.0"
-    react-router-dom "^5.2.0"
-    react-use "^17.4.0"
-    redux "^4.0.4"
-    redux-mock-store "^1.5.4"
-    set-cookie-parser "^2.4.8"
+"@steroidsjs/core@^3.0 || >=3.0.0-beta.101":
+  version "3.0.0-beta.101"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.101.tgz#88fc871ddac351892f642c327a2afdeca2f4c4fd"
+  integrity sha512-hwrnboP8bW/SWVvAQpQOAUNv+CFcMXZRQclUVpOjB31Te9RUTK6uyD9f0jDNJDGpHY2QR3t7BBk5M5541fIigQ==
 
 "@steroidsjs/eslint-config@^2.1.4":
   version "2.1.4"
