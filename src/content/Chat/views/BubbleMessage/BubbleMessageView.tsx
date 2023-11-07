@@ -1,24 +1,36 @@
-import React, {memo} from 'react';
+import React, {memo, useState} from 'react';
+import {useInterval} from 'react-use';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {Avatar} from '@steroidsjs/core/ui/content/Avatar';
 import {Text} from '@steroidsjs/core/ui/typography';
 import Title from '@steroidsjs/core/ui/typography/Title';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IChatUser} from '@steroidsjs/core/ui/content/Chat/Chat';
+import {SECONDS_IN_MINUTE_VALUE} from '@steroidsjs/core/ui/content/Chat/constants/timeTemplatesAndUnits';
+import {calculateMessageTimeAgo} from '@steroidsjs/core/ui/content/Chat/utils';
 
 import './BubbleMessageView.scss';
 
 interface IBubbleMessageProps {
     user: IChatUser;
     text: string;
+    timestamp: string;
     timeAgo: string;
     isCurrentUser: boolean;
     isFirstMessage?: boolean;
     isLastMessage?: boolean;
+    isTodayMessage?: boolean;
 }
 
 function BubbleMessageView(props: IBubbleMessageProps) {
     const bem = useBem('BubbleMessageView');
+
+    const [timeAgo, setTimeAgo] = useState(props.timeAgo);
+
+    useInterval(
+        () => setTimeAgo(calculateMessageTimeAgo(props.timestamp)),
+        props.isTodayMessage ? SECONDS_IN_MINUTE_VALUE : null,
+    );
 
     return (
         <div className={bem.block({
@@ -44,7 +56,7 @@ function BubbleMessageView(props: IBubbleMessageProps) {
                     <Text
                         className={bem.element('time')}
                         type="body3"
-                        content={props.timeAgo}
+                        content={timeAgo}
                     />
                     {props.isCurrentUser && (
                         <Icon
