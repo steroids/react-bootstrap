@@ -15,9 +15,12 @@ $dashboard-item-background-color: var(--dashboard-item-background-color);
 $title-icon-color: var(--title-icon-color);
 
 .DashboardItemView {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
   padding: 16px;
   border-radius: 12px;
-  background-color: var(--dashboard-item-background-color);
+  background-color: $dashboard-item-background-color;
   box-shadow: 0 8px 20px 0 variables.$black-4;
 
   &__header {
