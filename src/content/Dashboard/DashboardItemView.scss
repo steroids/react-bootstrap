@@ -16,7 +16,7 @@ $title-icon-color: var(--title-icon-color);
 
 .DashboardItemView {
   width: 100%;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: hidden;
   padding: 16px;
   border-radius: 12px;
