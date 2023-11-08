@@ -1,5 +1,15 @@
 @use "../../scss/variables";
 
+:root {
+    --chart-grid-color:rgb(221, 221, 221);
+}
+
+html[data-theme="dark"] {
+    --chart-grid-color: rgba(255, 255, 255, 0.10);
+}
+
+$chart-grid-color: var(--chart-grid-color);
+
 .ChartView {
     height: auto;
     &__title {
@@ -14,11 +24,16 @@
         justify-content: space-between;
     }
 
-    &__controls + div { 
+    &__controls + div {
         height: var(--chart-custom-height) !important;
     }
 
     text {
+        font-family: variables.$font-family-nunito !important;
         fill: variables.$text-color !important;
+    }
+
+    line {
+        stroke: $chart-grid-color !important;
     }
 }

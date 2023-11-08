@@ -1,8 +1,47 @@
-@use "sass:map";
 @use "../../scss/variables";
 
+:root {
+  --dashboard-item-background-color: #fff;
+  --title-icon-color: #323232;
+}
+
+html[data-theme="dark"] {
+  --dashboard-item-background-color: #191b1f;
+  --title-icon-color: #fff;
+
+}
+
+$dashboard-item-background-color: var(--dashboard-item-background-color);
+$title-icon-color: var(--title-icon-color);
+
 .DashboardItemView {
-  padding: 15px;
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 16px;
   border-radius: 12px;
-  background-color: variables.$white;
+  background-color: $dashboard-item-background-color;
+  box-shadow: 0 8px 20px 0 variables.$black-4;
+
+  &__header {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  &__header,
+  .CardView {
+    svg {
+      path,
+      rect,
+      circle {
+        stroke: $title-icon-color;
+      }
+    }
+  }
+
+  .TitleView {
+    margin-bottom: 0;
+  }
 }
