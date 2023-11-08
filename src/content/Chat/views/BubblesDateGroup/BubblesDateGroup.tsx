@@ -1,6 +1,6 @@
 import React, {memo, useCallback} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {calculateMessageTimeAgo} from '@steroidsjs/core/ui/content/Chat/utils';
+import {calculateMessageTimeAgo, isTodayMessage} from '@steroidsjs/core/ui/content/Chat/utils';
 import {IGroupedMessage} from '@steroidsjs/core/ui/content/Chat/hooks/useChat';
 import {IChatUser} from '@steroidsjs/core/ui/content/Chat/Chat';
 
@@ -23,7 +23,9 @@ function BubblesDateGroup(props: IBubblesDateGroupProps) {
                     key={bubbleMessage.id}
                     user={bubbleMessage.user}
                     text={bubbleMessage.text}
+                    timestamp={bubbleMessage.timestamp}
                     timeAgo={calculateMessageTimeAgo(bubbleMessage.timestamp)}
+                    isTodayMessage={isTodayMessage(bubbleMessage.timestamp)}
                     isCurrentUser={bubbleMessage.user.id === props.currentUser.id}
                     isFirstMessage={bubbleMessage.isFirstMessage}
                     isLastMessage={bubbleMessage.isLastMessage}
