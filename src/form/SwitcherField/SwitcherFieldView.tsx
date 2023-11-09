@@ -37,6 +37,7 @@ export default function SwitcherFieldView(props: ISwitcherFieldViewProps) {
                         onChange={() => props.onItemSelect(switcher.id)}
                         checked={props.selectedIds.includes(switcher.id)}
                         className={bem.element('input')}
+                        required={switcher.required}
                     />
                     <span className={bem.element('slider')} />
                     <span className={bem.element('label')}>{renderLabel(switcher)}</span>

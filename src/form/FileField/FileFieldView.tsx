@@ -13,7 +13,10 @@ export default function FileFieldView(props: IFileFieldViewProps) {
     return (
         <div
             className={bem(
-                bem.block({isWall}),
+                bem.block({
+                    isWall,
+                    'is-invalid': !!props.errors,
+                }),
                 props.className,
             )}
         >

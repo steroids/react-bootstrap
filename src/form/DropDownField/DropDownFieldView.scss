@@ -187,6 +187,8 @@ $drop-down-color-themes: map.merge(
     outline: none;
     cursor: pointer;
 
+    @include mixins.invalid-field($root);
+
     //Pseudo element for focus statement
     &::before {
         content: "";

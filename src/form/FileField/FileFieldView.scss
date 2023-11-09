@@ -1,8 +1,11 @@
 @use "../../scss/variables";
+@use '../../scss/mixins';
 
 .FileFieldView {
     $root: &;
     width: 100%;
+
+    @include mixins.invalid-button-field($root);
 
     &__files {
         margin-bottom: 1em;

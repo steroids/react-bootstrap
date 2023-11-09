@@ -1,7 +1,10 @@
 @use "../../scss/variables";
+@use '../../scss/mixins';
 
 .ImageFieldView {
   $root: &;
+
+  @include mixins.invalid-button-field($root);
 
   &__button {
     display: flex;

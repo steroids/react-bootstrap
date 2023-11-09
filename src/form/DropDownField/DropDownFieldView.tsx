@@ -32,6 +32,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     [`${props.color}`]: !!props.color && !props.outline,
                     [`outline_${props.color}`]: props.outline,
                     opened: props.isOpened,
+                    'is-invalid': !!props.errors,
                 },
             ), props.className)}
             onKeyPress={e => e.key === 'Enter' && props.onOpen()}
