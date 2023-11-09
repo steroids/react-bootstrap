@@ -1,0 +1,5 @@
+@use "../common/colors";
+
+.border {
+  border: 1px solid colors.$element-border-color;
+}
