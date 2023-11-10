@@ -1,0 +1,25 @@
+$text-aligns: center, left, right, end, justify, start;
+
+.text {
+  @each $text-align in $text-aligns {
+    &-#{$text-align} {
+      text-align: $text-align;
+    }
+  }
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}

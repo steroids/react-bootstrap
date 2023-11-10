@@ -1,0 +1,72 @@
+@use "../variables/common/colors.scss";
+
+$positions: absolute, sticky, relative, fixed, static;
+$borders: right, left, top, bottom;
+
+.border {
+  border: 1px solid colors.$element-border-color;
+
+  @each $border in $borders {
+    &-#{$border} {
+      border-#{$border}: 1px solid colors.$element-border-color;
+    }
+  }
+}
+
+// positions
+.position {
+  @each $position in $positions {
+    &-#{$position} {
+      position: $position;
+    }
+  }
+}
+
+.top-0 {
+  top: 0;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+// width and height in percents
+.w-25 {
+  width: 25%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-25 {
+  height: 25%;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+.h-75 {
+  height: 75%;
+}
+
+.h-100 {
+  height: 100%;
+}
