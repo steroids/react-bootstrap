@@ -5,6 +5,7 @@
 @include meta.load-css('scss/variables');
 @include meta.load-css('scss/mixins');
 @include meta.load-css('scss/fonts');
+@include meta.load-css('scss/bootstrap-classes');
 
 @include meta.load-css('content/Accordion/AccordionView');
 @include meta.load-css('content/Accordion/AccordionItemView');
