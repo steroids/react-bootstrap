@@ -32,7 +32,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 />
                 <Calendar
                     showFooter={false}
-                    onMonthChange={props.onMonthChange}
+                    onMonthChange={props.onInnerCalendarChangedMonth}
                 />
                 <AsideCalendars
                     eventGroups={props.eventGroups}
@@ -45,7 +45,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 <ContentHeader
                     dateToDisplay={props.dateToDisplay}
                     onChangeCalendarType={props.onChangeCalendarType}
-                    applyControl={props.applyControl}
+                    handleControlClick={props.handleControlClick}
                 />
                 {calendarTypeHash[props.calendarType as string]}
             </div>
