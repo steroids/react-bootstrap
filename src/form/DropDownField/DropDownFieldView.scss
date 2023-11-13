@@ -422,6 +422,9 @@ $drop-down-color-themes: map.merge(
         svg > * {
             stroke: variables.$text-color
         }
+    }
 
+    &_is-invalid {
+        border: 1px solid variables.$danger !important;
     }
 }

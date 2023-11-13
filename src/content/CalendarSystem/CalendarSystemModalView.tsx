@@ -11,11 +11,14 @@ import {InputField, Form, DropDownField, DateTimeField, TextField} from '@steroi
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import _omit from 'lodash-es/omit';
-import _isEmpty from 'lodash-es/isEmpty';
+import {useDispatch} from '@steroidsjs/core/hooks';
+import {formReset, formSetErrors} from '@steroidsjs/core/actions/form';
+
+const ADD_EVENT_FORM_ID = 'AddEventForm';
 
 export default function CalendarSystemModalView(props: ICalendarSystemModalViewProps) {
     const bem = useBem('CalendarSystemModalView');
+    const dispatch = useDispatch();
 
     const eventInitialValues: IEventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
 
@@ -32,12 +35,24 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
         >
             <Form
                 className={bem.element('default-form')}
+                formId={ADD_EVENT_FORM_ID}
+                onBeforeSubmit={(data) => {
+                    if (!data.eventGroupId) {
+                        dispatch(formSetErrors(ADD_EVENT_FORM_ID, {
+                            eventGroupId: [__('Поле обязательно для заполнения')],
+                        }));
+                        return false;
+                    }
+                    return data;
+                }}
                 onSubmit={(fields) => {
                     callOnEventSubmit(fields);
+                    dispatch(formSetErrors(ADD_EVENT_FORM_ID, {}));
                     props.onClose();
                 }}
                 initialValues={eventInitialValues ?? null}
                 submitLabel={props.isCreate ? __('Создать') : __('Сохранить')}
+                useRedux
             >
                 <div>
                     <Text
@@ -55,7 +70,6 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
                         outline
                         placeholder='Группа'
                         color="primary"
-                        required
                         itemsContent={{
                             type: 'checkbox',
                         }}

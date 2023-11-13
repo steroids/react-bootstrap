@@ -20,6 +20,10 @@
         padding: 0;
     }
 
+    .FieldLayoutView__invalid-feedback {
+        display: none !important;
+    }
+
     &__default-form {
         display: flex;
         flex-flow: column nowrap;
