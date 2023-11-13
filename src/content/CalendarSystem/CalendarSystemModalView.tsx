@@ -25,10 +25,15 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
     const callOnEventSubmit = (fields: Record<CalendarSystemModalFields, string>) =>
         eventInitialValues && !props.isCreate ? props.onEventSubmit(fields, eventInitialValues) : props.onEventSubmit(fields);
 
+    const onCloseModal = React.useCallback(() => {
+        props.onClose();
+        dispatch(formSetErrors(ADD_EVENT_FORM_ID, {}));
+    }, []);
+
     return (
         <Modal
             title={props.isCreate ? __('Новое событие') : __('Редактирование события')}
-            onClose={props.onClose}
+            onClose={onCloseModal}
             className={bem.block()}
             shouldCloseOnEsc
             shouldCloseOnOverlayClick
@@ -47,8 +52,7 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
                 }}
                 onSubmit={(fields) => {
                     callOnEventSubmit(fields);
-                    dispatch(formSetErrors(ADD_EVENT_FORM_ID, {}));
-                    props.onClose();
+                    onCloseModal();
                 }}
                 initialValues={eventInitialValues ?? null}
                 submitLabel={props.isCreate ? __('Создать') : __('Сохранить')}
