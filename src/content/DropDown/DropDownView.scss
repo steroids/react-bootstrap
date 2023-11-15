@@ -1,212 +1,71 @@
+@use 'sass:math';
 @use "../../scss/variables";
+@use '../../scss/mixins';
 
 :root {
-    --dropdown-background: #fff;
-    --dropdown-border: #dbe2e6;
-    --dropdown-triangle-svg: url("data:image/svg+xml,%3Csvg width='21' height='11' viewBox='0 0 21 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.0416 0.5L10.1719 10.2567L1.30215 0.499998L19.0416 0.5Z' fill='white' stroke='%23dbe2e6'/%3E%3C/svg%3E%0A");
+    --dropdown-background-color: #fff;
+    --dropdown-border-color: #dbe2e6;
 }
 
 html[data-theme="dark"] {
-    --dropdown-background: var(--gray-dark);
-    --dropdown-border: transparent;
-    --dropdown-triangle-svg: url("data:image/svg+xml,%3Csvg width='21' height='12' viewBox='0 0 21 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.5859 11.222L0.585938 0.222044L20.5859 0.222046L10.5859 11.222Z' fill='%23272A37'/%3E%3C/svg%3E");
+    --dropdown-background-color: var(--gray-dark);
+    --dropdown-border-color: transparent;
 }
 
-$dropdown-background: var(--dropdown-background);
-$dropdown-border: var(--dropdown-border);
-$dropdown-triangle-svg: var(--dropdown-triangle-svg);
+$dropdown-background-color: var(--dropdown-background-color);
+$dropdown-border-color: var(--dropdown-border-color);
 
+$dropdown-arrow-width: 10px;
+$dropdown-arrow-height: 10px;
+$dropdown-arrow-border: math.div($dropdown-arrow-width, 2);
 $gap: 12px;
 
-%triangle {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 11px;
-    z-index: 2;
-    background-image: $dropdown-triangle-svg;
-}
-
-%borderShaper {
-    content: "";
-    position: absolute;
-    z-index: 3;
-
-    width: 16px;
-    height: 1px;
-    background-color: $dropdown-background;
-    border-left: 2px solid $dropdown-border;
-    border-right: 2px solid $dropdown-border;
-}
-
-@mixin drop($edge, $padding) {
-    @if ($edge == "top") {
-        &::before {
-            @extend %triangle;
-
-            top: 100%;
-            left: $padding;
-            transform: translateX(-50%);
-        }
-
-        &::after {
-            @extend %borderShaper;
-
-            top: 100%;
-            left: $padding;
-            transform: translateX(-50%);
-        }
-    } @else if ($edge == "bottom") {
-        &::before {
-            @extend %triangle;
-
-            top: 0;
-            left: $padding;
-            top: -11px;
-            transform: translateX(-50%) rotate(180deg);
-        }
-
-        &::after {
-            @extend %borderShaper;
-
-            transform: translateX(-50%);
-            top: -1px;
-            left: $padding;
-        }
-    } @else if($edge == "left") {
-        &::before {
-            @extend %triangle;
-
-            left: 100%;
-            top: $padding;
-            transform: translateX(-22.5%) rotate(-90deg);
-        }
-
-        &::after {
-            @extend %borderShaper;
-
-            left: 100%;
-            top: $padding;
-            transform: rotate(-90deg) translate(-30%, -7.5px);
-        }
-    } @else if($edge == "right") {
-        &::before {
-            @extend %triangle;
-
-            right: 100%;
-            top: $padding;
-            transform: translateX(22.5%) rotate(90deg);
-        }
-
-        &::after {
-            @extend %borderShaper;
-
-            right: 100%;
-            top: $padding;
-            transform: rotate(-90deg) translate(-30%, 7.5px);
-        }
-    }
-}
+$dropdown-arrow-offset-horizontal: 20px;
+$dropdown-arrow-offset-vertical-top: 15px;
+$dropdown-arrow-offset-vertical-bottom: 7px;
 
 .DropDownView {
-    $root: &;
-
-    z-index: 1000;
     position: absolute;
     color: variables.$text-color;
 
     transform: translate(0, 0);
     opacity: 0;
     transition: opacity 0.15s ease-in, transform 0.15s ease-in;
-
     z-index: 4;
+
     min-width: 200px;
     padding: 12px;
     border-radius: variables.$radius-large;
-    background-color: $dropdown-background;
-    border: 1px solid $dropdown-border;
+    background-color: $dropdown-background-color;
+    border: 1px solid $dropdown-border-color;
 
     &_show {
         opacity: 1;
     }
-    &_position-top,
-    &_position-topLeft,
-    &_position-topRight {
-        transform: translateY(-$gap);
-    }
-    &_position-bottom,
-    &_position-bottomLeft,
-    &_position-bottomRight {
-        transform: translateY($gap);
-    }
-    &_position-left,
-    &_position-leftTop,
-    &_position-leftBottom {
-        transform: translateX(-$gap);
-    }
-    &_position-right,
-    &_position-rightTop,
-    &_position-rightBottom {
-        transform: translateX($gap);
-    }
 
-    &_position-top {
-        @include drop("top", 50%);
-    }
+    @include mixins.absolute-position($gap);
 
-    &_position-topLeft {
-        @include drop("top", 15%);
-    }
+    &__arrow {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        pointer-events: none;
+        width: $dropdown-arrow-width;
+        height: $dropdown-arrow-height;
+        overflow: hidden;
+        border: 1px solid $dropdown-border-color;
+        background-color: $dropdown-background-color;
 
-    &_position-topRight {
-        @include drop("top", 85%);
-    }
-
-    &_position-bottom {
-        @include drop("bottom", 50%);
-    }
-
-    &_position-bottomLeft {
-        @include drop("bottom", 15%);
-    }
-
-    &_position-bottomRight {
-        @include drop("bottom", 85%);
-    }
-
-    &_position-left {
-        @include drop("left", 46.5%);
-    }
-
-    &_position-leftTop {
-        @include drop("left", 12.5%);
-    }
-
-    &_position-leftBottom {
-        @include drop("left", 80%);
-    }
-
-    &_position-right {
-        @include drop("right", 46.5%);
-    }
-
-    &_position-rightTop {
-        @include drop("right", 12.5%);
-    }
-
-    &_position-rightBottom {
-        @include drop("right", 80%);
+        @include mixins.arrow-position(
+                        $dropdown-arrow-border,
+                        $dropdown-arrow-offset-horizontal,
+                        $dropdown-arrow-offset-vertical-top,
+                        $dropdown-arrow-offset-vertical-bottom
+        );
     }
 
     &::before,
     &::after {
         opacity: 0;
-    }
-
-    &_hasArrow {
-        &::before,
-        &::after {
-            opacity: 1;
-        }
     }
 }

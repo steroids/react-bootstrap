@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use "../variables/index" as variables;
 
 :root {
@@ -19,5 +20,94 @@ $tooltip-background-color: var(--tooltip-background-color);
 
     .TooltipView__content {
         color: variables.$text-color;
+    }
+}
+
+@mixin absolute-position($gap) {
+    &_position{
+        &_top, &_topLeft, &_topRight {
+            transform: translateY(-$gap);
+        }
+
+        &_bottom, &_bottomLeft, &_bottomRight {
+            transform: translateY($gap);
+        }
+
+        &_left, &_leftTop, &_leftBottom {
+            transform: translateX(-$gap);
+        }
+
+        &_right, &_rightTop, &_rightBottom {
+            transform: translateX($gap);
+        }
+    }
+}
+
+@mixin arrow-position(
+    $arrow-border,
+    $arrow-offset-horizontal,
+    $arrow-offset-vertical-top,
+    $arrow-offset-vertical-bottom
+) {
+    &_position{
+        &_top, &_topLeft, &_topRight {
+            bottom: -$arrow-border;
+            left: 50%;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            transform: translateX(-50%) rotate(45deg);
+        }
+        &_topLeft{
+            left: $arrow-offset-horizontal;
+        }
+        &_topRight{
+            left: unset;
+            right: $arrow-offset-horizontal;
+        }
+
+        &_bottom, &_bottomLeft, &_bottomRight {
+            top: -$arrow-border;
+            left: 50%;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            transform: translateX(-50%) rotate(45deg);
+        }
+        &_bottomLeft{
+            left: $arrow-offset-horizontal;
+        }
+        &_bottomRight{
+            left: unset;
+            right: $arrow-offset-horizontal;
+        }
+
+        &_left, &_leftTop, &_leftBottom {
+            right: -$arrow-border;
+            top: 50%;
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            transform: translateY(-50%) rotate(45deg);
+        }
+        &_leftTop{
+            top: $arrow-offset-vertical-top;
+        }
+        &_leftBottom{
+            top: unset;
+            bottom: $arrow-offset-vertical-bottom;
+        }
+
+        &_right, &_rightTop, &_rightBottom {
+            left: -$arrow-border;
+            top: 50%;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            transform: translateY(-50%) rotate(45deg);
+        }
+        &_rightTop{
+            top: $arrow-offset-vertical-top;
+        }
+        &_rightBottom{
+            top: unset;
+            bottom: $arrow-offset-vertical-bottom;
+        }
     }
 }
