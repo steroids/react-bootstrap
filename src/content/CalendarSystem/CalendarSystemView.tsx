@@ -12,7 +12,7 @@ import WeekGrid from './WeekGrid';
 export default function CalendarSystemView(props: ICalendarSystemViewProps) {
     const bem = useBem('CalendarSystemView');
 
-    const calendarTypeHash = React.useMemo(() => ({
+    const calendarTypeGrids = React.useMemo(() => ({
         [CalendarEnum.MONTH]: <MonthGrid {...props.monthGridProps} />,
         [CalendarEnum.WEEK]: <WeekGrid {...props.weekGridProps} />,
     }), [props.monthGridProps, props.weekGridProps]);
@@ -32,7 +32,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 />
                 <Calendar
                     showFooter={false}
-                    onMonthChange={props.onInnerCalendarChangedMonth}
+                    onMonthChange={props.onInnerCalendarChangeMonth}
                 />
                 <AsideCalendars
                     eventGroups={props.eventGroups}
@@ -44,10 +44,10 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
             <div className={bem.element('content')}>
                 <ContentHeader
                     dateToDisplay={props.dateToDisplay}
-                    onChangeCalendarType={props.onChangeCalendarType}
+                    onChangeCalendarType={props.handleCalendarTypeChange}
                     handleControlClick={props.handleControlClick}
                 />
-                {calendarTypeHash[props.calendarType as string]}
+                {calendarTypeGrids[props.calendarType as string]}
             </div>
         </div>
     );
