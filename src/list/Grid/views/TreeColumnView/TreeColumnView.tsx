@@ -7,6 +7,7 @@ import {ITreeColumnViewProps} from '@steroidsjs/core/ui/list/TreeTable/TreeTable
 const DEFAULT_PADDING_LEFT = 32;
 const PADDING_WITH_ICON = 0;
 const PADDING_WITHOUT_ICON = 24;
+
 export default function TreeColumnView(props: ITreeColumnViewProps) {
     const bem = useBem('TreeColumnView');
 
@@ -28,9 +29,14 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
     );
 
     return (
-        <div className={bem.block(bem.block({
-            size: props.size,
-        }))}
+        <div
+            className={bem.block(bem.block({
+                size: props.size,
+            }))}
+            onClick={() => props.item.onTreeItemClick(props.item.uniqueId, props.item)}
+            onKeyDown={e => e.key === 'Enter' && props.item.onTreeItemClick(props.item.uniqueId, props.item)}
+            role='button'
+            tabIndex={0}
         >
             <div
                 className={bem.element('data')}
@@ -44,7 +50,7 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
                         className={bem.element('icon', {
                             opened: props.item.isOpened,
                         })}
-                        onClick={() => props.item.onTreeItemClick(props.item.uniqueId, props.item)}
+                        tabIndex={-1}
                     />
                 )}
                 {renderValue()}
