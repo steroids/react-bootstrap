@@ -427,4 +427,10 @@ $drop-down-color-themes: map.merge(
     &_is-invalid {
         border: 1px solid variables.$danger !important;
     }
+
+    &_disabled {
+        background-color: variables.$element-background-color-disabled;
+        border-color: transparent;
+        pointer-events: none;
+    }
 }
