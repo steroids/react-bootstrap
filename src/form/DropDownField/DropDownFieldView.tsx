@@ -3,7 +3,6 @@ import {useEffect, useRef} from 'react';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
-import _isArray from 'lodash-es/isArray';
 import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
@@ -32,9 +31,11 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     [`${props.color}`]: !!props.color && !props.outline,
                     [`outline_${props.color}`]: props.outline,
                     opened: props.isOpened,
+                    'is-invalid': !!props.errors,
+                    disabled: props.disabled,
                 },
             ), props.className)}
-            onKeyPress={e => e.key === 'Enter' && props.onOpen()}
+            onKeyPress={e => e.key === 'Enter' && !props.disabled && props.onOpen()}
             style={props.style}
             role="button"
             tabIndex={0}
@@ -42,7 +43,6 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             <div
                 className={bem.element('selected-items', {
                     reset: props.showReset,
-                    disabled: props.disabled,
                 })}
                 onClick={props.onOpen}
                 tabIndex={-1}

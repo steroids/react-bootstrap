@@ -1,8 +1,7 @@
 import * as React from 'react';
-import MomentLocaleUtils from 'react-day-picker/moment';
 import {useCallback, useMemo} from 'react';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
-import DayPickerSource, {DateUtils} from 'react-day-picker';
+import DayPickerSource, {DateUtils, LocaleUtils} from 'react-day-picker';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import CaptionElement from './CaptionElement';
@@ -91,7 +90,7 @@ export default function CalendarView(props: ICalendarViewProps) {
             onDayClick={onDaySelect}
             selectedDays={selectedDays}
             numberOfMonths={numberOfMonths}
-            localeUtils={MomentLocaleUtils}
+            localeUtils={LocaleUtils}
             locale={localeComponent.language}
         />
     );
