@@ -11,7 +11,10 @@ html[data-theme="dark"] {
 $grid-icon-color: var(--grid-icon-color);
 
 .TreeColumnView {
-  cursor: pointer;
+
+  &_has-items {
+    cursor: pointer;
+  }
 
   &__data {
     display: flex;
