@@ -33,7 +33,7 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
                 'has-items': props.item.hasItems,
             }))}
             onClick={props.item.onClick}
-            onKeyDown={(e) => e.key === 'Enter' && props.item.onClick()}
+            onKeyDown={(e) => e.key === 'Enter' && props.item.onClick(e)}
             role='button'
             tabIndex={0}
         >
