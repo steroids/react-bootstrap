@@ -4,13 +4,12 @@ import Format from '@steroidsjs/core/ui/format/Format';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {ITreeColumnViewProps} from '@steroidsjs/core/ui/list/TreeTable/TreeTable';
 
-const DEFAULT_PADDING_LEFT = 32;
 const PADDING_WITH_ICON = 0;
 const PADDING_WITHOUT_ICON = 24;
+
 export default function TreeColumnView(props: ITreeColumnViewProps) {
     const bem = useBem('TreeColumnView');
 
-    const levelPadding = props.levelPadding || DEFAULT_PADDING_LEFT;
     const paddingBasedOnIcon = props.item.hasItems ? PADDING_WITH_ICON : PADDING_WITHOUT_ICON;
 
     const renderFormat = () => (
@@ -28,14 +27,20 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
     );
 
     return (
-        <div className={bem.block(bem.block({
-            size: props.size,
-        }))}
+        <div
+            className={bem.block(bem.block({
+                size: props.size,
+                'has-items': props.item.hasItems,
+            }))}
+            onClick={props.item.onClick}
+            onKeyDown={(e) => e.key === 'Enter' && props.item.onClick()}
+            role='button'
+            tabIndex={0}
         >
             <div
                 className={bem.element('data')}
                 style={{
-                    paddingLeft: `${props.item.level * levelPadding + paddingBasedOnIcon}px`,
+                    paddingLeft: `${props.item.level * props.levelPadding + paddingBasedOnIcon}px`,
                 }}
             >
                 {props.item.hasItems && (
@@ -44,7 +49,7 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
                         className={bem.element('icon', {
                             opened: props.item.isOpened,
                         })}
-                        onClick={() => props.item.onTreeItemClick(props.item.uniqueId, props.item)}
+                        tabIndex={-1}
                     />
                 )}
                 {renderValue()}
