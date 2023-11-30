@@ -5,67 +5,30 @@
     margin: 0;
     padding: 0;
 
-    &__item {
-        padding: 0;
-        cursor: pointer;
-
-        > .ButtonView {
-            margin: 2px 0;
-        }
-    }
-
     &__item-label {
-        position: relative;
-        padding: 5px 10px;
         display: flex;
-        flex-direction: row;
+        flex-flow: row nowrap;
         justify-content: flex-start;
         background-color: variables.$background-color;
-
-        .ButtonView__link {
-            .ButtonView__text {
-                color: variables.$text-color;
-            }
-        }
-
-        // &:hover {
-        //   color: $list-group-action-hover-color;
-        //   background-color: $list-group-hover-bg;
-        // }
+        border-radius: 16px;
+        padding: 5px 10px;
 
         &,
         &:hover {
             text-decoration: none !important;
         }
+
+        .ButtonView__link > .ButtonView__text {
+            color: variables.$text-color;
+        }
     }
-    &__item_selected &__item-label {
+
+    .TreeItemView_selected &__item-label {
         background-color: variables.$secondary;
+
         &,
         &::before {
             color: variables.$text-color;
         }
-    }
-    &__item-label::before {
-        display: inline-block;
-        content: "";
-        transform: rotate(0);
-        width: 21px;
-        height: 20px;
-        font-size: 12px;
-        font-weight: bold;
-        margin-left: 10px;
-        color: variables.$text-color;
-        position: relative;
-        top: 1px;
-        left: 3px;
-    }
-    &__item_has-items &__item-label::before {
-        content: ">";
-    }
-
-    &__item_opened &__item-label::before {
-        top: 7px;
-        left: -4px;
-        transform: rotate(90deg);
     }
 }

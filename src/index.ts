@@ -274,6 +274,9 @@ export default {
     'nav.TreeView': {
         lazy: () => require('./nav/Tree/TreeView').default,
     },
+    'nav.TreeItemView': {
+        lazy: () => require('./nav/TreeItem/TreeItemView').default,
+    },
     'nav.ButtonGroupView': {
         lazy: () => require('./nav/ButtonGroup/ButtonGroupView').default,
     },
