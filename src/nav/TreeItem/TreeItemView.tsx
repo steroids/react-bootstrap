@@ -30,7 +30,7 @@ export default function TreeItemView(props: ITreeItemViewProps) {
         >
             {props.item.hasItems && (
                 <Icon
-                    name='mockIcon'
+                    name='expand_right'
                     className={bem.element('icon', {
                         opened: props.item.isOpened,
                     })}
