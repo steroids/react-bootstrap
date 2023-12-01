@@ -114,7 +114,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                         inputProps={{
                             disabled: false,
                             name: props.item.label,
-                            checked: null,
+                            checked: props.selectedIds.includes(uniqItemId),
                             onChange: () => { },
                             type: 'radio',
                         }}
