@@ -11,6 +11,8 @@ html[data-theme="dark"] {
 $grid-icon-color: var(--grid-icon-color);
 
 .TreeItemView {
+  $root: &;
+
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -22,7 +24,15 @@ $grid-icon-color: var(--grid-icon-color);
   }
 
   &_disabled {
-    pointer-events: none;
+    cursor: not-allowed;
+
+    #{$root}__icon {
+      pointer-events: none;
+
+      svg > * {
+          stroke: var(--disabled-text-color);
+      }
+    }
   }
 
   &__item {
@@ -38,10 +48,8 @@ $grid-icon-color: var(--grid-icon-color);
       transform: rotate(90deg);
     }
 
-    svg {
-      > * {
+    svg > * {
         stroke: $grid-icon-color;
-      }
     }
   }
 
