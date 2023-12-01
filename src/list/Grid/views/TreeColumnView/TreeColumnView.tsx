@@ -25,7 +25,6 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
         <TreeItemView
             item={props.item}
             levelPadding={props.levelPadding}
-            className={bem.block()}
         >
             {renderValue()}
         </TreeItemView>

@@ -37,6 +37,7 @@
 @include meta.load-css('form/Button/ButtonView');
 @include meta.load-css('form/CheckboxField/CheckboxFieldView');
 @include meta.load-css('form/CheckboxListField/CheckboxListFieldView');
+@include meta.load-css('form/CheckboxTreeField/CheckboxTreeFieldView');
 @include meta.load-css('form/DateField/DateFieldView');
 @include meta.load-css('form/DateRangeField/DateRangeFieldView');
 @include meta.load-css('form/DateTimeField/DateTimeFieldView');

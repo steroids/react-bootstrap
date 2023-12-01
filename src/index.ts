@@ -85,6 +85,9 @@ export default {
     'form.CheckboxListFieldView': {
         lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default,
     },
+    'form.CheckboxTreeFieldView': {
+        lazy: () => require('./form/CheckboxTreeField/CheckboxTreeFieldView').default,
+    },
     'form.DateFieldView': {
         lazy: () => require('./form/DateField/DateFieldView').default,
     },
