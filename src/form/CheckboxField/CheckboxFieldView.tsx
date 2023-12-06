@@ -30,9 +30,9 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps) {
                     hasCustomColor: !!props.color,
                 })}
                 id={props.id || id}
-                {...props.inputProps}
                 disabled={props.disabled}
                 required={props.required}
+                {...props.inputProps}
             />
             <label
                 className={bem.element('label')}
