@@ -27,6 +27,7 @@ export default function PasswordFieldView(props: IPasswordFieldViewProps) {
                     className={bem.element('input')}
                     {...props.inputProps}
                     id={props.id}
+                    required={props.required}
                 />
                 {props.showSecurityIcon && (
                     <span
