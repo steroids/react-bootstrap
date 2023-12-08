@@ -23,7 +23,7 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
     const eventInitialValues: IEventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
 
     const callOnEventSubmit = (fields: Record<CalendarSystemModalFields, string>) =>
-        eventInitialValues && !props.isCreate ? props.onEventSubmit(fields, eventInitialValues) : props.onEventSubmit(fields);
+        eventInitialValues && !props.isCreate ? props.onModalFormSubmit(fields, eventInitialValues) : props.onModalFormSubmit(fields);
 
     const onCloseModal = React.useCallback(() => {
         props.onClose();

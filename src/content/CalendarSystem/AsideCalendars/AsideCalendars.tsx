@@ -9,7 +9,6 @@ import './AsideCalendars.scss';
 interface IAsideCalendarsProps {
     eventGroups: IEventGroup[]
     eventGroupsTitle: string;
-    selectedCalendarGroupsIds: number[],
     onChangeEventGroupsIds: (selectedIds: number[]) => void,
     openCreateEventGroupModal: () => void,
 }
@@ -23,7 +22,6 @@ function AsideCalendars(props: IAsideCalendarsProps) {
                 <AccordionItem title={props.eventGroupsTitle}>
                     <CheckboxListField
                         items={props.eventGroups}
-                        selectedIds={props.selectedCalendarGroupsIds}
                         onChange={(selectedIds) => props.onChangeEventGroupsIds(selectedIds)}
                     />
                     <Button
