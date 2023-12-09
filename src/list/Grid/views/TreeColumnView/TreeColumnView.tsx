@@ -23,8 +23,11 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
 
     return (
         <TreeItemView
+            className={bem.block()}
             item={props.item}
             levelPadding={props.levelPadding}
+            customIcon={props.customIcon}
+            showIcon
         >
             {renderValue()}
         </TreeItemView>

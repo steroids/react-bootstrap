@@ -5,6 +5,10 @@
     margin: 0;
     padding: 0;
 
+    &__item {
+        cursor: pointer;
+    }
+
     &__item-label {
         display: flex;
         flex-flow: row nowrap;

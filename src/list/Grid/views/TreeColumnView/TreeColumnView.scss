@@ -1,4 +1,10 @@
 .TreeColumnView {
+  display: flex;
+
+  .TreeItemView__item {
+    display: flex;
+    margin-left: 8px;
+  }
 }
 
 .TreeColumnHeader {

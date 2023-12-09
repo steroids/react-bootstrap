@@ -16,7 +16,9 @@ export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps
                     key={checkbox.uniqueId}
                     item={checkbox}
                     levelPadding={props.levelPadding}
+                    customIcon={props.customIcon}
                     hasIconExpandOnly
+                    showIcon
                 >
                     {
                         props.renderCheckbox({

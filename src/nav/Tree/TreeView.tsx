@@ -13,6 +13,8 @@ export default function TreeView(props: ITreeViewProps) {
                     key={item.uniqueId}
                     item={item}
                     levelPadding={props.levelPadding}
+                    showIcon={props.showIcon}
+                    className={bem.element('item')}
                 >
                     <Link
                         className={bem.element('item-label')}
