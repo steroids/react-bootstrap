@@ -29,3 +29,9 @@
     max-height: $maxHeight;
     overflow: auto;
 }
+
+@mixin horizontalScrollWrapper($paddingRight: 0, $thumbColor, $backgroundColor) {
+    @include custom-scroll($thumbColor, $backgroundColor);
+    padding-right: $paddingRight;
+    overflow: auto;
+}

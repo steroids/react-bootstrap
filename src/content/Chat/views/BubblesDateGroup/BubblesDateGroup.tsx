@@ -23,6 +23,7 @@ function BubblesDateGroup(props: IBubblesDateGroupProps) {
                     key={bubbleMessage.id}
                     user={bubbleMessage.user}
                     text={bubbleMessage.text}
+                    files={bubbleMessage.files}
                     timestamp={bubbleMessage.timestamp}
                     timeAgo={calculateMessageTimeAgo(bubbleMessage.timestamp)}
                     isTodayMessage={isTodayMessage(bubbleMessage.timestamp)}

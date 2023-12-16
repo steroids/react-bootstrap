@@ -64,6 +64,9 @@ export default {
     'content.ChatView': {
         lazy: () => require('./content/Chat/ChatView').default,
     },
+    'content.ChatInputView': {
+        lazy: () => require('./content/Chat/views/ChatInput/ChatInputView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },

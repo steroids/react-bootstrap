@@ -1,0 +1,184 @@
+@use "../../../../scss/variables";
+@use "../../../../scss/mixins";
+@use "../../../../scss/animations" as anim;
+
+:root {
+  --file-size-color: rgba(255, 255, 255, 0.60);
+  --file-icon-color: rgb(0, 0, 0);
+  --another-user-file-size-color: rgba(0, 0, 0, 0.60);
+}
+
+html[data-theme="dark"] {
+  --file-size-color: rgba(255, 255, 255, 0.60);
+  --file-icon-color: #fff;
+  --another-user-file-size-color: rgba(255, 255, 255, 0.60);
+}
+
+$file-size-color: var(--file-size-color);
+$file-icon-color: var(--file-icon-color);
+$another-user-file-size-color: var(--another-user-file-size-color);
+
+@mixin svg-color($color) {
+  svg {
+    path {
+      stroke: $color;
+    }
+
+    circle {
+      fill: $color;
+    }
+  }
+}
+
+@mixin textEllipsis {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+@mixin text {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+}
+
+.ChatFileItemView {
+  $root: &;
+
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 8px;
+  padding: 8px;
+  border: 1px solid variables.$gray;
+  border-radius: 12px;
+  min-width: 320px;
+  width: 320px;
+
+  &_isFileFromMessage {
+    padding: 0;
+    border: none;
+    width: 100%;
+  }
+
+  &_isFileForUploading {
+    @include svg-color($file-icon-color);
+  }
+
+  &__icon-wrapper {
+    min-width: 24px;
+    min-height: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    width: 100%;
+  }
+
+  &__content {
+    display: flex;
+    flex-flow: column nowrap;
+    //width: 100%;
+  }
+
+  &__title {
+    @include text;
+    @include textEllipsis;
+
+    display: none;
+
+    &_loading {
+      display: block;
+    }
+  }
+
+  &__link {
+    @include text;
+    @include textEllipsis;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__title,
+  &__size {
+    margin-bottom: 0;
+  }
+
+  &__size {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    color: $another-user-file-size-color;
+  }
+
+  &_another-user {
+    #{$root}__size {
+      color: $another-user-file-size-color !important;
+    }
+  }
+
+  &_error {
+    @include mixins.svg-color(variables.$danger);
+
+    #{$root}__icon {
+      circle {
+        fill: variables.$danger;
+      }
+    }
+
+    #{$root}__title,
+    #{$root}__size {
+      color: variables.$danger;
+    }
+
+    a,
+    a:hover {
+      color: variables.$danger;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &__remove,
+  &__download {
+    cursor: pointer;
+    z-index: 3;
+    height: 25px;
+
+    svg {
+      min-width: 24px;
+      min-height: 24px;
+    }
+  }
+
+  &__icon-loading {
+    @include anim.loadingAnimation;
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  &__progress-track {
+    margin-top: 4px;
+    height: 4px;
+    background-color: variables.$gray;
+    border-radius: 4px;
+  }
+
+  &__progress-bar {
+    height: inherit;
+    background-color: variables.$primary;
+    border-radius: 4px;
+  }
+}
