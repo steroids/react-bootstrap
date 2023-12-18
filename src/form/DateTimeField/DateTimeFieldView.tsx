@@ -58,7 +58,8 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
                             }),
                             props.isInvalid && 'is-invalid',
                         )}
-                        onChange={e => props.inputProps.onChange(e.target.value)}
+                        onInput={e => props.inputProps.onChange(e.currentTarget.value)}
+                        ref={props.maskInputRef}
                     />
                     <div className={bem.element('icon-container')}>
                         {!props.inputProps.value && props.icon && (
