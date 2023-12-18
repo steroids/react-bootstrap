@@ -32,6 +32,7 @@
 @include meta.load-css('content/Kanban/views/KanbanTask/KanbanTaskView');
 @include meta.load-css('content/Kanban/views/KanbanModal/KanbanModalView');
 @include meta.load-css('content/Chat/ChatView');
+@include meta.load-css('content/Chat/views/ChatInput/ChatInputView');
 @include meta.load-css('crud/Crud/CrudView');
 @include meta.load-css('form/AutoCompleteField/AutoCompleteFieldView');
 @include meta.load-css('form/Button/ButtonView');

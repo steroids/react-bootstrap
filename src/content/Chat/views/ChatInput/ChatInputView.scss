@@ -1,4 +1,18 @@
 @use "../../../../scss/variables";
+@use "../../../../scss/mixins";
+
+:root {
+  --sidebar-scroll-thumb-color: #cbd5db;
+  --sidebar-scroll-track-color: rgba(0, 0, 0, 0.04);
+}
+
+html[data-theme="dark"] {
+  --sidebar-scroll-thumb-color: #4B4E5E;
+  --sidebar-scroll-track-color: #272A37;
+}
+
+$sidebar-scroll-thumb-color: var(--sidebar-scroll-thumb-color);
+$sidebar-scroll-track-color: var(--sidebar-scroll-track-color);
 
 .ChatInputView {
   &__actions {
@@ -31,6 +45,38 @@
     .ButtonView_button {
       background-color: inherit;
       padding: 0;
+    }
+  }
+
+  &__form {
+    >* {
+      margin-bottom: 8px;
+    }
+  }
+
+  .FileFieldView__button {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    line-height: 0;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+
+  &__files .FileFieldView__files {
+    flex-flow: row nowrap;
+    overflow: auto;
+    gap: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0;
+
+    @include mixins.horizontalScrollWrapper(8px, $sidebar-scroll-thumb-color, $sidebar-scroll-track-color);
+
+    &::-webkit-scrollbar {
+      width: 4px;
     }
   }
 }
