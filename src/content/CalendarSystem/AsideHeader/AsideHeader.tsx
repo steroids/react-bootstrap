@@ -6,8 +6,8 @@ import {Button} from '@steroidsjs/core/ui/form';
 import './AsideHeader.scss';
 
 interface IAsideHeaderProps {
-    onClick?: () => void;
-    className?: string;
+    onClick?: () => void,
+    className?: string,
 }
 
 function AsideHeader(props: IAsideHeaderProps) {

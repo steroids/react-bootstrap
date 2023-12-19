@@ -9,10 +9,10 @@ import './WeekGrid.scss';
 
 interface IWeekGridProps {
     weekGridTwentyFourHoursArray: string[],
-    weekGridCurrentWeekDays: IDay[]
-    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[];
+    weekGridCurrentWeekDays: IDay[],
+    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[],
     openEditModal: (event: IEvent) => void,
-    openCreateModal: (eventInitialDay?: IDay) => void;
+    openCreateModal: (eventInitialDay?: IDay) => void,
 }
 
 function WeekGrid(props: IWeekGridProps) {

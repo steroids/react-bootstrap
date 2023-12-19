@@ -8,7 +8,7 @@ import {IBem} from '@steroidsjs/core/hooks/useBem';
 
 const normalizeItems = (items: IAutoCompleteItem[]) => {
     const categories: {
-        [key: string]: IAutoCompleteItem[]
+        [key: string]: IAutoCompleteItem[],
     } = {};
 
     const itemsWithoutCategory: IAutoCompleteItem[] = [];

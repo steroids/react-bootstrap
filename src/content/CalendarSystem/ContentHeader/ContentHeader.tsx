@@ -10,9 +10,9 @@ import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Calen
 import './ContentHeader.scss';
 
 interface IContentHeaderProps {
-    dateToDisplay: string;
-    onChangeCalendarType: (newType: string) => void;
-    handleControlClick: (event: React.MouseEvent<HTMLElement>) => void;
+    dateToDisplay: string,
+    onChangeCalendarType: (newType: string) => void,
+    handleControlClick: (event: React.MouseEvent<HTMLElement>) => void,
 }
 
 function ContentHeader(props: IContentHeaderProps) {
