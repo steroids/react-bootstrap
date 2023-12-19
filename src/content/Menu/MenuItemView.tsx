@@ -8,8 +8,10 @@ export default function MenuItemView(props: IMenuItem) {
     return (
         <div
             onClick={props.onClick}
-            className={bem.block({hasBorder: props.hasBorder,
-noneIcon: !props.icon})}
+            className={bem.block({
+                hasBorder: props.hasBorder,
+                noneIcon: !props.icon,
+            })}
         >
             {props.icon && renderIcon(props.icon, {className: bem.element('icon')})}
 

@@ -7,8 +7,10 @@ export default function LineProgressBarView(props: IProgressBarViewProps) {
     const bem = useBem('LineProgressBarView');
 
     return (
-        <div className={bem.block({size: props.size,
-status: props.status})}
+        <div className={bem.block({
+            size: props.size,
+            status: props.status,
+        })}
         >
             <div className={bem.element('emptyLine')}>
                 <div
