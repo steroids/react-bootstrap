@@ -2,8 +2,8 @@ import React from 'react';
 import {Text} from '@steroidsjs/core/ui/typography';
 
 interface ILabelProps {
-    content: string;
-    className: string;
+    content: string,
+    className: string,
 }
 
 export default function Label(props: ILabelProps) {

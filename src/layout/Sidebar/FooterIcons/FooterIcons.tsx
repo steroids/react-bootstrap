@@ -6,8 +6,8 @@ import renderIcon from '../../../utils/renderIcon';
 import './FooterIcons.scss';
 
 interface IFooterIconsProps {
-    footerIcons?: IIconProps[];
-    isShink?: boolean;
+    footerIcons?: IIconProps[],
+    isShink?: boolean,
 }
 
 function FooterIcons(props: IFooterIconsProps) {

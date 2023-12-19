@@ -35,7 +35,8 @@ export default function CalendarView(props: ICalendarViewProps) {
         const outRange = (day) => DateUtils.isDayBefore(day, from);
         return {
             selectedDays: isRange
-                ? [from, {from, to}]
+                ? [from, {from,
+to}]
                 : from,
             modifiers: isRange && !DateUtils.isSameDay(from, to)
                 ? {

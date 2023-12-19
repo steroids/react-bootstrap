@@ -7,8 +7,8 @@ import {IEventGroup} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSy
 import './AsideCalendars.scss';
 
 interface IAsideCalendarsProps {
-    eventGroups: IEventGroup[]
-    eventGroupsTitle: string;
+    eventGroups: IEventGroup[],
+    eventGroupsTitle: string,
     onChangeEventGroupsIds: (selectedIds: number[]) => void,
     openCreateEventGroupModal: () => void,
 }

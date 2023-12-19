@@ -10,7 +10,8 @@ export default function SkeletonView(props: ISkeletonViewProps) {
                 type: props.children ? null : props.type,
                 animation: props.animation,
             }))}
-            style={{height: props.height, width: props.width}}
+            style={{height: props.height,
+width: props.width}}
         >
             {props.children}
         </span>

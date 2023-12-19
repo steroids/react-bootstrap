@@ -9,8 +9,8 @@ import {IMessageFile} from '@steroidsjs/core/ui/content/Chat/Chat';
 import './ChatFileItemView.scss';
 
 interface IChatFileItemViewProps extends IFileFieldItemViewProps, IMessageFile {
-    isFileFromMessage?: boolean;
-    isFileByAnotherUser?: boolean;
+    isFileFromMessage?: boolean,
+    isFileByAnotherUser?: boolean,
 }
 
 export default function ChatFileItemView(props: IChatFileItemViewProps) {

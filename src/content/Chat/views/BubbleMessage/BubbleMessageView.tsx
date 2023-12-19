@@ -14,15 +14,15 @@ import './BubbleMessageView.scss';
 import ChatFileItemView from '../ChatFileItem';
 
 interface IBubbleMessageProps {
-    user: IChatUser;
-    text: string;
-    timestamp: string;
-    timeAgo: string;
-    isCurrentUser: boolean;
-    isFirstMessage?: boolean;
-    isLastMessage?: boolean;
-    isTodayMessage?: boolean;
-    files?: any[];
+    user: IChatUser,
+    text: string,
+    timestamp: string,
+    timeAgo: string,
+    isCurrentUser: boolean,
+    isFirstMessage?: boolean,
+    isLastMessage?: boolean,
+    isTodayMessage?: boolean,
+    files?: any[],
 }
 
 function BubbleMessageView(props: IBubbleMessageProps) {
