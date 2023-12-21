@@ -1,0 +1,30 @@
+@use "../../scss/variables";
+@use '../../scss/mixins';
+
+.WizardFormView {
+  display: flex;
+  flex-flow: column nowrap;
+
+  &__header {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  &__title {
+    text-align: left;
+  }
+
+  &__steps {
+    margin-bottom: 32px;
+  }
+
+  &__buttons {
+    @include mixins.svg-color(variables.$primary);
+
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+}

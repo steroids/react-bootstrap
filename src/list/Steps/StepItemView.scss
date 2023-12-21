@@ -1,145 +1,175 @@
 @use "../../scss/variables";
 
+:root {
+  --text-color: #312c3a;
+}
+
+html[data-theme="dark"] {
+  --text-color: #fff;
+}
+
+$text-color: var(--text-color);
+
 .StepItemView{
   $root: &;
 
-  display: flex;
+  position: relative;
   align-items: center;
-  justify-content: space-between;
 
-  &:last-child{
-    flex-grow: 0;
-    #{$root}__divider{
-      display: none;
-    }
-  }
+  &_horizontal {
+    display: flex;
+    flex: 2;
 
-  &__icon{
-    background-color: rgba(variables.$white, .2);
-    padding: 5px;
-    border-radius: 10px;
-  }
+    &:last-child{
+      flex: 1;
 
-  &_wait{
-    #{$root}__icon{
-      background-color: variables.$grey-darker;
-      svg{
-        fill:variables.$white;
+      #{$root}__divider {
+        display: none;
       }
     }
 
-    #{$root}__title, #{$root}__subtitle, #{$root}__description{
-      color: variables.$grey-darker;
+    #{$root}__body {
+      flex-flow: row nowrap;
+      align-items: center;
+      padding: 0 4px;
     }
 
-    #{$root}__divider{
-      border-top-color: variables.$grey-darker;
+    #{$root}__step {
+      padding-right: 4px;
+      flex-grow: 1;
+    }
+
+    #{$root}__header {
+      margin-bottom: 0;
+    }
+
+    #{$root}__divider {
+      flex: 1 1 auto;
     }
   }
 
-  &_active{
-    #{$root}__body{
+  &_vertical {
+    flex: 1;
+
+    &:first-child{
+      #{$root}__divider-line {
+        display: none;
+      }
+    }
+
+    #{$root}__body {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #{$root}__step {
+      margin-bottom: 4px;
+    }
+
+    #{$root}__header {
+      margin-bottom: 8px;
+    }
+
+    #{$root}__divider {
+      position: absolute;
+      top: 12px;
+      left: calc(-50% + 20px);
+      right: calc(50% + 20px);
+    }
+  }
+
+  &_wait {
+    #{$root}__icon {
+      background-color: var(--gray);
+
+      svg {
+        fill: variables.$white;
+      }
+    }
+  }
+
+  &_active {
+    #{$root}__icon {
       background-color: variables.$primary;
-    }
 
-    #{$root}__icon svg{
+      svg {
         fill: #fff;
-    }
-
-    #{$root}__title, #{$root}__subtitle, #{$root}__description{
-      color: #fff;
-    }
-
-    #{$root}__divider{
-      border-top-color: variables.$primary;
+      }
     }
   }
 
-  &_finish{
-    #{$root}__body{
+  &_edit {
+    #{$root}__icon {
+      background-color: variables.$secondary;
+
+      svg {
+        fill: #fff;
+      }
+    }
+  }
+
+  &_finish {
+    #{$root}__icon {
       background-color: variables.$success;
     }
-
-    #{$root}__icon svg{
-       fill: #fff;
-    }
-
-    #{$root}__title, #{$root}__subtitle, #{$root}__description{
-      color: #fff;
-    }
-
-    #{$root}__divider{
-      border-top-color: variables.$success;
-    }
   }
 
-  &_error{
-    #{$root}__body{
+  &_error {
+    #{$root}__icon {
       background-color: variables.$danger;
-    }
 
-    #{$root}__icon svg{
+      svg {
         fill: #fff;
-    }
-
-    #{$root}__title, #{$root}__subtitle, #{$root}__description{
-      color: #fff;
-    }
-
-    #{$root}__divider{
-      border-top-color: variables.$danger;
+      }
     }
   }
 
-  &__body{
+  &__body {
     display: flex;
-    flex-direction: column;
-    padding: 8px;
-    cursor: pointer;
-    min-width: 100px;
 
-    border-radius: 15px;
-    background-color: transparent;
-    transition: background-color .15s ease-in;
-
-    &_disabled{
+    &_disabled {
       cursor: default;
     }
   }
 
-  &__header{
+  &__step {
     display: flex;
-    align-items: center;
-    line-height: 1.1;
+    flex-shrink: 0;
   }
 
-  &__icon{
-    margin-right: 5px;
+  &__icon {
+    display: flex;
+    padding: 3px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+  }
 
+  &__content {
+    text-align: center;
+    width: 100%;
+    color: var(--text-color);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+
+  &__icon {
     color: variables.$white;
     font-size: 12px;
     font-weight: 500;
-
     transition: background-color .15s ease-in, color .15s ease-in;
   }
 
-  &__title{
-    font-size: 12px;
-    transition: color .15s ease-in;
-  }
-
-  &__subtitle, &__description{
-    font-size: 9px;
-    transition: color .15s ease-in;
-  }
-
-
-  &__divider{
-    min-width: 10px;
-    flex-grow: 2;
-    flex-shrink: 1;
-    margin: 0 5px;
-    border-top: 2px dotted transparent;
+  &__divider-line {
+    display: block;
+    border-top-color: var(--gray);
+    border-top-style: solid;
+    border-top-width: 1px;
     transition: border-top-color .15s ease-in;
   }
 }

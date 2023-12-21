@@ -4,10 +4,10 @@
     justify-content: space-between;
     gap: 8px;
 
-    .ButtonView__icon { 
+    .ButtonView__icon {
          svg {
-            path, circle, rect { 
-                stroke: inherit;
+            path, circle, rect {
+                stroke: currentColor;
             }
         }
     }

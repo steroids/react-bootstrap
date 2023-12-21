@@ -52,6 +52,7 @@
 @include meta.load-css('form/FileField/FileFieldItemView');
 @include meta.load-css('form/FieldSet/FieldSetView');
 @include meta.load-css('form/Form/FormView');
+@include meta.load-css('form/WizardForm/WizardFormView');
 @include meta.load-css('form/HtmlField/HtmlFieldView');
 @include meta.load-css('form/InputField/InputFieldView');
 @include meta.load-css('form/NumberField/NumberFieldView');
