@@ -15,7 +15,7 @@ export default function WizardFormView(props: IWizardFormViewProps) {
                     <Steps
                         {...props.stepsProps}
                         className={bem.element('steps')}
-                        stepItems={props.stepsProps?.stepItems ?? props.totalSteps}
+                        stepItems={props.stepItems ?? props.totalSteps}
                         currentStep={props.currentStep}
                     />
                 )}
@@ -36,7 +36,7 @@ export default function WizardFormView(props: IWizardFormViewProps) {
                 )}
                 <Button
                     type='submit'
-                    label={props.isLastStep ? props.submitLabel : props.nextStepLabel}
+                    {...props.nextStepButtonProps}
                 />
             </div>,
             {
