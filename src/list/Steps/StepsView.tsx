@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import React from 'react';
 import {IStepsViewProps} from '@steroidsjs/core/ui/list/Steps/Steps';
 import {useBem} from '@steroidsjs/core/hooks';
 

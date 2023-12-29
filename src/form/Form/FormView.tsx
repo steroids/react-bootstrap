@@ -41,6 +41,7 @@ function FormView(props: IFormViewProps) {
                     {...(_isString(field) ? {attribute: field} : field)}
                 />
             ))}
+            {props.buttons}
             {props.submitLabel && (
                 <Button
                     type='submit'

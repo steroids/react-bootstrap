@@ -127,6 +127,9 @@ export default {
     'form.FormView': {
         lazy: () => require('./form/Form/FormView').default,
     },
+    'form.WizardFormView': {
+        lazy: () => require('./form/WizardForm/WizardFormView').default,
+    },
     'form.HtmlFieldView': {
         lazy: () => require('./form/HtmlField/HtmlFieldView').default,
     },
