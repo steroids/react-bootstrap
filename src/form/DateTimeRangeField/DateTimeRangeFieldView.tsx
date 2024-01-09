@@ -34,7 +34,6 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             visible={props.isOpened}
             onClose={props.onClose}
             hasArrow={false}
-            autoPositioning={false}
             className={bem.element('dropdown')}
         >
             <div

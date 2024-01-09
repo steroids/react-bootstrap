@@ -294,5 +294,5 @@ $calendar-border-color: var(--calendar-border-color);
 
 // Class to allow body scroll, when Calendar is open in a Modal window
 .ModalView_body-hide-scroll:has(.CalendarView) {
-    overflow: scroll;
+    overflow-y: auto;
 }

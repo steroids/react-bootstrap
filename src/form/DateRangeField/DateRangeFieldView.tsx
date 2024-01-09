@@ -5,7 +5,6 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
-import _isString from 'lodash-es/isString';
 
 export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const bem = useBem('DateRangeFieldView');
@@ -25,7 +24,6 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
             onClose={props.onClose}
             className={bem.element('split')}
             hasArrow={false}
-            autoPositioning={false}
         >
             <div
                 className={bem(
