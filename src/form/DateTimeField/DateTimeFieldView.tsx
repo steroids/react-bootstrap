@@ -33,6 +33,7 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
             onClose={props.onClose}
             hasArrow={false}
             className={bem.element('dropdown')}
+            autoPositioning={false}
         >
             <div
                 className={bem(

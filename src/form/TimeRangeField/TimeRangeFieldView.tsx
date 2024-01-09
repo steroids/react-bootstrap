@@ -24,6 +24,7 @@ export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {
             visible={props.isOpened}
             className={bem.element('dropdown')}
             hasArrow={false}
+            autoPositioning={false}
         >
             <div
                 className={bem(

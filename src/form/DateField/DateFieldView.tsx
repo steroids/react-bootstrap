@@ -21,6 +21,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
             onClose={props.onClose}
             className={bem.element('dropdown')}
             hasArrow={false}
+            autoPositioning={false}
         >
             <div
                 className={bem(

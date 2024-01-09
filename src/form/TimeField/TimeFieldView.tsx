@@ -24,6 +24,7 @@ export default function TimeFieldView(props: ITimeFieldViewProps) {
             onClose={props.onClose}
             className={bem.element('dropdown')}
             hasArrow={false}
+            autoPositioning={false}
         >
             <div
                 className={bem(
