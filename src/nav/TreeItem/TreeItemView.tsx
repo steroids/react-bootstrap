@@ -27,16 +27,17 @@ export default function TreeItemView(props: ITreeItemViewProps) {
             className={bem(bem.block({
                 selected: props.item.isSelected,
                 opened: props.item.isOpened,
-                'has-items': props.item.hasItems,
+                'has-items': props.item.hasItems || props.hideIcon,
                 level: props.item.level,
                 disabled: props.item.disabled,
+                'hide-icon': props.hideIcon,
             }), props.className)}
             style={{
-                paddingLeft: `${props.item.level * props.levelPadding + paddingBasedOnIcon}px`,
+                paddingLeft: !props.hideIcon && `${props.item.level * props.levelPadding + paddingBasedOnIcon}px`,
             }}
             {...(!props.hasIconExpandOnly && onExpandProps)}
         >
-            {props.item.hasItems && (
+            {props.item.hasItems && !props.hideIcon && (
                 <Icon
                     name='expand_right'
                     className={bem.element('icon', {
