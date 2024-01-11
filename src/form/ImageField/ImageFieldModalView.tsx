@@ -19,7 +19,7 @@ export default function ImageFieldModalView(props: IImageFieldModalViewProps) {
             className={bem.block()}
             title={props.title || __('Выберите область изображения')}
             onClose={props.onClose}
-            controls={[{
+            buttons={[{
                 label: __(('Сохранить')),
                 onClick: () => {
                     props.onClose();

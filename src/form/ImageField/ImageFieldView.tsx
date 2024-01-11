@@ -7,6 +7,7 @@ import {Button} from '@steroidsjs/core/ui/form';
 export default function ImageFieldView(props: IImageFieldViewProps) {
     const bem = useBem('ImageFieldView');
     const item = props.item;
+    const srcImage = React.useMemo(() => item?.image ? item.image.url + '?w=' + item.image.width + '&h=' + item.image.height : '', [item]);
 
     return (
         <div className={bem.block()}>
@@ -14,6 +15,7 @@ export default function ImageFieldView(props: IImageFieldViewProps) {
                 <Button
                     className={bem.element('button', {
                         loading: item ? item.progress : false,
+                        hasErrors: !!props.errors,
                     })}
                     onClick={props.onClick}
                     {...props.buttonProps}
@@ -41,12 +43,19 @@ export default function ImageFieldView(props: IImageFieldViewProps) {
                 <div className={bem.element('content')}>
                     <img
                         className={bem.element('image')}
-                        src={item.image.url}
+                        src={srcImage}
                         width={item.image.width}
                         height={item.image.height}
                         alt={item.title}
                     />
                     <div className={bem.element('image-controls')}>
+                        <a
+                            className={bem.element('show-icon')}
+                            href={item.image.url ?? '#'}
+                            target='blank'
+                        >
+                            <Icon name='view' />
+                        </a>
                         <Icon
                             className={bem.element('delete-icon')}
                             name='trash'
