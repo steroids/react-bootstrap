@@ -10,7 +10,13 @@ export default function ImageFieldView(props: IImageFieldViewProps) {
     const srcImage = React.useMemo(() => item?.image ? item.image.url + '?w=' + item.image.width + '&h=' + item.image.height : '', [item]);
 
     return (
-        <div className={bem.block()}>
+        <div className={bem(
+            bem.block({
+                'is-invalid': !!props.errors,
+            }),
+            props.className,
+        )}
+        >
             {!item || !item.image ? (
                 <Button
                     className={bem.element('button', {

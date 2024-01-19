@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "../variables/index" as variables;
+
+@mixin invalid-field($root) {
+  &_is-invalid {
+    border: 1px solid variables.$danger !important;
+  }
+}
+
+@mixin invalid-button-field($root) {
+  &_is-invalid {
+    button {
+      border-color: variables.$danger !important;
+    }
+  }
+}
