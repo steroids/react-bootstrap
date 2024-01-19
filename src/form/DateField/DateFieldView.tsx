@@ -20,6 +20,7 @@ export default function DateFieldView(props: IDateFieldViewProps) {
             visible={props.isOpened}
             onClose={props.onClose}
             className={bem.element('dropdown')}
+            autoPositioning={props.autoPositioning}
             hasArrow={false}
         >
             <div
@@ -32,7 +33,6 @@ export default function DateFieldView(props: IDateFieldViewProps) {
                     props.className,
                 )}
                 style={props.style}
-
             >
                 <div className={bem.element('body')}>
                     <input

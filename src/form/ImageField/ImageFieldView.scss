@@ -1,24 +1,75 @@
 @use "../../scss/variables";
 @use '../../scss/mixins';
 
+:root {
+  --image-field-bottom-border-color: #9088a1;
+  --image-field-bottom-hover-border-color: #6f6b76;
+  --image-controls-icon-color: #ffffff;
+}
+
+$image-field-bottom-border-color: var(--image-field-bottom-border-color);
+$image-field-bottom-hover-border-color: var(
+  --image-field-bottom-hover-border-color
+);
+$image-controls-icon-color: var(--image-controls-icon-color);
+
 .ImageFieldView {
   $root: &;
+  width: 128px;
+  height: 128px;
 
   @include mixins.invalid-button-field($root);
 
   &__button {
     display: flex;
     align-items: center;
-    min-width: 200px;
+    background-color: variables.$gray;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 1px dashed $image-field-bottom-border-color;
+
+    &:hover {
+      background-color: variables.$gray-dark;
+      border-color: $image-field-bottom-hover-border-color;
+
+      svg path {
+        stroke: variables.$text-color;
+      }
+    }
 
     &_loading {
       pointer-events: none;
+    }
+
+    &_hasErrors {
+      border-color: variables.$danger;
+      border-style: solid;
+      background-color: variables.$background-color;
+
+      #{$root}__button-label {
+        color: variables.$danger;
+      }
+
+      svg path {
+        stroke: variables.$danger;
+      }
+
+      &:hover {
+        border-color: variables.$danger;
+
+        svg path {
+          stroke: variables.$danger;
+        }
+      }
     }
   }
 
   .ButtonView__text {
     display: flex;
-    column-gap: 6px;
+    gap: 6px;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__button-label {
@@ -27,7 +78,7 @@
   }
 
   &__progress-bar {
-    width: 80px;
+    width: 40px;
     height: 4px;
     border-radius: 100px;
     background: #cccccc;
@@ -42,7 +93,7 @@
 
   &__content {
     position: relative;
-    border-radius: 10px;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
     border: 1px solid #cccccc;
@@ -62,7 +113,28 @@
     align-items: center;
     justify-content: center;
     opacity: 0;
+    gap: 16px;
     transition: opacity 0.15s;
+
+    .IconView {
+      cursor: pointer;
+      svg {
+        z-index: 1;
+        rect {
+          fill: $image-controls-icon-color;
+        }
+
+        path,
+        circle {
+          stroke: $image-controls-icon-color;
+        }
+      }
+    }
+
+    .MenuView__button svg {
+      width: 20px;
+      height: 24px;
+    }
 
     &:before {
       content: '';
@@ -70,13 +142,12 @@
       inset: 0;
       opacity: 0.6;
       background: #343a40;
-      border-radius: 6px;
+      border-radius: 16px;
     }
   }
 
-
   &__image {
-    border-radius: 6px;
+    border-radius: 16px;
     display: block;
     width: 100%;
     height: 100%;
@@ -90,5 +161,9 @@
     path {
       fill: #ffffff;
     }
+  }
+
+  &__show-icon {
+    display: flex;
   }
 }

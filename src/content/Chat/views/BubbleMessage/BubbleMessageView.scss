@@ -36,6 +36,18 @@ $another-user-bubble-border-color: var(--another-user-bubble-border-color);
 $another-user-message-text-color: var(--another-user-message-text-color);
 $another-user-message-time-color: var(--another-user-message-time-color);
 
+@mixin svg-color($color) {
+  svg {
+    path {
+      stroke: $color;
+    }
+
+    circle {
+      fill: $color;
+    }
+  }
+}
+
 .BubbleMessageView {
   $root: &;
 
@@ -70,6 +82,14 @@ $another-user-message-time-color: var(--another-user-message-time-color);
     #{$root}__text {
       text-align: left;
       color: $another-user-message-text-color;
+    }
+
+    #{$root}__files {
+      @include svg-color($another-user-message-text-color);
+
+      .TextView {
+        color: $another-user-message-text-color;
+      }
     }
 
     #{$root}__time {
@@ -140,6 +160,20 @@ $another-user-message-time-color: var(--another-user-message-time-color);
     color: $message-text-color;
   }
 
+  &__files {
+    @include svg-color($message-text-color);
+
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+    width: 100%;
+    padding: 8px 0;
+
+    .TextView {
+      color: $message-text-color;
+    }
+  }
+
   &__indicators {
     display: flex;
     flex-flow: row nowrap;
@@ -153,5 +187,9 @@ $another-user-message-time-color: var(--another-user-message-time-color);
 
   &__check {
     margin-left: 4px;
+  }
+
+  .ChatFileItemView {
+    width: 100%;
   }
 }

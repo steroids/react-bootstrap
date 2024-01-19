@@ -7,8 +7,8 @@ import TaskTags from '../../../../../TaskTags';
 import './TagsSelector.scss';
 
 interface ITagsSelectorProps {
-    tags?: ITaskTag[];
-    formId?: string;
+    tags?: ITaskTag[],
+    formId?: string,
 }
 
 export default function TagsSelector(props: ITagsSelectorProps) {

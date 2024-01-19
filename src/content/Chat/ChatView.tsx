@@ -2,17 +2,15 @@ import React, {useCallback, useEffect, useRef} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IChatViewProps} from '@steroidsjs/core/ui/content/Chat/Chat';
 
-import ChatInputView from './views/ChatInput';
 import BubblesDateGroup from './views/BubblesDateGroup';
 
 export default function ChatView(props: IChatViewProps) {
     const bem = useBem('ChatView');
 
+    // Scroll to bottom on new message
     const wrapperRef = useRef<HTMLDivElement | null>(null);
     const contentRef = useRef<HTMLDivElement | null>(null);
-
     const prevContentHeightRef = useRef(null);
-
     useEffect(() => {
         const wrapperHeight = wrapperRef.current.clientHeight;
         const contentHeight = contentRef.current.clientHeight;
@@ -30,9 +28,7 @@ export default function ChatView(props: IChatViewProps) {
     }, [props.groupedMessagesByDates]);
 
     const renderChatScreen = useCallback(() => (
-        <div
-            className={bem.element('screen')}
-        >
+        <div className={bem.element('screen')}>
             <div
                 className={bem.element('wrapper')}
                 ref={wrapperRef}
@@ -58,10 +54,7 @@ export default function ChatView(props: IChatViewProps) {
     return (
         <div className={bem.block()}>
             {renderChatScreen()}
-            <ChatInputView
-                chatId={props.chatId}
-                onSendMessage={props.onSendMessage}
-            />
+            {props.renderChatInput()}
         </div>
     );
 }

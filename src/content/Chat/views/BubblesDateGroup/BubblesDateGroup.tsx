@@ -8,9 +8,9 @@ import BubbleMessageView from '../BubbleMessage';
 import './BubblesDateGroup.scss';
 
 interface IBubblesDateGroupProps {
-    date: string;
-    groupedMessages: IGroupedMessage[][];
-    currentUser: IChatUser;
+    date: string,
+    groupedMessages: IGroupedMessage[][],
+    currentUser: IChatUser,
 }
 
 function BubblesDateGroup(props: IBubblesDateGroupProps) {
@@ -23,6 +23,7 @@ function BubblesDateGroup(props: IBubblesDateGroupProps) {
                     key={bubbleMessage.id}
                     user={bubbleMessage.user}
                     text={bubbleMessage.text}
+                    files={bubbleMessage.files}
                     timestamp={bubbleMessage.timestamp}
                     timeAgo={calculateMessageTimeAgo(bubbleMessage.timestamp)}
                     isTodayMessage={isTodayMessage(bubbleMessage.timestamp)}

@@ -5,6 +5,8 @@ import {ITooltipViewProps} from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function TooltipView(props: ITooltipViewProps) {
+    const bem = useBem('TooltipView');
+
     const tooltipRef = useRef(null);
     const arrowRef = useRef(null);
 
@@ -15,7 +17,6 @@ export default function TooltipView(props: ITooltipViewProps) {
         );
     }, [props.calculatePosition]);
 
-    const bem = useBem('TooltipView');
     return (
         <div
             ref={tooltipRef}

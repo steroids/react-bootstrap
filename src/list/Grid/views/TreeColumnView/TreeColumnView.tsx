@@ -1,17 +1,11 @@
 import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import Format from '@steroidsjs/core/ui/format/Format';
-import {Icon} from '@steroidsjs/core/ui/content';
 import {ITreeColumnViewProps} from '@steroidsjs/core/ui/list/TreeTable/TreeTable';
+import TreeItemView from '../../../../nav/TreeItem/TreeItemView';
 
-const DEFAULT_PADDING_LEFT = 32;
-const PADDING_WITH_ICON = 0;
-const PADDING_WITHOUT_ICON = 24;
 export default function TreeColumnView(props: ITreeColumnViewProps) {
     const bem = useBem('TreeColumnView');
-
-    const levelPadding = props.levelPadding || DEFAULT_PADDING_LEFT;
-    const paddingBasedOnIcon = props.item.hasItems ? PADDING_WITH_ICON : PADDING_WITHOUT_ICON;
 
     const renderFormat = () => (
         <Format
@@ -28,27 +22,11 @@ export default function TreeColumnView(props: ITreeColumnViewProps) {
     );
 
     return (
-        <div className={bem.block(bem.block({
-            size: props.size,
-        }))}
+        <TreeItemView
+            item={props.item}
+            levelPadding={props.levelPadding}
         >
-            <div
-                className={bem.element('data')}
-                style={{
-                    paddingLeft: `${props.item.level * levelPadding + paddingBasedOnIcon}px`,
-                }}
-            >
-                {props.item.hasItems && (
-                    <Icon
-                        name='expand_right'
-                        className={bem.element('icon', {
-                            opened: props.item.isOpened,
-                        })}
-                        onClick={() => props.item.onTreeItemClick(props.item.uniqueId, props.item)}
-                    />
-                )}
-                {renderValue()}
-            </div>
-        </div>
+            {renderValue()}
+        </TreeItemView>
     );
 }

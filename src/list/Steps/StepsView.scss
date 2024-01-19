@@ -1,18 +1,9 @@
 @use "../../scss/variables";
 
-.StepsView{
-  width: 100%;
-  min-height: 96px;
-
+.StepsView {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 1;
-  background: variables.$secondary-light;
-  overflow: auto;
-  padding: 5px;
-
-  & > *{
-    flex-grow: 1;
-  }
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-grow: 1;
 }

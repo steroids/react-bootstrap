@@ -1,0 +1,67 @@
+@use "../../scss/variables";
+
+:root {
+  --grid-icon-color: #323232;
+}
+
+html[data-theme="dark"] {
+  --grid-icon-color: #ffffff;
+}
+
+$grid-icon-color: var(--grid-icon-color);
+
+.TreeItemView {
+  $root: &;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+  &_has-items {
+    cursor: pointer;
+  }
+
+  &_disabled {
+    cursor: not-allowed;
+
+    #{$root}__icon {
+      pointer-events: none;
+
+      svg > * {
+          stroke: var(--disabled-text-color);
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    margin-left: 8px;
+    flex-grow: 1;
+
+    >* {
+      flex-grow: 1;
+    }
+  }
+
+  &_hide-icon &__item {
+    margin-left: 0;
+  }
+
+  &__icon {
+    min-width: 24px;
+    min-height: 24px;
+
+    transform: rotate(0);
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    &_opened {
+      transform: rotate(90deg);
+    }
+
+    svg > * {
+        stroke: $grid-icon-color;
+    }
+  }
+}

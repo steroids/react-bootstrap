@@ -747,10 +747,10 @@
     "@ckeditor/ckeditor5-widget" "^27.0.0"
     "@ckeditor/ckeditor5-word-count" "^27.0.0"
 
-"@steroidsjs/core@^3.0 || >=3.0.0-beta.103":
-  version "3.0.0-beta.103"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.0-beta.103.tgz#ef5bd118d73efef5fa9247ed8ad42b6b494be870"
-  integrity sha512-4YXBMp1yvFA+BApQQYGYrgJL6dILrQnaV3rPdLsQyEtkrjpCM22xdBZ2utYYnkYLGoVNiz18Pwumur0agQTt0w==
+"@steroidsjs/core@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.1.tgz#0c9601c33da6e5e24dcec83ba3ce27e3e632bb0e"
+  integrity sha512-E8kqsD1ZEdhcjvd+RL5iTOfKtxfK28RS9pvE7EDiPCcdGyt9FsiFQqozrDXQIPKiYeIPKYNOKsoA1c5tCJpXdw==
   dependencies:
     "@maskito/core" "1.7.0"
     "@maskito/kit" "1.7.0"
@@ -786,10 +786,10 @@
     redux-mock-store "^1.5.4"
     set-cookie-parser "^2.4.8"
 
-"@steroidsjs/eslint-config@^2.1.4":
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/eslint-config/-/eslint-config-2.1.4.tgz#38092cc690cc4b720f5730c470e180d9990c5f6a"
-  integrity sha512-7e0WFQ/wfCSzeUOr0/y58+OXC605vHHtgpWk1ubbKtVXTETbDQF4qHZunLFEVlXlYeSVLvpy5NjZvQuQQcOEaA==
+"@steroidsjs/eslint-config@^2.1.6":
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/eslint-config/-/eslint-config-2.1.6.tgz#97107066b3f977a8ff00cb74abbe80facb773a5f"
+  integrity sha512-9qdZicoABPnvAUFvrEPDzXfeuP1W5cdRn078FfbtAGn3MoJJHpAUyJf0p/0th51Rtsz19aNbms/VSSlqP40JGg==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.49.0"
     "@typescript-eslint/parser" "^5.49.0"

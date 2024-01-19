@@ -1,18 +1,22 @@
-import _isFunction from 'lodash-es/isFunction';
 import * as React from 'react';
-import {useMount} from 'react-use';
+import _isFunction from 'lodash-es/isFunction';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 import {IDropDownViewProps} from '@steroidsjs/core/ui/content/DropDown/DropDown';
 
-import {useMemo} from 'react';
+import {useEffect, useMemo, useRef} from 'react';
 
 export default function DropDownView(props: IDropDownViewProps) {
     const bem = useBem('DropDownView');
     const {ui} = useComponents();
 
-    useMount(() => {
-        props.calculatePosition(props.forwardedRef.current.getBoundingClientRect());
-    });
+    const arrowRef = useRef(null);
+
+    useEffect(() => {
+        props.calculatePosition(
+            props.forwardedRef.current.getBoundingClientRect(),
+            props.hasArrow ? arrowRef.current.getBoundingClientRect() : null,
+        );
+    }, [props.calculatePosition]);
 
     const contentProps = useMemo(() => ({
         onClose: props.onClose,
@@ -34,14 +38,22 @@ export default function DropDownView(props: IDropDownViewProps) {
             className={bem(
                 bem.block({
                     show: props.isComponentVisible,
-                    [`position-${props.position}`]: !!props.position,
-                    hasArrow: props.hasArrow,
+                    position: props.position,
                 }),
                 props.className,
             )}
             style={props.style}
         >
-            {content}
+            {props.hasArrow && (
+                <div
+                    ref={arrowRef}
+                    className={bem.element('arrow', {position: props.position})}
+                    style={props.arrowPosition}
+                />
+            )}
+            <div className={bem.element('content')}>
+                <span>{content}</span>
+            </div>
         </div>
     );
 }

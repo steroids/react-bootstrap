@@ -5,7 +5,6 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
-import _isString from 'lodash-es/isString';
 
 export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const bem = useBem('DateRangeFieldView');
@@ -44,12 +43,12 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
                             bem.element('input', {
                             }),
                         )}
-                        onChange={e => props.inputPropsFrom.onChange(e.target.value)}
+                        onInput={e => props.inputPropsFrom.onChange(e.currentTarget.value)}
                     />
                     <input
                         {...props.inputPropsTo}
                         className={bem.element('input')}
-                        onChange={e => props.inputPropsTo.onChange(e.target.value)}
+                        onInput={e => props.inputPropsTo.onChange(e.currentTarget.value)}
                     />
                     <div className={bem.element('icon-container')}>
                         {props.icon && !hasValue && (

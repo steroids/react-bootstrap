@@ -1,5 +1,6 @@
 @use 'sass:math';
 @use "../../scss/variables";
+@use '../../scss/mixins';
 
 $tooltip-arrow-width: 10px;
 $tooltip-arrow-height: 10px;
@@ -17,6 +18,7 @@ $tooltip-background-color: rgba(65, 65, 65, 0.95);
   top: 0;
   left: 0;
   max-width: 300px;
+  width: fit-content;
   word-break: break-all;
   padding: 8px 12px;
   border-radius: 6px;
@@ -31,27 +33,11 @@ $tooltip-background-color: rgba(65, 65, 65, 0.95);
     opacity: 1;
   }
 
-  &_position{
-    &_top, &_topLeft, &_topRight {
-      transform: translateY(-$tooltip-gap);
-    }
-
-    &_bottom, &_bottomLeft, &_bottomRight {
-      transform: translateY($tooltip-gap);
-    }
-
-    &_left, &_leftTop, &_leftBottom {
-      transform: translateX(-$tooltip-gap);
-    }
-
-    &_right, &_rightTop, &_rightBottom {
-      transform: translateX($tooltip-gap);
-    }
-  }
+  @include mixins.absolute-position($tooltip-gap);
 
   &__arrow{
     position: absolute;
-    
+
     width: $tooltip-arrow-width;
     height: $tooltip-arrow-height;
 
@@ -60,65 +46,12 @@ $tooltip-background-color: rgba(65, 65, 65, 0.95);
     border-color: $tooltip-background-color;
     box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
 
-    &_position_top, &_position_topLeft, &_position_topRight{
-      bottom: -$tooltip-arrow-border;
-      left: 50%;
-      border-top-color: transparent;
-      border-left-color: transparent;
-      transform: translateX(-50%) rotate(45deg);
-    }
-    &_position_topLeft{
-      left: $tooltip-arrow-offset-horizontal;
-    }
-    &_position_topRight{
-      left: unset;
-      right: $tooltip-arrow-offset-horizontal;
-    }
-
-    &_position_bottom, &_position_bottomLeft, &_position_bottomRight{
-      top: -$tooltip-arrow-border;
-      left: 50%;
-      border-right-color: transparent;
-      border-bottom-color: transparent;
-      transform: translateX(-50%) rotate(45deg);
-    }
-    &_position_bottomLeft{
-      left: $tooltip-arrow-offset-horizontal;
-    }
-    &_position_bottomRight{
-      left: unset;
-      right: $tooltip-arrow-offset-horizontal;
-    }
-
-    &_position_left, &_position_leftTop, &_position_leftBottom{
-      right: -$tooltip-arrow-border;
-      top: 50%;
-      border-left-color: transparent;
-      border-bottom-color: transparent;
-      transform: translateY(-50%) rotate(45deg);
-    }
-    &_position_leftTop{
-      top: $tooltip-arrow-offset-vertical-top;
-    }
-    &_position_leftBottom{
-      top: unset;
-      bottom: $tooltip-arrow-offset-vertical-bottom;
-    }
-
-    &_position_right, &_position_rightTop, &_position_rightBottom{
-      left: -$tooltip-arrow-border;
-      top: 50%;
-      border-top-color: transparent;
-      border-right-color: transparent;
-      transform: translateY(-50%) rotate(45deg);
-    }
-    &_position_rightTop{
-      top: $tooltip-arrow-offset-vertical-top;
-    }
-    &_position_rightBottom{
-      top: unset;
-      bottom: $tooltip-arrow-offset-vertical-bottom;
-    }
+    @include mixins.arrow-position(
+                    $tooltip-arrow-border,
+                    $tooltip-arrow-offset-horizontal,
+                    $tooltip-arrow-offset-vertical-top,
+                    $tooltip-arrow-offset-vertical-bottom
+    );
   }
 
   &__content{

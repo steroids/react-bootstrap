@@ -1,0 +1,42 @@
+@use "../variables";
+
+.flex {
+  display: flex;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.col {
+  @each $colValue in variables.$colValues {
+    &-#{$colValue} {
+      flex-basis: calc((100% / variables.$colMaxValue) * $colValue);
+    }
+  }
+}
+
+.justify-content {
+  @each $justifyValue in variables.$justifyValues {
+    &-#{$justifyValue} {
+      justify-content: $justifyValue;
+    }
+  }
+}
+
+.align-items {
+  @each $alignValue in variables.$alignValues {
+    &-#{$alignValue} {
+      align-items: $alignValue;
+    }
+  }
+}
+
+.flex-direction {
+  @each $directionValue in variables.$directionValues {
+    &-#{$directionValue} {
+        flex-direction: $directionValue;
+    }
+  }
+}

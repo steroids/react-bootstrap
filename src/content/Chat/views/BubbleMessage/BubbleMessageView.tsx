@@ -1,5 +1,6 @@
 import React, {memo, useState} from 'react';
 import {useInterval} from 'react-use';
+import _isEmpty from 'lodash-es/isEmpty';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {Avatar} from '@steroidsjs/core/ui/content/Avatar';
 import {Text} from '@steroidsjs/core/ui/typography';
@@ -10,20 +11,24 @@ import {SECONDS_IN_MINUTE_VALUE} from '@steroidsjs/core/ui/content/Chat/constant
 import {calculateMessageTimeAgo} from '@steroidsjs/core/ui/content/Chat/utils';
 
 import './BubbleMessageView.scss';
+import ChatFileItemView from '../ChatFileItem';
 
 interface IBubbleMessageProps {
-    user: IChatUser;
-    text: string;
-    timestamp: string;
-    timeAgo: string;
-    isCurrentUser: boolean;
-    isFirstMessage?: boolean;
-    isLastMessage?: boolean;
-    isTodayMessage?: boolean;
+    user: IChatUser,
+    text: string,
+    timestamp: string,
+    timeAgo: string,
+    isCurrentUser: boolean,
+    isFirstMessage?: boolean,
+    isLastMessage?: boolean,
+    isTodayMessage?: boolean,
+    files?: any[],
 }
 
 function BubbleMessageView(props: IBubbleMessageProps) {
     const bem = useBem('BubbleMessageView');
+
+    const isMessageByAnotherUser = !props.isCurrentUser;
 
     const [timeAgo, setTimeAgo] = useState(props.timeAgo);
 
@@ -34,7 +39,7 @@ function BubbleMessageView(props: IBubbleMessageProps) {
 
     return (
         <div className={bem.block({
-            'another-user': !props.isCurrentUser,
+            'another-user': isMessageByAnotherUser,
             'last-message': !!props.isLastMessage,
         })}
         >
@@ -52,6 +57,18 @@ function BubbleMessageView(props: IBubbleMessageProps) {
                     type="body"
                     content={props.text}
                 />
+                {!_isEmpty(props.files) && (
+                    <div className={bem.element('files')}>
+                        {props.files.map((file) => (
+                            <ChatFileItemView
+                                key={file.uid}
+                                isFileByAnotherUser={isMessageByAnotherUser}
+                                isFileFromMessage
+                                {...file}
+                            />
+                        ))}
+                    </div>
+                )}
                 <div className={bem.element('indicators')}>
                     <Text
                         className={bem.element('time')}

@@ -64,6 +64,9 @@ export default {
     'content.ChatView': {
         lazy: () => require('./content/Chat/ChatView').default,
     },
+    'content.ChatInputView': {
+        lazy: () => require('./content/Chat/views/ChatInput/ChatInputView').default,
+    },
     'form.AutoCompleteFieldView': {
         lazy: () => require('./form/AutoCompleteField/AutoCompleteFieldView').default,
     },
@@ -84,6 +87,9 @@ export default {
     },
     'form.CheckboxListFieldView': {
         lazy: () => require('./form/CheckboxListField/CheckboxListFieldView').default,
+    },
+    'form.CheckboxTreeFieldView': {
+        lazy: () => require('./form/CheckboxTreeField/CheckboxTreeFieldView').default,
     },
     'form.DateFieldView': {
         lazy: () => require('./form/DateField/DateFieldView').default,
@@ -120,6 +126,9 @@ export default {
     },
     'form.FormView': {
         lazy: () => require('./form/Form/FormView').default,
+    },
+    'form.WizardFormView': {
+        lazy: () => require('./form/WizardForm/WizardFormView').default,
     },
     'form.HtmlFieldView': {
         lazy: () => require('./form/HtmlField/HtmlFieldView').default,
@@ -273,6 +282,9 @@ export default {
     },
     'nav.TreeView': {
         lazy: () => require('./nav/Tree/TreeView').default,
+    },
+    'nav.TreeItemView': {
+        lazy: () => require('./nav/TreeItem/TreeItemView').default,
     },
     'nav.ButtonGroupView': {
         lazy: () => require('./nav/ButtonGroup/ButtonGroupView').default,

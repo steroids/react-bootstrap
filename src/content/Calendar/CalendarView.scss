@@ -155,10 +155,10 @@ $calendar-border-color: var(--calendar-border-color);
             z-index: 9;
         }
 
-        &:focus { 
+        &:focus {
             outline: none;
         }
-        
+
         &:focus:not(:active)::after {
             opacity: 1;
         }
@@ -290,4 +290,9 @@ $calendar-border-color: var(--calendar-border-color);
             }
         }
     }
+}
+
+// Class to allow body scroll, when Calendar is open in a Modal window
+.ModalView_body-hide-scroll:has(.CalendarView) {
+    overflow-y: auto;
 }

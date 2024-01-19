@@ -6,8 +6,8 @@ import {ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import './TaskTags.scss';
 
 interface ITaskTagsProps {
-    tags: ITaskTag[];
-    showClose?: boolean;
+    tags: ITaskTag[],
+    showClose?: boolean,
     onClose?: (id: number) => void,
 }
 

@@ -14,7 +14,11 @@ export default function CircleProgressBarView(props: IProgressBarViewProps) {
     const getCircumference = () => 2 * Math.PI * size[props.size].radius;
 
     return (
-        <div className={bem.block({size: props.size, status: props.status})}>
+        <div className={bem.block({
+            size: props.size,
+            status: props.status,
+        })}
+        >
             <svg>
                 <g className={bem.element('circles')}>
                     <circle
