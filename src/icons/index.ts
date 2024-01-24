@@ -30,7 +30,7 @@ export default (customIcons: Record<string, any>) => {
         'cross_8x8',
         'default_16x16',
         'default_24x24',
-        'done-all',
+        'done-all_16x16',
         'cut',
         'error_16x16',
         'error_24x24',

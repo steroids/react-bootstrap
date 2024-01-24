@@ -78,7 +78,7 @@ function BubbleMessageView(props: IBubbleMessageProps) {
                     {props.isCurrentUser && (
                         <Icon
                             className={bem.element('check')}
-                            name="done-all"
+                            name="done-all_16x16"
                         />
                     )}
                 </div>
