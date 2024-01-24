@@ -40,3 +40,11 @@
     }
   }
 }
+
+.gap {
+  @each $key, $value in variables.$spacing {
+    &-#{$key} {
+      gap: $value;
+    }
+  }
+}
