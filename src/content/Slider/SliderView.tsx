@@ -28,6 +28,7 @@ export default function SliderView(props: ISliderViewProps) {
                 hasTrack={props.hasTrack}
                 tag={props.tag}
                 transition={props.transition}
+                ref={props.ref}
             >
                 {props.items?.map((item, itemIndex) => (
                     <SplideSlide key={itemIndex}>
