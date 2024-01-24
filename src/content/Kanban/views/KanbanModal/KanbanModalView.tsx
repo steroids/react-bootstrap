@@ -20,6 +20,7 @@ export default function KanbanModalView(props: IKanbanModalViewProps) {
                         columnId={props.columnId}
                         tags={props.tags}
                         assigners={props.assigners}
+                        createTaskEditorConfig={props.createTaskEditorConfig}
                         submitButtonLabel={__('Создать')}
                         onSubmit={props.onSubmit}
                     />
@@ -41,6 +42,7 @@ export default function KanbanModalView(props: IKanbanModalViewProps) {
                         columnId={props.columnId}
                         tags={props.tags}
                         assigners={props.assigners}
+                        createTaskEditorConfig={props.createTaskEditorConfig}
                         submitButtonLabel={__('Сохранить')}
                         onSubmit={props.onSubmit}
                     />
@@ -48,7 +50,7 @@ export default function KanbanModalView(props: IKanbanModalViewProps) {
             default:
                 return null;
         }
-    }, [bem, props.assigners, props.columnId, props.columns, props.formId, props.onSubmit, props.tags, props.task]);
+    }, [bem, props.assigners, props.columnId, props.columns, props.createTaskEditorConfig, props.formId, props.onSubmit, props.tags, props.task]);
 
     const renderModalButton = useCallback((modalType: KanbanModalTypeEnum) => modalType !== KanbanModalTypeEnum.CREATE
         ? [{
