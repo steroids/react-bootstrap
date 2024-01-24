@@ -10,3 +10,10 @@ $spacing-16: 16px;
 $spacing-8: 8px;
 $spacing-4: 4px;
 $spacing-2: 2px;
+
+$space: 1rem !default;
+$spacing: (
+        "1": $space * .25,
+        "2": $space * .5,
+        "3": $space,
+);
