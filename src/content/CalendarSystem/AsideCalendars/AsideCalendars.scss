@@ -59,9 +59,8 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
 
         &__content {
             padding: 0;
-            padding-top: 0;
 
-            > .FieldLayoutView { 
+            > .FieldLayoutView {
                 margin-bottom: 0;
             }
         }
@@ -97,11 +96,17 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
         svg {
             position: absolute;
             width: 100%;
-            width: 100%;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
+
+            rect {
+                fill: $calendar-system-icon-background-color;
+            }
+            path {
+                stroke: variables.$icon-color;
+            }
         }
     }
 }
