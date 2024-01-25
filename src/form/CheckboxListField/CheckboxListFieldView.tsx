@@ -26,7 +26,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                     },
                     disabled: props.disabled,
                 },
-                size: props.size,
+                size: checkbox.size || props.size,
                 color: checkbox.color,
                 required: checkbox.required,
             }))}
