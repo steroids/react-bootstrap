@@ -1,4 +1,3 @@
-
 @use "../../scss/variables";
 
 :root {
@@ -15,7 +14,6 @@ $background-th: var(--background-th);
 $background-td-alternating: var(--background-td-alternating);
 
 .FieldListView {
-    overflow-x: auto;
     table {
         width: 100%;
         background-color: transparent;
@@ -23,7 +21,20 @@ $background-td-alternating: var(--background-td-alternating);
         border-collapse: separate;
         border-radius: 10px;
         border-spacing: 0;
-        overflow: hidden;
+    }
+
+    thead tr:first-child {
+        th:first-child {
+            border-radius: 10px 0 0 0;
+            -moz-border-radius: 10px 0 0 0;
+            -webkit-border-radius: 10px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 10px 0 0;
+            -moz-border-radius: 0 10px 0 0;
+            -webkit-border-radius: 0 10px 0 0;
+        }
     }
 
     th:not(:last-child),
@@ -43,10 +54,6 @@ $background-td-alternating: var(--background-td-alternating);
         border-bottom: 1px solid variables.$gray-dark;
     }
 
-    tfoot > tr > td {
-        border-top: 1px solid variables.$gray-dark;
-    }
-
     tr td {
         padding: 12px;
     }
@@ -62,7 +69,11 @@ $background-td-alternating: var(--background-td-alternating);
 
     td {
         background: variables.$element-background-color;
-        overflow: hidden;
+    }
+
+    tfoot > tr > td {
+        border-top: 1px solid variables.$gray-dark;
+        border-radius: 0 0 10px 10px;
     }
 
     &_hasAlternatingColors {
@@ -84,5 +95,19 @@ $background-td-alternating: var(--background-td-alternating);
 
     .FieldLayoutView {
         margin-bottom: 0;
+    }
+}
+
+.FieldListView:not(:has(tfoot)) {
+    tbody tr:last-child td:first-child {
+        border-radius: 0 0 0 10px !important;
+        -moz-border-radius: 0 0 0 10px !important;
+        -webkit-border-radius: 0 0 0 10px !important;
+    }
+
+    tbody tr:last-child td:last-child {
+        border-radius: 0 0 10px 0 !important;
+        -moz-border-radius: 0 0 10px 0 !important;
+        -webkit-border-radius: 0 0 10px 0 !important;
     }
 }
