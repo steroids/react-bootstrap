@@ -29,7 +29,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps) {
                     },
                     disabled: props.disabled,
                 },
-                size: props.size,
+                size: radio.size || props.size,
                 required: radio.required,
             }))}
         </div>

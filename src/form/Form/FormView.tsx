@@ -39,6 +39,7 @@ function FormView(props: IFormViewProps) {
                 <Field
                     key={index}
                     {...(_isString(field) ? {attribute: field} : field)}
+                    size={field.size || props.size || null}
                 />
             ))}
             {props.buttons}
@@ -46,6 +47,7 @@ function FormView(props: IFormViewProps) {
                 <Button
                     type='submit'
                     label={props.submitLabel}
+                    {...props.submitButtonProps}
                 />
             )}
         </form>
