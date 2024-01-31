@@ -16,11 +16,13 @@ export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps
                     key={checkbox.uniqueId}
                     item={checkbox}
                     levelPadding={props.levelPadding}
-                    hasIconExpandOnly
+                    onNestedItemClick={() => props.onItemSelect(checkbox)}
+                    hasIconExpandOnly={!props.hasOnlyLeafCheckboxes && checkbox.hasItems}
+                    withoutPointerOnLabel={props.hasOnlyLeafCheckboxes && checkbox.hasItems}
                 >
                     {
                         props.renderCheckbox({
-                            id: `${prefix}_${checkbox.id}`,
+                            id: props.hasOnlyLeafCheckboxes && checkbox.hasItems ? null : `${prefix}_${checkbox.id}`,
                             label: checkbox.label,
                             inputProps: {
                                 name: `${prefix}_${checkbox.id}`,

@@ -146,7 +146,6 @@ $disabled-text-color: var(--disabled-text-color);
             background-color: var(--checkbox-custom-color);
         }
 
-        
         //FOCUS
         &:focus + #{$root}__label::after {
             opacity: 0;
@@ -230,5 +229,37 @@ $disabled-text-color: var(--disabled-text-color);
 
     span {
         color: variables.$danger;
+    }
+}
+
+.CheckboxFieldView:has(.CheckboxFieldView__label_has-label-only) .CheckboxFieldView {
+    $root: &;
+
+    &__label {
+        &::before,
+        &::after {
+            display: none;
+        }
+
+        &-text {
+            margin-left: 0 !important;
+        }
+    }
+
+    &_size {
+        &_sm, &_md, &_lg {
+            #{$root}__label {
+                &::before {
+                    display: none;
+                }
+                &::after {
+                    display: none;
+                }
+
+                #{$root}__label-text {
+                    margin-left: 0;
+                }
+            }
+        }
     }
 }
