@@ -22,7 +22,7 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
 
 .MonthDay {
     $dayRoot: &;
-    padding: 4px 8px 0px 8px;
+    padding: 4px 8px 0 8px;
     min-height: 80px;
     border-radius: variables.$radius-large;
     background-color: $month-day-background-color;
@@ -37,9 +37,9 @@ $month-day-out-of-range-color-text: var(--month-day-out-of-range-color-text);
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        font-size: variables.$font-size-14;
+        font-size: variables.$font-size-sm;
         font-weight: variables.$font-weight-sm;
-        line-height: variables.$line-height-18;
+        line-height: variables.$line-height-sm;
         color: $month-day-color-text;
         width: 24px;
         height: 24px;

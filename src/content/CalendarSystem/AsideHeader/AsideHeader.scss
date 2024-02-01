@@ -4,11 +4,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
     &__title {
-        font-size: variables.$font-size-24;
+        font-size: variables.$font-size-xl;
         font-weight: variables.$font-weight-lg;
-        line-height: variables.$line-height-32;
+        line-height: variables.$line-height-xl;
         color: variables.$text-color;
         margin-bottom: 0;
     }
@@ -24,9 +24,9 @@
         }
 
         &__text {
-            font-size: variables.$font-size-14;
+            font-size: variables.$font-size-sm;
             font-weight: variables.$font-weight-sm;
-            line-height: variables.$line-height-24;
+            line-height: variables.$line-height-lg;
         }
 
         &__icon {
