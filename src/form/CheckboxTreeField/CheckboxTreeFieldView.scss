@@ -3,3 +3,9 @@
   flex-flow: column nowrap;
   gap: 8px;
 }
+
+.CheckboxTreeFieldView:has(.TreeItemView_without-pointer-on-label) .TreeItemView_without-pointer-on-label {
+  .CheckboxFieldView__label {
+    cursor: default;
+  }
+}
