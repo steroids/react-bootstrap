@@ -14,13 +14,7 @@ export default function TreeItemView(props: ITreeItemViewProps) {
 
     const onExpandProps = useMemo(() => (
         {
-            onClick: (e) => {
-                props.item.onClick(e);
-
-                if (!props.hasIconExpandOnly && props.onNestedItemClick) {
-                    props.onNestedItemClick();
-                }
-            },
+            onClick: (e) => props.item.onClick(e),
             onKeyDown: (e) => e.key === 'Enter' && props.item.onClick(e),
             role: 'button',
             tabIndex: 0,
@@ -33,7 +27,7 @@ export default function TreeItemView(props: ITreeItemViewProps) {
             className={bem(bem.block({
                 selected: props.item.isSelected,
                 opened: props.item.isOpened,
-                'has-items': props.item.hasItems || props.hideIcon,
+                'has-items': !props.hasIconExpandOnly && (props.item.hasItems || props.hideIcon),
                 level: props.item.level,
                 disabled: props.item.disabled,
                 'hide-icon': props.hideIcon,

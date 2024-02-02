@@ -16,7 +16,6 @@ export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps
                     key={checkbox.uniqueId}
                     item={checkbox}
                     levelPadding={props.levelPadding}
-                    onNestedItemClick={() => props.onItemSelect(checkbox)}
                     hasIconExpandOnly={props.hasIconExpandOnly}
                     withoutPointerOnLabel={props.hasOnlyLeafCheckboxes && checkbox.hasItems && !checkbox.isOpened}
                 >
@@ -29,7 +28,11 @@ export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps
                                 type: 'checkbox',
                                 checked: props.selectedIds.includes(checkbox.id),
                                 onChange: () => {
-                                    props.onItemSelect(checkbox);
+                                    const isOpenedLabel = props.hasOnlyLeafCheckboxes && (checkbox.isOpened || !checkbox.hasItems);
+
+                                    if (isOpenedLabel || !props.hasOnlyLeafCheckboxes) {
+                                        props.onItemSelect(checkbox);
+                                    }
                                 },
                                 disabled: checkbox.disabled,
                                 required: checkbox.required,
