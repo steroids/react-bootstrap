@@ -14,13 +14,7 @@ export default function TreeItemView(props: ITreeItemViewProps) {
 
     const onExpandProps = useMemo(() => (
         {
-            onClick: (e) => {
-                props.item.onClick(e);
-
-                if (!props.hasIconExpandOnly && props.onNestedItemClick) {
-                    props.onNestedItemClick();
-                }
-            },
+            onClick: (e) => props.item.onClick(e),
             onKeyDown: (e) => e.key === 'Enter' && props.item.onClick(e),
             role: 'button',
             tabIndex: 0,
