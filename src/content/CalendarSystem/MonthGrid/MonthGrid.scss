@@ -32,9 +32,9 @@ $month-day-color-text: var(--month-day-color-text);
 
         &-day {
             color: $month-day-color-text;
-            font-size: variables.$font-size-14;
+            font-size: variables.$font-size-sm;
             font-weight: variables.$font-weight-md;
-            line-height: variables.$line-height-18;
+            line-height: variables.$line-height-sm;
             padding: 8px 10px;
         }
     }

@@ -19,9 +19,9 @@ $calendar-system-caption-arrow-background-color: var(--calendar-system-caption-a
 
     &__month {
         display: inline-block;
-        font-size: variables.$font-size-24;
+        font-size: variables.$font-size-xl;
         font-weight: variables.$font-weight-lg;
-        line-height: variables.$line-height-32;
+        line-height: variables.$line-height-xl;
         margin-right: 93px;
         margin-bottom: 0;
         width: 190px;
@@ -46,12 +46,9 @@ $calendar-system-caption-arrow-background-color: var(--calendar-system-caption-a
                 }
             }
 
-            &-icon { 
+            &-icon {
                 pointer-events: none;
             }
         }
-    }
-
-    &__measures {
     }
 }

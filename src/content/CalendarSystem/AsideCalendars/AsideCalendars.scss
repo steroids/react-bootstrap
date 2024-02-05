@@ -77,9 +77,9 @@ $calendar-system-separator-color: var(--calendar-system-separator-color);
             padding-top: 12px;
 
             p {
-                font-size: variables.$font-size-16;
+                font-size: variables.$font-size-base;
                 font-weight: variables.$font-weight-lg;
-                line-height: variables.$line-height-22;
+                line-height: variables.$line-height-xl;
             }
         }
     }

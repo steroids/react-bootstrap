@@ -44,7 +44,7 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
                 height: 24px;
                 border-radius: variables.$radius-small;
                 background-color: $calendar-system-time-background-color;
-                color: variables.$custom-text-color-base;
+                color: var(--custom-text-color-base);
                 font-size: variables.$font-size-xs;
                 font-weight: variables.$font-weight-sm;
                 line-height: variables.$line-height-xs;
