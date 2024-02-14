@@ -13,7 +13,7 @@ export default function InputFieldView(props: IInputFieldViewProps) {
         <div
             className={bem(
                 bem.block({
-                    disabled: props.inputProps?.disabled,
+                    disabled: props.disabled,
                     size: props.size,
                     hasError: !!props.errors,
                     hasLeadIcon: !!props.leadIcon,

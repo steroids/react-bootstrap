@@ -60,9 +60,9 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
     }
 
-   
+
     //Statements
-    &::before { 
+    &::before {
         content: '';
         position: absolute;
         z-index: 2;
@@ -85,11 +85,11 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &:not(#{$root}_disabled):active {
-        #{$root}__input { 
+        #{$root}__input {
             border-color: transparent;
         }
-        
-        &::before { 
+
+        &::before {
             transform: none;
             border: 1px solid variables.$primary;
             opacity: 1;
@@ -97,9 +97,10 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     }
 
     &_disabled {
-        #{$root}__input { 
+        #{$root}__input {
             background-color: variables.$element-background-color-disabled;
             border-color: transparent;
+            cursor: not-allowed;
         }
     }
 
@@ -109,7 +110,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
 
 
-        &::before { 
+        &::before {
             border: 1px solid variables.$danger;
             border-radius: 16px;
             transform: translateX(-1px) translateY(-1px);
@@ -123,7 +124,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             color: variables.$text-color;
             height: variables.$input-height-lg;
             border-radius: variables.$radius-large;
-            
+
             #{$root}__input {
                 font-size: variables.$font-size-lg;
                 border-radius: variables.$radius-large;
@@ -138,7 +139,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
                 padding: 16px 3px;
             }
 
-            &::before { 
+            &::before {
                 border-radius: 14px;
             }
         }
@@ -147,7 +148,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             color: variables.$text-color;
             height: variables.$input-height-md;
             border-radius: variables.$radius-large;
-            
+
             #{$root}__input {
                 border-radius: variables.$radius-large;
                 font-size: variables.$font-size-base;
@@ -165,7 +166,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
                 padding: 11px 3px;
             }
 
-            &::before { 
+            &::before {
                 border-radius: 14px;
             }
         }
@@ -174,7 +175,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             color: variables.$text-color;
             height: variables.$input-height-sm;
             border-radius: variables.$radius-small;
-            
+
             #{$root}__input {
                 font-size: variables.$font-size-sm;
                 border-radius: variables.$radius-small;
@@ -190,7 +191,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
                 padding: 5px 3px;
             }
 
-            &::before { 
+            &::before {
                 border-radius: 10px;
             }
         }
@@ -270,7 +271,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             border-bottom-left-radius: 0;
             border: none;
         }
-        &::before { 
+        &::before {
             border: 1px solid variables.$element-border-color;
             opacity: 1;
         }
@@ -281,14 +282,14 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
         }
-        &::before { 
+        &::before {
             border: 1px solid variables.$element-border-color;
             opacity: 1;
         }
     }
 
     &__text-before,
-    &__text-after { 
+    &__text-after {
         flex-shrink: 0;
     }
 
