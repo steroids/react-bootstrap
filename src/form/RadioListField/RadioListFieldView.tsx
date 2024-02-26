@@ -27,7 +27,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps) {
                     onChange: () => {
                         props.onItemSelect(radio.id);
                     },
-                    disabled: props.disabled,
+                    disabled: props.disabled || radio.disabled,
                 },
                 size: radio.size || props.size,
                 required: radio.required,
