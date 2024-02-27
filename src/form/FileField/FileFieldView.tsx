@@ -7,7 +7,7 @@ import Button from '@steroidsjs/core/ui/form/Button';
 export default function FileFieldView(props: IFileFieldViewProps) {
     const bem = useBem('FileFieldView');
     const ButtonView = props.buttonView || Button;
-    const FileItemView = props.itemView;
+    const FileItemView = props.itemView as React.FunctionComponent;
     const isWall = props.filesLayout === FilesLayout.wall;
 
     return (
