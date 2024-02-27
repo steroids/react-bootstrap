@@ -9,9 +9,14 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
     const prefix = useUniqueId('checkbox');
 
     return (
-        <div className={bem(bem.block({
-            [`${props.orientation}`]: !!props.orientation,
-        }))}
+        <div
+            className={bem(
+                bem.block({
+                    [`${props.orientation}`]: !!props.orientation,
+                }),
+                props.className,
+            )}
+            style={props.style}
         >
             {props.items.map((checkbox, checkboxIndex) => props.renderCheckbox({
                 key: checkboxIndex,
@@ -24,7 +29,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                     onChange: () => {
                         props.onItemSelect(checkbox.id);
                     },
-                    disabled: props.disabled,
+                    disabled: props.disabled || checkbox.disabled,
                 },
                 size: checkbox.size || props.size,
                 color: checkbox.color,

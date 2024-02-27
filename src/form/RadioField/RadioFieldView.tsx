@@ -27,7 +27,6 @@ export default function RadioFieldView(props: IRadioFieldViewProps) {
                 )}
                 id={props.id || id}
                 {...props.inputProps}
-                disabled={props.disabled}
                 required={props.required}
             />
             <label
