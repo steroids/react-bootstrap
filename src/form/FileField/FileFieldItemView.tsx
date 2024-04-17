@@ -9,6 +9,8 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps) {
     const isLoading = props.progress && props.progress.percent !== 100;
     const isWall = props.filesLayout === FilesLayout.wall;
 
+    console.log(`fileId: ${props.fileId}\nfileName: ${props.title}\nprogress: ${JSON.stringify(props.progress)}\nuuid:${props?.item?.uid}`);
+
     const renderLink = React.useCallback(() => (
         <a
             className={bem.element('link')}
