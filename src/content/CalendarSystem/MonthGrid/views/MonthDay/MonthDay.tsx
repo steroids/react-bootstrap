@@ -2,7 +2,7 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {ICalendarSystemViewProps, IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
@@ -12,15 +12,16 @@ import _isEmpty from 'lodash-es/isEmpty';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
 import _cloneDeep from 'lodash-es/cloneDeep';
 import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
+
 import './MonthDay.scss';
 
 const SIXTH_ELEMENT_INDEX = 6;
 
-interface IMonthDayProps {
+interface IMonthDayProps extends Pick<
+    ICalendarSystemViewProps,
+    'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
+> {
     day: IDay,
-    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[],
-    openEditModal: (event: IEvent) => void,
-    openCreateModal: (eventInitialDay?: IDay) => void,
 }
 
 export default function MonthDay(props: IMonthDayProps) {

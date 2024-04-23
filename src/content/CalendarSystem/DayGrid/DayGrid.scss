@@ -1,0 +1,113 @@
+@use "style/variables";
+
+:root {
+    --calendar-system-hour-border-color: #dbe2e6;
+    --calendar-system-time-background-color: #fff;
+    --calendar-system-today-background-color: #dbe2e6;
+    --calendar-system-today-border-color: #cbd5db;
+}
+
+html[data-theme="dark"] {
+    --calendar-system-hour-border-color: #333646;
+    --calendar-system-time-background-color: #4b4e5e;
+    --calendar-system-today-background-color: #191b1f;
+    --calendar-system-today-border-color: #333646;
+    --calendar-system-today-day-background-color: #651fff;
+}
+
+$calendar-system-hour-border-color: var(--calendar-system-hour-border-color);
+$calendar-system-time-background-color: var(--calendar-system-time-background-color);
+$calendar-system-today-background-color: var(--calendar-system-today-background-color);
+$calendar-system-today-border-color: var(--calendar-system-today-border-color);
+
+$calendar-border-style: 1px solid $calendar-system-hour-border-color;
+$calendar-today-border-style: 1px solid $calendar-system-today-border-color;
+
+.DayGrid {
+    $root: &;
+    @include variables.scrollWrapper(568px, 20px, variables.$scroll-thumb-color, variables.$scroll-track-color);
+
+    &__content {
+        display: flex;
+        overflow: scroll;
+
+        #{$root}__hours-time {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            margin-right: 8px;
+            margin-top: 32px;
+
+            &-item {
+                width: 40px;
+                height: 24px;
+                border-radius: variables.$radius-small;
+                background-color: $calendar-system-time-background-color;
+                color: var(--custom-text-color-base);
+                font-size: variables.$font-size-xs;
+                font-weight: variables.$font-weight-sm;
+                line-height: variables.$line-height-xs;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+
+    &__table {
+        display: flex;
+        flex-flow: column nowrap;
+        width: calc(100% - 48px);
+
+        &-heading {
+            display: grid;
+            max-height: 100%;
+            grid-template-columns: repeat(auto-fit, 200px);
+            margin-bottom: 0;
+
+            #{$root}__header {
+                margin-bottom: 0;
+
+                font-size: variables.$font-size-sm;
+                font-weight: variables.$font-weight-md;
+                line-height: variables.$line-height-sm;
+
+                &-label {
+                    display: block;
+                }
+
+                &-caption {
+                    display: block;
+                }
+            }
+        }
+
+        &-grid {
+            width: auto;
+            display: grid;
+            grid-template-rows: repeat(24, auto);
+
+            &-row {
+                display: grid;
+                height: auto;
+                grid-template-columns: repeat(auto-fit, 200px);
+                min-height: 80px;
+
+                //Borders
+                &:first-child .DayHour__hour {
+                    border-top: $calendar-border-style;
+                }
+
+                .DayHour__hour {
+                    border-right: $calendar-border-style;
+                    border-bottom: $calendar-border-style;
+
+                    &:first-child {
+                        border-left: $calendar-border-style;
+                    }
+                }
+            }
+        }
+    }
+}

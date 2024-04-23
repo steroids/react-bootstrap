@@ -8,14 +8,33 @@ import AsideCalendars from './AsideCalendars';
 import ContentHeader from './ContentHeader';
 import MonthGrid from './MonthGrid';
 import WeekGrid from './WeekGrid';
+import DayGrid from './DayGrid';
 
 export default function CalendarSystemView(props: ICalendarSystemViewProps) {
     const bem = useBem('CalendarSystemView');
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const sharedFunctions = {
+        getEventsFromDate: props.getEventsFromDate,
+        openEditModal: props.openEditModal,
+        openCreateModal: props.openCreateModal,
+    };
+
     const calendarTypeGrids = React.useMemo(() => ({
-        [CalendarEnum.MONTH]: <MonthGrid {...props.monthGridProps} />,
-        [CalendarEnum.WEEK]: <WeekGrid {...props.weekGridProps} />,
-    }), [props.monthGridProps, props.weekGridProps]);
+        [CalendarEnum.MONTH]: <MonthGrid
+            {...props.monthGridProps}
+            {...sharedFunctions}
+        />,
+        [CalendarEnum.WEEK]: <WeekGrid
+            {...props.weekGridProps}
+            {...sharedFunctions}
+        />,
+        [CalendarEnum.DAY]: <DayGrid
+            users={props.users}
+            {...props.dayGridProps}
+            {...sharedFunctions}
+        />,
+    }), [props.dayGridProps, props.monthGridProps, props.users, props.weekGridProps, sharedFunctions]);
 
     return (
         <div
@@ -27,7 +46,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
         >
             <aside className={bem.element('aside')}>
                 <AsideHeader
-                    onClick={props.openCreateModal}
+                    openCreateModal={props.openCreateModal}
                     className={bem.element('aside-header')}
                 />
                 <Calendar
@@ -44,7 +63,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
             <div className={bem.element('content')}>
                 <ContentHeader
                     dateToDisplay={props.dateToDisplay}
-                    onChangeCalendarType={props.handleCalendarTypeChange}
+                    handleCalendarTypeChange={props.handleCalendarTypeChange}
                     handleControlClick={props.handleControlClick}
                 />
                 {calendarTypeGrids[props.calendarType as string]}

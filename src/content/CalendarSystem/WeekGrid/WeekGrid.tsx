@@ -1,19 +1,15 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
+import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import WeekHour from './views/WeekHour';
 
 import './WeekGrid.scss';
 
-interface IWeekGridProps {
-    weekGridTwentyFourHoursArray: string[],
-    weekGridCurrentWeekDays: IDay[],
-    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[],
-    openEditModal: (event: IEvent) => void,
-    openCreateModal: (eventInitialDay?: IDay) => void,
-}
+type IWeekGridProps = Pick<
+    ICalendarSystemViewProps,
+    'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
+> & ICalendarSystemViewProps['weekGridProps']
 
 function WeekGrid(props: IWeekGridProps) {
     const bem = useBem('WeekGrid');

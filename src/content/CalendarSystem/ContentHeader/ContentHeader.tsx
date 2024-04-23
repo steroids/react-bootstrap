@@ -6,14 +6,14 @@ import {ButtonGroup} from '@steroidsjs/core/ui/nav';
 import {Icon} from '@steroidsjs/core/ui/content';
 import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
+import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 
 import './ContentHeader.scss';
 
-interface IContentHeaderProps {
-    dateToDisplay: string,
-    onChangeCalendarType: (newType: string) => void,
-    handleControlClick: (event: React.MouseEvent<HTMLElement>) => void,
-}
+type IContentHeaderProps = Pick<
+    ICalendarSystemViewProps,
+    'dateToDisplay' | 'handleCalendarTypeChange' | 'handleControlClick'
+>
 
 function ContentHeader(props: IContentHeaderProps) {
     const bem = useBem('ContentHeader');
@@ -44,7 +44,7 @@ function ContentHeader(props: IContentHeaderProps) {
             <ButtonGroup
                 className={bem.element('measures')}
                 items={CalendarEnum}
-                onClick={props.onChangeCalendarType}
+                onClick={props.handleCalendarTypeChange}
                 defaultActiveButton={CalendarEnum.MONTH}
             />
         </div>

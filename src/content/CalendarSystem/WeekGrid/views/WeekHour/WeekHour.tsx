@@ -2,7 +2,7 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
-import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {ICalendarSystemViewProps, IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Button} from '@steroidsjs/core/ui/form';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import _take from 'lodash-es/take';
@@ -18,12 +18,12 @@ import './WeekHour.scss';
 
 const FOURTH_ELEMENT_INDEX = 3;
 
-interface IWeekHourProps {
+interface IWeekHourProps extends Pick<
+    ICalendarSystemViewProps,
+    'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
+> {
     dayOfWeek: IDay,
-    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[],
     hour: string,
-    openEditModal: (event: IEvent) => void,
-    openCreateModal: (eventInitialDay?: IDay) => void,
 }
 
 export default function WeekHour(props: IWeekHourProps) {
