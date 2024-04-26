@@ -14,7 +14,7 @@ interface IDayHourProps extends Pick<ICalendarSystemViewProps, 'openEditModal' |
     hour: string,
     user: ICalendarUser,
     currentDay: IDay,
-    renderEventView: (componentProps: any) => JSX.Element,
+    renderEventView: <T>(componentProps: T) => React.FunctionComponent<T>,
 }
 
 export default function DayHour(props: IDayHourProps) {

@@ -30,8 +30,6 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
         dispatch(formSetErrors(ADD_EVENT_FORM_ID, {}));
     }, [dispatch, props]);
 
-    console.log(eventInitialValues);
-
     return (
         <Modal
             title={props.isCreate ? __('Новое событие') : __('Редактирование события')}

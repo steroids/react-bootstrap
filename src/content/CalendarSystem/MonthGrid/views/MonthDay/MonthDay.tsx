@@ -21,7 +21,7 @@ interface IMonthDayProps extends Pick<
     'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
 > {
     day: IDay,
-    renderEventView: (componentProps: any) => JSX.Element,
+    renderEventView: <T>(componentProps: T) => React.FunctionComponent<T>,
 }
 
 export default function MonthDay(props: IMonthDayProps) {

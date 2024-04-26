@@ -18,7 +18,7 @@ interface IWeekHourProps extends Pick<
 > {
     dayOfWeek: IDay,
     hour: string,
-    renderEventView: (componentProps: any) => JSX.Element,
+    renderEventView: <T>(componentProps: T) => React.FunctionComponent<T>,
 }
 
 export default function WeekHour(props: IWeekHourProps) {
