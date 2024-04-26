@@ -21,6 +21,7 @@ export default function IconView(props: IIconViewProps) {
                 onKeyPress={props.onClick}
                 role='button'
                 tabIndex={props.tabIndex || 0}
+                data-icon={props.dataIcon}
             />
         );
     }
@@ -32,6 +33,7 @@ export default function IconView(props: IIconViewProps) {
             onKeyPress={props.onClick}
             role='button'
             tabIndex={props.tabIndex || 0}
+            data-icon={props.dataIcon}
         >
             <img
                 alt={props.title}

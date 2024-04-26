@@ -12,7 +12,7 @@ import './ContentHeader.scss';
 
 type IContentHeaderProps = Pick<
     ICalendarSystemViewProps,
-    'dateToDisplay' | 'handleCalendarTypeChange' | 'handleControlClick'
+    'dateToDisplay' | 'handleCalendarTypeChange' | 'onClickControl'
 >
 
 function ContentHeader(props: IContentHeaderProps) {
@@ -26,7 +26,7 @@ function ContentHeader(props: IContentHeaderProps) {
             />
             <ul
                 className={bem.element('controls')}
-                onClick={props.handleControlClick}
+                onClick={props.onClickControl}
             >
                 {Object.entries(DateControlEnum.getIcons()).map(([controlLabel, controlIcon], controlIndex) => (
                     <li

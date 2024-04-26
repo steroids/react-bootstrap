@@ -29,12 +29,12 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
 
     &__content {
         display: flex;
-        overflow: scroll;
 
         #{$root}__hours-time {
             display: flex;
             flex-flow: column nowrap;
             justify-content: space-around;
+            flex-shrink: 0;
             margin-right: 8px;
             margin-top: 32px;
 
@@ -56,14 +56,8 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
     }
 
     &__table {
-        display: flex;
-        flex-flow: column nowrap;
-        width: calc(100% - 48px);
-
         &-heading {
             display: grid;
-            max-height: 100%;
-            grid-template-columns: repeat(auto-fit, 200px);
             margin-bottom: 0;
 
             #{$root}__header {
@@ -89,10 +83,14 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
             grid-template-rows: repeat(24, auto);
 
             &-row {
-                display: grid;
-                height: auto;
-                grid-template-columns: repeat(auto-fit, 200px);
-                min-height: 80px;
+                display: flex;
+                flex: row nowrap;
+                height: 150px;
+
+                .DayHour__hour { 
+                    flex-basis: 200px;
+                    flex-shrink: 0;
+                }
 
                 //Borders
                 &:first-child .DayHour__hour {

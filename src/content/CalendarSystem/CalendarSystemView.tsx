@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
@@ -6,9 +7,6 @@ import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Calen
 import AsideHeader from './AsideHeader';
 import AsideCalendars from './AsideCalendars';
 import ContentHeader from './ContentHeader';
-import MonthGrid from './MonthGrid';
-import WeekGrid from './WeekGrid';
-import DayGrid from './DayGrid';
 
 export default function CalendarSystemView(props: ICalendarSystemViewProps) {
     const bem = useBem('CalendarSystemView');
@@ -20,21 +18,39 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
         openCreateModal: props.openCreateModal,
     };
 
+    const {
+        dayGridProps: {renderGridView: renderDayGrid},
+        weekGridProps: {renderGridView: renderWeekGrid},
+        monthGridProps: {renderGridView: renderMonthGrid},
+    } = props;
+
     const calendarTypeGrids = React.useMemo(() => ({
-        [CalendarEnum.MONTH]: <MonthGrid
-            {...props.monthGridProps}
-            {...sharedFunctions}
-        />,
-        [CalendarEnum.WEEK]: <WeekGrid
-            {...props.weekGridProps}
-            {...sharedFunctions}
-        />,
-        [CalendarEnum.DAY]: <DayGrid
-            users={props.users}
-            {...props.dayGridProps}
-            {...sharedFunctions}
-        />,
-    }), [props.dayGridProps, props.monthGridProps, props.users, props.weekGridProps, sharedFunctions]);
+        [CalendarEnum.MONTH]: (
+            <>
+                {renderMonthGrid({
+                    ...props.monthGridProps,
+                    ...sharedFunctions,
+                })}
+            </>
+        ),
+        [CalendarEnum.WEEK]: (
+            <>
+                {renderWeekGrid({
+                    ...props.weekGridProps,
+                    ...sharedFunctions,
+                })}
+            </>
+        ),
+        [CalendarEnum.DAY]: (
+            <>
+                {renderDayGrid({
+                    ...props.dayGridProps,
+                    ...sharedFunctions,
+                    users: props.users,
+                })}
+            </>
+        ),
+    }), [props.dayGridProps, props.monthGridProps, props.users, props.weekGridProps, renderDayGrid, renderMonthGrid, renderWeekGrid, sharedFunctions]);
 
     return (
         <div
@@ -51,7 +67,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 />
                 <Calendar
                     showFooter={false}
-                    onMonthChange={props.onInnerCalendarChangeMonth}
+                    onMonthChange={props.onCalendarChangedMonth}
                 />
                 <AsideCalendars
                     eventGroups={props.eventGroups}
@@ -64,7 +80,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 <ContentHeader
                     dateToDisplay={props.dateToDisplay}
                     handleCalendarTypeChange={props.handleCalendarTypeChange}
-                    handleControlClick={props.handleControlClick}
+                    onClickControl={props.onClickControl}
                 />
                 {calendarTypeGrids[props.calendarType as string]}
             </div>

@@ -2,7 +2,6 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import WeekHour from './views/WeekHour';
 
 import './WeekGrid.scss';
 
@@ -14,20 +13,22 @@ type IWeekGridProps = Pick<
 function WeekGrid(props: IWeekGridProps) {
     const bem = useBem('WeekGrid');
 
-    const {weekGridCurrentWeekDays, getEventsFromDate} = props;
+    const {weekGridCurrentWeekDays} = props;
 
     const renderWeekHours = React.useCallback(
         (hour) => weekGridCurrentWeekDays.map((dayOfWeek, dayOfWeekIndex) => (
-            <WeekHour
-                hour={hour}
-                getEventsFromDate={getEventsFromDate}
-                key={dayOfWeekIndex}
-                dayOfWeek={dayOfWeek}
-                openEditModal={props.openEditModal}
-                openCreateModal={props.openCreateModal}
-            />
+            <React.Fragment key={dayOfWeekIndex}>
+                {props.renderHourView({
+                    openEditModal: props.openEditModal,
+                    openCreateModal: props.openCreateModal,
+                    getEventsFromDate: props.getEventsFromDate,
+                    renderEventView: props.renderEventView,
+                    dayOfWeek,
+                    hour,
+                })}
+            </React.Fragment>
         )),
-        [weekGridCurrentWeekDays, getEventsFromDate, props.openCreateModal, props.openEditModal],
+        [weekGridCurrentWeekDays, props],
     );
 
     return (

@@ -93,7 +93,10 @@ export default function CaptionElement(props: ICaptionElementProps) {
                         {years.find(year => year === currentYear)}
                     </span>
                 </div>
-                <div className={bem.element('container-icons')}>
+                <div
+                    className={bem.element('container-icons')}
+                    data-test='fds'
+                >
                     {icons.map((icon, iconIndex) => (
                         <Icon
                             key={iconIndex}
@@ -103,7 +106,7 @@ export default function CaptionElement(props: ICaptionElementProps) {
                                 icon.onClick();
                             }}
                             className={bem.element('button')}
-                            data-sourcecontrol={icon.sourceControl}
+                            dataIcon={'control-' + icon.sourceControl}
                         />
                     ))}
                 </div>

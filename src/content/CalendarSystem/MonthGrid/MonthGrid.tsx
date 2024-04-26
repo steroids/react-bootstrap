@@ -28,13 +28,15 @@ function MonthGrid(props: IMonthGridProps) {
             </div>
             <div className={bem.element('grid')}>
                 {props.monthGridCalendarDays.map((day, dayIndex) => (
-                    <MonthDay
-                        key={dayIndex}
-                        openEditModal={props.openEditModal}
-                        getEventsFromDate={props.getEventsFromDate}
-                        openCreateModal={props.openCreateModal}
-                        day={day}
-                    />
+                    <React.Fragment key={dayIndex}>
+                        {props.renderHourView({
+                            openEditModal: props.openEditModal,
+                            openCreateModal: props.openCreateModal,
+                            getEventsFromDate: props.getEventsFromDate,
+                            renderEventView: props.renderEventView,
+                            day,
+                        })}
+                    </React.Fragment>
                 ))}
             </div>
         </div>

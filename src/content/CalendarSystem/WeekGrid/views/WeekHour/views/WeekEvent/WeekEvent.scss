@@ -1,0 +1,41 @@
+@use 'style/variables';
+@use "../../../../../../../scss/mixins";
+
+.WeekEvent {
+    &__tooltip {
+        @include mixins.calendar-tooltip();
+    }
+
+    &__event {
+        position: relative;
+        padding: 4px 8px;
+        overflow: hidden;
+        border-radius: 4px;
+        cursor: pointer;
+
+        &-title {
+            font-size: variables.$font-size-sm;
+            font-weight: variables.$font-weight-sm;
+            line-height: variables.$line-height-sm;
+            color: #312c3a;
+
+            padding-right: 36px;
+            pointer-events: none;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        &-time {
+            text-align: right;
+            display: block;
+            font-size: variables.$font-size-xs;
+            font-weight: variables.$font-weight-sm;
+            line-height: variables.$line-height-xs;
+            pointer-events: none;
+        }
+    }
+}

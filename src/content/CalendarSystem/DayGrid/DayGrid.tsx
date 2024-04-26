@@ -1,10 +1,9 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {Text} from '@steroidsjs/core/ui/typography';
 
 import './DayGrid.scss';
-import {Text} from '@steroidsjs/core/ui/typography';
-import DayHour from './views/DayHour';
 
 type IDayGridProps = Pick<
     ICalendarSystemViewProps,
@@ -13,20 +12,6 @@ type IDayGridProps = Pick<
 
 function DayGrid(props: IDayGridProps) {
     const bem = useBem('DayGrid');
-
-    const renderDayHour = React.useCallback(
-        (hour) => props.users.map((user, userIndex) => (
-            <DayHour
-                hour={hour}
-                getEventsFromDate={props.getEventsFromDate}
-                key={userIndex}
-                user={user}
-                openEditModal={props.openEditModal}
-                openCreateModal={props.openCreateModal}
-            />
-        )),
-        [props.users, props.getEventsFromDate, props.openEditModal, props.openCreateModal],
-    );
 
     return (
         <div className={bem.block()}>
@@ -42,7 +27,12 @@ function DayGrid(props: IDayGridProps) {
                     ))}
                 </div>
                 <div className={bem.element('table')}>
-                    <div className={bem.element('table-heading')}>
+                    <div
+                        className={bem.element('table-heading')}
+                        style={{
+                            gridTemplateColumns: `repeat(${props.users?.length}, 200px)`,
+                        }}
+                    >
                         {props.users?.map((user, userIndex) => (
                             <Text
                                 key={userIndex}
@@ -69,7 +59,19 @@ function DayGrid(props: IDayGridProps) {
                                 key={hourIndex}
                                 className={bem.element('table-grid-row')}
                             >
-                                {renderDayHour(hour)}
+                                {props.users.map((user, userIndex) => (
+                                    <React.Fragment key={userIndex}>
+                                        {props.renderHourView({
+                                            hour,
+                                            getEventsFromDate: props.getEventsFromDate,
+                                            user,
+                                            openEditModal: props.openEditModal,
+                                            openCreateModal: props.openCreateModal,
+                                            currentDay: props.dayGridCurrentDay,
+                                            renderEventView: props.renderEventView,
+                                        })}
+                                    </React.Fragment>
+                                ))}
                             </div>
                         ))}
                     </div>

@@ -64,7 +64,7 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
         &-heading {
             display: grid;
             max-height: 100%;
-            grid-template-columns: repeat(7, 1fr);
+            grid-template-columns: repeat(7, 300px);
         }
 
         &-grid {
@@ -75,7 +75,8 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
             &-row {
                 display: grid;
                 height: auto;
-                grid-template-columns: repeat(7, 1fr);
+                grid-template-columns: repeat(7, 300px);
+                grid-template-rows: 150px;
                 min-height: 80px;
 
                 //Borders

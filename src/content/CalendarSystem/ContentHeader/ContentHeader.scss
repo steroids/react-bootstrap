@@ -25,6 +25,7 @@ $calendar-system-caption-arrow-background-color: var(--calendar-system-caption-a
         margin-right: 93px;
         margin-bottom: 0;
         width: 190px;
+        white-space: nowrap;
     }
 
     &__controls {

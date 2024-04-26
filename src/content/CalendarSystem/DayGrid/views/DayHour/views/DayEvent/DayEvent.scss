@@ -1,0 +1,25 @@
+@use 'style/variables';
+@use "../../../../../../../scss/mixins";
+
+.DayEvent {
+    &__tooltip {
+        @include mixins.calendar-tooltip();
+    }
+
+    &__event { 
+        overflow: hidden;
+    
+        position: relative;
+        height: 100%;
+        cursor: pointer;
+
+        &-title { 
+            display: block;
+            pointer-events: none;
+        }
+        &-time { 
+            display: block;
+            pointer-events: none;
+        }
+    }
+}

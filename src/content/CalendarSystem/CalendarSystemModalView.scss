@@ -80,5 +80,10 @@
                 -webkit-box-orient: vertical;
             }
         }
+
+        #{$root}__users-field.DropDownFieldView { 
+            width: 600px;
+        }
     }
+
 }

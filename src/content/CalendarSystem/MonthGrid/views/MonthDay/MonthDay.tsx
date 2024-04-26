@@ -2,8 +2,7 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-import {ICalendarSystemViewProps, IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
+import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
 import _get from 'lodash-es/get';
@@ -22,6 +21,7 @@ interface IMonthDayProps extends Pick<
     'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
 > {
     day: IDay,
+    renderEventView: (componentProps: any) => JSX.Element,
 }
 
 export default function MonthDay(props: IMonthDayProps) {
@@ -50,26 +50,6 @@ export default function MonthDay(props: IMonthDayProps) {
     const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(
         _slice([...events], SIXTH_ELEMENT_INDEX),
     ), [events]);
-
-    const renderEvent = React.useCallback((event: IEvent, eventIndex: number) => (
-        <Tooltip
-            key={event.id}
-            position='rightBottom'
-            content={event.title}
-            className={bem.element('tooltip')}
-        >
-            <span
-                className={bem.element('event')}
-                data-eventid={event.id}
-            >
-                <span
-                    className={bem.element('event-dot')}
-                    style={{backgroundColor: event.color}}
-                />
-                {event.title}
-            </span>
-        </Tooltip>
-    ), [bem]);
 
     const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
@@ -110,7 +90,9 @@ export default function MonthDay(props: IMonthDayProps) {
                     isExpanded,
                 })}
                 >
-                    {events.map(renderEvent)}
+                    {events.map((event) => props.renderEventView({
+                        event,
+                    }))}
                     {hasSixEvents && !isExpanded && (
                         <Button
                             link
