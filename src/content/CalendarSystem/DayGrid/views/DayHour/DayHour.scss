@@ -2,10 +2,6 @@
 
 .DayHour {
     &__hour { 
-        &_moreEvents { 
-            display: flex;
-            flex-flow: row nowrap;
-            gap: 1px;
-        }
+       position: relative;
     }
 }

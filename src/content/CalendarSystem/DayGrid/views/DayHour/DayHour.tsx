@@ -14,7 +14,7 @@ interface IDayHourProps extends Pick<ICalendarSystemViewProps, 'openEditModal' |
     hour: string,
     user: ICalendarUser,
     currentDay: IDay,
-    renderEventView: <T>(componentProps: T) => React.FunctionComponent<T>,
+    renderEventView: (componentProps: any) => React.ReactNode,
 }
 
 export default function DayHour(props: IDayHourProps) {
@@ -62,9 +62,7 @@ export default function DayHour(props: IDayHourProps) {
 
     return (
         <div
-            className={bem.element('hour', {
-                moreEvents: events.length > 1,
-            })}
+            className={bem.element('hour')}
             onClick={handleEventClick}
             onContextMenu={handleOnContextMenuCreateClick}
         >

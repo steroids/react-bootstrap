@@ -3,18 +3,10 @@
 
 .WeekHour {
     height: max-content;
-
+    
     &__hour {
+        position: relative;
         $rootHour: &;
-        display: flex;
-        flex-flow: column nowrap;
-        gap: 1px;
         min-height: 80px;
-
-
-        &_moreEvents {
-            display: flex;
-            flex-flow: row nowrap;
-        }
     }
 }

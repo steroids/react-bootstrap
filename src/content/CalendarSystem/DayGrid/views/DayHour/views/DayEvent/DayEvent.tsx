@@ -1,7 +1,7 @@
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import {formatEventTime, getProportionFromEvent} from '@steroidsjs/core/ui/content/CalendarSystem/utils/utils';
+import {formatEventTime, getProportionFromEvent, getTopMarginFromEvent} from '@steroidsjs/core/ui/content/CalendarSystem/utils/utils';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 
 import './DayEvent.scss';
@@ -24,7 +24,8 @@ export default function DayEvent({event}: IDayEventProps) {
                 className={bem.element('event')}
                 style={{
                     backgroundColor: event.color,
-                    height: `${100 * getProportionFromEvent(event)}%`,
+                    height: `${getProportionFromEvent(event)}%`,
+                    ...getTopMarginFromEvent(event),
                 }}
                 title={event.title}
                 data-eventid={event.id}

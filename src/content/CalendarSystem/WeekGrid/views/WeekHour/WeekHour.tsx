@@ -18,7 +18,7 @@ interface IWeekHourProps extends Pick<
 > {
     dayOfWeek: IDay,
     hour: string,
-    renderEventView: <T>(componentProps: T) => React.FunctionComponent<T>,
+    renderEventView: (componentProps: any) => React.ReactNode,
 }
 
 export default function WeekHour(props: IWeekHourProps) {
@@ -65,7 +65,6 @@ export default function WeekHour(props: IWeekHourProps) {
         <div
             className={bem.element('hour', {
                 isToday: props.dayOfWeek.isToday,
-                moreEvents: events.length > 1,
             })}
             onClick={handleEventClick}
             onContextMenu={handleOnContextMenuCreateClick}
