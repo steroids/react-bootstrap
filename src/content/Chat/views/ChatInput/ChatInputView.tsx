@@ -1,4 +1,4 @@
-import React, {forwardRef, useCallback, useRef, useState} from 'react';
+import React, {forwardRef, useCallback, useRef} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {FileField, Form, InputField} from '@steroidsjs/core/ui/form';
 import {IChatInputViewProps} from '@steroidsjs/core/ui/content/Chat/Chat';
@@ -31,11 +31,12 @@ export default function ChatInputView(props: IChatInputViewProps) {
                 className={bem.element('action')}
                 icon="clip"
                 onClick={onBrowseFile}
+                type='button'
             />
             <ButtonView
                 className={bem.element('action')}
-                icon="send"
-                type="submit"
+                icon='send'
+                type='submit'
             />
         </div>
     ), [bem, onBrowseFile]);
@@ -50,8 +51,8 @@ export default function ChatInputView(props: IChatInputViewProps) {
             >
                 <InputField
                     className={bem.element('input')}
-                    attribute="text"
-                    size="lg"
+                    attribute='text'
+                    size='lg'
                     placeholder={props.inputPlaceholder}
                     addonAfter={renderInputActions()}
                 />
