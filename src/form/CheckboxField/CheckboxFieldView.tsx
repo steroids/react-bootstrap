@@ -36,7 +36,7 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps) {
             />
             <label
                 className={bem.element('label', {
-                    'has-label-only': !props.id,
+                    'has-label-only': props.hasOnlyLeafCheckboxes && !props.id,
                 })}
                 htmlFor={props.id || id}
             >
