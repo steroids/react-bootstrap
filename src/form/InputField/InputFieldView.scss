@@ -281,6 +281,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         #{$root}__input {
             border-top-right-radius: 0;
             border-bottom-right-radius: 0;
+            border: none;
         }
         &::before {
             border: 1px solid variables.$element-border-color;
