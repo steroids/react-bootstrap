@@ -100,7 +100,6 @@ $accordion-chevron-color: var(--accordion-chevron-color);
     overflow: hidden;
 
     background-color: $accordion-content-background;
-    height: 56px;
     width: 100%;
     height: fit-content;
 
@@ -129,7 +128,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         }
 
         &_middle {
-            border-radius: 0px;
+            border-radius: 0;
         }
 
         &_bottom {
@@ -174,7 +173,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
     &__icon-chevron {
         width: 24px;
         height: 24px;
-        box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px 20px rgba(0, 0, 0, 0.1);
         border-radius: variables.$radius-small;
 
         transform: rotate(0deg);
@@ -229,7 +228,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         &_visible {
             max-height: 1024px;
             padding: 18px 32px 18px 16px;
-            border: 1px solid $accordion-content-border;
+            box-shadow: inset 0 0 0 1px $accordion-content-border;
         }
     }
 
