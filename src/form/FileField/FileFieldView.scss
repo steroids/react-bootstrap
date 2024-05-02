@@ -37,10 +37,18 @@
             background-color: variables.$gray;
             border-radius: 20px;
 
-            .ButtonView__label {
-                flex-direction: column;
-                row-gap: 10px;
+            .ButtonView {
+                &__label {
+                    flex-direction: column;
+                    row-gap: 10px;
+                }
+
+                &__icon {
+                    margin-right: 0;
+                }
             }
+
+
         }
     }
 

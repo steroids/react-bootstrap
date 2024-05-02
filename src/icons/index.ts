@@ -54,6 +54,7 @@ export default (customIcons: Record<string, any>) => {
         'home',
         'img_box',
         'import',
+        'export',
         'info_16x16',
         'info_24x24',
         'loading_purple',
