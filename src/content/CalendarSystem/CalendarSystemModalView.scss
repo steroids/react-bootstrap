@@ -37,6 +37,7 @@
                     width: calc(84%);
 
                     .TextFieldView textarea {
+                        min-width: 100%;
                         height: 160px;
                     }
                 }
