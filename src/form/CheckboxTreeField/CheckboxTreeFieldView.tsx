@@ -39,6 +39,7 @@ export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps
                             },
                             size: props.size,
                             color: checkbox.color,
+                            hasOnlyLeafCheckboxes: props.hasOnlyLeafCheckboxes,
                         })
                     }
                 </TreeItemView>

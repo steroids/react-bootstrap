@@ -1,16 +1,15 @@
-
 @use "../../scss/variables";
 
 :root {
     --legend-color: #152536;
     --fieldset-border-color: #E6E6E6;
 }
-  
-html[data-theme="dark"] { 
+
+html[data-theme="dark"] {
     --legend-color: #ffffff;
     --fieldset-border-color: #595959;
 }
-  
+
 $legend-color: var(--legend-color);
 $fieldset-border-color: var(--fieldset-border-color);
 
@@ -19,7 +18,6 @@ $fieldset-border-color: var(--fieldset-border-color);
     border-radius: 8px;
 
     &__legend {
-        background-color: variables.$background-color;
         color: $legend-color;
 
         padding: 8px;
@@ -32,11 +30,11 @@ $fieldset-border-color: var(--fieldset-border-color);
     }
 
     .FieldLayoutView {
-        padding: 0px 24px 24px 24px;
-        margin-bottom: 0px;
+        padding: 0 24px 24px 24px;
+        margin-bottom: 0;
     }
 
     .FieldLayoutView + .FieldLayoutView {
-        padding-top: 0px;
+        padding-top: 0;
     }
 }

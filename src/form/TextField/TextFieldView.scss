@@ -4,8 +4,6 @@
     --text-field-disabled-clear-color: #e5e9eb;
     --text-field-active-clear-color: #323232;
     --text-field-background-color: #ffffff;
-    --text-field-border-color:  
-;
 }
 
 html[data-theme="dark"] {
@@ -57,6 +55,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
     &__textarea {
         width: 100%;
         min-width: 240px;
+        max-width: 100%;
         min-height: 80px;
         height: 80px;
 

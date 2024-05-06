@@ -58,8 +58,11 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             color: variables.$element-placeholder-color;
             font-size: inherit;
         }
-    }
 
+        &:not(:disabled):focus {
+            border: none;
+        }
+    }
 
     //Statements
     &::before {
@@ -80,7 +83,6 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     &:not(#{$root}_disabled):focus-within::before {
         border: 4px solid variables.$primary-light;
         transform: translateX(-4px) translateY(-4px);
-        border-radius: 16px;
         opacity: 1;
     }
 
@@ -90,7 +92,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
 
         &::before {
-            transform: none;
+            transform: translate(-1px, -1px);
             border: 1px solid variables.$primary;
             opacity: 1;
         }
@@ -140,7 +142,11 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             }
 
             &::before {
-                border-radius: 14px;
+                border-radius: variables.$radius-large;
+            }
+
+            &:focus-within::before {
+                border-radius: 16px;
             }
         }
 
@@ -167,7 +173,11 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             }
 
             &::before {
-                border-radius: 14px;
+                border-radius: variables.$radius-medium;
+            }
+
+            &:focus-within::before {
+                border-radius: 16px;
             }
         }
 
@@ -192,7 +202,11 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
             }
 
             &::before {
-                border-radius: 10px;
+                border-radius: variables.$radius-small;
+            }
+
+            &:focus-within::before {
+                border-radius: 12px;
             }
         }
     }
