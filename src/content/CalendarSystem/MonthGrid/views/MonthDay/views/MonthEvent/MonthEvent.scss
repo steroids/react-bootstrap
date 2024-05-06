@@ -1,0 +1,39 @@
+@use "style/variables";
+@use "../../../../../../../scss/mixins";
+
+.MonthEvent {
+
+
+    &__tooltip {
+        @include mixins.calendar-tooltip();
+    }
+
+    &__event {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        font-size: variables.$font-size-xs;
+        font-weight: variables.$font-weight-sm;
+        line-height: variables.$line-height-xs;
+        color: variables.$text-color;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        cursor: pointer;
+        text-align: left;
+
+        &:nth-child(n + 7) {
+            display: none;
+        }
+
+        &-dot {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            margin-right: 8px;
+            border-radius: 100px;
+            pointer-events: none;
+        }
+    }
+}

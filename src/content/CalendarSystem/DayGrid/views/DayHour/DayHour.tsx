@@ -1,42 +1,41 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
+import {ICalendarSystemViewProps, ICalendarUser, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
-import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-import _take from 'lodash-es/take';
-import _slice from 'lodash-es/slice';
-import _isEmpty from 'lodash-es/isEmpty';
-import _get from 'lodash-es/get';
 import _cloneDeep from 'lodash-es/cloneDeep';
+import _slice from 'lodash-es/slice';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
+import _get from 'lodash-es/get';
 
-import './WeekHour.scss';
+import './DayHour.scss';
 
-interface IWeekHourProps extends Pick<
-    ICalendarSystemViewProps,
-    'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
-> {
-    dayOfWeek: IDay,
+interface IDayHourProps extends Pick<ICalendarSystemViewProps, 'openEditModal' | 'openCreateModal' | 'getEventsFromDate'> {
     hour: string,
+    user: ICalendarUser,
+    currentDay: IDay,
     renderEventView: (componentProps: any) => React.ReactNode,
 }
 
-export default function WeekHour(props: IWeekHourProps) {
-    const bem = useBem('WeekHour');
+export default function DayHour(props: IDayHourProps) {
+    const bem = useBem('DayHour');
 
     const {
         events,
     } = React.useMemo(() => {
-        const callingDate = new Date(props.dayOfWeek.date);
+        const eventsIds = props.user.eventsIds;
+
+        const callingDate = new Date(props.currentDay.date);
 
         const timeArray = props.hour.replace(':', '').split('');
 
         callingDate.setHours(Number(timeArray[0] + timeArray[1]), 0, 0, 0);
 
-        const events = props.getEventsFromDate(callingDate, CalendarEnum.WEEK);
+        const _events = props.getEventsFromDate(callingDate, CalendarEnum.DAY)
+            .filter(event => eventsIds.includes(event.id));
 
         return {
-            events,
+            events: _events,
         };
     }, [props]);
 
@@ -56,16 +55,14 @@ export default function WeekHour(props: IWeekHourProps) {
     const handleOnContextMenuCreateClick = React.useCallback((e: React.MouseEvent) => {
         e.preventDefault();
 
-        const day: IDay = _cloneDeep(props.dayOfWeek);
+        const day: IDay = _cloneDeep(props.currentDay);
         day.date.setHours(Number(convertDate(props.hour, 'HH:mm', 'H')), 0, 0, 0);
         props.openCreateModal(day);
     }, [props]);
 
     return (
         <div
-            className={bem.element('hour', {
-                isToday: props.dayOfWeek.isToday,
-            })}
+            className={bem.element('hour')}
             onClick={handleEventClick}
             onContextMenu={handleOnContextMenuCreateClick}
         >

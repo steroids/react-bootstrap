@@ -1,0 +1,7 @@
+@use 'style/variables';
+
+.DayHour {
+    &__hour { 
+       position: relative;
+    }
+}

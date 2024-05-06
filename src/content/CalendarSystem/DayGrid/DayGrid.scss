@@ -23,11 +23,8 @@ $calendar-system-today-border-color: var(--calendar-system-today-border-color);
 $calendar-border-style: 1px solid $calendar-system-hour-border-color;
 $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
 
-.WeekGrid {
+.DayGrid {
     $root: &;
-    overflow-y: scroll;
-    margin-top: 11px;
-
     @include variables.scrollWrapper(568px, 20px, variables.$scroll-thumb-color, variables.$scroll-track-color);
 
     &__content {
@@ -37,7 +34,9 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
             display: flex;
             flex-flow: column nowrap;
             justify-content: space-around;
+            flex-shrink: 0;
             margin-right: 8px;
+            margin-top: 32px;
 
             &-item {
                 width: 40px;
@@ -57,14 +56,25 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
     }
 
     &__table {
-        display: flex;
-        flex-flow: column nowrap;
-        width: calc(100% - 48px);
-
         &-heading {
             display: grid;
-            max-height: 100%;
-            grid-template-columns: repeat(7, 300px);
+            margin-bottom: 0;
+
+            #{$root}__header {
+                margin-bottom: 0;
+
+                font-size: variables.$font-size-sm;
+                font-weight: variables.$font-weight-md;
+                line-height: variables.$line-height-sm;
+
+                &-label {
+                    display: block;
+                }
+
+                &-caption {
+                    display: block;
+                }
+            }
         }
 
         &-grid {
@@ -73,81 +83,27 @@ $calendar-today-border-style: 1px solid $calendar-system-today-border-color;
             grid-template-rows: repeat(24, auto);
 
             &-row {
-                display: grid;
-                height: auto;
-                grid-template-columns: repeat(7, 300px);
-                grid-template-rows: 150px;
-                min-height: 80px;
+                display: flex;
+                flex: row nowrap;
+                height: 150px;
+
+                .DayHour__hour { 
+                    flex-basis: 200px;
+                    flex-shrink: 0;
+                }
 
                 //Borders
-                &:first-child .WeekHour__hour {
+                &:first-child .DayHour__hour {
                     border-top: $calendar-border-style;
                 }
 
-                .WeekHour__hour {
+                .DayHour__hour {
                     border-right: $calendar-border-style;
                     border-bottom: $calendar-border-style;
 
                     &:first-child {
                         border-left: $calendar-border-style;
                     }
-                }
-
-                &:first-child .WeekHour__hour_isToday {
-                    border-top: $calendar-today-border-style;
-                }
-
-                .WeekHour__hour_isToday {
-                    background-color: $calendar-system-today-background-color;
-                    border-right: $calendar-today-border-style;
-                    border-bottom: $calendar-today-border-style;
-
-                    &:first-child {
-                        border-left: $calendar-today-border-style;
-                    }
-                }
-            }
-        }
-    }
-
-    &__hours-time {
-        margin-top: 32px;
-    }
-
-    &__day {
-        $dayRoot: &;
-
-        font-size: variables.$font-size-sm;
-        font-weight: variables.$font-weight-md;
-        line-height: variables.$line-height-sm;
-        padding: 8px 10px;
-        margin-bottom: 0;
-        display: flex;
-        justify-content: flex-end;
-
-        &_isToday {
-            padding: 4px 10px;
-            color: variables.$white;
-
-            #{$dayRoot}-wrapper {
-                position: relative;
-                padding: 4px;
-                background-color: variables.$primary;
-                border-radius: 200px;
-
-                &::before {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    border: 3px solid variables.$primary-light;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    border-radius: inherit;
-                    transform: translate(-3px, -3px);
                 }
             }
         }

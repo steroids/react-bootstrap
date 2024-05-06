@@ -1,18 +1,15 @@
+/* eslint-disable max-len */
 import React, {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {IDay, IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-
-import './MonthGrid.scss';
+import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import MonthDay from './views/MonthDay';
 
-interface IMonthGridProps {
-    monthGridWeekDays: string[],
-    monthGridCalendarDays: IDay[],
-    getEventsFromDate: (dateFromDay: Date, currentCalendarType: CalendarEnum) => IEvent[],
-    openEditModal: (event: IEvent) => void,
-    openCreateModal: (eventInitialDay?: IDay) => void,
-}
+import './MonthGrid.scss';
+
+type IMonthGridProps = Pick<
+    ICalendarSystemViewProps,
+    'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
+> & ICalendarSystemViewProps['monthGridProps']
 
 function MonthGrid(props: IMonthGridProps) {
     const bem = useBem('MonthGrid');
@@ -31,13 +28,15 @@ function MonthGrid(props: IMonthGridProps) {
             </div>
             <div className={bem.element('grid')}>
                 {props.monthGridCalendarDays.map((day, dayIndex) => (
-                    <MonthDay
-                        key={dayIndex}
-                        openEditModal={props.openEditModal}
-                        getEventsFromDate={props.getEventsFromDate}
-                        openCreateModal={props.openCreateModal}
-                        day={day}
-                    />
+                    <React.Fragment key={dayIndex}>
+                        {props.renderHourView({
+                            openEditModal: props.openEditModal,
+                            openCreateModal: props.openCreateModal,
+                            getEventsFromDate: props.getEventsFromDate,
+                            renderEventView: props.renderEventView,
+                            day,
+                        })}
+                    </React.Fragment>
                 ))}
             </div>
         </div>

@@ -12,9 +12,9 @@ import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {useDispatch} from '@steroidsjs/core/hooks';
-import {formReset, formSetErrors} from '@steroidsjs/core/actions/form';
+import {formSetErrors} from '@steroidsjs/core/actions/form';
 
-const ADD_EVENT_FORM_ID = 'AddEventForm';
+const ADD_EVENT_FORM_ID = 'add-event-form';
 
 export default function CalendarSystemModalView(props: ICalendarSystemModalViewProps) {
     const bem = useBem('CalendarSystemModalView');
@@ -28,7 +28,7 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
     const onCloseModal = React.useCallback(() => {
         props.onClose();
         dispatch(formSetErrors(ADD_EVENT_FORM_ID, {}));
-    }, []);
+    }, [dispatch, props]);
 
     return (
         <Modal
@@ -85,7 +85,11 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
                         className={bem.element('label')}
                     />
                     <DateTimeField
-                        attribute='date'
+                        attribute='startDate'
+                        required
+                    />
+                    <DateTimeField
+                        attribute='endDate'
                         required
                     />
                 </div>
@@ -96,6 +100,28 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
                     />
                     <TextField
                         attribute='description'
+                        required
+                    />
+                </div>
+                <div>
+                    <Text
+                        content={__('Пользователи')}
+                        className={bem.element('label')}
+                    />
+                    <DropDownField
+                        attribute='usersIds'
+                        items={props.users.map(user => ({
+                            id: user.id,
+                            label: user.name,
+                        }))}
+                        outline
+                        color="primary"
+                        placeholder='Пользователи'
+                        itemsContent={{
+                            type: 'checkbox',
+                        }}
+                        className={bem.element('users-field')}
+                        multiple
                         required
                     />
                 </div>
