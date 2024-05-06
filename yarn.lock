@@ -93,20 +93,20 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@maskito/core@1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-1.7.0.tgz#e486ca1db2219f03beee5085c362688226fbaeec"
-  integrity sha512-sjdv1MSJnWWor/Qy1u1+ZZtqejzfVt6zqMUfy5RToEPZSBWlsCg1JSfjRu9WRb3yirpZnj3j80JkTGCicFrvuw==
+"@maskito/core@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-2.3.1.tgz#acc39583ec8f52ed605a81b54113d5f423f96d4d"
+  integrity sha512-KmRGNK4g0hyXnLVKVlnCRfokPaRkOVEH4nMI8NK9p6cKPlRwC9V0l2MRxZKgBAhVvenQ8t5GM8xvl+wqOGUTFQ==
 
-"@maskito/kit@1.7.0":
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-1.7.0.tgz#0a0085836b64d1813ac465971b23f9901337d172"
-  integrity sha512-LX/ngWFnPKWnQfvU9m5fss8NIBO261DlQdXOtlbhoXgyscVoR8RVeUHRVuRKEhJgd1I+dvlP1vUxms2qltFTjw==
+"@maskito/kit@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-2.3.1.tgz#0fbba09cbb5e792cb2af6da95760fda426d82d4c"
+  integrity sha512-AhW7IsEC4j2pg4qmGGFcVrcAx3PFYFKiza1vf5NRn7/2LU88/5uS6fIhKs6Uvdp3VzdNAHRQUOSVU2Ek13MOTA==
 
-"@maskito/react@^0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@maskito/react/-/react-0.12.1.tgz#44655526db15086ce894866515722a69d0cd2d51"
-  integrity sha512-3kZSU+VdAb522pxHeraJPbOhxYr8QqYmlxbaGAOBPj0yquGS9sKAXi7tVD5Q7CBk9u+WrQC3BbBPvXAOiiSyVg==
+"@maskito/react@2.3.1":
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/@maskito/react/-/react-2.3.1.tgz#0d640ab46535fe78376d0edf4d0ab62a1f3d2a90"
+  integrity sha512-kFUvyyGLbAEe0Q2vEfcNtrgtL5/rtujOE7BmfIK+DCRiKS7whmO+/YVIOFPnDtnXnPgXjhyqWDQKbH9XOk3+ig==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -141,14 +141,14 @@
   resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.1.4.tgz#02d029360569e7d75d28357a9727fc48322015a3"
   integrity sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==
 
-"@steroidsjs/core@^3.0.11":
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.11.tgz#cd1255b2b4dee602077a7be27d3da04a2c94d23b"
-  integrity sha512-KaZrUgsbM8BJZU9eEGbpJn6WTSHiXrpjw+RdrLjBG33a0Fw5d/YyqddKY+ltSY20RPmcuJr/1z0tCfDTo2eqtA==
+"@steroidsjs/core@^3.0.16":
+  version "3.0.16"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.16.tgz#16c6ab3d1d0af7c0fb57c3737f1c37a78f4d0a9e"
+  integrity sha512-IkCDh4nsATdcyLDdWIew7TxUf7mP8RfnaVvJ0yPRyLlI6a/VsQ15L1EqMY5QdEGwULdqQPwhRWJ6Om11h2b3VQ==
   dependencies:
-    "@maskito/core" "1.7.0"
-    "@maskito/kit" "1.7.0"
-    "@maskito/react" "^0.12.1"
+    "@maskito/core" "2.3.1"
+    "@maskito/kit" "2.3.1"
+    "@maskito/react" "2.3.1"
     "@splidejs/react-splide" "^0.7.12"
     axios "^0.21.1"
     connected-react-router "^6.9.3"
