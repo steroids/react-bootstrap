@@ -61,6 +61,7 @@ export default function GridView(props: IGridViewProps) {
     }, [bem, props]);
 
     const emptyContent = useMemo(() => props.renderEmpty(), [props]);
+    const loading = useMemo(() => props.renderLoading(), [props]);
 
     return props.renderList(
         <div className={bem(
@@ -115,10 +116,10 @@ export default function GridView(props: IGridViewProps) {
                             ))}
                         </tr>
                     ))}
-                    {emptyContent && (
+                    {(loading || emptyContent) && (
                         <tr>
                             <td colSpan={props.columns.length}>
-                                {emptyContent}
+                                {loading || emptyContent}
                             </td>
                         </tr>
                     )}
