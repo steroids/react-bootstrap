@@ -66,9 +66,10 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     className={bem.element('aside-header')}
                 />
                 <Calendar
-                    showFooter
+                    showFooter={false}
                     onTodayButtonClick={props.onCalendarChangedMonth}
                     onMonthChange={props.onCalendarChangedMonth}
+                    {...props.asideCalendarProps}
                 />
                 <AsideCalendars
                     eventGroups={props.eventGroups}
