@@ -67,7 +67,9 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 />
                 <Calendar
                     showFooter={false}
+                    onTodayButtonClick={props.onCalendarChangedMonth}
                     onMonthChange={props.onCalendarChangedMonth}
+                    {...props.asideCalendarProps}
                 />
                 <AsideCalendars
                     eventGroups={props.eventGroups}
