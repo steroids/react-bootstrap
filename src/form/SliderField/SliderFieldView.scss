@@ -99,6 +99,9 @@ $slider-dot-active-border-color:  var(--slider-dot-active-border-color);
             background-color: variables.$primary-dark;
         }
     }
+    .rc-slider-with-marks {
+        margin-bottom: 40px;
+    }
     .rc-slider-mark {
         position: absolute;
         display: inline-block;
