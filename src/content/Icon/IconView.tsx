@@ -7,7 +7,7 @@ import _omit from 'lodash-es/omit';
 export default function IconView(props: IIconViewProps) {
     const bem = useBem('IconView');
 
-    const omittedProps = _omit(props, 'contentEditable', 'icon');
+    const omittedProps = _omit(props, 'contentEditable', 'icon', 'dataIcon');
 
     if (typeof props.icon === 'string' && props.icon.indexOf('<svg') === 0) {
         return (
