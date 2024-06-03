@@ -71,6 +71,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     onMonthChange={props.onCalendarChangedMonth}
                     {...props.asideCalendarProps}
                 />
+                {props.children}
                 <AsideCalendars
                     eventGroups={props.eventGroups}
                     eventGroupsTitle={props.eventGroupsTitle}
