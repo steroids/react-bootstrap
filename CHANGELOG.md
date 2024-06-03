@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.14 (03.06.2024)
+
+### Added
+
+- Добавлен пропс `children` в компонент `CalendarSystemView`
+
 ## v3.0.13 (27.05.2024)
 
 ### Fixed
