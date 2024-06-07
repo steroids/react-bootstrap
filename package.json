@@ -1,6 +1,6 @@
 {
     "name": "@steroidsjs/bootstrap",
-    "version": "3.0.14",
+    "version": "3.0.15",
     "description": "",
     "main": "index.js",
     "author": "Vladimir Kozhin <hello@kozhindev.com>",
@@ -35,7 +35,7 @@
         "react-use": "^17.4.0"
     },
     "devDependencies": {
-        "@steroidsjs/core": "^3.0.20",
+        "@steroidsjs/core": "3.0.21",
         "@steroidsjs/eslint-config": "^2.1.6",
         "@types/enzyme": "^3.10.8",
         "@types/googlemaps": "^3.43.3",
