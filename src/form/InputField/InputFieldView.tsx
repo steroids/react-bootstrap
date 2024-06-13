@@ -82,9 +82,9 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                             ref={props.inputRef}
                         />
                     )}
-                {!props.disabled && props.showClear && !props.maskProps && (
+                {!props.disabled && props.showClear && !props.maskProps && !!props.inputProps.value && (
                     <Icon
-                        name="cross_8x8"
+                        name='cross_8x8'
                         className={bem.element('icon-clear')}
                         tabIndex={-1}
                         onClick={props.onClear}
