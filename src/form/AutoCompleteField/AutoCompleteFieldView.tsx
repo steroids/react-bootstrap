@@ -112,25 +112,38 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                 bem.block({
                     size: props.size,
                     opened: props.isOpened,
+                    hasClearIcon: props.showClear && !props.disabled,
+                    filled: !!props.inputProps.value,
+                    disabled: props.disabled,
                 }), props.className,
             )}
             style={props.style}
         >
-            <input
-                {...props.inputProps}
-                className={bem(
-                    bem.element('input'),
-                    props.inputProps.className,
+            <div className={bem.element('input-wrapper')}>
+                <input
+                    {...props.inputProps}
+                    className={bem(
+                        bem.element('input'),
+                        props.inputProps.className,
+                    )}
+                    onClick={(e) => {
+                        e.preventDefault();
+                        props.onOpen();
+                    }}
+                    onChange={e => props.inputProps.onChange(e.target.value)}
+                    placeholder={props.placeholder}
+                    disabled={props.disabled}
+                    required={props.required}
+                />
+                {!props.disabled && props.showClear && !!props.inputProps.value && (
+                    <Icon
+                        name='cross_8x8'
+                        className={bem.element('icon-clear')}
+                        tabIndex={-1}
+                        onClick={props.onClear}
+                    />
                 )}
-                onClick={(e) => {
-                    e.preventDefault();
-                    props.onOpen();
-                }}
-                onChange={e => props.inputProps.onChange(e.target.value)}
-                placeholder={props.placeholder}
-                disabled={props.disabled}
-                required={props.required}
-            />
+            </div>
             {props.isOpened && (
                 <div className={bem.element('drop-down')}>
                     <div className={bem.element('list')}>
@@ -138,9 +151,9 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
                             ? renderItems()
                             : (
                                 <Text
-                                    type='textSm'
-                                    content={__('Nothing was found')}
                                     className={bem.element('nothing')}
+                                    content={props.empty ?? __('Ничего не найдено')}
+                                    type='text'
                                 />
                             )}
                     </div>

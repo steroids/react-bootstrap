@@ -22,8 +22,29 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
 
     position: relative;
 
+    &__input-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    &_hasClearIcon {
+        #{$root}__input {
+            padding-right: 40px;
+        }
+    }
+
+    &_filled {
+        #{$root}__icon-clear {
+            opacity: 1;
+            pointer-events: all;
+            cursor: pointer;
+        }
+    }
+
     &__input {
         width: 100%;
+        padding: 0 8px;
         border: 1px solid variables.$element-border-color;
         background-color: variables.$element-field-background-color;
         color: variables.$text-color;
@@ -35,6 +56,36 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
     &_opened {
         #{$root}__input {
             border-color: variables.$primary;
+        }
+    }
+
+    &_disabled {
+        #{$root}__input {
+            background-color: variables.$element-background-color-disabled;
+            border-color: transparent;
+            cursor: not-allowed;
+        }
+    }
+
+    &__icon-clear {
+        svg > * {
+            stroke: variables.$text-color
+        }
+
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+        pointer-events: none;
+
+        &:focus {
+            opacity: 1;
+            pointer-events: all;
         }
     }
 
@@ -139,7 +190,6 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
             line-height: variables.$line-height-lg;
 
             #{$root}__input {
-                padding: 16px 8px;
                 height: variables.$input-height-lg;
                 border-radius: variables.$radius-large;
             }
@@ -153,7 +203,6 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
                     padding: 16px 24px;
                 }
 
-               
                 &__label {
                     font-size: variables.$font-size-base;
                     line-height: variables.$line-height-base;
@@ -166,7 +215,6 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
             line-height: variables.$line-height-lg;
 
             #{$root}__input {
-                padding: 11px 8px;
                 height: variables.$input-height-md;
                 border-radius: variables.$radius-large;
             }
@@ -192,7 +240,6 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
             line-height: variables.$line-height-lg;
 
             #{$root}__input {
-                padding: 5px 8px;
                 height: variables.$input-height-sm;
                 border-radius: variables.$radius-small;
             }
