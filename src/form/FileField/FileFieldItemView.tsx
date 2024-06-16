@@ -45,11 +45,11 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps) {
                 </span>
                 {renderProgressBar()}
                 <span className={bem.element('loading-text')}>
-                    {__('Uploading...')}
+                    {props.loadingText ?? __('Uploading...')}
                 </span>
             </div>
         </div>
-    ), [bem, props.title, renderProgressBar]);
+    ), [bem, props.loadingText, props.title, renderProgressBar]);
 
     const renderFileItem = React.useCallback(() => (
         <div className={bem.element('left')}>
