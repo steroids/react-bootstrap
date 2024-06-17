@@ -31,6 +31,7 @@ export default function FileFieldView(props: IFileFieldViewProps) {
                         filesLayout={props.filesLayout}
                         imagesOnly={props.imagesOnly}
                         customRemoveIcon={props.customRemoveIcon}
+                        loadingText={props.loadingText}
                         {...item}
                         {...props.itemProps}
                     />
