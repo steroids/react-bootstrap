@@ -2,12 +2,12 @@ import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {useUniqueId} from '@steroidsjs/core/hooks';
 import {ICheckboxTreeFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxTreeField/CheckboxTreeField';
-import TreeItemView from '../../nav/TreeItem/TreeItemView';
+import {ITreeItemViewProps} from '@steroidsjs/core/ui/nav/Tree/Tree';
 
 export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps) {
     const bem = useBem('CheckboxTreeFieldView');
-
     const prefix = useUniqueId('checkbox');
+    const TreeItemView = props.itemView as React.FunctionComponent<ITreeItemViewProps>;
 
     return (
         <div className={bem.block()}>
