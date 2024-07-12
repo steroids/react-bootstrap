@@ -77,6 +77,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     eventGroupsTitle={props.eventGroupsTitle}
                     onChangeEventGroupsIds={props.onChangeEventGroupsIds}
                     openCreateEventGroupModal={props.openCreateEventGroupModal}
+                    asideCalendarCheckboxListProps={props.asideCalendarCheckboxListProps}
                 />
             </aside>
             <div className={bem.element('content')}>

@@ -2,13 +2,13 @@ import React, {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {Accordion, AccordionItem, Icon} from '@steroidsjs/core/ui/content';
 import {Button, CheckboxListField} from '@steroidsjs/core/ui/form';
-import {ICalendarSystemViewProps, IEventGroup} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 
 import './AsideCalendars.scss';
 
 type IAsideCalendarsProps = Pick<
     ICalendarSystemViewProps,
-    'eventGroups' | 'eventGroupsTitle' | 'onChangeEventGroupsIds' | 'openCreateEventGroupModal'
+    'eventGroups' | 'eventGroupsTitle' | 'asideCalendarCheckboxListProps' | 'onChangeEventGroupsIds' | 'openCreateEventGroupModal'
 >
 
 function AsideCalendars(props: IAsideCalendarsProps) {
@@ -21,6 +21,7 @@ function AsideCalendars(props: IAsideCalendarsProps) {
                     <CheckboxListField
                         items={props.eventGroups}
                         onChange={(selectedIds) => props.onChangeEventGroupsIds(selectedIds)}
+                        {...props.asideCalendarCheckboxListProps}
                     />
                     <Button
                         color='basic'
