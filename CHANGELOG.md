@@ -1,11 +1,16 @@
 # Changelog
 
+## v3.0.20 (15.07.2024)
+
+### Fixed
+
+- Исправлен `border` в компонентах `InputFieldView`, `PasswordFieldView`, `TextFieldView`
+
 ## v3.0.19 (12.07.2024)
 
 ### Added
 
 - Добавлен проп asideCalendarCheckboxListProps в компоненте `CalendarSystem`
-
 
 ## v3.0.18 (20.06.2024)
 
