@@ -60,7 +60,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         }
 
         &:not(:disabled):focus {
-            border: none;
+            border-color: transparent;
         }
     }
 

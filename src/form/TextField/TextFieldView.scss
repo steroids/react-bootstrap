@@ -28,6 +28,28 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
         }
     }
 
+    //Statements
+    &::before {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        pointer-events: none;
+        transform: translate(-1px, -1px);
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+    }
+
+    &:not(#{$root}_disabled):focus-within::before {
+        border: 4px solid variables.$primary-light;
+        transform: translateX(-4px) translateY(-4px);
+        opacity: 1;
+    }
+
     &__clear {
         position: absolute;
         width: 24px;
@@ -64,6 +86,7 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
 
         padding: 5px 40px 8px 8px;
 
+        font-family: variables.$font-family-nunito;
         font-size: variables.$font-size-sm;
         font-weight: 400;
         line-height: 24px;
@@ -80,10 +103,6 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
             border-color: variables.$element-border-color-hover;
         }
 
-        &:focus {
-            border: 4px solid variables.$primary-light;
-        }
-
         &:active {
             border: 1px solid variables.$primary;
         }
@@ -92,6 +111,10 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
             background-color: variables.$element-background-color-disabled;
             border: none;
             resize: none;
+        }
+
+        &:not(:disabled):focus {
+            border-color: transparent;
         }
 
         &:disabled::placeholder {
@@ -119,6 +142,14 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
                 border-radius: variables.$radius-large;
                 font-size: variables.$font-size-lg;
             }
+
+            &::before {
+                border-radius: variables.$radius-large;
+            }
+
+            &:focus-within::before {
+                border-radius: 16px;
+            }
         }
 
         &_md {
@@ -128,6 +159,14 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
                 border-radius: variables.$radius-large;
                 font-size: variables.$font-size-base;
             }
+
+            &::before {
+                border-radius: variables.$radius-large;
+            }
+
+            &:focus-within::before {
+                border-radius: 16px;
+            }
         }
 
         &_sm {
@@ -135,6 +174,14 @@ $text-field-active-clear-color: var(--text-field-active-clear-color);
                 height: 80px;
                 border-radius: variables.$radius-small;
                 font-size: variables.$font-size-sm;
+            }
+
+            &::before {
+                border-radius: variables.$radius-small;
+            }
+
+            &:focus-within::before {
+                border-radius: 12px;
             }
         }
     }
