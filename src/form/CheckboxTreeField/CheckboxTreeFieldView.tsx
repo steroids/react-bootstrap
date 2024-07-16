@@ -18,6 +18,7 @@ export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps
                     levelPadding={props.levelPadding}
                     hasIconExpandOnly={props.hasIconExpandOnly}
                     withoutPointerOnLabel={props.hasOnlyLeafCheckboxes && checkbox.hasItems && !checkbox.isOpened}
+                    itemProps={props.itemProps}
                 >
                     {
                         props.renderCheckbox({
