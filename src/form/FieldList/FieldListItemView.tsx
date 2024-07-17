@@ -31,7 +31,7 @@ export default React.memo((props: IFieldListItemViewProps) => {
                                 props.onRemove(props.rowIndex);
                             }}
                         >
-                            <Icon name='circle_cross_18x18' />
+                            <Icon name={props.removeIcon || 'circle_cross_18x18'} />
                         </button>
                     )}
                 </td>
