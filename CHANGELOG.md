@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.22 (17.07.2024)
+
+### Added
+
+- Исправлен интерфейс `ICheckboxTreeFieldViewProps` для добавления itemProps
+
 ## v3.0.21 (17.07.2024)
 
 ### Added
