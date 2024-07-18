@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.23 (18.07.2024)
+
+### Added
+
+- Добавлена проп removeIcon в компоненте `FieldListView`
+
 ## v3.0.22 (17.07.2024)
 
 ### Added
