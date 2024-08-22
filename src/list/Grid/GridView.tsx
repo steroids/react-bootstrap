@@ -60,6 +60,7 @@ export default function GridView(props: IGridViewProps) {
         );
     }, [bem, props]);
 
+    const infiniteScroll = useMemo(() => props.renderInfiniteScroll(), [props]);
     const emptyContent = useMemo(() => props.renderEmpty(), [props]);
     const loading = useMemo(() => props.renderLoading(), [props]);
 
@@ -120,6 +121,13 @@ export default function GridView(props: IGridViewProps) {
                         <tr>
                             <td colSpan={props.columns.length}>
                                 {loading || emptyContent}
+                            </td>
+                        </tr>
+                    )}
+                    {!loading && (
+                        <tr className={bem.element('infinite-scroll')}>
+                            <td>
+                                {infiniteScroll}
                             </td>
                         </tr>
                     )}
