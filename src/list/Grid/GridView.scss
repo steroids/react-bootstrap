@@ -165,4 +165,10 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
             }
         }
     }
+
+    &__infinite-scroll {
+        td {
+            width: 100%;
+        }
+    }
 }
