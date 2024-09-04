@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.0.25 (04.09.2024)
+
+### Added
+
+- Добавлены пропсы canAddedEventGroups, onEventClick и calendarDatesFormData в компонент `CalendarSystem`
+
 ## v3.0.24 (23.08.2024)
 
 ### Added
