@@ -74,6 +74,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 {props.children}
                 <AsideCalendars
                     eventGroups={props.eventGroups}
+                    canAddedEventGroups={props.canAddedEventGroups}
                     eventGroupsTitle={props.eventGroupsTitle}
                     onChangeEventGroupsIds={props.onChangeEventGroupsIds}
                     openCreateEventGroupModal={props.openCreateEventGroupModal}
