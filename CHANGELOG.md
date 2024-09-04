@@ -1,11 +1,40 @@
 # Changelog
 
+## v3.0.24 (23.08.2024)
+
+### Added
+
+- Добавлен возможность подгружать новые элементы в `Grid` по мере прокрутки страницы
+
+## v3.0.23 (18.07.2024)
+
+### Added
+
+- Добавлена проп removeIcon в компоненте `FieldListView`
+
+## v3.0.22 (17.07.2024)
+
+### Added
+
+- Исправлен интерфейс `ICheckboxTreeFieldViewProps` для добавления itemProps
+
+## v3.0.21 (17.07.2024)
+
+### Added
+
+- Добавлен проп itemProps в компоненте `CheckboxTreeFieldView`
+
+## v3.0.20 (15.07.2024)
+
+### Fixed
+
+- Исправлен `border` в компонентах `InputFieldView`, `PasswordFieldView`, `TextFieldView`
+
 ## v3.0.19 (12.07.2024)
 
 ### Added
 
 - Добавлен проп asideCalendarCheckboxListProps в компоненте `CalendarSystem`
-
 
 ## v3.0.18 (20.06.2024)
 
