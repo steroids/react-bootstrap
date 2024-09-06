@@ -124,7 +124,7 @@ export default function GridView(props: IGridViewProps) {
                             </td>
                         </tr>
                     )}
-                    {!loading && (
+                    {!loading && infiniteScroll && (
                         <tr className={bem.element('infinite-scroll')}>
                             <td>
                                 {infiniteScroll}
