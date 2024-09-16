@@ -229,6 +229,9 @@ export default {
     'list.TreeColumnView': {
         lazy: () => require('./list/Grid/views/TreeColumnView/TreeColumnView').default,
     },
+    'list.TreeItemView': {
+        lazy: () => require('./nav/TreeItem/TreeItemView').default,
+    },
     'list.ListView': {
         lazy: () => require('./list/List/ListView').default,
     },
