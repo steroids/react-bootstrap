@@ -69,6 +69,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                     showFooter={false}
                     onTodayButtonClick={props.onCalendarChangedMonth}
                     onMonthChange={props.onCalendarChangedMonth}
+                    onChange={() => props.handleCalendarTypeChange(CalendarEnum.DAY)}
                     {...props.asideCalendarProps}
                 />
                 {props.children}
@@ -85,6 +86,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
                 <ContentHeader
                     dateToDisplay={props.dateToDisplay}
                     handleCalendarTypeChange={props.handleCalendarTypeChange}
+                    calendarType={props.calendarType}
                     onClickControl={props.onClickControl}
                 />
                 {calendarTypeGrids[props.calendarType as string]}

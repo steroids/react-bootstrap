@@ -12,7 +12,7 @@ import './ContentHeader.scss';
 
 type IContentHeaderProps = Pick<
     ICalendarSystemViewProps,
-    'dateToDisplay' | 'handleCalendarTypeChange' | 'onClickControl'
+    'dateToDisplay' | 'handleCalendarTypeChange' | 'onClickControl' | 'calendarType'
 >
 
 function ContentHeader(props: IContentHeaderProps) {
@@ -45,7 +45,7 @@ function ContentHeader(props: IContentHeaderProps) {
                 className={bem.element('measures')}
                 items={CalendarEnum}
                 onClick={props.handleCalendarTypeChange}
-                defaultActiveButton={CalendarEnum.MONTH}
+                activeButton={props.calendarType || CalendarEnum.MONTH}
             />
         </div>
     );
