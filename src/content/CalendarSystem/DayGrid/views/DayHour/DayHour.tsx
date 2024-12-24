@@ -17,7 +17,7 @@ interface IDayHourProps extends Pick<ICalendarSystemViewProps, 'openEditModal' |
     renderEventView: (componentProps: any) => React.ReactNode,
 }
 
-export default function DayHour(props: IDayHourProps) {
+function DayHour(props: IDayHourProps) {
     const bem = useBem('DayHour');
 
     const {
@@ -72,3 +72,4 @@ export default function DayHour(props: IDayHourProps) {
         </div>
     );
 }
+export default React.memo(DayHour);
