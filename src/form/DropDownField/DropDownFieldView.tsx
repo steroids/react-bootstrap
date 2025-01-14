@@ -7,14 +7,13 @@ import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     const bem = useBem('DropDownFieldView');
-    const inputRef = useRef<HTMLInputElement>(null);
 
     // Auto focus on search
     useEffect(() => {
-        if (props.isSearchAutoFocus && props.isAutoComplete && props.isOpened && inputRef?.current) {
-            inputRef.current.focus();
+        if (props.isSearchAutoFocus && props.isAutoComplete && props.isOpened && props.forwardedInputRef?.current) {
+            props.forwardedInputRef.current.focus();
         }
-    }, [props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
+    }, [props.forwardedInputRef, props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
 
     const renderPlaceholder = React.useCallback(() => props.placeholder && !props.selectedIds?.length
         ? (
@@ -85,7 +84,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                             />
                             <input
                                 {...props.searchInputProps}
-                                ref={inputRef}
+                                ref={props.forwardedInputRef}
                                 onChange={e => props.searchInputProps.onChange(e.target.value)}
                                 className={bem(
                                     bem.element('search-input'),
