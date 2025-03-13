@@ -122,18 +122,67 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         }
     }
 
+    &:first-child {
+        .AccordionItemView__header-container {
+            border-top-left-radius: variables.$radius-large;
+            border-top-right-radius: variables.$radius-large; 
+            transition: 200ms ease border-radius;
+            transition-delay: 200ms;
+        }
+    } 
+    &:last-child {
+        .AccordionItemView__header-container {
+            border-bottom-left-radius: variables.$radius-large;
+            border-bottom-right-radius: variables.$radius-large;
+            transition: 200ms ease border-radius;
+            transition-delay: 200ms;
+        }
+        .AccordionItemView__content {
+            border-bottom-left-radius: variables.$radius-large;
+            border-bottom-right-radius: variables.$radius-large;
+        }
+    }    
+    &_position_bottom.AccordionItemView_opened.AccordionItemView {
+        &:first-child {
+            .AccordionItemView__header-container {
+                border-top-left-radius: 0;
+                border-top-right-radius: 0;
+                transition: 0ms ease border-radius;
+            }
+            .AccordionItemView__content {
+                border-top-left-radius: variables.$radius-large;
+                border-top-right-radius: variables.$radius-large;
+            }
+        }
+        &:last-child {
+            .AccordionItemView__header-container {
+                border-bottom-left-radius: variables.$radius-large;
+                border-bottom-right-radius: variables.$radius-large;
+                transition: 200ms ease border-radius;
+                transition-delay: 200ms;
+            }
+            .AccordionItemView__content {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }    
+    }
+    &_opened.AccordionItemView {
+        &:last-child .AccordionItemView__header-container {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            transition: 0s ease border-radius;
+        }    
+    }
+
     &_position {
         &_top {
-            border-radius: variables.$radius-large variables.$radius-large 0 0;
         }
 
         &_middle {
-            border-radius: 0;
         }
 
         &_bottom {
-            border-radius: 0 0 variables.$radius-large variables.$radius-large;
-
             #{$root}__content {
                 grid-row-start: 1;
                 grid-row-end: 1;
@@ -224,6 +273,7 @@ $accordion-chevron-color: var(--accordion-chevron-color);
         max-height: 0;
         padding: 0 16px;
         color: variables.$text-color;
+        background-color: $accordion-content-background;
 
         &_visible {
             max-height: 1024px;
