@@ -96,6 +96,7 @@ export default function CalendarView(props: ICalendarViewProps) {
             numberOfMonths={numberOfMonths}
             localeUtils={customLocaleUtils}
             locale={localeComponent.language}
+            {...props.pickerProps}
         />
     );
 }
