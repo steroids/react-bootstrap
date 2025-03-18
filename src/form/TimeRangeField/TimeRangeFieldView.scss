@@ -50,6 +50,12 @@
         flex-flow: row nowrap;
         column-gap: 47px;
 
+        .TimePanelView {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         .TimePanelView__footer { 
             padding: 0;
             padding-top: 10px;
