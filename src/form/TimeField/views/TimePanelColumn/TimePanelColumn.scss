@@ -1,0 +1,48 @@
+@use "../../../../scss/variables";
+@use '../../../../scss/mixins';
+.TimePanelColumn {
+    position: relative;
+    &__column {
+        height: 220px;
+        overflow-y: auto;
+        list-style: none;
+        padding: 39px 0;
+        margin: 0;
+        @include mixins.scrollWrapper(298px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
+    }    
+    &__cell {
+        padding: 5px 20px;
+        cursor: pointer;
+
+        &_selected {
+            background-color: variables.$primary-light;
+        }
+
+        transition: background-color 0.1s ease-in;
+        &:hover {
+            background-color: variables.$back-disabled;
+        }
+    }
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 39px;
+        width: 100%;
+
+        $color: var(--element-background-color);
+        $color-hidden: rgb(from var(--element-background-color) r g b / 0%);
+
+        background: linear-gradient(to top, $color-hidden 0%, $color 100%);
+
+        pointer-events: none;
+    }
+
+    &::after {
+        bottom: 0;
+        top: unset;
+        transform: rotateZ(180deg);
+    }
+}
