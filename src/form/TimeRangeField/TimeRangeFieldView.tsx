@@ -39,6 +39,7 @@ export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputPropsFrom}
+                        id={props.id}
                         className={bem(
                             bem.element('input'),
                         )}
