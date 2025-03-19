@@ -45,24 +45,30 @@ $autocomplete-icon-color: var(--autocomplete-icon-color);
     &__input {
         width: 100%;
         padding: 0 8px;
-        border: 1px solid variables.$element-border-color;
+        outline: 1px solid variables.$element-border-color;
+        border: none;
         background-color: variables.$element-field-background-color;
         color: variables.$text-color;
-        transition: border-color 150ms ease-in-out;
+        transition: outline 150ms ease-in-out;
         font-size: inherit;
         line-height: inherit;
+
+        &:active {
+            outline-color: variables.$primary;
+        }
     }
 
     &_opened {
         #{$root}__input {
-            border-color: variables.$primary;
+            outline-width: 4px;
+            outline-color: variables.$primary-light;
         }
     }
 
     &_disabled {
         #{$root}__input {
             background-color: variables.$element-background-color-disabled;
-            border-color: transparent;
+            outline-color: transparent;
             cursor: not-allowed;
         }
     }
