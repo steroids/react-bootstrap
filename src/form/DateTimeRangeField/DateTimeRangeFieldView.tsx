@@ -48,6 +48,7 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputPropsFrom}
+                        id={props.id}
                         className={bem(
                             bem.element('input', {
                                 size: props.size,
