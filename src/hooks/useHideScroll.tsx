@@ -14,6 +14,10 @@ export default function useHideScroll() {
     const defaultPadding: MutableRefObject<string> = useRef(null);
 
     useMount(() => {
+        if (process.env.IS_SSR) {
+            return;
+        }
+
         const fullWindowWidth = window.innerWidth; // полная ширина окна;
         const windowWidthWithoutScrollbar = document.documentElement.clientWidth; // ширина окна за вычетом скролла
 
@@ -30,6 +34,9 @@ export default function useHideScroll() {
     });
 
     useUnmount(() => {
+        if (process.env.IS_SSR) {
+            return;
+        }
         document.body.style.paddingRight = defaultPadding.current;
         document.body.classList.remove(BODY_HIDE_SCROLL_CLASS_NAME);
     });
