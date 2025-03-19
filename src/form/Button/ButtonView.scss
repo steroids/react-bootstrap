@@ -9,7 +9,7 @@ $btn-letter-spacing: 0.1em;
 .ButtonView {
     $root: &;
 
-    transition-property: color, background-color, border-color, box-shadow;
+    transition-property: color, background-color, outline-color, box-shadow;
     transition-duration: variables.$transition-duration;
     transition-timing-function: ease-in-out;
 
@@ -22,8 +22,9 @@ $btn-letter-spacing: 0.1em;
     &_button {
         position: relative;
         border-radius: variables.$radius-small;
+        border: none;
         user-select: none;
-        border: 3px solid transparent;
+        outline: 3px solid transparent;
 
         padding: 0 20px;
         display: flex;
@@ -140,7 +141,7 @@ $btn-letter-spacing: 0.1em;
     &_failed {
         &,
         &:hover {
-            border-color: variables.$danger;
+            outline-color: variables.$danger;
             box-shadow: 0 0 1rem rgba(variables.$danger, 0.2);
         }
     }
