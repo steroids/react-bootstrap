@@ -148,8 +148,3 @@ $modal-background-color: var(--modal-background-color);
         opacity: 0;
     }
 }
-
-// Class to hide body scroll, when Modal is opened
-.ModalView_body-hide-scroll {
-    overflow: hidden;
-}
