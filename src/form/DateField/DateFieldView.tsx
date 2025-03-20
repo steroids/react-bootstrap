@@ -10,8 +10,11 @@ export default function DateFieldView(props: IDateFieldViewProps) {
     const bem = useBem('DateFieldView');
 
     const renderCalendar = useCallback(() => (
-        <Calendar {...props.calendarProps} />
-    ), [props.calendarProps]);
+        <Calendar
+            {...props.calendarProps}
+            pickerProps={props.pickerProps}
+        />
+    ), [props.calendarProps, props.pickerProps]);
 
     return (
         <DropDown
