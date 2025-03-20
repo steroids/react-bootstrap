@@ -15,6 +15,7 @@ export default function TimePanelColumn(props: ITimePanelColumnProps) {
     const onUpdate = (value: string) => () => {
         props.column.onUpdate(value);
     };
+
     return (
         <div className={bem.block()}>
             <div className={bem.element('column')}>

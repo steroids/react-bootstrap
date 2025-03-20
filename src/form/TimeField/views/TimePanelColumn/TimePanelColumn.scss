@@ -1,7 +1,13 @@
 @use "../../../../scss/variables";
 @use '../../../../scss/mixins';
+
+$color: var(--element-background-color);
+$color-hidden: rgb(from var(--element-background-color) r g b / 0%);
+$background-linear-gradient: linear-gradient(to top, $color-hidden 0%, $color 100%);
+
 .TimePanelColumn {
     position: relative;
+
     &__column {
         height: 220px;
         overflow-y: auto;
@@ -10,6 +16,7 @@
         margin: 0;
         @include mixins.scrollWrapper(298px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
     }    
+
     &__cell {
         padding: 5px 20px;
         cursor: pointer;
@@ -23,6 +30,7 @@
             background-color: variables.$back-disabled;
         }
     }
+
     &::before,
     &::after {
         content: '';
@@ -32,14 +40,10 @@
         height: 39px;
         width: 100%;
 
-        $color: var(--element-background-color);
-        $color-hidden: rgb(from var(--element-background-color) r g b / 0%);
-
-        background: linear-gradient(to top, $color-hidden 0%, $color 100%);
+        background: $background-linear-gradient;
 
         pointer-events: none;
     }
-
     &::after {
         bottom: 0;
         top: unset;
