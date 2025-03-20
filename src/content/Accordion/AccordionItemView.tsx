@@ -4,8 +4,6 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {IAccordionItemViewProps, IAccordionIcon} from '@steroidsjs/core/ui/content/Accordion/Accordion';
 import renderIconByType from '../../utils/renderIcon';
 
-const ICON_SIZE = '_24x24';
-
 export default function AccordionItemView(props: IAccordionItemViewProps) {
     const bem = useBem('AccordionItemView');
 
