@@ -18,7 +18,7 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
             )}
             style={props.style}
         >
-            {props.items.map((checkbox, checkboxIndex) => props.renderCheckbox({
+            {props.items.map((checkbox, checkboxIndex) => props.renderItem({
                 key: checkboxIndex,
                 id: `${prefix}_${checkbox.id}`,
                 label: checkbox.label,

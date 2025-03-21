@@ -18,42 +18,25 @@ export default function SwitcherFieldView(props: SwitcherFieldViewPropsType) {
             )}
             style={props.style}
         >
-            {props.items.map((checkbox, checkboxIndex) => props.renderCheckbox
-                ? props.renderCheckbox({
-                    key: checkboxIndex,
-                    id: `${prefix}_${checkbox.id}`,
-                    label: checkbox.label,
-                    inputProps: {
-                        name: `${prefix}_${checkbox.id}`,
-                        type: 'checkbox',
-                        checked: props.selectedIds.includes(checkbox.id),
-                        onChange: () => {
-                            props.onItemSelect(checkbox.id);
-                        },
-                        disabled: props.disabled || checkbox.disabled,
+            {props.items.map((checkbox, checkboxIndex) => props.renderItem({
+                key: checkboxIndex,
+                id: `${prefix}_${checkbox.id}`,
+                label: checkbox.label,
+                inputProps: {
+                    name: `${prefix}_${checkbox.id}`,
+                    type: 'checkbox',
+                    checked: props.selectedIds.includes(checkbox.id),
+                    onChange: () => {
+                        props.onItemSelect(checkbox.id);
                     },
-                    size: checkbox.size || props.size,
-                    color: checkbox.color,
-                    required: checkbox.required,
-                    view: SingleSwitcherFieldView,
-                })
-                : props.renderRadio({
-                    key: checkboxIndex,
-                    id: `${prefix}_${checkbox.id}`,
-                    label: checkbox.label,
-                    inputProps: {
-                        name: `${prefix}_${checkbox.id}`,
-                        type: 'radio',
-                        checked: props.selectedIds.includes(checkbox.id),
-                        onChange: () => {
-                            props.onItemSelect(checkbox.id);
-                        },
-                        disabled: props.disabled || checkbox.disabled,
-                    },
-                    size: checkbox.size || props.size,
-                    required: checkbox.required,
-                    view: SingleSwitcherFieldView,
-                }))}
+                    disabled: props.disabled || checkbox.disabled,
+                },
+                size: checkbox.size || props.size,
+                color: checkbox.color,
+                required: checkbox.required,
+                view: SingleSwitcherFieldView,
+            }))}
+
         </div>
     );
 }
