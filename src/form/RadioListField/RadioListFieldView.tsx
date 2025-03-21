@@ -16,7 +16,7 @@ export default function RadioListFieldView(props: IRadioListFieldViewProps) {
             props.className,
         )}
         >
-            {props.items.map((radio, radioIndex) => props.renderRadio({
+            {props.items.map((radio, radioIndex) => props.renderItem({
                 key: radioIndex,
                 id: `${prefix}_${radio.id}`,
                 label: radio.label,
