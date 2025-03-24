@@ -12,9 +12,8 @@ export default function DateFieldView(props: IDateFieldViewProps) {
     const renderCalendar = useCallback(() => (
         <Calendar
             {...props.calendarProps}
-            pickerProps={props.pickerProps}
         />
-    ), [props.calendarProps, props.pickerProps]);
+    ), [props.calendarProps]);
 
     return (
         <DropDown

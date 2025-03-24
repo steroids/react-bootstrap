@@ -15,7 +15,6 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
         <div className={bem.element('panel-container')}>
             <Calendar
                 {...props.calendarProps}
-                pickerProps={props.pickerProps}
                 className={bem.element('calendar')}
             />
             <div className={bem.element('separator')} />
@@ -24,7 +23,7 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
                 className={bem.element('time-panel')}
             />
         </div>
-    ), [bem, props.calendarProps, props.timePanelViewProps, props.pickerProps]);
+    ), [bem, props.calendarProps, props.timePanelViewProps]);
 
     return (
         <DropDown

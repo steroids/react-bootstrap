@@ -53,6 +53,7 @@ export default function CalendarView(props: ICalendarViewProps) {
     return (
         <DayPicker
             {...props}
+            {...props.pickerProps}
             className={bem(bem.block({ranged: isRange}), props.className)}
             captionElement={useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
                 <CaptionElement
@@ -96,7 +97,6 @@ export default function CalendarView(props: ICalendarViewProps) {
             numberOfMonths={numberOfMonths}
             localeUtils={customLocaleUtils}
             locale={localeComponent.language}
-            {...props.pickerProps}
         />
     );
 }
