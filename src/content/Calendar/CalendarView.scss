@@ -212,14 +212,6 @@ $calendar-border-color: var(--calendar-border-color);
         background-color: $day-background-color-hover;
     }
 
-    .DayPicker-Day--today:hover {
-        background-color: transparent;
-
-        .CalendarView__day {
-            transition: background-color 150ms ease-in-out;
-        }
-    }
-
     &__day {
         position: relative;
         z-index: 1;
