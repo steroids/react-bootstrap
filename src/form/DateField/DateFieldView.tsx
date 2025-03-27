@@ -10,7 +10,9 @@ export default function DateFieldView(props: IDateFieldViewProps) {
     const bem = useBem('DateFieldView');
 
     const renderCalendar = useCallback(() => (
-        <Calendar {...props.calendarProps} />
+        <Calendar
+            {...props.calendarProps}
+        />
     ), [props.calendarProps]);
 
     return (
