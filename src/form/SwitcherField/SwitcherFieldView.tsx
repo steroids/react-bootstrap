@@ -1,42 +1,47 @@
-import * as React from 'react';
+import React from 'react';
 import {useBem, useUniqueId} from '@steroidsjs/core/hooks';
-import {ICheckboxListFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxListField/CheckboxListField';
-import {IRadioListFieldViewProps} from '@steroidsjs/core/ui/form/RadioListField/RadioListField';
-import SingleSwitcherFieldView from '../SingleSwitcherField/SingleSwitcherFieldView';
 
-type SwitcherFieldViewPropsType = ICheckboxListFieldViewProps & IRadioListFieldViewProps
+import {ICheckboxFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxField/CheckboxField';
 
-export default function SwitcherFieldView(props: SwitcherFieldViewPropsType) {
+export default function SwitcherFieldView(props: ICheckboxFieldViewProps) {
     const bem = useBem('SwitcherFieldView');
-    const prefix = useUniqueId('switcher');
+    const uniqueId = useUniqueId('switcher');
+
+    const renderLabel = React.useCallback(() => {
+        if (typeof props.label === 'object') {
+            return props.inputProps.checked ? props.label.checked : props.label.unchecked;
+        }
+
+        return props.label;
+    }, [props.inputProps.checked, props.label]);
+
+    const customVariableColorStyle = {'--checkbox-custom-color': props.color} as React.CSSProperties;
 
     return (
         <div
             className={bem(
-                bem.block(),
+                bem.block({
+                    size: props.size,
+                    hasErrors: !!props.errors,
+                }),
                 props.className,
             )}
-            style={props.style}
+            style={{
+                ...props.style,
+                ...customVariableColorStyle,
+            }}
+            onClick={props.onChange}
         >
-            {props.items.map((checkbox, checkboxIndex) => props.renderItem({
-                key: checkboxIndex,
-                id: `${prefix}_${checkbox.id}`,
-                label: checkbox.label,
-                inputProps: {
-                    name: `${prefix}_${checkbox.id}`,
-                    type: 'checkbox',
-                    checked: props.selectedIds.includes(checkbox.id),
-                    onChange: () => {
-                        props.onItemSelect(checkbox.id);
-                    },
-                    disabled: props.disabled || checkbox.disabled,
-                },
-                size: checkbox.size || props.size,
-                color: checkbox.color,
-                required: checkbox.required,
-                view: SingleSwitcherFieldView,
-            }))}
-
+            <input
+                id={props.id || uniqueId}
+                disabled={props.disabled}
+                required={props.required}
+                onChange={() => props.onItemSelect(props.id)}
+                className={bem.element('input')}
+                {...props.inputProps}
+            />
+            <span className={bem.element('slider')} />
+            <span className={bem.element('label')}>{renderLabel()}</span>
         </div>
     );
 }

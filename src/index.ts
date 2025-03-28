@@ -163,8 +163,8 @@ export default {
     'form.SwitcherFieldView': {
         lazy: () => require('./form/SwitcherField/SwitcherFieldView').default,
     },
-    'form.SingleSwitcherFieldView': {
-        lazy: () => require('./form/SingleSwitcherField/SingleSwitcherFieldView').default,
+    'form.SwitcherListFieldView': {
+        lazy: () => require('./form/SwitcherListField/SwitcherListFieldView').default,
     },
     'form.TextFieldView': {
         lazy: () => require('./form/TextField/TextFieldView').default,
