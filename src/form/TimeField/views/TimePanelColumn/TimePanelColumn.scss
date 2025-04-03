@@ -21,11 +21,12 @@ $background-linear-gradient: linear-gradient(to top, $color-hidden 0%, $color 10
         padding: 5px 20px;
         cursor: pointer;
 
+        transition: background-color 0.1s ease-in;
+
         &_selected {
             background-color: variables.$primary-light;
         }
 
-        transition: background-color 0.1s ease-in;
         &:hover {
             background-color: variables.$back-disabled;
         }

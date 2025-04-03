@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../../../../scss/variables";
 
 .DiagramColumnView {
@@ -68,8 +69,8 @@
                 &_color {
                     @each $color, $color-map in variables.$diagram-colors {
                         &_#{$color} {
-                            background-color: map-get($color-map, color-themed);
-                            border-right: 1px solid map-get($color-map, color);
+                            background-color: map.get($color-map, color-themed);
+                            border-right: 1px solid map.get($color-map, color);
                         }
                     }
                 }
@@ -107,8 +108,8 @@
                 &_color {
                     @each $color, $color-map in variables.$diagram-colors {
                         &_#{$color} {
-                            background-color: map-get($color-map, color-themed);
-                            border-top: 1px solid map-get($color-map, color);
+                            background-color: map.get($color-map, color-themed);
+                            border-top: 1px solid map.get($color-map, color);
                         }
                     }
                 }
@@ -152,7 +153,7 @@
                 &_color {
                     @each $color, $color-map in variables.$diagram-colors {
                         &_#{$color} {
-                            border: 2px solid map-get($color-map, color);
+                            border: 2px solid map.get($color-map, color);
                         }
                     }
                 }
