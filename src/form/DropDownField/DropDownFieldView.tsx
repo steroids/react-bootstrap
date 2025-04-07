@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useEffect, useRef} from 'react';
+import {useEffect} from 'react';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
@@ -55,6 +55,10 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         ? getSelectedItemsLabel(props.selectedItems)
                         : getSelectedItemsCount(props.selectedItems)}
                 </span>
+                <input
+                    className={bem.element('input')}
+                    ref={props.inputRef}
+                />
             </div>
             {props.showReset && props.selectedIds.length > 0 && (
                 <Icon
@@ -84,7 +88,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                             />
                             <input
                                 {...props.searchInputProps}
-                                ref={props.forwardedInputRef}
+                                ref={props.autoCompleteInputForwardedRef}
                                 onChange={e => props.searchInputProps.onChange(e.target.value)}
                                 className={bem(
                                     bem.element('search-input'),
