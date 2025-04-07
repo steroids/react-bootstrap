@@ -23,3 +23,8 @@ button {
 input {
     outline: none;
 }
+
+// Class to hide body scroll, when Modal is opened
+.body-hide-scroll {
+    overflow: hidden;
+}
