@@ -6,6 +6,9 @@
 
     --grid-td-background-color: #FFFFFF;
     --grid-td-alternating-color: var(--additional-light-gray);
+
+    --sort-button-color: var(--graphite);
+    --sort-button-color-active: var(--graphite-dark);
 }
 
 html[data-theme="dark"] {
@@ -14,6 +17,10 @@ html[data-theme="dark"] {
 
     --grid-td-background-color: var(--graphite);
     --grid-td-alternating-color: var(--graphite-dark);
+
+
+    --sort-button-color: var(--secondary-dark);
+    --sort-button-color-active: var(--secondary);
 }
 
 $grid-header-background-color: var(--grid-header-background-color);
@@ -97,6 +104,13 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
             td:not(#{$root}__column_isDiagram) {
                 padding: 24px 16px;
             }
+
+            &:has(#{$root}__sort-buttons) {
+                th {
+                    position: relative;
+                    padding: 24px 30px 24px 16px;
+                }
+            }
         }
 
         &_md {
@@ -109,6 +123,13 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
             td:not(#{$root}__column_isDiagram) {
                 padding: 21px 12px;
             }
+
+            &:has(#{$root}__sort-buttons) {
+                th {
+                    position: relative;
+                    padding: 21px 30px 21px 12px;
+                }
+            }
         }
 
         &_sm {
@@ -120,6 +141,13 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
             th,
             td:not(#{$root}__column_isDiagram) {
                 padding: 16px 8px;
+            }
+
+            &:has(#{$root}__sort-buttons) {
+                th {
+                    position: relative;
+                    padding: 16px 30px 16px 8px;
+                }
             }
         }
     }
@@ -169,6 +197,24 @@ $grid-td-alternating-color: var(--grid-td-alternating-color);
     &__infinite-scroll {
         td {
             width: 100%;
+        }
+    }
+
+    &__sort-buttons {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__sort-button {
+        path {
+            stroke: var(--sort-button-color);
+        }
+        &_is-active {
+            path {
+                stroke: var(--sort-button-color-active);
+                stroke-width: 2px;
+            }
         }
     }
 }

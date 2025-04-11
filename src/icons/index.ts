@@ -17,6 +17,8 @@ export default (customIcons: Record<string, any>) => {
         'arrow_right_24x24',
         'arrow_up_18x18',
         'arrow_up_24x24',
+        'long-arrow-alt-down',
+        'long-arrow-alt-up',
         'blank',
         'calendar_check',
         'chart',
