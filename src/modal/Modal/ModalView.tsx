@@ -4,9 +4,13 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {IModalViewProps} from '@steroidsjs/core/ui/modal/Modal/Modal';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {Button} from '@steroidsjs/core/ui/form';
+import {useHideScroll} from '../../hooks';
 
 export default function ModalView(props: IModalViewProps) {
     const bem = useBem('ModalView');
+
+    useHideScroll();
+
     const overrideDefaultClasses = {
         base: bem.block('overlay'),
         afterOpen: 'ModalView_overlay-after',
@@ -16,7 +20,6 @@ export default function ModalView(props: IModalViewProps) {
         <Modal
             {...props}
             ariaHideApp={false}
-            bodyOpenClassName='ModalView_body-hide-scroll'
             className={bem(bem.element('body', {size: props.size}), props.className)}
             closeTimeoutMS={props.closeTimeoutMs}
             isOpen={!props.isClosing}
