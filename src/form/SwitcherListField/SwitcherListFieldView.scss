@@ -1,0 +1,9 @@
+@use "sass:map";
+@use "../../scss/variables";
+
+.SwitcherListFieldView {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    row-gap: 10px;
+}
