@@ -44,7 +44,7 @@ export default function GridView(props: IGridViewProps) {
 
     const renderSortButton = useCallback((attribute, direction) => {
         const sortKey = (direction === 'desc' ? '-' : '') + attribute;
-        const isActive = [].concat(props.list?.sort || []).includes(sortKey);
+        const isActive = [].concat(props?.sort || []).includes(sortKey);
         return (
             <Button
                 icon={direction === 'asc' ? 'long-arrow-alt-up' : 'long-arrow-alt-down'}
@@ -87,7 +87,7 @@ export default function GridView(props: IGridViewProps) {
                             >
                                 {column.label}
                                 {column.sortable && column.attribute && (
-                                    <span>
+                                    <span className={bem.element('sort-buttons')}>
                                         {column.label && <span>&nbsp;</span>}
                                         {renderSortButton(column.attribute, 'asc')}
                                         {renderSortButton(column.attribute, 'desc')}
