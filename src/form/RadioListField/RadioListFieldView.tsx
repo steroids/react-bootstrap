@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-
 import {IRadioListFieldViewProps} from '@steroidsjs/core/ui/form/RadioListField/RadioListField';
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 

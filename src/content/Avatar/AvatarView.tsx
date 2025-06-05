@@ -52,14 +52,12 @@ export default function Avatar(props: IAvatarProps) {
                     ...customSize,
                 }}
             >
-                <>
-                    {(props.src && renderImage()) || (
-                        <span className={bem.element('formattedTitle')}>
-                            {props.formattedTitle}
-                        </span>
+                {(props.src && renderImage()) || (
+                <span className={bem.element('formattedTitle')}>
+                    {props.formattedTitle}
+                </span>
                     )}
-                    {props.children}
-                </>
+                {props.children}
             </span>
         </div>
     );

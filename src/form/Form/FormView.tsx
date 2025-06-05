@@ -1,6 +1,5 @@
 import * as React from 'react';
 import _isString from 'lodash-es/isString';
-
 import {IFormViewProps} from '@steroidsjs/core/ui/form/Form/Form';
 import {useBem} from '@steroidsjs/core/hooks';
 import Field from '@steroidsjs/core/ui/form/Field';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Pagination';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Icon} from '@steroidsjs/core/ui/content';
@@ -8,6 +7,7 @@ const renderArrowStep = (
     bem: any,
     onClick: () => void,
     iconName: string,
+    // eslint-disable-next-line default-param-last
     rotate = false,
     rounding?: {
         left?: boolean,
@@ -23,10 +23,12 @@ const renderArrowStep = (
     })}
     >
         <button
-            className={bem.element('page-button',
+            className={bem.element(
+                'page-button',
                 {
                     hasIcon: true,
-                })}
+                },
+            )}
             onClick={() => onClick()}
             disabled={disabled}
         >

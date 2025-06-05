@@ -3,7 +3,6 @@ import * as React from 'react';
 import {IInputFieldViewProps} from '@steroidsjs/core/ui/form/InputField/InputField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
-
 import renderIcon from '../../utils/renderIcon';
 
 export default function InputFieldView(props: IInputFieldViewProps) {
@@ -41,11 +40,13 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                         {props.addonBefore}
                     </span>
                 )}
-                {props.leadIcon && renderIcon(props.leadIcon,
+                {props.leadIcon && renderIcon(
+props.leadIcon,
                     {
                         className: bem.element('lead-icon'),
                         tabIndex: -1,
-                    })}
+                    },
+)}
                 {props.maskOptions
                     ? (
                         <input

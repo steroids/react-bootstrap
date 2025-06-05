@@ -5,7 +5,6 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRangeField/DateTimeRangeField';
-
 import TimePanelView from '../TimeField/TimePanelView';
 
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {
@@ -37,12 +36,14 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             className={bem.element('dropdown')}
         >
             <div
-                className={bem(bem.block({
+                className={bem(
+bem.block({
                     disabled: props.disabled,
                     size: props.size,
                     'is-invalid': !!props.errors,
                 }),
-                props.className)}
+                props.className,
+)}
                 style={props.style}
             >
                 <div className={bem.element('body')}>

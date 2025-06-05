@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {IListViewProps} from '@steroidsjs/core/ui/list/List/List';
 import {useBem} from '@steroidsjs/core/hooks';
 

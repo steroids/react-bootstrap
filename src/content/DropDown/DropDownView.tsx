@@ -2,7 +2,6 @@ import * as React from 'react';
 import _isFunction from 'lodash-es/isFunction';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 import {IDropDownViewProps} from '@steroidsjs/core/ui/content/DropDown/DropDown';
-
 import {useEffect, useMemo, useRef} from 'react';
 
 export default function DropDownView(props: IDropDownViewProps) {

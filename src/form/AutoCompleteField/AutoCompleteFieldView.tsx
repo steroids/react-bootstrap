@@ -108,15 +108,13 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
     return (
         <div
             ref={props.forwardedRef}
-            className={bem(
-                bem.block({
+            className={bem(bem.block({
                     size: props.size,
                     opened: props.isOpened,
                     hasClearIcon: props.showClear && !props.disabled,
                     filled: !!props.inputProps.value,
                     disabled: props.disabled,
-                }), props.className,
-            )}
+                }), props.className)}
             style={props.style}
         >
             <div className={bem.element('input-wrapper')}>

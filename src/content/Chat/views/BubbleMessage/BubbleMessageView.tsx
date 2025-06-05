@@ -9,9 +9,8 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IChatUser} from '@steroidsjs/core/ui/content/Chat/Chat';
 import {SECONDS_IN_MINUTE_VALUE} from '@steroidsjs/core/ui/content/Chat/constants/timeTemplatesAndUnits';
 import {calculateMessageTimeAgo} from '@steroidsjs/core/ui/content/Chat/utils';
-
-import './BubbleMessageView.scss';
 import ChatFileItemView from '../ChatFileItem';
+import './BubbleMessageView.scss';
 
 interface IBubbleMessageProps {
     user: IChatUser,

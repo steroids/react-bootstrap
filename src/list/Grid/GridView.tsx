@@ -2,7 +2,6 @@ import * as React from 'react';
 import _get from 'lodash-es/get';
 import _keyBy from 'lodash-es/keyBy';
 import _isString from 'lodash-es/isString';
-
 import Button from '@steroidsjs/core/ui/form/Button';
 import Field from '@steroidsjs/core/ui/form/Field';
 import {useBem} from '@steroidsjs/core/hooks';
@@ -65,15 +64,13 @@ export default function GridView(props: IGridViewProps) {
     const loading = useMemo(() => props.renderLoading(), [props]);
 
     return props.renderList(
-        <div className={bem(
-            bem.block(
+        <div className={bem(bem.block(
                 {
                     loading: props.isLoading || props.list?.isLoading,
                     size: props.size,
                     alternatingColors: props.hasAlternatingColors,
                 },
-            ), props.className,
-        )}
+            ), props.className)}
         >
             {props.renderSearchForm()}
             {props.renderPaginationSize()}

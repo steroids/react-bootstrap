@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {ITextFieldViewProps} from '@steroidsjs/core/ui/form/TextField/TextField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
