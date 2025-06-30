@@ -5,6 +5,7 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
+import RangeButtons from './views/RangeButtons';
 
 export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const bem = useBem('DateRangeFieldView');
@@ -12,10 +13,32 @@ export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {
     const hasValue = props.inputPropsFrom.value || props.inputPropsTo.value;
 
     const renderCalendar = useCallback(() => (
-        <Calendar
-            {...props.calendarProps}
-        />
-    ), [props.calendarProps]);
+        props.withRangeButtons ? (
+            <div className={bem.element('calendar-wrapper', {
+                position: props.rangeButtonsPosition,
+            })}
+            >
+                <div className={bem.element('additional-buttons')}>
+                    <RangeButtons
+                        config={props.withRangeButtons}
+                        changeTo={props.inputPropsTo.onChange}
+                        changeFrom={props.inputPropsFrom.onChange}
+                        position={props.rangeButtonsPosition}
+                        format={props.displayFormat}
+                    />
+                </div>
+                <div className={bem.element('calendar')}>
+                    <Calendar {...props.calendarProps} />
+                </div>
+            </div>
+        )
+            : (
+                <Calendar
+                    {...props.calendarProps}
+                />
+            )
+    ), [bem, props.calendarProps, props.displayFormat, props.inputPropsFrom.onChange,
+        props.inputPropsTo.onChange, props.rangeButtonsPosition, props.withRangeButtons]);
     return (
         <DropDown
             content={renderCalendar}
