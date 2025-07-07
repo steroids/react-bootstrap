@@ -1,5 +1,6 @@
 @use "../../scss/variables";
 @use '../../scss/mixins';
+@forward './views/RangeButtons/RangeButtons.scss';
 
 :root {
     --date-range-separator-color: rgba(0, 0, 0, 0.1);
@@ -11,6 +12,26 @@ html[data-theme="dark"] {
 
 $date-range-separator-color: var(--date-range-separator-color);
 
+$positions: (
+  top: (
+    direction: column,
+    responsive: top
+  ),
+  bottom: (
+    direction: column-reverse,
+    responsive: bottom
+  ),
+  left: (
+    direction: row,
+    responsive: left
+  ),
+  right: (
+    direction: row-reverse,
+    responsive: right
+  )
+);
+
+$all-directions: top, bottom, left, right;
 
 .DateRangeFieldView {
     $root: &;
@@ -47,4 +68,37 @@ $date-range-separator-color: var(--date-range-separator-color);
 
     @include mixins.date-range-effects($root);
 
+    &__calendar-wrapper {
+        display: flex;
+        width: min-content;
+
+        &_position {
+            @each $pos, $config in $positions {
+                &_#{$pos} {
+                    flex-direction: map-get($config, direction);
+                    align-items: center;
+                
+                    @media (max-width: variables.$tablet-width) {
+                        flex-direction: map-get($config, responsive);
+                        align-items: center;
+                    }
+                }
+            }
+            @each $dir1 in $all-directions {
+                @each $dir2 in $all-directions {
+                    @if $dir1 != $dir2 {
+                    &_#{$dir1}-#{$dir2} {
+                        flex-direction: map-get(map-get($positions, $dir1), direction);
+                        align-items: center;
+                
+                        @media (max-width: variables.$tablet-width) {
+                            flex-direction: map-get(map-get($positions, $dir2), direction);
+                            align-items: center;
+                        }
+                    }
+                    }
+                }
+            }
+        }
+    }
 }
