@@ -19,6 +19,7 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             <Calendar
                 {...props.calendarProps}
                 className={bem.element('calendar')}
+                showTodayButton={!props.withRangeButtons}
             />
             <div className={bem.element('separator')} />
             <TimePanelView
@@ -26,7 +27,7 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
                 className={bem.element('time-panel')}
             />
         </div>
-    ), [bem, props.calendarProps, props.timePanelViewProps]);
+    ), [bem, props.calendarProps, props.timePanelViewProps, props.withRangeButtons]);
 
     const renderCalendar = useCallback(() => (
         props.withRangeButtons ? (

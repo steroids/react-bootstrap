@@ -19,6 +19,7 @@ export default function CalendarView(props: ICalendarViewProps) {
         toYear,
         fromYear,
         showFooter,
+        showTodayButton,
         onDaySelect,
         selectedDates,
         onMonthSelect,
@@ -50,6 +51,13 @@ export default function CalendarView(props: ICalendarViewProps) {
         };
     }, [isRange, selectedDates]);
 
+    const shouldShowFooter = useMemo(() => (
+        // Показывать кнопку "закрыть", если открыто меню с выбором месяца, независимо от showTodayButton
+        (showFooter && isCaptionPanelVisible)
+        // Показывать кнопку "Сегодня"
+        || (showFooter && showTodayButton)
+    ), [isCaptionPanelVisible, showFooter, showTodayButton]);
+
     return (
         <DayPicker
             {...props}
@@ -78,7 +86,7 @@ export default function CalendarView(props: ICalendarViewProps) {
                     </div>
                 );
             }}
-            todayButton={showFooter && (isCaptionPanelVisible ? __('Закрыть') : __('Сегодня'))}
+            todayButton={shouldShowFooter && (isCaptionPanelVisible ? __('Закрыть') : __('Сегодня'))}
             onTodayButtonClick={(day) => {
                 if (isCaptionPanelVisible) {
                     toggleCaptionPanel();
