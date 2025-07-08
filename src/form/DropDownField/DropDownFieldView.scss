@@ -1,6 +1,7 @@
 @use "sass:map";
 @use "../../scss/variables";
 @use '../../scss/mixins';
+@forward "./views/DropDownFieldOpenedContent/DropDownFieldOpenedContent.scss";
 
 :root {
     --basic-color: #eef1f2;
@@ -9,10 +10,6 @@
     --chevron-background-color: #ffffff;
     --chevron-background-color-outline: #f5f8fa;
     --chevron-inner-color: #323232;
-    --drop-down-border-color: #e9e9e9;
-    --search-color: #626262;
-    --search-background-color: #f5f8fa;
-    --search-hover-background-color: #eef1f2;
 
     --drop-down-item-hover-background-color: #f5f8fa;
     --drop-down-item-select-background-color: #eef1f2;
@@ -25,10 +22,6 @@ html[data-theme="dark"] {
     --chevron-background-color: #16171b;
     --chevron-background-color-outline: #191b1f;
     --chevron-inner-color: #ffffff;
-    --drop-down-border-color: #595959;
-    --search-color: #adacac;
-    --search-background-color: #4e4f57;
-    --search-hover-background-color: #5b5c6b;
 
     --drop-down-item-select-background-color: #5b5c6b;
     --drop-down-item-hover-background-color: #4e4f57;
@@ -40,10 +33,6 @@ $basic-active-color: var(--basic-active-color);
 $chevron-background-color: var(--chevron-background-color);
 $chevron-background-color-outline: var(--chevron-background-color-outline);
 $chevron-inner-color: var(--chevron-inner-color);
-$drop-down-border-color: var(--drop-down-border-color);
-$search-color: var(--search-color);
-$search-background-color: var(--search-background-color);
-$search-hover-background-color: var(--search-hover-background-color);
 
 $drop-down-item-select-background-color: var(--drop-down-item-select-background-color);
 $drop-down-item-hover-background-color: var(--drop-down-item-hover-background-color);
@@ -306,98 +295,10 @@ $drop-down-color-themes: map.merge(
         overflow: hidden;
     }
 
-    &__drop-down {
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        height: fit-content;
-        top: calc(100% + 8px);
-        left: 0;
-
-        background-color: variables.$element-background-color;
-
-        border: 1px solid $drop-down-border-color;
-        overflow: hidden;
-        border-radius: 12px;
-
-        &-list {
-            @include mixins.scrollWrapper(240px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
-        }
-    }
-
     &_opened {
         #{$root}__icon-chevron {
             svg {
                 transform: rotate(180deg);
-            }
-        }
-    }
-
-    &__search {
-        width: 100%;
-        padding: 9px;
-        position: relative;
-
-        $searchRoot: &;
-
-        &_size {
-            &_lg {
-                #{$searchRoot}-input {
-                    padding: 8px 4px;
-                    padding-left: 32px;
-                }
-            }
-            &_md {
-                #{$searchRoot}-input {
-                    padding: 5px 4px;
-                    padding-left: 32px;
-                }
-            }
-            &_sm {
-                #{$searchRoot}-input {
-                    padding: 5px 8px;
-                    padding-left: 32px;
-                }
-            }
-        }
-
-        &-input {
-            width: 100%;
-            border-radius: 6px;
-            outline: none;
-
-            font-size: variables.$font-size-base;
-            font-weight: 400;
-            line-height: 22px;
-            border: 1px solid variables.$element-border-color;
-
-            color: variables.$text-color;
-            background-color: $search-background-color;
-
-            &:hover {
-                background-color: $search-hover-background-color;
-            }
-
-            &::-webkit-search-cancel-button {
-                display: none;
-            }
-        }
-
-        &-icon {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-            position: absolute;
-            top: 50%;
-            left: 10px;
-
-            transform: translateY(-50%);
-
-            svg {
-                circle,
-                path {
-                    stroke: $search-color;
-                }
             }
         }
     }
@@ -446,5 +347,10 @@ $drop-down-color-themes: map.merge(
         cursor: default;
         pointer-events: none;
         user-select: none;
+    }
+    &__wrapper {
+        padding: unset;
+        overflow: hidden;
+        min-width: unset;
     }
 }
