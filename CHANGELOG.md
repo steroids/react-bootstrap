@@ -1,5 +1,18 @@
 # Changelog
 
+## v3.0.31 (08.07.2025)
+
+### Added
+
+- Добавлено отображения выбора периодов (день, месяц, год) для `DateRangeFieldView` и `DateTimeRangeFieldView`
+
+### Fixed
+
+- Исправлено смещение контента при открытии модального окна 
+- Исправлено скругление элементов у компонента `Accordion`
+- Исправлен атрибут `required` для `DropDownField`
+- Исправлен баг с передачей `pickerProps` в `DateRangeFieldView` и `DateTimeRangeFieldView`
+
 ## v3.0.30 (03.04.2025)
 
 ### Added
