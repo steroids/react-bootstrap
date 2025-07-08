@@ -32,9 +32,10 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             bem={bem}
             uniqueId={uniqueId}
             isSearchAutoFocus={props.isSearchAutoFocus}
+            maxHeight={props.maxHeight}
         />
     ), [bem, props.autoCompleteInputForwardedRef, props.isAutoComplete, props.itemToSelectAll, props.items,
-        props.multiple, props.renderItem, props.searchInputProps, props.size, uniqueId, props.isSearchAutoFocus]);
+        props.multiple, props.renderItem, props.searchInputProps, props.size, uniqueId, props.isSearchAutoFocus, props.maxHeight]);
 
     const onInputClick = React.useCallback(() => {
         if (props.isOpened) {

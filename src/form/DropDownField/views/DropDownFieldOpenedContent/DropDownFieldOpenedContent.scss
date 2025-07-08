@@ -26,6 +26,7 @@ $search-color: var(--search-color);
 .DropDownFieldView {
     &__drop-down {
         width: var(--width);
+        max-height: var(--maxHeight);
         height: fit-content;
     
         background-color: variables.$element-background-color;

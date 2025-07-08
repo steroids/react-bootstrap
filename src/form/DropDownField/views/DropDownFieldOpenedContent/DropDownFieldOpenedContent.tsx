@@ -6,7 +6,7 @@ import {useMount} from 'react-use';
 
 interface IDropDownFieldOpenedContentProps extends Pick<IDropDownFieldViewProps,
 'isAutoComplete' | 'size' | 'searchInputProps' | 'autoCompleteInputForwardedRef' | 'multiple' | 'itemToSelectAll' | 'renderItem' | 'items'
-| 'isSearchAutoFocus'
+| 'isSearchAutoFocus' | 'maxHeight'
 > {
     bem: IBem,
     uniqueId: string,
@@ -37,7 +37,10 @@ export default function DropDownFieldOpenedContent(props: IDropDownFieldOpenedCo
     return (
         <div
             className={bem.element('drop-down')}
-            style={{'--width': width + 'px'} as CSSProperties}
+            style={{
+                '--width': width + 'px',
+                '--maxHeight': props.maxHeight,
+            } as CSSProperties}
         >
             {props.isAutoComplete && (
                 <div className={bem.element('search', {
