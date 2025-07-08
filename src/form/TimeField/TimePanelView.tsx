@@ -2,6 +2,7 @@ import * as React from 'react';
 import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
 import {useBem} from '@steroidsjs/core/hooks';
 import _padStart from 'lodash-es/padStart';
+import TimePanelColumn from './views/TimePanelColumn';
 
 const getHours = () => {
     const result = [];
@@ -21,67 +22,51 @@ const getMinutes = () => {
     return result;
 };
 
+export interface ITimePanelColumn {
+    values: string[],
+    currentValueKey: string,
+    onUpdate: (value: string) => void,
+}
+
 function TimePanelView(props: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
     const [hours, minutes] = props.value ? props.value.split(':') : ['00', '00'];
+    const currentValues = {
+        hours,
+        minutes,
+    };
+
+    const COLUMNS : ITimePanelColumn[] = [{
+        values: getHours(),
+        currentValueKey: 'hours',
+        onUpdate: (value) => {
+            props.onSelect(value + ':' + minutes);
+        },
+    }, {
+        values: getMinutes(),
+        currentValueKey: 'minutes',
+        onUpdate: (value) => {
+            props.onSelect(hours + ':' + value);
+        },
+    }];
+
     return (
         <div className={bem(bem.block(), props.className)}>
             {props.showHeader && (
                 <div className={bem.element('header')}>
                     {props.value && (
-                        `${hours}:${minutes}`
+                        `${currentValues.hours}:${currentValues.minutes}`
                     )}
                 </div>
             )}
             <div className={bem.element('body')}>
-                <div className={bem.element('column')}>
-                    {getHours().map((value, index) => (
-                        <div
-                            key={index}
-                            className={bem.element('cell', {
-                                selected: value === hours,
-                            })}
-                            onKeyPress={e => {
-                                e.preventDefault();
-                                props.onSelect(value + ':' + minutes);
-                            }}
-                            onClick={e => {
-                                e.preventDefault();
-                                props.onSelect(value + ':' + minutes);
-                            }}
-                            role='button'
-                            tabIndex={0}
-                        >
-                            <div className={bem.element('cell-value')}>
-                                {value}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div className={bem.element('column')}>
-                    {getMinutes().map((value, index) => (
-                        <div
-                            key={index}
-                            className={bem.element('cell', {
-                                selected: value === minutes,
-                            })}
-                            onKeyPress={e => {
-                                e.preventDefault();
-                                props.onSelect(hours + ':' + value);
-                            }}
-                            onClick={e => {
-                                e.preventDefault();
-                                props.onSelect(hours + ':' + value);
-                            }}
-                            role='button'
-                            tabIndex={0}
-                        >
-                            <div className={bem.element('cell-value')}>
-                                {value}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                {COLUMNS.map((column) => (
+                    <TimePanelColumn
+                        key={column.currentValueKey}
+                        column={column}
+                        currentValue={currentValues[column.currentValueKey]}
+                    />
+                ))}
             </div>
             <div className={bem.element('footer', {'to-end': !props.showNow})}>
                 {props.showNow && (

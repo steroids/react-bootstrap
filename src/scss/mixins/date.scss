@@ -387,7 +387,7 @@ $date-sizes: map.merge(
             margin-top: 2px;
         }
 
-        .TimePanelView__column {
+        .TimePanelView .TimePanelColumn__column {
             height: 298px;
             row-gap: 2px;
             border: none;
@@ -405,7 +405,7 @@ $date-sizes: map.merge(
                 height: 0px;
             }
 
-            .TimePanelView__cell {
+            .TimePanelColumn__cell {
                 padding: 0;
                 border-radius: variables.$radius-large;
 

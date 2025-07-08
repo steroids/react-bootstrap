@@ -18,6 +18,8 @@
     &__dropdown { 
         background: variables.$element-background-color;
 
+        min-width: unset;
+
         @include mixins.calendar-border();
     }
 
@@ -30,7 +32,23 @@
             padding-top: 10px;
             display: flex;
             flex-flow: row nowrap;
-            column-gap: 10px;
+            column-gap: 10px;   
+        }
+
+        &:has(.TimePanelView__button_now) {
+            .TimePanelView {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &__button_now {
+                    margin-bottom: 6px;
+                }
+            }
+            .TimePanelView__footer {
+                flex-direction: column;
+            }
+            
         }
     }
 }

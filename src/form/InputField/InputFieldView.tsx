@@ -30,17 +30,17 @@ export default function InputFieldView(props: IInputFieldViewProps) {
             )}
             style={props.style}
         >
-            {props.addonBefore && (
-                <span className={bem.element('addon-before')}>
-                    {props.addonBefore}
-                </span>
-            )}
             {props.textBefore && (
                 <span className={bem.element('text-before')}>
                     {props.textBefore}
                 </span>
             )}
             <div className={bem.element('input-wrapper')}>
+                {props.addonBefore && (
+                    <span className={bem.element('addon-before')}>
+                        {props.addonBefore}
+                    </span>
+                )}
                 {props.leadIcon && renderIcon(props.leadIcon,
                     {
                         className: bem.element('lead-icon'),
@@ -90,15 +90,15 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                         onClick={props.onClear}
                     />
                 )}
+                {props.addonAfter && (
+                    <span className={bem.element('addon-after')}>
+                        {props.addonAfter}
+                    </span>
+                )}
             </div>
             {props.textAfter && (
                 <span className={bem.element('text-after')}>
                     {props.textAfter}
-                </span>
-            )}
-            {props.addonAfter && (
-                <span className={bem.element('addon-after')}>
-                    {props.addonAfter}
                 </span>
             )}
         </div>

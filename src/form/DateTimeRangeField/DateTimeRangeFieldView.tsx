@@ -7,13 +7,14 @@ import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRangeField/DateTimeRangeField';
 
 import TimePanelView from '../TimeField/TimePanelView';
+import RangeButtons from '../DateRangeField/views/RangeButtons';
 
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {
     const bem = useBem('DateTimeRangeFieldView');
 
     const hasValue = props.inputPropsFrom.value || props.inputPropsTo.value;
 
-    const renderCalendar = useCallback(() => (
+    const calendarComponent = React.useMemo(() => (
         <div className={bem.element('panel-container')}>
             <Calendar
                 {...props.calendarProps}
@@ -26,6 +27,30 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             />
         </div>
     ), [bem, props.calendarProps, props.timePanelViewProps]);
+
+    const renderCalendar = useCallback(() => (
+        props.withRangeButtons ? (
+            <div className={bem.element('calendar-wrapper', {
+                position: props.rangeButtonsPosition,
+            })}
+            >
+                <div className={bem.element('additional-buttons')}>
+                    <RangeButtons
+                        config={props.withRangeButtons}
+                        changeTo={props.inputPropsTo.onChange}
+                        changeFrom={props.inputPropsFrom.onChange}
+                        position={props.rangeButtonsPosition}
+                        format={props.displayFormat}
+                    />
+                </div>
+                <div className={bem.element('calendar')}>
+                    {calendarComponent}
+                </div>
+            </div>
+        )
+            : calendarComponent
+    ), [bem, calendarComponent, props.inputPropsFrom.onChange, props.inputPropsTo.onChange,
+        props.rangeButtonsPosition, props.displayFormat, props.withRangeButtons]);
 
     return (
         <DropDown
@@ -48,6 +73,7 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputPropsFrom}
+                        id={props.id}
                         className={bem(
                             bem.element('input', {
                                 size: props.size,

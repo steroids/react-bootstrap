@@ -212,14 +212,6 @@ $calendar-border-color: var(--calendar-border-color);
         background-color: $day-background-color-hover;
     }
 
-    .DayPicker-Day--today:hover {
-        background-color: transparent;
-
-        .CalendarView__day {
-            transition: background-color 150ms ease-in-out;
-        }
-    }
-
     &__day {
         position: relative;
         z-index: 1;
@@ -293,6 +285,6 @@ $calendar-border-color: var(--calendar-border-color);
 }
 
 // Class to allow body scroll, when Calendar is open in a Modal window
-.ModalView_body-hide-scroll:has(.CalendarView) {
+.body-hide-scroll:has(.CalendarView) {
     overflow-y: auto;
 }
