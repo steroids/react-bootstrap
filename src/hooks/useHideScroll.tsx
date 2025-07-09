@@ -17,9 +17,10 @@ export default function useHideScroll() {
         if (process.env.IS_SSR) {
             return;
         }
-
-        const fullWindowWidth = window.innerWidth; // полная ширина окна;
-        const windowWidthWithoutScrollbar = document.documentElement.clientWidth; // ширина окна за вычетом скролла
+        // полная ширина окна;
+        const fullWindowWidth = window.innerWidth;
+        // ширина окна за вычетом скролла
+        const windowWidthWithoutScrollbar = document.documentElement.clientWidth;
 
         defaultPadding.current = document.body.style.paddingRight;
 

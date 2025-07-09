@@ -30,14 +30,12 @@ export default function StepItemView(props: IStepItemViewProps) {
     return (
         <div
             key={props.index}
-            className={bem(
-                bem.block(
+            className={bem(bem.block(
                     {
                         [props.status]: true,
                         [`${props.stepTitleOrientation}`]: !!props.stepTitleOrientation,
                     },
-                ), props.className,
-            )}
+                ), props.className)}
         >
             <div
                 className={bem.element('body', {disabled: props.disabled})}

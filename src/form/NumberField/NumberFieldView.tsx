@@ -1,6 +1,5 @@
 import * as React from 'react';
 import _isNumber from 'lodash-es/isNumber';
-
 import {INumberFieldViewProps} from '@steroidsjs/core/ui/form/NumberField/NumberField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';

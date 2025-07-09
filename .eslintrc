@@ -1,6 +1,11 @@
 {
-  "extends": "@steroidsjs/eslint-config",
+  "extends": "@steroidsjs/eslint-config/frontend",
   "rules": {
+    // "prettier/prettier": "off" disabled because 
+    // Definition for rule 'prettier/prettier' was not found
+    // in every file
+    // remove if fixed
+    "prettier/prettier": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off"
   }

@@ -1,6 +1,5 @@
 /* eslint-disable consistent-return */
 import * as React from 'react';
-
 import {Link} from '@steroidsjs/core/ui/nav';
 import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
 import Nav from '@steroidsjs/core/ui/nav/Nav';

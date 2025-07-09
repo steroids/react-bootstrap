@@ -9,6 +9,7 @@ export default function MenuView(props: IMenuViewProps) {
     const MenuItemView = props.itemView;
 
     const renderMenuItems = React.useCallback(() => (
+        // eslint-disable-next-line react/jsx-no-useless-fragment
         <>
             {props.items?.map((item, index) => (
                 <MenuItemView

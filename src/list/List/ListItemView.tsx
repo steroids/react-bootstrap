@@ -1,7 +1,5 @@
 import * as React from 'react';
-
 import {IListItemViewProps} from '@steroidsjs/core/ui/list/List/List';
-
 import {useBem} from '@steroidsjs/core/hooks';
 
 export default function ListItemView(props: IListItemViewProps) {

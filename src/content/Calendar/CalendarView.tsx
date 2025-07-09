@@ -63,6 +63,7 @@ export default function CalendarView(props: ICalendarViewProps) {
             {...props}
             {...props.pickerProps}
             className={bem(bem.block({ranged: isRange}), props.className)}
+            // eslint-disable-next-line react/no-unstable-nested-components
             captionElement={useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
                 <CaptionElement
                     date={date}

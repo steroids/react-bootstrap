@@ -1,8 +1,6 @@
 import * as React from 'react';
 import _isString from 'lodash-es/isString';
-
 import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';
-
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 
@@ -51,10 +49,12 @@ export default function ButtonView(props: IButtonViewProps) {
         return (
             <span
                 className={bem(
-                    bem.element('badge',
+                    bem.element(
+'badge',
                         {
                             [`${props.badge.color}`]: !!props.badge.color,
-                        }),
+                        },
+),
                     props.badge.className,
                 )}
             >

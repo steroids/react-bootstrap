@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {IReCaptchaFieldViewProps} from '@steroidsjs/core/ui/form/ReCaptchaField/ReCaptchaField';
 import {useBem, useTheme} from '@steroidsjs/core/hooks';
 import ReCAPTCHA from 'react-google-recaptcha';

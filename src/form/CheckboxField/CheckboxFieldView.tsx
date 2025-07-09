@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {ICheckboxFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxField/CheckboxField';
 import {useBem} from '@steroidsjs/core/hooks';
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
