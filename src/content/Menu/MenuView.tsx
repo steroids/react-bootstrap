@@ -1,4 +1,4 @@
-import React from 'react';
+import {useCallback} from 'react';
 import {IMenuViewProps} from '@steroidsjs/core/ui/content/Menu/Menu';
 import {DropDown, Icon} from '@steroidsjs/core/ui/content';
 import {useBem} from '@steroidsjs/core/hooks';
@@ -8,7 +8,7 @@ export default function MenuView(props: IMenuViewProps) {
     const bem = useBem('MenuView');
     const MenuItemView = props.itemView;
 
-    const renderMenuItems = React.useCallback(() => (
+    const renderMenuItems = useCallback(() => (
         <>
             {props.items?.map((item, index) => (
                 <MenuItemView

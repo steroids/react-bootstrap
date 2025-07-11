@@ -1,4 +1,3 @@
-import React from 'react';
 import {IHtmlFieldViewProps} from '@steroidsjs/core/ui/form/HtmlField/HtmlField';
 import {useBem} from '@steroidsjs/core/hooks';
 

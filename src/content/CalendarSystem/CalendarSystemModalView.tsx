@@ -9,7 +9,7 @@ import {
 } from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {InputField, Form, DropDownField, DateTimeField, TextField} from '@steroidsjs/core/ui/form';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import React from 'react';
+import {useMemo, useCallback} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {useDispatch} from '@steroidsjs/core/hooks';
 import {formSetErrors} from '@steroidsjs/core/actions/form';
@@ -20,12 +20,12 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
     const bem = useBem('CalendarSystemModalView');
     const dispatch = useDispatch();
 
-    const eventInitialValues: IEventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
+    const eventInitialValues: IEventInitialValues = useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
 
     const callOnEventSubmit = (fields: Record<CalendarSystemModalFields, string>) =>
         eventInitialValues && !props.isCreate ? props.onModalFormSubmit(fields, eventInitialValues) : props.onModalFormSubmit(fields);
 
-    const onCloseModal = React.useCallback(() => {
+    const onCloseModal = useCallback(() => {
         props.onClose();
         dispatch(formSetErrors(ADD_EVENT_FORM_ID, {}));
     }, [dispatch, props]);

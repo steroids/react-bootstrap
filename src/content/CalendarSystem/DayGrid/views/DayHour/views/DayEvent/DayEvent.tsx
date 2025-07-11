@@ -1,4 +1,3 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {formatEventTime, getProportionFromEvent, getTopMarginFromEvent} from '@steroidsjs/core/ui/content/CalendarSystem/utils/utils';

@@ -1,4 +1,3 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IKanbanViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 

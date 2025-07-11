@@ -1,4 +1,4 @@
-import React, {useCallback, useMemo} from 'react';
+import {useCallback, useMemo} from 'react';
 import {Avatar, Badge} from '@steroidsjs/core/ui/content';
 import {Text} from '@steroidsjs/core/ui/typography';
 import {IKanbanTaskDetailsModalViewProps, ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';

@@ -1,4 +1,3 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IBadgeViewProps} from '@steroidsjs/core/ui/content/Badge/Badge';
 import Icon from '@steroidsjs/core/ui/content/Icon';

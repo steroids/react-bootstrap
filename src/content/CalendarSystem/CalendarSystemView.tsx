@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React from 'react';
+import {useMemo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
@@ -24,7 +24,7 @@ export default function CalendarSystemView(props: ICalendarSystemViewProps) {
         monthGridProps: {renderGridView: renderMonthGrid},
     } = props;
 
-    const calendarTypeGrids = React.useMemo(() => ({
+    const calendarTypeGrids = useMemo(() => ({
         [CalendarEnum.MONTH]: (
             <>
                 {renderMonthGrid({

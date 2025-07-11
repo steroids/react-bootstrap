@@ -1,4 +1,3 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {ICardViewProps} from '@steroidsjs/core/ui/content/Card/Card';
 import {Button} from '@steroidsjs/core/ui/form';
