@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import Button from '@steroidsjs/core/ui/form/Button';
 
 import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';

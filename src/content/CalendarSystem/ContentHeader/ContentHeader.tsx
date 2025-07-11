@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react';
+import {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {ButtonGroup} from '@steroidsjs/core/ui/nav';
@@ -51,4 +51,4 @@ function ContentHeader(props: IContentHeaderProps) {
     );
 }
 
-export default React.memo(ContentHeader);
+export default memo(ContentHeader);

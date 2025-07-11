@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Title from '@steroidsjs/core/ui/typography/Title/Title';
 import {Button} from '@steroidsjs/core/ui/form';

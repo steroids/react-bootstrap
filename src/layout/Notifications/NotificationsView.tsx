@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {INotificationsViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import {useBem} from '@steroidsjs/core/hooks';
 

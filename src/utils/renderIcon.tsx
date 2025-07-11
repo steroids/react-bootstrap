@@ -1,5 +1,5 @@
 /* eslint-disable valid-typeof */
-import React from 'react';
+import * as React from 'react';
 import Icon, {IIconProps} from '@steroidsjs/core/ui/content/Icon/Icon';
 
 /**

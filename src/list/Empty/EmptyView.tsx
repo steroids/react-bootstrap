@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {IEmptyViewProps} from '@steroidsjs/core/ui/list/Empty/Empty';
 import {useBem} from '@steroidsjs/core/hooks';
 

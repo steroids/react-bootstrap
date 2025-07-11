@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 import {useBem, useSelector} from '@steroidsjs/core/hooks';
 import {getFormValues} from '@steroidsjs/core/reducers/form';
 import {ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';

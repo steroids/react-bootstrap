@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {useUniqueId} from '@steroidsjs/core/hooks';
 import {ICheckboxTreeFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxTreeField/CheckboxTreeField';

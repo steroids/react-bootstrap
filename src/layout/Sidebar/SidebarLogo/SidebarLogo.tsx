@@ -1,4 +1,5 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
+import * as React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {Icon} from '@steroidsjs/core/ui/content';
 import renderIcon from '../../../utils/renderIcon';

@@ -1,4 +1,3 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import Format from '@steroidsjs/core/ui/format/Format';
 import {ITreeColumnViewProps} from '@steroidsjs/core/ui/list/TreeTable/TreeTable';

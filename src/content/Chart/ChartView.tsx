@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {IChartViewProps} from '@steroidsjs/core/ui/content/Chart/Chart';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Title} from '@steroidsjs/core/ui/typography';

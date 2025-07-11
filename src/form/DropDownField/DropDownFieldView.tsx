@@ -1,5 +1,4 @@
-import * as React from 'react';
-import {useEffect} from 'react';
+import {useCallback, useEffect} from 'react';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
@@ -15,7 +14,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         }
     }, [props.forwardedInputRef, props.isAutoComplete, props.isOpened, props.isSearchAutoFocus]);
 
-    const renderPlaceholder = React.useCallback(() => props.placeholder && !props.selectedIds?.length
+    const renderPlaceholder = useCallback(() => props.placeholder && !props.selectedIds?.length
         ? (
             <div className={bem.element('placeholder')}>{props.placeholder}</div>
         )

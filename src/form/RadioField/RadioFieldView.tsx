@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
