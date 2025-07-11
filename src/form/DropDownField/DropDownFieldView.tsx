@@ -84,7 +84,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             onClose={onClose}
             hasArrow={false}
             className={bem.element('wrapper')}
-            {...props.viewProps}
+            {...props.dropDownProps}
         >
             <div>
                 <div
