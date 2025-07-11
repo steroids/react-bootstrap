@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import * as React from 'react';
+import {MouseEvent, ReactNode, useCallback, useMemo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import _take from 'lodash-es/take';
 import _slice from 'lodash-es/slice';
 import _get from 'lodash-es/get';
 import {Button} from '@steroidsjs/core/ui/form';
-import _isEmpty from 'lodash-es/isEmpty';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
 import _cloneDeep from 'lodash-es/cloneDeep';
 import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
@@ -21,7 +19,7 @@ interface IMonthDayProps extends Pick<
     'openEditModal' | 'openCreateModal' | 'getEventsFromDate'
 > {
     day: IDay,
-    renderEventView: (componentProps: any) => React.ReactNode,
+    renderEventView: (componentProps: any) => ReactNode,
 }
 
 export default function MonthDay(props: IMonthDayProps) {
@@ -34,7 +32,7 @@ export default function MonthDay(props: IMonthDayProps) {
     const {
         events,
         hasSixEvents,
-    } = React.useMemo(() => {
+    } = useMemo(() => {
         const callingDate = new Date(props.day.date);
 
         const events = getEventsFromDate(callingDate, CalendarEnum.MONTH);
@@ -47,11 +45,11 @@ export default function MonthDay(props: IMonthDayProps) {
         };
     }, [getEventsFromDate, props.day.date]);
 
-    const formattedExpandLabel = React.useMemo(() => getFormattedExpandRestLabel(
+    const formattedExpandLabel = useMemo(() => getFormattedExpandRestLabel(
         _slice([...events], SIXTH_ELEMENT_INDEX),
     ), [events]);
 
-    const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
+    const handleEventClick = useCallback((event: MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
         const eventId: number = _get(eventFromHour, 'dataset.eventid');
 
@@ -64,7 +62,7 @@ export default function MonthDay(props: IMonthDayProps) {
         props.openEditModal(requiredEvent);
     }, [events, props]);
 
-    const handleOnContextMenuCreateClick = React.useCallback((e: React.MouseEvent) => {
+    const handleOnContextMenuCreateClick = useCallback((e: MouseEvent) => {
         e.preventDefault();
 
         const day: IDay = _cloneDeep(props.day);

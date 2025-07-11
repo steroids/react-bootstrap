@@ -1,6 +1,6 @@
 /* eslint-disable valid-typeof */
-import * as React from 'react';
 import Icon, {IIconProps} from '@steroidsjs/core/ui/content/Icon/Icon';
+import {ReactElement} from 'react';
 
 /**
 * Функция которая проверяет соответствует ли typeof icon === 'string', если да - то вернет компонент Icon
@@ -8,7 +8,7 @@ import Icon, {IIconProps} from '@steroidsjs/core/ui/content/Icon/Icon';
 * @example renderIcon(props.leadIcon, {className: 'leadIcon', tabIndex: -1})
 */
 const renderIcon = (
-    icon: string | React.ReactElement,
+    icon: string | ReactElement,
     iconProps: IIconProps,
 ) => typeof icon === 'string'
     ? (
