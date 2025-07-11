@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../../scss/variables";
+@use 'style/variables';
 
 :root {
     --switcher-dot-disabled-color: #dbe2e6;
@@ -11,84 +11,78 @@ html[data-theme="dark"] {
     --switcher-slider-disabled-color: #5b5c6b;
 }
 
+
 $switcher-dot-disabled-color: var(--switcher-dot-disabled-color);
 $switcher-slider-disabled-color: var(--switcher-slider-disabled-color);
 
 $background-color-transition-timing: 150ms;
 
-
 .SwitcherFieldView {
     $root: &;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    row-gap: 10px;
 
-    &__switcher {
-        display: inline-flex;
-        column-gap: 12px;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
+    display: inline-flex;
+    column-gap: 12px;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
 
-        $sizes: () !default;
-        $sizes: map.merge(
-            (
-                "lg": (
-                    "width": 40px,
-                    "height": 24px,
-                    "dotSize": 18px,
-                    "dotTranslateDefault": translateY(-50%) translateX(4px),
-                    "dotTranslateActive": translateY(-50%) translateX(16px),
-                    "font-size": variables.$font-size-lg,
-                    "line-height": variables.$line-height-lg,
-                ),
-                "md": (
-                    "width": 34px,
-                    "height": 20px,
-                    "dotSize": 14px,
-                    "dotTranslateDefault": translateY(-50%) translateX(3px),
-                    "dotTranslateActive": translateY(-50%) translateX(15px),
-                    "font-size": variables.$font-size-base,
-                    "line-height": variables.$line-height-base,
-                ),
-                "sm": (
-                    "width": 28px,
-                    "height": 16px,
-                    "dotSize": 12px,
-                    "dotTranslateDefault": translateY(-50%) translateX(2px),
-                    "dotTranslateActive": translateY(-50%) translateX(12px),
-                    "font-size": variables.$font-size-sm,
-                    "line-height": variables.$line-height-sm,
-                ),
+    $sizes: () !default;
+    $sizes: map.merge(
+        (
+            "lg": (
+                "width": 40px,
+                "height": 24px,
+                "dotSize": 18px,
+                "dotTranslateDefault": translateY(-50%) translateX(4px),
+                "dotTranslateActive": translateY(-50%) translateX(16px),
+                "font-size": variables.$font-size-lg,
+                "line-height": variables.$line-height-lg,
             ),
-            $sizes
-        );
+            "md": (
+                "width": 34px,
+                "height": 20px,
+                "dotSize": 14px,
+                "dotTranslateDefault": translateY(-50%) translateX(3px),
+                "dotTranslateActive": translateY(-50%) translateX(15px),
+                "font-size": variables.$font-size-base,
+                "line-height": variables.$line-height-base,
+            ),
+            "sm": (
+                "width": 28px,
+                "height": 16px,
+                "dotSize": 12px,
+                "dotTranslateDefault": translateY(-50%) translateX(2px),
+                "dotTranslateActive": translateY(-50%) translateX(12px),
+                "font-size": variables.$font-size-sm,
+                "line-height": variables.$line-height-sm,
+            ),
+        ),
+        $sizes
+    );
 
-        &_size { 
-            @each $size, $sizeMap in $sizes { 
-                &_#{$size} {
-                    #{$root}__slider {
-                        width: map.get($sizeMap, width);
-                        height: map.get($sizeMap, height);
-    
-                        &::before {
-                            width: map.get($sizeMap, dotSize);
-                            height: map.get($sizeMap, dotSize);
-                            transform: map.get($sizeMap, dotTranslateDefault);
-                        }
+    &_size { 
+        @each $size, $sizeMap in $sizes { 
+            &_#{$size} {
+                #{$root}__slider {
+                    width: map.get($sizeMap, width);
+                    height: map.get($sizeMap, height);
+
+                    &::before {
+                        width: map.get($sizeMap, dotSize);
+                        height: map.get($sizeMap, dotSize);
+                        transform: map.get($sizeMap, dotTranslateDefault);
                     }
-    
-                    #{$root}__input:checked + #{$root}__slider {
-                        &::before {
-                            transform: map.get($sizeMap, dotTranslateActive);
-                        }
+                }
+
+                #{$root}__input:checked + #{$root}__slider {
+                    &::before {
+                        transform: map.get($sizeMap, dotTranslateActive);
                     }
-    
-                    #{$root}__label {
-                        font-size: map.get($sizeMap, font-size);
-                        line-height: map.get($sizeMap, line-height);
-                    }
+                }
+
+                #{$root}__label {
+                    font-size: map.get($sizeMap, font-size);
+                    line-height: map.get($sizeMap, line-height);
                 }
             }
         }
