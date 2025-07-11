@@ -1,17 +1,16 @@
+import * as React from 'react';
+import {useBem, useUniqueId} from '@steroidsjs/core/hooks';
 import {ICheckboxListFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxListField/CheckboxListField';
-import {useBem} from '@steroidsjs/core/hooks';
-import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
+import SwitcherFieldView from '../SwitcherField/SwitcherFieldView';
 
-export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps) {
-    const bem = useBem('CheckboxListFieldView');
-    const prefix = useUniqueId('checkbox');
+export default function SwitcherListFieldView(props: ICheckboxListFieldViewProps) {
+    const bem = useBem('SwitcherListFieldView');
+    const prefix = useUniqueId('switcher');
 
     return (
         <div
             className={bem(
-                bem.block({
-                    [`${props.orientation}`]: !!props.orientation,
-                }),
+                bem.block(),
                 props.className,
             )}
             style={props.style}
@@ -32,7 +31,9 @@ export default function CheckboxListFieldView(props: ICheckboxListFieldViewProps
                 size: checkbox.size || props.size,
                 color: checkbox.color,
                 required: checkbox.required,
+                view: SwitcherFieldView,
             }))}
+
         </div>
     );
 }

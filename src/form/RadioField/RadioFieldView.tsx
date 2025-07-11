@@ -1,9 +1,9 @@
 import {useBem} from '@steroidsjs/core/hooks';
 
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
-import {IRadioFieldViewProps} from '@steroidsjs/core/ui/form/RadioField/RadioField';
+import {ICheckboxFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxField/CheckboxField';
 
-export default function RadioFieldView(props: IRadioFieldViewProps) {
+export default function RadioFieldView(props: ICheckboxFieldViewProps) {
     const bem = useBem('RadioFieldView');
     const id = useUniqueId('radio');
 
