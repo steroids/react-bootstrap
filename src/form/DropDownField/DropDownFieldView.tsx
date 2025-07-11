@@ -79,13 +79,12 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
     return (
         <DropDown
             content={renderList}
-            position={props.viewProps.position}
-            autoPositioning={props.viewProps.autoPositioning}
             onVisibleChange={setFocusOnAutoCompleteInput}
             visible={props.isOpened}
             onClose={onClose}
             hasArrow={false}
             className={bem.element('wrapper')}
+            {...props.viewProps}
         >
             <div>
                 <div
