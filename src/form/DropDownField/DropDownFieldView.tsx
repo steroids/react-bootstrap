@@ -10,19 +10,11 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
 
     const {onClose} = props;
 
-    const fieldRef = React.useRef(null);
-
-    React.useEffect(() => {
-        // setTimeout - костыль, который исправляет ошибку прыгающего экрана, которая возникает, т.к. компонент в DropDown не успевает
-        // спозиционироваться на странице и она автоматически прокручивается вниз страницы
-        setTimeout(() => {
-            if (props.autoCompleteInputForwardedRef.current && props.isSearchAutoFocus && props.isOpened) {
-                props.autoCompleteInputForwardedRef.current.focus();
-            }
-        }, 50);
-    // проверка отключена, т.к. необходимо вызывать focus при изменении props.autoCompleteInputForwardedRef.current
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [props.isOpened, props.isSearchAutoFocus, props.autoCompleteInputForwardedRef.current]);
+    const setFocusOnAutoCompleteInput = React.useCallback((isComponentVisible) => {
+        if (isComponentVisible && props.autoCompleteInputForwardedRef.current && props.isSearchAutoFocus) {
+            props.autoCompleteInputForwardedRef.current.focus();
+        }
+    }, [props.autoCompleteInputForwardedRef, props.isSearchAutoFocus]);
 
     const renderPlaceholder = React.useCallback(() => props.placeholder && !props.selectedIds?.length
         ? (
@@ -30,12 +22,14 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         )
         : null, [bem, props.placeholder, props.selectedIds]);
 
+    const fieldRef = React.useRef(null);
+
     const menuWidth = React.useMemo(() => {
         if (!fieldRef.current) {
             return 0;
         }
         return fieldRef.current.getBoundingClientRect().width;
-        // Отключена проверка, т.к. необходимо пересчитывать ширину меню, когда меняется филд
+        // Отключена проверка, т.к. необходимо пересчитывать ширину меню, когда меняется fieldRef.current
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fieldRef.current, props.isOpened]);
 
@@ -87,6 +81,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             content={renderList}
             position={props.viewProps.position}
             autoPositioning={props.viewProps.autoPositioning}
+            onVisibleChange={setFocusOnAutoCompleteInput}
             visible={props.isOpened}
             onClose={onClose}
             hasArrow={false}
