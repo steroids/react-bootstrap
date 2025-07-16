@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ITimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/TimeRangeField/TimeRangeField';
 import {DropDown, Icon} from '@steroidsjs/core/ui/content';

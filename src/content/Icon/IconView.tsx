@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {IIconViewProps} from '@steroidsjs/core/ui/content/Icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import _omit from 'lodash-es/omit';

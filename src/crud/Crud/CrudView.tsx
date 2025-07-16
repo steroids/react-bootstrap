@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
 
 import {ICrudViewProps} from '@steroidsjs/core/ui/crud/Crud/Crud';

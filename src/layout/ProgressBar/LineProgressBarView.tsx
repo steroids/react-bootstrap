@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {IProgressBarViewProps} from '@steroidsjs/core/ui/layout/ProgressBar/ProgressBar';
 import {useBem} from '@steroidsjs/core/hooks';
 

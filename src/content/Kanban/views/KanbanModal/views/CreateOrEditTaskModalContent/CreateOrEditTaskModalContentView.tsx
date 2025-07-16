@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 import {ICreateOrEditTaskModalContentViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import KanbanPrioritiesEnum from '@steroidsjs/core/ui/content/Kanban/enums/KanbanPrioritiesEnum';
 import {Button, DropDownField, Form, HtmlField, InputField, RadioListField} from '@steroidsjs/core/ui/form';

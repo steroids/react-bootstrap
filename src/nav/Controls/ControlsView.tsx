@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
 import {IControlsViewProps} from '@steroidsjs/core/ui/nav/Controls/Controls';
 

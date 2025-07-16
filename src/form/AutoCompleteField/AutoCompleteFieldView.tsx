@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useCallback} from 'react';
 import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
 import _isEmpty from 'lodash-es/isEmpty';
@@ -74,7 +74,7 @@ const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps,
 export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps) {
     const bem = useBem('AutoCompleteFieldView');
 
-    const renderItems = React.useCallback(() => {
+    const renderItems = useCallback(() => {
         if (!_isEmpty(props.categories)) {
             const {categories, itemsWithoutCategory} = normalizeItems(props.items);
 

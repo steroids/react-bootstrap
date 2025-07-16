@@ -1,12 +1,12 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {FilesLayout, IFileFieldViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 import Button from '@steroidsjs/core/ui/form/Button';
+import {FunctionComponent} from 'react';
 
 export default function FileFieldView(props: IFileFieldViewProps) {
     const bem = useBem('FileFieldView');
     const ButtonView = props.buttonView || Button;
-    const FileItemView = props.itemView as React.FunctionComponent;
+    const FileItemView = props.itemView as FunctionComponent;
     const isWall = props.filesLayout === FilesLayout.wall;
 
     return (
