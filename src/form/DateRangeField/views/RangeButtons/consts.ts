@@ -1,4 +1,4 @@
-import {getCurrentMonth, getCurrentWeek, getCurrentYear, getEndOfDay} from './utils';
+import {getCurrentMonth, getCurrentWeek, getCurrentYear, getEndOfDay, getPreviousMonth} from './utils';
 
 export const RANGE_BUTTONS = {
     today: {
@@ -45,9 +45,9 @@ export const RANGE_BUTTONS = {
     lastMonth: {
         label: __('Прошлый месяц'),
         onClick: (locale, changeFrom, changeTo, format) => {
-            const {start, finish} = getCurrentMonth(locale);
-            changeFrom(start.subtract(1, 'month').format(format));
-            changeTo(finish.subtract(1, 'month').format(format));
+            const {start, finish} = getPreviousMonth(locale);
+            changeFrom(start.format(format));
+            changeTo(finish.format(format));
         },
     },
     thisYear: {
