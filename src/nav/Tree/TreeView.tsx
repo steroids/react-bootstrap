@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Link from '@steroidsjs/core/ui/nav/Link';
 import {ITreeViewProps} from '@steroidsjs/core/ui/nav/Tree/Tree';
 import {useBem} from '@steroidsjs/core/hooks';

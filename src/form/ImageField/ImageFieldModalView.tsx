@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {useState} from 'react';
 import ReactCropSource from 'react-image-crop';

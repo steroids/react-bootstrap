@@ -1,4 +1,3 @@
-import * as React from 'react';
 import _isString from 'lodash-es/isString';
 
 import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useCallback} from 'react';
 import Link from '@steroidsjs/core/ui/nav/Link';
 import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
 import {useBem} from '@steroidsjs/core/hooks';
@@ -9,7 +9,7 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps) {
     const bem = useBem('BreadcrumbsView');
     const items = props.items || [];
 
-    const renderLink = React.useCallback((item, children) => (
+    const renderLink = useCallback((item, children) => (
         <Link
             toRoute={item.id}
             toRouteParams={props.routeParams}
@@ -19,7 +19,7 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps) {
         </Link>
     ), [props.routeParams]);
 
-    const renderHomeIcon = React.useCallback(() => (
+    const renderHomeIcon = useCallback(() => (
         props.customIcon
             ? renderIcon(props.customIcon, {className: bem.element('custom-icon')})
             : (

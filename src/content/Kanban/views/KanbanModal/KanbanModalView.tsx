@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 import Modal from '@steroidsjs/core/ui/modal/Modal/Modal';
 import {IKanbanModalViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import {KanbanModalTypeEnum} from '@steroidsjs/core/ui/content/Kanban/enums';

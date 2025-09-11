@@ -1,4 +1,4 @@
-import React, {memo, useState} from 'react';
+import {memo, useState} from 'react';
 import {useInterval} from 'react-use';
 import _isEmpty from 'lodash-es/isEmpty';
 import useBem from '@steroidsjs/core/hooks/useBem';

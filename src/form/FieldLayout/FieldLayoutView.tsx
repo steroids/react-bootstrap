@@ -1,4 +1,3 @@
-import * as React from 'react';
 import _isEmpty from 'lodash-es/isEmpty';
 
 import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
