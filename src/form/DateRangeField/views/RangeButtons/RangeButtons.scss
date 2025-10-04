@@ -1,3 +1,4 @@
+@use "sass:map";
 @use '../../../../scss/variables';
 
 $all-directions: top, bottom, left, right;
@@ -56,18 +57,18 @@ $positions: (
     &_position {
         @each $dir, $config in $positions {
             &_#{$dir} {
-              flex-direction: map-get($config, flex-direction);
-              justify-content: map-get($config, justify-content);
-          
-              @each $pad, $val in map-get($config, padding) {
+              flex-direction: map.get($config, flex-direction);
+              justify-content: map.get($config, justify-content);
+
+              @each $pad, $val in map.get($config, padding) {
                 #{$pad}: #{$val};
               }
-          
+
               &::before {
-                @each $prop, $val in map-get($config, before) {
+                @each $prop, $val in map.get($config, before) {
                   #{$prop}: #{$val};
                 }
-                @each $size, $val in map-get($config, size) {
+                @each $size, $val in map.get($config, size) {
                   #{$size}: #{$val};
                 }
               }
@@ -77,39 +78,39 @@ $positions: (
             @each $dir2 in $all-directions {
               @if $dir1 != $dir2 {
                 &_#{$dir1}-#{$dir2} {
-                  flex-direction: map-get(map-get($positions, $dir1), flex-direction);
-                  justify-content: map-get(map-get($positions, $dir1), justify-content);
-          
+                  flex-direction: map.get(map.get($positions, $dir1), flex-direction);
+                  justify-content: map.get(map.get($positions, $dir1), justify-content);
+
                   // padding из первого направления
-                  @each $pad, $val in map-get(map-get($positions, $dir1), padding) {
+                  @each $pad, $val in map.get(map.get($positions, $dir1), padding) {
                     #{$pad}: #{$val};
                   }
-          
+
                   &::before {
                     // before из первого направления
-                    @each $prop, $val in map-get(map-get($positions, $dir1), before) {
+                    @each $prop, $val in map.get(map.get($positions, $dir1), before) {
                       #{$prop}: #{$val};
                     }
                     // size из первого направления
-                    @each $size, $val in map-get(map-get($positions, $dir1), size) {
+                    @each $size, $val in map.get(map.get($positions, $dir1), size) {
                       #{$size}: #{$val};
                     }
                   }
-          
+
                   @media (max-width: variables.$tablet-width) {
                     // при адаптиве — использовать второй как fallback
-                    flex-direction: map-get(map-get($positions, $dir2), flex-direction);
-                    justify-content: map-get(map-get($positions, $dir2), justify-content);
-          
-                    @each $pad, $val in map-get(map-get($positions, $dir2), padding) {
+                    flex-direction: map.get(map.get($positions, $dir2), flex-direction);
+                    justify-content: map.get(map.get($positions, $dir2), justify-content);
+
+                    @each $pad, $val in map.get(map.get($positions, $dir2), padding) {
                       #{$pad}: #{$val};
                     }
-          
+
                     &::before {
-                      @each $prop, $val in map-get(map-get($positions, $dir2), before) {
+                      @each $prop, $val in map.get(map.get($positions, $dir2), before) {
                         #{$prop}: #{$val};
                       }
-                      @each $size, $val in map-get(map-get($positions, $dir2), size) {
+                      @each $size, $val in map.get(map.get($positions, $dir2), size) {
                         #{$size}: #{$val};
                       }
                     }

@@ -72,11 +72,11 @@ $all-directions: top, bottom, left, right;
         &_position {
             @each $pos, $config in $positions {
                 &_#{$pos} {
-                    flex-direction: map-get($config, direction);
+                    flex-direction: map.get($config, direction);
                     align-items: center;
                 
                     @media (max-width: variables.$tablet-width) {
-                        flex-direction: map-get($config, responsive);
+                        flex-direction: map.get($config, responsive);
                         align-items: center;
                     }
                 }
@@ -85,11 +85,11 @@ $all-directions: top, bottom, left, right;
                 @each $dir2 in $all-directions {
                     @if $dir1 != $dir2 {
                     &_#{$dir1}-#{$dir2} {
-                        flex-direction: map-get(map-get($positions, $dir1), direction);
+                        flex-direction: map.get(map.get($positions, $dir1), direction);
                         align-items: center;
                 
                         @media (max-width: variables.$tablet-width) {
-                            flex-direction: map-get(map-get($positions, $dir2), direction);
+                            flex-direction: map.get(map.get($positions, $dir2), direction);
                             align-items: center;
                         }
                     }
