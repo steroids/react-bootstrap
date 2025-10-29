@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import * as React from 'react';
 import {IInputFieldViewProps} from '@steroidsjs/core/ui/form/InputField/InputField';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';

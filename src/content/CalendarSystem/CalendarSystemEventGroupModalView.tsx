@@ -1,4 +1,3 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import Modal from '@steroidsjs/core/ui/modal/Modal';
 import {CalendarSystemEventGroupModalViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';

@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {IPaginationViewProps} from '@steroidsjs/core/ui/list/Pagination/Pagination';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Icon} from '@steroidsjs/core/ui/content';

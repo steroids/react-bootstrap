@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useEffect, useCallback} from 'react';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IAccordionItemViewProps, IAccordionIcon} from '@steroidsjs/core/ui/content/Accordion/Accordion';
@@ -7,7 +7,7 @@ import renderIconByType from '../../utils/renderIcon';
 export default function AccordionItemView(props: IAccordionItemViewProps) {
     const bem = useBem('AccordionItemView');
 
-    React.useEffect(() => {
+    useEffect(() => {
         if (!props.toggleAccordion || !props.toggleCollapse || !props.activeKey) {
             return;
         }
@@ -21,7 +21,7 @@ export default function AccordionItemView(props: IAccordionItemViewProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.activeKey]);
 
-    const renderIcon = React.useCallback(() => {
+    const renderIcon = useCallback(() => {
         if (!props.icon) {
             return null;
         }
@@ -40,7 +40,7 @@ export default function AccordionItemView(props: IAccordionItemViewProps) {
         return renderIconByType(props.icon, {className: bem.element('custom-icon')});
     }, [bem, props.icon]);
 
-    const handleHeaderClick = React.useCallback(() => {
+    const handleHeaderClick = useCallback(() => {
         if (props.disabled || !props.toggleAccordion || !props.toggleCollapse) {
             return;
         }

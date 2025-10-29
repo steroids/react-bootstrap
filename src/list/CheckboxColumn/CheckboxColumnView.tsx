@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import CheckboxField from '@steroidsjs/core/ui/form/CheckboxField';
 import {ICheckboxColumnViewProps} from '@steroidsjs/core/ui/list/CheckboxColumn/CheckboxColumn';
 import {useBem} from '@steroidsjs/core/hooks';

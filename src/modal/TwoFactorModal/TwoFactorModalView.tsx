@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Modal from '@steroidsjs/core/ui/modal/Modal';
 import {Button, Form, InputField} from '@steroidsjs/core/ui/form';
 import {ITwoFactorModalViewProps} from '@steroidsjs/core/ui/modal/TwoFactorModal/TwoFactorModal';

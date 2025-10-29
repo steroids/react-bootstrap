@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React from 'react';
+import {memo, MouseEvent, ReactNode, useCallback, useMemo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps, ICalendarUser, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import _cloneDeep from 'lodash-es/cloneDeep';
-import _slice from 'lodash-es/slice';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import _get from 'lodash-es/get';
 
@@ -14,7 +13,7 @@ interface IDayHourProps extends Pick<ICalendarSystemViewProps, 'openEditModal' |
     hour: string,
     user: ICalendarUser,
     currentDay: IDay,
-    renderEventView: (componentProps: any) => React.ReactNode,
+    renderEventView: (componentProps: any) => ReactNode,
 }
 
 function DayHour(props: IDayHourProps) {
@@ -22,7 +21,7 @@ function DayHour(props: IDayHourProps) {
 
     const {
         events,
-    } = React.useMemo(() => {
+    } = useMemo(() => {
         const eventsIds = props.user.eventsIds;
 
         const callingDate = new Date(props.currentDay.date);
@@ -39,7 +38,7 @@ function DayHour(props: IDayHourProps) {
         };
     }, [props]);
 
-    const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
+    const handleEventClick = useCallback((event: MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
         const eventId: number = _get(eventFromHour, 'dataset.eventid');
 
@@ -52,7 +51,7 @@ function DayHour(props: IDayHourProps) {
         props.openEditModal(requiredEvent);
     }, [events, props]);
 
-    const handleOnContextMenuCreateClick = React.useCallback((e: React.MouseEvent) => {
+    const handleOnContextMenuCreateClick = useCallback((e: MouseEvent) => {
         e.preventDefault();
 
         const day: IDay = _cloneDeep(props.currentDay);
@@ -72,4 +71,4 @@ function DayHour(props: IDayHourProps) {
         </div>
     );
 }
-export default React.memo(DayHour);
+export default memo(DayHour);

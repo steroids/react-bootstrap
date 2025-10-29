@@ -1,4 +1,3 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IWizardFormViewProps} from '@steroidsjs/core/ui/form/WizardForm/WizardForm';
 import Steps from '@steroidsjs/core/ui/list/Steps/Steps';

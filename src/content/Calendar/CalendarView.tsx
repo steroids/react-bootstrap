@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useCallback, useMemo} from 'react';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 import DayPickerSource, {DateUtils} from 'react-day-picker';

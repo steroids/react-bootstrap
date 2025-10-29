@@ -2,6 +2,8 @@
   "extends": "@steroidsjs/eslint-config",
   "rules": {
     "jsx-a11y/no-static-element-interactions": "off",
-    "jsx-a11y/click-events-have-key-events": "off"
+    "jsx-a11y/click-events-have-key-events": "off",
+    // Временное правило. Удалить после перехода на @steroidsjs/eslint-config@3.0.3 и выше
+    "react/react-in-jsx-scope": "off"
   }
 }

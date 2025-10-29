@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {IFieldSetViewProps} from '@steroidsjs/core/ui/form/FieldSet/FieldSet';
 import {useBem} from '@steroidsjs/core/hooks';
 

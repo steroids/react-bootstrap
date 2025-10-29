@@ -1,4 +1,4 @@
-import * as React from 'react';
+import {useMemo} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IImageFieldViewProps} from '@steroidsjs/core/ui/form/ImageField/ImageField';
@@ -7,7 +7,7 @@ import {Button} from '@steroidsjs/core/ui/form';
 export default function ImageFieldView(props: IImageFieldViewProps) {
     const bem = useBem('ImageFieldView');
     const item = props.item;
-    const srcImage = React.useMemo(() => item?.image ? item.image.url + '?w=' + item.image.width + '&h=' + item.image.height : '', [item]);
+    const srcImage = useMemo(() => item?.image ? item.image.url + '?w=' + item.image.width + '&h=' + item.image.height : '', [item]);
 
     return (
         <div className={bem(

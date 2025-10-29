@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {useCallback} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
 import {useBem} from '@steroidsjs/core/hooks';
 import _padStart from 'lodash-es/padStart';

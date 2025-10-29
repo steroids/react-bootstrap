@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import Link from '@steroidsjs/core/ui/nav/Link';
 
 import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';

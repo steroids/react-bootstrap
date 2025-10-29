@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import {memo} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IKanbanTaskViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';

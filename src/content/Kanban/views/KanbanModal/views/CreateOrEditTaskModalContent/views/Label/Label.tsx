@@ -1,4 +1,3 @@
-import React from 'react';
 import {Text} from '@steroidsjs/core/ui/typography';
 
 interface ILabelProps {

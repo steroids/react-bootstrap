@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 
 import {IDateRangeButton, IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';

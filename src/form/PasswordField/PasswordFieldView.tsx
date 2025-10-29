@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 import {IPasswordFieldViewProps, InputType} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
