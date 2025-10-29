@@ -29,11 +29,23 @@ export default function CalendarView(props: ICalendarViewProps) {
     } = props;
 
     const isRange = !!selectedDates[0] && !!selectedDates[1];
+    const timezone = true;
     const {selectedDays, modifiers} = useMemo(() => {
         const from = selectedDates[0];
         const to = selectedDates[1];
         const inRange = (day) => DateUtils.isDayAfter(day, from) && DateUtils.isDayBefore(day, to);
         const outRange = (day) => DateUtils.isDayBefore(day, from);
+        const customToday = (day) => DateUtils.isSameDay(day, new Date(2025, 9, 29));
+        const rangeModifiers = isRange && !DateUtils.isSameDay(from, to)
+            ? {
+                start: from,
+                end: to,
+                inRange,
+            }
+            : undefined;
+        // const today = timezone
+        //     ? utcToZonedTime(new Date(), timezone)
+        //     : new Date(); // либо твоя тестовая дата
         return {
             selectedDays: isRange
                 ? [from, {
@@ -41,15 +53,16 @@ export default function CalendarView(props: ICalendarViewProps) {
                     to,
                 }]
                 : from,
-            modifiers: isRange && !DateUtils.isSameDay(from, to)
-                ? {
-                    start: from,
-                    end: to,
-                    inRange,
-                }
-                : undefined,
+            modifiers: {
+                today: customToday,
+                ...rangeModifiers,
+            },
         };
     }, [isRange, selectedDates]);
+    // const customModifiers = {
+    //     // ключ — имя модификатора (может быть любым)
+    //     customToday: (day: Date) => DateUtils.isSameDay(day, new Date(2025, 9, 29)), // месяцы с 0 => 9 = октябрь
+    // };
 
     const shouldShowFooter = useMemo(() => (
         // Показывать кнопку "закрыть", если открыто меню с выбором месяца, независимо от showTodayButton

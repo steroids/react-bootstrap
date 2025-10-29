@@ -175,6 +175,13 @@ $calendar-border-color: var(--calendar-border-color);
             }
         }
 
+        &--customToday {
+            #{$root}__day {
+                border: 1px solid variables.$primary;
+                color: variables.$primary;
+            }
+        }
+
         &--disabled {
             pointer-events: none;
             opacity: 0.5;
