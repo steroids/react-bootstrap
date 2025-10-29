@@ -1,5 +1,12 @@
 # Changelog
 
+## v3.0.39 (29.10.2025)
+
+### Added
+
+- Обновлена работа today в компоненте `CalendarView` для поддержки timeZone
+- Обновлена версия `@steroidsjs/core`
+
 ## v3.0.38 (04.10.2025)
 
 ### Fixed
