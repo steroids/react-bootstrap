@@ -26,16 +26,15 @@ export default function CalendarView(props: ICalendarViewProps) {
         numberOfMonths,
         toggleCaptionPanel,
         isCaptionPanelVisible,
+        todayDate,
     } = props;
 
     const isRange = !!selectedDates[0] && !!selectedDates[1];
-    const timezone = true;
     const {selectedDays, modifiers} = useMemo(() => {
         const from = selectedDates[0];
         const to = selectedDates[1];
         const inRange = (day) => DateUtils.isDayAfter(day, from) && DateUtils.isDayBefore(day, to);
         const outRange = (day) => DateUtils.isDayBefore(day, from);
-        const customToday = (day) => DateUtils.isSameDay(day, new Date(2025, 9, 29));
         const rangeModifiers = isRange && !DateUtils.isSameDay(from, to)
             ? {
                 start: from,
@@ -43,9 +42,6 @@ export default function CalendarView(props: ICalendarViewProps) {
                 inRange,
             }
             : undefined;
-        // const today = timezone
-        //     ? utcToZonedTime(new Date(), timezone)
-        //     : new Date(); // либо твоя тестовая дата
         return {
             selectedDays: isRange
                 ? [from, {
@@ -54,15 +50,11 @@ export default function CalendarView(props: ICalendarViewProps) {
                 }]
                 : from,
             modifiers: {
-                today: customToday,
-                ...rangeModifiers,
+                ...(rangeModifiers || {}),
+                today: (day: Date) => DateUtils.isSameDay(day, todayDate),
             },
         };
-    }, [isRange, selectedDates]);
-    // const customModifiers = {
-    //     // ключ — имя модификатора (может быть любым)
-    //     customToday: (day: Date) => DateUtils.isSameDay(day, new Date(2025, 9, 29)), // месяцы с 0 => 9 = октябрь
-    // };
+    }, [isRange, selectedDates, todayDate]);
 
     const shouldShowFooter = useMemo(() => (
         // Показывать кнопку "закрыть", если открыто меню с выбором месяца, независимо от showTodayButton
