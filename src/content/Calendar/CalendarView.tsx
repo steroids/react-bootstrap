@@ -26,6 +26,7 @@ export default function CalendarView(props: ICalendarViewProps) {
         numberOfMonths,
         toggleCaptionPanel,
         isCaptionPanelVisible,
+        todayDate,
     } = props;
 
     const isRange = !!selectedDates[0] && !!selectedDates[1];
@@ -34,6 +35,13 @@ export default function CalendarView(props: ICalendarViewProps) {
         const to = selectedDates[1];
         const inRange = (day) => DateUtils.isDayAfter(day, from) && DateUtils.isDayBefore(day, to);
         const outRange = (day) => DateUtils.isDayBefore(day, from);
+        const rangeModifiers = isRange && !DateUtils.isSameDay(from, to)
+            ? {
+                start: from,
+                end: to,
+                inRange,
+            }
+            : undefined;
         return {
             selectedDays: isRange
                 ? [from, {
@@ -41,15 +49,12 @@ export default function CalendarView(props: ICalendarViewProps) {
                     to,
                 }]
                 : from,
-            modifiers: isRange && !DateUtils.isSameDay(from, to)
-                ? {
-                    start: from,
-                    end: to,
-                    inRange,
-                }
-                : undefined,
+            modifiers: {
+                ...(rangeModifiers || {}),
+                today: (day: Date) => DateUtils.isSameDay(day, todayDate),
+            },
         };
-    }, [isRange, selectedDates]);
+    }, [isRange, selectedDates, todayDate]);
 
     const shouldShowFooter = useMemo(() => (
         // Показывать кнопку "закрыть", если открыто меню с выбором месяца, независимо от showTodayButton
