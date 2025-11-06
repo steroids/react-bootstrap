@@ -42,6 +42,7 @@ const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps,
 
     return (
         <button
+            type="button"
             key={String(uniqId)}
             className={bem.element('item', {
                 hover: props.hoveredId === uniqId,
