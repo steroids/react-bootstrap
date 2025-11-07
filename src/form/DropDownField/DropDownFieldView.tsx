@@ -124,6 +124,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                         <input
                             className={bem.element('input')}
                             ref={props.inputRef}
+                            disabled={props.disabled}
                         />
                     </div>
                     {props.showReset && props.selectedIds.length > 0 && (
