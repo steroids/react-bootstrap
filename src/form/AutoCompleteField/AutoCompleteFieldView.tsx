@@ -1,3 +1,4 @@
+import _isArray from 'lodash-es/isArray';
 import * as React from 'react';
 import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
@@ -123,6 +124,11 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
             <div className={bem.element('input-wrapper')}>
                 <input
                     {...props.inputProps}
+                    value={
+                        _isArray(props.inputProps?.value)
+                            ? (props.inputProps.value as (string | number)[])?.join(props.multipleSeparator ?? ',')
+                            : props.inputProps.value as string
+                    }
                     className={bem(
                         bem.element('input'),
                         props.inputProps.className,
