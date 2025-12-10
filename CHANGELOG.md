@@ -1,5 +1,12 @@
 # Changelog
 
+## v3.0.41 (10.12.2025)
+
+### Added
+
+- Добавлена обработка аттрибута `multipleSeparator` а `AutoCompleteFieldView`
+- Обновлена версия `@steroidsjs/core`
+
 ## v3.0.40 (07.11.2025)
 
 ### Fixed
