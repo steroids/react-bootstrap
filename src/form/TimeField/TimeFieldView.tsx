@@ -40,6 +40,7 @@ export default function TimeFieldView(props: ITimeFieldViewProps) {
                     <input
                         {...props.inputProps}
                         id={props.id}
+                        ref={props.maskRef}
                         className={bem(
                             bem.element('input'),
                             props.inputProps.className,

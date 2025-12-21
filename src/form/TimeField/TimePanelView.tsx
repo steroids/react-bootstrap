@@ -1,26 +1,8 @@
 import * as React from 'react';
 import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
 import {useBem} from '@steroidsjs/core/hooks';
-import _padStart from 'lodash-es/padStart';
 import TimePanelColumn from './views/TimePanelColumn';
-
-const getHours = () => {
-    const result = [];
-    for (let i = 0; i < 24; i += 1) {
-        const hour = _padStart(i, 2, '0');
-        result.push(hour);
-    }
-    return result;
-};
-
-const getMinutes = () => {
-    const result = [];
-    for (let i = 0; i < 60; i += 1) {
-        const minute = _padStart(i, 2, '0');
-        result.push(minute);
-    }
-    return result;
-};
+import {getAvailableHours, getAvailableMinutes, isHourAvailable, normalizeMinutesForHour} from './utils';
 
 export interface ITimePanelColumn {
     values: string[],
@@ -31,19 +13,40 @@ export interface ITimePanelColumn {
 function TimePanelView(props: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
     const [hours, minutes] = props.value ? props.value.split(':') : ['00', '00'];
+
+    const {from, to} = props.availableTime || {};
+    const minuteStep = props.minuteStep ?? 1;
+
     const currentValues = {
         hours,
         minutes,
     };
 
-    const COLUMNS : ITimePanelColumn[] = [{
-        values: getHours(),
+    const availableHours = getAvailableHours(from, to);
+
+    // если текущий час невалиден — берём первый доступный
+    const minutesHour = isHourAvailable(hours, from, to)
+        ? hours
+        : availableHours[0];
+
+    const COLUMNS = [{
+        values: getAvailableHours(from, to),
         currentValueKey: 'hours',
         onUpdate: (value) => {
-            props.onSelect(value + ':' + minutes);
+            const nextMinutes = normalizeMinutesForHour(value, minutes, {
+                from,
+                to,
+                step: minuteStep,
+            });
+
+            props.onSelect(value + ':' + nextMinutes);
         },
     }, {
-        values: getMinutes(),
+        values: getAvailableMinutes(minutesHour, {
+            from,
+            to,
+            step: minuteStep,
+        }),
         currentValueKey: 'minutes',
         onUpdate: (value) => {
             props.onSelect(hours + ':' + value);

@@ -45,7 +45,6 @@ export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {
                 )}
                 style={props.style}
             >
-
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputProps}
