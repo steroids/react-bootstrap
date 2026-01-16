@@ -1,8 +1,8 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IKanbanColumnViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
-import {Title} from '@steroidsjs/core/ui/typography';
 import {Button} from '@steroidsjs/core/ui/form';
+import {Title} from '@steroidsjs/core/ui/typography';
+import React from 'react';
 
 export default function KanbanColumnView(props: IKanbanColumnViewProps) {
     const bem = useBem('KanbanColumnView');

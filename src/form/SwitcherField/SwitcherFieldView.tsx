@@ -1,7 +1,6 @@
-import React from 'react';
 import {useBem, useUniqueId} from '@steroidsjs/core/hooks';
-
 import {ICheckboxFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxField/CheckboxField';
+import React from 'react';
 
 export default function SwitcherFieldView(props: ICheckboxFieldViewProps) {
     const bem = useBem('SwitcherFieldView');

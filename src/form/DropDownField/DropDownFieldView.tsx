@@ -1,8 +1,9 @@
-import * as React from 'react';
-import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import {useBem} from '@steroidsjs/core/hooks';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {DropDown} from '@steroidsjs/core/ui/content';
+import Icon from '@steroidsjs/core/ui/content/Icon';
+import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
+import * as React from 'react';
+
 import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
 export default function DropDownFieldView(props: IDropDownFieldViewProps) {

@@ -1,8 +1,8 @@
-import React, {useCallback} from 'react';
-import _isString from 'lodash-es/isString';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IStepItemViewProps, HORIZONTAL_STEP_LAYOUT, VERTICAL_STEP_LAYOUT} from '@steroidsjs/core/ui/list/Steps/Steps';
+import _isString from 'lodash-es/isString';
+import React, {useCallback} from 'react';
 
 export default function StepItemView(props: IStepItemViewProps) {
     const bem = useBem('StepItemView');
@@ -30,14 +30,12 @@ export default function StepItemView(props: IStepItemViewProps) {
     return (
         <div
             key={props.index}
-            className={bem(
-                bem.block(
+            className={bem(bem.block(
                     {
                         [props.status]: true,
                         [`${props.stepTitleOrientation}`]: !!props.stepTitleOrientation,
                     },
-                ), props.className,
-            )}
+                ), props.className)}
         >
             <div
                 className={bem.element('body', {disabled: props.disabled})}

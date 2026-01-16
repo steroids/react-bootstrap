@@ -1,7 +1,7 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IAlertViewProps} from '@steroidsjs/core/ui/content/Alert/Alert';
+import Icon from '@steroidsjs/core/ui/content/Icon';
+import React from 'react';
 
 const ICON_SIZE = '_24x24';
 

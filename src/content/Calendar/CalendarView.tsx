@@ -1,10 +1,11 @@
-import * as React from 'react';
-import {useCallback, useMemo} from 'react';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
-import DayPickerSource, {DateUtils} from 'react-day-picker';
-import {CaptionElementProps} from 'react-day-picker/types/Props';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import {customLocaleUtils} from '@steroidsjs/core/utils/calendar';
+import * as React from 'react';
+import {useCallback, useMemo} from 'react';
+import DayPickerSource, {DateUtils} from 'react-day-picker';
+import {CaptionElementProps} from 'react-day-picker/types/Props';
+
 import CaptionElement from './CaptionElement';
 
 export default function CalendarView(props: ICalendarViewProps) {
@@ -63,25 +64,27 @@ export default function CalendarView(props: ICalendarViewProps) {
         || (showFooter && showTodayButton)
     ), [isCaptionPanelVisible, showFooter, showTodayButton]);
 
+    const renderCaptionElement = useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
+        <CaptionElement
+            date={date}
+            locale={locale}
+            toYear={toYear}
+            fromYear={fromYear}
+            classNames={classNames}
+            onChange={onMonthSelect}
+            localeUtils={localeUtils}
+            showCalendarFooter={showFooter}
+            toggleCaptionPanel={toggleCaptionPanel}
+            isCaptionPanelVisible={isCaptionPanelVisible}
+        />
+    ), [fromYear, isCaptionPanelVisible, onMonthSelect, showFooter, toYear, toggleCaptionPanel]);
+
     return (
         <DayPicker
             {...props}
             {...props.pickerProps}
             className={bem(bem.block({ranged: isRange}), props.className)}
-            captionElement={useCallback(({classNames, date, localeUtils, locale}: CaptionElementProps) => (
-                <CaptionElement
-                    date={date}
-                    locale={locale}
-                    toYear={toYear}
-                    fromYear={fromYear}
-                    classNames={classNames}
-                    onChange={onMonthSelect}
-                    localeUtils={localeUtils}
-                    showCalendarFooter={showFooter}
-                    toggleCaptionPanel={toggleCaptionPanel}
-                    isCaptionPanelVisible={isCaptionPanelVisible}
-                />
-            ), [fromYear, isCaptionPanelVisible, onMonthSelect, showFooter, toYear, toggleCaptionPanel])}
+            captionElement={renderCaptionElement}
             renderDay={(day) => {
                 const date = day.getDate();
                 return (

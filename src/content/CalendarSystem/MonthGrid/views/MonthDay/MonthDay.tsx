@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import _take from 'lodash-es/take';
-import _slice from 'lodash-es/slice';
-import _get from 'lodash-es/get';
-import {Button} from '@steroidsjs/core/ui/form';
-import _isEmpty from 'lodash-es/isEmpty';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import useExpandClickAway from '@steroidsjs/core/ui/content/CalendarSystem/hooks/useExpandClickAway';
+import {Button} from '@steroidsjs/core/ui/form';
 import _cloneDeep from 'lodash-es/cloneDeep';
+import _get from 'lodash-es/get';
+import _isEmpty from 'lodash-es/isEmpty';
+import _slice from 'lodash-es/slice';
+import _take from 'lodash-es/take';
+import React from 'react';
+
 import {getFormattedExpandRestLabel} from '../../../../../utils/getFormattedExpandLabel';
 
 import './MonthDay.scss';

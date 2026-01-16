@@ -1,8 +1,7 @@
-import * as React from 'react';
-import Nav from '@steroidsjs/core/ui/nav/Nav';
-import {IControlsViewProps} from '@steroidsjs/core/ui/nav/Controls/Controls';
-
 import {useBem} from '@steroidsjs/core/hooks';
+import {IControlsViewProps} from '@steroidsjs/core/ui/nav/Controls/Controls';
+import Nav from '@steroidsjs/core/ui/nav/Nav';
+import * as React from 'react';
 
 export default function ControlsView(props: IControlsViewProps) {
     const bem = useBem('ControlsView');

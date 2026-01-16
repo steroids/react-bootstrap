@@ -1,8 +1,9 @@
-import React, {useCallback} from 'react';
-import Modal from '@steroidsjs/core/ui/modal/Modal/Modal';
+import {useBem} from '@steroidsjs/core/hooks';
 import {IKanbanModalViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import {KanbanModalTypeEnum} from '@steroidsjs/core/ui/content/Kanban/enums';
-import {useBem} from '@steroidsjs/core/hooks';
+import Modal from '@steroidsjs/core/ui/modal/Modal/Modal';
+import React, {useCallback} from 'react';
+
 import CreateOrEditTaskModalContent from './views/CreateOrEditTaskModalContent';
 import TaskDetailsModalContent from './views/TaskDetailsModalContent';
 

@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-import AsideHeader from './AsideHeader';
+import React from 'react';
+
 import AsideCalendars from './AsideCalendars';
+import AsideHeader from './AsideHeader';
 import ContentHeader from './ContentHeader';
 
 export default function CalendarSystemView(props: ICalendarSystemViewProps) {

@@ -1,10 +1,8 @@
-import React from 'react';
-
-import Modal from '@steroidsjs/core/ui/modal/Modal';
-import {Button, Form, InputField} from '@steroidsjs/core/ui/form';
-import {ITwoFactorModalViewProps} from '@steroidsjs/core/ui/modal/TwoFactorModal/TwoFactorModal';
-
 import {useBem} from '@steroidsjs/core/hooks';
+import {Button, Form, InputField} from '@steroidsjs/core/ui/form';
+import Modal from '@steroidsjs/core/ui/modal/Modal';
+import {ITwoFactorModalViewProps} from '@steroidsjs/core/ui/modal/TwoFactorModal/TwoFactorModal';
+import React from 'react';
 
 export default function TwoFactorModalView(props: ITwoFactorModalViewProps) {
     const bem = useBem('TwoFactorModalView');

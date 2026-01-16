@@ -1,6 +1,6 @@
-import React, {useCallback, useEffect, useRef} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IChatViewProps} from '@steroidsjs/core/ui/content/Chat/Chat';
+import React, {useCallback, useEffect, useRef} from 'react';
 
 import BubblesDateGroup from './views/BubblesDateGroup';
 

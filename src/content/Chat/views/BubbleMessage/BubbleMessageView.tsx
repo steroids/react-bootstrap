@@ -1,17 +1,18 @@
-import React, {memo, useState} from 'react';
-import {useInterval} from 'react-use';
-import _isEmpty from 'lodash-es/isEmpty';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {Avatar} from '@steroidsjs/core/ui/content/Avatar';
-import {Text} from '@steroidsjs/core/ui/typography';
-import Title from '@steroidsjs/core/ui/typography/Title';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IChatUser} from '@steroidsjs/core/ui/content/Chat/Chat';
 import {SECONDS_IN_MINUTE_VALUE} from '@steroidsjs/core/ui/content/Chat/constants/timeTemplatesAndUnits';
 import {calculateMessageTimeAgo} from '@steroidsjs/core/ui/content/Chat/utils';
+import Icon from '@steroidsjs/core/ui/content/Icon';
+import {Text} from '@steroidsjs/core/ui/typography';
+import Title from '@steroidsjs/core/ui/typography/Title';
+import _isEmpty from 'lodash-es/isEmpty';
+import React, {memo, useState} from 'react';
+import {useInterval} from 'react-use';
+
+import ChatFileItemView from '../ChatFileItem';
 
 import './BubbleMessageView.scss';
-import ChatFileItemView from '../ChatFileItem';
 
 interface IBubbleMessageProps {
     user: IChatUser,

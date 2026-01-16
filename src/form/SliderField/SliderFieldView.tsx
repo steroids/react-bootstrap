@@ -1,8 +1,7 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-
 import {ISliderFieldViewProps} from '@steroidsjs/core/ui/form/SliderField/SliderField';
 import Slider, {SliderTooltip, Handle as HandleSource, Range} from 'rc-slider';
+import * as React from 'react';
 
 const createRangeWithTooltip = Slider.createSliderWithTooltip;
 const createSliderWithTooltip = Slider.createSliderWithTooltip;

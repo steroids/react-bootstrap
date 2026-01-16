@@ -1,9 +1,10 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {useState} from 'react';
-import ReactCropSource from 'react-image-crop';
 import {IImageFieldModalViewProps} from '@steroidsjs/core/ui/form/ImageField/ImageField';
 import Modal from '@steroidsjs/core/ui/modal/Modal';
+import * as React from 'react';
+import {useState} from 'react';
+import ReactCropSource from 'react-image-crop';
+
 import 'react-image-crop/dist/ReactCrop.css';
 
 export default function ImageFieldModalView(props: IImageFieldModalViewProps) {
