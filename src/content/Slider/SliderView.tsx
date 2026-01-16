@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
-import useBem from '@steroidsjs/core/hooks/useBem';
 import {Splide as SplideSource, SplideSlide} from '@splidejs/react-splide';
+import useBem from '@steroidsjs/core/hooks/useBem';
 import {ISliderViewProps} from '@steroidsjs/core/ui/content/Slider/Slider';
+import React from 'react';
 
 import '@splidejs/splide/dist/css/splide.min.css';
 

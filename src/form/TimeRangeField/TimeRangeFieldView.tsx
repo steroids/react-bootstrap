@@ -1,7 +1,8 @@
-import React, {useCallback} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {ITimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/TimeRangeField/TimeRangeField';
 import {DropDown, Icon} from '@steroidsjs/core/ui/content';
+import {ITimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/TimeRangeField/TimeRangeField';
+import React, {useCallback} from 'react';
+
 import TimePanelView from '../TimeField/TimePanelView';
 
 export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps, ICalendarUser, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import _cloneDeep from 'lodash-es/cloneDeep';
-import _slice from 'lodash-es/slice';
-import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import _get from 'lodash-es/get';
+import _slice from 'lodash-es/slice';
+import React from 'react';
 
 import './DayHour.scss';
 

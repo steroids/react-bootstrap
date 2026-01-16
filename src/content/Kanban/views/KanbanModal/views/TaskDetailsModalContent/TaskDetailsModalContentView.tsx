@@ -1,8 +1,8 @@
-import React, {useCallback, useMemo} from 'react';
 import {Avatar, Badge} from '@steroidsjs/core/ui/content';
-import {Text} from '@steroidsjs/core/ui/typography';
 import {IKanbanTaskDetailsModalViewProps, ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import KanbanPrioritiesEnum from '@steroidsjs/core/ui/content/Kanban/enums/KanbanPrioritiesEnum';
+import {Text} from '@steroidsjs/core/ui/typography';
+import React, {useCallback, useMemo} from 'react';
 
 export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsModalViewProps) {
     const {tags, priority, description, assigner} = props.task;

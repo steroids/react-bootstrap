@@ -1,10 +1,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import * as React from 'react';
-
-import Button from '@steroidsjs/core/ui/form/Button';
-
-import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
 import {useBem} from '@steroidsjs/core/hooks';
+import Button from '@steroidsjs/core/ui/form/Button';
+import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
+import * as React from 'react';
 
 export default function NavLinkView(props: INavViewProps) {
     const bem = useBem('NavLinkView');

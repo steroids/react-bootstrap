@@ -1,8 +1,7 @@
-import * as React from 'react';
-
-import {IPasswordFieldViewProps, InputType} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
+import Icon from '@steroidsjs/core/ui/content/Icon';
+import {IPasswordFieldViewProps, InputType} from '@steroidsjs/core/ui/form/PasswordField/PasswordField';
+import * as React from 'react';
 
 export default function PasswordFieldView(props: IPasswordFieldViewProps) {
     const bem = useBem('PasswordFieldView');

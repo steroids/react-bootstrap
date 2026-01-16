@@ -1,8 +1,9 @@
-import * as React from 'react';
-import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
 import {useBem} from '@steroidsjs/core/hooks';
-import TimePanelColumn from './views/TimePanelColumn';
+import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
+import * as React from 'react';
+
 import {getAvailableHours, getAvailableMinutes, isHourAvailable, normalizeMinutesForHour} from './utils';
+import TimePanelColumn from './views/TimePanelColumn';
 
 export interface ITimePanelColumn {
     values: string[],

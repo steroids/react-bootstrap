@@ -1,7 +1,6 @@
-import * as React from 'react';
-
-import {IListViewProps} from '@steroidsjs/core/ui/list/List/List';
 import {useBem} from '@steroidsjs/core/hooks';
+import {IListViewProps} from '@steroidsjs/core/ui/list/List/List';
+import * as React from 'react';
 
 export default function ListView(props: IListViewProps) {
     const bem = useBem('ListView');

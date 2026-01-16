@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import {ButtonGroup} from '@steroidsjs/core/ui/nav';
 import {Icon} from '@steroidsjs/core/ui/content';
-import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
-import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
+import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
+import {ButtonGroup} from '@steroidsjs/core/ui/nav';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import React from 'react';
 
 import './ContentHeader.scss';
 

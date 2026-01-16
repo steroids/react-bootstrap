@@ -1,9 +1,7 @@
-import * as React from 'react';
-
-import Link from '@steroidsjs/core/ui/nav/Link';
-
-import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
 import {useBem} from '@steroidsjs/core/hooks';
+import Link from '@steroidsjs/core/ui/nav/Link';
+import {INavViewProps} from '@steroidsjs/core/ui/nav/Nav/Nav';
+import * as React from 'react';
 
 export default function NavListView(props: INavViewProps) {
     const bem = useBem('NavListView');
