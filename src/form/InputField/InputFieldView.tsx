@@ -46,43 +46,26 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                         className: bem.element('lead-icon'),
                         tabIndex: -1,
                     })}
-                {props.maskOptions
-                    ? (
-                        <input
-                            onBlur={props.onBlur}
-                            onFocus={props.onFocus}
-                            onMouseDown={props.onMouseDown}
-                            className={bem(
-                                bem.element('input', {
-                                    size: props.size,
-                                }),
-                            )}
-                            {...props.inputProps}
-                            type={props.inputProps.type}
-                            placeholder={props.placeholder}
-                            disabled={props.disabled}
-                            required={props.required}
-                            id={props.id}
-                            ref={props.inputRef}
-                        />
-                    )
-                    : (
-                        <input
-                            className={bem(
-                                bem.element('input', {
-                                    size: props.size,
-                                }),
-                            )}
-                            {...props.inputProps}
-                            type={props.inputProps.type}
-                            placeholder={props.placeholder}
-                            disabled={props.disabled}
-                            required={props.required}
-                            id={props.id}
-                            ref={props.inputRef}
-                        />
+
+                <input
+                    onBlur={props.onBlur}
+                    onFocus={props.onFocus}
+                    onKeyDown={props.onKeyDown}
+                    onMouseDown={props.onMouseDown}
+                    className={bem(
+                        bem.element('input', {
+                            size: props.size,
+                        }),
                     )}
-                {!props.disabled && props.showClear && !props.maskProps && !!props.inputProps.value && (
+                    {...props.inputProps}
+                    type={props.inputProps.type}
+                    placeholder={props.placeholder}
+                    disabled={props.disabled}
+                    required={props.required}
+                    id={props.id}
+                    ref={props.inputRef}
+                />
+                {!props.disabled && props.showClear && !!props.inputProps.value && (
                     <Icon
                         name='cross_8x8'
                         className={bem.element('icon-clear')}
