@@ -148,6 +148,12 @@ export default {
     'form.PasswordFieldView': {
         lazy: () => require('./form/PasswordField/PasswordFieldView').default,
     },
+    'form.PhoneFieldView': {
+        lazy: () => require('./form/PhoneField/PhoneFieldView').default,
+    },
+    'form.DropDownCountrySelectView': {
+        lazy: () => require('./form/PhoneField/DropDownCountySelectView').default,
+    },
     'form.RadioListFieldView': {
         lazy: () => require('./form/RadioListField/RadioListFieldView').default,
     },
