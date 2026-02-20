@@ -1,20 +1,55 @@
 import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {Icon} from '@steroidsjs/core/ui/content';
 import {ILoaderViewProps} from '@steroidsjs/core/ui/layout/Loader/Loader';
+
+// eslint-disable-next-line
+const LOADER_PATH = 'M16.5473 4.43087C14.1741 4.4031 11.8459 5.0797 9.85722 6.37509C7.86854 7.67049 6.30864 9.52651 5.3748 11.7084C4.44095 13.8904 4.17509 16.3002 4.61085 18.6333C5.0466 20.9663 6.16439 23.1177 7.82287 24.8155C9.48135 26.5132 11.606 27.681 13.9282 28.1713C16.2504 28.6615 18.6658 28.4521 20.869 27.5696C23.0722 26.687 24.9642 25.171 26.3058 23.2132C27.6474 21.2554 28.3783 18.9437 28.406 16.5705';
 
 export default function LoaderView(props: ILoaderViewProps) {
     const bem = useBem('LoaderView');
+    const gradientId = `loader-${React.useId().replace(/:/g, '')}`;
+
     return (
         <div className={bem.block({
             color: props.color,
             size: props.size,
         })}
         >
-            <Icon
-                className={bem.element('icon')}
-                name='loading_purple'
-            />
+            <div className={bem.element('icon')}>
+                <svg
+                    width="33"
+                    height="33"
+                    viewBox="0 0 33 33"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <defs>
+                        <linearGradient
+                            id={gradientId}
+                            x1="16.2664"
+                            y1="28.4292"
+                            x2="16.5473"
+                            y2="4.43087"
+                            gradientUnits="userSpaceOnUse"
+                        >
+                            <stop
+                                stopColor="var(--loader-stop-first, #651FFF)"
+                            />
+                            <stop
+                                offset="1"
+                                stopColor="var(--loader-stop-second, #BA9BFF)"
+                            />
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d={LOADER_PATH}
+                        stroke={`url(#${gradientId})`}
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    />
+                </svg>
+            </div>
         </div>
     );
 }
