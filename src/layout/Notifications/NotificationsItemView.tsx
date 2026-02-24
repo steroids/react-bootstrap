@@ -13,6 +13,7 @@ export default function NotificationsItemView(props: INotificationsItemViewProps
     }, [props.isClosing]);
 
     const bem = useBem('NotificationsItemView');
+
     return (
         <CSSTransition
             in={isShow}
@@ -30,7 +31,7 @@ export default function NotificationsItemView(props: INotificationsItemViewProps
                 <AlertView
                     onClose={props.onClose}
                     message={props.message}
-                    type={props.level}
+                    type={props.type}
                     showClose
                     isExist
                     isVisible
