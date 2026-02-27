@@ -4,9 +4,6 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-import _take from 'lodash-es/take';
-import _slice from 'lodash-es/slice';
-import _isEmpty from 'lodash-es/isEmpty';
 import _get from 'lodash-es/get';
 import _cloneDeep from 'lodash-es/cloneDeep';
 
@@ -42,7 +39,9 @@ export default function WeekHour(props: IWeekHourProps) {
 
     const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
-        const eventId: number = _get(eventFromHour, 'dataset.eventid');
+        const eventId: number = _get(eventFromHour, 'dataset.eventid')
+            ? Number(_get(eventFromHour, 'dataset.eventid'))
+            : undefined;
 
         if (!eventId) {
             return;

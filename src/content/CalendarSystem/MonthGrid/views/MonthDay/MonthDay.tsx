@@ -53,7 +53,9 @@ export default function MonthDay(props: IMonthDayProps) {
 
     const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
-        const eventId: number = _get(eventFromHour, 'dataset.eventid');
+        const eventId: number = _get(eventFromHour, 'dataset.eventid')
+            ? Number(_get(eventFromHour, 'dataset.eventid'))
+            : undefined;
 
         if (!eventId) {
             return;
