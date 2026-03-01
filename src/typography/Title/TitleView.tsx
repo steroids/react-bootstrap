@@ -1,6 +1,6 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {ITitleViewProps} from '@steroidsjs/core/ui/typography/Title/Title';
+import * as React from 'react';
 
 const TYPE_MAPPING = {
     h1: 'h1',

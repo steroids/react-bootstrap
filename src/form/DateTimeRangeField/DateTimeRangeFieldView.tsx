@@ -1,13 +1,13 @@
-import * as React from 'react';
-import {useCallback} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import Icon from '@steroidsjs/core/ui/content/Icon';
-import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
+import DropDown from '@steroidsjs/core/ui/content/DropDown';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRangeField/DateTimeRangeField';
+import {useCallback} from 'react';
+import * as React from 'react';
 
-import TimePanelView from '../TimeField/TimePanelView';
 import RangeButtons from '../DateRangeField/views/RangeButtons';
+import TimePanelView from '../TimeField/TimePanelView';
 
 export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewProps) {
     const bem = useBem('DateTimeRangeFieldView');
@@ -63,12 +63,14 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
             className={bem.element('dropdown')}
         >
             <div
-                className={bem(bem.block({
+                className={bem(
+bem.block({
                     disabled: props.disabled,
                     size: props.size,
                     'is-invalid': !!props.errors,
                 }),
-                props.className)}
+                props.className,
+)}
                 style={props.style}
             >
                 <div className={bem.element('body')}>

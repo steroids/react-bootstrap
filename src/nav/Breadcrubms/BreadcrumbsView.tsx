@@ -1,8 +1,9 @@
-import * as React from 'react';
-import Link from '@steroidsjs/core/ui/nav/Link';
-import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
 import {useBem} from '@steroidsjs/core/hooks';
 import {Icon} from '@steroidsjs/core/ui/content';
+import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
+import Link from '@steroidsjs/core/ui/nav/Link';
+import * as React from 'react';
+
 import renderIcon from '../../utils/renderIcon';
 
 export default function BreadcrumbsView(props: IBreadcrumbsViewProps) {

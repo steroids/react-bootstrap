@@ -1,10 +1,11 @@
-import React, {forwardRef, useCallback, useRef} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {FileField, Form, InputField} from '@steroidsjs/core/ui/form';
 import {IChatInputViewProps} from '@steroidsjs/core/ui/content/Chat/Chat';
+import {FileField, Form, InputField} from '@steroidsjs/core/ui/form';
+import React, {forwardRef, useCallback, useRef} from 'react';
 
 import ButtonView from '../../../../form/Button/ButtonView';
 import ChatFileItemView from '../ChatFileItem';
+
 import './ChatInputView.scss';
 
 const HiddenUploadFileButton = forwardRef<HTMLButtonElement, any>((props, ref) => (

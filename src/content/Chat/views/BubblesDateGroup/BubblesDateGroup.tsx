@@ -1,10 +1,11 @@
-import React, {memo, useCallback} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {calculateMessageTimeAgo, isTodayMessage} from '@steroidsjs/core/ui/content/Chat/utils';
-import {IGroupedMessage} from '@steroidsjs/core/ui/content/Chat/hooks/useChat';
 import {IChatUser} from '@steroidsjs/core/ui/content/Chat/Chat';
+import {IGroupedMessage} from '@steroidsjs/core/ui/content/Chat/hooks/useChat';
+import {calculateMessageTimeAgo, isTodayMessage} from '@steroidsjs/core/ui/content/Chat/utils';
+import React, {memo, useCallback} from 'react';
 
 import BubbleMessageView from '../BubbleMessage';
+
 import './BubblesDateGroup.scss';
 
 interface IBubblesDateGroupProps {

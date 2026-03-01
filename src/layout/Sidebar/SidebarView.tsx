@@ -1,10 +1,11 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ISidebarViewProps} from '@steroidsjs/core/ui/layout/Sidebar/Sidebar';
 import {Nav} from '@steroidsjs/core/ui/nav';
-import SidebarUser from './SidebarUser';
-import SidebarLogo from './SidebarLogo';
+import React from 'react';
+
 import FooterIcons from './FooterIcons';
+import SidebarLogo from './SidebarLogo';
+import SidebarUser from './SidebarUser';
 
 export default function SidebarView(props: ISidebarViewProps) {
     const bem = useBem('SidebarView');

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {FilesLayout, IFileFieldViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 import Button from '@steroidsjs/core/ui/form/Button';
+import {FilesLayout, IFileFieldViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
+import * as React from 'react';
 
 export default function FileFieldView(props: IFileFieldViewProps) {
     const bem = useBem('FileFieldView');
