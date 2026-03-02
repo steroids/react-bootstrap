@@ -2,6 +2,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {DropDown} from '@steroidsjs/core/ui/content';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
+import {Loader} from '@steroidsjs/core/ui/layout';
 import * as React from 'react';
 
 import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
@@ -62,12 +63,18 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     />
                 </div>
             )}
-            <div className={bem.element('drop-down-list')}>
-                {props.multiple
+            {props.isLoading ? (
+                <div className={bem.element('loader')}>
+                    <Loader size='sm' />
+                </div>
+            ) : (
+                <div className={bem.element('drop-down-list')}>
+                    {props.multiple
                             && props.itemToSelectAll
                             && props.renderItem(props.itemToSelectAll)}
-                {props.items.map((item) => props.renderItem(item))}
-            </div>
+                    {props.items.map((item) => props.renderItem(item))}
+                </div>
+            )}
         </div>
     ), [bem, menuWidth, props]);
 
@@ -101,7 +108,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     ), props.className)}
                     onKeyPress={e => e.key === 'Enter' && !props.disabled && props.onOpen()}
                     style={props.style}
-                    role="button"
+                    role='button'
                     tabIndex={0}
                     onClick={closeIfOpened}
                     ref={fieldRef}
@@ -130,7 +137,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     </div>
                     {props.showReset && props.selectedIds.length > 0 && (
                         <Icon
-                            name="cross_8x8"
+                            name='cross_8x8'
                             className={bem.element('icon-close')}
                             tabIndex={-1}
                             onClick={props.onReset}
