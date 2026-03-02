@@ -3,6 +3,8 @@ import {DropDown} from '@steroidsjs/core/ui/content';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
 import * as React from 'react';
+import _isEmpty from 'lodash-es/isEmpty';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
 
 import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
@@ -34,6 +36,15 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fieldRef.current, props.isOpened]);
 
+    const renderItems = React.useCallback(() => {
+        return <>
+            {props.multiple
+                && props.itemToSelectAll
+                && props.renderItem(props.itemToSelectAll)}
+            {props.items.map((item) => props.renderItem(item))}
+            </>
+    }, [props]);
+
     const renderList = React.useCallback(() => (
         <div
             className={bem.element('drop-down')}
@@ -63,10 +74,15 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                 </div>
             )}
             <div className={bem.element('drop-down-list')}>
-                {props.multiple
-                            && props.itemToSelectAll
-                            && props.renderItem(props.itemToSelectAll)}
-                {props.items.map((item) => props.renderItem(item))}
+                {!_isEmpty(props.items)
+                    ? renderItems()
+                    : (
+                        <Text
+                            className={bem.element('nothing')}
+                            content={props.empty ?? __('Ничего не найдено')}
+                            type='text'
+                        />
+                    )}
             </div>
         </div>
     ), [bem, menuWidth, props]);
