@@ -1,10 +1,11 @@
-import * as React from 'react';
-import {useCallback} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import Icon from '@steroidsjs/core/ui/content/Icon';
-import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
+import DropDown from '@steroidsjs/core/ui/content/DropDown';
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
+import {useCallback} from 'react';
+import * as React from 'react';
+
 import RangeButtons from './views/RangeButtons';
 
 export default function DateRangeFieldView(props: IDateRangeFieldViewProps) {

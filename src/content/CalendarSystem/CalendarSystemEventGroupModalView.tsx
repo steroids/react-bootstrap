@@ -1,9 +1,9 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import Modal from '@steroidsjs/core/ui/modal/Modal';
 import {CalendarSystemEventGroupModalViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {InputField, Form} from '@steroidsjs/core/ui/form';
+import Modal from '@steroidsjs/core/ui/modal/Modal';
 import {Text} from '@steroidsjs/core/ui/typography';
+import React from 'react';
 
 export default function CalendarSystemEventGroupModalView(props: CalendarSystemEventGroupModalViewProps) {
     const bem = useBem('CalendarSystemEventGroupModalView');

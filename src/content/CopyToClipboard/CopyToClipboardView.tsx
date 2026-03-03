@@ -1,6 +1,7 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICopyToClipboardViewProps} from '@steroidsjs/core/ui/content/CopyToClipboard/CopyToClipboard';
+import React from 'react';
+
 import renderIcon from '../../utils/renderIcon';
 
 function CopyToClipboardView(props: ICopyToClipboardViewProps) {

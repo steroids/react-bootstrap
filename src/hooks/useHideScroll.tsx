@@ -17,9 +17,10 @@ export default function useHideScroll() {
         if (process.env.IS_SSR) {
             return;
         }
-
-        const fullWindowWidth = window.innerWidth; // полная ширина окна;
-        const windowWidthWithoutScrollbar = document.documentElement.clientWidth; // ширина окна за вычетом скролла
+        // полная ширина окна;
+        const fullWindowWidth = window.innerWidth;
+        // ширина окна за вычетом скролла
+        const windowWidthWithoutScrollbar = document.documentElement.clientWidth;
 
         defaultPadding.current = document.body.style.paddingRight;
 
@@ -27,8 +28,7 @@ export default function useHideScroll() {
             const defaultPaddingInt = defaultPadding.current
                 ? Number(defaultPadding.current.replace(onlyNumbersRegExp, ''))
                 : 0;
-            const paddingRight = `${fullWindowWidth - windowWidthWithoutScrollbar + defaultPaddingInt}px`;
-            document.body.style.paddingRight = paddingRight;
+            document.body.style.paddingRight = `${fullWindowWidth - windowWidthWithoutScrollbar + defaultPaddingInt}px`;
             document.body.classList.add(BODY_HIDE_SCROLL_CLASS_NAME);
         }
     });

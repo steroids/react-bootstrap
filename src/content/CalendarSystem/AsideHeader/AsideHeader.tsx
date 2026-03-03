@@ -1,8 +1,8 @@
-import React, {memo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import Title from '@steroidsjs/core/ui/typography/Title/Title';
-import {Button} from '@steroidsjs/core/ui/form';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import {Button} from '@steroidsjs/core/ui/form';
+import Title from '@steroidsjs/core/ui/typography/Title/Title';
+import React, {memo} from 'react';
 
 import './AsideHeader.scss';
 

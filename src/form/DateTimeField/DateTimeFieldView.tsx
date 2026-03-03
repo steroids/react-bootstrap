@@ -1,11 +1,11 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {useCallback} from 'react';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
-
+import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDateTimeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeField/DateTimeField';
+import {useCallback} from 'react';
+import * as React from 'react';
+
 import TimePanelView from '../TimeField/TimePanelView';
 
 export default function DateTimeFieldView(props: IDateTimeFieldViewProps) {

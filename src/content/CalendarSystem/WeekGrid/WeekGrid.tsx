@@ -1,7 +1,7 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import React from 'react';
 
 import './WeekGrid.scss';
 
