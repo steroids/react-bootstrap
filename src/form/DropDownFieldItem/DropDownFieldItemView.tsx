@@ -1,4 +1,3 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {
     CHECKBOX_CONTENT_TYPE,
@@ -8,8 +7,10 @@ import {
     IMG_CONTENT_TYPE,
     RADIO_CONTENT_TYPE,
 } from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import renderIcon from '../../utils/renderIcon';
+import React from 'react';
+
 import AccordionItemView from '../../content/Accordion/AccordionItemView';
+import renderIcon from '../../utils/renderIcon';
 import CheckboxFieldView from '../CheckboxField/CheckboxFieldView';
 import RadioFieldView from '../RadioField/RadioFieldView';
 

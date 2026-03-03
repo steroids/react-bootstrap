@@ -1,7 +1,7 @@
-import React from 'react';
-import {Badge} from '@steroidsjs/core/ui/content';
 import {useBem} from '@steroidsjs/core/hooks';
+import {Badge} from '@steroidsjs/core/ui/content';
 import {ITaskTag} from '@steroidsjs/core/ui/content/Kanban/Kanban';
+import React from 'react';
 
 import './TaskTags.scss';
 

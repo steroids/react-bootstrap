@@ -1,15 +1,16 @@
 /* eslint-disable consistent-return */
+
+import {openModal} from '@steroidsjs/core/actions/modal';
+import {useBem, useDispatch} from '@steroidsjs/core/hooks';
+import {Avatar, Icon, Menu} from '@steroidsjs/core/ui/content';
+import {Button} from '@steroidsjs/core/ui/form';
+import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
+import {Link} from '@steroidsjs/core/ui/nav';
+import {ILinkProps} from '@steroidsjs/core/ui/nav/Link/Link';
+import Nav from '@steroidsjs/core/ui/nav/Nav';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import * as React from 'react';
 
-import {Link} from '@steroidsjs/core/ui/nav';
-import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
-import Nav from '@steroidsjs/core/ui/nav/Nav';
-import {useBem, useDispatch} from '@steroidsjs/core/hooks';
-import {Button} from '@steroidsjs/core/ui/form';
-import {openModal} from '@steroidsjs/core/actions/modal';
-import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import {Avatar, Icon, Menu} from '@steroidsjs/core/ui/content';
-import {ILinkProps} from '@steroidsjs/core/ui/nav/Link/Link';
 import renderIcon from '../../utils/renderIcon';
 
 export default function HeaderView(props: IHeaderViewProps) {
