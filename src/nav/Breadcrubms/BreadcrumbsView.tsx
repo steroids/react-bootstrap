@@ -22,7 +22,9 @@ export default function BreadcrumbsView(props: IBreadcrumbsViewProps) {
 
     const renderHomeIcon = React.useCallback(() => (
         props.customIcon
-            ? renderIcon(props.customIcon, {className: bem.element('custom-icon')})
+            ? renderIcon(props.customIcon, {
+                className: bem.element('custom-icon'),
+            })
             : (
                 <Icon
                     name='home'

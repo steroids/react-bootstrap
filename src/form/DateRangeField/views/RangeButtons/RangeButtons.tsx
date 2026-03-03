@@ -32,13 +32,16 @@ export default function RangeButtons(props: IRangeButtonsProps) {
 
     const {changeFrom, changeTo} = props;
     const buttons = useMemo(() => (Array.isArray(props.config) ? props.config : DEFAULT_BUTTONS)
-            .map((button) => ({
-                ...button,
-                onClick: button.onClick.bind(null, locale, changeFrom, changeTo, props.format || DEFAULT_VALUE_FORMAT),
-            })), [changeFrom, changeTo, locale, props.config, props.format]);
+        .map((button) => ({
+            ...button,
+            onClick: button.onClick.bind(null, locale, changeFrom, changeTo, props.format || DEFAULT_VALUE_FORMAT),
+        })), [changeFrom, changeTo, locale, props.config, props.format]);
 
     return (
-        <div className={bem.block({position: props.position})}>
+        <div className={bem.block({
+            position: props.position,
+        })}
+        >
             {buttons.map((button, index) => (
                 <Button
                     key={index}

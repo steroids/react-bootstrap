@@ -72,7 +72,10 @@ function TimePanelView(props: ITimePanelViewProps) {
                     />
                 ))}
             </div>
-            <div className={bem.element('footer', {'to-end': !props.showNow})}>
+            <div className={bem.element('footer', {
+                'to-end': !props.showNow,
+            })}
+            >
                 {props.showNow && (
                     <button
                         className={bem.element('button', 'now')}
