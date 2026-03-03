@@ -31,14 +31,16 @@ export default function StepItemView(props: IStepItemViewProps) {
         <div
             key={props.index}
             className={bem(bem.block(
-                    {
-                        [props.status]: true,
-                        [`${props.stepTitleOrientation}`]: !!props.stepTitleOrientation,
-                    },
-                ), props.className)}
+                {
+                    [props.status]: true,
+                    [`${props.stepTitleOrientation}`]: !!props.stepTitleOrientation,
+                },
+            ), props.className)}
         >
             <div
-                className={bem.element('body', {disabled: props.disabled})}
+                className={bem.element('body', {
+                    disabled: props.disabled,
+                })}
                 onClick={() => props.onChange(props.index)}
             >
                 {props.showDivider && props.stepTitleOrientation === VERTICAL_STEP_LAYOUT && renderDivider()}

@@ -17,11 +17,14 @@ export default function ModalView(props: IModalViewProps) {
         afterOpen: 'ModalView_overlay-after',
         beforeClose: 'ModalView_overlay-before',
     };
+
     return (
         <Modal
             {...props}
             ariaHideApp={false}
-            className={bem(bem.element('body', {size: props.size}), props.className)}
+            className={bem(bem.element('body', {
+                size: props.size,
+            }), props.className)}
             closeTimeoutMS={props.closeTimeoutMs}
             isOpen={!props.isClosing}
             onRequestClose={props.onClose}

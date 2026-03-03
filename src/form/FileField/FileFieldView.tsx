@@ -20,7 +20,9 @@ export default function FileFieldView(props: IFileFieldViewProps) {
             )}
         >
             <ButtonView
-                className={bem.element('button', {isWall})}
+                className={bem.element('button', {
+                    isWall,
+                })}
                 icon={isWall ? 'add' : 'export'}
                 {...props.buttonProps}
             />

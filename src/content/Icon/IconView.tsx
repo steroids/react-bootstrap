@@ -12,7 +12,10 @@ export default function IconView(props: IIconViewProps) {
         return (
             <span
                 {...omittedProps}
-                dangerouslySetInnerHTML={{__html: props.icon} /* eslint-disable-line react/no-danger */}
+                /* eslint-disable-next-line react/no-danger */
+                dangerouslySetInnerHTML={{
+                    __html: props.icon,
+                }}
                 aria-label={props.title}
                 title={props.title}
                 className={bem(bem.block(), props.className)}

@@ -14,7 +14,9 @@ export default function MenuItemView(props: IMenuItem) {
                 noneIcon: !props.icon,
             })}
         >
-            {props.icon && renderIcon(props.icon, {className: bem.element('icon')})}
+            {props.icon && renderIcon(props.icon, {
+                className: bem.element('icon'),
+            })}
 
             <span className={bem.element('label')}>
                 {props.label}
