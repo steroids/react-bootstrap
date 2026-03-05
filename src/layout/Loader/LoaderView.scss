@@ -6,7 +6,7 @@
   --gradient-color-primary-second: #BA9BFF;
 }
 
-html[data-theme="dark"] { 
+html[data-theme="dark"] {
   --gradient-color-primary-first: #9362FF;
   --gradient-color-primary-second: #B898FF;
 }
@@ -56,6 +56,10 @@ $gradient-color-primary-second: var(--gradient-color-primary-second);
     align-items: center;
     justify-content: center;
     animation: Loader-spin 1.1s infinite linear;
+
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
   }
 
   &_color_gradient {
