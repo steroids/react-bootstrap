@@ -1,4 +1,3 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {
     CHECKBOX_CONTENT_TYPE,
@@ -8,8 +7,10 @@ import {
     IMG_CONTENT_TYPE,
     RADIO_CONTENT_TYPE,
 } from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import renderIcon from '../../utils/renderIcon';
+import React from 'react';
+
 import AccordionItemView from '../../content/Accordion/AccordionItemView';
+import renderIcon from '../../utils/renderIcon';
 import CheckboxFieldView from '../CheckboxField/CheckboxFieldView';
 import RadioFieldView from '../RadioField/RadioFieldView';
 
@@ -44,7 +45,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                     toggleAccordion={() => { }}
                     showIcon
                     title={props.item.label}
-                    position="middle"
+                    position='middle'
                     key={uniqItemId}
                     className={
                         bem.element('group', {
@@ -71,7 +72,9 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                     {...commonProps}
                     key={uniqItemId}
                 >
-                    {renderIcon(props.item.contentSrc, {className: bem.element('icon')})}
+                    {renderIcon(props.item.contentSrc, {
+                        className: bem.element('icon'),
+                    })}
                     <span>
                         {props.item.label}
                     </span>
@@ -132,7 +135,7 @@ export default function DropDownItemView(props: IDropDownFieldItemViewProps) {
                     <span className={bem.element('img')}>
                         <img
                             src={props.item.contentSrc as string}
-                            alt="custom source for item"
+                            alt='custom source for item'
                         />
                     </span>
                     <span>

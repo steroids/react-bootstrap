@@ -1,8 +1,9 @@
-import React from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
+import {Button} from '@steroidsjs/core/ui/form';
 import {IWizardFormViewProps} from '@steroidsjs/core/ui/form/WizardForm/WizardForm';
 import Steps from '@steroidsjs/core/ui/list/Steps/Steps';
-import {Button} from '@steroidsjs/core/ui/form';
+import React from 'react';
+
 import TitleView from '../../typography/Title/TitleView';
 
 export default function WizardFormView(props: IWizardFormViewProps) {

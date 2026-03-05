@@ -1,8 +1,7 @@
-import * as React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-
-import {FilesLayout, IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 import Icon from '@steroidsjs/core/ui/content/Icon';
+import {FilesLayout, IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
+import * as React from 'react';
 
 export default function FileFieldItemView(props: IFileFieldItemViewProps) {
     const bem = useBem('FileFieldItemView');
@@ -26,7 +25,9 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps) {
         <div className={bem.element('progress-track')}>
             <div
                 className={bem.element('progress-bar')}
-                style={{width: `${props.progress.percent}%`}}
+                style={{
+                    width: `${props.progress.percent}%`,
+                }}
             />
         </div>
     ), [bem, props.progress]);
@@ -57,7 +58,9 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps) {
                 ? (
                     <div
                         className={bem.element('image')}
-                        style={{backgroundImage: `url(${props.image.url})`}}
+                        style={{
+                            backgroundImage: `url(${props.image.url})`,
+                        }}
                     />
                 )
                 : (
@@ -89,7 +92,9 @@ export default function FileFieldItemView(props: IFileFieldItemViewProps) {
             {props.showRemove && (
                 <Icon
                     name={props.customRemoveIcon || 'trash'}
-                    className={bem.element('remove', {isLoading})}
+                    className={bem.element('remove', {
+                        isLoading,
+                    })}
                     onClick={props.onRemove}
                 />
             )}

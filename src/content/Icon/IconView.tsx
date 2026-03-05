@@ -1,8 +1,7 @@
-import * as React from 'react';
-
-import {IIconViewProps} from '@steroidsjs/core/ui/content/Icon/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
+import {IIconViewProps} from '@steroidsjs/core/ui/content/Icon/Icon';
 import _omit from 'lodash-es/omit';
+import * as React from 'react';
 
 export default function IconView(props: IIconViewProps) {
     const bem = useBem('IconView');
@@ -13,7 +12,10 @@ export default function IconView(props: IIconViewProps) {
         return (
             <span
                 {...omittedProps}
-                dangerouslySetInnerHTML={{__html: props.icon} /* eslint-disable-line react/no-danger */}
+                /* eslint-disable-next-line react/no-danger */
+                dangerouslySetInnerHTML={{
+                    __html: props.icon,
+                }}
                 aria-label={props.title}
                 title={props.title}
                 className={bem(bem.block(), props.className)}

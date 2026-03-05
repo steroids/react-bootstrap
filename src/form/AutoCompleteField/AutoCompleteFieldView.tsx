@@ -1,11 +1,11 @@
-import _isArray from 'lodash-es/isArray';
-import * as React from 'react';
-import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
-import _isEmpty from 'lodash-es/isEmpty';
-import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import {Icon} from '@steroidsjs/core/ui/content';
 import {IBem} from '@steroidsjs/core/hooks/useBem';
+import {Icon} from '@steroidsjs/core/ui/content';
+import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import _isArray from 'lodash-es/isArray';
+import _isEmpty from 'lodash-es/isEmpty';
+import * as React from 'react';
 
 const normalizeItems = (items: IAutoCompleteItem[]) => {
     const categories: {
@@ -110,15 +110,13 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
     return (
         <div
             ref={props.forwardedRef}
-            className={bem(
-                bem.block({
+            className={bem(bem.block({
                     size: props.size,
                     opened: props.isOpened,
                     hasClearIcon: props.showClear && !props.disabled,
                     filled: !!props.inputProps.value,
                     disabled: props.disabled,
-                }), props.className,
-            )}
+                }), props.className)}
             style={props.style}
         >
             <div className={bem.element('input-wrapper')}>

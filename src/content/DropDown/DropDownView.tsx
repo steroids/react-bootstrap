@@ -1,8 +1,7 @@
-import * as React from 'react';
-import _isFunction from 'lodash-es/isFunction';
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 import {IDropDownViewProps} from '@steroidsjs/core/ui/content/DropDown/DropDown';
-
+import _isFunction from 'lodash-es/isFunction';
+import * as React from 'react';
 import {useEffect, useMemo, useRef} from 'react';
 
 export default function DropDownView(props: IDropDownViewProps) {
@@ -47,7 +46,9 @@ export default function DropDownView(props: IDropDownViewProps) {
             {props.hasArrow && (
                 <div
                     ref={arrowRef}
-                    className={bem.element('arrow', {position: props.position})}
+                    className={bem.element('arrow', {
+                        position: props.position,
+                    })}
                     style={props.arrowPosition}
                 />
             )}

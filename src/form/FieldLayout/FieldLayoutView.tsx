@@ -1,9 +1,8 @@
-import * as React from 'react';
-import _isEmpty from 'lodash-es/isEmpty';
-
-import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
 import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
+import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
+import _isEmpty from 'lodash-es/isEmpty';
+import * as React from 'react';
 
 export default function FieldLayoutView(props: IFieldLayoutViewProps) {
     const bem = useBem('FieldLayoutView');
@@ -36,14 +35,16 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps) {
                                 className={bem.element('error-message')}
                             >
                                 <Icon
-                                    name="error_24x24"
+                                    name='error_24x24'
                                     className={bem.element('icon_error')}
                                     tabIndex={-1}
                                 />
-                                <span className={bem.element('error-text',
+                                <span className={bem.element(
+                                    'error-text',
                                     {
                                         size: props.size || 'md',
-                                    })}
+                                    },
+                                )}
                                 >
                                     {error}
 
@@ -54,7 +55,10 @@ export default function FieldLayoutView(props: IFieldLayoutViewProps) {
                 )}
 
                 {_isEmpty(props.errors) && props.hint && (
-                    <div className={bem.element('hint', {size: props.size})}>
+                    <div className={bem.element('hint', {
+                        size: props.size,
+                    })}
+                    >
                         {props.hint}
                     </div>
                 )}

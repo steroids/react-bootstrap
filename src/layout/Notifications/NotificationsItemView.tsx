@@ -1,9 +1,9 @@
+import {useBem} from '@steroidsjs/core/hooks';
+import {INotificationsItemViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-
-import {INotificationsItemViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import {CSSTransition} from 'react-transition-group';
-import {useBem} from '@steroidsjs/core/hooks';
+
 import AlertView from '../../content/Alert/AlertView';
 
 export default function NotificationsItemView(props: INotificationsItemViewProps) {
@@ -13,6 +13,7 @@ export default function NotificationsItemView(props: INotificationsItemViewProps
     }, [props.isClosing]);
 
     const bem = useBem('NotificationsItemView');
+
     return (
         <CSSTransition
             in={isShow}
@@ -30,7 +31,7 @@ export default function NotificationsItemView(props: INotificationsItemViewProps
                 <AlertView
                     onClose={props.onClose}
                     message={props.message}
-                    type={props.level}
+                    type={props.type}
                     showClose
                     isExist
                     isVisible

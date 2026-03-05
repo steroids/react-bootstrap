@@ -1,10 +1,10 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
-import {IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
-import Icon from '@steroidsjs/core/ui/content/Icon';
-import {Text} from '@steroidsjs/core/ui/typography';
-import {FileSize} from '@steroidsjs/core/ui/format';
 import {IMessageFile} from '@steroidsjs/core/ui/content/Chat/Chat';
+import Icon from '@steroidsjs/core/ui/content/Icon';
+import {IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
+import {FileSize} from '@steroidsjs/core/ui/format';
+import {Text} from '@steroidsjs/core/ui/typography';
+import React from 'react';
 
 import './ChatFileItemView.scss';
 
@@ -33,7 +33,9 @@ export default function ChatFileItemView(props: IChatFileItemViewProps) {
         <div className={bem.element('progress-track')}>
             <div
                 className={bem.element('progress-bar')}
-                style={{width: `${props.progress.percent}%`}}
+                style={{
+                    width: `${props.progress.percent}%`,
+                }}
             />
         </div>
     ), [bem, props.progress]);
@@ -105,7 +107,9 @@ export default function ChatFileItemView(props: IChatFileItemViewProps) {
             ) : (
                 <Icon
                     name={props.customRemoveIcon || 'cross_8x8'}
-                    className={bem.element('remove', {isLoading})}
+                    className={bem.element('remove', {
+                        isLoading,
+                    })}
                     onClick={props.onRemove}
                 />
             )}

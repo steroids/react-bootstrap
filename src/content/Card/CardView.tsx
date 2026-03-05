@@ -1,10 +1,10 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
+import {Menu} from '@steroidsjs/core/ui/content';
+import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
 import {ICardViewProps} from '@steroidsjs/core/ui/content/Card/Card';
 import {Button} from '@steroidsjs/core/ui/form';
-import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
 import {Link} from '@steroidsjs/core/ui/nav';
-import {Menu} from '@steroidsjs/core/ui/content';
+import React from 'react';
 
 export default function CardView(props: ICardViewProps) {
     const bem = useBem('CardView');
@@ -13,15 +13,19 @@ export default function CardView(props: ICardViewProps) {
 
     return (
         <div
-            className={bem(bem.block(),
-                props.className)}
+            className={bem(
+bem.block(),
+                props.className,
+)}
             style={props.style}
         >
             {props.header && (
-                <div className={bem.element('header',
+                <div className={bem.element(
+'header',
                     {
                         withoutCover: !props.cover && hasContent,
-                    })}
+                    },
+)}
                 >
                     <div className={bem.element('header-data')}>
                         {props.header.avatar && (
