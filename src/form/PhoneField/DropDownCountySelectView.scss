@@ -61,7 +61,7 @@ $search-color: var(--search-color);
 
     display: flex;
     position: relative;
-    width: 72px;
+    width: 85px;
 
     &_opened {
         #{$root}__icon-chevron {
@@ -103,7 +103,7 @@ $search-color: var(--search-color);
         -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
         position: relative;
-        width: 72px;
+        width: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -199,6 +199,20 @@ $search-color: var(--search-color);
             path {
                 stroke: $chevron-inner-color;
             }
+        }
+    }
+
+    &__img {
+        width: 24px;
+        height: 24px;
+        border-radius: variables.$radius-small;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
     }
 }

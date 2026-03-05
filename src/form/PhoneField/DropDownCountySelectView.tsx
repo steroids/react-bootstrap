@@ -59,9 +59,12 @@ export default function DropDownCountySelectView(props: IDropDownCountySelectVie
                             props.onItemSelect(item[props.primaryKey]);
                         }}
                     >
-                        <Icon
-                            name={item.id.toLocaleLowerCase()}
-                        />
+                        <span className={bem.element('img')}>
+                            <img
+                                src={item.contentSrc as string}
+                                alt="custom source for item"
+                            />
+                        </span>
                         <div className={bem.element('country-name')}>
                             <p className={bem.element('text')}>
                                 {item.label}
@@ -107,9 +110,12 @@ export default function DropDownCountySelectView(props: IDropDownCountySelectVie
                     role='button'
                     onClick={props.onOpen}
                 >
-                    <Icon
-                        name={selectedCountry?.id.toLowerCase() || 'ru'}
-                    />
+                    <span className={bem.element('img')}>
+                        <img
+                            src={selectedCountry.contentSrc as string}
+                            alt="custom source for item"
+                        />
+                    </span>
                     <Icon
                         name='arrow_down_24x24'
                         className={bem.element('icon-chevron')}
