@@ -295,11 +295,11 @@ $drop-down-color-themes: map.merge(
         width: var(--width);
         max-height: var(--maxHeight);
         height: fit-content;
-    
+
         background-color: variables.$element-background-color;
-    
+
         overflow: hidden;
-    
+
         &-list {
             @include mixins.scrollWrapper(240px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
         }
@@ -446,5 +446,14 @@ $drop-down-color-themes: map.merge(
         padding: unset;
         overflow: hidden;
         min-width: unset;
+    }
+
+    &__nothing {
+        color: var(--element-placeholder-color);
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 48px;
+        padding: 8px 12px;
+        width: 100%;
     }
 }
