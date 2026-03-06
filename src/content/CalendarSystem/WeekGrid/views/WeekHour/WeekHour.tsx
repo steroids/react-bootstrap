@@ -5,9 +5,6 @@ import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Calen
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import _cloneDeep from 'lodash-es/cloneDeep';
 import _get from 'lodash-es/get';
-import _isEmpty from 'lodash-es/isEmpty';
-import _slice from 'lodash-es/slice';
-import _take from 'lodash-es/take';
 import React from 'react';
 
 import './WeekHour.scss';
@@ -42,7 +39,9 @@ export default function WeekHour(props: IWeekHourProps) {
 
     const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
-        const eventId: number = _get(eventFromHour, 'dataset.eventid');
+        const eventId: number = _get(eventFromHour, 'dataset.eventid')
+            ? Number(_get(eventFromHour, 'dataset.eventid'))
+            : undefined;
 
         if (!eventId) {
             return;

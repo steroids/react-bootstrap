@@ -51,7 +51,7 @@ export const getAvailableHours = (
     const endHour = Math.floor(toMin / 60);
 
     for (let h = startHour; h <= endHour; h += 1) {
-        result.push(_padStart(h, 2, '0'));
+        result.push(_padStart(h.toString(), 2, '0'));
     }
 
     return result;
@@ -86,7 +86,7 @@ export const getAvailableMinutes = (
     );
 
     return getMinuteRange(startMinute, endMinute, step)
-        .map((m) => _padStart(m, 2, '0'));
+        .map((m) => _padStart(m.toString(), 2, '0'));
 };
 
 export const normalizeMinutesForHour = (
