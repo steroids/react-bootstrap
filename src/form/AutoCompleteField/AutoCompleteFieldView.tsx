@@ -5,7 +5,7 @@ import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/u
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import _isArray from 'lodash-es/isArray';
 import _isEmpty from 'lodash-es/isEmpty';
-import * as React from 'react';
+import { useCallback } from 'react';
 
 const normalizeItems = (items: IAutoCompleteItem[]) => {
     const categories: {
@@ -76,7 +76,7 @@ const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps,
 export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps) {
     const bem = useBem('AutoCompleteFieldView');
 
-    const renderItems = React.useCallback(() => {
+    const renderItems = useCallback(() => {
         if (!_isEmpty(props.categories)) {
             const {categories, itemsWithoutCategory} = normalizeItems(props.items);
 

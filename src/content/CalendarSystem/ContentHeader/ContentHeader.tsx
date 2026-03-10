@@ -6,7 +6,7 @@ import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/Calen
 import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
 import {ButtonGroup} from '@steroidsjs/core/ui/nav';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import React from 'react';
+import { memo } from 'react';
 
 import './ContentHeader.scss';
 
@@ -51,4 +51,4 @@ function ContentHeader(props: IContentHeaderProps) {
     );
 }
 
-export default React.memo(ContentHeader);
+export default memo(ContentHeader);

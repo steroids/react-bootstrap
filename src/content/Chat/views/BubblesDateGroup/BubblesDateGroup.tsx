@@ -2,7 +2,7 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import {IChatUser} from '@steroidsjs/core/ui/content/Chat/Chat';
 import {IGroupedMessage} from '@steroidsjs/core/ui/content/Chat/hooks/useChat';
 import {calculateMessageTimeAgo, isTodayMessage} from '@steroidsjs/core/ui/content/Chat/utils';
-import React, {memo, useCallback} from 'react';
+import { memo, useCallback } from 'react';
 
 import BubbleMessageView from '../BubbleMessage';
 

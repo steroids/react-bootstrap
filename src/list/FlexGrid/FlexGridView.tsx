@@ -1,6 +1,5 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {IFlexGridViewProps} from '@steroidsjs/core/ui/list/FlexGrid/FlexGrid';
-import * as React from 'react';
 
 export default function FlexGridView(props: IFlexGridViewProps) {
     const bem = useBem('FlexGridView');

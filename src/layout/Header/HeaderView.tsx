@@ -9,7 +9,7 @@ import {Link} from '@steroidsjs/core/ui/nav';
 import {ILinkProps} from '@steroidsjs/core/ui/nav/Link/Link';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import * as React from 'react';
+import { useCallback } from 'react';
 
 import renderIcon from '../../utils/renderIcon';
 
@@ -17,7 +17,7 @@ export default function HeaderView(props: IHeaderViewProps) {
     const bem = useBem('HeaderView');
     const dispatch = useDispatch();
 
-    const renderAuthBlock = React.useCallback(() => (
+    const renderAuthBlock = useCallback(() => (
         <Button
             outline
             color='basic'
@@ -32,7 +32,7 @@ export default function HeaderView(props: IHeaderViewProps) {
 
     ), [bem, dispatch, props.authParams?.buttonProps, props.authParams?.modal, props.authParams?.toRoute, props.size]);
 
-    const renderUserBlock = React.useCallback(() => {
+    const renderUserBlock = useCallback(() => {
         if (!props.user) {
             return;
         }
@@ -54,7 +54,7 @@ export default function HeaderView(props: IHeaderViewProps) {
         );
     }, [bem, props.size, props.user]);
 
-    const renderBurger = React.useCallback(() => (
+    const renderBurger = useCallback(() => (
         <div className={bem.element('burger')}>
             <Icon
                 name={!props.isBurgerOpened ? 'sort' : 'cross_12x12'}

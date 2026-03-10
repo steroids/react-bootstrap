@@ -3,7 +3,6 @@ import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar'
 import DateControlEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/DateControlType';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import _upperFirst from 'lodash-es/upperFirst';
-import * as React from 'react';
 import {useMemo} from 'react';
 import {CaptionElementProps} from 'react-day-picker/types/Props';
 

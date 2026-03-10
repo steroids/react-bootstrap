@@ -1,7 +1,7 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import React from 'react';
+import { useCallback, memo, Fragment } from 'react';
 
 import './WeekGrid.scss';
 
@@ -15,9 +15,9 @@ function WeekGrid(props: IWeekGridProps) {
 
     const {weekGridCurrentWeekDays} = props;
 
-    const renderWeekHours = React.useCallback(
+    const renderWeekHours = useCallback(
         (hour) => weekGridCurrentWeekDays.map((dayOfWeek, dayOfWeekIndex) => (
-            <React.Fragment key={dayOfWeekIndex}>
+            <Fragment key={dayOfWeekIndex}>
                 {props.renderHourView({
                     openEditModal: props.openEditModal,
                     openCreateModal: props.openCreateModal,
@@ -26,7 +26,7 @@ function WeekGrid(props: IWeekGridProps) {
                     dayOfWeek,
                     hour,
                 })}
-            </React.Fragment>
+            </Fragment>
         )),
         [weekGridCurrentWeekDays, props],
     );
@@ -76,4 +76,4 @@ function WeekGrid(props: IWeekGridProps) {
     );
 }
 
-export default React.memo(WeekGrid);
+export default memo(WeekGrid);

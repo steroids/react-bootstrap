@@ -1,6 +1,5 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {INotificationsItemViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
-import * as React from 'react';
 import {useEffect, useState} from 'react';
 import {CSSTransition} from 'react-transition-group';
 

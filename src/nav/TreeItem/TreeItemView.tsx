@@ -1,7 +1,6 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {ITreeItemViewProps} from '@steroidsjs/core/ui/nav/Tree/Tree';
-import * as React from 'react';
 import {useMemo} from 'react';
 
 const PADDING_WITH_ICON = 0;

@@ -2,7 +2,7 @@ import {Badge} from '@steroidsjs/core/ui/content';
 import {ICreateOrEditTaskModalContentViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import KanbanPrioritiesEnum from '@steroidsjs/core/ui/content/Kanban/enums/KanbanPrioritiesEnum';
 import {Button, DropDownField, Form, HtmlField, InputField, RadioListField} from '@steroidsjs/core/ui/form';
-import React, {useMemo} from 'react';
+import { useMemo } from 'react';
 
 import Label from './views/Label';
 import TagsSelector from './views/TagsSelector';

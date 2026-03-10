@@ -1,6 +1,5 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {IHtmlFieldViewProps} from '@steroidsjs/core/ui/form/HtmlField/HtmlField';
-import React from 'react';
 
 export default function HtmlFieldView(props: IHtmlFieldViewProps) {
     const bem = useBem('HtmlFieldView');

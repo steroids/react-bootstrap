@@ -3,8 +3,7 @@ import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRangeField/DateTimeRangeField';
-import {useCallback} from 'react';
-import * as React from 'react';
+import { useMemo, useCallback } from 'react';
 
 import RangeButtons from '../DateRangeField/views/RangeButtons';
 import TimePanelView from '../TimeField/TimePanelView';
@@ -14,7 +13,7 @@ export default function DateTimeRangeFieldView(props: IDateTimeRangeFieldViewPro
 
     const hasValue = props.inputPropsFrom.value || props.inputPropsTo.value;
 
-    const calendarComponent = React.useMemo(() => (
+    const calendarComponent = useMemo(() => (
         <div className={bem.element('panel-container')}>
             <Calendar
                 {...props.calendarProps}

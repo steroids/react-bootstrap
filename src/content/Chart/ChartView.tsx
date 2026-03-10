@@ -3,8 +3,7 @@ import {IChartViewProps} from '@steroidsjs/core/ui/content/Chart/Chart';
 import {CheckboxListField} from '@steroidsjs/core/ui/form';
 import {ButtonGroup} from '@steroidsjs/core/ui/nav';
 import {Title} from '@steroidsjs/core/ui/typography';
-import _omit from 'lodash-es/omit';
-import React from 'react';
+import {CSSProperties} from 'react';
 
 const DEFAULT_AXIS_PARAMS = {
     tickSize: 5,
@@ -44,7 +43,7 @@ export default function ChartView(props: IChartViewProps) {
 
     const customChartHeightVariable = {
         '--chart-custom-height': `${props.chartHeight}px`,
-    } as React.CSSProperties;
+    } as CSSProperties;
 
     return (
         <div
