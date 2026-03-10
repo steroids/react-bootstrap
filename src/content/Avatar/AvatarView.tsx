@@ -1,6 +1,6 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {IAvatarViewProps} from '@steroidsjs/core/ui/content/Avatar/Avatar';
-import React from 'react';
+import {CSSProperties} from 'react';
 
 interface IAvatarProps extends IAvatarViewProps{
     formattedTitle: any,
@@ -9,7 +9,7 @@ interface IAvatarProps extends IAvatarViewProps{
 export default function Avatar(props: IAvatarProps) {
     const bem = useBem('AvatarView');
 
-    const customSize: React.CSSProperties = typeof props.size === 'number'
+    const customSize: CSSProperties = typeof props.size === 'number'
         ? {
             width: props.size,
             height: props.size,
@@ -53,10 +53,10 @@ export default function Avatar(props: IAvatarProps) {
                 }}
             >
                 {(props.src && renderImage()) || (
-                <span className={bem.element('formattedTitle')}>
-                    {props.formattedTitle}
-                </span>
-                    )}
+                    <span className={bem.element('formattedTitle')}>
+                        {props.formattedTitle}
+                    </span>
+                )}
                 {props.children}
             </span>
         </div>

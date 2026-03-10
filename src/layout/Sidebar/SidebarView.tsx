@@ -1,7 +1,6 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ISidebarViewProps} from '@steroidsjs/core/ui/layout/Sidebar/Sidebar';
 import {Nav} from '@steroidsjs/core/ui/nav';
-import React from 'react';
 
 import FooterIcons from './FooterIcons';
 import SidebarLogo from './SidebarLogo';

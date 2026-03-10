@@ -2,7 +2,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {DropDown} from '@steroidsjs/core/ui/content';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import * as React from 'react';
+import {CSSProperties, useCallback, useMemo, useRef} from 'react';
 
 import {getSelectedItemsCount, getSelectedItemsLabel} from './utils';
 
@@ -11,21 +11,21 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
 
     const {onClose} = props;
 
-    const setFocusOnAutoCompleteInput = React.useCallback((isComponentVisible) => {
+    const setFocusOnAutoCompleteInput = useCallback((isComponentVisible) => {
         if (isComponentVisible && props.autoCompleteInputForwardedRef.current && props.isSearchAutoFocus) {
             props.autoCompleteInputForwardedRef.current.focus();
         }
     }, [props.autoCompleteInputForwardedRef, props.isSearchAutoFocus]);
 
-    const renderPlaceholder = React.useCallback(() => props.placeholder && !props.selectedIds?.length
+    const renderPlaceholder = useCallback(() => props.placeholder && !props.selectedIds?.length
         ? (
             <div className={bem.element('placeholder')}>{props.placeholder}</div>
         )
         : null, [bem, props.placeholder, props.selectedIds]);
 
-    const fieldRef = React.useRef(null);
+    const fieldRef = useRef(null);
 
-    const menuWidth = React.useMemo(() => {
+    const menuWidth = useMemo(() => {
         if (!fieldRef.current) {
             return 0;
         }
@@ -34,13 +34,13 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fieldRef.current, props.isOpened]);
 
-    const renderList = React.useCallback(() => (
+    const renderList = useCallback(() => (
         <div
             className={bem.element('drop-down')}
             style={{
                 '--width': menuWidth + 'px',
                 '--maxHeight': props.maxHeight,
-            } as React.CSSProperties}
+            } as CSSProperties}
         >
             {props.isAutoComplete && (
                 <div className={bem.element('search', {
@@ -71,7 +71,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
         </div>
     ), [bem, menuWidth, props]);
 
-    const closeIfOpened = React.useCallback(() => {
+    const closeIfOpened = useCallback(() => {
         if (props.isOpened) {
             onClose();
         }
@@ -101,7 +101,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     ), props.className)}
                     onKeyPress={e => e.key === 'Enter' && !props.disabled && props.onOpen()}
                     style={props.style}
-                    role="button"
+                    role='button'
                     tabIndex={0}
                     onClick={closeIfOpened}
                     ref={fieldRef}
@@ -130,7 +130,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
                     </div>
                     {props.showReset && props.selectedIds.length > 0 && (
                         <Icon
-                            name="cross_8x8"
+                            name='cross_8x8'
                             className={bem.element('icon-close')}
                             tabIndex={-1}
                             onClick={props.onReset}

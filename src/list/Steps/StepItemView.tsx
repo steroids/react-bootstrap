@@ -2,7 +2,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IStepItemViewProps, HORIZONTAL_STEP_LAYOUT, VERTICAL_STEP_LAYOUT} from '@steroidsjs/core/ui/list/Steps/Steps';
 import _isString from 'lodash-es/isString';
-import React, {useCallback} from 'react';
+import {useCallback} from 'react';
 
 export default function StepItemView(props: IStepItemViewProps) {
     const bem = useBem('StepItemView');

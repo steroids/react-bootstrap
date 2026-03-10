@@ -7,7 +7,7 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {Text} from '@steroidsjs/core/ui/typography';
 import Title from '@steroidsjs/core/ui/typography/Title';
 import _isEmpty from 'lodash-es/isEmpty';
-import React, {memo, useState} from 'react';
+import {memo, useState} from 'react';
 import {useInterval} from 'react-use';
 
 import ChatFileItemView from '../ChatFileItem';

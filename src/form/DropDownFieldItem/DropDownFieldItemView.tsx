@@ -7,7 +7,6 @@ import {
     IMG_CONTENT_TYPE,
     RADIO_CONTENT_TYPE,
 } from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import React from 'react';
 
 import AccordionItemView from '../../content/Accordion/AccordionItemView';
 import renderIcon from '../../utils/renderIcon';

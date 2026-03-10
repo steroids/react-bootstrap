@@ -3,8 +3,7 @@ import Button from '@steroidsjs/core/ui/form/Button';
 import Field from '@steroidsjs/core/ui/form/Field';
 import {IFormViewProps} from '@steroidsjs/core/ui/form/Form/Form';
 import _isString from 'lodash-es/isString';
-import * as React from 'react';
-import {useRef} from 'react';
+import {memo, useRef} from 'react';
 import {useMount} from 'react-use';
 
 function FormView(props: IFormViewProps) {
@@ -55,4 +54,4 @@ function FormView(props: IFormViewProps) {
     );
 }
 
-export default React.memo(FormView);
+export default memo(FormView);

@@ -4,7 +4,6 @@ import Format from '@steroidsjs/core/ui/format/Format';
 import {IColumnViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
 import {Link} from '@steroidsjs/core/ui/nav';
 import _get from 'lodash-es/get';
-import React from 'react';
 
 export default function ContentColumnView(props: IColumnViewProps) {
     const bem = useBem('ContentColumnView');

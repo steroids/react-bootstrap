@@ -3,7 +3,6 @@ import {CalendarSystemEventGroupModalViewProps} from '@steroidsjs/core/ui/conten
 import {InputField, Form} from '@steroidsjs/core/ui/form';
 import Modal from '@steroidsjs/core/ui/modal/Modal';
 import {Text} from '@steroidsjs/core/ui/typography';
-import React from 'react';
 
 export default function CalendarSystemEventGroupModalView(props: CalendarSystemEventGroupModalViewProps) {
     const bem = useBem('CalendarSystemEventGroupModalView');

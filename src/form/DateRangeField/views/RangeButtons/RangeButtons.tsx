@@ -1,7 +1,7 @@
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 import {Button} from '@steroidsjs/core/ui/form';
 import {IDateRangeButton, IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
-import React, {useMemo} from 'react';
+import {useMemo} from 'react';
 
 import {RANGE_BUTTONS} from './consts';
 
