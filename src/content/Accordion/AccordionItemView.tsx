@@ -1,13 +1,14 @@
-import {useEffect, useCallback} from 'react';
-import Icon from '@steroidsjs/core/ui/content/Icon';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IAccordionItemViewProps, IAccordionIcon} from '@steroidsjs/core/ui/content/Accordion/Accordion';
+import Icon from '@steroidsjs/core/ui/content/Icon';
+import * as React from 'react';
+
 import renderIconByType from '../../utils/renderIcon';
 
 export default function AccordionItemView(props: IAccordionItemViewProps) {
     const bem = useBem('AccordionItemView');
 
-    useEffect(() => {
+    React.useEffect(() => {
         if (!props.toggleAccordion || !props.toggleCollapse || !props.activeKey) {
             return;
         }
@@ -21,7 +22,7 @@ export default function AccordionItemView(props: IAccordionItemViewProps) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.activeKey]);
 
-    const renderIcon = useCallback(() => {
+    const renderIcon = React.useCallback(() => {
         if (!props.icon) {
             return null;
         }
@@ -31,16 +32,22 @@ export default function AccordionItemView(props: IAccordionItemViewProps) {
 
             return (
                 <>
-                    {renderIconByType(icons.open, {className: bem.element('open-icon')})}
-                    {renderIconByType(icons.close, {className: bem.element('close-icon')})}
+                    {renderIconByType(icons.open, {
+                        className: bem.element('open-icon'),
+                    })}
+                    {renderIconByType(icons.close, {
+                        className: bem.element('close-icon'),
+                    })}
                 </>
             );
         }
 
-        return renderIconByType(props.icon, {className: bem.element('custom-icon')});
+        return renderIconByType(props.icon, {
+            className: bem.element('custom-icon'),
+        });
     }, [bem, props.icon]);
 
-    const handleHeaderClick = useCallback(() => {
+    const handleHeaderClick = React.useCallback(() => {
         if (props.disabled || !props.toggleAccordion || !props.toggleCollapse) {
             return;
         }
@@ -85,13 +92,16 @@ export default function AccordionItemView(props: IAccordionItemViewProps) {
                                     className={bem.element('icon-chevron', {
                                         active: !props.disabled && props.isShowMore,
                                     })}
-                                    name="arrow_down_24x24"
+                                    name='arrow_down_24x24'
                                 />
                             )}
                     </div>
                 )}
             </div>
-            <div className={bem.element('content', {visible: !props.disabled && props.isShowMore})}>
+            <div className={bem.element('content', {
+                visible: !props.disabled && props.isShowMore,
+            })}
+            >
                 {props.children}
             </div>
         </div>

@@ -1,7 +1,7 @@
-import {memo, Fragment} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Text} from '@steroidsjs/core/ui/typography';
+import React from 'react';
 
 import './DayGrid.scss';
 
@@ -60,7 +60,7 @@ function DayGrid(props: IDayGridProps) {
                                 className={bem.element('table-grid-row')}
                             >
                                 {props.users.map((user, userIndex) => (
-                                    <Fragment key={userIndex}>
+                                    <React.Fragment key={userIndex}>
                                         {props.renderHourView({
                                             hour,
                                             getEventsFromDate: props.getEventsFromDate,
@@ -70,7 +70,7 @@ function DayGrid(props: IDayGridProps) {
                                             currentDay: props.dayGridCurrentDay,
                                             renderEventView: props.renderEventView,
                                         })}
-                                    </Fragment>
+                                    </React.Fragment>
                                 ))}
                             </div>
                         ))}
@@ -82,4 +82,4 @@ function DayGrid(props: IDayGridProps) {
     );
 }
 
-export default memo(DayGrid);
+export default React.memo(DayGrid);

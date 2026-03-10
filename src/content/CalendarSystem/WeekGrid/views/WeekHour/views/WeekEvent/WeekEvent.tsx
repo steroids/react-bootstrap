@@ -2,6 +2,7 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import {IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {formatEventTime, getProportionFromEvent, getTopMarginFromEvent} from '@steroidsjs/core/ui/content/CalendarSystem/utils/utils';
 import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
+import React from 'react';
 
 import './WeekEvent.scss';
 

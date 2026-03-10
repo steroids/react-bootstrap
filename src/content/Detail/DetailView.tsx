@@ -1,7 +1,7 @@
-import {Fragment} from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import {IDetailViewProps, constants, DetailLayoutEnum} from '@steroidsjs/core/ui/content/Detail/Detail';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
+import React from 'react';
 
 export default function DetailView(props: IDetailViewProps) {
     const bem = useBem('DetailView');
@@ -30,7 +30,7 @@ export default function DetailView(props: IDetailViewProps) {
                         {props.rows.map((row, rowIndex) => {
                             if (props.layout === DetailLayoutEnum.Vertical) {
                                 return (
-                                    <Fragment key={rowIndex}>
+                                    <React.Fragment key={rowIndex}>
                                         <tr className={bem.element('row')}>
                                             {row.map((cell, cellIndex) => (
                                                 <th
@@ -57,7 +57,7 @@ export default function DetailView(props: IDetailViewProps) {
                                                 </td>
                                             ))}
                                         </tr>
-                                    </Fragment>
+                                    </React.Fragment>
                                 );
                             }
 
@@ -67,7 +67,7 @@ export default function DetailView(props: IDetailViewProps) {
                                     className={bem.element('row')}
                                 >
                                     {row.map((cell, cellIndex) => (
-                                        <Fragment key={cellIndex}>
+                                        <React.Fragment key={cellIndex}>
                                             <th
                                                 colSpan={constants.TABLE_HEAD_COLSPAN}
                                                 className={bem(bem.element('label', {
@@ -84,7 +84,7 @@ export default function DetailView(props: IDetailViewProps) {
                                             >
                                                 {cell.value}
                                             </td>
-                                        </Fragment>
+                                        </React.Fragment>
                                     ))}
                                 </tr>
                             );

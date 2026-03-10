@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import {MouseEvent, ReactNode, useCallback, useMemo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {convertDate} from '@steroidsjs/core/utils/calendar';
 import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
-import _get from 'lodash-es/get';
+import {convertDate} from '@steroidsjs/core/utils/calendar';
 import _cloneDeep from 'lodash-es/cloneDeep';
+import _get from 'lodash-es/get';
+import _isEmpty from 'lodash-es/isEmpty';
+import _slice from 'lodash-es/slice';
+import _take from 'lodash-es/take';
+import React from 'react';
 
 import './WeekHour.scss';
 
@@ -15,7 +18,7 @@ interface IWeekHourProps extends Pick<
 > {
     dayOfWeek: IDay,
     hour: string,
-    renderEventView: (componentProps: any) => ReactNode,
+    renderEventView: (componentProps: any) => React.ReactNode,
 }
 
 export default function WeekHour(props: IWeekHourProps) {
@@ -23,7 +26,7 @@ export default function WeekHour(props: IWeekHourProps) {
 
     const {
         events,
-    } = useMemo(() => {
+    } = React.useMemo(() => {
         const callingDate = new Date(props.dayOfWeek.date);
 
         const timeArray = props.hour.replace(':', '').split('');
@@ -37,7 +40,7 @@ export default function WeekHour(props: IWeekHourProps) {
         };
     }, [props]);
 
-    const handleEventClick = useCallback((event: MouseEvent<HTMLElement>) => {
+    const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
         const eventId: number = _get(eventFromHour, 'dataset.eventid');
 
@@ -50,7 +53,7 @@ export default function WeekHour(props: IWeekHourProps) {
         props.openEditModal(requiredEvent);
     }, [events, props]);
 
-    const handleOnContextMenuCreateClick = useCallback((e: MouseEvent) => {
+    const handleOnContextMenuCreateClick = React.useCallback((e: React.MouseEvent) => {
         e.preventDefault();
 
         const day: IDay = _cloneDeep(props.dayOfWeek);

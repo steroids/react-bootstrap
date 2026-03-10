@@ -1,6 +1,8 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import Format from '@steroidsjs/core/ui/format/Format';
 import {ITreeColumnViewProps} from '@steroidsjs/core/ui/list/TreeTable/TreeTable';
+import React from 'react';
+
 import TreeItemView from '../../../../nav/TreeItem/TreeItemView';
 
 export default function TreeColumnView(props: ITreeColumnViewProps) {

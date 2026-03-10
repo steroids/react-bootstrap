@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-shadow */
 /* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-undef */
-import Modal from '@steroidsjs/core/ui/modal/Modal';
+import {formSetErrors} from '@steroidsjs/core/actions/form';
+import {useDispatch} from '@steroidsjs/core/hooks';
+import useBem from '@steroidsjs/core/hooks/useBem';
 import {
     CalendarSystemModalFields,
     IEventInitialValues,
     ICalendarSystemModalViewProps,
 } from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {InputField, Form, DropDownField, DateTimeField, TextField} from '@steroidsjs/core/ui/form';
+import Modal from '@steroidsjs/core/ui/modal/Modal';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import {useMemo, useCallback} from 'react';
-import useBem from '@steroidsjs/core/hooks/useBem';
-import {useDispatch} from '@steroidsjs/core/hooks';
-import {formSetErrors} from '@steroidsjs/core/actions/form';
+import React from 'react';
 
 const ADD_EVENT_FORM_ID = 'add-event-form';
 
@@ -20,12 +20,12 @@ export default function CalendarSystemModalView(props: ICalendarSystemModalViewP
     const bem = useBem('CalendarSystemModalView');
     const dispatch = useDispatch();
 
-    const eventInitialValues: IEventInitialValues = useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
+    const eventInitialValues: IEventInitialValues = React.useMemo(() => props.eventInitialValues, [props.eventInitialValues]);
 
     const callOnEventSubmit = (fields: Record<CalendarSystemModalFields, string>) =>
         eventInitialValues && !props.isCreate ? props.onModalFormSubmit(fields, eventInitialValues) : props.onModalFormSubmit(fields);
 
-    const onCloseModal = useCallback(() => {
+    const onCloseModal = React.useCallback(() => {
         props.onClose();
         dispatch(formSetErrors(ADD_EVENT_FORM_ID, {}));
     }, [dispatch, props]);

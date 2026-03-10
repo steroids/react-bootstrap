@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-shadow */
-import {memo, MouseEvent, ReactNode, useCallback, useMemo} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps, ICalendarUser, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import {convertDate} from '@steroidsjs/core/utils/calendar';
 import _cloneDeep from 'lodash-es/cloneDeep';
-import CalendarEnum from '@steroidsjs/core/ui/content/CalendarSystem/enums/CalendarType';
 import _get from 'lodash-es/get';
+import _slice from 'lodash-es/slice';
+import React from 'react';
 
 import './DayHour.scss';
 
@@ -13,7 +14,7 @@ interface IDayHourProps extends Pick<ICalendarSystemViewProps, 'openEditModal' |
     hour: string,
     user: ICalendarUser,
     currentDay: IDay,
-    renderEventView: (componentProps: any) => ReactNode,
+    renderEventView: (componentProps: any) => React.ReactNode,
 }
 
 function DayHour(props: IDayHourProps) {
@@ -21,7 +22,7 @@ function DayHour(props: IDayHourProps) {
 
     const {
         events,
-    } = useMemo(() => {
+    } = React.useMemo(() => {
         const eventsIds = props.user.eventsIds;
 
         const callingDate = new Date(props.currentDay.date);
@@ -38,7 +39,7 @@ function DayHour(props: IDayHourProps) {
         };
     }, [props]);
 
-    const handleEventClick = useCallback((event: MouseEvent<HTMLElement>) => {
+    const handleEventClick = React.useCallback((event: React.MouseEvent<HTMLElement>) => {
         const eventFromHour = event.target as HTMLDivElement;
         const eventId: number = _get(eventFromHour, 'dataset.eventid');
 
@@ -51,7 +52,7 @@ function DayHour(props: IDayHourProps) {
         props.openEditModal(requiredEvent);
     }, [events, props]);
 
-    const handleOnContextMenuCreateClick = useCallback((e: MouseEvent) => {
+    const handleOnContextMenuCreateClick = React.useCallback((e: React.MouseEvent) => {
         e.preventDefault();
 
         const day: IDay = _cloneDeep(props.currentDay);
@@ -71,4 +72,4 @@ function DayHour(props: IDayHourProps) {
         </div>
     );
 }
-export default memo(DayHour);
+export default React.memo(DayHour);

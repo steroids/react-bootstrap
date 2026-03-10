@@ -1,7 +1,8 @@
-import {useCallback} from 'react';
 import useBem from '@steroidsjs/core/hooks/useBem';
-import {ITimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/TimeRangeField/TimeRangeField';
 import {DropDown, Icon} from '@steroidsjs/core/ui/content';
+import {ITimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/TimeRangeField/TimeRangeField';
+import React, {useCallback} from 'react';
+
 import TimePanelView from '../TimeField/TimePanelView';
 
 export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {
@@ -39,6 +40,7 @@ export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {
                 <div className={bem.element('body')}>
                     <input
                         {...props.inputPropsFrom}
+                        ref={props.maskToRef}
                         id={props.id}
                         className={bem(
                             bem.element('input'),
@@ -47,6 +49,7 @@ export default function TimeRangeFieldView(props: ITimeRangeFieldViewProps) {
                     />
                     <input
                         {...props.inputPropsTo}
+                        ref={props.maskFromRef}
                         className={bem.element('input')}
                         onChange={e => props.inputPropsTo.onChange(e.target.value)}
                     />

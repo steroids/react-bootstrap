@@ -44,7 +44,7 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
     --addon-padding: 5px 8px;
 
     --input-font-size: #{variables.$font-size-sm};
- 
+
     //Sizes
     &_size {
         &_lg {
@@ -215,16 +215,18 @@ $lead-icon-disabled-color: var(--lead-icon-disabled-color);
         color: variables.$text-color;
     }
 
-    // BORDERS 
-    --input-border-radius: #{variables.$radius-small};
-    --input-border-width: 1px;
-    --input-border-color: #{variables.$element-border-color};
-    --input-left-border-radius: var(--input-border-radius);
-    --input-right-border-radius: var(--input-border-radius);
+    & {
+        // BORDERS
+        --input-border-radius: #{variables.$radius-small};
+        --input-border-width: 1px;
+        --input-border-color: #{variables.$element-border-color};
+        --input-left-border-radius: var(--input-border-radius);
+        --input-right-border-radius: var(--input-border-radius);
 
-    --input-wrapper-border-width: 1px;
-    --input-wrapper-border-color: transparent;
-    --input-wrapper-border-opacity: 0;
+        --input-wrapper-border-width: 1px;
+        --input-wrapper-border-color: transparent;
+        --input-wrapper-border-opacity: 0;
+    }
 
     &_hasError {
         --input-wrapper-border-width: 1px;

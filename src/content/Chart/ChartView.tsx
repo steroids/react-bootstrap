@@ -1,9 +1,10 @@
-import {IChartViewProps} from '@steroidsjs/core/ui/content/Chart/Chart';
 import {useBem} from '@steroidsjs/core/hooks';
-import {Title} from '@steroidsjs/core/ui/typography';
+import {IChartViewProps} from '@steroidsjs/core/ui/content/Chart/Chart';
 import {CheckboxListField} from '@steroidsjs/core/ui/form';
 import {ButtonGroup} from '@steroidsjs/core/ui/nav';
-import {CSSProperties} from 'react';
+import {Title} from '@steroidsjs/core/ui/typography';
+import _omit from 'lodash-es/omit';
+import React from 'react';
 
 const DEFAULT_AXIS_PARAMS = {
     tickSize: 5,
@@ -21,7 +22,9 @@ const DEFAULT_LINE_CHART_CONFIG = {
         stacked: true,
         reverse: false,
     },
-    xScale: {type: 'point'},
+    xScale: {
+        type: 'point',
+    },
     axisBottom: {
         ...DEFAULT_AXIS_PARAMS,
         legendOffset: 36,
@@ -39,7 +42,9 @@ export default function ChartView(props: IChartViewProps) {
     const ChartComponent = props.chartComponent;
     const defaultChartConfig = (props.useDefaultLineChartConfig && DEFAULT_LINE_CHART_CONFIG) || {};
 
-    const customChartHeightVariable = {'--chart-custom-height': `${props.chartHeight}px`} as CSSProperties;
+    const customChartHeightVariable = {
+        '--chart-custom-height': `${props.chartHeight}px`,
+    } as React.CSSProperties;
 
     return (
         <div
@@ -55,7 +60,7 @@ export default function ChartView(props: IChartViewProps) {
         >
             {props.title && (
                 <Title
-                    type="h3"
+                    type='h3'
                     content={props.title}
                     className={bem.element('title')}
                 />

@@ -1,6 +1,7 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
-import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
 import {IEvent} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
+import Tooltip from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
+import React from 'react';
 
 import './MonthEvent.scss';
 
@@ -24,7 +25,9 @@ export default function MonthEvent({event}: IMonthEventProps) {
             >
                 <span
                     className={bem.element('event-dot')}
-                    style={{backgroundColor: event.color}}
+                    style={{
+                        backgroundColor: event.color,
+                    }}
                 />
                 {event.title}
             </span>

@@ -1,10 +1,11 @@
-import {useCallback} from 'react';
-import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
 import {useBem} from '@steroidsjs/core/hooks';
-import _isEmpty from 'lodash-es/isEmpty';
-import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import {Icon} from '@steroidsjs/core/ui/content';
 import {IBem} from '@steroidsjs/core/hooks/useBem';
+import {Icon} from '@steroidsjs/core/ui/content';
+import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/ui/form/AutoCompleteField/AutoCompleteField';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import _isArray from 'lodash-es/isArray';
+import _isEmpty from 'lodash-es/isEmpty';
+import * as React from 'react';
 
 const normalizeItems = (items: IAutoCompleteItem[]) => {
     const categories: {
@@ -42,6 +43,7 @@ const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps,
 
     return (
         <button
+            type="button"
             key={String(uniqId)}
             className={bem.element('item', {
                 hover: props.hoveredId === uniqId,
@@ -74,7 +76,7 @@ const renderItem = (item: IAutoCompleteItem, props: IAutoCompleteFieldViewProps,
 export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps) {
     const bem = useBem('AutoCompleteFieldView');
 
-    const renderItems = useCallback(() => {
+    const renderItems = React.useCallback(() => {
         if (!_isEmpty(props.categories)) {
             const {categories, itemsWithoutCategory} = normalizeItems(props.items);
 
@@ -108,20 +110,23 @@ export default function AutoCompleteFieldView(props: IAutoCompleteFieldViewProps
     return (
         <div
             ref={props.forwardedRef}
-            className={bem(
-                bem.block({
+            className={bem(bem.block({
                     size: props.size,
                     opened: props.isOpened,
                     hasClearIcon: props.showClear && !props.disabled,
                     filled: !!props.inputProps.value,
                     disabled: props.disabled,
-                }), props.className,
-            )}
+                }), props.className)}
             style={props.style}
         >
             <div className={bem.element('input-wrapper')}>
                 <input
                     {...props.inputProps}
+                    value={
+                        _isArray(props.inputProps?.value)
+                            ? (props.inputProps.value as (string | number)[])?.join(props.multipleSeparator)
+                            : props.inputProps.value as string
+                    }
                     className={bem(
                         bem.element('input'),
                         props.inputProps.className,

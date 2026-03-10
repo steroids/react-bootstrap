@@ -1,13 +1,12 @@
 import {useBem, useUniqueId} from '@steroidsjs/core/hooks';
-
 import {ICheckboxFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxField/CheckboxField';
-import {CSSProperties, useCallback} from 'react';
+import React from 'react';
 
 export default function SwitcherFieldView(props: ICheckboxFieldViewProps) {
     const bem = useBem('SwitcherFieldView');
     const uniqueId = useUniqueId('switcher');
 
-    const renderLabel = useCallback(() => {
+    const renderLabel = React.useCallback(() => {
         if (typeof props.label === 'object') {
             return props.inputProps.checked ? props.label.checked : props.label.unchecked;
         }
@@ -15,7 +14,9 @@ export default function SwitcherFieldView(props: ICheckboxFieldViewProps) {
         return props.label;
     }, [props.inputProps.checked, props.label]);
 
-    const customVariableColorStyle = {'--checkbox-custom-color': props.color} as CSSProperties;
+    const customVariableColorStyle = {
+        '--checkbox-custom-color': props.color,
+    } as React.CSSProperties;
 
     return (
         <div

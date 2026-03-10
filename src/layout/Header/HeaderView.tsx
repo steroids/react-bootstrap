@@ -1,22 +1,23 @@
 /* eslint-disable consistent-return */
-import {useCallback} from 'react';
 
-import {Link} from '@steroidsjs/core/ui/nav';
-import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
-import Nav from '@steroidsjs/core/ui/nav/Nav';
-import {useBem, useDispatch} from '@steroidsjs/core/hooks';
-import {Button} from '@steroidsjs/core/ui/form';
 import {openModal} from '@steroidsjs/core/actions/modal';
-import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import {useBem, useDispatch} from '@steroidsjs/core/hooks';
 import {Avatar, Icon, Menu} from '@steroidsjs/core/ui/content';
+import {Button} from '@steroidsjs/core/ui/form';
+import {IHeaderViewProps} from '@steroidsjs/core/ui/layout/Header/Header';
+import {Link} from '@steroidsjs/core/ui/nav';
 import {ILinkProps} from '@steroidsjs/core/ui/nav/Link/Link';
+import Nav from '@steroidsjs/core/ui/nav/Nav';
+import Text from '@steroidsjs/core/ui/typography/Text/Text';
+import * as React from 'react';
+
 import renderIcon from '../../utils/renderIcon';
 
 export default function HeaderView(props: IHeaderViewProps) {
     const bem = useBem('HeaderView');
     const dispatch = useDispatch();
 
-    const renderAuthBlock = useCallback(() => (
+    const renderAuthBlock = React.useCallback(() => (
         <Button
             outline
             color='basic'
@@ -31,7 +32,7 @@ export default function HeaderView(props: IHeaderViewProps) {
 
     ), [bem, dispatch, props.authParams?.buttonProps, props.authParams?.modal, props.authParams?.toRoute, props.size]);
 
-    const renderUserBlock = useCallback(() => {
+    const renderUserBlock = React.useCallback(() => {
         if (!props.user) {
             return;
         }
@@ -53,7 +54,7 @@ export default function HeaderView(props: IHeaderViewProps) {
         );
     }, [bem, props.size, props.user]);
 
-    const renderBurger = useCallback(() => (
+    const renderBurger = React.useCallback(() => (
         <div className={bem.element('burger')}>
             <Icon
                 name={!props.isBurgerOpened ? 'sort' : 'cross_12x12'}

@@ -1,5 +1,6 @@
-import {INotificationsViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
 import {useBem} from '@steroidsjs/core/hooks';
+import {INotificationsViewProps} from '@steroidsjs/core/ui/layout/Notifications/Notifications';
+import * as React from 'react';
 
 export default function NotificationsView(props: INotificationsViewProps) {
     const bem = useBem('NotificationsView');

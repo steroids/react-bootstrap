@@ -23,6 +23,19 @@ export const getCurrentMonth = (locale: ILocaleComponent) => {
     };
 };
 
+export const getPreviousMonth = (locale: ILocaleComponent) => {
+    const today = locale.dayjs(new Date().toDateString());
+    const prevMonth = today.subtract(1, 'month');
+
+    const startDate = prevMonth.startOf('month');
+    const finishDate = prevMonth.endOf('month');
+
+    return {
+        start: startDate,
+        finish: getEndOfDay(finishDate),
+    };
+};
+
 export const getCurrentYear = (locale: ILocaleComponent) => {
     const today = locale.dayjs(new Date().toDateString());
     const startDate = today.startOf('year');

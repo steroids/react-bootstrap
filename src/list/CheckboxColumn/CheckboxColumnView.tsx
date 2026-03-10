@@ -1,7 +1,8 @@
+import {useBem} from '@steroidsjs/core/hooks';
 import CheckboxField from '@steroidsjs/core/ui/form/CheckboxField';
 import {ICheckboxColumnViewProps} from '@steroidsjs/core/ui/list/CheckboxColumn/CheckboxColumn';
-import {useBem} from '@steroidsjs/core/hooks';
 import _get from 'lodash-es/get';
+import * as React from 'react';
 
 export default function CheckboxColumnView(props: ICheckboxColumnViewProps) {
     const bem = useBem('CheckboxColumnView');
