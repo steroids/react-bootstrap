@@ -4,7 +4,7 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 import {FileSize} from '@steroidsjs/core/ui/format';
 import {Text} from '@steroidsjs/core/ui/typography';
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
 import './ChatFileItemView.scss';
 

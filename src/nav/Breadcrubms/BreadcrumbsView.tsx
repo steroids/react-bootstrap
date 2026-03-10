@@ -2,7 +2,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {IBreadcrumbsViewProps} from '@steroidsjs/core/ui/nav/Breadcrumbs/Breadcrumbs';
 import Link from '@steroidsjs/core/ui/nav/Link';
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
 import renderIcon from '../../utils/renderIcon';
 

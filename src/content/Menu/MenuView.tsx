@@ -1,7 +1,7 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {DropDown, Icon} from '@steroidsjs/core/ui/content';
 import {IMenuViewProps} from '@steroidsjs/core/ui/content/Menu/Menu';
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
 import renderIcon from '../../utils/renderIcon';
 

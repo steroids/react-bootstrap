@@ -1,6 +1,6 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {ITextViewProps} from '@steroidsjs/core/ui/typography/Text/Text';
-import { createElement } from 'react';
+import {createElement} from 'react';
 
 const TYPE_MAPPING = {
     body: 'p',

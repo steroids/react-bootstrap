@@ -1,7 +1,7 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {IAccordionItemViewProps, IAccordionIcon} from '@steroidsjs/core/ui/content/Accordion/Accordion';
 import Icon from '@steroidsjs/core/ui/content/Icon';
-import { useEffect, useCallback } from 'react';
+import {useEffect, useCallback} from 'react';
 
 import renderIconByType from '../../utils/renderIcon';
 

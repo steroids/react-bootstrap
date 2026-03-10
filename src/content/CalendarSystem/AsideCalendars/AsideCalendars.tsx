@@ -2,7 +2,7 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import {Accordion, AccordionItem, Icon} from '@steroidsjs/core/ui/content';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Button, CheckboxListField, Form} from '@steroidsjs/core/ui/form';
-import { memo } from 'react';
+import {memo} from 'react';
 
 import './AsideCalendars.scss';
 

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps, IDay} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
-import { Fragment, memo } from 'react';
+import {Fragment, memo} from 'react';
 
 import MonthDay from './views/MonthDay';
 

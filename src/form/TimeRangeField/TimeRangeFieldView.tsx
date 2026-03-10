@@ -1,7 +1,7 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {DropDown, Icon} from '@steroidsjs/core/ui/content';
 import {ITimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/TimeRangeField/TimeRangeField';
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
 import TimePanelView from '../TimeField/TimePanelView';
 

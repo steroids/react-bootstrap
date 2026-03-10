@@ -5,7 +5,7 @@ import {IAutoCompleteFieldViewProps, IAutoCompleteItem} from '@steroidsjs/core/u
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import _isArray from 'lodash-es/isArray';
 import _isEmpty from 'lodash-es/isEmpty';
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
 const normalizeItems = (items: IAutoCompleteItem[]) => {
     const categories: {

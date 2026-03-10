@@ -1,7 +1,7 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Text} from '@steroidsjs/core/ui/typography';
-import { memo, Fragment } from 'react';
+import {memo, Fragment} from 'react';
 
 import './DayGrid.scss';
 

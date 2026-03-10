@@ -2,7 +2,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {Field} from '@steroidsjs/core/ui/form';
 import {IFieldListItemViewProps} from '@steroidsjs/core/ui/form/FieldList/FieldList';
-import { memo } from 'react';
+import {memo} from 'react';
 
 export default memo((props: IFieldListItemViewProps) => {
     const bem = useBem('FieldListItemView');

@@ -9,7 +9,7 @@ import {Link} from '@steroidsjs/core/ui/nav';
 import {ILinkProps} from '@steroidsjs/core/ui/nav/Link/Link';
 import Nav from '@steroidsjs/core/ui/nav/Nav';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import { useCallback } from 'react';
+import {useCallback} from 'react';
 
 import renderIcon from '../../utils/renderIcon';
 

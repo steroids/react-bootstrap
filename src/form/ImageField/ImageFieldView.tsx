@@ -2,7 +2,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {Button} from '@steroidsjs/core/ui/form';
 import {IImageFieldViewProps} from '@steroidsjs/core/ui/form/ImageField/ImageField';
-import { useMemo } from 'react';
+import {useMemo} from 'react';
 
 export default function ImageFieldView(props: IImageFieldViewProps) {
     const bem = useBem('ImageFieldView');

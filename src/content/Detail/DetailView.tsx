@@ -1,7 +1,7 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {IDetailViewProps, constants, DetailLayoutEnum} from '@steroidsjs/core/ui/content/Detail/Detail';
 import Controls from '@steroidsjs/core/ui/nav/Controls';
-import { Fragment } from 'react';
+import {Fragment} from 'react';
 
 export default function DetailView(props: IDetailViewProps) {
     const bem = useBem('DetailView');

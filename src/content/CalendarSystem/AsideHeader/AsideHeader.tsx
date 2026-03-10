@@ -2,7 +2,7 @@ import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICalendarSystemViewProps} from '@steroidsjs/core/ui/content/CalendarSystem/CalendarSystem';
 import {Button} from '@steroidsjs/core/ui/form';
 import Title from '@steroidsjs/core/ui/typography/Title/Title';
-import { memo } from 'react';
+import {memo} from 'react';
 
 import './AsideHeader.scss';
 

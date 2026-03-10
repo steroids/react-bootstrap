@@ -12,7 +12,7 @@ import {
 import {InputField, Form, DropDownField, DateTimeField, TextField} from '@steroidsjs/core/ui/form';
 import Modal from '@steroidsjs/core/ui/modal/Modal';
 import Text from '@steroidsjs/core/ui/typography/Text/Text';
-import { useMemo, useCallback } from 'react';
+import {useMemo, useCallback} from 'react';
 
 const ADD_EVENT_FORM_ID = 'add-event-form';
 

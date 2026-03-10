@@ -3,7 +3,7 @@ import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDateTimeRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateTimeRangeField/DateTimeRangeField';
-import { useMemo, useCallback } from 'react';
+import {useMemo, useCallback} from 'react';
 
 import RangeButtons from '../DateRangeField/views/RangeButtons';
 import TimePanelView from '../TimeField/TimePanelView';
