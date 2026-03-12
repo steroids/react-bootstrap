@@ -2,7 +2,6 @@ import {useBem} from '@steroidsjs/core/hooks';
 import {DropDown} from '@steroidsjs/core/ui/content';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDropDownFieldViewProps} from '@steroidsjs/core/ui/form/DropDownField/DropDownField';
-import Text from '@steroidsjs/core/ui/typography/Text/Text';
 import _isEmpty from 'lodash-es/isEmpty';
 import * as React from 'react';
 
@@ -76,13 +75,7 @@ export default function DropDownFieldView(props: IDropDownFieldViewProps) {
             <div className={bem.element('drop-down-list')}>
                 {!_isEmpty(props.items)
                     ? renderItems()
-                    : (
-                        <Text
-                            className={bem.element('nothing')}
-                            content={props.empty ?? __('Ничего не найдено')}
-                            type='text'
-                        />
-                    )}
+                    : props.renderEmpty()}
             </div>
         </div>
     ), [bem, menuWidth, props, renderItems]);

@@ -447,13 +447,4 @@ $drop-down-color-themes: map.merge(
         overflow: hidden;
         min-width: unset;
     }
-
-    &__nothing {
-        color: var(--element-placeholder-color);
-        font-size: 12px;
-        line-height: 16px;
-        margin-bottom: 48px;
-        padding: 8px 12px;
-        width: 100%;
-    }
 }
