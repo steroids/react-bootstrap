@@ -295,11 +295,11 @@ $drop-down-color-themes: map.merge(
         width: var(--width);
         max-height: var(--maxHeight);
         height: fit-content;
-    
+
         background-color: variables.$element-background-color;
-    
+
         overflow: hidden;
-    
+
         &-list {
             @include mixins.scrollWrapper(240px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
         }
