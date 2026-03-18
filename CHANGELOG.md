@@ -1,5 +1,17 @@
 # Changelog
 
+## v3.0.45 (18.03.2026)
+
+### Added
+
+- Обновлена версия `@steroidsjs/core`
+- Обновлена версия `@steroidsjs/eslint-config`
+
+### Fixed
+
+- Исправлены ошибки ESLint, возникшие после обновления `@steroidsjs/eslint-config`
+- Переименован props `level` на `type` для компонента `NotificationsItemView`
+
 ## v3.0.44 (26.01.2026)
 
 ### Added

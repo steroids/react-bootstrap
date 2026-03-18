@@ -1,5 +1,4 @@
 import {useBem} from '@steroidsjs/core/hooks';
-import React from 'react';
 
 import {ITimePanelColumn} from '../../TimePanelView';
 

@@ -1,7 +1,7 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 import {ICheckboxFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxField/CheckboxField';
-import * as React from 'react';
+import {CSSProperties} from 'react';
 
 export default function CheckboxFieldView(props: ICheckboxFieldViewProps) {
     const bem = useBem('CheckboxFieldView');
@@ -9,7 +9,7 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps) {
 
     const customVariableColorStyle = {
         '--checkbox-custom-color': props.color,
-    } as React.CSSProperties;
+    } as CSSProperties;
 
     return (
         <div

@@ -1,6 +1,5 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {ITooltipViewProps} from '@steroidsjs/core/ui/layout/Tooltip/Tooltip';
-import * as React from 'react';
 import {useEffect, useRef} from 'react';
 
 export default function TooltipView(props: ITooltipViewProps) {

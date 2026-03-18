@@ -4,7 +4,7 @@ import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IFileFieldItemViewProps} from '@steroidsjs/core/ui/form/FileField/FileField';
 import {FileSize} from '@steroidsjs/core/ui/format';
 import {Text} from '@steroidsjs/core/ui/typography';
-import React from 'react';
+import {useCallback} from 'react';
 
 import './ChatFileItemView.scss';
 
@@ -18,7 +18,7 @@ export default function ChatFileItemView(props: IChatFileItemViewProps) {
 
     const isLoading = props.progress && props.progress.percent !== 100;
 
-    const renderLink = React.useCallback(() => (
+    const renderLink = useCallback(() => (
         <a
             className={bem.element('link')}
             title={props.title}
@@ -29,7 +29,7 @@ export default function ChatFileItemView(props: IChatFileItemViewProps) {
         </a>
     ), [bem, props.title, props.error, props.url, props.item?.url]);
 
-    const renderProgressBar = React.useCallback(() => (
+    const renderProgressBar = useCallback(() => (
         <div className={bem.element('progress-track')}>
             <div
                 className={bem.element('progress-bar')}
@@ -40,7 +40,7 @@ export default function ChatFileItemView(props: IChatFileItemViewProps) {
         </div>
     ), [bem, props.progress]);
 
-    const renderLoadingState = React.useCallback(() => (
+    const renderLoadingState = useCallback(() => (
         <div className={bem.element('left')}>
             <div className={bem.element('icon-wrapper', 'loading')}>
                 <Icon
@@ -57,7 +57,7 @@ export default function ChatFileItemView(props: IChatFileItemViewProps) {
         </div>
     ), [bem, props.title, renderProgressBar]);
 
-    const renderFileItem = React.useCallback(() => (
+    const renderFileItem = useCallback(() => (
         <div className={bem.element('left')}>
             <div className={bem.element('icon-wrapper')}>
                 <Icon

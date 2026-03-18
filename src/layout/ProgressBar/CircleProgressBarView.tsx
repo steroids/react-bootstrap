@@ -1,6 +1,5 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {IProgressBarViewProps} from '@steroidsjs/core/ui/layout/ProgressBar/ProgressBar';
-import * as React from 'react';
 
 export default function CircleProgressBarView(props: IProgressBarViewProps) {
     const bem = useBem('CircleProgressBarView');

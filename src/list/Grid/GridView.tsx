@@ -5,7 +5,6 @@ import {IGridViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
 import _get from 'lodash-es/get';
 import _isString from 'lodash-es/isString';
 import _keyBy from 'lodash-es/keyBy';
-import * as React from 'react';
 import {useCallback, useMemo} from 'react';
 
 export const getFormId = props => _get(props, 'searchForm.formId', props.listId);

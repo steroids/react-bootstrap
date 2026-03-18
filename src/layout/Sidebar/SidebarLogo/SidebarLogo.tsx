@@ -1,13 +1,13 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {Icon} from '@steroidsjs/core/ui/content';
-import React, {memo} from 'react';
+import {memo, ReactElement} from 'react';
 
 import renderIcon from '../../../utils/renderIcon';
 
 import './SidebarLogo.scss';
 
 interface ISidebarLogoProps {
-    icon: string | React.ReactElement,
+    icon: string | ReactElement,
     label: string,
     toggleSidebar: () => void,
 }
