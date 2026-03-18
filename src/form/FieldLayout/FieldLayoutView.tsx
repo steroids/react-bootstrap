@@ -2,7 +2,6 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IFieldLayoutViewProps} from '@steroidsjs/core/ui/form/FieldLayout/FieldLayout';
 import _isEmpty from 'lodash-es/isEmpty';
-import * as React from 'react';
 
 export default function FieldLayoutView(props: IFieldLayoutViewProps) {
     const bem = useBem('FieldLayoutView');

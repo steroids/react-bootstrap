@@ -4,7 +4,6 @@ import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
 import {ICardViewProps} from '@steroidsjs/core/ui/content/Card/Card';
 import {Button} from '@steroidsjs/core/ui/form';
 import {Link} from '@steroidsjs/core/ui/nav';
-import React from 'react';
 
 export default function CardView(props: ICardViewProps) {
     const bem = useBem('CardView');

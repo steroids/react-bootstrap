@@ -1,7 +1,6 @@
 import {useBem, useComponents} from '@steroidsjs/core/hooks';
 import {ICalendarViewProps} from '@steroidsjs/core/ui/content/Calendar/Calendar';
 import {customLocaleUtils} from '@steroidsjs/core/utils/calendar';
-import * as React from 'react';
 import {useCallback, useMemo} from 'react';
 import DayPickerSource, {DateUtils} from 'react-day-picker';
 import {CaptionElementProps} from 'react-day-picker/types/Props';

@@ -3,7 +3,6 @@ import Calendar from '@steroidsjs/core/ui/content/Calendar';
 import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDateFieldViewProps} from '@steroidsjs/core/ui/form/DateField/DateField';
-import * as React from 'react';
 import {useCallback} from 'react';
 
 export default function DateFieldView(props: IDateFieldViewProps) {

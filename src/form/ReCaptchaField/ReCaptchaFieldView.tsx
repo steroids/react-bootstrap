@@ -1,6 +1,5 @@
 import {useBem, useTheme} from '@steroidsjs/core/hooks';
 import {IReCaptchaFieldViewProps} from '@steroidsjs/core/ui/form/ReCaptchaField/ReCaptchaField';
-import * as React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ReCaptchaFieldView(props: IReCaptchaFieldViewProps) {

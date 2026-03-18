@@ -1,6 +1,5 @@
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {IColumnViewProps} from '@steroidsjs/core/ui/list/Grid/Grid';
-import React from 'react';
 
 import './DiagramColumnView.scss';
 

@@ -4,7 +4,6 @@ import DropDown from '@steroidsjs/core/ui/content/DropDown';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IDateRangeFieldViewProps} from '@steroidsjs/core/ui/form/DateRangeField/DateRangeField';
 import {useCallback} from 'react';
-import * as React from 'react';
 
 import RangeButtons from './views/RangeButtons';
 

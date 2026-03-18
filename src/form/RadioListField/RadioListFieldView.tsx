@@ -1,7 +1,6 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 import {ICheckboxListFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxListField/CheckboxListField';
-import * as React from 'react';
 
 export default function RadioListFieldView(props: ICheckboxListFieldViewProps) {
     const bem = useBem('RadioListFieldView');

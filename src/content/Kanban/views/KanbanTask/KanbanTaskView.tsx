@@ -2,7 +2,7 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Avatar from '@steroidsjs/core/ui/content/Avatar/Avatar';
 import {IKanbanTaskViewProps} from '@steroidsjs/core/ui/content/Kanban/Kanban';
 import {Text} from '@steroidsjs/core/ui/typography';
-import React, {memo} from 'react';
+import {memo} from 'react';
 
 import TaskTags from '../TaskTags';
 

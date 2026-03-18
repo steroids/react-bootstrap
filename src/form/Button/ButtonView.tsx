@@ -2,7 +2,6 @@ import {useBem} from '@steroidsjs/core/hooks';
 import Icon from '@steroidsjs/core/ui/content/Icon';
 import {IButtonViewProps} from '@steroidsjs/core/ui/form/Button/Button';
 import _isString from 'lodash-es/isString';
-import * as React from 'react';
 
 export default function ButtonView(props: IButtonViewProps) {
     const bem = useBem('ButtonView');
