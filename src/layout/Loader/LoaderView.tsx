@@ -15,7 +15,11 @@ export default function LoaderView(props: ILoaderViewProps) {
             size: props.size,
         })}
         >
-            <div className={bem.element('icon')}>
+            <span
+                tabIndex={0}
+                className={bem('IconView', bem.element('icon'))}
+                role="button"
+            >
                 <svg
                     width="33"
                     height="33"
@@ -49,7 +53,7 @@ export default function LoaderView(props: ILoaderViewProps) {
                         strokeLinejoin="round"
                     />
                 </svg>
-            </div>
+            </span>
         </div>
     );
 }
