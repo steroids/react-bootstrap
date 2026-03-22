@@ -206,10 +206,10 @@
   resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.1.4.tgz#02d029360569e7d75d28357a9727fc48322015a3"
   integrity sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==
 
-"@steroidsjs/core@3.0.94":
-  version "3.0.94"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.0.94.tgz#d142eb317883f6b9780ace01fdbd2b8888bd4a21"
-  integrity sha512-9hxzbrK2BfXW7Bdqcalu8kHhFVJhb3jjmJilj/TO4nZ5KwkjpEwwen5w3jDvkT8eXPQCOGulO0/Uf1KrMsuSrg==
+"@steroidsjs/core@3.1.1":
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.1.1.tgz#d495dd0d2f9ad6ee0ebcd596ca0b423bc9919f2f"
+  integrity sha512-1hHE0kFx75C5KtmQJI6Ju2v/hGow13NH/UJLiHLfzCUe5OW0nOC+iT5zZiejXMkOrF2k84SiKrWgNXUjFFCnSA==
   dependencies:
     "@maskito/core" "2.3.1"
     "@maskito/kit" "2.3.1"
