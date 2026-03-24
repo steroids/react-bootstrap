@@ -19,7 +19,11 @@ const DEFAULT_PROPS = {
 export default function TimePanelView(receivedProps: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
     const props: ITimePanelViewProps = useMemo(
-        () => ({...DEFAULT_PROPS, ...receivedProps}),
+        () => (
+            {
+                ...DEFAULT_PROPS,
+                ...receivedProps,
+            }),
         [receivedProps],
     );
 
@@ -109,4 +113,4 @@ export default function TimePanelView(receivedProps: ITimePanelViewProps) {
             </div>
         </div>
     );
-};
+}
