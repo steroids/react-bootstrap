@@ -3,6 +3,7 @@ import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField'
 
 import {getAvailableHours, getAvailableMinutes, isHourAvailable, normalizeMinutesForHour} from './utils';
 import TimePanelColumn from './views/TimePanelColumn';
+import {useMemo} from "react";
 
 export interface ITimePanelColumn {
     values: string[],
@@ -10,8 +11,18 @@ export interface ITimePanelColumn {
     onUpdate: (value: string) => void,
 }
 
-function TimePanelView(props: ITimePanelViewProps) {
+const DEFAULT_PROPS = {
+    showHeader: false,
+    showNow: true,
+};
+
+export default function TimePanelView(receivedProps: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
+    const props: ITimePanelViewProps = useMemo(
+        () => ({...DEFAULT_PROPS, ...receivedProps}),
+        [receivedProps],
+    );
+
     const [hours, minutes] = props.value ? props.value.split(':') : ['00', '00'];
 
     const {from, to} = props.availableTime || {};
@@ -98,11 +109,4 @@ function TimePanelView(props: ITimePanelViewProps) {
             </div>
         </div>
     );
-}
-
-TimePanelView.defaultProps = {
-    showHeader: false,
-    showNow: true,
 };
-
-export default TimePanelView;
