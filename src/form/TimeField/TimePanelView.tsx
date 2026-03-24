@@ -1,6 +1,6 @@
 import {useBem} from '@steroidsjs/core/hooks';
-import {useMemo} from 'react';
 import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
+import {useMemo} from 'react';
 
 import {getAvailableHours, getAvailableMinutes, isHourAvailable, normalizeMinutesForHour} from './utils';
 import TimePanelColumn from './views/TimePanelColumn';
