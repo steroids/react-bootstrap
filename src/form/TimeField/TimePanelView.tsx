@@ -16,6 +16,8 @@ const DEFAULT_PROPS = {
     showNow: true,
 };
 
+// react/prop-types false triggers due to props rename
+/* eslint-disable react/prop-types */
 export default function TimePanelView(receivedProps: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
     const props: ITimePanelViewProps = useMemo(
