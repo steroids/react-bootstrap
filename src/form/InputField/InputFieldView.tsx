@@ -8,6 +8,8 @@ import renderIcon from '../../utils/renderIcon';
 export default function InputFieldView(props: IInputFieldViewProps) {
     const bem = useBem('InputFieldView');
 
+    const {value, ...inputProps} = props.inputProps;
+
     return (
         <div
             className={bem(
@@ -58,7 +60,7 @@ props.leadIcon,
                                     size: props.size,
                                 }),
                             )}
-                            {...props.inputProps}
+                            {...inputProps}
                             type={props.inputProps.type}
                             placeholder={props.placeholder}
                             disabled={props.disabled}
@@ -74,7 +76,7 @@ props.leadIcon,
                                     size: props.size,
                                 }),
                             )}
-                            {...props.inputProps}
+                            {...inputProps}
                             type={props.inputProps.type}
                             placeholder={props.placeholder}
                             disabled={props.disabled}

@@ -6,6 +6,8 @@ import _isNumber from 'lodash-es/isNumber';
 export default function NumberFieldView(props: INumberFieldViewProps) {
     const bem = useBem('NumberFieldView');
 
+    const {value, ...inputProps} = props.inputProps;
+
     return (
         <div
             className={bem(
@@ -23,7 +25,7 @@ export default function NumberFieldView(props: INumberFieldViewProps) {
                 className={bem(
                     bem.element('input'),
                 )}
-                {...props.inputProps}
+                {...inputProps}
                 onWheel={event => event.currentTarget.blur()}
                 id={props.id}
             />
