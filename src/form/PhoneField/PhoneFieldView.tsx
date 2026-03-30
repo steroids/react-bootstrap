@@ -3,7 +3,7 @@ import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
 import {Icon} from '@steroidsjs/core/ui/content';
 import {IPhoneFieldViewProps} from '@steroidsjs/core/ui/form/PhoneField/PhoneField';
 
-import DropDownCountySelect from './DropDownCountrySelectView';
+import DropDownCountrySelectView from './DropDownCountrySelectView';
 
 function PhoneFieldView(props: IPhoneFieldViewProps) {
     const bem = useBem('PhoneFieldView');
@@ -27,7 +27,7 @@ function PhoneFieldView(props: IPhoneFieldViewProps) {
                 className={bem.element('input-wrapper')}
             >
                 <div className={bem.element('addon-before')}>
-                    <DropDownCountySelect
+                    <DropDownCountrySelectView
                         {...props.dropDownProps}
                         disabled={props.disabled}
                     />
