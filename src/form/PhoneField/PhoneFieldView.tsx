@@ -1,11 +1,11 @@
-import React from 'react';
 import {useBem} from '@steroidsjs/core/hooks';
 import useUniqueId from '@steroidsjs/core/hooks/useUniqueId';
-import {IPhoneFieldViewProps} from '@steroidsjs/core/ui/form/PhoneField/PhoneField';
 import {Icon} from '@steroidsjs/core/ui/content';
-import DropDownCountySelect from './DropDownCountySelectView';
+import {IPhoneFieldViewProps} from '@steroidsjs/core/ui/form/PhoneField/PhoneField';
 
-const PhoneFieldView = (props: IPhoneFieldViewProps) => {
+import DropDownCountySelect from './DropDownCountrySelectView';
+
+function PhoneFieldView(props: IPhoneFieldViewProps) {
     const bem = useBem('PhoneFieldView');
     const id = useUniqueId('phoneField');
 

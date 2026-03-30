@@ -7,12 +7,12 @@ const INITIAL_PAGE_SIZE = 40;
 const PAGE_SIZE = 40;
 const SCROLL_THRESHOLD = 80;
 
-interface IDropDownCountySelectViewProps extends IPhoneFieldDropdownProps {
+interface IDropDownCountrySelectViewProps extends IPhoneFieldDropdownProps {
     disabled?: boolean,
 }
 
-export default function DropDownCountySelectView(props: IDropDownCountySelectViewProps) {
-    const bem = useBem('DropDownCountySelectView');
+export default function DropDownCountrySelectView(props: IDropDownCountrySelectViewProps) {
+    const bem = useBem('DropDownCountrySelectView');
     const [visibleCount, setVisibleCount] = React.useState(INITIAL_PAGE_SIZE);
     const listRef = React.useRef<HTMLDivElement>(null);
 

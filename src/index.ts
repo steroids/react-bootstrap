@@ -152,7 +152,7 @@ export default {
         lazy: () => require('./form/PhoneField/PhoneFieldView').default,
     },
     'form.DropDownCountrySelectView': {
-        lazy: () => require('./form/PhoneField/DropDownCountySelectView').default,
+        lazy: () => require('./form/PhoneField/DropDownCountrySelectView').default,
     },
     'form.RadioListFieldView': {
         lazy: () => require('./form/RadioListField/RadioListFieldView').default,
