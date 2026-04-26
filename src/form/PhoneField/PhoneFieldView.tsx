@@ -57,6 +57,6 @@ function PhoneFieldView(props: IPhoneFieldViewProps) {
             </div>
         </div>
     );
-};
+}
 
 export default PhoneFieldView;
