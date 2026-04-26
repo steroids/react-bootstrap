@@ -1,0 +1,218 @@
+@use "sass:map";
+@use "../../scss/variables";
+@use '../../scss/mixins';
+
+:root {
+    --basic-color: #eef1f2;
+    --basic-focus-color: #f5f8fa;
+    --basic-active-color: #e5e9eb;
+    --chevron-background-color: #ffffff;
+    --chevron-background-color-outline: #f5f8fa;
+    --chevron-inner-color: #323232;
+
+    --drop-down-item-hover-background-color: #f5f8fa;
+    --drop-down-item-select-background-color: #eef1f2;
+    --drop-down-border-color: #e9e9e9;
+    --search-background-color: #f5f8fa;
+    --search-hover-background-color: #eef1f2;
+    --search-color: #626262;
+}
+
+html[data-theme="dark"] {
+    --basic-color: #333646;
+    --basic-focus-color: #adaab3;
+    --basic-active-color: #4e4f57;
+    --chevron-background-color: #16171b;
+    --chevron-background-color-outline: #191b1f;
+    --chevron-inner-color: #ffffff;
+
+    --drop-down-item-select-background-color: #5b5c6b;
+    --drop-down-item-hover-background-color: #4e4f57;
+    --drop-down-border-color: #595959;
+    --search-background-color: #4e4f57;
+    --search-hover-background-color: #5b5c6b;
+    --search-color: #adacac;
+}
+
+$basic-color: var(--basic-color);
+$basic-focus-color: var(--basic-focus-color);
+$basic-active-color: var(--basic-active-color);
+$chevron-background-color: var(--chevron-background-color);
+$chevron-background-color-outline: var(--chevron-background-color-outline);
+$chevron-inner-color: var(--chevron-inner-color);
+
+$drop-down-item-select-background-color: var(--drop-down-item-select-background-color);
+$drop-down-item-hover-background-color: var(--drop-down-item-hover-background-color);
+$drop-down-border-color: var(--drop-down-border-color);
+$search-background-color: var(--search-background-color);
+$search-hover-background-color: var(--search-hover-background-color);
+$search-color: var(--search-color);
+
+.DropDownCountrySelectView {
+    $root: &;
+
+    font-family: variables.$font-family-nunito;
+    font-weight: variables.$font-weight-sm;
+    line-height: 24px;
+
+    color: variables.$text-color;
+
+    height: 100%;
+
+    display: flex;
+    position: relative;
+    width: 85px;
+
+    &_opened {
+        #{$root}__icon-chevron {
+            svg {
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__drop-down {
+        max-width: calc(100vw - 20px);
+        max-height: 420px;
+        height: fit-content;
+
+        background-color: variables.$element-background-color;
+
+        overflow: hidden;
+
+        &-list {
+            @include mixins.scrollWrapper(240px, 0, variables.$scroll-thumb-color, variables.$scroll-track-color);
+        }
+    }
+
+    &__search {
+        padding: 5px;
+
+        > .form-control {
+            width: 100%;
+        }
+    }
+
+    &__selected-items {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        -moz-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 4px 0 16px;
+
+        background-clip: padding-box;
+
+        background: variables.$element-background-color-disabled;
+        border-radius: variables.$radius-small 0 0 variables.$radius-small;
+        border: 1px solid variables.$element-background-color-disabled;
+    }
+
+    &__drop-down-item {
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+
+        width: 100%;
+        padding: 10px 15px;
+
+        cursor: pointer;
+        background-color: transparent;
+        border: unset;
+
+        &:hover {
+            background-color: $drop-down-item-hover-background-color;
+        }
+
+        &_select {
+            background-color: $drop-down-item-select-background-color;
+        }
+    }
+
+    &__country-flag {
+        width: 25px;
+        height: 20px;
+    }
+
+    &__country-name {
+        font-size: 14px;
+        line-height: 1.43;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        color: variables.$text-color;
+    }
+
+    &__text {
+        text-align: left;
+        max-width: 200px;
+        width: 100%;
+    }
+
+    &__code, &__text {
+        margin-bottom: 0;
+    }
+
+    &__code {
+        padding-left: 8px;
+        color: variables.$text-color;
+    }
+
+    &__wrapper {
+        padding: unset;
+        overflow: hidden;
+        min-width: unset;
+    }
+
+    &__icon-chevron {
+        width: 40px;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        outline: none;
+
+        transform: translateY(-50%);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            transition: transform 125ms ease-in-out;
+
+            rect {
+                fill: $chevron-background-color-outline;
+            }
+
+            path {
+                stroke: $chevron-inner-color;
+            }
+        }
+    }
+
+    &__img {
+        width: 24px;
+        height: 24px;
+        border-radius: variables.$radius-small;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
