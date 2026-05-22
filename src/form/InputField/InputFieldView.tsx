@@ -41,12 +41,12 @@ export default function InputFieldView(props: IInputFieldViewProps) {
                     </span>
                 )}
                 {props.leadIcon && renderIcon(
-props.leadIcon,
+                    props.leadIcon,
                     {
                         className: bem.element('lead-icon'),
                         tabIndex: -1,
                     },
-)}
+                )}
                 {props.maskOptions
                     ? (
                         <input
@@ -69,6 +69,8 @@ props.leadIcon,
                     )
                     : (
                         <input
+                            onBlur={props.onBlur}
+                            onFocus={props.onFocus}
                             className={bem(
                                 bem.element('input', {
                                     size: props.size,
