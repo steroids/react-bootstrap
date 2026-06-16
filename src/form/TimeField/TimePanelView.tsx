@@ -1,5 +1,6 @@
 import {useBem} from '@steroidsjs/core/hooks';
 import {ITimePanelViewProps} from '@steroidsjs/core/ui/form/TimeField/TimeField';
+import {useMemo} from 'react';
 
 import {getAvailableHours, getAvailableMinutes, isHourAvailable, normalizeMinutesForHour} from './utils';
 import TimePanelColumn from './views/TimePanelColumn';
@@ -10,8 +11,24 @@ export interface ITimePanelColumn {
     onUpdate: (value: string) => void,
 }
 
-function TimePanelView(props: ITimePanelViewProps) {
+const DEFAULT_PROPS = {
+    showHeader: false,
+    showNow: true,
+};
+
+// react/prop-types false triggers due to props rename
+/* eslint-disable react/prop-types */
+export default function TimePanelView(receivedProps: ITimePanelViewProps) {
     const bem = useBem('TimePanelView');
+    const props: ITimePanelViewProps = useMemo(
+        () => (
+            {
+                ...DEFAULT_PROPS,
+                ...receivedProps,
+            }),
+        [receivedProps],
+    );
+
     const [hours, minutes] = props.value ? props.value.split(':') : ['00', '00'];
 
     const {from, to} = props.availableTime || {};
@@ -99,10 +116,3 @@ function TimePanelView(props: ITimePanelViewProps) {
         </div>
     );
 }
-
-TimePanelView.defaultProps = {
-    showHeader: false,
-    showNow: true,
-};
-
-export default TimePanelView;
