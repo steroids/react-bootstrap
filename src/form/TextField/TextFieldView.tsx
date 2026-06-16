@@ -48,6 +48,8 @@ export default function TextFieldView(props: ITextFieldViewProps) {
                 className={bem.element('textarea')}
                 id={props.id}
                 {...props.inputProps}
+                onKeyDown={props.onKeyDown}
+                onBlur={props.onBlur}
             />
             {props.showClear && (
                 <Icon
