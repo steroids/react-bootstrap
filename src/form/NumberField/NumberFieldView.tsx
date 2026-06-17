@@ -27,6 +27,7 @@ export default function NumberFieldView(props: INumberFieldViewProps) {
                 onWheel={event => event.currentTarget.blur()}
                 id={props.id}
                 onBlur={props.onBlur}
+                onFocus={props.onFocus}
             />
             {!props.disabled && !props.errors && (
                 <div className={bem.element('arrows-container')}>
