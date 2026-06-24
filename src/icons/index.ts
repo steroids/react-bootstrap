@@ -2,7 +2,7 @@
 
 export default (customIcons: Record<string, any>) => {
     // All icons
-    const icons = {};
+    const icons: Record<string, any> = {};
 
     const steroidsIcons = [
         'add',
