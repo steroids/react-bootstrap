@@ -17,6 +17,7 @@ export default function CheckboxFieldView(props: ICheckboxFieldViewProps) {
                 bem.block({
                     size: props.size,
                     hasErrors: !!props.errors,
+                    indeterminate: props.indeterminate,
                 }),
                 props.className,
             )}

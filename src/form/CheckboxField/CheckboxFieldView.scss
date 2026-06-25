@@ -152,6 +152,16 @@ $disabled-text-color: var(--disabled-text-color);
         }
     }
 
+    &_indeterminate {
+        #{$root}__label::before,
+        #{$root}__input:checked + #{$root}__label::before {
+            border-color: variables.$primary;
+            background-color: variables.$primary;
+            background-size: 50% 50%;
+            background-image: url('../../icons/svgs/checkbox_indeterminate.svg');
+        }
+    }
+
     &_size {
         &_lg {
             #{$root}__label {

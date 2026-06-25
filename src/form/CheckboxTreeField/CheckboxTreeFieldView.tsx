@@ -24,6 +24,7 @@ export default function CheckboxTreeFieldView(props: ICheckboxTreeFieldViewProps
                         props.renderCheckbox({
                             id: props.hasOnlyLeafCheckboxes && checkbox.hasItems ? null : `${prefix}_${checkbox.id}`,
                             label: checkbox.label,
+                            indeterminate: props.indeterminateIds.includes(checkbox.id),
                             inputProps: {
                                 name: `${prefix}_${checkbox.id}`,
                                 type: 'checkbox',
