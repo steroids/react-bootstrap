@@ -152,6 +152,7 @@ $disabled-text-color: var(--disabled-text-color);
         }
     }
 
+    //Состояние когда только часть дочерних элементов выбрана
     &_indeterminate {
         #{$root}__label::before,
         #{$root}__input:checked + #{$root}__label::before {
