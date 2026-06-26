@@ -1,9 +1,9 @@
-import _isArray from 'lodash-es/isArray';
-import _isEmpty from 'lodash-es/isEmpty';
 import {useUniqueId} from '@steroidsjs/core/hooks';
 import useBem from '@steroidsjs/core/hooks/useBem';
 import {ICheckboxTreeFieldViewProps} from '@steroidsjs/core/ui/form/CheckboxTreeField/CheckboxTreeField';
 import {ITreeItemViewProps} from '@steroidsjs/core/ui/nav/Tree/Tree';
+import _isArray from 'lodash-es/isArray';
+import _isEmpty from 'lodash-es/isEmpty';
 import {FunctionComponent, useMemo} from 'react';
 
 const TREE_ITEM_STATE = {
