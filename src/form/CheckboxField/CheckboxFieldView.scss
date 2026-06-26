@@ -159,7 +159,8 @@ $disabled-text-color: var(--disabled-text-color);
             border-color: variables.$primary;
             background-color: variables.$primary;
             background-size: 50% 50%;
-            background-image: url('../../icons/svgs/checkbox_indeterminate.svg');
+            // Иконка взята не из дизайна
+            background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 -12 32 32' xmlns='http%3A//www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' d='M28%2C0 L4%2C0 C1.791%2C0 0%2C1.79 0%2C4 C0%2C6.21 1.791%2C8 4%2C8 L28%2C8 C30.209%2C8 32%2C6.21 32%2C4 C32%2C1.79 30.209%2C0 28%2C0'/%3E%3C%2Fsvg%3E");
         }
     }
 

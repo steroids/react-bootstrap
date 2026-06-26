@@ -97,7 +97,6 @@ export default (customIcons: Record<string, any>) => {
         'whatsapp',
         'burger',
         'sort',
-        'checkbox_indeterminate',
     ];
 
     steroidsIcons.forEach(iconName => {
