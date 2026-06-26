@@ -206,10 +206,10 @@
   resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-4.1.4.tgz#02d029360569e7d75d28357a9727fc48322015a3"
   integrity sha512-5I30evTJcAJQXt6vJ26g2xEkG+l1nXcpEw4xpKh0/FWQ8ozmAeTbtniVtVmz2sH1Es3vgfC4SS8B2X4o5JMptA==
 
-"@steroidsjs/core@3.1.3":
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.1.3.tgz#68d869e9ea88db30d8e1e0ce474b3e7d160edc74"
-  integrity sha512-IwTnh1dDkVJhHenhYZWbRHBFiuJ5Q/tgSn8cluFsG8waWp3+5ZtSLzChAPqTzSjsDOCTtwm/bGTKYHgD29d+qw==
+"@steroidsjs/core@3.1.5":
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/@steroidsjs/core/-/core-3.1.5.tgz#26f4e77df91143dca2dcf6227089b072e7c03074"
+  integrity sha512-DSGh0E3tl0vWGXFy4smOmTUt5I6mPzZ5gW5AlDTGzYQoWe+GMdMp0xdjWSrRrmNHVeVTAvNFgl7+quftohYOYA==
   dependencies:
     "@maskito/core" "2.3.1"
     "@maskito/kit" "2.3.1"
@@ -225,8 +225,7 @@
     intl-messageformat "^10.1.4"
     js-cookie "^2.2.1"
     load-js "^3.0.3"
-    lodash "^4.17.21"
-    lodash-es "^4.17.21"
+    lodash-es "^4.17.23"
     path-to-regexp "1.9.0"
     qs "^6.15.0"
     react "^18.2.0"
@@ -2253,7 +2252,7 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-lodash-es@^4.17.21, lodash-es@^4.17.23:
+lodash-es@^4.17.23:
   version "4.17.23"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.23.tgz#58c4360fd1b5d33afc6c0bbd3d1149349b1138e0"
   integrity sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==

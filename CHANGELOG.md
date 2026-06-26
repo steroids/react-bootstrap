@@ -1,5 +1,11 @@
 # Changelog
 
+## v3.1.4 (26.06.2026)
+
+### Added
+
+- Добавлена иконка и обновлен дизайн под новое промежуточное состояние `indeterminate` для компонентов `CheckboxField` / `CheckboxTreeField`
+
 ## v3.1.3 (15.06.2026)
 
 ### Added
