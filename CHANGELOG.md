@@ -1,5 +1,12 @@
 # Changelog
 
+## v3.1.5 (05.08.2026)
+
+### Added
+
+- Добавлены представления `PhoneFieldView` и `DropDownCountrySelectView` с выбором страны и стилями для компонента `PhoneField`
+- Добавлена передача коллбека `onFocus` в `InputFieldView` и `NumberFieldView`, а также `onBlur` в `InputFieldView`
+
 ## v3.1.4 (26.06.2026)
 
 ### Added
