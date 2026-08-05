@@ -1,0 +1,235 @@
+@use "../../scss/variables";
+
+:root {
+    --lead-icon-default-color: #e5e9eb;
+    --lead-icon-focus-color: #323232;
+    --lead-icon-disabled-color: rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] {
+    --lead-icon-default-color: #5b5c6b;
+    --lead-icon-focus-color: #ffffff;
+    --lead-icon-disabled-color: rgba(255, 255, 255, 0.1);
+}
+
+$lead-icon-default-color: var(--lead-icon-default-color);
+$lead-icon-focus-color: var(--lead-icon-focus-color);
+$lead-icon-disabled-color: var(--lead-icon-disabled-color);
+
+.PhoneFieldView {
+    $root: &;
+
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+
+    height: var(--input-height);
+
+    font-family: variables.$font-family-nunito;
+    font-weight: variables.$font-weight-sm;
+    line-height: 24px;
+
+    color: variables.$text-color;
+    border-radius: var(--border-radius);
+
+    --input-height: #{variables.$input-height-sm};
+
+    --border-radius: #{variables.$radius-small};
+
+    --colored-border-radius: 12px;
+
+    --addon-padding: 5px 8px;
+
+    --input-font-size: #{variables.$font-size-sm};
+
+    //Sizes
+    &_size {
+        &_lg {
+            --input-height: #{variables.$input-height-lg};
+            --border-radius: #{variables.$radius-large};
+            --colored-border-radius: 16px;
+            --addon-padding: 16px;
+            --input-font-size: #{variables.$font-size-lg};
+            --input-border-radius: #{variables.$radius-large};
+        }
+
+        &_md {
+            --input-height: #{variables.$input-height-md};
+            --border-radius: #{variables.$radius-large};
+            --colored-border-radius: 16px;
+            --addon-padding: 11px 12px;
+            --input-font-size: #{variables.$font-size-base};
+            --input-border-radius: #{variables.$radius-large};
+        }
+    }
+
+    &__input-wrapper {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            pointer-events: none;
+            transform: translate(calc(var(--input-wrapper-border-width) * -1), calc(var(--input-wrapper-border-width) * -1));
+            opacity: var(--input-wrapper-border-opacity);
+            transition: opacity 150ms ease-in-out;
+
+            border-radius: var(--colored-border-radius);
+            border-width: var(--input-wrapper-border-width);
+            border-color: var(--input-wrapper-border-color);
+            border-style: solid;
+        }
+    }
+
+    &__input {
+        color: variables.$text-color;
+        font-family: variables.$font-family-nunito;
+
+        width: 100%;
+        height: 100%;
+
+        padding: 0 8px;
+        outline: none;
+
+        background-color: variables.$element-field-background-color;
+        border-width: var(--input-border-width);
+        border-color: var(--input-border-color);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: var(--input-right-border-radius);
+        border-bottom-right-radius: var(--input-right-border-radius);
+        border-style: solid;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        font-size: var(--input-font-size);
+
+        &::placeholder {
+            color: variables.$element-placeholder-color;
+            font-size: inherit;
+        }
+    }
+
+    &__label {
+        font-size: variables.$font-size-sm;
+        font-weight: 400;
+        color: variables.$text-color;
+        position: absolute;
+        left: 20px;
+        pointer-events: none;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        width: calc(100% - 210px);
+        margin: 0;
+    }
+
+    &__addon-before {
+        flex-shrink: 0;
+        color: variables.$text-color;
+        border-top-left-radius: var(--input-border-radius);
+        border-bottom-left-radius: var(--input-border-radius);
+    }
+
+    //CLEAR ICON
+    &_hasClearIcon {
+        #{$root}__input {
+            padding-right: 40px;
+        }
+    }
+
+    &__icon-clear {
+        svg > * {
+            stroke: variables.$text-color
+        }
+
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 50%;
+        right: 8px;
+        transform: translateY(-50%);
+
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+        pointer-events: none;
+
+        &:focus {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    &_filled {
+        #{$root}__icon-clear {
+            opacity: 1;
+            pointer-events: all;
+            cursor: pointer;
+        }
+    }
+
+    & {
+        // BORDERS
+        --input-border-radius: #{variables.$radius-small};
+        --input-border-width: 1px;
+        --input-border-color: #{variables.$element-border-color};
+        --input-left-border-radius: var(--input-border-radius);
+        --input-right-border-radius: var(--input-border-radius);
+
+        --input-wrapper-border-width: 1px;
+        --input-wrapper-border-color: transparent;
+        --input-wrapper-border-opacity: 0;
+    }
+
+    &_disabled {
+        #{$root}__input {
+            background-color: variables.$element-background-color-disabled;
+            cursor: not-allowed;
+        }
+
+        #{$root}__addon-before{
+            cursor: not-allowed;
+        }
+
+        --input-border-color: transparent;
+    }
+
+    &_hasError {
+        --input-wrapper-border-width: 1px;
+        --input-wrapper-border-color: #{variables.$danger};
+        --input-wrapper-border-opacity: 1;
+
+        --input-border-color: transparent;
+    }
+
+    &:not(&_disabled) {
+        &:focus-within {
+            --input-wrapper-border-width: 4px;
+            --input-wrapper-border-color: #{variables.$primary-light};
+            --input-wrapper-border-opacity: 1;
+
+            --input-border-color: transparent;
+        }
+
+        &:active {
+            --input-wrapper-border-width: 1px;
+            --input-wrapper-border-color: #{variables.$primary};
+            --input-wrapper-border-opacity: 1;
+
+            --input-border-color: transparent;
+        }
+    }
+}
