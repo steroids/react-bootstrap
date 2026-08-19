@@ -1,5 +1,25 @@
 # Changelog
 
+## v3.1.5 (05.08.2026)
+
+### Added
+
+- Добавлены представления `PhoneFieldView` и `DropDownCountrySelectView` с выбором страны и стилями для компонента `PhoneField`
+- Добавлена передача коллбека `onFocus` в `InputFieldView` и `NumberFieldView`, а также `onBlur` в `InputFieldView`
+
+## v3.1.4 (26.06.2026)
+
+### Added
+
+- Добавлена иконка и обновлен дизайн под новое промежуточное состояние `indeterminate` для компонентов `CheckboxField` / `CheckboxTreeField`
+
+## v3.1.3 (15.06.2026)
+
+### Added
+
+- Унифицировано использование `lodash`, теперь библиотека использует только `lodash-es: 4.17.23`
+- Исправлено поведение min и max пропсов в компоненте `NumberField`
+
 ## v3.1.2 (22.03.2026)
 
 ### Added
