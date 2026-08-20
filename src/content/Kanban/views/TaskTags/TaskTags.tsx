@@ -19,6 +19,7 @@ export default function TaskTags(props: ITaskTagsProps) {
         >
             {props.tags.map((tag) => (
                 <Badge
+                    counter={false}
                     key={tag.id}
                     size="md"
                     roundingStyle="squarer"

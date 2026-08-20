@@ -22,6 +22,7 @@ export default function CreateOrEditTaskModalContentView(props: ICreateOrEditTas
             .map((priority) => ({
                 id: priority.id,
                 label: <Badge
+                    counter={false}
                     size="md"
                     roundingStyle="squarer"
                     message={KanbanPrioritiesEnum.getLabel(priority.type)}
