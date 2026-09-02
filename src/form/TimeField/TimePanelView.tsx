@@ -11,7 +11,7 @@ export interface ITimePanelColumn {
     onUpdate: (value: string) => void,
 }
 
-const DEFAULT_PROPS = {
+const defaultProps: Partial<ITimePanelViewProps> = {
     showHeader: false,
     showNow: true,
 };
@@ -21,7 +21,7 @@ export default function TimePanelView(receivedProps: ITimePanelViewProps) {
     const props: ITimePanelViewProps = useMemo(
         () => (
             {
-                ...DEFAULT_PROPS,
+                ...defaultProps,
                 ...receivedProps,
             }),
         [receivedProps],
