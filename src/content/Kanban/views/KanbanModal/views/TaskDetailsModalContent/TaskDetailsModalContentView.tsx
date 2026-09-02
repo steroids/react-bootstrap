@@ -9,6 +9,7 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
 
     const toTags = useCallback((tag: ITaskTag) => (
         <Badge
+            counter={false}
             key={tag.id}
             size="md"
             roundingStyle="squarer"
@@ -51,6 +52,7 @@ export default function TaskDetailsModalContentView(props: IKanbanTaskDetailsMod
                 />
                 <div className={props.bem.element('data')}>
                     <Badge
+                        counter={false}
                         size="md"
                         roundingStyle="squarer"
                         message={priorityLabel}
